@@ -1,4 +1,4 @@
-# Defender Daily
+# Daily Defender News
 
 A readable record of what changed across Microsoft Defender documentation.
 
