@@ -42,7 +42,7 @@ module.exports = {
   email: { enabled: false },
 
   brand: {
-    wordmark: 'Daily.Defender.Admin.News',
+    wordmark: 'Daily Defender News',
     ogAlt: 'Defender Daily — Microsoft Defender change intelligence',
     themeStorageKey: 'defender-news-theme',
     tokenStorageKey: 'defender-news-github-token',
