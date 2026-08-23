@@ -29,7 +29,7 @@ const TRACKED = [
 
 module.exports = {
   site: {
-    name: 'Defender Daily',
+    name: 'Daily Defender News',
     host: 'daily.defender.admin.news',
     url: 'https://daily.defender.admin.news',
     description: 'A readable record of what changed across Microsoft Defender documentation.',
@@ -43,10 +43,10 @@ module.exports = {
 
   brand: {
     wordmark: 'Daily Defender News',
-    ogAlt: 'Defender Daily — Microsoft Defender change intelligence',
+    ogAlt: 'Daily Defender News — Microsoft Defender change intelligence',
     themeStorageKey: 'defender-news-theme',
     tokenStorageKey: 'defender-news-github-token',
-    emailEyebrow: 'Defender Daily',
+    emailEyebrow: 'Daily Defender News',
     logo: 'defender-news-logo.png',
     aboutIcon: '/assets/products/defender-xdr.svg',
     uiAssets: ['defender-news-logo.png'],
@@ -230,7 +230,7 @@ module.exports = {
   },
 
   copy: {
-    rssFeedLabel: 'Defender Daily RSS',
+    rssFeedLabel: 'Subscribe to the Daily Defender News RSS feed',
     messageCenterHeading: 'Defender in Message Center',
     landing: {
       heading: 'Today in Microsoft Defender',
@@ -251,7 +251,7 @@ module.exports = {
       mapping: 'Defender, Sentinel and Azure security pages map to MicrosoftDocs/defender-docs.'
     },
     dailyEmail: {
-      eyebrow: 'Defender Daily',
+      eyebrow: 'Daily Defender News',
       intro: 'A short daily summary of what changed across Microsoft Defender documentation.'
     },
     detail: {
@@ -276,7 +276,7 @@ module.exports = {
         'Each change is summarised, classified by service and theme, and published with a link to the exact revision that produced it.',
         'Nothing here is official. It is a reading of the public documentation history.'
       ],
-      emailEyebrow: 'Defender Daily',
+      emailEyebrow: 'Daily Defender News',
       emailBody: 'A short daily summary of what changed across Microsoft Defender documentation.',
       extraSections: [],
       community: [
