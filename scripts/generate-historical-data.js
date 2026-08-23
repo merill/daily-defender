@@ -275,7 +275,15 @@ async function main() {
   console.log(`Wrote ${analyses.size} daily reports and deterministic briefs for ${briefs.days} active days, ${briefs.weeks} weeks, and ${briefs.months} months (${briefs.items} source items).`);
 }
 
-main().catch(error => {
-  console.error(`Backfill failed: ${error.message}`);
-  process.exitCode = 1;
-});
+// Guarded. This script rewrites every dated report in website/, so it must not
+// run merely because something required it — a `require()` of this file used to
+// silently overwrite the whole archive, replacing curated summaries with
+// deterministic fallbacks.
+if (require.main === module) {
+  main().catch(error => {
+    console.error(`Backfill failed: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { main };
