@@ -1,0 +1,174 @@
+name: Daily Defender Docs Monitor
+
+permissions:
+  contents: write
+  
+on:
+  schedule:
+    # Six-hour UTC cadence. Split into two entries only to keep the shape the
+    # other two products use, where the 08:15 run is the one that reconciles the
+    # subscriber email. This product has no email yet.
+    - cron: '15 2,14,20 * * *'
+    - cron: '15 8 * * *'
+  workflow_dispatch:
+    inputs:
+      backfill_period_summaries:
+        description: Regenerate historical weekly and monthly editorial briefs
+        required: false
+        type: boolean
+        default: false
+      regenerate_current_period_summaries:
+        description: Force current day, week, and month briefs without budget limits
+        required: false
+        type: boolean
+        default: false
+      backfill_dates:
+        description: Regenerate recovered dates without sending email or Discord (comma-separated YYYY-MM-DD)
+        required: false
+        type: string
+        default: ''
+
+concurrency:
+  group: defender-docs-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Signal scheduled refresh start
+      if: github.event_name == 'schedule'
+      continue-on-error: true
+      env:
+        HEALTHCHECKS_PING_URL: ${{ secrets.HEALTHCHECKS_PING_URL }}
+      run: |
+        if [ -z "$HEALTHCHECKS_PING_URL" ]; then
+          echo "HEALTHCHECKS_PING_URL is not configured; skipping the external heartbeat."
+          exit 0
+        fi
+        curl --fail --silent --show-error --max-time 10 --retry 3 "${HEALTHCHECKS_PING_URL%/}/start"
+
+    - name: Checkout this repository
+      uses: actions/checkout@v4
+      
+    - name: Clone Defender Docs repository
+      # Blobs over 100k are media, which the monitor never reads. Markdown is
+      # fetched eagerly so the per-file `git show` calls stay local.
+      run: git clone --filter=blob:limit=100k --single-branch --branch public https://github.com/MicrosoftDocs/defender-docs.git defender-docs
+
+    - name: Clone Message Center repository
+      run: git clone --depth 1 https://github.com/merill/mc.git mc
+      
+    - name: Set up the dailynews engine
+      # Resolves without a token: this repository and the engine are both
+      # private, and the engine allows repositories owned by the same user to
+      # use its actions, so GitHub checks it out with this workflow's token.
+      uses: merill/dailynews-engine/.github/actions/setup@v1.1.0
+      
+    - name: Run docs and Message Center monitor
+      if: inputs.backfill_dates == ''
+      id: monitor
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_SUMMARY_MODEL: "gpt-5.6-luna"
+        OPENAI_SUMMARY_REASONING_EFFORT: "xhigh"
+        OPENAI_SUMMARY_CONCURRENCY: "3"
+        # The engine reads a product-neutral name; the secret keeps its own.
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_SCOUT_WEBHOOK_URL }}
+        DISCORD_ENABLED: ${{ inputs.backfill_period_summaries != true }}
+        MC_DATA_PATH: "./mc/@data"
+        USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
+        GITHUB_ACTIONS: "true"
+      run: dailynews monitor
+
+    - name: Regenerate recovered per-change summaries
+      if: inputs.backfill_dates != ''
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_SUMMARY_MODEL: "gpt-5.6-luna"
+        OPENAI_SUMMARY_REASONING_EFFORT: "xhigh"
+        OPENAI_SUMMARY_CONCURRENCY: "3"
+        BACKFILL_DATES: ${{ inputs.backfill_dates }}
+      run: dailynews regenerate-diffs --dates="$BACKFILL_DATES"
+
+    - name: Generate daily, weekly, and monthly editorial briefs
+      if: steps.monitor.outputs.content_changed == 'true' || inputs.backfill_period_summaries == true || inputs.regenerate_current_period_summaries == true || inputs.backfill_dates != ''
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_PERIOD_SUMMARY_MODEL: "gpt-5.6-luna"
+        OPENAI_PERIOD_SUMMARY_REASONING_EFFORT: "xhigh"
+        OPENAI_PERIOD_SUMMARY_BUDGET_USD: "1.25"
+        OPENAI_PERIOD_SUMMARY_DAILY_BUDGET_USD: "0.25"
+        MC_DATA_PATH: "./mc/@data"
+        BACKFILL_DATES: ${{ inputs.backfill_dates }}
+        REGENERATE_CURRENT: ${{ inputs.regenerate_current_period_summaries }}
+        BACKFILL_PERIODS: ${{ inputs.backfill_period_summaries }}
+      run: |
+        if [ -n "$BACKFILL_DATES" ]; then
+          dailynews summaries --dates="$BACKFILL_DATES" --force
+        elif [ "$REGENERATE_CURRENT" = "true" ]; then
+          dailynews summaries --current --force --ignore-budget
+        elif [ "$BACKFILL_PERIODS" = "true" ]; then
+          dailynews summaries --all
+        else
+          dailynews summaries --current --force
+        fi
+
+    - name: Pin the site generation time to the last refresh
+      # Without this the site drifts from refresh-status.json: a rebuild triggered
+      # by a push stamps itself with the build time, inventing a day page for
+      # "today" that the data does not cover. Pinning keeps the generated site a
+      # pure function of its inputs, which is what makes it verifiable.
+      run: echo "SITE_GENERATED_AT=$(node -p "require('./website/refresh-status.json').lastCheckedAt")" >> "$GITHUB_ENV"
+
+    - name: Build the static site through the latest refresh date
+      env:
+        MC_DATA_PATH: "./mc/@data"
+        USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
+      run: dailynews build-site && dailynews search-index
+      
+    - name: Configure Git
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        
+    - name: Commit and push website changes
+      run: |
+        git add website/
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Refresh Defender.Admin.News content - $(date -u +'%Y-%m-%dT%H:%MZ')"
+          git push
+        fi
+
+    - name: Upload report artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: daily-report-${{ github.run_number }}
+        path: reports/
+        retention-days: 30
+
+  report-health:
+    name: Report scheduled pipeline health
+    needs: [monitor-docs]
+    if: always() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Signal scheduled pipeline result
+      continue-on-error: true
+      env:
+        HEALTHCHECKS_PING_URL: ${{ secrets.HEALTHCHECKS_PING_URL }}
+        MONITOR_RESULT: ${{ needs.monitor-docs.result }}
+      run: |
+        if [ -z "$HEALTHCHECKS_PING_URL" ]; then
+          echo "HEALTHCHECKS_PING_URL is not configured; skipping the external heartbeat."
+          exit 0
+        fi
+        PING_URL="${HEALTHCHECKS_PING_URL%/}"
+        if [ "$MONITOR_RESULT" != "success" ]; then
+          PING_URL="$PING_URL/fail"
+        fi
+        curl --fail --silent --show-error --max-time 10 --retry 3 "$PING_URL"

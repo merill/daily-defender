@@ -1,0 +1,541 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "sentinel/anomalies-reference.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/sentinel/anomalies-reference.md b/sentinel/anomalies-reference.md\nindex 2d67af230..b4de52c95 100644\n--- a/sentinel/anomalies-reference.md\n+++ b/sentinel/anomalies-reference.md\n@@ -158,7 +158,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an\n | Attribute                        | Value                                                               |\n | -------------------------------- | ------------------------------------------------------------------- |\n | **Anomaly type:**                | UEBA                                                                |\n-| **Data sources:**                | Okta Cloud Logs                                                     |\n+| **Data sources:**                | Okta Cloud Logs (Okta_CL and OktaV2_CL)                            |\n | **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                                   |\n | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation, T1556 - Modify Authentication Process |\n | **Activity:**                    | user.session.impersonation.grant<br>user.session.impersonation.initiate<br>user.session.start<br>app.oauth2.admin.consent.grant_success<br>app.oauth2.authorize.code_success<br>device.desktop_mfa.recovery_pin.generate<br>user.authentication.auth_via_mfa<br>user.mfa.attempt_bypass<br>user.mfa.factor.deactivate<br>user.mfa.factor.reset_all<br>user.mfa.factor.suspend<br>user.mfa.okta_verify |\n@@ -302,7 +302,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an\n | Attribute                        | Value                                                              |\n | -------------------------------- | ------------------------------------------------------------------ |\n | **Anomaly type:**                | UEBA                                                               |\n-| **Data sources:**                | Okta Cloud Logs                                                    |\n+| **Data sources:**                | Okta Cloud Logs (Okta_CL and OktaV2_CL)                           |\n | **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                                  |\n | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1556 - Modify Authentication Process      |\n | **Activity:**                    | app.oauth2.admin.consent.grant_success<br>app.oauth2.authorize.code_success<br>device.desktop_mfa.recovery_pin.generate<br>user.authentication.auth_via_mfa<br>user.mfa.attempt_bypass<br>user.mfa.factor.deactivate<br>user.mfa.factor.reset_all<br>user.mfa.factor.suspend<br>user.mfa.okta_verify |\n",
+      "baseCommitSha": "4998f8b9e872dca00fae198b95b03e47d5c4d53c",
+      "commitSha": "9fa12b2e7dd75929eb67ed28e8885cf60326eb09",
+      "commitMessage": "Add OktaV2_CL support to UEBA Okta anomalies",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-08T08:42:26+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/anomalies-reference.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/anomalies-reference",
+      "firstSeenAt": "2026-05-08T05:42:26.000Z",
+      "eventId": "defender-docs:9fa12b2e7dd75929eb67ed28e8885cf60326eb09:modified:sentinel/anomalies-reference.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add OktaV2_CL support to UEBA Okta anomalies",
+        "summary": "Updated Microsoft Defender documentation in sentinel/anomalies-reference.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/ueba-reference.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/sentinel/ueba-reference.md b/sentinel/ueba-reference.md\nindex d7cbb5362..165874de3 100644\n--- a/sentinel/ueba-reference.md\n+++ b/sentinel/ueba-reference.md\n@@ -33,7 +33,7 @@ These are the data sources from which the UEBA engine collects and analyzes data\n | Azure Activity | [Azure Activity](data-connectors-reference.md#azure-activity) | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |\n | Device Logon Events  (Preview)| [Microsoft Defender XDR](data-connectors-reference.md#microsoft-defender-xdr) | [DeviceLogonEvents](/azure/azure-monitor/reference/tables/devicelogonevents) | All device logon events |\n | GCP Audit Logs  (Preview)| [GCP Pub/Sub Audit Logs](data-connectors-reference.md#gcp-pubsub-audit-logs) | [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs) | `apigee.googleapis.com` - API Management Platform<br>`iam.googleapis.com` - Identity and Access Management (IAM) service<br>`iamcredentials.googleapis.com` - IAM Service Account Credentials API<br>`cloudresourcemanager.googleapis.com` - Cloud Resource Manager API<br>`compute.googleapis.com` - Compute Engine API<br>`storage.googleapis.com` - Cloud Storage API<br>`container.googleapis.com` - Kubernetes Engine API<br>`k8s.io` - Kubernetes API<br>`cloudsql.googleapis.com` - Cloud SQL API<br>`bigquery.googleapis.com` - BigQuery API<br>`bigquerydatatransfer.googleapis.com` - BigQuery Data Transfer Service API<br>`cloudfunctions.googleapis.com` - Cloud Functions API<br>`appengine.googleapis.com` - App Engine API<br>`dns.googleapis.com` - Cloud DNS API<br>`bigquerydatapolicy.googleapis.com` - BigQuery Data Policy API<br>`firestore.googleapis.com` - Firestore API<br>`dataproc.googleapis.com` - Dataproc API<br>`osconfig.googleapis.com` - OS Config API<br>`cloudkms.googleapis.com` - Cloud KMS API<br>`secretmanager.googleapis.com` - Secret Manager API<br>Events must have a valid:<br>- `PrincipalEmail` - The user or service account that called the API<br>- `MethodName` - The specific Google API method called<br>- Principal email, in `user@domain.com` format. |\n-| Okta CL  (Preview)| [Okta Single Sign-On (using Azure Functions)](data-connectors-reference.md#okta-single-sign-on-using-azure-functions) | Okta_CL | Authentication, multifactor authentication (MFA), and session events, including:<br>`app.oauth2.admin.consent.grant_success`<br>`app.oauth2.authorize.code_success`<br>`device.desktop_mfa.recovery_pin.generate`<br>`user.authentication.auth_via_mfa`<br>`user.mfa.attempt_bypass`<br>`user.mfa.factor.deactivate`<br>`user.mfa.factor.reset_all`<br>`user.mfa.factor.suspend`<br>`user.mfa.okta_verify`<br>`user.session.impersonation.grant`<br>`user.session.impersonation.initiate`<br>`user.session.start`<br>Events must have a valid User ID (`actor_id_s`). |\n+| Okta CL  (Preview)| [Okta Single Sign-On (using Azure Functions)](data-connectors-reference.md#okta-single-sign-on-using-azure-functions) | Okta_CL, OktaV2_CL | Authentication, multifactor authentication (MFA), and session events, including:<br>`app.oauth2.admin.consent.grant_success`<br>`app.oauth2.authorize.code_success`<br>`device.desktop_mfa.recovery_pin.generate`<br>`user.authentication.auth_via_mfa`<br>`user.mfa.attempt_bypass`<br>`user.mfa.factor.deactivate`<br>`user.mfa.factor.reset_all`<br>`user.mfa.factor.suspend`<br>`user.mfa.okta_verify`<br>`user.session.impersonation.grant`<br>`user.session.impersonation.initiate`<br>`user.session.start`<br>Events must have a valid User ID (`actor_id_s`). |\n | Security Events | [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<br>[Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events) | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |\n | Sign-in Logs | [Microsoft Entra ID](data-connectors-reference.md#microsoft-entra-id) | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |\n \n",
+      "baseCommitSha": "4998f8b9e872dca00fae198b95b03e47d5c4d53c",
+      "commitSha": "9fa12b2e7dd75929eb67ed28e8885cf60326eb09",
+      "commitMessage": "Add OktaV2_CL support to UEBA Okta anomalies",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-08T08:42:26+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/ueba-reference.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/ueba-reference",
+      "firstSeenAt": "2026-05-08T05:42:26.000Z",
+      "eventId": "defender-docs:9fa12b2e7dd75929eb67ed28e8885cf60326eb09:modified:sentinel/ueba-reference.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add OktaV2_CL support to UEBA Okta anomalies",
+        "summary": "Updated Microsoft Defender documentation in sentinel/ueba-reference.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/whats-new.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/sentinel/whats-new.md b/sentinel/whats-new.md\nindex 40b56d31b..ed3bd4ce8 100644\n--- a/sentinel/whats-new.md\n+++ b/sentinel/whats-new.md\n@@ -22,6 +22,8 @@ The listed features were released in the last six months. For information about\n \n - We introduced a new entry point and created a consolidated view for the UEBA Settings and the Behaviors Settings. You can now access the UEBA settings from the new UEBA tab in the Microsoft Sentinel settings page. For more information see [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md#access-ueba-from-ueba-tab).\n \n+- UEBA Okta anomalies now support the OktaV2_CL table alongside the existing Okta_CL table. This extends the existing Anomalous Activity and Anomalous MFA Failures detections to customers using the newer Okta connector format—no new anomaly types are introduced. For more information, see [UEBA reference](ueba-reference.md).\n+\n ## April 2026\n \n - [[Updated] Call to action: update automation by July 1, 2026 - Account Name is now consistently the UPN prefix for analytics rule alerts](#updated-call-to-action-update-automation-by-july-1-2026---account-name-is-now-consistently-the-upn-prefix-for-analytics-rule-alerts)\n",
+      "baseCommitSha": "4998f8b9e872dca00fae198b95b03e47d5c4d53c",
+      "commitSha": "9fa12b2e7dd75929eb67ed28e8885cf60326eb09",
+      "commitMessage": "Add OktaV2_CL support to UEBA Okta anomalies",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-08T08:42:26+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/whats-new",
+      "firstSeenAt": "2026-05-08T05:42:26.000Z",
+      "eventId": "defender-docs:9fa12b2e7dd75929eb67ed28e8885cf60326eb09:modified:sentinel/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add OktaV2_CL support to UEBA Okta anomalies",
+        "summary": "Updated Microsoft Defender documentation in sentinel/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/anomalies-reference.md",
+      "status": "modified",
+      "additions": 76,
+      "deletions": 1,
+      "changes": 77,
+      "patch": "diff --git a/sentinel/anomalies-reference.md b/sentinel/anomalies-reference.md\nindex 2d67af230..424613e36 100644\n--- a/sentinel/anomalies-reference.md\n+++ b/sentinel/anomalies-reference.md\n@@ -4,7 +4,7 @@ description: Learn about the anomalies detected by Microsoft Sentinel's machine\n author: guywi-ms\n ms.author: guywild\n ms.topic: reference\n-ms.date: 09/08/2024\n+ms.date: 05/07/2026\n \n #Customer intent: As a security analyst, I want to understand the types of anomalies detected by machine learning models in my SIEM solution so that I can effectively monitor and respond to potential security threats.\n \n@@ -70,11 +70,16 @@ UEBA detects anomalies based on these anomaly rules:\n - [UEBA Anomalous Failed Sign-in](#ueba-anomalous-failed-sign-in)\n - [UEBA Anomalous Federated or SAML Identity Activity in AwsCloudTrail](#ueba-anomalous-federated-or-saml-identity-activity-in-awscloudtrail)\n - [UEBA Anomalous IAM Privilege Modification in AwsCloudTrail](#ueba-anomalous-iam-privilege-modification-in-awscloudtrail)\n+- [UEBA Anomalous Infrastructure Usage in GCP Audit Logs](#ueba-anomalous-infrastructure-usage-in-gcp-audit-logs)\n+- [UEBA Anomalous Login in GCP Audit Logs](#ueba-anomalous-login-in-gcp-audit-logs)\n - [UEBA Anomalous Logon in AwsCloudTrail](#ueba-anomalous-logon-in-awscloudtrail)\n - [UEBA Anomalous MFA Failures in Okta_CL](#ueba-anomalous-mfa-failures-in-okta_cl)\n - [UEBA Anomalous Password Reset](#ueba-anomalous-password-reset)\n - [UEBA Anomalous Privilege Granted](#ueba-anomalous-privilege-granted)\n+- [UEBA Anomalous Privileged Action in GCP Audit Logs](#ueba-anomalous-privileged-action-in-gcp-audit-logs)\n+- [UEBA Anomalous Resource Deployment in GCP Audit Logs](#ueba-anomalous-resource-deployment-in-gcp-audit-logs)\n - [UEBA Anomalous Secret or KMS Key Access in AwsCloudTrail](#ueba-anomalous-secret-or-kms-key-access-in-awscloudtrail)\n+- [UEBA Anomalous Secret or KMS Key Access in GCP Audit Logs](#ueba-anomalous-secret-or-kms-key-access-in-gcp-audit-logs)\n - [UEBA Anomalous Sign-in](#ueba-anomalous-sign-in)\n - [UEBA Anomalous STS AssumeRole Behavior in AwsCloudTrail](#ueba-anomalous-sts-assumerole-behavior-in-awscloudtrail)\n \n@@ -280,6 +285,34 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an\n \n [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n \n+### UEBA Anomalous Infrastructure Usage in GCP Audit Logs\n+\n+**Description:** Unusual patterns of infrastructure operations in Google Cloud Platform (GCP), identified by comparing the user's IP address, user agent, ISP, and service access patterns against their historical behavior. Anomalies such as first-time access to infrastructure services, uncommon tools or applications, or unusual operational patterns might indicate lateral movement, resource abuse, or unauthorized infrastructure modifications.\n+\n+| Attribute                        | Value                                                              |\n+| -------------------------------- | ------------------------------------------------------------------ |\n+| **Anomaly type:**                | UEBA                                                               |\n+| **Data sources:**                | GCP Audit Logs                                                     |\n+| **MITRE ATT&CK tactics:**        | Discovery, Impact                                                  |\n+| **MITRE ATT&CK techniques:**     | T1580 – Cloud Infrastructure Discovery, T1496 – Resource Hijacking |\n+| **Activity:**                    | Non-create/insert operations on iamcredentials.googleapis.com, cloudresourcemanager.googleapis.com, container.googleapis.com, bigquerydatapolicy.googleapis.com, autoscaling.googleapis.com, run.googleapis.com, redis.googleapis.com, securitycenter.googleapis.com, compute.googleapis.com, storage.googleapis.com, k8s.io, cloudsql.googleapis.com, bigquery.googleapis.com, bigquerydatatransfer.googleapis.com, cloudfunctions.googleapis.com, appengine.googleapis.com, dns.googleapis.com |\n+\n+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n+\n+### UEBA Anomalous Login in GCP Audit Logs\n+\n+**Description:** Unusual authentication activity in Google Cloud Platform (GCP) detected through login-related entries in GCP Audit Logs. Anomalies are determined by deviations in user behavior based on attributes such as geolocation, IP address, ISP, and user agent compared to the user's historical login patterns. Such deviations might indicate unauthorized access attempts, compromised credentials, or impossible travel scenarios.\n+\n+| Attribute                        | Value                                                              |\n+| -------------------------------- | ------------------------------------------------------------------ |\n+| **Anomaly type:**                | UEBA                                                               |\n+| **Data sources:**                | GCP Audit Logs                                                     |\n+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |\n+| **MITRE ATT&CK techniques:**     | T1078 – Valid Accounts                                             |\n+| **Activity:**                    | login.googleapis.com                                               |\n+\n+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n+\n ### UEBA Anomalous Logon in AwsCloudTrail\n \n **Description:** Unusual logon activity in Amazon Web Services (AWS) services based on CloudTrail events such as ConsoleLogin and other authentication-related attributes. Anomalies are determined by deviations in user behavior based on attributes like geolocation, device fingerprint, ISP, and access method, and may indicate unauthorized access attempts or potential policy violations.\n@@ -338,6 +371,34 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an\n \n [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n \n+### UEBA Anomalous Privileged Action in GCP Audit Logs\n+\n+**Description:** Deviations in Identity and Access Management (IAM) administrative behavior in Google Cloud Platform (GCP), such as first-time querying of grantable roles, retrieval or creation of service accounts and their keys, or modifications to IAM policies. A significantly higher volume of privileged or admin actions compared to the user's historical behavior might indicate privilege escalation, persistence through service accounts, or reconnaissance of available permissions.\n+\n+| Attribute                        | Value                                                              |\n+| -------------------------------- | ------------------------------------------------------------------ |\n+| **Anomaly type:**                | UEBA                                                               |\n+| **Data sources:**                | GCP Audit Logs                                                     |\n+| **MITRE ATT&CK tactics:**        | Privilege Escalation, Persistence                                  |\n+| **MITRE ATT&CK techniques:**     | T1098 – Account Manipulation, T1078 – Valid Accounts               |\n+| **Activity:**                    | QueryGrantableRoles, GetServiceAccount, ListServiceAccountKeys, CreateServiceAccount, GetIAMPolicy, ListApplicablePolicies, GetPolicy, CreateServiceAccountKey, and admin-related operations on iam.googleapis.com, firestore.googleapis.com, bigtableadmin.googleapis.com, alloydb.googleapis.com, admin.googleapis.com |\n+\n+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n+\n+### UEBA Anomalous Resource Deployment in GCP Audit Logs\n+\n+**Description:** Unusual resource creation or deployment activity in Google Cloud Platform (GCP), including first-time provisioning of compute instances, storage buckets, Kubernetes clusters, Cloud Functions, or other infrastructure resources. A significantly higher rate of resource deployments compared to the user's historical behavior might indicate unauthorized resource deployment for cryptomining, data staging, or establishing persistent footholds in the environment.\n+\n+| Attribute                        | Value                                                              |\n+| -------------------------------- | ------------------------------------------------------------------ |\n+| **Anomaly type:**                | UEBA                                                               |\n+| **Data sources:**                | GCP Audit Logs                                                     |\n+| **MITRE ATT&CK tactics:**        | Execution, Persistence                                             |\n+| **MITRE ATT&CK techniques:**     | T1610 – Deploy Container, T1578 – Modify Cloud Compute Infrastructure |\n+| **Activity:**                    | Create and insert operations on apigee.googleapis.com, appengine.googleapis.com, bigquery.googleapis.com, bigquerydatatransfer.googleapis.com, cloudfunctions.googleapis.com, cloudsql.googleapis.com, compute.googleapis.com, container.googleapis.com, dataproc.googleapis.com, datastore.googleapis.com, dns.googleapis.com, firestore.googleapis.com, k8s.io, osconfig.googleapis.com, run.googleapis.com, storage.googleapis.com |\n+\n+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n+\n ### UEBA Anomalous Secret or KMS Key Access in AwsCloudTrail\n \n **Description:** Suspicious access to AWS Secrets Manager, or Key Management Service (KMS) resources. First-time access or unusually high access frequency might indicate credential harvesting or data exfiltration attempts.\n@@ -352,6 +413,20 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an\n \n [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n \n+### UEBA Anomalous Secret or KMS Key Access in GCP Audit Logs\n+\n+**Description:** Suspicious access to Google Cloud Secret Manager or Cloud KMS resources. First-time access to a secret vault, key, or certificate, unusual access patterns among peers, or a significantly higher volume of access compared to the user's historical baseline might indicate credential harvesting, data exfiltration attempts, or abuse of compromised service accounts.\n+\n+| Attribute                        | Value                                                              |\n+| -------------------------------- | ------------------------------------------------------------------ |\n+| **Anomaly type:**                | UEBA                                                               |\n+| **Data sources:**                | GCP Audit Logs                                                     |\n+| **MITRE ATT&CK tactics:**        | Credential Access, Collection                                      |\n+| **MITRE ATT&CK techniques:**     | T1555 – Credentials from Password Stores, T1552 – Unsecured Credentials |\n+| **Activity:**                    | Administrative operations on cloudkms.googleapis.com, secretmanager.googleapis.com (excluding AccessSecretVersion, AsymmetricDecrypt, GetPublicKey, AsymmetricSign) |\n+\n+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)\n+\n ### UEBA Anomalous Sign-in\n \n **Description:** Adversaries may steal the credentials of a specific user or service account using Credential Access techniques or capture credentials earlier in their reconnaissance process through social engineering for means of gaining Persistence.\n",
+      "baseCommitSha": "4998f8b9e872dca00fae198b95b03e47d5c4d53c",
+      "commitSha": "815c2db4e3942708245dd70e02e87f26c73063d7",
+      "commitMessage": "Add 5 new UEBA GCP Audit Logs anomaly detections",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-08T08:54:34+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/anomalies-reference.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/anomalies-reference",
+      "firstSeenAt": "2026-05-08T05:54:34.000Z",
+      "eventId": "defender-docs:815c2db4e3942708245dd70e02e87f26c73063d7:modified:sentinel/anomalies-reference.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add 5 new UEBA GCP Audit Logs anomaly detections",
+        "summary": "Updated Microsoft Defender documentation in sentinel/anomalies-reference.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/whats-new.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/sentinel/whats-new.md b/sentinel/whats-new.md\nindex 40b56d31b..0627939a4 100644\n--- a/sentinel/whats-new.md\n+++ b/sentinel/whats-new.md\n@@ -22,6 +22,8 @@ The listed features were released in the last six months. For information about\n \n - We introduced a new entry point and created a consolidated view for the UEBA Settings and the Behaviors Settings. You can now access the UEBA settings from the new UEBA tab in the Microsoft Sentinel settings page. For more information see [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md#access-ueba-from-ueba-tab).\n \n+- UEBA now supports five new GCP Audit Logs anomaly detections that identify unusual login behavior, privileged actions, resource deployments, secret/KMS key access, and infrastructure usage patterns. For more information, see [UEBA anomalies](anomalies-reference.md#ueba-anomalies).\n+\n ## April 2026\n \n - [[Updated] Call to action: update automation by July 1, 2026 - Account Name is now consistently the UPN prefix for analytics rule alerts](#updated-call-to-action-update-automation-by-july-1-2026---account-name-is-now-consistently-the-upn-prefix-for-analytics-rule-alerts)\n",
+      "baseCommitSha": "4998f8b9e872dca00fae198b95b03e47d5c4d53c",
+      "commitSha": "815c2db4e3942708245dd70e02e87f26c73063d7",
+      "commitMessage": "Add 5 new UEBA GCP Audit Logs anomaly detections",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-08T08:54:34+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/whats-new",
+      "firstSeenAt": "2026-05-08T05:54:34.000Z",
+      "eventId": "defender-docs:815c2db4e3942708245dd70e02e87f26c73063d7:modified:sentinel/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add 5 new UEBA GCP Audit Logs anomaly detections",
+        "summary": "Updated Microsoft Defender documentation in sentinel/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-antivirus-scans-linux.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 15,
+      "changes": 32,
+      "patch": "diff --git a/defender-endpoint/schedule-antivirus-scans-linux.md b/defender-endpoint/schedule-antivirus-scans-linux.md\nindex eb80d52d7..6f093568c 100644\n--- a/defender-endpoint/schedule-antivirus-scans-linux.md\n+++ b/defender-endpoint/schedule-antivirus-scans-linux.md\n@@ -1,18 +1,20 @@\n ---\n title: Schedule antivirus scans on Linux\n description: Learn how to configure scheduled antivirus scans on Microsoft Defender for Endpoint on Linux using Security Settings Management or managed JSON configuration.\n-ms.service: microsoft-365-security\n+ms.service: defender-endpoint\n ms.mktglfocus: mdatp\n-ms.author: siosulli\n-author: siosulli\n+ms.author: painbar\n+author: paulinbar\n ms.localizationpriority: medium\n ms.date: 05/07/2026\n ai-usage: ai-generated\n ---\n \n-# Schedule antivirus scans on Linux\n+# Schedule antivirus scans on Linux (preview)\n \n-Scheduled antivirus scan configuration on Linux is currently available in public preview.\n+This article describes how to configure scheduled antivirus scans on Microsoft Defender for Endpoint on Linux. It's intended for IT and security administrators who manage Linux devices and want to ensure continuous antivirus protection through centralized scan scheduling.\n+\n+## Overview\n \n Microsoft Defender for Endpoint on Linux supports scheduled antivirus scans to help maintain continuous protection across devices. Instead of relying on custom cron jobs, scheduled scans are centrally configured to ensure consistent scanning across environments.\n \n@@ -24,23 +26,23 @@ You can configure scheduled scans using either managed configuration (managed JS\n \n Before configuring scheduled antivirus scans on Linux, ensure the following requirements are met:\n \n-- Microsoft Defender for Endpoint is installed and onboarded on supported Linux distributions\n+- Microsoft Defender for Endpoint is installed and onboarded on supported Linux distributions.\n - Devices are running minimum agent version 101.26032.0000 in the production ring\n - Devices are healthy and reporting correctly to the Microsoft Defender service\n \n-Depending on your configuration method:\n+Depending on your configuration method, the following prerequisites also need to be met:\n \n **MDATP Managed JSON Configuration:**\n-- Ability to deploy configuration files to `/etc/opt/microsoft/mdatp/managed`\n-- Required permissions to manage system configuration files\n-- If you already use managed configuration for other antivirus settings, append to your existing configuration file instead of replacing it\n+- You must be able to deploy configuration files to `/etc/opt/microsoft/mdatp/managed`\n+- You must have the required permissions to manage system configuration files.\n+- If you already use managed configuration for other antivirus settings, append to your existing configuration file instead of replacing it.\n \n **Microsoft Defender portal:**\n-- Appropriate permissions to create and assign security policies\n+- You must have appropriate permissions to create and assign security policies\n \n ## Scheduled antivirus scan types\n \n-Microsoft Defender for Endpoint on Linux supports the following scan types for scheduled scans:\n+Defender for Endpoint on Linux supports the following scan types for scheduled scans:\n \n - **Quick scans**: Quick scans focus on critical system locations where malware is most likely to be present, such as startup paths and system services. They complete faster and are recommended for frequent scheduling, such as daily or interval-based scans.\n - **Full scans**: Full scans examine all files and directories on the device. They provide more comprehensive coverage but can take longer to complete, depending on system size and workload. These are typically scheduled less frequently, such as weekly.\n@@ -83,16 +85,16 @@ You can configure scheduled antivirus scans on Linux using one of the following\n \n 1. Configure your tenant to support security settings management.\n \n-1. In the **Microsoft Defender portal**, navigate to **Settings** > **Endpoints** > **Configuration Management** > **Enforcement Scope**, and then select the Linux platform.\n+1. In the Defender portal, navigate to **Settings** > **Endpoints** > **Configuration Management** > **Enforcement Scope**, and then select the Linux platform.\n \n-1. Tag devices with the **MDE-Management** tag. Most devices enrol and receive the policy within minutes, although some might take up to 24 hours. For more information, see [Learn about using Intune to manage Microsoft Defender settings on devices that aren't enrolled with Intune](/intune/protect/mde-security-integration).\n+1. Tag devices with the **MDE-Management** tag. Most devices enroll and receive the policy within minutes, although some might take up to 24 hours. For more information, see [Learn about using Intune to manage Microsoft Defender settings on devices that aren't enrolled with Intune](/intune/protect/mde-security-integration).\n \n 1. Create a Microsoft Entra group.\n    - Create a dynamic Microsoft Entra group based on the operating system type to ensure that all devices onboarded to Defender for Endpoint receive the appropriate policies.\n    - This dynamic group automatically includes devices managed by Defender for Endpoint, eliminating the need for admins to manually create new policies. For more information, see [Create Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups).\n \n 1. Create an endpoint security policy.\n-   1. In the **Microsoft Defender portal**, go to **Endpoints** > **Configuration management** > **Endpoint security policies**, and then select **Create new Policy**.\n+   1. In the Defender portal, go to **Endpoints** > **Configuration management** > **Endpoint security policies**, and then select **Create new Policy**.\n    1. For **Platform**, select **Linux**.\n    1. Select the template **Microsoft Defender Antivirus** and then select **Create policy**.\n    1. On the **Basics** page, enter a name and description for the profile, then choose **Next**.\n",
+      "baseCommitSha": "f7ffeb9b7a5c9869a55c96245193d5c7149f02c7",
+      "commitSha": "cf1f885247a14b0dc3fd25d4b35e2ebec4133aee",
+      "commitMessage": "Misc edits",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T11:21:35+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-antivirus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-antivirus-scans-linux",
+      "firstSeenAt": "2026-05-08T08:21:35.000Z",
+      "eventId": "defender-docs:cf1f885247a14b0dc3fd25d4b35e2ebec4133aee:modified:defender-endpoint/schedule-antivirus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Misc edits",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-antivirus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-antivirus-scans-linux.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 14,
+      "changes": 29,
+      "patch": "diff --git a/defender-endpoint/schedule-antivirus-scans-linux.md b/defender-endpoint/schedule-antivirus-scans-linux.md\nindex 6f093568c..3d0b01ac7 100644\n--- a/defender-endpoint/schedule-antivirus-scans-linux.md\n+++ b/defender-endpoint/schedule-antivirus-scans-linux.md\n@@ -85,7 +85,7 @@ You can configure scheduled antivirus scans on Linux using one of the following\n \n 1. Configure your tenant to support security settings management.\n \n-1. In the Defender portal, navigate to **Settings** > **Endpoints** > **Configuration Management** > **Enforcement Scope**, and then select the Linux platform.\n+1. In the Defender portal, navigate to **Settings** > **Endpoints** > **Configuration management** > **Enforcement scope**, and then select the Linux platform.\n \n 1. Tag devices with the **MDE-Management** tag. Most devices enroll and receive the policy within minutes, although some might take up to 24 hours. For more information, see [Learn about using Intune to manage Microsoft Defender settings on devices that aren't enrolled with Intune](/intune/protect/mde-security-integration).\n \n@@ -94,11 +94,11 @@ You can configure scheduled antivirus scans on Linux using one of the following\n    - This dynamic group automatically includes devices managed by Defender for Endpoint, eliminating the need for admins to manually create new policies. For more information, see [Create Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups).\n \n 1. Create an endpoint security policy.\n-   1. In the Defender portal, go to **Endpoints** > **Configuration management** > **Endpoint security policies**, and then select **Create new Policy**.\n+   1. In the Defender portal, go to **Endpoints** > **Configuration management** > **Endpoint security policies**, and then select **Create new policy**.\n    1. For **Platform**, select **Linux**.\n    1. Select the template **Microsoft Defender Antivirus** and then select **Create policy**.\n    1. On the **Basics** page, enter a name and description for the profile, then choose **Next**.\n-   1. On the **Settings** page, go to the **Schedule Scan** section towards the end of the page and configure the settings you want to manage with this profile.\n+   1. On the **Configuration settings** page, go to the **Schedule Scan** section towards the end of the page and configure the settings you want to manage with this profile.\n    1. When you're done configuring settings, select **Next**.\n    1. On the **Assignments** page, select the groups that receive this profile. Then select **Next**.\n    1. On the **Review + create** page, when you're done, select **Save**. The new profile is displayed in the list when you select the policy type for the profile you created.\n@@ -109,16 +109,17 @@ For more information, see [Manage endpoint security policies in Microsoft Defend\n \n In enterprise environments, antivirus scans can be scheduled through a configuration profile. Typically, you would use a configuration management tool like Puppet, Ansible, or another management console to push a file with the name `mdatp_managed.json` at the location `/etc/opt/microsoft/mdatp/managed`.\n \n-If you already use `mdatp_managed.json` to configure other Microsoft Defender for Endpoint settings (for example, exclusions or antivirus preferences), do not replace your existing file. Scheduled scan settings should be added to your existing managed JSON, alongside your current configuration. For more information, see [Set preferences for Defender for Endpoint on Linux](preferences-setup-mde-linux.md).\n+If you already use `mdatp_managed.json` to configure other Defender for Endpoint settings (for example, exclusions or antivirus preferences), do not replace your existing file. Scheduled scan settings should be added to your existing managed JSON, alongside your current configuration. For more information, see [Set preferences for Defender for Endpoint on Linux](preferences-setup-mde-linux.md).\n \n The following example configures:\n-- A weekly full scan every Saturday at 3:00 AM\n-- A daily quick scan every day at 3:00 AM\n-- Scans run only when the device is idle\n-- Reduced CPU impact using low-priority scheduling\n-- Definition updates are checked before scanning\n-- Exclusions are ignored during scans\n-- Scan start times are randomized by up to 3 hours\n+\n+- A weekly full scan every Saturday at 3:00 AM.\n+- A daily quick scan every day at 3:00 AM.\n+- Scans run only when the device is idle.\n+- Reduced CPU impact using low-priority scheduling.\n+- Definition updates are checked before scanning.\n+- Exclusions are ignored during scans.\n+- Scan start times are randomized by up to 3 hours.\n \n ```json\n {\n@@ -215,9 +216,9 @@ This command displays completed and ongoing scans.\n \n You can also verify scan activity directly from the Defender portal at the device level. It shows last full scan and last quick scan:\n \n-1. Go to **Assets** > **Devices**\n-1. Select the target Linux device\n-1. In the **Overview** tab, locate the **Device health status** section\n+1. Go to **Assets** > **Devices**.\n+1. Select the target Linux device.\n+1. In the **Overview** tab, locate the **Device health status** section.\n \n This helps confirm whether scheduled scans are running as expected on the device.\n \n",
+      "baseCommitSha": "cf1f885247a14b0dc3fd25d4b35e2ebec4133aee",
+      "commitSha": "85c6730ea5a5619ad11ac21d22545a7b76e8cd23",
+      "commitMessage": "Misc edits",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T11:35:17+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-antivirus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-antivirus-scans-linux",
+      "firstSeenAt": "2026-05-08T08:35:17.000Z",
+      "eventId": "defender-docs:85c6730ea5a5619ad11ac21d22545a7b76e8cd23:modified:defender-endpoint/schedule-antivirus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Misc edits",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-antivirus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-support-offline-security-intelligence-update.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 11,
+      "changes": 23,
+      "patch": "diff --git a/defender-endpoint/linux-support-offline-security-intelligence-update.md b/defender-endpoint/linux-support-offline-security-intelligence-update.md\nindex 9577c0490..6befcac00 100644\n--- a/defender-endpoint/linux-support-offline-security-intelligence-update.md\n+++ b/defender-endpoint/linux-support-offline-security-intelligence-update.md\n@@ -12,7 +12,7 @@ ms.collection:\n - tier3\n - mde-linux\n ms.topic: how-to\n-ms.date: 05/07/2026\n+ms.date: 05/08/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n@@ -176,24 +176,25 @@ Once the mirror server is set up, you need to propagate this URI to the Linux en\n \n ## Configure the endpoints\n \n-You can configure the offline security intelligence updates feature in two ways: through the Defender or Intune portals, or by using the managed JSON configuration file.\n+You can configure the offline security intelligence updates feature in two ways:\n \n-- Configuration via the portals provides a user-friendly interface for managing and configuring the setting for a group of devices.\n-- Configuration via the managed JSON file allows for more granular control and can be used for manual configuration or via 3rd party management tools like Chef, Ansible, and others.\n+- Via **security settings management** in the Defender/Intune portal: Allows centralised management and configuration of the settings for a group of devices.\n+- Via the **managed JSON file**: Allows for configuration of the settings manually or via third-party management tools like Chef, Ansible, and others.\n \n # [Portal](#tab/portal)\n \n-1. In the Defender portal, navigate to **Endpoints** > **Configuration management** > **Endpoint security policies**, and choose a Linux policy to edit, or create a new Linux policy.\n-1. In the policy creation wizard, advance to the **Configuration settings** step. There you can find the configuration settings for the offline security intelligence updates feature.\n+1. In the Defender portal, navigate to **Endpoints** > **Configuration management** > **Endpoint security policies**, and choose **Create new policy**.\n+1. In the policy creation wizard, select **Linux** as the platform, **Microsoft Defender Antivirus** as the template. and then select **Create policy**.\n+1. Provide a name and description for the policy, then select **Next**.\n \n-You can configure the following settings. Use the Search box on the **Configuration settings** page for help finding them:\n+In the **Configuration settings** step, you can find the configuration settings for the offline security intelligence updates feature under the **Antivirus engine** and **Cloud delivered protection preferences** sections.\n \n |Setting|Description|\n |---|---|\n-|**Enable offline security intelligence update** |This setting enables the offline security intelligence update feature on the Linux endpoints. When you enable this setting, the following two settings become available.|\n-|**Offline security intelligence update fallback to cloud** |This setting determines the behavior of Defender for Endpoint on Linux when the offline security intelligence update fails. If set to `True`, the endpoint will attempt to get the updates from the Microsoft cloud if it fails to get them from the mirror server. If set to `False`, the endpoint will not attempt to get updates from the Microsoft cloud if it fails to get them from the mirror server.|\n+|**Enable offline security intelligence update** |This setting enables the offline security intelligence update feature on the Linux endpoints. When you enable this setting, the following two settings become available. Make sure **Automated security intelligence updates** is also enabled.|\n+|**Offline security intelligence update fallback to cloud** |If set to `True`, the endpoint will attempt to get signature updates from the Microsoft cloud if it fails to get them from the mirror server.|\n |**Offline security intelligence update URL or directory** |This setting specifies the URL or directory path of the mirror server that hosts the security intelligence updates. The URL should be in the format `http://<mirror_server_address>/linux/production/` (if using an HTTP/HTTPS server) or a directory path (if using a network share or local/remote mount point). See [Host the offline security intelligence updates on the mirror server](#host-the-offline-security-intelligence-updates-on-the-mirror-server) for more information.|\n-|**Security intelligence Update time interval** | When set to configured, this setting allows you to specify (in seconds) how often the Linux endpoints pull the security intelligence updates from the mirror server. By default, this setting is not configured, in which case the update interval is taken from the [Automatic security updates setting](#automatic-update), which has a default value of 8 hours (28800 seconds).|\n+|**Security intelligence Update time interval** | By default, the Linux endpoints pull signature updates from the mirror server every 8 hours (28800 seconds). Use this setting if you wish to specify a different interval. Specify the interval in seconds.|\n \n # [Managed JSON](#tab/managed-json)\n \n@@ -223,7 +224,7 @@ Use the following sample `mdatp_managed.json` and update the parameters as per t\n | `offlineDefinitionUpdateUrl`              | String               | URL value generated as part of the mirror server setup. This can be either in terms of the remote server URL or a directory (local/remote mount point). See the previous section for information about how to specify this path.|\n | `offlineDefinitionUpdate`                 | `enabled`/`disabled`   | When set to `enabled`, the offline security intelligence update feature is enabled, and vice versa. |\n | `offlineDefinitionUpdateFallbackToCloud`  | `True`/`False`         | Determine Defender for Endpoint security intelligence update approach when offline mirror server fails to serve the update request. If set to `true`, the update is retried via the Microsoft cloud when offline security intelligence update failed; else, vice versa. |\n-| `offlineDefinitionUpdateVerifySig`        | `enabled`/`disabled`     | When set to `enabled`, downloaded definitions are verified on the endpoints; else, vice versa. This setting enabled by default starting from version 101.25092.0005, and is not configurable in the Defender portal. |\n+| `offlineDefinitionUpdateVerifySig`        | `enabled`/`disabled`     | When set to `enabled`, downloaded definitions are verified on the endpoints; else, vice versa. **This setting is enabled by default starting from version 101.25092.0005, and therefore is not available for configuration in the Defender portal**. |\n \n ---\n \n",
+      "baseCommitSha": "2c35e07ca02abdb4503de5c901ead36f04eec3ce",
+      "commitSha": "6b0e40f12409f2ae4cd3750c4458c8d1a77c2b96",
+      "commitMessage": "Updates",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T13:33:43+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-support-offline-security-intelligence-update.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-support-offline-security-intelligence-update",
+      "firstSeenAt": "2026-05-08T10:33:43.000Z",
+      "eventId": "defender-docs:6b0e40f12409f2ae4cd3750c4458c8d1a77c2b96:modified:defender-endpoint/linux-support-offline-security-intelligence-update.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updates",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-support-offline-security-intelligence-update.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 7a2bdce10..372573131 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -28,7 +28,8 @@ Learn more about [Preview features](/defender-xdr/preview).\n ## May 2026\n \n |Type  |Feature  |Preview/GA  |Description  |\n-|---------|------------|-------------|-------------|\n+|---------|------------|-------------|-------------||Feature |[Configure offline security intelligence update settings from the Defender and Intune portals](./linux-support-offline-security-intelligence-update.md#configure-the-endpoints) |Preview |You can now configure offline security intelligence update settings for Linux directly from the Defender and Intune portals. |\n+\n |Feature |[Selective Response Actions](./restrict-response-actions-high-value-assets.md) |Preview |Selective Response Actions enables organizations to tailor high-impact security operations on devices during onboarding. It provides precise control over how response actions are applied on Tier-0 systems and other high-value assets, helping maintain operational stability while delivering strong protection. |\n \n ## April 2026\n",
+      "baseCommitSha": "2c35e07ca02abdb4503de5c901ead36f04eec3ce",
+      "commitSha": "6b0e40f12409f2ae4cd3750c4458c8d1a77c2b96",
+      "commitMessage": "Updates",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T13:33:43+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-05-08T10:33:43.000Z",
+      "eventId": "defender-docs:6b0e40f12409f2ae4cd3750c4458c8d1a77c2b96:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updates",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 372573131..f5cf34a8c 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -29,7 +29,6 @@ Learn more about [Preview features](/defender-xdr/preview).\n \n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------||Feature |[Configure offline security intelligence update settings from the Defender and Intune portals](./linux-support-offline-security-intelligence-update.md#configure-the-endpoints) |Preview |You can now configure offline security intelligence update settings for Linux directly from the Defender and Intune portals. |\n-\n |Feature |[Selective Response Actions](./restrict-response-actions-high-value-assets.md) |Preview |Selective Response Actions enables organizations to tailor high-impact security operations on devices during onboarding. It provides precise control over how response actions are applied on Tier-0 systems and other high-value assets, helping maintain operational stability while delivering strong protection. |\n \n ## April 2026\n",
+      "baseCommitSha": "a502abd9fcdbb6b9c90633f9e1552755a24ae0e2",
+      "commitSha": "4f57d50a65df9b54bb4e617bd125c7fbf9957654",
+      "commitMessage": "fixed table syntax",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T13:40:18+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-05-08T10:40:18.000Z",
+      "eventId": "defender-docs:4f57d50a65df9b54bb4e617bd125c7fbf9957654:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fixed table syntax",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex f5cf34a8c..7359f22dc 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -28,7 +28,8 @@ Learn more about [Preview features](/defender-xdr/preview).\n ## May 2026\n \n |Type  |Feature  |Preview/GA  |Description  |\n-|---------|------------|-------------|-------------||Feature |[Configure offline security intelligence update settings from the Defender and Intune portals](./linux-support-offline-security-intelligence-update.md#configure-the-endpoints) |Preview |You can now configure offline security intelligence update settings for Linux directly from the Defender and Intune portals. |\n+|---------|------------|-------------|-------------|\n+|Feature |[Configure offline security intelligence update settings from the Defender and Intune portals](./linux-support-offline-security-intelligence-update.md#configure-the-endpoints) |Preview |You can now configure offline security intelligence update settings for Linux directly from the Defender and Intune portals. |\n |Feature |[Selective Response Actions](./restrict-response-actions-high-value-assets.md) |Preview |Selective Response Actions enables organizations to tailor high-impact security operations on devices during onboarding. It provides precise control over how response actions are applied on Tier-0 systems and other high-value assets, helping maintain operational stability while delivering strong protection. |\n \n ## April 2026\n",
+      "baseCommitSha": "4f57d50a65df9b54bb4e617bd125c7fbf9957654",
+      "commitSha": "0353525c5e28f58db14507f785d9d0921ace3476",
+      "commitMessage": "Tab;e format",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T13:44:24+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-05-08T10:44:24.000Z",
+      "eventId": "defender-docs:0353525c5e28f58db14507f785d9d0921ace3476:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Tab;e format",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 7359f22dc..c18652f43 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -29,7 +29,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n \n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------|\n-|Feature |[Configure offline security intelligence update settings from the Defender and Intune portals](./linux-support-offline-security-intelligence-update.md#configure-the-endpoints) |Preview |You can now configure offline security intelligence update settings for Linux directly from the Defender and Intune portals. |\n+|Feature |[Configure offline security intelligence update settings for Linux from the Defender and Intune portals](./linux-support-offline-security-intelligence-update.md#configure-the-endpoints) |GA |You can now configure offline security intelligence update settings for Linux directly from the Defender and Intune portals. |\n |Feature |[Selective Response Actions](./restrict-response-actions-high-value-assets.md) |Preview |Selective Response Actions enables organizations to tailor high-impact security operations on devices during onboarding. It provides precise control over how response actions are applied on Tier-0 systems and other high-value assets, helping maintain operational stability while delivering strong protection. |\n \n ## April 2026\n",
+      "baseCommitSha": "582e303046d4d40f2b6e31d2d46057406e7025e4",
+      "commitSha": "f292dd96cc14935fadde87426309922878ac2a6c",
+      "commitMessage": "Update feature status for offline security intelligence",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-08T13:54:33+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-05-08T10:54:33.000Z",
+      "eventId": "defender-docs:f292dd96cc14935fadde87426309922878ac2a6c:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update feature status for offline security intelligence",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/datalake/enable-data-connectors.md",
+      "status": "modified",
+      "additions": 26,
+      "deletions": 0,
+      "changes": 26,
+      "patch": "diff --git a/sentinel/datalake/enable-data-connectors.md b/sentinel/datalake/enable-data-connectors.md\nindex 66adec051..24f55d3ad 100644\n--- a/sentinel/datalake/enable-data-connectors.md\n+++ b/sentinel/datalake/enable-data-connectors.md\n@@ -9,6 +9,7 @@ ms.topic: concept-article\n ms.date: 11/04/2025\n ms.author: monaberdugo  \n ms.collection: ms-security\n+ai-usage: ai-assisted\n \n #Customer intent: As a Microsoft Sentinel user, I want to understand the ingestion of asset data and analysis of security-related data from various sources.\n ---\n@@ -54,6 +55,31 @@ The following table describes the various asset data sources and their data conn\n > [!NOTE]\n > Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they're involved in building data risk graphs.\n \n+### Expand Azure Resource Graph connector coverage\n+\n+The Azure Resource Graph (ARG) connector ingests only the Azure resources that its managed identity can read. When you enable the connector, its managed identity is granted the **Reader** role only on the subscriptions where you have the **Owner** role. Most users don't have **Owner** access across every subscription in the tenant, so the connector often ingests a partial view of your Azure estate, which limits coverage.\n+\n+To expand coverage after the connector is enabled, have a user with tenant root or broader subscription privileges (for example, a Global Administrator who has elevated access at the tenant root, or a user with **User Access Administrator** or **Owner** at a higher scope) find the managed identity associated with the connector in the Azure portal, and assign the **Reader** role to the connector's managed identity at the broadest scope you want ingested:\n+\n+1. In the Azure portal, locate the managed identity that the ARG connector created. The identity's name is `msg-resources-` followed by an alphanumeric ID that depends on the version, for example `msg-resources-b05e`.\n+1. Select a scope that covers the resources you want ingested:\n+   - **Tenant root management group** to cover all subscriptions in the tenant.\n+   - A specific **management group** to cover a subset of subscriptions.\n+   - One or more individual **subscriptions**.\n+\n+   :::image type=\"content\" source=\"./media/enable-data-connectors/arg-scope-management-group.png\" alt-text=\"Screenshot of the Tenant Root Group overview page in the Azure portal.\" lightbox=\"./media/enable-data-connectors/arg-scope-management-group.png\":::\n+\n+1. Select **Access control (IAM)**.\n+1. Select **+ Add** > **Add role assignment**.\n+\n+   :::image type=\"content\" source=\"./media/enable-data-connectors/arg-add-role-assignment.png\" alt-text=\"Screenshot of the Access control (IAM) page with the Add role assignment menu item highlighted.\" lightbox=\"./media/enable-data-connectors/arg-add-role-assignment.png\":::\n+\n+1. Assign the **Reader** role to the connector's managed identity. For step-by-step guidance, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and, when assigning at the tenant root, [Elevate access to manage all Azure subscriptions and management groups](/azure/role-based-access-control/elevate-access-global-admin).\n+\n+   :::image type=\"content\" source=\"./media/enable-data-connectors/arg-select-reader-role.png\" alt-text=\"Screenshot of the Add role assignment page with the Reader role selected.\" lightbox=\"./media/enable-data-connectors/arg-select-reader-role.png\":::\n+\n+After the assignment propagates, the next ingestion cycle picks up the additional resources. It can take up to 24 hours for the new data to appear in the lake.\n+\n ## Prerequisites\n \n To manage asset data connectors, you need to meet the following prerequisites:\n",
+      "baseCommitSha": "9980df02b9af1803b782248a6f2a8770b766338b",
+      "commitSha": "70dabd60ea853c46d81a392174ae0057b4ba7b46",
+      "commitMessage": "Document ARG connector coverage workaround via managed identity Reader assignment",
+      "commitAuthor": "Evangeline White",
+      "commitDate": "2026-05-08T09:46:33-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/datalake/enable-data-connectors.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/datalake/enable-data-connectors",
+      "firstSeenAt": "2026-05-08T16:46:33.000Z",
+      "eventId": "defender-docs:70dabd60ea853c46d81a392174ae0057b4ba7b46:modified:sentinel/datalake/enable-data-connectors.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Document ARG connector coverage workaround via managed identity Reader assignment",
+        "summary": "Updated Microsoft Defender documentation in sentinel/datalake/enable-data-connectors.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 3,
+      "changes": 9,
+      "patch": "diff --git a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\nindex e230aa483..cd0c9c836 100644\n--- a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n+++ b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n@@ -10,7 +10,7 @@ ms.collection:\n   - tier2\n description: Admins can learn about bulk email detection, including the bulk complain level (BCL) values that are used in Microsoft 365.\n ms.service: defender-office-365\n-ms.date: 04/23/2026\n+ms.date: 05/08/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -84,7 +84,10 @@ _Currently_, this feature has the following requirements:\n - An Exchange mail flow rule (also known as a transport rule) that adds a message header to all mail identified as bulk. The resulting **Bulk** tag is visible in supported versions of Outlook.\n - The **Bulk moves enabled** setting is turned on in anti-spam policies. Turning on this setting results in a **Promotions** folder in affected user mailboxes.\n \n-If a user meets these requirements, bulk mail that would normally be delivered to the Inbox is delivered to the **Promotions** folder instead.\n+> [!NOTE]\n+> By default, this feature is inactive. An admin needs to both of the previous steps to enable the feature.\n+\n+If a user is affected by the mail flow rule and the anti-spam policy, bulk mail that would normally be delivered to the Inbox is delivered to the **Promotions** folder instead.\n \n To enable this feature, do the following steps:\n \n@@ -161,4 +164,4 @@ The **Promotions** folder in user mailboxes has the following characteristics:\n   - The bulk sender is in an [accepted domain](/exchange/mail-flow-best-practices/manage-accepted-domains/manage-accepted-domains) of the organization.\n - If you turn off **Bulk moves enabled** in an existing anti-spam policy, the affected users still have a **Promotions** folder in their mailboxes, but bulk mail is no longer delivered to the **Promotions** folder. You can use Inbox rules with the **Marked with** \\> **Bulk** condition as shown in the previous table to move bulk messages to the **Promotions** folder.\n - Microsoft 365 learns from user activity in the **Promotions** folder (moving messages in or out), and remembers the action for future messages.\n-- Inbox rules that act on messages now identified as bulk take precedence, so those messages don't end up in the **Promotions** folder.\n+- Existing user-defined Inbox rules that act on messages identified as bulk take precedence over **Promotions** folder placement by the **Bulk moves enabled** feature. User-defined rules are honored and not overridden.\n",
+      "baseCommitSha": "aea7d1007acdb3f01a6087a4a1f03b5e2f87f228",
+      "commitSha": "5a03d302883c295b50713f8f6852f735ba2215cc",
+      "commitMessage": "Update anti-spam-bulk-complaint-level-bcl-about.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-05-08T14:28:51-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-complaint-level-bcl-about",
+      "firstSeenAt": "2026-05-08T21:28:51.000Z",
+      "eventId": "defender-docs:5a03d302883c295b50713f8f6852f735ba2215cc:modified:defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update anti-spam-bulk-complaint-level-bcl-about.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/attack-surface-reduction-rules-configure.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/attack-surface-reduction-rules-configure.md b/defender-endpoint/attack-surface-reduction-rules-configure.md\nindex d3ed6512c..1eff46bfd 100644\n--- a/defender-endpoint/attack-surface-reduction-rules-configure.md\n+++ b/defender-endpoint/attack-surface-reduction-rules-configure.md\n@@ -55,6 +55,9 @@ In Intune, endpoint security policies are the recommended method to deploy ASR r\n \n To configure ASR rules using a Microsoft Intune Endpoint Security **Attack surface reduction** policy, see <a href=\"/intune/intune-service/protect/endpoint-security-policy#create-endpoint-security-policies\" target=\"_blank\">Create an endpoint security policy</a> (opens in a new tab in the Intune documentation). When creating the policy, use these settings:\n \n+> [!IMPORTANT]\n+> Microsoft Defender for Endpoint management supports device objects only. Targeting users isn't supported. Assign the policy to Microsoft Entra device groups, not user groups.\n+\n - **Policy type**: Attack surface reduction\n - **Platform**: Windows\n - **Profile**: Attack Surface Reduction Rules\n",
+      "baseCommitSha": "cd635c5542cf72f3d2104414835e44b379b5e431",
+      "commitSha": "205286a6ad2bc5980d9b442c832e1514bd9fbb5a",
+      "commitMessage": "Update attack-surface-reduction-rules-configure.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-05-08T15:21:02-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/attack-surface-reduction-rules-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-configure",
+      "firstSeenAt": "2026-05-08T22:21:02.000Z",
+      "eventId": "defender-docs:205286a6ad2bc5980d9b442c832e1514bd9fbb5a:modified:defender-endpoint/attack-surface-reduction-rules-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update attack-surface-reduction-rules-configure.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/safe-links-about.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/defender-office-365/safe-links-about.md b/defender-office-365/safe-links-about.md\nindex 2fbd29a90..ee47871da 100644\n--- a/defender-office-365/safe-links-about.md\n+++ b/defender-office-365/safe-links-about.md\n@@ -5,7 +5,7 @@ ms.author: chrisda\n ms.topic: overview\n f1_keywords:\n   - '197503'\n-ms.date: 02/10/2026\n+ms.date: 05/08/2026\n ms.localizationpriority: medium\n ms.collection:\n   - Strat_O365_IP\n@@ -232,6 +232,9 @@ These settings apply to Safe Links in email, Teams, and Office apps:\n \n   In Safe Links for Office apps, this setting applies to the desktop versions Word, Excel, PowerPoint, and Visio.\n \n+  > [!TIP]\n+  > In [advanced hunting](/defender-xdr/advanced-hunting-urlclickevents-table), click events on URLs wrapped by Safe Links have the `AppName` value `Mail` in the `UrlClickEvents` table.\n+\n   If you select this setting, the following settings are available:\n \n   - **Let users click through to the original URL**: Controls whether users can click through the [warning page](#warning-pages-from-safe-links) to the original URL when a URL is detected as malicious. The recommend value is not selected (off).\n",
+      "baseCommitSha": "6f0c25eb5f61bd46e2711384db3f9dc2ebc137ae",
+      "commitSha": "fd78e5687234d94a06b688d104113743cd391e54",
+      "commitMessage": "UrlClickEvents updates",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-05-08T16:50:03-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/safe-links-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-about",
+      "firstSeenAt": "2026-05-08T23:50:03.000Z",
+      "eventId": "defender-docs:fd78e5687234d94a06b688d104113743cd391e54:modified:defender-office-365/safe-links-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "UrlClickEvents updates",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/safe-links-policies-configure.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/defender-office-365/safe-links-policies-configure.md b/defender-office-365/safe-links-policies-configure.md\nindex d94e77566..f3d2a4150 100644\n--- a/defender-office-365/safe-links-policies-configure.md\n+++ b/defender-office-365/safe-links-policies-configure.md\n@@ -11,7 +11,7 @@ ms.collection:\n ms.custom:\n description: Admins can learn how to view, create, modify, and delete Safe Links policies in Microsoft Defender for Office 365.\n ms.service: defender-office-365\n-ms.date: 05/09/2025\n+ms.date: 05/08/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n@@ -169,6 +169,9 @@ You configure Safe Links policies in the Microsoft Defender portal or in Exchang\n        - **Let users click through to the original URL**: Clear this option to block users from clicking through to the original URL in [warning pages](safe-links-about.md#warning-pages-from-safe-links).\n        - **Display the organization branding on notification and warning pages**: For more information about customized branding, see [Customize the Microsoft 365 theme for your organization](/microsoft-365/admin/setup/customize-your-organization-theme).\n \n+     > [!TIP]\n+     > In [advanced hunting](/defender-xdr/advanced-hunting-urlclickevents-table), click events on URLs wrapped by Safe Links have the `AppName` value `Mail` in the `UrlClickEvents` table.\n+\n    For detailed information about these settings, see:\n \n    - [Safe Links settings for email messages](safe-links-about.md#safe-links-settings-for-email-messages).\n",
+      "baseCommitSha": "6f0c25eb5f61bd46e2711384db3f9dc2ebc137ae",
+      "commitSha": "fd78e5687234d94a06b688d104113743cd391e54",
+      "commitMessage": "UrlClickEvents updates",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-05-08T16:50:03-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/safe-links-policies-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-policies-configure",
+      "firstSeenAt": "2026-05-08T23:50:03.000Z",
+      "eventId": "defender-docs:fd78e5687234d94a06b688d104113743cd391e54:modified:defender-office-365/safe-links-policies-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "UrlClickEvents updates",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-links-policies-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-urlclickevents-table.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 11,
+      "changes": 26,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-urlclickevents-table.md b/defender-xdr/advanced-hunting-urlclickevents-table.md\nindex 93a33d949..09a7fa9fe 100644\n--- a/defender-xdr/advanced-hunting-urlclickevents-table.md\n+++ b/defender-xdr/advanced-hunting-urlclickevents-table.md\n@@ -6,7 +6,7 @@ ms.subservice: adv-hunting\n ms.author: pauloliveria\n author: poliveria\n ms.localizationpriority: medium\n-ms.collection: \n+ms.collection:\n - m365-security\n - tier3\n ms.custom:\n@@ -16,25 +16,21 @@ appliesto:\n     - Microsoft Defender XDR\n     - Microsoft Sentinel in the Microsoft Defender portal\n ms.topic: reference\n-ms.date: 04/02/2026\n+ms.date: 05/08/2026\n ---\n \n # UrlClickEvents\n \n [!INCLUDE [Microsoft Defender XDR rebranding](../includes/microsoft-defender.md)]\n \n-\n-\n-\n The `UrlClickEvents` table in the advanced hunting schema contains information about [Safe Links](/defender-office-365/safe-links-about) clicks from email messages, Microsoft Teams, and Office 365 apps in supported desktop, mobile, and web apps.\n \n This advanced hunting table is populated by records from Microsoft Defender for Office 365. If your organization hasn’t deployed the service in Microsoft Defender XDR, queries that use the table aren’t going to work or return any results. For more information about how to deploy Defender for Office 365 in Defender XDR, read [Deploy supported services](deploy-supported-services.md).\n \n-\n For information on other tables in the advanced hunting schema, see [the advanced hunting reference](advanced-hunting-schema-tables.md).\n \n | Column name | Data type | Description |\n-|-------------|-----------|-------------|\n+| --- | --- | --- |\n | `Timestamp` | `datetime` | The date and time when the user clicked on the link |\n | `Url` | `string` | The full URL that was clicked on by the user |\n | `ActionType` | `string` | Indicates whether the click was allowed or blocked by Safe Links or blocked due to a tenant policy, for instance, from Tenant Allow Block list|\n@@ -44,14 +40,21 @@ For information on other tables in the advanced hunting schema, see [the advance\n | `ThreatTypes` | `string` | Verdict at the time of click, which tells whether the URL led to malware, phish or other threats|\n | `DetectionMethods` | `string` | Detection technology that was used to identify the threat at the time of click|\n | `IPAddress` | `string` | Public IP address of the device from which the user clicked on the link|\n-| `IsClickedThrough` | `bool` | Indicates whether the user was able to click through to the original URL (1) or not (0) on the Safe Links warning page using \"Continue anyway\" option|\n+| `IsClickedThrough` | `bool` | Indicates whether the user was able to click through to the original URL (1) or not (0) on the Safe Links warning page using \"Continue anyway\" option |\n | `UrlChain` | `string` | For scenarios involving redirections, it includes URLs present in the redirection chain|\n-| `ReportId` | `string` | The unique identifier for a click event. For clickthrough scenarios, report ID would have same value, and therefore it should be used to correlate a click event.|\n+| `ReportId` | `string` | The unique identifier for a click event. For clickthrough scenarios, report ID would have same value, and therefore it should be used to correlate a click event |\n+| `AppName` | `string` | The application's display name as exposed by the associated service principal |\n+| `AppVersion` | `string` | Version of the client application where the click occurred |\n+| `SourceId` | `string` | Unique identifier for the source of the click |\n+| `TenantId` | `string` | The Log Analytics workspace ID |\n+| `Type` | `string` | The name of the table |\n+| `SourceSystem` | `string` | The type of agent the event was collected by. For example, `OpsManager` for Windows agent, either direct connect or Operations Manager, `Linux` for all Linux agents, or `Azure` for Azure Diagnostics |\n+| `TimeGenerated` | `datetime` | The date and time when the user clicked on the link. The value is identical to `Timestamp` and intended for Microsoft Defender for Endpoints queries compatibility |\n \n > [!NOTE]\n-> For clicks originating from email in Drafts and Sent items folders, email metadata is either not available or `NetworkMessageId` is assigned by default. In this case, `UrlClickEvents` can't be joined with `Email*` tables like `EmailEvents`, `EmailPostDeliveryEvents`, and others, using `NetworkMessageId`. \n+> For clicks originating from email in Drafts and Sent items folders, email metadata is either not available or `NetworkMessageId` is assigned by default. In this case, `UrlClickEvents` can't be joined with `Email*` tables like `EmailEvents`, `EmailPostDeliveryEvents`, and others, using `NetworkMessageId`.\n \n-You can try this example query that uses the `UrlClickEvents` table to return a list of links where a user was allowed to proceed: \n+You can try this example query that uses the `UrlClickEvents` table to return a list of links where a user was allowed to proceed:\n \n ```kusto\n // Search for malicious links where user was allowed to proceed through\n@@ -62,6 +65,7 @@ UrlClickEvents\n ```\n \n ## Related articles\n+\n - [Supported Microsoft Defender XDR streaming event types in event streaming API](supported-event-types.md)\n - [Proactively hunt for threats](advanced-hunting-overview.md)\n - [Safe Links in Microsoft Defender for Office 365](/defender-office-365/safe-links-about)\n",
+      "baseCommitSha": "6f0c25eb5f61bd46e2711384db3f9dc2ebc137ae",
+      "commitSha": "fd78e5687234d94a06b688d104113743cd391e54",
+      "commitMessage": "UrlClickEvents updates",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-05-08T16:50:03-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-urlclickevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-urlclickevents-table",
+      "firstSeenAt": "2026-05-08T23:50:03.000Z",
+      "eventId": "defender-docs:fd78e5687234d94a06b688d104113743cd391e54:modified:defender-xdr/advanced-hunting-urlclickevents-table.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "UrlClickEvents updates",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-urlclickevents-table.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 12,
+    "totalFiles": 18,
+    "authors": [
+      "Chris Davis",
+      "Evangeline White",
+      "Paul Inbar",
+      "guywi-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 18 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "Updated Microsoft Defender documentation in sentinel/anomalies-reference.md. Updated Microsoft Defender documentation in sentinel/ueba-reference.md. Updated Microsoft Defender documentation in sentinel/whats-new.md. Updated Microsoft Defender documentation in sentinel/anomalies-reference.md. Updated Microsoft Defender documentation in sentinel/whats-new.md. Updated Microsoft Defender documentation in sentinel/datalake/enable-data-connectors.md.",
+        "sourceFiles": [
+          "sentinel/anomalies-reference.md",
+          "sentinel/ueba-reference.md",
+          "sentinel/whats-new.md",
+          "sentinel/anomalies-reference.md",
+          "sentinel/whats-new.md",
+          "sentinel/datalake/enable-data-connectors.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-antivirus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-antivirus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/linux-support-offline-security-intelligence-update.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-",
+        "sourceFiles": [
+          "defender-endpoint/schedule-antivirus-scans-linux.md",
+          "defender-endpoint/schedule-antivirus-scans-linux.md",
+          "defender-endpoint/linux-support-offline-security-intelligence-update.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/attack-surface-reduction-rules-configure.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md. Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md. Updated Microsoft Defender documentation in defender-office-365/safe-links-policies-configure.md.",
+        "sourceFiles": [
+          "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+          "defender-office-365/safe-links-about.md",
+          "defender-office-365/safe-links-policies-configure.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-urlclickevents-table.md.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-urlclickevents-table.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "Updated Microsoft Defender documentation in sentinel/anomalies-reference.md. Updated Microsoft Defender documentation in sentinel/ueba-reference.md. Updated Microsoft Defender documentation in sentinel/whats-new.md. Updated Microsoft Defender documentation in sentinel/anomalies-reference.md. Updated Microsoft Defender documentation in sentinel/whats-new.md. Updated Microsoft Defender documentation in sentinel/datalake/enable-data-connectors.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/schedule-antivirus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-antivirus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/linux-support-offline-security-intelligence-update.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md. Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md. Updated Microsoft Defender documentation in defender-office-365/safe-links-policies-configure.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-urlclickevents-table.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

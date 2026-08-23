@@ -1,0 +1,165 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud-apps/protect-asana.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/protect-asana.md b/defender-for-cloud-apps/protect-asana.md\nindex f0b98937c..0900052e3 100644\n--- a/defender-for-cloud-apps/protect-asana.md\n+++ b/defender-for-cloud-apps/protect-asana.md\n@@ -49,7 +49,7 @@ This section describes how to connect Microsoft Defender for Cloud Apps to your\n \n ### To connect Asana:\n \n-1. Sign into [Asana](https://app.asana.com/) portal with an admin account.\n+1. Sign in to [Asana](https://app.asana.com/) with an admin account.\n 1. Copy the service account Token. You might have to **Reset and generate new token** to copy the token if you have an existing service account. \n \n 1. Copy the workspace ID from the URL and save it for future reference.\n",
+      "baseCommitSha": "9bda2346bbd401f456a9709d0bff0df1f5149b15",
+      "commitSha": "46837201208875a7174cac5fd0093c6d8ea6d0af",
+      "commitMessage": "fix step 1",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-01-04T11:49:04+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/protect-asana.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-asana",
+      "firstSeenAt": "2026-01-04T09:49:04.000Z",
+      "eventId": "defender-docs:46837201208875a7174cac5fd0093c6d8ea6d0af:modified:defender-for-cloud-apps/protect-asana.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix step 1",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/caac-known-issues.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/caac-known-issues.md b/defender-for-cloud-apps/caac-known-issues.md\nindex f9d6f1d2c..925e02170 100644\n--- a/defender-for-cloud-apps/caac-known-issues.md\n+++ b/defender-for-cloud-apps/caac-known-issues.md\n@@ -105,6 +105,8 @@ The following table lists example results when you define the **Block upload of\n \n The following limitations apply only on sessions that are served with Edge in-browser protection.\n \n+### Google Workspace is not supported with in-browser protection in the Enterprise Edge browser\n+Google Workspace is not supported with in-browser protection in the Enterprise Edge browser. As a result, realtime DLP file scans in Google Workspaces are not supported. As a result, the fallback authentication of suffixes are used instead of secure edge for Google Workspace in browser sessions in Enterprise Edge. \n \n ### Deep link is lost when user switches to Edge by clicking 'Continue in Edge'  \n \n",
+      "baseCommitSha": "0f606cac78a81cbf4a3341a91bce0a51540e896f",
+      "commitSha": "0034d37a9a72d8d0573c179e3fe5537eaa016237",
+      "commitMessage": "Document Google Workspace limitation for Edge protection",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-01-04T19:32:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/caac-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/caac-known-issues",
+      "firstSeenAt": "2026-01-04T17:32:44.000Z",
+      "eventId": "defender-docs:0034d37a9a72d8d0573c179e3fe5537eaa016237:modified:defender-for-cloud-apps/caac-known-issues.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Document Google Workspace limitation for Edge protection",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/caac-known-issues.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/caac-known-issues.md b/defender-for-cloud-apps/caac-known-issues.md\nindex 925e02170..bf54b6b35 100644\n--- a/defender-for-cloud-apps/caac-known-issues.md\n+++ b/defender-for-cloud-apps/caac-known-issues.md\n@@ -105,7 +105,7 @@ The following table lists example results when you define the **Block upload of\n \n The following limitations apply only on sessions that are served with Edge in-browser protection.\n \n-### Google Workspace is not supported with in-browser protection in the Enterprise Edge browser\n+### Secure Edge Session Controls cannot be used with Google Workspace in Enterprise Edge browsers\n Google Workspace is not supported with in-browser protection in the Enterprise Edge browser. As a result, realtime DLP file scans in Google Workspaces are not supported. As a result, the fallback authentication of suffixes are used instead of secure edge for Google Workspace in browser sessions in Enterprise Edge. \n \n ### Deep link is lost when user switches to Edge by clicking 'Continue in Edge'  \n",
+      "baseCommitSha": "0034d37a9a72d8d0573c179e3fe5537eaa016237",
+      "commitSha": "78ca4f95a0f878406c1a223d9e7d3dec9798d55e",
+      "commitMessage": "Update defender-for-cloud-apps/caac-known-issues.md",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-01-04T19:56:03+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/caac-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/caac-known-issues",
+      "firstSeenAt": "2026-01-04T17:56:03.000Z",
+      "eventId": "defender-docs:78ca4f95a0f878406c1a223d9e7d3dec9798d55e:modified:defender-for-cloud-apps/caac-known-issues.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-for-cloud-apps/caac-known-issues.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/caac-known-issues.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/caac-known-issues.md b/defender-for-cloud-apps/caac-known-issues.md\nindex bf54b6b35..38d8cbb6a 100644\n--- a/defender-for-cloud-apps/caac-known-issues.md\n+++ b/defender-for-cloud-apps/caac-known-issues.md\n@@ -106,7 +106,7 @@ The following table lists example results when you define the **Block upload of\n The following limitations apply only on sessions that are served with Edge in-browser protection.\n \n ### Secure Edge Session Controls cannot be used with Google Workspace in Enterprise Edge browsers\n-Google Workspace is not supported with in-browser protection in the Enterprise Edge browser. As a result, realtime DLP file scans in Google Workspaces are not supported. As a result, the fallback authentication of suffixes are used instead of secure edge for Google Workspace in browser sessions in Enterprise Edge. \n+Google Workspace is not supported with in-browser protection in the Enterprise Edge browser. As a result, Secure Edge Session controls in Google Workspaces are not supported. As a result, in Google Workspaces, real time DLP files scans are not supported, and the fallback authentication of suffixes is used, and upload, download, and file cut and copy are not supported.\n \n ### Deep link is lost when user switches to Edge by clicking 'Continue in Edge'  \n \n",
+      "baseCommitSha": "78ca4f95a0f878406c1a223d9e7d3dec9798d55e",
+      "commitSha": "583ff1d02946babc5e87e52bed65278c9c00ae02",
+      "commitMessage": "Update defender-for-cloud-apps/caac-known-issues.md",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-01-04T20:00:36+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/caac-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/caac-known-issues",
+      "firstSeenAt": "2026-01-04T18:00:36.000Z",
+      "eventId": "defender-docs:583ff1d02946babc5e87e52bed65278c9c00ae02:modified:defender-for-cloud-apps/caac-known-issues.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-for-cloud-apps/caac-known-issues.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/caac-known-issues.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/caac-known-issues.md b/defender-for-cloud-apps/caac-known-issues.md\nindex 38d8cbb6a..50c01bf38 100644\n--- a/defender-for-cloud-apps/caac-known-issues.md\n+++ b/defender-for-cloud-apps/caac-known-issues.md\n@@ -106,7 +106,7 @@ The following table lists example results when you define the **Block upload of\n The following limitations apply only on sessions that are served with Edge in-browser protection.\n \n ### Secure Edge Session Controls cannot be used with Google Workspace in Enterprise Edge browsers\n-Google Workspace is not supported with in-browser protection in the Enterprise Edge browser. As a result, Secure Edge Session controls in Google Workspaces are not supported. As a result, in Google Workspaces, real time DLP files scans are not supported, and the fallback authentication of suffixes is used, and upload, download, and file cut and copy are not supported.\n+Google Workspace is not supported with in-browser protection in the Enterprise Edge browser. As a result, Secure Edge Session controls in Google Workspaces are not supported. In Google Workspaces, real time DLP files scans are not supported, the fallback authentication of suffixes is used, and file upload, download, cut and copy are not supported.\n \n ### Deep link is lost when user switches to Edge by clicking 'Continue in Edge'  \n \n",
+      "baseCommitSha": "583ff1d02946babc5e87e52bed65278c9c00ae02",
+      "commitSha": "ba06beea647b43d8eed8da7e4190efa9dbc5df92",
+      "commitMessage": "Update defender-for-cloud-apps/caac-known-issues.md",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-01-04T20:03:20+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/caac-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/caac-known-issues",
+      "firstSeenAt": "2026-01-04T18:03:20.000Z",
+      "eventId": "defender-docs:ba06beea647b43d8eed8da7e4190efa9dbc5df92:modified:defender-for-cloud-apps/caac-known-issues.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-for-cloud-apps/caac-known-issues.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 5,
+    "totalFiles": 5,
+    "authors": [
+      "AbbyMSFT",
+      "Devorah Cohen"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/protect-asana.md",
+          "defender-for-cloud-apps/caac-known-issues.md",
+          "defender-for-cloud-apps/caac-known-issues.md",
+          "defender-for-cloud-apps/caac-known-issues.md",
+          "defender-for-cloud-apps/caac-known-issues.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,582 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "added",
+      "additions": 84,
+      "deletions": 0,
+      "changes": 84,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nnew file mode 100644\nindex 000000000..e5ea2180e\n--- /dev/null\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -0,0 +1,84 @@\n+---\n+title: Privacy in Microsoft Defender for Agent 365\n+description: Learn how Microsoft Defender's AI security capabilities collect, store, and use customer data when delivered through Microsoft Agent 365.\n+ms.service: defender-xdr\n+ms.subservice: security-for-ai\n+ms.topic: concept-article\n+ms.date: 04/15/2026\n+author: guywi-ms\n+ms.author: guywild\n+ms.reviewer: shimie\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1012\n+#customer intent: As a security or compliance admin, I want to understand how Microsoft Defender handles customer data in Agent 365 so that I can validate it against my organization's privacy requirements.\n+---\n+\n+# Privacy in Microsoft Defender for Agent 365\n+\n+Microsoft Defender provides a set of AI agent security capabilities in [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365) - including agent discovery, posture assessment, threat detection, and real-time protection - to help protect agents from threats such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see the [Microsoft Defender for AI overview](./defender-security-for-ai.md).\n+\n+This article describes how Microsoft Defender collects, stores, and uses data as part of its AI agent security capabilities.\n+\n+For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n+\n+## Data collected\n+\n+Defender for Agent 365 collects:\n+\n+- **Observability trace payloads** submitted by agents during execution. Payloads might include session inputs and outputs, depending on how the developer instruments the agent.\n+- **Agent configuration attributes** from the Agent 365 registry and, for local agents on devices, from Microsoft Defender for Endpoint. Examples: agent name, type, version, configured tools, connected models, and published locations.\n+- **User identifiers**, such as Microsoft Entra user IDs, associated with agent sessions.\n+- **Pseudonymized identifiers** derived from user data, used for analytics and trend detection.\n+- **Tenant, subscription, and agent identifiers** used to route data to the correct organization.\n+\n+To stop Defender from collecting this data, an administrator can disable these capabilities from the [Defender settings page](https://security.microsoft.com). Disabling them doesn't affect other Agent 365 services.\n+\n+## Data storage location\n+\n+Defender for Agent 365 operates in the following Azure regions:\n+\n+| Tenant location | Data storage location |\n+|---|---|\n+| European Union or United Kingdom | European Union |\n+| All other regions | United States |\n+\n+<!-- TODO (Lital/Shimi): Reconcile with published Defender XDR residency (EU, UK, US, Australia, Switzerland, India, UAE). Also confirm DP9: should we state that customer content is processed in the region closest to the secured agent (relevant for webhook scenarios)? -->\n+\n+A tenant's storage location can't be changed after creation.\n+\n+## Data retention\n+\n+<!-- TODO (Shimi/Dotan): Reconcile retention numbers with published Defender XDR (https://learn.microsoft.com/defender-xdr/data-privacy), which uses 180 days as the default and 30 days as the Advanced Hunting query window. -->\n+\n+Customer data is retained for up to 30 days and is visible in the Microsoft Defender portal during that period. Agent inventory and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy) are retained for up to 180 days.\n+\n+After contract termination or expiration, Microsoft deletes customer data within 30 days.\n+\n+## Data use\n+\n+Microsoft handles customer data per the [Microsoft Products and Services Data Protection Addendum](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) and the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/). Microsoft doesn't use customer data to train generative AI foundation models unless instructed by the customer.\n+\n+See the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement) for more information.\n+\n+## Data sharing within Microsoft\n+\n+Defender for Agent 365 can share data, including customer data, with other Microsoft products the customer has licensed. These might include:\n+\n+- Microsoft Defender XDR\n+- Microsoft Defender for Endpoint\n+- Microsoft Security Exposure Management\n+- Microsoft Entra ID Protection\n+\n+<!-- TODO (Shimi/Maya): Confirm whether to add Microsoft Security Graph (CloudMap / Exposure Knowledge Graph) per MS33. Per F37, this list is intentionally non-exhaustive. -->\n+\n+### Government Community Cloud (GCC)\n+\n+For GCC customers, data sharing between government and commercial cloud environments might occur, depending on the location of the service offering.\n+\n+## Related content\n+\n+- [Microsoft Defender for AI overview](./defender-security-for-ai.md)\n+- [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance)\n+- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)\n+- [Microsoft Security for AI](/security/security-for-ai/)\n+- [Microsoft compliance offerings](/compliance/regulatory/offering-home)\n",
+      "baseCommitSha": "a66224477e3febe7ca18789faee16b0e1d850451",
+      "commitSha": "bf90630e12ce35e8cb8bb8601721e44e09e62110",
+      "commitMessage": "updates",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T22:02:07+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T19:02:07.000Z",
+      "eventId": "defender-docs:bf90630e12ce35e8cb8bb8601721e44e09e62110:added:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "updates",
+        "summary": "Added Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/network-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/network-devices.md b/defender-endpoint/network-devices.md\nindex f7eca7663..84fc1fa53 100644\n--- a/defender-endpoint/network-devices.md\n+++ b/defender-endpoint/network-devices.md\n@@ -63,6 +63,7 @@ To select a device that performs the authenticated network scans:\n - To allow the scanner to be authenticated and work properly, add the following domains/URLs:\n \n     - `*.security.microsoft.com`\n+    - `*.mdiot.microsoft.com`\n     - `login.microsoftonline.com`\n     - `*.blob.core.windows.net/networkscannerstable/*`\n \n",
+      "baseCommitSha": "0b22883297b4910e67bf3f561142494fb3f10d99",
+      "commitSha": "d47e05f531083f3c2491960c27f39ae8066ad16d",
+      "commitMessage": "Network scans - adding URL",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-03T14:37:03+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/network-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/network-devices",
+      "firstSeenAt": "2026-05-03T11:37:03.000Z",
+      "eventId": "defender-docs:d47e05f531083f3c2491960c27f39ae8066ad16d:modified:defender-endpoint/network-devices.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Network scans - adding URL",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot-azure/organizations/release-notes.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 1,
+      "changes": 21,
+      "patch": "diff --git a/defender-for-iot-azure/organizations/release-notes.md b/defender-for-iot-azure/organizations/release-notes.md\nindex 2cfcf5678..e54b71a69 100644\n--- a/defender-for-iot-azure/organizations/release-notes.md\n+++ b/defender-for-iot-azure/organizations/release-notes.md\n@@ -2,7 +2,8 @@\n title: OT monitoring software versions - Microsoft Defender for IoT\n description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.\n ms.topic: release-notes\n-ms.date: 04/06/2025\n+ms.date: 05/03/2026\n+ai-usage: ai-assisted\n ---\n \n # OT monitoring software versions\n@@ -37,6 +38,8 @@ Cloud features may be dependent on a specific sensor version. Such features are\n \n | Version / Patch |  Release date | Scope     | Supported until |\n | ------- |  ------------ | ----------- | ------------------- |\n+| **26.1** | | | |\n+| 26.1.10 | 04/2026 | Minor |04/2027 |\n | **25.2** | | | |\n | 25.2.2 | 02/2026 | Minor |01/2027 |\n | 25.2.1 | 12/2025 | Minor |11/2026 |\n@@ -85,6 +88,22 @@ Version numbers are listed only in this article and in the [What's new in Micros\n \n To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.\n \n+## Versions 26.1.x\n+\n+### Version 26.1.10\n+\n+**Release date**: 04/23/2026\n+\n+**Supported until**: 04/2027\n+\n+**Scope**: Minor\n+\n+This version includes the following updates:\n+\n+- CVE updates\n+- OT sensor operating system upgrade to Debian 12\n+- For monthly release highlights, see [What's new in Microsoft Defender for IoT](/defender-for-iot/organizations/whats-new).\n+\n ## Versions 25.2.x\n \n ### Version 25.2.2\n",
+      "baseCommitSha": "a47101cfd900f8e0c92ed569f5da1e62ce580444",
+      "commitSha": "a44998734b6743543028d3162aa42af17d3c44f6",
+      "commitMessage": "Defender for IoT - version 26.1.10",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-03T14:59:47+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot-azure/organizations/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/release-notes",
+      "firstSeenAt": "2026-05-03T11:59:47.000Z",
+      "eventId": "defender-docs:a44998734b6743543028d3162aa42af17d3c44f6:modified:defender-for-iot-azure/organizations/release-notes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for IoT - version 26.1.10",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot-azure/organizations/whats-new.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 1,
+      "changes": 9,
+      "patch": "diff --git a/defender-for-iot-azure/organizations/whats-new.md b/defender-for-iot-azure/organizations/whats-new.md\nindex d0adf0062..75f0c84e5 100644\n--- a/defender-for-iot-azure/organizations/whats-new.md\n+++ b/defender-for-iot-azure/organizations/whats-new.md\n@@ -2,7 +2,8 @@\n title: What's new in Microsoft Defender for IoT\n description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.\n ms.topic: whats-new\n-ms.date: 09/21/2025\n+ms.date: 05/03/2026\n+ai-usage: ai-assisted\n ms.custom:\n   - enterprise-iot\n   - sfi-image-nochange\n@@ -20,6 +21,12 @@ Features released earlier than nine months ago are described in the [What's new\n \n [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]\n \n+## April 2026\n+\n+|Service area  |Updates  |\n+|---------|---------|\n+| **OT networks** | Sensor version 26.1.10 is now available. This release includes CVE updates and an OT sensor operating system upgrade to Debian 12. See [release details and updates](release-notes.md#version-26110). |\n+\n ## February 2026\n \n |Service area  |Updates  |\n",
+      "baseCommitSha": "a47101cfd900f8e0c92ed569f5da1e62ce580444",
+      "commitSha": "a44998734b6743543028d3162aa42af17d3c44f6",
+      "commitMessage": "Defender for IoT - version 26.1.10",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-03T14:59:47+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot-azure/organizations/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/whats-new",
+      "firstSeenAt": "2026-05-03T11:59:47.000Z",
+      "eventId": "defender-docs:a44998734b6743543028d3162aa42af17d3c44f6:modified:defender-for-iot-azure/organizations/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for IoT - version 26.1.10",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot-azure/organizations/release-notes.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot-azure/organizations/release-notes.md b/defender-for-iot-azure/organizations/release-notes.md\nindex e54b71a69..c03a5b28a 100644\n--- a/defender-for-iot-azure/organizations/release-notes.md\n+++ b/defender-for-iot-azure/organizations/release-notes.md\n@@ -102,7 +102,7 @@ This version includes the following updates:\n \n - CVE updates\n - OT sensor operating system upgrade to Debian 12\n-- For monthly release highlights, see [What's new in Microsoft Defender for IoT](/defender-for-iot/organizations/whats-new).\n+- For monthly release highlights, see [What's new in Microsoft Defender for IoT](whats-new.md).\n \n ## Versions 25.2.x\n \n",
+      "baseCommitSha": "a44998734b6743543028d3162aa42af17d3c44f6",
+      "commitSha": "02f8c4e045e2529242715b63ca84b9636d876fe9",
+      "commitMessage": "Link",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-03T15:09:57+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot-azure/organizations/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/release-notes",
+      "firstSeenAt": "2026-05-03T12:09:57.000Z",
+      "eventId": "defender-docs:02f8c4e045e2529242715b63ca84b9636d876fe9:modified:defender-for-iot-azure/organizations/release-notes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot-azure/organizations/release-notes.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 6,
+      "changes": 11,
+      "patch": "diff --git a/defender-for-iot-azure/organizations/release-notes.md b/defender-for-iot-azure/organizations/release-notes.md\nindex c03a5b28a..defc1c1f9 100644\n--- a/defender-for-iot-azure/organizations/release-notes.md\n+++ b/defender-for-iot-azure/organizations/release-notes.md\n@@ -39,7 +39,7 @@ Cloud features may be dependent on a specific sensor version. Such features are\n | Version / Patch |  Release date | Scope     | Supported until |\n | ------- |  ------------ | ----------- | ------------------- |\n | **26.1** | | | |\n-| 26.1.10 | 04/2026 | Minor |04/2027 |\n+| 26.1.0 | 04/2026 | Major |03/2027 |\n | **25.2** | | | |\n | 25.2.2 | 02/2026 | Minor |01/2027 |\n | 25.2.1 | 12/2025 | Minor |11/2026 |\n@@ -90,19 +90,18 @@ To understand whether a feature is supported in your sensor version, check the r\n \n ## Versions 26.1.x\n \n-### Version 26.1.10\n+### Version 26.1.0\n \n-**Release date**: 04/23/2026\n+**Release date**: 04/2026\n \n-**Supported until**: 04/2027\n+**Supported until**: 03/2027\n \n-**Scope**: Minor\n+**Scope**: Major\n \n This version includes the following updates:\n \n - CVE updates\n - OT sensor operating system upgrade to Debian 12\n-- For monthly release highlights, see [What's new in Microsoft Defender for IoT](whats-new.md).\n \n ## Versions 25.2.x\n \n",
+      "baseCommitSha": "02f8c4e045e2529242715b63ca84b9636d876fe9",
+      "commitSha": "0a224a0f2526e8cff1d851486cd5234fc6b2a005",
+      "commitMessage": "Fixing version",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-03T15:16:56+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot-azure/organizations/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/release-notes",
+      "firstSeenAt": "2026-05-03T12:16:56.000Z",
+      "eventId": "defender-docs:0a224a0f2526e8cff1d851486cd5234fc6b2a005:modified:defender-for-iot-azure/organizations/release-notes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing version",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot-azure/organizations/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot-azure/organizations/whats-new.md b/defender-for-iot-azure/organizations/whats-new.md\nindex 75f0c84e5..11bafe9bb 100644\n--- a/defender-for-iot-azure/organizations/whats-new.md\n+++ b/defender-for-iot-azure/organizations/whats-new.md\n@@ -25,7 +25,7 @@ Features released earlier than nine months ago are described in the [What's new\n \n |Service area  |Updates  |\n |---------|---------|\n-| **OT networks** | Sensor version 26.1.10 is now available. This release includes CVE updates and an OT sensor operating system upgrade to Debian 12. See [release details and updates](release-notes.md#version-26110). |\n+| **OT networks** | Sensor version 26.1.0 is now available. This release includes CVE updates and an OT sensor operating system upgrade to Debian 12. See [release details and updates](release-notes.md#version-2610). |\n \n ## February 2026\n \n",
+      "baseCommitSha": "02f8c4e045e2529242715b63ca84b9636d876fe9",
+      "commitSha": "0a224a0f2526e8cff1d851486cd5234fc6b2a005",
+      "commitMessage": "Fixing version",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-03T15:16:56+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot-azure/organizations/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/whats-new",
+      "firstSeenAt": "2026-05-03T12:16:56.000Z",
+      "eventId": "defender-docs:0a224a0f2526e8cff1d851486cd5234fc6b2a005:modified:defender-for-iot-azure/organizations/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing version",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/mitre-coverage.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 15,
+      "changes": 31,
+      "patch": "diff --git a/sentinel/mitre-coverage.md b/sentinel/mitre-coverage.md\nindex e93dc7b85..ba53e0db9 100644\n--- a/sentinel/mitre-coverage.md\n+++ b/sentinel/mitre-coverage.md\n@@ -1,6 +1,6 @@\n ---\n-title: View MITRE coverage for your organization from Microsoft Sentinel | Microsoft Docs\n-description: Learn how to view coverage indicator in Microsoft Sentinel for MITRE tactics that are currently covered, and available to configure, for your organization.\n+title: View MITRE ATT&CK coverage in Microsoft Sentinel\n+description: View your organization's MITRE ATT&CK coverage in Microsoft Sentinel. Identify active detections and available rules to strengthen security.\n author: mberdugo \n ms.topic: how-to\n ms.date: 06/16/2025\n@@ -8,26 +8,26 @@ ms.author: monaberdugo\n appliesto:\n     - Microsoft Sentinel in the Microsoft Defender portal\n     - Microsoft Sentinel in the Azure portal\n-ms.custom: sfi-image-nochange\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1012\n \n #Customer intent: As a security analyst, I want to use the MITRE ATT&CK framework in Microsoft Sentinel so that I can assess and enhance my organization's threat detection and response capabilities.\n \n ---\n \n-# Understand security coverage by the MITRE ATT&CK® framework\n+# View MITRE ATT&CK framework coverage in Microsoft Sentinel\n \n-[MITRE ATT&CK](https://attack.mitre.org/#) is a publicly accessible knowledge base of tactics and techniques that are commonly used by attackers, and is created and maintained by observing real-world observations. Many organizations use the MITRE ATT&CK knowledge base to develop specific threat models and methodologies that are used to verify security status in their environments.\n+[MITRE ATT&CK](https://attack.mitre.org/#) is a publicly accessible knowledge base of tactics and techniques commonly used by attackers. It's created and maintained based on real-world observations. Many organizations use the MITRE ATT&CK knowledge base to develop specific threat models and methodologies to verify security status in their environments.\n \n Microsoft Sentinel analyzes ingested data, not only to [detect threats](detect-threats-built-in.md) and help you [investigate](investigate-cases.md), but also to visualize the nature and coverage of your organization's security status.\n \n-This article describes how to use the **MITRE** page in Microsoft Sentinel to view the analytics rules (detections) already active in your workspace, and the detections available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework.\n+This article describes how to use the **MITRE** page in Microsoft Sentinel to view the analytics rules (detections) already active in your workspace and the detections available for you to configure. Use this page to understand your organization's security coverage based on the tactics and techniques from the MITRE ATT&CK framework.\n \n > [!IMPORTANT]\n > The MITRE page in Microsoft Sentinel is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.\n \n ## Prerequisites\n \n-Before you can view the MITRE coverage for your organization in Microsoft Sentinel, ensure you have the following prerequisites:\n+Before you view the MITRE coverage for your organization in Microsoft Sentinel, ensure you have the following prerequisites:\n \n - An active Microsoft Sentinel instance.\n - Necessary permissions to view content in Microsoft Sentinel. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).\n@@ -43,6 +43,8 @@ Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 1\n \n By default, both currently active scheduled query and near real-time (NRT) rules are indicated in the coverage matrix.\n \n+To view the current MITRE coverage for your organization:\n+\n 1. Do one of the following, depending on the portal you're using:\n \n     ### [Defender portal](#tab/defender-portal)\n@@ -59,13 +61,13 @@ By default, both currently active scheduled query and near real-time (NRT) rules\n \n     In the Azure portal, under **Threat management**, select **MITRE ATT&CK (Preview)**.\n \n-    :::image type=\"content\" source=\"media/mitre-coverage/mitre-coverage.png\" alt-text=\"Screenshot of the MITRE coverage page.\" lightbox=\"media/mitre-coverage/mitre-coverage.png\":::\n+    :::image type=\"content\" source=\"media/mitre-coverage/mitre-coverage.png\" alt-text=\"Screenshot of the MITRE ATT&CK coverage matrix in the Azure portal showing technique coverage levels.\" lightbox=\"media/mitre-coverage/mitre-coverage.png\":::\n \n     ---\n \n 1. Use any of the following methods:\n \n-    - **Use the legend** to understand how many detections are currently active in your workspace for specific technique.\n+    - **Use the legend** to understand how many detections are currently active in your workspace for a specific technique.\n \n     - **Use the search bar** to search for a specific technique in the matrix, using the technique name or ID, to view your organization's security status for the selected technique.\n \n@@ -79,18 +81,17 @@ By default, both currently active scheduled query and near real-time (NRT) rules\n \n     On the Defender portal, the details pane also shows recommended coverage details, including the ratio of active detections and security services (products) out of all recommended detections and services for the selected technique.\n \n-\n ## Simulate possible coverage with available detections\n \n-In the MITRE coverage matrix, *simulated* coverage refers to detections that are available, but not currently configured in your Microsoft Sentinel workspace. View your simulated coverage to understand your organization's possible security status, were you to configure all detections available to you.\n+In the MITRE coverage matrix, *simulated* coverage refers to detections that are available but not currently configured in your Microsoft Sentinel workspace. View your simulated coverage to understand your organization's possible security status if you configured all available detections.\n \n-1. In Microsoft Sentinel, under **Threat management**, select **MITRE ATTA&CK (Preview)**, and then select items in the **Simulated rules** menu to simulate your organization's possible security status.\n+1. In Microsoft Sentinel, under **Threat management**, select **MITRE ATT&CK (Preview)**, and then select items in the **Simulated rules** menu to simulate your organization's possible security status.\n \n-1. From there, use the page's elements as you would otherwise to view the simulated coverage for a specific technique.\n+1. Use the coverage matrix elements as you would otherwise to view the simulated coverage for a specific technique.\n \n ## Use the MITRE ATT&CK framework in analytics rules and incidents\n \n-Having a scheduled rule with MITRE techniques applied running regularly in your Microsoft Sentinel workspace enhances the security status shown for your organization in the MITRE coverage matrix.\n+Scheduled rules with MITRE techniques applied that run regularly in your Microsoft Sentinel workspace improve your organization's security status in the MITRE coverage matrix.\n \n - **Analytics rules**:\n \n@@ -108,7 +109,7 @@ Having a scheduled rule with MITRE techniques applied running regularly in your\n - **Threat hunting**:\n \n     - When you're creating a new hunting query, select the specific tactics and techniques to apply to your query.\n-    - When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details in the details pane on the side\n+    - When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details in the details pane on the side.\n     - When you're creating bookmarks, either use the technique mapping inherited from the hunting query, or create your own mapping.\n \n     For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md) and [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).\n",
+      "baseCommitSha": "0b22883297b4910e67bf3f561142494fb3f10d99",
+      "commitSha": "f9dc6a404cd9fe97f9d53809f8852374cb562a50",
+      "commitMessage": "Copy-edit mitre-coverage.md: fix SEO, typos, and readability",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-05-03T15:51:10+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/mitre-coverage.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/mitre-coverage",
+      "firstSeenAt": "2026-05-03T12:51:10.000Z",
+      "eventId": "defender-docs:f9dc6a404cd9fe97f9d53809f8852374cb562a50:modified:sentinel/mitre-coverage.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Copy-edit mitre-coverage.md: fix SEO, typos, and readability",
+        "summary": "Updated Microsoft Defender documentation in sentinel/mitre-coverage.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/health-alerts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/health-alerts.md b/defender-for-identity/health-alerts.md\nindex 2eefe7daa..467870397 100644\n--- a/defender-for-identity/health-alerts.md\n+++ b/defender-for-identity/health-alerts.md\n@@ -66,7 +66,7 @@ Sensor-specific health issues are displayed in the **Sensor health issues** tab\n |**All/Some of the selected capture network adapters on the Defender for Identity sensor are disabled or disconnected**|Network traffic for some/all of the domain controllers is no longer captured by the Defender for Identity sensor. This issue affects the ability to detect suspicious activities, related to those domain controllers.|Make sure these selected capture network adapters on the Defender for Identity sensor are enabled and connected.|Medium|Sensors health issues tab|2.x|\n |**Directory services user credentials are incorrect**|The credentials for the directory services user account are incorrect. This issue affects sensors' ability to detect activities using LDAP queries against domain controllers.|- For a **standard** AD accounts: Verify that the username, password, and domain in the **Directory services** configuration page are correct.<br>- For **group Managed Service Accounts:** Verify that the username and domain in the **Directory Services** configuration page are correct. Also check all the other **gMSA account** prerequisites described on the [Directory Service account recommendations](directory-service-accounts.md) page.|Medium|Global health issues tab|2.x|\n |**Low success rate of active name resolution**|The listed Defender for Identity sensors are failing to resolve IP addresses to device names more than 90% of the time using the following methods:<br />- NTLM over RPC<br />- NetBIOS<br />- Reverse DNS. This issue affects Defender for Identity's detections capabilities and might increase the number of false positive alarms.|- For NTLM over RPC: Check that port 135 is open for inbound communication from Defender for Identity sensors on all computers in the environment.<br />- For reverse DNS: Check that the sensors can reach the DNS server and that Reverse Lookup Zones are enabled.<br />- For NetBIOS: Check that port 137 is open for inbound communication from Defender for Identity sensors on all computers in the environment.<br />Additionally, make sure that the network configuration (such as firewalls) isn't preventing communication to the relevant ports.|Low|Sensors health issues tab and Global health issues tab|2.x|\n-|**No traffic received from domain controller**|No traffic was received from the domain controller via this Defender for Identity sensor. This issue might indicate that port mirroring from the domain controllers to the Defender for Identity sensor isn't configured yet or not working.|Verify that [port mirroring is configured properly on your network devices](deploy/configure-port-mirroring.md).<br></br>On the Defender for Identity sensor capture NIC, disable these features in Advanced Settings:<br></br>Receive Segment Coalescing (IPv4)<br></br>Receive Segment Coalescing (IPv6)|Medium|Sensors health issues tab and Global health issues tab|2.x|\n+|**No traffic received from domain controller**|No traffic was received from any domain controller via this Defender for Identity sensor. This issue might indicate that port mirroring from the domain controllers to the Defender for Identity sensor isn't configured yet or not working.|Verify that [port mirroring is configured properly on your network devices](deploy/configure-port-mirroring.md).<br></br>On the Defender for Identity sensor capture NIC, disable these features in Advanced Settings:<br></br>Receive Segment Coalescing (IPv4)<br></br>Receive Segment Coalescing (IPv6)|Medium|Sensors health issues tab and Global health issues tab|2.x|\n |**Read-only user password to expire shortly**|The read-only user password, used to perform resolution of entities against Active Directory, is about to expire in less than 30 days. If the password for this user expires, all Defender for Identity sensors stop running and no new data is collected.|Change the domain connectivity password and then [update the Directory Service account](directory-service-accounts.md) password.|Medium|Global health issues tab|2.x|\n |**Read-only user password expired**|The read-only user password, used to get directory data, expired. All Defender for Identity sensors stop running, or will stop running soon, and no new data is collected.|Change the domain connectivity password and then [update the Directory Service account](directory-service-accounts.md) password.|High|Global health issues tab|2.x|\n |**Sensor outdated**|A Defender for Identity sensor is running a version that can't communicate with the Defender for Identity cloud infrastructure.|Manually update the sensor and check to see why the sensor isn't automatically updating. If this option doesn't work, download the latest sensor installation package and uninstall and reinstall the sensor. For more information, see [Download the Microsoft Defender for Identity sensor](download-sensor.md) and [Install the Microsoft Defender for Identity sensor](install-sensor.md).|Medium|Sensors health issues tab and Global health issues tab|All|\n",
+      "baseCommitSha": "a47101cfd900f8e0c92ed569f5da1e62ce580444",
+      "commitSha": "6023ed409b1ababf56dc0744a4951a7b36097f94",
+      "commitMessage": "Update health-alerts.md",
+      "commitAuthor": "rlitinsky",
+      "commitDate": "2026-05-03T16:40:47+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/health-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/health-alerts",
+      "firstSeenAt": "2026-05-03T13:40:47.000Z",
+      "eventId": "defender-docs:6023ed409b1ababf56dc0744a4951a7b36097f94:modified:defender-for-identity/health-alerts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update health-alerts.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/health-alerts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot-azure/organizations/connect-sensors.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot-azure/organizations/connect-sensors.md b/defender-for-iot-azure/organizations/connect-sensors.md\nindex 670200f97..113c5ac56 100644\n--- a/defender-for-iot-azure/organizations/connect-sensors.md\n+++ b/defender-for-iot-azure/organizations/connect-sensors.md\n@@ -184,7 +184,7 @@ For more information, see [What are virtual machine scale sets?](/azure/virtual-\n \n     - **Orchestration Mode**: Uniform\n     - **Security Type**: standard\n-    - **Image**: Ubuntu server 18.04 LTS – Gen1\n+    - **Image**: Ubuntu Server LTS (24.04 or later)\n     - **Size**: Standard_DS1_V2\n     - **Authentication**: Based on your corporate standard\n \n",
+      "baseCommitSha": "a47101cfd900f8e0c92ed569f5da1e62ce580444",
+      "commitSha": "8652085e2b3b7eba42b8549b31af56fb3aeb701e",
+      "commitMessage": "- **Image**: Ubuntu Server LTS (24.04 or later)",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-05-03T17:03:34+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot-azure/organizations/connect-sensors.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/connect-sensors",
+      "firstSeenAt": "2026-05-03T14:03:34.000Z",
+      "eventId": "defender-docs:8652085e2b3b7eba42b8549b31af56fb3aeb701e:modified:defender-for-iot-azure/organizations/connect-sensors.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "- **Image**: Ubuntu Server LTS (24.04 or later)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/connect-sensors.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/restrict-response-actions-high-value-assets.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/restrict-response-actions-high-value-assets.md b/defender-endpoint/restrict-response-actions-high-value-assets.md\nindex 0c425db19..ea1402c87 100644\n--- a/defender-endpoint/restrict-response-actions-high-value-assets.md\n+++ b/defender-endpoint/restrict-response-actions-high-value-assets.md\n@@ -32,7 +32,7 @@ The Selective Response Actions capability addresses these needs by providing a m\n \n First, the feature must be enabled on the tenant. See [Enable selective response actions](#enabling-the-selective-response-actions-feature).\n \n-Once the feature is enabled, you use the [Defender deployment tool (DDT)](defender-deployment-tool-windows.md) to create an onboarding package with restricted security operations settings. When you're configuring the package, you choose between full functionality (the default onboarding mode, where all response actions are allowed on the onboarded device) and restricted functionality (where high-impact response actions can be disallowed). If you choose restricted functionality, you can then specify which actions are allowed on the device once it's onboarded.\n+Once the feature is enabled, you use the [Defender deployment tool (DDT)](defender-deployment-tool-windows.md?tabs=restricted-functionality) to create an onboarding package with restricted security operations settings. When you're configuring the package, you choose between full functionality (the default onboarding mode, where all response actions are allowed on the onboarded device) and restricted functionality (where high-impact response actions can be disallowed). If you choose restricted functionality, you can then specify which actions are allowed on the device once it's onboarded.\n \n The following table describes high-impact response actions that you can allow or disallow.\n \n@@ -69,7 +69,7 @@ To use the selective response actions capability, enable the feature in the Micr\n \n :::image type=\"content\" source=\"./media/restrict-response-actions-high-value-assets/enable-selective-response-actions.png\" alt-text=\"Screenshot of the Advanced features page showing Allow restricted operations during onboarding enabled.\" lightbox=\"./media/restrict-response-actions-high-value-assets/enable-selective-response-actions.png\":::\n \n-Once enabled, the restricted mode option becomes available when creating Defender deployment packages for Windows through the [Defender deployment tool (DDT)](defender-deployment-tool-windows.md). You can then create deployment packages that specify which security operations to allow on the devices you're onboarding. Once the deployment package has been generated, use it to onboard the device.\n+Once enabled, the restricted mode option becomes available when creating Defender deployment packages for Windows through the [Defender deployment tool (DDT)](defender-deployment-tool-windows.md?tabs=restricted-functionality). You can then create deployment packages that specify which security operations to allow on the devices you're onboarding. Once the deployment package has been generated, use it to onboard the device.\n \n ## How to check the security operations status of onboarded devices\n \n@@ -113,7 +113,7 @@ If you want to restrict response actions on a device that's already onboarded to\n \n ## Related resources\n \n-- [Deploy Microsoft Defender for Endpoint to Windows devices using the Defender deployment tool (preview)](defender-deployment-tool-windows.md)\n+- [Deploy Microsoft Defender for Endpoint to Windows devices using the Defender deployment tool (preview)](defender-deployment-tool-windows.md?tabs=restricted-functionality)\n - [Troubleshoot Defender deployment tool issues](defender-deployment-tool-windows.md#troubleshooting)\n - [Onboard devices to Microsoft Defender for Endpoint](onboard-configure.md)\n - [Take response actions on a device](respond-machine-alerts.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "a47101cfd900f8e0c92ed569f5da1e62ce580444",
+      "commitSha": "f6ff91803954f442145f61368cd5ba83413c8dd6",
+      "commitMessage": "HVA added query string to appropriate tab in ddt doc.",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-03T17:39:25+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/restrict-response-actions-high-value-assets.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/restrict-response-actions-high-value-assets",
+      "firstSeenAt": "2026-05-03T14:39:25.000Z",
+      "eventId": "defender-docs:f6ff91803954f442145f61368cd5ba83413c8dd6:modified:defender-endpoint/restrict-response-actions-high-value-assets.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "HVA added query string to appropriate tab in ddt doc.",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/restrict-response-actions-high-value-assets.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex e5ea2180e..07fffb5e2 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -17,13 +17,13 @@ ms.custom: msecd-doc-authoring-1012\n \n Microsoft Defender provides a set of AI agent security capabilities in [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365) - including agent discovery, posture assessment, threat detection, and real-time protection - to help protect agents from threats such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see the [Microsoft Defender for AI overview](./defender-security-for-ai.md).\n \n-This article describes how Microsoft Defender collects, stores, and uses data as part of its AI agent security capabilities.\n+This article describes how Microsoft Defender collects, stores, and uses customer data for these AI agent security capabilities in Agent 365.\n \n For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n \n ## Data collected\n \n-Defender for Agent 365 collects:\n+As part of Agent 365, Microsoft Defender collects:\n \n - **Observability trace payloads** submitted by agents during execution. Payloads might include session inputs and outputs, depending on how the developer instruments the agent.\n - **Agent configuration attributes** from the Agent 365 registry and, for local agents on devices, from Microsoft Defender for Endpoint. Examples: agent name, type, version, configured tools, connected models, and published locations.\n@@ -35,7 +35,7 @@ To stop Defender from collecting this data, an administrator can disable these c\n \n ## Data storage location\n \n-Defender for Agent 365 operates in the following Azure regions:\n+As part of Agent 365, Microsoft Defender operates in the following Azure regions:\n \n | Tenant location | Data storage location |\n |---|---|\n@@ -62,7 +62,7 @@ See the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystate\n \n ## Data sharing within Microsoft\n \n-Defender for Agent 365 can share data, including customer data, with other Microsoft products the customer has licensed. These might include:\n+As part of Agent 365, Microsoft Defender can share data, including customer data, with other Microsoft products the customer has licensed. These might include:\n \n - Microsoft Defender XDR\n - Microsoft Defender for Endpoint\n",
+      "baseCommitSha": "bf90630e12ce35e8cb8bb8601721e44e09e62110",
+      "commitSha": "8f875be5961cef82041f112c3c18bc4fe82081d0",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T22:07:25+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T19:07:25.000Z",
+      "eventId": "defender-docs:8f875be5961cef82041f112c3c18bc4fe82081d0:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex 07fffb5e2..fae8ca561 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -1,6 +1,6 @@\n ---\n-title: Privacy in Microsoft Defender for Agent 365\n-description: Learn how Microsoft Defender's AI security capabilities collect, store, and use customer data when delivered through Microsoft Agent 365.\n+title: Data handling in Microsoft Defender as part of Agent 365\n+description: Learn how Microsoft Defender handles customer data and supports your privacy requirements when delivered as part of Microsoft Agent 365.\n ms.service: defender-xdr\n ms.subservice: security-for-ai\n ms.topic: concept-article\n@@ -13,7 +13,7 @@ ms.custom: msecd-doc-authoring-1012\n #customer intent: As a security or compliance admin, I want to understand how Microsoft Defender handles customer data in Agent 365 so that I can validate it against my organization's privacy requirements.\n ---\n \n-# Privacy in Microsoft Defender for Agent 365\n+# Data handling in Microsoft Defender as part of Agent 365\n \n Microsoft Defender provides a set of AI agent security capabilities in [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365) - including agent discovery, posture assessment, threat detection, and real-time protection - to help protect agents from threats such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see the [Microsoft Defender for AI overview](./defender-security-for-ai.md).\n \n@@ -35,7 +35,7 @@ To stop Defender from collecting this data, an administrator can disable these c\n \n ## Data storage location\n \n-As part of Agent 365, Microsoft Defender operates in the following Azure regions:\n+As part of Agent 365, Microsoft Defender stores data in these Azure regions:\n \n | Tenant location | Data storage location |\n |---|---|\n",
+      "baseCommitSha": "8f875be5961cef82041f112c3c18bc4fe82081d0",
+      "commitSha": "eaae0a242455037ebf9606935d7c4d3f9ed65afd",
+      "commitMessage": "updates",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T22:16:19+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T19:16:19.000Z",
+      "eventId": "defender-docs:eaae0a242455037ebf9606935d7c4d3f9ed65afd:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 29,
+      "changes": 46,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex fae8ca561..eb0f25260 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -1,5 +1,5 @@\n ---\n-title: Data handling in Microsoft Defender as part of Agent 365\n+title: Data handling and privacy in Microsoft Defender as part of Agent 365\n description: Learn how Microsoft Defender handles customer data and supports your privacy requirements when delivered as part of Microsoft Agent 365.\n ms.service: defender-xdr\n ms.subservice: security-for-ai\n@@ -13,72 +13,60 @@ ms.custom: msecd-doc-authoring-1012\n #customer intent: As a security or compliance admin, I want to understand how Microsoft Defender handles customer data in Agent 365 so that I can validate it against my organization's privacy requirements.\n ---\n \n-# Data handling in Microsoft Defender as part of Agent 365\n+# Data handling and privacy in Microsoft Defender as part of Agent 365\n \n-Microsoft Defender provides a set of AI agent security capabilities in [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365) - including agent discovery, posture assessment, threat detection, and real-time protection - to help protect agents from threats such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see the [Microsoft Defender for AI overview](./defender-security-for-ai.md).\n+As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft's control plane for deploying, governing, and managing AI agents at scale, Microsoft Defender provides a set of AI agent security capabilities — including agent discovery, posture assessment, threat detection, and real-time protection — that help organizations across the AI lifecycle, from build time and configuration through runtime execution. These capabilities give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n \n-This article describes how Microsoft Defender collects, stores, and uses customer data for these AI agent security capabilities in Agent 365.\n-\n-For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n+This article describes how Microsoft Defender collects, stores, and uses data for these AI agent security capabilities. For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n \n ## Data collected\n \n As part of Agent 365, Microsoft Defender collects:\n \n-- **Observability trace payloads** submitted by agents during execution. Payloads might include session inputs and outputs, depending on how the developer instruments the agent.\n+- **Observability trace payloads** submitted by agents during execution. Payloads might include session inputs and outputs, depending on how the developer instruments the agent. Customers and developers control what's included in trace payloads by configuring their agent instrumentation.\n - **Agent configuration attributes** from the Agent 365 registry and, for local agents on devices, from Microsoft Defender for Endpoint. Examples: agent name, type, version, configured tools, connected models, and published locations.\n - **User identifiers**, such as Microsoft Entra user IDs, associated with agent sessions.\n-- **Pseudonymized identifiers** derived from user data, used for analytics and trend detection.\n-- **Tenant, subscription, and agent identifiers** used to route data to the correct organization.\n+- **Pseudonymized identifiers** derived from user data, used for analytics and trend detection without directly exposing identifiable information.\n+- **Tenant, subscription, and agent identifiers** used to partition, route, and attribute observability data to the correct organization.\n \n-To stop Defender from collecting this data, an administrator can disable these capabilities from the [Defender settings page](https://security.microsoft.com). Disabling them doesn't affect other Agent 365 services.\n+Administrators can independently enable or disable these capabilities from the [Defender settings page](https://security.microsoft.com), without affecting other Agent 365 services.\n \n ## Data storage location\n \n-As part of Agent 365, Microsoft Defender stores data in these Azure regions:\n+As part of Agent 365, Microsoft Defender operates in the following Azure regions:\n \n-| Tenant location | Data storage location |\n+| Tenant provisioning location | Data storage location |\n |---|---|\n | European Union or United Kingdom | European Union |\n | All other regions | United States |\n \n <!-- TODO (Lital/Shimi): Reconcile with published Defender XDR residency (EU, UK, US, Australia, Switzerland, India, UAE). Also confirm DP9: should we state that customer content is processed in the region closest to the secured agent (relevant for webhook scenarios)? -->\n \n-A tenant's storage location can't be changed after creation.\n+Once created, the tenant can't be moved to a different location.\n \n ## Data retention\n \n-<!-- TODO (Shimi/Dotan): Reconcile retention numbers with published Defender XDR (https://learn.microsoft.com/defender-xdr/data-privacy), which uses 180 days as the default and 30 days as the Advanced Hunting query window. -->\n-\n-Customer data is retained for up to 30 days and is visible in the Microsoft Defender portal during that period. Agent inventory and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy) are retained for up to 180 days.\n+As part of Agent 365, Microsoft Defender retains customer data for up to 30 days, during which time you can view it in the Microsoft Defender portal. Microsoft Defender retains agent inventory and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy) for up to 180 days.\n \n-After contract termination or expiration, Microsoft deletes customer data within 30 days.\n+Microsoft Defender deletes this customer data within 30 days of contract termination or expiration.\n \n ## Data use\n \n-Microsoft handles customer data per the [Microsoft Products and Services Data Protection Addendum](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) and the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/). Microsoft doesn't use customer data to train generative AI foundation models unless instructed by the customer.\n+Microsoft uses patterns and threat intelligence seen across multiple tenants to improve its prevention and detection capabilities, in accordance with the privacy commitments in the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).\n \n-See the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement) for more information.\n+Microsoft doesn't use customer data to train AI models without user consent. As per the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/), Microsoft doesn't use customer data to train any generative AI foundation model, unless pursuant to the customer's documented instructions.\n \n ## Data sharing within Microsoft\n \n-As part of Agent 365, Microsoft Defender can share data, including customer data, with other Microsoft products the customer has licensed. These might include:\n+As part of Agent 365, Microsoft Defender shares data, including customer data, with other Microsoft products the customer has licensed. These might include:\n \n - Microsoft Defender XDR\n - Microsoft Defender for Endpoint\n - Microsoft Security Exposure Management\n - Microsoft Entra ID Protection\n \n-<!-- TODO (Shimi/Maya): Confirm whether to add Microsoft Security Graph (CloudMap / Exposure Knowledge Graph) per MS33. Per F37, this list is intentionally non-exhaustive. -->\n-\n-### Government Community Cloud (GCC)\n-\n-For GCC customers, data sharing between government and commercial cloud environments might occur, depending on the location of the service offering.\n+For customers in the Government Community Cloud (GCC), data sharing between government and commercial cloud environments may occur, depending on the location of the service offering.\n \n ## Related content\n \n-- [Microsoft Defender for AI overview](./defender-security-for-ai.md)\n-- [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance)\n-- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)\n-- [Microsoft Security for AI](/security/security-for-ai/)\n - [Microsoft compliance offerings](/compliance/regulatory/offering-home)\n",
+      "baseCommitSha": "eaae0a242455037ebf9606935d7c4d3f9ed65afd",
+      "commitSha": "549b6f03fd212e788d917f5a1937f4222fc4cd95",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T23:08:21+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T20:08:21.000Z",
+      "eventId": "defender-docs:549b6f03fd212e788d917f5a1937f4222fc4cd95:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 8,
+      "changes": 15,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex eb0f25260..ab115cf43 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -1,10 +1,11 @@\n ---\n title: Data handling and privacy in Microsoft Defender as part of Agent 365\n description: Learn how Microsoft Defender handles customer data and supports your privacy requirements when delivered as part of Microsoft Agent 365.\n-ms.service: defender-xdr\n-ms.subservice: security-for-ai\n+ms.service: microsoft-defender\n+ms.update-cycle: 180-days\n ms.topic: concept-article\n-ms.date: 04/15/2026\n+ms.date: 05/03/2026\n+audience: Admin\n author: guywi-ms\n ms.author: guywild\n ms.reviewer: shimie\n@@ -15,13 +16,13 @@ ms.custom: msecd-doc-authoring-1012\n \n # Data handling and privacy in Microsoft Defender as part of Agent 365\n \n-As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft's control plane for deploying, governing, and managing AI agents at scale, Microsoft Defender provides a set of AI agent security capabilities — including agent discovery, posture assessment, threat detection, and real-time protection — that help organizations across the AI lifecycle, from build time and configuration through runtime execution. These capabilities give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n+As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft's control plane for deploying, governing, and managing AI agents at scale, Microsoft Defender provides a set of AI agent security capabilities — including agent discovery, posture assessment, threat detection, and real-time protection — that help organizations across the AI lifecycle, from build time and configuration through runtime execution. These capabilities, which are part of the **Security for AI** experience in the Microsoft Defender portal, give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n \n This article describes how Microsoft Defender collects, stores, and uses data for these AI agent security capabilities. For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n \n ## Data collected\n \n-As part of Agent 365, Microsoft Defender collects:\n+As part of its AI agent security capabilities, Microsoft Defender collects:\n \n - **Observability trace payloads** submitted by agents during execution. Payloads might include session inputs and outputs, depending on how the developer instruments the agent. Customers and developers control what's included in trace payloads by configuring their agent instrumentation.\n - **Agent configuration attributes** from the Agent 365 registry and, for local agents on devices, from Microsoft Defender for Endpoint. Examples: agent name, type, version, configured tools, connected models, and published locations.\n@@ -29,7 +30,7 @@ As part of Agent 365, Microsoft Defender collects:\n - **Pseudonymized identifiers** derived from user data, used for analytics and trend detection without directly exposing identifiable information.\n - **Tenant, subscription, and agent identifiers** used to partition, route, and attribute observability data to the correct organization.\n \n-Administrators can independently enable or disable these capabilities from the [Defender settings page](https://security.microsoft.com), without affecting other Agent 365 services.\n+Administrators can independently enable or disable these capabilities from the [Defender settings page](https://security.microsoft.com), without affecting other Agent 365 services. Customers also control the data collected through agent instrumentation and Defender configuration settings.\n \n ## Data storage location\n \n@@ -40,8 +41,6 @@ As part of Agent 365, Microsoft Defender operates in the following Azure regions\n | European Union or United Kingdom | European Union |\n | All other regions | United States |\n \n-<!-- TODO (Lital/Shimi): Reconcile with published Defender XDR residency (EU, UK, US, Australia, Switzerland, India, UAE). Also confirm DP9: should we state that customer content is processed in the region closest to the secured agent (relevant for webhook scenarios)? -->\n-\n Once created, the tenant can't be moved to a different location.\n \n ## Data retention\n",
+      "baseCommitSha": "549b6f03fd212e788d917f5a1937f4222fc4cd95",
+      "commitSha": "9879306c5a664117ffe27ec23a94656746758ad7",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T23:18:09+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T20:18:09.000Z",
+      "eventId": "defender-docs:9879306c5a664117ffe27ec23a94656746758ad7:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex ab115cf43..ea3ac6a60 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -45,7 +45,7 @@ Once created, the tenant can't be moved to a different location.\n \n ## Data retention\n \n-As part of Agent 365, Microsoft Defender retains customer data for up to 30 days, during which time you can view it in the Microsoft Defender portal. Microsoft Defender retains agent inventory and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy) for up to 180 days.\n+As part of Agent 365, Microsoft Defender retains customer data for up to 30 days, and you can view it in the Microsoft Defender portal during that time, except for agent inventory and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy), which Microsoft Defender retains for up to 180 days.\n \n Microsoft Defender deletes this customer data within 30 days of contract termination or expiration.\n \n",
+      "baseCommitSha": "dcdfc1c3ea5f9889d4c55af296d075c6aef9212b",
+      "commitSha": "23c4bf2b2c74c9c540b8d3ddbf528707a226ddc9",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T23:40:17+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T20:40:17.000Z",
+      "eventId": "defender-docs:23c4bf2b2c74c9c540b8d3ddbf528707a226ddc9:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex ea3ac6a60..83c24e944 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -45,9 +45,12 @@ Once created, the tenant can't be moved to a different location.\n \n ## Data retention\n \n-As part of Agent 365, Microsoft Defender retains customer data for up to 30 days, and you can view it in the Microsoft Defender portal during that time, except for agent inventory and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy), which Microsoft Defender retains for up to 180 days.\n+As part of Agent 365, Microsoft Defender retains different categories of customer data for different durations:\n \n-Microsoft Defender deletes this customer data within 30 days of contract termination or expiration.\n+- **Observability and session data**, such as trace payloads, inputs and outputs, and user identifiers, is retained for up to 30 days and is available in the Microsoft Defender portal during that time.\n+- **Agent inventory data and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy)** are retained for up to 180 days.\n+\n+Microsoft Defender deletes customer data within 30 days of contract termination or expiration.\n \n ## Data use\n \n",
+      "baseCommitSha": "23c4bf2b2c74c9c540b8d3ddbf528707a226ddc9",
+      "commitSha": "dceacbc42c04bf7a98663287e245f0a16ec372c1",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T23:54:19+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T20:54:19.000Z",
+      "eventId": "defender-docs:dceacbc42c04bf7a98663287e245f0a16ec372c1:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex 83c24e944..67c13b252 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -16,7 +16,7 @@ ms.custom: msecd-doc-authoring-1012\n \n # Data handling and privacy in Microsoft Defender as part of Agent 365\n \n-As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft's control plane for deploying, governing, and managing AI agents at scale, Microsoft Defender provides a set of AI agent security capabilities — including agent discovery, posture assessment, threat detection, and real-time protection — that help organizations across the AI lifecycle, from build time and configuration through runtime execution. These capabilities, which are part of the **Security for AI** experience in the Microsoft Defender portal, give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n+As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft Defender provides a set of AI agent security capabilities, including agent discovery, posture assessment, threat detection, and real-time protection. These capabilities, which are part of the **Security for AI** experience in the Microsoft Defender portal, give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n \n This article describes how Microsoft Defender collects, stores, and uses data for these AI agent security capabilities. For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n \n",
+      "baseCommitSha": "dceacbc42c04bf7a98663287e245f0a16ec372c1",
+      "commitSha": "07b3db284dacd03234606ccbc469875afb4df452",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-03T23:57:19+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T20:57:19.000Z",
+      "eventId": "defender-docs:07b3db284dacd03234606ccbc469875afb4df452:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/defender-xdr/security-for-ai/privacy-defender-agent-365.md b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\nindex 67c13b252..6f79a6cb8 100644\n--- a/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n+++ b/defender-xdr/security-for-ai/privacy-defender-agent-365.md\n@@ -16,7 +16,7 @@ ms.custom: msecd-doc-authoring-1012\n \n # Data handling and privacy in Microsoft Defender as part of Agent 365\n \n-As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft Defender provides a set of AI agent security capabilities, including agent discovery, posture assessment, threat detection, and real-time protection. These capabilities, which are part of the **Security for AI** experience in the Microsoft Defender portal, give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n+As part of [Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365), Microsoft Defender provides AI agent security capabilities, including agent discovery, posture assessment, threat detection, and real-time protection. These capabilities, which are part of the **Security for AI** experience in the Microsoft Defender portal, give security teams visibility into AI agents and infrastructure, supporting detection, investigation, and response to risks such as prompt-based attacks, unsafe tool usage, credential exposure, and data exfiltration. For more information, see [Protect AI agents using Microsoft Defender (Preview)](./defender-security-for-ai.md#protect-ai-agents-using-microsoft-defender-preview).\n \n This article describes how Microsoft Defender collects, stores, and uses data for these AI agent security capabilities. For commitments that apply to all Agent 365 services, see [Data handling, data residency, and compliance in Agent 365 observability](/microsoft-agent-365/admin/data-residency-protection-compliance).\n \n@@ -45,12 +45,12 @@ Once created, the tenant can't be moved to a different location.\n \n ## Data retention\n \n-As part of Agent 365, Microsoft Defender retains different categories of customer data for different durations:\n+As part of Agent 365, Microsoft Defender retains:\n \n-- **Observability and session data**, such as trace payloads, inputs and outputs, and user identifiers, is retained for up to 30 days and is available in the Microsoft Defender portal during that time.\n-- **Agent inventory data and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy)** are retained for up to 180 days.\n+- **Observability and session data**, such as trace payloads, inputs and outputs, and user identifiers, for up to 30 days. During this time, the data is available in the Microsoft Defender portal.\n+- **Agent inventory data and data shared with [Microsoft Defender XDR](/defender-xdr/data-privacy)** for up to 180 days.\n \n-Microsoft Defender deletes customer data within 30 days of contract termination or expiration.\n+Microsoft Defender deletes this customer data within 30 days of contract termination or expiration.\n \n ## Data use\n \n",
+      "baseCommitSha": "07b3db284dacd03234606ccbc469875afb4df452",
+      "commitSha": "6b1b0177b2b00d15e6a3fa1a41501e8733eced03",
+      "commitMessage": "Update privacy-defender-agent-365.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-04T00:00:26+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/privacy-defender-agent-365",
+      "firstSeenAt": "2026-05-03T21:00:26.000Z",
+      "eventId": "defender-docs:6b1b0177b2b00d15e6a3fa1a41501e8733eced03:modified:defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update privacy-defender-agent-365.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 17,
+    "totalFiles": 19,
+    "authors": [
+      "Devorah Cohen",
+      "Limor Wainstein",
+      "Mona Berdugo",
+      "Paul Inbar",
+      "guywi-ms",
+      "rlitinsky"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 18 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Added Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/priva",
+        "sourceFiles": [
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md",
+          "defender-xdr/security-for-ai/privacy-defender-agent-365.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md. Updated Microsoft Defender documentation in defender-endpoint/restrict-response-actions-high-value-assets.md.",
+        "sourceFiles": [
+          "defender-endpoint/network-devices.md",
+          "defender-endpoint/restrict-response-actions-high-value-assets.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for IoT",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/whats-new.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/whats-new.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/connect-sensors.md.",
+        "sourceFiles": [
+          "defender-for-iot-azure/organizations/release-notes.md",
+          "defender-for-iot-azure/organizations/whats-new.md",
+          "defender-for-iot-azure/organizations/release-notes.md",
+          "defender-for-iot-azure/organizations/release-notes.md",
+          "defender-for-iot-azure/organizations/whats-new.md",
+          "defender-for-iot-azure/organizations/connect-sensors.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "Updated Microsoft Defender documentation in sentinel/mitre-coverage.md.",
+        "sourceFiles": [
+          "sentinel/mitre-coverage.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/health-alerts.md.",
+        "sourceFiles": [
+          "defender-for-identity/health-alerts.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Added Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/privacy-defender-agent-365.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/priva"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md. Updated Microsoft Defender documentation in defender-endpoint/restrict-response-actions-high-value-assets.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for IoT",
+        "detail": "Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/whats-new.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/release-notes.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/whats-new.md. Updated Microsoft Defender documentation in defender-for-iot-azure/organizations/connect-sensors.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "Updated Microsoft Defender documentation in sentinel/mitre-coverage.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/health-alerts.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/run-analyzer-linux.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 6,
+      "changes": 18,
+      "patch": "diff --git a/defender-endpoint/run-analyzer-linux.md b/defender-endpoint/run-analyzer-linux.md\nindex 7bdf201b1..683519aaf 100644\n--- a/defender-endpoint/run-analyzer-linux.md\n+++ b/defender-endpoint/run-analyzer-linux.md\n@@ -528,7 +528,7 @@ The XMDE Client Analyzer can be run during a Live Response session either by usi\n \n If Microsoft Defender for Endpoint is already installed on the device, you can run the Client Analyzer directly from the agent installation without downloading or installing additional packages.\n \n-- Create an `MDESupportToolBinary.sh` file and paste the following content into it.\n+- For Client Analyzer binary shipped with Microsoft Defender for Linux, create an `MDESupportToolBinary.sh` file and paste the following content into it.\n \n    ```bash\n    #! /usr/bin/bash\n@@ -538,13 +538,17 @@ If Microsoft Defender for Endpoint is already installed on the device, you can r\n \n    echo \"Running MDESupportTool\"\n    ./MDESupportTool $@\n+   ```\n \n-   Execute:\n-   run MDESupportToolBinary.sh -parameters \"--bypass-disclaimer -d\"\n+- Execute:\n \n+   ```bash\n+   run MDESupportToolBinary.sh -parameters \"--bypass-disclaimer -d\"\n+   ```\n \n-   MDESupportToolPython.sh\n+- For Client Analyzer Python shipped with Microsoft Defender for Linux, create an `MDESupportToolPython.sh` file and paste the following content into it.\n \n+   ```bash\n    #! /usr/bin/bash\n \n    echo \"cd /opt/microsoft/mdatp/tools/client_analyzer/python\"\n@@ -552,10 +556,12 @@ If Microsoft Defender for Endpoint is already installed on the device, you can r\n \n    echo \"Running MDESupportTool\"\n    ./mde_support_tool.sh $@\n+   ```\n \n-   Execute:\n-   run MDESupportToolPython.sh -parameters \"--bypass-disclaimer -d\"\n+- Execute:\n \n+   ```bash\n+   run MDESupportToolPython.sh -parameters \"--bypass-disclaimer -d\"\n    ```\n \n ### Install the XMDE Client Analyzer\n",
+      "baseCommitSha": "9c04d57dba1a52ef7eeaa64088a9b997e93d7a25",
+      "commitSha": "862d3f62f48270e976c2492cfce1c0b82a55721e",
+      "commitMessage": "Clarify instructions for running Client Analyzer shipped version  (#498)",
+      "commitAuthor": "Yuan Zhao",
+      "commitDate": "2026-07-09T00:31:58+10:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/run-analyzer-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/run-analyzer-linux",
+      "firstSeenAt": "2026-07-08T14:31:58.000Z",
+      "eventId": "defender-docs:862d3f62f48270e976c2492cfce1c0b82a55721e:modified:defender-endpoint/run-analyzer-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify instructions for running Client Analyzer shipped version  (#498)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/run-analyzer-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-shared-mailbox-messages.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 7,
+      "changes": 16,
+      "patch": "diff --git a/defender-office-365/quarantine-shared-mailbox-messages.md b/defender-office-365/quarantine-shared-mailbox-messages.md\nindex 72feabddc..22303039f 100644\n--- a/defender-office-365/quarantine-shared-mailbox-messages.md\n+++ b/defender-office-365/quarantine-shared-mailbox-messages.md\n@@ -12,7 +12,7 @@ ms.collection:\n description: Learn how to view and manage quarantined messages sent to shared mailboxes in Microsoft Defender for Office 365, including permissions and access methods.\n #customer intent: As a user with Full Access to a shared mailbox, I want to view and manage quarantined messages sent to the shared mailbox so that I can release or delete them.\n ms.service: defender-office-365\n-ms.date: 05/13/2026\n+ms.date: 06/24/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -27,14 +27,16 @@ Users can manage quarantined messages where they're one of the recipients as des\n \n Previously, the ability for users to manage quarantined messages sent to a shared mailbox required admins to leave automapping enabled for the shared mailbox (it's enabled by default when an admin gives a user access to another mailbox). However, depending on the size and number of mailboxes that the user has access to, performance can suffer as Outlook tries to open _all_ mailboxes that the user has access to. For this reason, many admins choose to [remove automapping for shared mailboxes](/outlook/troubleshoot/profiles-and-accounts/remove-automapping-for-shared-mailbox).\n \n-Now, automapping is no longer required for users to manage quarantined messages that were sent to shared mailboxes. There are two different methods to access quarantined messages that were sent to a shared mailbox:\n+Automapping is no longer required for users to manage quarantined messages in shared mailboxes.\n \n-- If the following statements are all true:\n-  - An admin has configured [quarantine policies](quarantine-policies.md#anatomy-of-a-quarantine-policy) to allow quarantine notifications (formerly known as end-user spam notifications).\n-  - The user has access to quarantine notifications of the shared mailbox.\n-  - The user has Full Access permissions to the shared mailbox (assigned directly or through a cloud-only security group).\n+There are two methods to access quarantined messages:\n \n-  The user can select **Review** in the notification to go to quarantine in the Microsoft Defender portal. This method only allows access to quarantined messages that were sent to the shared mailbox. Users can't manage their own quarantine messages in this context.\n+- The user can select **Review** in quarantine notifications to go to quarantine in the Microsoft Defender portal if all of the following conditions are met:\n+  - An admin has configured [quarantine policies](quarantine-policies.md#anatomy-of-a-quarantine-policy) to allow quarantine notifications.\n+  - The user has access to quarantine notifications for the mailbox.\n+  - The user has Full Access permissions to the shared mailbox (assigned directly or through a cloud-only security group), or is the owner of the mailbox.\n+\n+   This method only allows access to quarantined messages that were sent to the shared mailbox. Users can't manage their own quarantine messages in this context.\n \n - The user can [go to quarantine in the Microsoft Defender portal](quarantine-end-user.md) and select **Filter** to filter the results by **Recipient address** (the email address of the shared mailbox). On the main **Quarantine** page, the user can select the **Recipient** column header to sort by messages that were sent to the shared mailbox.\n \n",
+      "baseCommitSha": "d2d6a69d370baf0b9bc06662fccd920d90cdc971",
+      "commitSha": "937fb33f0e0263fc2ecc65abe2fd772152b3539c",
+      "commitMessage": "Update quarantine-shared-mailbox-messages.md (#528)",
+      "commitAuthor": "ahmedfarag2026",
+      "commitDate": "2026-07-08T20:01:14+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-shared-mailbox-messages.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-shared-mailbox-messages",
+      "firstSeenAt": "2026-07-08T17:01:14.000Z",
+      "eventId": "defender-docs:937fb33f0e0263fc2ecc65abe2fd772152b3539c:modified:defender-office-365/quarantine-shared-mailbox-messages.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update quarantine-shared-mailbox-messages.md (#528)",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-shared-mailbox-messages.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Yuan Zhao",
+      "ahmedfarag2026"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/run-analyzer-linux.md.",
+        "sourceFiles": [
+          "defender-endpoint/run-analyzer-linux.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-shared-mailbox-messages.md.",
+        "sourceFiles": [
+          "defender-office-365/quarantine-shared-mailbox-messages.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/run-analyzer-linux.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/quarantine-shared-mailbox-messages.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

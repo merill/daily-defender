@@ -1,0 +1,387 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-xdr/whats-new.md b/defender-xdr/whats-new.md\nindex 9d1dde44b..87e48ad91 100644\n--- a/defender-xdr/whats-new.md\n+++ b/defender-xdr/whats-new.md\n@@ -34,6 +34,7 @@ You can also get product updates and important notifications through the [messag\n \n ## January 2026\n \n+- (Preview) In advanced hunting, if the query result exceeds the 64-MB size limit, the portal now returns the maximum number of records it can within this limit and displays a message indicating that the displayed results are partial due to size constraints. [Learn more](advanced-hunting-overview.md#quotas-and-usage-parameters)\n - (Preview) The [`BehaviorInfo`](advanced-hunting-behaviorinfo-table.md) and [`BehaviorEntities`](advanced-hunting-behaviorentities-table.md) tables in advanced hunting now include additional columns and information about behavior data types and alerts from User and Entity Behavior Analytics (UEBA), providing more insights on the relationships between identified behaviors and entities. [Learn more about UEBA behaviors](/azure/sentinel/entity-behaviors-layer)\n \n ## December 2025\n",
+      "baseCommitSha": "54968efe37e4ae94432ba39ebc48b6cfc13770c5",
+      "commitSha": "256036077a5c5621845178750dce271b2be78f1e",
+      "commitMessage": "Update advanced hunting result handling in what's new",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-01-15T09:27:36+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new",
+      "firstSeenAt": "2026-01-15T03:57:36.000Z",
+      "eventId": "defender-docs:256036077a5c5621845178750dce271b2be78f1e:modified:defender-xdr/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update advanced hunting result handling in what's new",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "unified-secops-platform/microsoft-threat-actor-naming.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/unified-secops-platform/microsoft-threat-actor-naming.md b/unified-secops-platform/microsoft-threat-actor-naming.md\nindex 98da10b33..e7d4c523a 100644\n--- a/unified-secops-platform/microsoft-threat-actor-naming.md\n+++ b/unified-secops-platform/microsoft-threat-actor-naming.md\n@@ -18,7 +18,7 @@ ms.custom:\n - cx-ti\n ms.topic: article\n search.appverid: met150\n-ms.date: 01/13/2026\n+ms.date: 01/15/2026\n ---\n \n # How Microsoft names threat actors\n@@ -190,6 +190,7 @@ The following table lists publicly disclosed threat actor names with their origi\n |[Storm-2246](https://blogs.microsoft.com/on-the-issues/2025/09/16/microsoft-seizes-338-websites-to-disrupt-rapidly-growing-raccoono365-phishing-service/)|Group in development||\n |[Storm-2372](https://www.microsoft.com/en-us/security/blog/2025/02/13/storm-2372-conducts-device-code-phishing-campaign/)|Group in development||\n |[Storm-2460](https://www.microsoft.com/en-us/security/blog/2025/08/18/dissecting-pipemagic-inside-the-architecture-of-a-modular-backdoor-framework/)|Group in development||\n+|[Storm-2470](https://www.microsoft.com/en-us/security/blog/2026/01/14/inside-redvds-how-a-single-virtual-desktop-provider-fueled-worldwide-cybercriminal-operations/)|Group in development||\n |[Storm-2477](https://www.microsoft.com/en-us/security/blog/2025/05/21/lumma-stealer-breaking-down-the-delivery-techniques-and-capabilities-of-a-prolific-infostealer/)|Group in development|Lumma Stealer|\n |[Storm-2603](https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/)|China||\n |[Storm-2657](https://www.microsoft.com/en-us/security/blog/2025/05/21/lumma-stealer-breaking-down-the-delivery-techniques-and-capabilities-of-a-prolific-infostealer/)|United States, Financially motivated|Payroll Pirates|\n",
+      "baseCommitSha": "363ff39f688597cca3282c4a17de98b49b5995b8",
+      "commitSha": "07546f8ccb3fce67f87d04e55423c26e873ff4df",
+      "commitMessage": "Add Storm-2470 to threat actor naming table",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-01-15T09:35:31+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/unified-secops-platform/microsoft-threat-actor-naming.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/unified-secops-platform/microsoft-threat-actor-naming",
+      "firstSeenAt": "2026-01-15T04:05:31.000Z",
+      "eventId": "defender-docs:07546f8ccb3fce67f87d04e55423c26e873ff4df:modified:unified-secops-platform/microsoft-threat-actor-naming.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add Storm-2470 to threat actor naming table",
+        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/edr-detection.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 15,
+      "changes": 18,
+      "patch": "diff --git a/defender-endpoint/edr-detection.md b/defender-endpoint/edr-detection.md\nindex fd35ff621..ab8abca1b 100644\n--- a/defender-endpoint/edr-detection.md\n+++ b/defender-endpoint/edr-detection.md\n@@ -15,7 +15,7 @@ ms.custom: admindeeplinkDEFENDER\n ms.topic: how-to\n ms.subservice: edr\n search.appverid: met150\n-ms.date: 12/31/2025\n+ms.date: 01/15/2026\n appliesto:\n     - Microsoft Defender for Endpoint Plan 2\n     - Microsoft Defender for Business\n@@ -33,22 +33,10 @@ appliesto:\n \n Endpoint detection and response for Endpoint provide advanced attack detections that are near real-time and actionable. Security analysts can prioritize alerts effectively, gain visibility into the full scope of a breach, and take response actions to remediate threats. You can run an EDR detection test to verify that the device is properly onboarded and reporting to the service. This article describes how to run an EDR detection test on a newly onboarded device.\n \n-### Windows client\n-\n-In PowerShell, run the following commands:\n-\n-```powershell\n-Set-Content -Path \"$env:TEMP\\eicar.txt\" -Value \"X5O!P%@AP[4\\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*\"\n-\n-Rename-Item \"$env:TEMP\\eicar.txt\" \"eicar.com\"\n-```\n-\n-If successful, a new alert appears within a few minutes.\n-\n-### Windows server\n+### Windows\n \n > [!TIP]\n-> The server must be listening for requests on TCP port 80 for the following commands to work. You can verify by running the following PowerShell command: `Test-NetConnection 127.0.0.1 -Port 80`.\n+> The Windows device must be listening for requests on TCP port 80 for the following commands to work. You can verify by running the following PowerShell command: `Test-NetConnection 127.0.0.1 -Port 80`.\n \n In a Command Prompt window, run the following commands:\n \n",
+      "baseCommitSha": "a59e34ea9115b22dc501f9225703b7d806eb76ba",
+      "commitSha": "d8792c551f90af06a3809d8b25eb97e7cc761fd7",
+      "commitMessage": "Revise EDR detection instructions and update date",
+      "commitAuthor": "Yukitaka Kashihara",
+      "commitDate": "2026-01-15T16:13:29+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/edr-detection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/edr-detection",
+      "firstSeenAt": "2026-01-15T07:13:29.000Z",
+      "eventId": "defender-docs:d8792c551f90af06a3809d8b25eb97e7cc761fd7:modified:defender-endpoint/edr-detection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Revise EDR detection instructions and update date",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-whatsnew.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/linux-whatsnew.md b/defender-endpoint/linux-whatsnew.md\nindex aeb8ae6c5..75b729600 100644\n--- a/defender-endpoint/linux-whatsnew.md\n+++ b/defender-endpoint/linux-whatsnew.md\n@@ -61,6 +61,8 @@ This article is updated frequently to let you know what's new in the latest rele\n \n - Enhanced vulnerability detection for React components through improved telemetry. This includes support for identifying [(CVE-2025-55182)](https://github.com/advisories/GHSA-fv66-9v8q-g76r), providing more comprehensive security coverage for React-based applications.\n \n+- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resultiing in more efficient and consistent telemetry collection. This change applies to builds 101.25102.0005 and later. There is no impact to existing functionality, how data is collected, or customer configurations. All features and capabilities remain fully intact, and no action is required on customer side.\n+\n ### December-2025 Build: 101.25092.0005 | Release version: 30.125092.0005.0\n \n |Build:             |**101.25092.0005**    |\n",
+      "baseCommitSha": "a59e34ea9115b22dc501f9225703b7d806eb76ba",
+      "commitSha": "0863f0608fc8be095f7e0105a76ae12abdc3201d",
+      "commitMessage": "Learn Editor: Update linux-whatsnew.md",
+      "commitAuthor": "Atharv Anand",
+      "commitDate": "2026-01-15T13:22:51+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-whatsnew.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-whatsnew",
+      "firstSeenAt": "2026-01-15T07:52:51.000Z",
+      "eventId": "defender-docs:0863f0608fc8be095f7e0105a76ae12abdc3201d:modified:defender-endpoint/linux-whatsnew.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update linux-whatsnew.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-whatsnew.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/linux-whatsnew.md b/defender-endpoint/linux-whatsnew.md\nindex 75b729600..eb2dade5a 100644\n--- a/defender-endpoint/linux-whatsnew.md\n+++ b/defender-endpoint/linux-whatsnew.md\n@@ -61,7 +61,7 @@ This article is updated frequently to let you know what's new in the latest rele\n \n - Enhanced vulnerability detection for React components through improved telemetry. This includes support for identifying [(CVE-2025-55182)](https://github.com/advisories/GHSA-fv66-9v8q-g76r), providing more comprehensive security coverage for React-based applications.\n \n-- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resultiing in more efficient and consistent telemetry collection. This change applies to builds 101.25102.0005 and later. There is no impact to existing functionality, how data is collected, or customer configurations. All features and capabilities remain fully intact, and no action is required on customer side.\n+- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resulting in more efficient and consistent telemetry collection. This change applies to builds 101.25102.0005 and later. There is no impact to existing functionality, how data is collected, or customer configurations. All features and capabilities remain fully intact, and no action is required on customer side.\n \n ### December-2025 Build: 101.25092.0005 | Release version: 30.125092.0005.0\n \n",
+      "baseCommitSha": "3df3ec1e38e590aa9aca4d942283500595555e2f",
+      "commitSha": "546155d04946aa33928edc1cab0f83beacd6251a",
+      "commitMessage": "Learn Editor: Update linux-whatsnew.md",
+      "commitAuthor": "Atharv Anand",
+      "commitDate": "2026-01-15T13:40:10+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-whatsnew.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-whatsnew",
+      "firstSeenAt": "2026-01-15T08:10:10.000Z",
+      "eventId": "defender-docs:546155d04946aa33928edc1cab0f83beacd6251a:modified:defender-endpoint/linux-whatsnew.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update linux-whatsnew.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-offline.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-offline.md b/defender-endpoint/microsoft-defender-offline.md\nindex b304107d2..0e098317d 100644\n--- a/defender-endpoint/microsoft-defender-offline.md\n+++ b/defender-endpoint/microsoft-defender-offline.md\n@@ -60,7 +60,7 @@ For more information about Windows 10 and Windows 11 requirements, see the follo\n - [Minimum hardware requirements](/windows-hardware/design/minimum/minimum-hardware-requirements-overview)\n - [Hardware component guidelines](/windows-hardware/design/component-guidelines/components)\n > [!IMPORTANT]\n-> If BitLocker is enabled on the system drive, suspend BitLocker protection before running Microsoft Defender Offline. Otherwise, you may be prompted to enter the BitLocker recovery key when the system restarts into the offline environment. For instructions, see [Suspend BitLocker protection](https://learn.microsoft.com/troubleshoot/windows-client/windows-security/suspend-bitlocker-protection-non-microsoft-updates). \n+> If BitLocker is enabled on the system drive, suspend BitLocker protection before running Microsoft Defender Offline. Otherwise, you may be prompted to enter the BitLocker recovery key when the system restarts into the offline environment. For instructions, see [Suspend BitLocker protection](/troubleshoot/windows-client/windows-security/suspend-bitlocker-protection-non-microsoft-updates). \n \n ## Microsoft Defender Offline updates\n \n",
+      "baseCommitSha": "702a1b834983f958a86dbb02edcbf5d5bf5a7501",
+      "commitSha": "deed37443a87f07ecd7b6c87becbe1dccadc43be",
+      "commitMessage": "site relative link",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-01-15T11:46:37+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-offline.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-offline",
+      "firstSeenAt": "2026-01-15T09:46:37.000Z",
+      "eventId": "defender-docs:deed37443a87f07ecd7b6c87becbe1dccadc43be:modified:defender-endpoint/microsoft-defender-offline.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "site relative link",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-offline.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+      "status": "modified",
+      "additions": 52,
+      "deletions": 23,
+      "changes": 75,
+      "patch": "diff --git a/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md b/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md\nindex ef732e654..aa729843c 100644\n--- a/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md\n+++ b/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md\n@@ -12,7 +12,7 @@ ms.collection:\n - tier3\n ms.topic: how-to\n search.appverid: met150\n-ms.date: 04/04/2025\n+ms.date: 01/16/2026\n ---\n \n # Manage profiles and approve extensions using Intune\n@@ -22,13 +22,11 @@ ms.date: 04/04/2025\n   >\n   > Instead, use the settings catalog to create new Intune policies for macOS that configure the System Extension payload. For more information, see [Use the Intune settings catalog to configure settings](/intune/intune-service/configuration/settings-catalog).\n \n-This article describes the procedures to follow to manage profiles properly using the Intune management tool.\n+This article describes how to use the Intune settings catalog to approve the required extensions for macOS policies.\n \n-<a name='intune-system-extensions-policy'></a>\n+## Intune system extensions policy\n \n-## Intune policy\n-\n-Do the following procedure to approve the required system extensions.\n+Do the following procedures to approve the required system extensions using the settings catalog.\n \n 1. In the Microsoft Intune admin center at <https://intune.microsoft.com>, go to **Devices**.\n 2. On the **Devices \\| Overview** page, go to the **Manage devices** section \\> **Configuration**. Or, to go directly to the **Devices \\| Configuration** page, use <https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/configuration>.\n@@ -43,33 +41,64 @@ Do the following procedure to approve the required system extensions.\n    - **Name**: Enter a unique, descriptive name for the policy.\n    - **Description**: Enter an optional description.\n \n-   Select **Next**.\n+   When you're finished on the **Create profile** tab, select **Next**.\n+\n+6. On the **Configuration settings** tab, select **Add settings**.\n+\n+   In the **Settings picker** flyout that opens, do the following steps:\n+\n+   1. In the search box, enter \"allowed system\", and then select **Search**.\n+   2. In the **Browse by category** section, select the one and only **System Configuration \\> System Extensions** result.\n+   3. In the new subcategory section that appears, select the check boxes next to both results:\n+      - **Allowed System Extension Types**\n+      - **Allowed System Extensions**\n+\n+      A new **System configuration** \\> **System Extensions** section with these subsections appears on the **Configuration settings** tab behind the **Settings picker** flyout. You might need to resize the browser window to see them. Or you can close the **Settings picker** flyout.\n+\n+      :::image type=\"content\" source=\"media/intune-macos-settings-catalog-select.png\" alt-text=\"Screenshot of the Configuration settings tab of the Create profile wizard with Allowed System Extension Types and Allowed System Extensions selected.\" lightbox=\"media/intune-macos-settings-catalog-select.png\":::\n \n-6. On the **Configuration settings** tab, select **Add settings**. In the **Settings picker** flyout that opens, do the following steps:\n-   1. In the search box, enter \"allowed system extensions\", and then select **Search**.\n-   2. In the **Browse by category** section, select the one and only search result: **System Configuration \\> System Extensions**.\n-   3. In the new section that appears, select the check box next to **Allowed System Extensions**. A new **System configuration** section appears on the **Configuration settings** tab behind the **Settings picker** flyout. You might need to resize the browser windows to see it. Or you can close the **Settings picker** flyout.\n-   4. In the **Allowed Systems Extensions** section on the **Configuration settings** tab, select **+ Edit instance** the empty entry.\n-   5. In the **Configure instance** flyout that opens, configure the following settings:\n-      - **Allowed System Extensions**: Enter the following values, one per box:\n-        - `com.microsoft.wdav.epsext`\n-        - `com.microsoft.wdav.netext`\n-      - **Team identifier**: Enter `UBF8T346G9`.\n-   6. Select **Save** on the **Configure instance** flyout.\n+   4. On the **Configuration settings** tab in the **System configuration** \\> **System Extensions** section, configure the following settings:\n+      - **Allowed System Extensions** subsection:\n+        1. Select **+ Edit instance** in the empty entry row.\n+        2. In the **Configure instance** flyout that opens, configure the following settings:\n+           - **Allowed System Extensions** (bundle identifiers): Enter the following values, one per box:\n+             - `com.microsoft.wdav.epsext`\n+             - `com.microsoft.wdav.netext`\n+           - **Team identifier**: Enter `UBF8T346G9`.\n+        3. Select **Save** on the **Configure instance** flyout.\n \n-   Back on the **Configuration settings** tab, the entry is now visible.\n+        :::image type=\"content\" source=\"media/intune-macos-settings-catalog-allowed-system-extensions.png\" alt-text=\"Screenshot of the Configure instance flyout with the required Allowed system extensions values entered.\" lightbox=\"media/intune-macos-settings-catalog-allowed-system-extensions.png\":::\n \n-   Select **Next**.\n+      - **Allowed System Extension Types** subsection:\n+        1. Select **+ Edit instance** in the empty entry row.\n+        2. In the **Configure instance** flyout that opens, configure the following settings:\n+           - **Allowed System Extension Types**: Enter the following values, one per box:\n+             - `Network`\n+             - `EndpointSecurity`\n+           - **Team identifier**: Enter `UBF8T346G9`.\n+        3. Select **Save** on the **Configure instance** flyout.\n \n-7. On the **Scope tags** tab, the scope tag named **Default** is select by default, but you can remove it and select other existing scope tags. When you're finished, select **Next**.\n+        :::image type=\"content\" source=\"media/intune-macos-settings-catalog-allowed-system-extension-types.png\" alt-text=\"Screenshot of the Configure instance flyout with the required Allowed system extension types values entered.\" lightbox=\"media/intune-macos-settings-catalog-allowed-system-extension-types.png\":::\n+\n+   The configured **Allowed System Extensions** and **Allowed System Extension Types** entries are available on the **Configuration settings** tab.\n+\n+   :::image type=\"content\" source=\"media/intune-macos-settings-catalog-configured-settings.png\" alt-text=\"Screenshot of the completed Configuration settings tab of the Create profile wizard with the required values for Allowed System Extension Types and Allowed System Extensions.\" lightbox=\"media/intune-macos-settings-catalog-configured-settings.png\":::\n+\n+   When you're finished on the **Configuration settings** tab, select **Next**.\n+\n+7. On the **Scope tags** tab, the scope tag named **Default** is select by default, but you can remove it and select other existing [scope tags](/intune/intune-service/fundamentals/scope-tags).\n+\n+   When you're finished on the **Scope tags** tab, select **Next**.\n \n 8. On the **Assignments** tab, configure the following settings:\n    - **Included groups** section: Select one of the following options:\n      - **Add groups**: Select one or more groups to include.\n-     - **Add all users**: We recommend this value.\n+     - **Add all users**\n      - **Add all devices**\n    - **Excluded groups**: Select **Add groups** to specify groups to exclude.\n \n    When you're finished on the **Assignments** tab, select **Next**.\n \n-9. On the **Review + create** tab, review the settings, select **Previous** or click on the appropriate tab to make changes, and then select **Create**.\n+9. On the **Review + create** tab, review the settings, select **Previous** or click on the appropriate tab to make changes.\n+\n+   When you're finished on the **Review + create** tab, select **Create**.\n",
+      "baseCommitSha": "82a86dbafd507eadf2fb607f2cee308d0fbbca4a",
+      "commitSha": "2041bdb84a96420cb37123c29039b99bd46b8613",
+      "commitMessage": "Update manage-profiles-approve-sys-extensions-intune.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-15T10:21:34-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/manage-profiles-approve-sys-extensions-intune",
+      "firstSeenAt": "2026-01-15T18:21:34.000Z",
+      "eventId": "defender-docs:2041bdb84a96420cb37123c29039b99bd46b8613:modified:defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update manage-profiles-approve-sys-extensions-intune.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md b/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md\nindex aa729843c..b28305a65 100644\n--- a/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md\n+++ b/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md\n@@ -17,10 +17,10 @@ ms.date: 01/16/2026\n \n # Manage profiles and approve extensions using Intune\n \n-  > [!NOTE]\n-  > Intune policy support for macOS extensions was deprecated in the August 2024 service release (2048). Existing Intune policies with macOS extensions continue to work, but you can't create new policies with macOS extensions in Intune.\n-  >\n-  > Instead, use the settings catalog to create new Intune policies for macOS that configure the System Extension payload. For more information, see [Use the Intune settings catalog to configure settings](/intune/intune-service/configuration/settings-catalog).\n+> [!NOTE]\n+> Intune policy support for macOS extensions was deprecated in the August 2024 service release (2048). Existing Intune policies with macOS extensions continue to work, but you can't create new policies with macOS extensions in Intune.\n+>\n+> Instead, use the settings catalog to create new Intune policies for macOS that configure the System Extension payload. For more information, see [Use the Intune settings catalog to configure settings](/intune/intune-service/configuration/settings-catalog).\n \n This article describes how to use the Intune settings catalog to approve the required extensions for macOS policies.\n \n",
+      "baseCommitSha": "2041bdb84a96420cb37123c29039b99bd46b8613",
+      "commitSha": "eab93ae3e96d99d851ab89083e180f93349cfaaa",
+      "commitMessage": "Update manage-profiles-approve-sys-extensions-intune.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-15T10:22:42-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/manage-profiles-approve-sys-extensions-intune",
+      "firstSeenAt": "2026-01-15T18:22:42.000Z",
+      "eventId": "defender-docs:eab93ae3e96d99d851ab89083e180f93349cfaaa:modified:defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update manage-profiles-approve-sys-extensions-intune.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/analyzer-feedback.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 5,
+      "changes": 13,
+      "patch": "diff --git a/defender-endpoint/analyzer-feedback.md b/defender-endpoint/analyzer-feedback.md\nindex 247d7c140..799ce57de 100644\n--- a/defender-endpoint/analyzer-feedback.md\n+++ b/defender-endpoint/analyzer-feedback.md\n@@ -19,18 +19,21 @@ search.appverid: met150\n appliesto:\n    - Microsoft Defender for Endpoint Plan 1\n    - Microsoft Defender for Endpoint Plan 2\n-ms.date: 03/26/2025\n+ms.date: 01/15/2026\n ---\n \n # Provide feedback on the Microsoft Defender for Endpoint client analyzer tool\n \n If you have feedback or suggestions that would help us improve the Microsoft Defender for Endpoint client analyzer, use either of these options to submit feedback:\n \n-1. Microsoft Defender portal (security.microsoft.com):\n+- In the Microsoft Defender portal at <https://security.microsoft.com>, select **Feedback** at the top of the page, and then fill out the information in the **Submit feedback to Microsoft** flyout that opens:\n \n-    a. :::image type=\"content\" source=\"media/3e2db5015cd4f47436b4765b2303f4f5.png\" alt-text=\"The smiley feedback icon\" lightbox=\"media/3e2db5015cd4f47436b4765b2303f4f5.png\":::\n+  :::image type=\"content\" source=\"media/defender-portal-feedback.png\" alt-text=\"Screenshot of the Feedback icon at the top of the Microsoft Defender portal.\" lightbox=\"media/defender-portal-feedback.png\" lightbox=\"media/defender-portal-feedback.png\":::\n \n-1. Microsoft Defender portal (security.microsoft.com):\n+  :::image type=\"content\" source=\"media/defender-portal-submit-feedback.png\" alt-text=\"Screenshot of the Submit feedback to Microsoft flyout in the Microsoft Defender portal.\" lightbox=\"media/defender-portal-submit-feedback.png\":::\n \n-   :::image type=\"content\" source=\"media/1d5b3c010b4b5c0e9d5eb43f71fa95e3.png\" alt-text=\"The Give feedback button\" lightbox=\"media/1d5b3c010b4b5c0e9d5eb43f71fa95e3.png\":::\n+- Select **Send feedback** on the centralized feedback platform for Microsoft Defender XDR and related services at <https://aka.ms/M365Defender/Feedback> and fill out the information in the **Post public feedback** page that opens:\n \n+  :::image type=\"content\" source=\"media/defender-feedback.png\" alt-text=\"Screenshot of the Post public feedback page from the Microsoft Defender XDR feedback page.\" lightbox=\"media/defender-feedback.png\":::\n+\n+[!INCLUDE [Microsoft Defender for Endpoint Tech Community](../includes/defender-mde-techcommunity.md)]\n",
+      "baseCommitSha": "4ff70e7af9a47cb3424dc6da8b5d43f07ca2a0c9",
+      "commitSha": "60e3ce1d8d89aa5933b2e718918bcccec66df062",
+      "commitMessage": "Updated feedback info for the defender portal",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-15T11:18:02-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/analyzer-feedback.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/analyzer-feedback",
+      "firstSeenAt": "2026-01-15T19:18:02.000Z",
+      "eventId": "defender-docs:60e3ce1d8d89aa5933b2e718918bcccec66df062:modified:defender-endpoint/analyzer-feedback.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated feedback info for the defender portal",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/analyzer-feedback.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/analyzer-feedback.md b/defender-endpoint/analyzer-feedback.md\nindex 799ce57de..7430f1093 100644\n--- a/defender-endpoint/analyzer-feedback.md\n+++ b/defender-endpoint/analyzer-feedback.md\n@@ -28,7 +28,7 @@ If you have feedback or suggestions that would help us improve the Microsoft Def\n \n - In the Microsoft Defender portal at <https://security.microsoft.com>, select **Feedback** at the top of the page, and then fill out the information in the **Submit feedback to Microsoft** flyout that opens:\n \n-  :::image type=\"content\" source=\"media/defender-portal-feedback.png\" alt-text=\"Screenshot of the Feedback icon at the top of the Microsoft Defender portal.\" lightbox=\"media/defender-portal-feedback.png\" lightbox=\"media/defender-portal-feedback.png\":::\n+  :::image type=\"content\" source=\"media/defender-portal-feedback.png\" alt-text=\"Screenshot of the Feedback icon at the top of the Microsoft Defender portal.\" lightbox=\"media/defender-portal-feedback.png\":::\n \n   :::image type=\"content\" source=\"media/defender-portal-submit-feedback.png\" alt-text=\"Screenshot of the Submit feedback to Microsoft flyout in the Microsoft Defender portal.\" lightbox=\"media/defender-portal-submit-feedback.png\":::\n \n",
+      "baseCommitSha": "d4f7a9856d0eea9ebec933622abe73fea4d09d50",
+      "commitSha": "d177f36cc0936e38ac4eb9f4f3ba03c499b237e4",
+      "commitMessage": "Update analyzer-feedback.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-15T11:48:30-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/analyzer-feedback.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/analyzer-feedback",
+      "firstSeenAt": "2026-01-15T19:48:30.000Z",
+      "eventId": "defender-docs:d177f36cc0936e38ac4eb9f4f3ba03c499b237e4:modified:defender-endpoint/analyzer-feedback.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update analyzer-feedback.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/zero-hour-auto-purge.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-office-365/zero-hour-auto-purge.md b/defender-office-365/zero-hour-auto-purge.md\nindex e3d9a86a5..12377884e 100644\n--- a/defender-office-365/zero-hour-auto-purge.md\n+++ b/defender-office-365/zero-hour-auto-purge.md\n@@ -129,6 +129,9 @@ ZAP doesn't quarantine messages that are in the process of [Dynamic Delivery](sa\n > [!TIP]\n > ZAP for Microsoft Teams is available in Defender for Office 365 Plan 1 or Plan 2 (included or purchased as an add-on). To configure ZAP for Teams protection, see [Microsoft Defender for Office 365 support for Microsoft Teams](mdo-support-teams-about.md).\n \n+> [!NOTE]\n+> Currently, ZAP for Microsoft Teams isn't available in Microsoft 365 GCC, GCC High, or DoD.\n+\n ### ZAP in Teams chats\n \n ZAP is available for internal messages in Teams chats that are identified as malware or high confidence phishing. Currently, external messages aren't supported.\n",
+      "baseCommitSha": "66a9a5dc72edb556d926ec556091536a268ca656",
+      "commitSha": "3443aa25fdbcf81f5b53a4401a86215d32d1fdc4",
+      "commitMessage": "Update ZAP availability note for Microsoft Teams",
+      "commitAuthor": "Malvika Balaraj",
+      "commitDate": "2026-01-15T13:48:56-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/zero-hour-auto-purge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/zero-hour-auto-purge",
+      "firstSeenAt": "2026-01-15T21:48:56.000Z",
+      "eventId": "defender-docs:3443aa25fdbcf81f5b53a4401a86215d32d1fdc4:modified:defender-office-365/zero-hour-auto-purge.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update ZAP availability note for Microsoft Teams",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/zero-hour-auto-purge.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "changes": 5,
+      "patch": "diff --git a/defender-office-365/zero-hour-auto-purge.md b/defender-office-365/zero-hour-auto-purge.md\nindex 12377884e..2283bf6fe 100644\n--- a/defender-office-365/zero-hour-auto-purge.md\n+++ b/defender-office-365/zero-hour-auto-purge.md\n@@ -21,7 +21,7 @@ ms.custom:\n   - seo-marvel-apr2020\n description: Zero-hour auto purge (ZAP) in all organizations with cloud mailboxes handles messages in mailboxes retroactively identified as spam, phishing, or malware.\n ms.service: defender-office-365\n-ms.date: 12/16/2025\n+ms.date: 01/15/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Default email protections for cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -128,8 +128,7 @@ ZAP doesn't quarantine messages that are in the process of [Dynamic Delivery](sa\n \n > [!TIP]\n > ZAP for Microsoft Teams is available in Defender for Office 365 Plan 1 or Plan 2 (included or purchased as an add-on). To configure ZAP for Teams protection, see [Microsoft Defender for Office 365 support for Microsoft Teams](mdo-support-teams-about.md).\n-\n-> [!NOTE]\n+>\n > Currently, ZAP for Microsoft Teams isn't available in Microsoft 365 GCC, GCC High, or DoD.\n \n ### ZAP in Teams chats\n",
+      "baseCommitSha": "3443aa25fdbcf81f5b53a4401a86215d32d1fdc4",
+      "commitSha": "0b81b0abcd166ba141c4397924cc51efc7b36cf3",
+      "commitMessage": "Update zero-hour-auto-purge.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-15T14:22:24-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/zero-hour-auto-purge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/zero-hour-auto-purge",
+      "firstSeenAt": "2026-01-15T22:22:24.000Z",
+      "eventId": "defender-docs:0b81b0abcd166ba141c4397924cc51efc7b36cf3:modified:defender-office-365/zero-hour-auto-purge.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update zero-hour-auto-purge.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 12,
+    "totalFiles": 12,
+    "authors": [
+      "Atharv Anand",
+      "Chris Davis",
+      "Devorah Cohen",
+      "Malvika Balaraj",
+      "Paul Oliveria",
+      "Yukitaka Kashihara"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "sourceFiles": [
+          "defender-xdr/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Unified SecOps",
+        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
+        "sourceFiles": [
+          "unified-secops-platform/microsoft-threat-actor-naming.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-offline.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md. Updated Microsoft Defender documentation in defender-endp",
+        "sourceFiles": [
+          "defender-endpoint/edr-detection.md",
+          "defender-endpoint/linux-whatsnew.md",
+          "defender-endpoint/linux-whatsnew.md",
+          "defender-endpoint/microsoft-defender-offline.md",
+          "defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+          "defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
+          "defender-endpoint/analyzer-feedback.md",
+          "defender-endpoint/analyzer-feedback.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md. Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "sourceFiles": [
+          "defender-office-365/zero-hour-auto-purge.md",
+          "defender-office-365/zero-hour-auto-purge.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Unified SecOps",
+        "detail": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-offline.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md. Updated Microsoft Defender documentation in defender-endp"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md. Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

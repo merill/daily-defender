@@ -1,0 +1,86 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/autoad-results.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 12,
+      "changes": 26,
+      "patch": "diff --git a/defender-xdr/autoad-results.md b/defender-xdr/autoad-results.md\nindex 2db4cc609..18efa215f 100644\n--- a/defender-xdr/autoad-results.md\n+++ b/defender-xdr/autoad-results.md\n@@ -44,7 +44,7 @@ To release a user account or a device from containment, select the contained ass\n \n ### Review the attack disruption summary card\n \n-When automatic attack disruption takes action during an incident, a dedicated summary card appears on the incident page. The summary card gives you a fast overview of the disruption actions taken.\n+When automatic attack disruption takes action during an incident, a dedicated summary card appears on the incident page. The summary card gives you a fast overview of the disruption actions taken. It also displays historical data related to disruption in the context of the incident, meaning the data is aggregated from the first alert of the incident until present time.\n \n To review the summary card:\n \n@@ -66,49 +66,51 @@ You can release the contained assets, for example, enable a blocked user account\n \n ## Track the action status in the Activities tab (Preview)\n \n-The **Activities** tab in the **Incident** page allows you to view details related to a specific incident, including the date and time the activity started, the triggering alert, and more. \n+The **Activities** tab in the **Incident** page shows details related to a specific incident, including the date and time the activity started, the triggering alert, and more. \n \n-The **Policy status** column (Preview) in the activities list provides a stateful list of actions and policies taken within incidents, which allows you to see the current status of all relevant actions and policies in your environment. This addresses the challenge of tracking ongoing and expired actions, especially in large environments with many incidents.\n+The **Policy status** column (Preview) in the activities list provides a stateful list of actions and policies taken within incidents. You can see the current status of all relevant actions and policies in your environment. This feature addresses the challenge of tracking ongoing and expired actions, especially in large environments with many incidents.\n \n To view all automatic attack disruption and predictive shielding actions taken as part of an incident:\n \n 1. In the incident's **Activities** tab, add the following filters:\n     - Select **30 Days** > **Custom range**, and select the relevant timeframe for the actions you want to investigate.\n     - Select **Performed by** and select **AttackDisruption**. This filter also includes predictive shielding actions.\n-    - Select **Activity status** and select **Completed**. This shows you the current policy status for actions that are completed, filtering out partial or in-progress actions.\n+    - Select **Activity status** and select **Completed**. This status shows you the current policy status for actions that are completed, filtering out partial or in-progress actions.\n     - **Policy status**: Select **Active**, **Inactive**, and **No status** (all options except **Not applicable**).\n-1. Review the listed activities. The **Policy status** column shows the current status of the policy for each activity. For example, a user was contained in the specified timeframe, but the policy is currently inactive. This means that the user is no longer contained.\n+1. Review the listed activities. The **Policy status** column shows the current status of the policy for each activity. For example, a user was contained in the specified timeframe, but the policy is currently inactive. This status means that the user is no longer contained.\n \n     :::image type=\"content\" source=\"media/autoad-results/activities-tab-status.png\" alt-text=\"Screenshot of the Activities tab in Microsoft Defender XDR showing the policy status column with active and inactive statuses for attack disruption actions.\" lightbox=\"media/autoad-results/activities-tab-status.png\":::\n \n > [!TIP]\n-> [Predictive shielding](shield-predict-threats.md) actions also appear when you filter by **AttackDisruption** in the **Performed by** filter. While attack disruption responds to an active attack by containing compromised assets, predictive shielding anticipates potential attack progression and applies protective measures preemptively. For more information, see [Manage predictive shielding in Microsoft Defender](shield-predict-threats-manage.md).\n+> [Predictive shielding](shield-predict-threats.md) actions also appear when you filter by **AttackDisruption** in the **Performed by** filter. While attack disruption responds to an active attack by containing compromised assets, predictive shielding anticipates potential attack progression and applies protective measures preemptively. For a list of supported predictive shielding actions and more information on managing them, see the following articles:\n+> - [Predictive shielding actions](shield-predict-threats.md#predictive-shielding-actions)\n+> - [Manage predictive shielding in Microsoft Defender](shield-predict-threats-manage.md)\n \n The following policy statuses are available:\n \n - **Active**: The policy is currently active and enforced.\n-- **Inactive**: The policy was previously applied but is no longer active. For example, a user was contained but has since been released.\n-- **Not applicable**: The policy status doesn't apply to the action. For example, the policy status doesn't apply to an uncontain action, because uncontain actions are not policies but rather the reversal of a previous action.\n-- **No status**: The policy status couldn't be retrieved for various reasons, for example, the action is still in progress and the final status is not yet determined.\n+- **Inactive**: The policy was previously applied but is no longer active. For example, a user was contained but is now released.\n+- **Not applicable**: The policy status doesn't apply to the action. For example, the policy status doesn't apply to an uncontain action, because uncontain actions aren't policies but rather the reversal of a previous action.\n+- **No status**: The policy status couldn't be retrieved for various reasons. For example, the action is still in progress and the final status isn't yet determined.\n \n This view provides unique data on the activity and policy status in the selected timeframe. This data goes beyond Action center views, which log past actions but don't reflect current status.\n \n ## Track the actions in advanced hunting\n \n-You can use specific queries in [advanced hunting](advanced-hunting-overview.md) to track device containment, user containment, and user account disable actions.\n+Use specific queries in [advanced hunting](advanced-hunting-overview.md) to track device containment, user containment, and user account disable actions.\n \n ### Containment-related events in advanced hunting\n \n Containment in Microsoft Defender for Endpoint prevents further threat actor activity by blocking communication from contained entities. In advanced hunting, the [DeviceEvents table](advanced-hunting-deviceevents-table.md) logs **block actions that result from containment**, not the initial containment action itself:\n \n-- **Device-derived block actions** - These events indicate activity (such as network communication) that was *blocked because the device was contained*:\n+- **Device-derived block actions** - These events indicate activity (such as network communication) that was *blocked because the device was contained*.\n \n   ```Kusto\n   DeviceEvents\n   | where ActionType contains \"ContainedDevice\"\n   ```\n \n-- **User-derived block actions** - These events indicate activity (such as sign-in or resource access attempts) that was *blocked because the user was contained*:\n+- **User-derived block actions** - These events indicate activity (such as sign-in or resource access attempts) that was *blocked because the user was contained*.\n \n   ```Kusto\n   DeviceEvents\n",
+      "baseCommitSha": "5c1a711f69ff5fbca41f7d7b9ef8cad590b9c991",
+      "commitSha": "dacb4fff44cf5e8a8d68175ef4c829188dd83775",
+      "commitMessage": "Clarify attack disruption summary and activities",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-05-16T23:08:35+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/autoad-results.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/autoad-results",
+      "firstSeenAt": "2026-05-16T17:38:35.000Z",
+      "eventId": "defender-docs:dacb4fff44cf5e8a8d68175ef4c829188dd83775:modified:defender-xdr/autoad-results.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify attack disruption summary and activities",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/autoad-results.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/autoad-results.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/autoad-results.md b/defender-xdr/autoad-results.md\nindex 18efa215f..7cc4baa0c 100644\n--- a/defender-xdr/autoad-results.md\n+++ b/defender-xdr/autoad-results.md\n@@ -62,8 +62,6 @@ The Action center ([https://security.microsoft.com/action-center](https://securi\n \n You can release the contained assets, for example, enable a blocked user account or release a device from containment, from the action details pane. You can release the contained assets after you mitigate the risk and complete the investigation of an incident. For more information, see [Action center](m365d-action-center.md).\n \n-[!INCLUDE [Microsoft Defender XDR rebranding](../includes/defender-m3d-techcommunity.md)]\n-\n ## Track the action status in the Activities tab (Preview)\n \n The **Activities** tab in the **Incident** page shows details related to a specific incident, including the date and time the activity started, the triggering alert, and more. \n@@ -172,4 +170,6 @@ For more information about the DisruptionAndResponseEvents table schema, see [Di\n - [Predictive shielding in Microsoft Defender](shield-predict-threats.md)\n - [Manage predictive shielding in Microsoft Defender](shield-predict-threats-manage.md)\n - [DisruptionAndResponseEvents table](advanced-hunting-disruptionandresponseevents-table.md)\n-- [Get email notifications for response actions](m365d-response-actions-notifications.md)\n\\ No newline at end of file\n+- [Get email notifications for response actions](m365d-response-actions-notifications.md)\n+\n+[!INCLUDE [Microsoft Defender XDR rebranding](../includes/defender-m3d-techcommunity.md)]\n",
+      "baseCommitSha": "2a5a5adc18761bee8dfdceb5cb6f9382e5405721",
+      "commitSha": "af8a6dfa6222173e36b5632dea01331b8b2bbcc4",
+      "commitMessage": "Reorganize content in autoad-results.md",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-05-16T23:14:45+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/autoad-results.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/autoad-results",
+      "firstSeenAt": "2026-05-16T17:44:45.000Z",
+      "eventId": "defender-docs:af8a6dfa6222173e36b5632dea01331b8b2bbcc4:modified:defender-xdr/autoad-results.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Reorganize content in autoad-results.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/autoad-results.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Paul Oliveria"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/autoad-results.md. Updated Microsoft Defender documentation in defender-xdr/autoad-results.md.",
+        "sourceFiles": [
+          "defender-xdr/autoad-results.md",
+          "defender-xdr/autoad-results.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/autoad-results.md. Updated Microsoft Defender documentation in defender-xdr/autoad-results.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

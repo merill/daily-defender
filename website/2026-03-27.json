@@ -1,0 +1,177 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 0,
+      "changes": 15,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex d85c60a49..d6d39296b 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -25,6 +25,7 @@ This table includes supported releases for all supported platforms in the past s\n \n |OS  |Build |Month released|Details  |Learn more  |\n |---------|---------|---------|---------|---------|\n+|Linux  |101.26021.0002  |March 2026 |- Release version: 30.126021.0002.0<br>- Engine version: 1.1.26010.1003<br>- Signature version: 1.445.553.0 |[Release details and updates](#linux--march-2026--101260210002) |\n |macOS |101.26012.0017  |March 2026 |- Release version: 20.126012.17.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120017) |\n |macOS |101.26012.0015  |March 2026 |- Release version: 20.126012.15.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120015) |\n |Linux  |101.26012.0007  |March 2026 |- Release version: 30.126012.0007.0<br>- Engine version: 1.1.25110.3002<br>- Signature version: 1.443.508.0 |[Release details and updates](#linux--march-2026--101260120007) |\n@@ -306,6 +307,20 @@ For detailed information on Microsoft security updates, see the [Microsoft Secur\n >\n > If you have any concerns or need assistance during this transition, contact support.\n \n+### Linux | March 2026 | 101.26021.0002\n+\n+#### Release details\n+\n+| Release version | Engine version | Signature version |\n+| -------- | -------- |-------- |\n+|30.126021.0002.0 |1.1.26010.1003 |1.445.553.0 |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+|--------------|---------------|\n+| Performance and stability | Improved agent performance and stability under sustained, high‑throughput workloads |\n+\n ### Linux | March 2026 | 101.26012.0007\n \n #### Release details\n",
+      "baseCommitSha": "316714f752a9fa6e1310d250197656bf9036642e",
+      "commitSha": "cdba66ceed1d71707ffb10b7d18099e54ae70fab",
+      "commitMessage": "Linux release note update",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-27T11:32:55+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-27T08:32:55.000Z",
+      "eventId": "defender-docs:cdba66ceed1d71707ffb10b7d18099e54ae70fab:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Linux release note update",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex a01f2f4f0..2ff04d8bd 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -30,6 +30,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n \n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------|\n+|Release - Linux |Build 101.26021.0002 |GA |Release version 30.126021.0002.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#linux--march-2026--101260210002). |\n |Release - Windows |Windows Defender Antivirus: Platform 4.18.26020.6 / Engine 1.1.26020.3 |GA |See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#windows-antivirus--february-2026--platform-418260206--engine-11260203). |\n |Feature |[Library management for live response](configure-libraries-live-response.md) |GA |Library management for live response is now generally available. This feature provides a centralized view for managing files and scripts used during live response sessions. |\n |Release - macOS |Build 101.26012.0017 |GA |Release version 20.126012.17.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--march-2026--101260120017).|\n",
+      "baseCommitSha": "316714f752a9fa6e1310d250197656bf9036642e",
+      "commitSha": "cdba66ceed1d71707ffb10b7d18099e54ae70fab",
+      "commitMessage": "Linux release note update",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-27T11:32:55+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-27T08:32:55.000Z",
+      "eventId": "defender-docs:cdba66ceed1d71707ffb10b7d18099e54ae70fab:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Linux release note update",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex d6d39296b..3ce8d0393 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -319,7 +319,7 @@ For detailed information on Microsoft security updates, see the [Microsoft Secur\n \n | Feature area | Update summary |\n |--------------|---------------|\n-| Performance and stability | Improved agent performance and stability under sustained, high‑throughput workloads |\n+| Performance and stability | Improved agent performance and stability under sustained, high‑throughput workloads. |\n \n ### Linux | March 2026 | 101.26012.0007\n \n",
+      "baseCommitSha": "cdba66ceed1d71707ffb10b7d18099e54ae70fab",
+      "commitSha": "392ea01c4ea34a08a10c080de74d9d7b50887262",
+      "commitMessage": "Fixed typo",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-27T11:43:25+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-27T08:43:25.000Z",
+      "eventId": "defender-docs:392ea01c4ea34a08a10c080de74d9d7b50887262:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixed typo",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex 67483f3b9..dbd9a3f4e 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -1,22 +1,22 @@\n ---\n title: Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview\n-f1.keywords: \n+f1.keywords:\n   - NOCSH\n author: chrisda\n ms.author: chrisda\n audience: Admin\n ms.topic: article\n-f1_keywords: \n+f1_keywords:\n   - 'ms.o365.cc.AdminRoleGroups'\n-ms.collection: \n+ms.collection:\n - m365-security\n - tier1\n ms.localizationpriority: medium\n-search.appverid: \n+search.appverid:\n   - MOE150\n   - MET150\n description: Admins can learn about the roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview.\n-ms.custom: \n+ms.custom:\n - seo-marvel-apr2020\n ms.service: defender-office-365\n ms.date: 01/23/2026\n@@ -83,7 +83,7 @@ Managing permissions in Defender for Office 365 or Microsoft Purview gives users\n |**Data Governance**|Grants access to data governance roles within Microsoft Purview.|Data Governance Administrator|\n |**Data Investigator**|Perform searches on mailboxes, SharePoint sites, and OneDrive locations.|Communication <br/><br/> Compliance Search <br/><br/> Custodian <br/><br/> Data Investigation Management <br/><br/> Export <br/><br/> Preview <br/><br/> Review <br/><br/> RMS Decrypt <br/><br/> Search And Purge|\n |**Data Security AI Admins**|Use this group to assign editing capabilities for Data Loss Prevention policies related to Copilot and viewing AI content in Data Security Posture Management. Review the role description for access details.|Data Security AI Admin|\n-|**Data Security AI Content Viewers**|Use this group to assign read-only permissions to users in Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management to view prompts and responses of interactions in AI apps.|Data Security AI Content Viewer|\n+|**Data Security AI Content Viewers**|Use this group to grant permissions for users to view extended prompt and response details in AI application interactions within Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management.|Data Security AI Content Viewer|\n |**Data Security AI Viewers**|Use this group to assign read-only permissions to users for Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management.|Data Security AI Viewer|\n |**Data Security DLP Triage Agent**|Intended exclusively for non-interactive agent users to triage and remediate data loss prevention alerts.|Data Classification Content Download <br/><br/> Data Classification Content Viewer <br/><br/> Information Protection Analyst <br/><br/> Purview Content Analyst <br/><br/> Purview Copilot Workspace Contributor|\n |**Data Security DSPM Posture Agent**|Intended exclusively for non-interactive agent users to search and classify the data based on the selected scope provided by Posture management administrators.|Purview Content Analyst <br/><br/> Purview Copilot Workspace Contributor|\n",
+      "baseCommitSha": "93a5e4dcd140575e7baf59ffc7dbbf4b34685e95",
+      "commitSha": "52b31607d5543c4602127aed9610d2674a0cd06f",
+      "commitMessage": "Update scc-permissions.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-27T09:16:00-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "firstSeenAt": "2026-03-27T16:16:00.000Z",
+      "eventId": "defender-docs:52b31607d5543c4602127aed9610d2674a0cd06f:modified:defender-office-365/scc-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update scc-permissions.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex dbd9a3f4e..e90dc311e 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -19,7 +19,7 @@ description: Admins can learn about the roles and role groups in Microsoft Defen\n ms.custom:\n - seo-marvel-apr2020\n ms.service: defender-office-365\n-ms.date: 01/23/2026\n+ms.date: 03/27/2026\n ---\n \n # Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview\n",
+      "baseCommitSha": "52b31607d5543c4602127aed9610d2674a0cd06f",
+      "commitSha": "46049d7f92883e70c702fa394cd9b19604b68e0c",
+      "commitMessage": "Update scc-permissions.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-27T09:16:26-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "firstSeenAt": "2026-03-27T16:16:26.000Z",
+      "eventId": "defender-docs:46049d7f92883e70c702fa394cd9b19604b68e0c:modified:defender-office-365/scc-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update scc-permissions.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 5,
+    "authors": [
+      "Chris Davis",
+      "Paul Inbar"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "sourceFiles": [
+          "defender-office-365/scc-permissions.md",
+          "defender-office-365/scc-permissions.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

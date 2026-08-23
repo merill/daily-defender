@@ -1,0 +1,216 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/secure-by-default.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/secure-by-default.md b/defender-office-365/secure-by-default.md\nindex 37744ba9b..3ca702810 100644\n--- a/defender-office-365/secure-by-default.md\n+++ b/defender-office-365/secure-by-default.md\n@@ -5,7 +5,7 @@ f1.keywords:\n author: chrisda\n ms.author: chrisda\n manager: bagol\n-ms.date: 02/03/2026\n+ms.date: 02/13/2026\n audience: ITPro\n ms.topic: concept-article\n ms.localizationpriority: medium\n@@ -39,7 +39,7 @@ However, security needs to be balanced with productivity. This balance includes:\n All organizations with cloud mailboxes automatically receive email protection. This protection includes:\n \n - Email with suspected malware is automatically quarantined. The quarantine policy used by the anti-malware policy controls whether recipients are notified. For more information, see [Configure anti-malware policies](anti-malware-policies-configure.md).\n-- Email identified as high confidence phishing is quarantined due to secure by default and the action configured for high confidence phishing in the relevant anti-spam policy.\n+- Email identified as high confidence phishing is quarantined by default.\n \n For more information, see [Built-in security features for all cloud mailboxes](eop-about.md).\n \n",
+      "baseCommitSha": "5956630544d6e2451744de6ca0fc1cb16f34b38e",
+      "commitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitMessage": "Update secure-by-default.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T09:22:44-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/secure-by-default.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/secure-by-default",
+      "firstSeenAt": "2026-02-13T17:22:44.000Z",
+      "eventId": "defender-docs:00f57a4e5f104ce12f12eb447ff9eef271a97df2:modified:defender-office-365/secure-by-default.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update secure-by-default.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/secure-by-default.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-malware-policies-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/anti-malware-policies-configure.md b/defender-office-365/anti-malware-policies-configure.md\nindex 8634d5c5c..ba58cb416 100644\n--- a/defender-office-365/anti-malware-policies-configure.md\n+++ b/defender-office-365/anti-malware-policies-configure.md\n@@ -126,7 +126,7 @@ You can configure anti-malware policies in the Microsoft Defender portal or in [\n        > [!TIP]\n        > Quarantine notifications are disabled in the policy named AdminOnlyAccessPolicy. To notify recipients that have messages quarantined as malware, create or use an existing quarantine policy where quarantine notifications are turned on. For instructions, see [Create quarantine policies in the Microsoft Defender portal](quarantine-policies.md#step-1-create-quarantine-policies-in-the-microsoft-defender-portal).\n        >\n-       > Users can't release their own messages quarantined as malware by anti-malware policies, regardless of how the quarantine policy is configured. If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+       > Recipients can't release messages quarantined as malware, regardless of how the quarantine policy is configured. If the quarantine policy allows recipients to release messages, they can only _request_ the release of messages quarantined as malware.\n \n    - **Notifications** section:\n \n",
+      "baseCommitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitSha": "9355ca740bf0d16a8c71371ca94cde3a47c0b6da",
+      "commitMessage": "Edit to statement about malware/phishing release in quarantine polcies",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T12:02:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/anti-malware-policies-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-policies-configure",
+      "firstSeenAt": "2026-02-13T20:02:15.000Z",
+      "eventId": "defender-docs:9355ca740bf0d16a8c71371ca94cde3a47c0b6da:modified:defender-office-365/anti-malware-policies-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edit to statement about malware/phishing release in quarantine polcies",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-malware-policies-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-spam-policies-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/anti-spam-policies-configure.md b/defender-office-365/anti-spam-policies-configure.md\nindex df88a8245..23a194e26 100644\n--- a/defender-office-365/anti-spam-policies-configure.md\n+++ b/defender-office-365/anti-spam-policies-configure.md\n@@ -145,7 +145,7 @@ You can configure anti-spam policies in the Microsoft Defender portal or in [Exc\n      >\n      > For **High confidence phishing**, the **Move message to Junk Email folder** action is effectively deprecated. Although you might be able to select the **Move message to Junk Email folder** action, high confidence phishing messages are always quarantined (equivalent to selecting **Quarantine message**).\n      >\n-     > Users can't release their own messages that were quarantined as high confidence phishing, regardless of how the quarantine policy is configured. If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+     > Recipients can't release messages quarantined as high confidence phishing, regardless of how the quarantine policy is configured. If the quarantine policy allows recipients to release messages, they can only _request_ the release of messages quarantined as high confidence phishing.\n \n    - **Intra-Organizational messages to take action on**: Controls whether spam filtering and the corresponding verdict actions are applied to internal messages (messages sent between users within the organization). The available values are:\n      - **Default**: The default value. This value is the same as selecting **High confidence phishing messages**.\n",
+      "baseCommitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitSha": "9355ca740bf0d16a8c71371ca94cde3a47c0b6da",
+      "commitMessage": "Edit to statement about malware/phishing release in quarantine polcies",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T12:02:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/anti-spam-policies-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-policies-configure",
+      "firstSeenAt": "2026-02-13T20:02:15.000Z",
+      "eventId": "defender-docs:9355ca740bf0d16a8c71371ca94cde3a47c0b6da:modified:defender-office-365/anti-spam-policies-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edit to statement about malware/phishing release in quarantine polcies",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-spam-policies-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-spam-protection-about.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/anti-spam-protection-about.md b/defender-office-365/anti-spam-protection-about.md\nindex 40241c8a1..663a67821 100644\n--- a/defender-office-365/anti-spam-protection-about.md\n+++ b/defender-office-365/anti-spam-protection-about.md\n@@ -150,7 +150,7 @@ These settings aren't configured in the default anti-spam policy by default, or\n \n   ⁴ If the spam filtering verdict quarantines messages by default (**Quarantine message** is already selected when you get to the page), the default quarantine policy name is shown in the **Select quarantine policy** box. If you _change_ the action of a spam filtering verdict to **Quarantine message**, the **Select quarantine policy** box is blank by default. A blank value means the default quarantine policy for that verdict is used. When you later view or edit the anti-spam policy settings, the quarantine policy name is shown. For more information about the quarantine policies that are used by default for spam filter verdicts, see [Anti-spam policy settings](recommended-settings-for-eop-and-office365.md#anti-spam-policy-settings).\n \n-  ⁵ Users can't release their own messages that were quarantined as high confidence phishing, regardless of how the quarantine policy is configured. If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+  ⁵ Recipients can't release messages quarantined as high confidence phishing, regardless of how the quarantine policy is configured. If the quarantine policy allows recipients to release messages, they can only _request_ the release of messages quarantined as high confidence phishing.\n \n - **Intra-Organizational messages to take action on**: Controls whether spam filtering and the corresponding verdict actions are applied to internal messages (messages sent between users within the organization). The specified action for the spam filter verdict is taken on messages sent between internal users. The available values are:\n   - **Default**: The default value. This value is the same as selecting **High confidence phishing messages**.\n",
+      "baseCommitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitSha": "9355ca740bf0d16a8c71371ca94cde3a47c0b6da",
+      "commitMessage": "Edit to statement about malware/phishing release in quarantine polcies",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T12:02:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/anti-spam-protection-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-protection-about",
+      "firstSeenAt": "2026-02-13T20:02:15.000Z",
+      "eventId": "defender-docs:9355ca740bf0d16a8c71371ca94cde3a47c0b6da:modified:defender-office-365/anti-spam-protection-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edit to statement about malware/phishing release in quarantine polcies",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-spam-protection-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-about.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/quarantine-about.md b/defender-office-365/quarantine-about.md\nindex 0fbbbdce2..dedc4c4ee 100644\n--- a/defender-office-365/quarantine-about.md\n+++ b/defender-office-365/quarantine-about.md\n@@ -83,13 +83,13 @@ Both users and admins can work with quarantined messages:\n - Users can work with their quarantined messages based on the protection feature that quarantined the message, and the setting in corresponding quarantine policy. For more information, see [Find and release quarantined messages as a user](quarantine-end-user.md).\n \n   > [!NOTE]\n-  > Users can't release their own quarantined messages in the following scenarios, regardless of how the quarantine policy is configured:\n+  > Recipients can't release quarantined messages in the following scenarios, regardless of how the quarantine policy is configured:\n   >\n   > - Messages quarantined as malware by anti-malware policies.\n   > - Messages quarantined as malware or phishing by Safe Attachments policies.\n   > - Messages quarantined as high confidence phishing by anti-spam policies.\n   >\n-  > If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+  > If the quarantine policy allows recipients to release messages, they can only _request_ the release of these quarantined messages.\n \n - Admins can report false positives to Microsoft from quarantine. For more information, see [Take action on quarantined email](quarantine-admin-manage-messages-files.md#take-action-on-quarantined-email) and [Take action on quarantined files](quarantine-admin-manage-messages-files.md#take-action-on-quarantined-files).\n \n",
+      "baseCommitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitSha": "9355ca740bf0d16a8c71371ca94cde3a47c0b6da",
+      "commitMessage": "Edit to statement about malware/phishing release in quarantine polcies",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T12:02:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-about",
+      "firstSeenAt": "2026-02-13T20:02:15.000Z",
+      "eventId": "defender-docs:9355ca740bf0d16a8c71371ca94cde3a47c0b6da:modified:defender-office-365/quarantine-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edit to statement about malware/phishing release in quarantine polcies",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-quarantine-notifications.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/quarantine-quarantine-notifications.md b/defender-office-365/quarantine-quarantine-notifications.md\nindex 24b6c1ba3..376c835c3 100644\n--- a/defender-office-365/quarantine-quarantine-notifications.md\n+++ b/defender-office-365/quarantine-quarantine-notifications.md\n@@ -78,13 +78,13 @@ The actions that are available for messages in the quarantine notification depen\n \n   Selecting the action opens an informational web page that acknowledges the message was released from quarantine (for example, **Spam message was released from quarantine**). The **Release status** value of the message on the **Email** tab of the **Quarantine** page is **Released**. The message is delivered to the user's Inbox (or some other folder, depending on any [Inbox rules](https://support.microsoft.com/office/c24f5dea-9465-4df4-ad17-a50704d66c59) in the mailbox).\n \n-  Users can't release their own quarantined messages in the following scenarios, regardless of how the quarantine policy is configured:\n+  Recipients can't release quarantined messages in the following scenarios, regardless of how the quarantine policy is configured:\n \n   - Messages quarantined as malware by anti-malware policies.\n   - Messages quarantined as malware or phishing by Safe Attachments policies.\n   - Messages quarantined as high confidence phishing by anti-spam policies.\n \n-  If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+  If the quarantine policy allows recipients to release messages, they can only _request_ the release of these quarantined messages.\n \n - **Request release**: Available for messages quarantined by features using a quarantine policy with the **Limited access** permission group or the individual **Allow recipients to request a message to be released from quarantine** (_PermissionToRequestRelease_) permission. For example, custom quarantine policies.\n \n",
+      "baseCommitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitSha": "9355ca740bf0d16a8c71371ca94cde3a47c0b6da",
+      "commitMessage": "Edit to statement about malware/phishing release in quarantine polcies",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T12:02:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-quarantine-notifications.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-quarantine-notifications",
+      "firstSeenAt": "2026-02-13T20:02:15.000Z",
+      "eventId": "defender-docs:9355ca740bf0d16a8c71371ca94cde3a47c0b6da:modified:defender-office-365/quarantine-quarantine-notifications.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edit to statement about malware/phishing release in quarantine polcies",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/zero-hour-auto-purge.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/zero-hour-auto-purge.md b/defender-office-365/zero-hour-auto-purge.md\nindex 688444858..ea4456a5d 100644\n--- a/defender-office-365/zero-hour-auto-purge.md\n+++ b/defender-office-365/zero-hour-auto-purge.md\n@@ -54,7 +54,7 @@ Watch this short video to learn how ZAP in Microsoft Defender for Office 365 aut\n For _read or unread messages_ found to contain malware after delivery, ZAP quarantines the message that contains the malware attachment. By default, only admins can view and manage quarantined malware messages. But, admins can create and use _quarantine policies_ to define what users are able to do to quarantined messages, and whether users receive quarantine notifications. For more information, see [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy).\n \n > [!NOTE]\n-> Users can't release their own messages quarantined as malware, regardless of how the quarantine policy is configured. If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+> Recipients can't release messages quarantined as malware, regardless of how the quarantine policy is configured. If the quarantine policy allows recipients to release messages, they can only _request_ the release of messages quarantined as malware.\n \n ZAP for malware is enabled by default in anti-malware policies. For more information, see [Configure anti-malware policies](anti-malware-policies-configure.md).\n \n@@ -80,7 +80,7 @@ For more information about configuring spam filtering verdicts, see [Configure a\n For _read or unread messages_ that are identified as _high confidence phishing_ after delivery, ZAP quarantines the message. By default, only admins can view and manage quarantined high confidence phishing messages. But, admins can create and use _quarantine policies_ to define what users are able to do to quarantined messages, and whether users receive quarantine notifications. For more information, see [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy).\n \n > [!NOTE]\n-> Users can't release their own messages quarantined as high confidence phishing, regardless of how the quarantine policy is configured. If the policy is configured for users to release these quarantined messages, users are instead allowed to _request_ the release of these quarantined messages.\n+> Recipients can't release messages quarantined as high confidence phishing, regardless of how the quarantine policy is configured. If the quarantine policy allows recipients to release messages, they can only _request_ the release of messages quarantined as high confidence phishing.\n \n ZAP for high confidence phishing is enabled by default. For more information, see [Secure by Default in Office 365](secure-by-default.md).\n \n",
+      "baseCommitSha": "00f57a4e5f104ce12f12eb447ff9eef271a97df2",
+      "commitSha": "9355ca740bf0d16a8c71371ca94cde3a47c0b6da",
+      "commitMessage": "Edit to statement about malware/phishing release in quarantine polcies",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-13T12:02:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/zero-hour-auto-purge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/zero-hour-auto-purge",
+      "firstSeenAt": "2026-02-13T20:02:15.000Z",
+      "eventId": "defender-docs:9355ca740bf0d16a8c71371ca94cde3a47c0b6da:modified:defender-office-365/zero-hour-auto-purge.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edit to statement about malware/phishing release in quarantine polcies",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 7,
+    "authors": [
+      "Chris Davis"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/secure-by-default.md. Updated Microsoft Defender documentation in defender-office-365/anti-malware-policies-configure.md. Updated Microsoft Defender documentation in defender-office-365/anti-spam-policies-configure.md. Updated Microsoft Defender documentation in defender-office-365/anti-spam-protection-about.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-about.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md. Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "sourceFiles": [
+          "defender-office-365/secure-by-default.md",
+          "defender-office-365/anti-malware-policies-configure.md",
+          "defender-office-365/anti-spam-policies-configure.md",
+          "defender-office-365/anti-spam-protection-about.md",
+          "defender-office-365/quarantine-about.md",
+          "defender-office-365/quarantine-quarantine-notifications.md",
+          "defender-office-365/zero-hour-auto-purge.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/secure-by-default.md. Updated Microsoft Defender documentation in defender-office-365/anti-malware-policies-configure.md. Updated Microsoft Defender documentation in defender-office-365/anti-spam-policies-configure.md. Updated Microsoft Defender documentation in defender-office-365/anti-spam-protection-about.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-about.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md. Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

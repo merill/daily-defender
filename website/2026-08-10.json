@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/safe-links-about.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/safe-links-about.md b/defender-office-365/safe-links-about.md\nindex 1205affa5..e1d28398a 100644\n--- a/defender-office-365/safe-links-about.md\n+++ b/defender-office-365/safe-links-about.md\n@@ -163,7 +163,7 @@ You turn on or turn off Safe Links protection for Microsoft Teams in Safe Links\n URLs in Teams are checked against a list of known malicious links when the protected user clicks the link (time-of-click protection). URLs aren't rewritten. If a link is found to be malicious, users have the following experiences:\n \n - If the link was clicked in a Teams conversation, group chat, or from channels, the warning page as shown in the screenshot appears in the default web browser.\n-- If the link was clicked from a pinned tab, the warning page appears in the Teams interface within that tab. The option to open the link in a web browser is disabled for security reasons.\n+- If the link was clicked from a pinned tab, the warning page appears in a new browser tab.\n - Depending on how the **Let users click through to the original URL** setting in the policy is configured, the user is or isn't allowed to click through to the original URL (**Continue anyway (not recommended)** in the screenshot). We recommend that you don't select the **Let users click through to the original URL** setting so users can't click through to the original URL.\n \n If the user who sent the link isn't protected by a Safe Links policy where Teams protection is turned on, the user is free to click through to the original URL on their computer or device.\n",
+      "baseCommitSha": "23a594b316f365400290c15e397e911e476f09a1",
+      "commitSha": "3761e451da9b4a3a0be0ca16ba1c515585000ab3",
+      "commitMessage": "Update warning page behavior for pinned tabs in Teams (#573)",
+      "commitAuthor": "yonodera-gh",
+      "commitDate": "2026-08-11T01:09:11+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/safe-links-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-about",
+      "firstSeenAt": "2026-08-10T16:09:11.000Z",
+      "eventId": "defender-docs:3761e451da9b4a3a0be0ca16ba1c515585000ab3:modified:defender-office-365/safe-links-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update warning page behavior for pinned tabs in Teams (#573)",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "yonodera-gh"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
+        "sourceFiles": [
+          "defender-office-365/safe-links-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

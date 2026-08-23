@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 12,
+      "changes": 13,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 62064a2ef..d526bb79c 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -54,18 +54,7 @@ Linux server endpoints should have systemd (system manager) installed.\n \n To use [device isolation functionality](./respond-machine-alerts.md#isolate-devices-from-the-network), the following must be enabled:\n \n-- `iptables`\n-- `ip6tables`\n-- The following kernel configurations (enabled by default on the supported distros).\n-\n-  | Older kernels (lower than 5.x) | Newer kernels (5.x and later) | All kernel versions |\n-  |---|---|---|\n-  | `CONFIG_NETFILTER_XT_TARGET_NFQUEUE` | `CONFIG_NF_TABLES` | `CONFIG_NETFILTER` |\n-  | `CONFIG_IP_NF_IPTABLES` | `CONFIG_NFT_QUEUE` | `CONFIG_NETFILTER_NETLINK_QUEUE` |\n-  | `CONFIG_IP_NF_FILTER` | `CONFIG_NFT_COMPAT` | `CONFIG_PROC_FS` |\n-  | `CONFIG_IP6_NF_IPTABLES` | `CONFIG_NETFILTER_XT_MATCH_OWNER` | `CONFIG_UNIX` |\n-  | `CONFIG_IP6_NF_FILTER` | | |\n-  | `CONFIG_IP_NF_MATCH_OWNER` | | |\n+- `iptables` and `ip6tables`, or `iptables-nft` and `ip6tables-nft`\n \n ## Network requirements\n \n",
+      "baseCommitSha": "9a4598ec23a6a406c27193189901a63b77055a36",
+      "commitSha": "888c7f3df7abea99f65c2375c631012aff90bfc3",
+      "commitMessage": "Simplify isolation prerequisites: remove kernel configs, add iptables-nft option",
+      "commitAuthor": "Divyanand Rangu",
+      "commitDate": "2026-06-10T16:46:26+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-10T11:16:26.000Z",
+      "eventId": "defender-docs:888c7f3df7abea99f65c2375c631012aff90bfc3:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Simplify isolation prerequisites: remove kernel configs, add iptables-nft option",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Divyanand Rangu"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "sourceFiles": [
+          "defender-endpoint/mde-linux-prerequisites.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-detection-protection.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-detection-protection.md b/defender-xdr/security-for-ai/ai-agent-detection-protection.md\nindex b62c4bb0e..99b662e50 100644\n--- a/defender-xdr/security-for-ai/ai-agent-detection-protection.md\n+++ b/defender-xdr/security-for-ai/ai-agent-detection-protection.md\n@@ -24,7 +24,7 @@ This article explains how Microsoft Defender detects, blocks, and enables securi\n ## Prerequisites\n \n - [Onboard to Microsoft Agent 365](/microsoft-agent-365/overview).\n-- To access the `AIAgentsInfo` table and the Agent entity in Microsoft Defender XDR, [enable preview features](../preview.md) in the Microsoft Defender portal.\n+- [Enable preview features](../preview.md) in the Microsoft Defender portal to get AI agent-related evidence in alerts.\n \n ## Block unsafe AI agent actions in real time\n \n",
+      "baseCommitSha": "d04ff2206e11eb092e2581b4b0810988b80b5b26",
+      "commitSha": "dfa461338956b9b6aedc7841fb64b5081cfc39fd",
+      "commitMessage": "Fix prereqs wording in AI agent articles",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-31T14:35:04+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/ai-agent-detection-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-detection-protection",
+      "firstSeenAt": "2026-05-31T11:35:04.000Z",
+      "eventId": "defender-docs:dfa461338956b9b6aedc7841fb64b5081cfc39fd:modified:defender-xdr/security-for-ai/ai-agent-detection-protection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix prereqs wording in AI agent articles",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/ai-agent-detection-protection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-inventory.md b/defender-xdr/security-for-ai/ai-agent-inventory.md\nindex c551628d0..80cc2f142 100644\n--- a/defender-xdr/security-for-ai/ai-agent-inventory.md\n+++ b/defender-xdr/security-for-ai/ai-agent-inventory.md\n@@ -26,7 +26,7 @@ This article explains how to discover AI agents, assess their security posture,\n ## Prerequisites\n \n - [Onboard to Microsoft Agent 365](/microsoft-agent-365/overview).\n-- To access the `AIAgentsInfo` table and the Agent entity in Microsoft Defender XDR, [enable preview features](../preview.md) in the Microsoft Defender portal.\n+- [Enable preview features](../preview.md) in the Microsoft Defender portal to access the `AIAgentsInfo` table in Advanced Hunting and get AI agent-related evidence in alerts.\n \n ## View all Agent 365-managed agents and configuration details using Advanced Hunting\n \n",
+      "baseCommitSha": "d04ff2206e11eb092e2581b4b0810988b80b5b26",
+      "commitSha": "dfa461338956b9b6aedc7841fb64b5081cfc39fd",
+      "commitMessage": "Fix prereqs wording in AI agent articles",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-05-31T14:35:04+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-inventory",
+      "firstSeenAt": "2026-05-31T11:35:04.000Z",
+      "eventId": "defender-docs:dfa461338956b9b6aedc7841fb64b5081cfc39fd:modified:defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix prereqs wording in AI agent articles",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/ai-agent-inventory.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 5454a0566..2e8e542bc 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -7,7 +7,7 @@ author: lwainstein\n ms.author: lwainstein\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 05/27/2026\n+ms.date: 05/31/2026\n ms.collection:\n - m365-security\n - tier1\n@@ -25,6 +25,12 @@ For recent releases of Microsoft Defender for Endpoint, including build numbers,\n \n Learn more about [Preview features](/defender-xdr/preview).\n \n+## June 2026\n+\n+|Type  |Feature  |Preview/GA  |Description  |\n+|---------|------------|-------------|-------------|\n+|Feature |New Microsoft Secure Score recommendation |Preview |Microsoft Secure Score now includes **Reduce unnecessary inbound internet exposure on internet-facing devices**, which helps identify devices that are accessible from the public internet and may represent unnecessary attack surface.<br><br>Internet-facing devices are primary entry points for attackers and automated scanners, making them prime targets for credential brute-forcing, exploitation of unpatched vulnerabilities, and initial access for ransomware and hands-on-keyboard intrusions.<br><br>This recommendation provides centralized visibility into internet-facing devices across the environment, enabling organizations to validate whether exposure is expected, prioritize remediation for unintended exposure, and reduce external attack surface at scale. To learn more, see [Investigate internet-facing devices](investigate-machines.md#investigate-internet-facing-devices). |\n+\n ## May 2026\n \n |Type  |Feature  |Preview/GA  |Description  |\n",
+      "baseCommitSha": "f27c2705f2c57dd929978c6bfbb87cfabb7dd9e2",
+      "commitSha": "232a7a3c332fc960cc2ff0c756b8f2378b4a9fb9",
+      "commitMessage": "Add what's new item for internet-facing devices Secure Score recommendation",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-05-31T16:44:29+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-05-31T13:44:29.000Z",
+      "eventId": "defender-docs:232a7a3c332fc960cc2ff0c756b8f2378b4a9fb9:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add what's new item for internet-facing devices Secure Score recommendation",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 3,
+    "authors": [
+      "Limor Wainstein",
+      "guywi-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/ai-agent-detection-protection.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/ai-agent-inventory.md.",
+        "sourceFiles": [
+          "defender-xdr/security-for-ai/ai-agent-detection-protection.md",
+          "defender-xdr/security-for-ai/ai-agent-inventory.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "sourceFiles": [
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/ai-agent-detection-protection.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/ai-agent-inventory.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

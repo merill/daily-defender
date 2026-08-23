@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "patch": "diff --git a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\nindex 7f0e13f03..00f8454de 100644\n--- a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n+++ b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n@@ -200,12 +200,19 @@ To re-enable connected apps:\n ## Troubleshoot missing activities after you connect an app\n \n If expected activities don't show after you connect an app, use the following checks to determine where the data should be available and whether additional configuration is required.\n+\n **1. Confirm the connector is healthy**\n+\n Verify that the app connector is connected successfully and that there are no configuration warnings or permission issues.\n+\n **2. Check ingestion delay expectations**\n+\n Some connectors have expected latency before activities appear. Validate whether the connector has a documented ingestion delay before treating missing activity as an issue.\n+\n **3. Confirm that the connector supports activity ingestion**\n+\n Check whether the connector supports activity collection under the [Users and activities section](#users-and-activities).\n+\n **4. Review connector-specific activity options**\n For connectors that support selectable activity types, confirm that the required options are enabled. For example, if you're investigating sign-in activity, verify that the connector is configured to collect the relevant sign-in data.\n \n",
+      "baseCommitSha": "e147c33da050cdff68de400bb074c7f349409a08",
+      "commitSha": "1f8c5559114087b1a85598e452cc9f5bbd506786",
+      "commitMessage": "Enhance troubleshooting section for app activities",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-05-09T20:15:08+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps",
+      "firstSeenAt": "2026-05-09T17:15:08.000Z",
+      "eventId": "defender-docs:1f8c5559114087b1a85598e452cc9f5bbd506786:modified:defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Enhance troubleshooting section for app activities",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Devorah Cohen"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

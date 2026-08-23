@@ -1,0 +1,425 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud-apps/data-protection-policies.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/data-protection-policies.md b/defender-for-cloud-apps/data-protection-policies.md\nindex 6540beb43..7996ad3a9 100644\n--- a/defender-for-cloud-apps/data-protection-policies.md\n+++ b/defender-for-cloud-apps/data-protection-policies.md\n@@ -196,7 +196,7 @@ Below is a list of the file filters that can be applied:\n > [!NOTE]\n > - This filter doesn't support files that were shared with a group, only with specific users.\n > - This filter doesn't support files shared with a specific user through a shared link for SharePoint and OneDrive.\n-> - When files are uploaded to SharePoint, OneDrive, etc., the **Collaborator > Domains** field automatically includes the domain of the file owner. If you use the **Any from domain** filter with the **does not contain** condition to exclude your organization's domain, files owned by users in your domain may be ignored by the policy.\n+> - When files are uploaded to SharePoint, OneDrive, etc., the **Collaborator > Domains** field automatically includes the domain of the file owner. If you use the **Any from domain** filter with the **does not contain** condition, avoid specifying your organization’s domain. Since most files include at least one user from the organization, doing so will cause the policy to ignore the majority of files.\n \n   - **Entire organization** – If the entire organization has access to the file.\n \n",
+      "baseCommitSha": "d6f3dbe339c9f481f261ba1a27d3396d3244f0f5",
+      "commitSha": "1479308ebf2a351fb58bfc061e5b9e59ca9ad171",
+      "commitMessage": "Update note on 'Any from domain' filter usage - refining the documentation statement",
+      "commitAuthor": "drormikdash",
+      "commitDate": "2026-03-08T11:36:27+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/data-protection-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/data-protection-policies",
+      "firstSeenAt": "2026-03-08T09:36:27.000Z",
+      "eventId": "defender-docs:1479308ebf2a351fb58bfc061e5b9e59ca9ad171:modified:defender-for-cloud-apps/data-protection-policies.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update note on 'Any from domain' filter usage - refining the documentation statement",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/data-protection-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/data-protection-policies.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/data-protection-policies.md b/defender-for-cloud-apps/data-protection-policies.md\nindex 7996ad3a9..a84a194c6 100644\n--- a/defender-for-cloud-apps/data-protection-policies.md\n+++ b/defender-for-cloud-apps/data-protection-policies.md\n@@ -196,7 +196,7 @@ Below is a list of the file filters that can be applied:\n > [!NOTE]\n > - This filter doesn't support files that were shared with a group, only with specific users.\n > - This filter doesn't support files shared with a specific user through a shared link for SharePoint and OneDrive.\n-> - When files are uploaded to SharePoint, OneDrive, etc., the **Collaborator > Domains** field automatically includes the domain of the file owner. If you use the **Any from domain** filter with the **does not contain** condition, avoid specifying your organization’s domain. Since most files include at least one user from the organization, doing so will cause the policy to ignore the majority of files.\n+When files are uploaded to SharePoint or OneDrive, the Collaborator > Domains field automatically includes the domain of the file owner. Since most files are owned by users in your organization, using the Any from domain filter with the does not contain condition and specifying your organization’s domain will exclude the majority of files from the policy. To avoid this, do not specify your organization’s domain with this condition.\n \n   - **Entire organization** – If the entire organization has access to the file.\n \n",
+      "baseCommitSha": "1479308ebf2a351fb58bfc061e5b9e59ca9ad171",
+      "commitSha": "befd770d882de244a6883e8619b18329151fc2b0",
+      "commitMessage": "Apply suggestion from @AbbyMSFT",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-03-08T12:33:37+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/data-protection-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/data-protection-policies",
+      "firstSeenAt": "2026-03-08T10:33:37.000Z",
+      "eventId": "defender-docs:befd770d882de244a6883e8619b18329151fc2b0:modified:defender-for-cloud-apps/data-protection-policies.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Apply suggestion from @AbbyMSFT",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/data-protection-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/assign-portal-access.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/assign-portal-access.md b/defender-endpoint/assign-portal-access.md\nindex 9464ebdee..43f769117 100644\n--- a/defender-endpoint/assign-portal-access.md\n+++ b/defender-endpoint/assign-portal-access.md\n@@ -1,5 +1,5 @@\n ﻿---\n-title: Assign user access \n+title: Overview of permissions management  \n description: Assign read and write or read only access to the Microsoft Defender for Endpoint portal.\n search.appverid: met150\n ms.service: defender-endpoint\n@@ -19,7 +19,7 @@ appliesto:\n   - Microsoft Defender for Endpoint Plan 2\n \n ---\n-# Assign user access \n+# Overview of permissions management \n \n \n Defender for Endpoint supports two ways to manage permissions:\n",
+      "baseCommitSha": "bc02872dcb376c40e88cfae6faded454669c375a",
+      "commitSha": "e25e70ef3bc372be741d68468e27deca58db5201",
+      "commitMessage": "Portal access permissions management",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T15:28:01+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/assign-portal-access.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/assign-portal-access",
+      "firstSeenAt": "2026-03-08T13:28:01.000Z",
+      "eventId": "defender-docs:e25e70ef3bc372be741d68468e27deca58db5201:modified:defender-endpoint/assign-portal-access.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Portal access permissions management",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/assign-portal-access.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 8d7242acb..ae24e24eb 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -44,6 +44,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n |Feature |[Effective settings tab](investigate-machines.md#configuration-management---effective-settings) |GA |The **Effective settings** tab under the device inventory **Configuration management** tab is now generally available. In this tab, you can view the actual value and configuration source of each security setting on a device. This helps identify configuration attempts that didn't take effect and eliminates gaps where intended protections aren't enforced. |\n |Feature |Vulnerable components page renamed to [Software components](/defender-vulnerability-management/tvm-vulnerable-components) |GA |To reflect Defender Vulnerability Management's visibility into all software components identified in your organization, the **Vulnerable components** page is now named **Software components**. |\n |Feature |Improved Device Vulnerabilities report experience | GA |To simplify and streamline the [Device vulnerabilities report](/defender-vulnerability-management/tvm-vulnerable-devices-report) experience, the Vulnerable devices report now includes the following changes and enhancements:<br>- The **Vulnerable devices by Windows 10/11 version over time** section is now removed.<br>- The report's filters only include the **Device group** filter.<br>- The report's history is now limited to the last 30 days.<br>- The report's history is now limited to the last 30 days.<br><br>**Note**: These changes are now visible to government cloud customers, but aren't yet visible in air-gapped environments. This visibility will be added in the coming months. |\n+|Feature |Enhanced Defender deployment tool for Windows | Preview |The new version of the tool streamlines onboarding and enhances security by:<br/><br/>Bundling the onboarding package directly into the tool's executable.<br/>Generating a key during package creation that is required for running the tool.<br/>Providing a configurable package expiry date to reduce the risk of unauthorized use.<br/>Additionally, a new Deployment packages page in the Defender portal facilitates management of downloaded packages by providing centralized visibility into all the packages and their current status. |\n |Release - macOS |Build 101.25122.0008 |GA |Release version 20.125122.8.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--february-2026--101251220008). |\n |Release - Linux |Build 101.25122.0004 |GA |Release version 30.125122.0004.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#linux--february-2026--101251220004). |\n |Release - Windows | Windows Defender Antivirus: Platform 4.18.26010.5 / Engine 1.1.26010.1 |GA |See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#windows-antivirus--january-2026--platform-418260105--engine-11260101). |\n",
+      "baseCommitSha": "bc02872dcb376c40e88cfae6faded454669c375a",
+      "commitSha": "6b200a57932a8458f21bb5bbc4384ea009efb396",
+      "commitMessage": "Added what's new info for the defender deployment tool",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T18:31:28+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-08T16:31:28.000Z",
+      "eventId": "defender-docs:6b200a57932a8458f21bb5bbc4384ea009efb396:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added what's new info for the defender deployment tool",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex ae24e24eb..8dc9441a5 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -44,7 +44,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n |Feature |[Effective settings tab](investigate-machines.md#configuration-management---effective-settings) |GA |The **Effective settings** tab under the device inventory **Configuration management** tab is now generally available. In this tab, you can view the actual value and configuration source of each security setting on a device. This helps identify configuration attempts that didn't take effect and eliminates gaps where intended protections aren't enforced. |\n |Feature |Vulnerable components page renamed to [Software components](/defender-vulnerability-management/tvm-vulnerable-components) |GA |To reflect Defender Vulnerability Management's visibility into all software components identified in your organization, the **Vulnerable components** page is now named **Software components**. |\n |Feature |Improved Device Vulnerabilities report experience | GA |To simplify and streamline the [Device vulnerabilities report](/defender-vulnerability-management/tvm-vulnerable-devices-report) experience, the Vulnerable devices report now includes the following changes and enhancements:<br>- The **Vulnerable devices by Windows 10/11 version over time** section is now removed.<br>- The report's filters only include the **Device group** filter.<br>- The report's history is now limited to the last 30 days.<br>- The report's history is now limited to the last 30 days.<br><br>**Note**: These changes are now visible to government cloud customers, but aren't yet visible in air-gapped environments. This visibility will be added in the coming months. |\n-|Feature |Enhanced Defender deployment tool for Windows | Preview |The new version of the tool streamlines onboarding and enhances security by:<br/><br/>Bundling the onboarding package directly into the tool's executable.<br/>Generating a key during package creation that is required for running the tool.<br/>Providing a configurable package expiry date to reduce the risk of unauthorized use.<br/>Additionally, a new Deployment packages page in the Defender portal facilitates management of downloaded packages by providing centralized visibility into all the packages and their current status. |\n+|Feature |Enhanced Defender deployment tool for Windows | Preview |The new version of the tool streamlines onboarding and enhances security by:<br/>- Bundling the onboarding package directly into the tool's executable.<br/>- Generating a key during package creation that is required for running the tool.<br/>- Providing a configurable package expiry date to reduce the risk of unauthorized use.<br/><br/>Additionally, a new Deployment packages page in the Defender portal facilitates management of downloaded packages by providing centralized visibility into all the packages and their current status. |\n |Release - macOS |Build 101.25122.0008 |GA |Release version 20.125122.8.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--february-2026--101251220008). |\n |Release - Linux |Build 101.25122.0004 |GA |Release version 30.125122.0004.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#linux--february-2026--101251220004). |\n |Release - Windows | Windows Defender Antivirus: Platform 4.18.26010.5 / Engine 1.1.26010.1 |GA |See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#windows-antivirus--january-2026--platform-418260105--engine-11260101). |\n",
+      "baseCommitSha": "6b200a57932a8458f21bb5bbc4384ea009efb396",
+      "commitSha": "c92e0d9292dead314ea14a45c508e58b328a5e5a",
+      "commitMessage": "Updated formatting",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T18:42:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-08T16:42:13.000Z",
+      "eventId": "defender-docs:c92e0d9292dead314ea14a45c508e58b328a5e5a:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated formatting",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 8dc9441a5..fbb66a3f2 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -44,7 +44,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n |Feature |[Effective settings tab](investigate-machines.md#configuration-management---effective-settings) |GA |The **Effective settings** tab under the device inventory **Configuration management** tab is now generally available. In this tab, you can view the actual value and configuration source of each security setting on a device. This helps identify configuration attempts that didn't take effect and eliminates gaps where intended protections aren't enforced. |\n |Feature |Vulnerable components page renamed to [Software components](/defender-vulnerability-management/tvm-vulnerable-components) |GA |To reflect Defender Vulnerability Management's visibility into all software components identified in your organization, the **Vulnerable components** page is now named **Software components**. |\n |Feature |Improved Device Vulnerabilities report experience | GA |To simplify and streamline the [Device vulnerabilities report](/defender-vulnerability-management/tvm-vulnerable-devices-report) experience, the Vulnerable devices report now includes the following changes and enhancements:<br>- The **Vulnerable devices by Windows 10/11 version over time** section is now removed.<br>- The report's filters only include the **Device group** filter.<br>- The report's history is now limited to the last 30 days.<br>- The report's history is now limited to the last 30 days.<br><br>**Note**: These changes are now visible to government cloud customers, but aren't yet visible in air-gapped environments. This visibility will be added in the coming months. |\n-|Feature |Enhanced Defender deployment tool for Windows | Preview |The new version of the tool streamlines onboarding and enhances security by:<br/>- Bundling the onboarding package directly into the tool's executable.<br/>- Generating a key during package creation that is required for running the tool.<br/>- Providing a configurable package expiry date to reduce the risk of unauthorized use.<br/><br/>Additionally, a new Deployment packages page in the Defender portal facilitates management of downloaded packages by providing centralized visibility into all the packages and their current status. |\n+|Feature |Enhanced Defender deployment tool for Windows | Preview |The new version of the tool streamlines onboarding and enhances security by:<br/>- Bundling the onboarding package directly into the tool's executable.<br/>- Generating a key during deployment package creation that is required for running the tool.<br/>- Enabling users to configure an expiry date for the package to reduce the risk of unauthorized use.<br/><br/>In addition, a new Deployment packages page in the Defender portal facilitates management of downloaded packages by providing centralized visibility into all the packages and their current status. |\n |Release - macOS |Build 101.25122.0008 |GA |Release version 20.125122.8.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--february-2026--101251220008). |\n |Release - Linux |Build 101.25122.0004 |GA |Release version 30.125122.0004.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#linux--february-2026--101251220004). |\n |Release - Windows | Windows Defender Antivirus: Platform 4.18.26010.5 / Engine 1.1.26010.1 |GA |See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#windows-antivirus--january-2026--platform-418260105--engine-11260101). |\n",
+      "baseCommitSha": "c92e0d9292dead314ea14a45c508e58b328a5e5a",
+      "commitSha": "3a59ecaa43f3f9088eac915c5f72c6b22f1a4294",
+      "commitMessage": "Updating text",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T18:49:33+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-08T16:49:33.000Z",
+      "eventId": "defender-docs:3a59ecaa43f3f9088eac915c5f72c6b22f1a4294:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updating text",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/microsoft-secure-score-improvement-actions.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 6,
+      "changes": 10,
+      "patch": "diff --git a/defender-xdr/microsoft-secure-score-improvement-actions.md b/defender-xdr/microsoft-secure-score-improvement-actions.md\nindex 94cd6f43a..a82789b59 100644\n--- a/defender-xdr/microsoft-secure-score-improvement-actions.md\n+++ b/defender-xdr/microsoft-secure-score-improvement-actions.md\n@@ -62,19 +62,17 @@ This view is what it will look like if you've included all possible score views:\n \n ## Take action to improve your score\n \n-To access the recommendations to improve your Microsoft Secure Score:\n+To access the recommended actions to improve your Microsoft Secure Score:\n \n 1. Make sure you're signed in to the [Defender portal](https://security.microsoft.com).\n 1. Go to [https://security.microsoft.com/securescore](https://security.microsoft.com/securescore).\n 1. Select the **Recommended actions** tab.\n \n-The **Recommended actions** tab lists the security recommendations that address possible attack surfaces. It also includes their status (to address, planned, risk accepted, resolved through third party, resolved through alternate mitigation, and completed). You can search, filter, and group all the recommended actions.\n-\n-Once you have completed an action it can take between 24-48 hours for the changes to be reflected in your secure score.\n+:::image type=\"content\" source=\"media/microsoft-secure-score-improvement-actions/secure-score-recommended-actions.png\" alt-text=\"Screenshot showing the Recommended actions tab on the Microsoft Secure Score page.\":::\n \n-### Ranking\n+The **Recommended actions** tab lists the security recommendations that address possible attack surfaces. It also includes their status (to address, planned, risk accepted, resolved through third party, resolved through alternate mitigation, and completed). You can search, filter, and group all the recommended actions.\n \n-Ranking is based on the number of points left to achieve, implementation difficulty, user impact, and complexity. The highest ranked recommended actions have a large number of points remaining with low difficulty, user impact, and complexity.\n+Ranking is based on the number of points left to achieve, implementation difficulty, user impact, and complexity. The highest ranked recommended actions have a large number of points remaining with low difficulty, user impact, and complexity. Once you have completed an action it can take between 24-48 hours for the changes to be reflected in your secure score. Learn [how recommendations are scored](microsoft-secure-score.md#how-recommended-actions-are-scored).\n \n ### View recommended action details\n \n",
+      "baseCommitSha": "4f84c6aac3ab965b7320693308db71e020acc130",
+      "commitSha": "6148162895f371755618b6e5e6cf7041646f31be",
+      "commitMessage": "wi-542251-part-2-uuf-secure-score",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-08T21:43:50+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/microsoft-secure-score-improvement-actions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/microsoft-secure-score-improvement-actions",
+      "firstSeenAt": "2026-03-08T19:43:50.000Z",
+      "eventId": "defender-docs:6148162895f371755618b6e5e6cf7041646f31be:modified:defender-xdr/microsoft-secure-score-improvement-actions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "wi-542251-part-2-uuf-secure-score",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score-improvement-actions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/microsoft-secure-score.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/defender-xdr/microsoft-secure-score.md b/defender-xdr/microsoft-secure-score.md\nindex 61c77f47e..d4dfc6147 100644\n--- a/defender-xdr/microsoft-secure-score.md\n+++ b/defender-xdr/microsoft-secure-score.md\n@@ -58,19 +58,19 @@ Your score is updated in real time to reflect the information presented in the v\n > [!NOTE]\n > For Microsoft Teams and Microsoft Entra related recommendations, the recommendation state will get updated when changes occur in the configuration state. In addition, the recommendation state is refreshed once a month or once a week, respectively.\n \n-### Key scenarios\n-\n-- [Check your current score](microsoft-secure-score-improvement-actions.md#check-your-current-score)\n-- [View security recommendations and decide an action plan](microsoft-secure-score-improvement-actions.md#take-action-to-improve-your-score)\n-- [Initiate work flows to investigate or implement](microsoft-secure-score-improvement-actions.md#view-recommended-action-details)\n-- [Compare your score to organizations like yours](microsoft-secure-score-history-metrics-trends.md#compare-your-score-to-organizations-like-yours)\n-\n ### How recommended actions are scored\n \n Each recommended action is worth 10 points or less, and most are scored in a binary fashion. If you implement the recommended action, like create a new policy or turn on a specific setting, you get 100% of the points. For other recommended actions, points are given as a percentage of the total configuration.\n \n For example, a recommended action states you get 10 points by protecting all your users with multifactor authentication. You only have 50 of 100 total users protected, so you'd get a partial score of five points (50 protected / 100 total * 10 max pts = 5 pts).\n \n+### Get started with Microsoft Secure Score\n+\n+- [Check your current score](microsoft-secure-score-improvement-actions.md#check-your-current-score)\n+- [View recommended actions and decide an action plan](microsoft-secure-score-improvement-actions.md#take-action-to-improve-your-score)\n+- [Initiate work flows to investigate or implement](microsoft-secure-score-improvement-actions.md#view-recommended-action-details)\n+- [Compare your score to organizations like yours](microsoft-secure-score-history-metrics-trends.md#compare-your-score-to-organizations-like-yours)\n+\n ### Products included in Secure Score\n \n Currently there are recommendations for the following products:\n",
+      "baseCommitSha": "4f84c6aac3ab965b7320693308db71e020acc130",
+      "commitSha": "6148162895f371755618b6e5e6cf7041646f31be",
+      "commitMessage": "wi-542251-part-2-uuf-secure-score",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-08T21:43:50+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/microsoft-secure-score.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/microsoft-secure-score",
+      "firstSeenAt": "2026-03-08T19:43:50.000Z",
+      "eventId": "defender-docs:6148162895f371755618b6e5e6cf7041646f31be:modified:defender-xdr/microsoft-secure-score.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "wi-542251-part-2-uuf-secure-score",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/microsoft-secure-score.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 4,
+      "changes": 7,
+      "patch": "diff --git a/defender-xdr/microsoft-secure-score.md b/defender-xdr/microsoft-secure-score.md\nindex d4dfc6147..5385275d9 100644\n--- a/defender-xdr/microsoft-secure-score.md\n+++ b/defender-xdr/microsoft-secure-score.md\n@@ -111,7 +111,7 @@ If you turn on security defaults, you are awarded full points for the following\n ## Secure Score permissions\n \n > [!IMPORTANT]\n-> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.\n+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization.\n \n <a name='manage-permissions-with-microsoft-365-defender-unified-role-based-access-controlrbac'></a>\n \n@@ -132,12 +132,11 @@ To start using Microsoft Defender XDR Unified RBAC to manage your Secure Score p\n \n ### Microsoft Entra global roles permissions\n \n-Microsoft Entra global roles (for example, Global Administrator) can still be used to access Secure Score. Users who have the supported Microsoft Entra global roles, but aren't assigned to a custom role in Microsoft Defender XDR Unified RBAC continue to have access to view (and manage where permitted) Secure Score data as outlined:\n+Microsoft Entra global roles (for example, Security Administrator) can still be used to access Secure Score. Users who have the supported Microsoft Entra global roles, but aren't assigned to a custom role in Microsoft Defender XDR Unified RBAC continue to have access to view (and manage where permitted) Secure Score data as outlined:\n \n The following roles have read and write access and can make changes, directly interact with Secure Score, and can assign read-only access to other users:\n \n-- Global Administrator\n-- Security Administrator\n+- Security Administrator or higher\n - Exchange Administrator\n - SharePoint Administrator\n \n",
+      "baseCommitSha": "6148162895f371755618b6e5e6cf7041646f31be",
+      "commitSha": "204335b7937eaed1868e90040554f7131ab3f71a",
+      "commitMessage": "Removed mentions of \"Global Administrator\" per SFI",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-08T21:52:54+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/microsoft-secure-score.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/microsoft-secure-score",
+      "firstSeenAt": "2026-03-08T19:52:54.000Z",
+      "eventId": "defender-docs:204335b7937eaed1868e90040554f7131ab3f71a:modified:defender-xdr/microsoft-secure-score.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Removed mentions of \"Global Administrator\" per SFI",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/android-intune.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 5,
+      "changes": 13,
+      "patch": "diff --git a/defender-endpoint/android-intune.md b/defender-endpoint/android-intune.md\nindex 3517e370a..f51729fbd 100644\n--- a/defender-endpoint/android-intune.md\n+++ b/defender-endpoint/android-intune.md\n@@ -15,7 +15,7 @@ ms.custom: partner-contribution\n ms.topic: install-set-up-deploy\n ms.subservice: android\n search.appverid: met150\n-ms.date: 03/24/2025\n+ms.date: 03/08/2026\n appliesto: \n    - Microsoft Defender for Endpoint Plan 1\n    - Microsoft Defender for Endpoint Plan 2\n@@ -30,7 +30,8 @@ Learn how to deploy Defender for Endpoint on Android on Microsoft Intune Company\n > > You can connect to Google Play from Microsoft Intune to deploy Defender for Endpoint app across device administrator and Android Enterprise enrollment modes. Updates to the app are automatic via Google Play.\n \n > [!IMPORTANT]\n-> At the end of March 2026, Microsoft Defender for Endpoint on Android will no longer support protection of personal profiles on enrolled devices. See the note in [Set up Microsoft Defender in personal profile on Android Enterprise in BYOD mode](#s) for details.\n+> At the end of March 2026, Microsoft Defender for Endpoint on Android will no longer support monitoring and protection of personal profiles on enrolled devices. See the note in [Set up Microsoft Defender in personal profile on Android Enterprise in BYOD mode](#set-up-microsoft-defender-in-personal-profile-on-android-enterprise-in-byod-mode) for details.\n+\n ## Deploy on Android Enterprise enrolled devices\n \n Defender for Endpoint on Android supports Android Enterprise enrolled devices.\n@@ -210,9 +211,11 @@ Administrators can configure Microsoft Defender for Endpoint in low-touch onboar\n ## Set up Microsoft Defender in personal profile on Android Enterprise in BYOD mode\n \n > [!IMPORTANT]\n-> At the end of March 2026, Microsoft Defender for Endpoint on Android will no longer support protection of personal profiles on enrolled devices (that is, personal profiles managed via MDM configuration policies). At that time:\n-> * Defender for Endpoint on Android devices in a personal profile configured via MDM policies will stop functioning, and users will see the following popup:\n->    :::image type=\"content\" source=\"{source}\" alt-text=\"{alt-text}\":::\n+> At the end of March 2026, Microsoft Defender for Endpoint on Android will no longer support the monitoring and protection of personal profiles on enrolled devices. At that time:\n+> * Defender in personal profiles configured via MDM policies will stop functioning, and users will be see the following popup:\n+>\n+>    :::image type=\"content\" source=\"./media/android-intune/personal-profile-support-end.png\" alt-text=\"Screenshot of personal profile end of support popup.\":::\n+>\n > * Devices enrolled in personal profiles that have the suffix AEPersonal will remain in the SOC portal after deprecation. The devices will become inactive, and will follow the device lifecycle of 180 days before being deleted from the Defender portal.\n > * It will no longer be possible to configure personal profiles via MDM policies.\n \n",
+      "baseCommitSha": "cba4d67fd535ef22ede3beb3878f08940ed3e453",
+      "commitSha": "b20d3438be8c682214d8eaea6f920d8a50cccf5c",
+      "commitMessage": "Added image, adjusted text",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T22:14:16+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-intune",
+      "firstSeenAt": "2026-03-08T20:14:16.000Z",
+      "eventId": "defender-docs:b20d3438be8c682214d8eaea6f920d8a50cccf5c:modified:defender-endpoint/android-intune.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added image, adjusted text",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/android-intune.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 2,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/android-intune.md b/defender-endpoint/android-intune.md\nindex f51729fbd..ab122627d 100644\n--- a/defender-endpoint/android-intune.md\n+++ b/defender-endpoint/android-intune.md\n@@ -219,8 +219,6 @@ Administrators can configure Microsoft Defender for Endpoint in low-touch onboar\n > * Devices enrolled in personal profiles that have the suffix AEPersonal will remain in the SOC portal after deprecation. The devices will become inactive, and will follow the device lifecycle of 180 days before being deleted from the Defender portal.\n > * It will no longer be possible to configure personal profiles via MDM policies.\n \n-### Set up Microsoft Defender in personal profile\n-\n Administrators can use the [Microsoft Intune admin center](https://intune.microsoft.com) to set up and configure Microsoft Defender support in personal profiles by following these steps:\n \n 1. Go to **Apps** > **App configuration policies**, and then select **Add**. Select **Managed Devices**.\n",
+      "baseCommitSha": "b20d3438be8c682214d8eaea6f920d8a50cccf5c",
+      "commitSha": "ccccadedceca6e1ef99537259d8b4e98e6f0d46b",
+      "commitMessage": "Deleted unnecessary heading",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T22:21:01+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-intune",
+      "firstSeenAt": "2026-03-08T20:21:01.000Z",
+      "eventId": "defender-docs:ccccadedceca6e1ef99537259d8b4e98e6f0d46b:modified:defender-endpoint/android-intune.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Deleted unnecessary heading",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 29,
+      "deletions": 40,
+      "changes": 69,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex ac07e0a4f..433c83751 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -48,11 +48,6 @@ For detailed licensing information, see [Product Terms: Microsoft Defender for E\n \n ## Software requirements\n \n-- Linux server endpoints should be able to access the endpoints documented in:\n-   - [Microsoft Defender for Endpoint streamlined connectivity URLs - commercial](./streamlined-device-connectivity-urls-commercial.md) (commercial customers)\n-   - [Microsoft Defender for Endpoint streamlined connectivity URLs - US government environments](./streamlined-device-connectivity-urls-gov.md) (US Government customers).\n-\n-   If necessary, [configure static proxy discovery](./linux-static-proxy-configuration.md).\n - Linux server endpoints should have systemd (system manager) installed.\n - Administrative privileges on the Linux server endpoint are required for installation.\n - An appropriate role assigned in Defender for Endpoint. See [Role-based access control](/defender-endpoint/prepare-deployment#role-based-access-control).\n@@ -79,6 +74,34 @@ If the Microsoft Defender for Endpoint installation fails due to missing depende\n \n ## Network requirements\n \n+- Linux server endpoints should be able to access the endpoints documented in:\n+   - [Microsoft Defender for Endpoint streamlined connectivity URLs - commercial](./streamlined-device-connectivity-urls-commercial.md) (commercial customers)\n+   - [Microsoft Defender for Endpoint streamlined connectivity URLs - US government environments](./streamlined-device-connectivity-urls-gov.md) (US Government customers).\n+\n+   If necessary, [configure static proxy discovery](./linux-static-proxy-configuration.md).\n+\n+### Verify if devices can connect to Defender for Endpoint cloud services\n+\n+1. Prepare your environment, as described in Step 1 of the following article [Configure your network environment to ensure connectivity with Defender for Endpoint service](/defender-endpoint/configure-environment).\n+\n+1. Connect Defender for Endpoint on Linux through a proxy server by using the following discovery methods:\n+\n+   - Transparent proxy\n+   - [Manual static proxy configuration](/defender-endpoint/linux-static-proxy-configuration#installation-time-configuration)\n+\n+1. Permit anonymous traffic in the previously listed URLs, if a proxy or firewall blocks traffic.\n+\n+> [!NOTE]\n+> Configuration for transparent proxies isn't needed for Defender for Endpoint. See [Manual Static Proxy Configuration.](/defender-endpoint/linux-static-proxy-configuration)\n+\n+> [!WARNING]\n+> PAC, WPAD, and authenticated proxies aren't supported.\n+> Use only static or transparent proxies.\n+> SSL inspection and intercepting proxies aren't supported for security reasons.\n+> Configure an exception for SSL inspection and your proxy server to allow direct data pass-through from Defender for Endpoint on Linux to the relevant URLs without interception.\n+> Adding your interception certificate to the global store doesn't enable interception.\n+\n+For troubleshooting steps, see [Troubleshoot cloud connectivity issues for Microsoft Defender for Endpoint on Linux](/defender-endpoint/linux-support-connectivity).\n \n ## Roles and permissions\n \n@@ -119,7 +142,7 @@ The following Linux server distributions are supported:\n \n |Real-time protection and quick/full scans|Custom scans|\n |---|---|\n-|`btrfs`|All filesystems are supported for real-time protection and quick/full scans|\n+|`btrfs`|All filesystems that are supported for real-time protection and quick/full scans are also supported for custom scans.|\n |`ecryptfs`|`Efs`|\n |`ext2`|`S3fs`|\n |`ext3`|`Blobfuse`|\n@@ -140,40 +163,6 @@ The following Linux server distributions are supported:\n > [!NOTE]\n > To scan NFS v3 mount points, make sure to set the `no_root_squash` export option. Without this option, scanning NFS v3 can potentially fail due to lack of permissions.\n \n-## Network connectivity requirements\n-\n-Ensure the following URLs are allowed in network configurations:\n-\n-- `https://config.edge.skype.com/config/v1` (default)\n-- `https://config.ecs.dod.teams.microsoft.us/config/v1`\n-- `https://config.ecs.gov.teams.microsoft.us/config/v1`\n-- `https://gccmod.ecs.office.com/config/v1`\n-\n-- Linux server endpoints should be able to access the `*.endpoint.security.microsoft.com`. If necessary, [configure static proxy discovery](linux-static-proxy-configuration.md).\n-\n-### Verify if devices can connect to Defender for Endpoint cloud services\n-\n-1. Prepare your environment, as described in Step 1 of the following article [Configure your network environment to ensure connectivity with Defender for Endpoint service](/defender-endpoint/configure-environment).\n-\n-1. Connect Defender for Endpoint on Linux through a proxy server by using the following discovery methods:\n-\n-   - Transparent proxy\n-   - [Manual static proxy configuration](/defender-endpoint/linux-static-proxy-configuration#installation-time-configuration)\n-\n-1. Permit anonymous traffic in the previously listed URLs, if a proxy or firewall blocks traffic.\n-\n-> [!NOTE]\n-> Configuration for transparent proxies isn't needed for Defender for Endpoint. See [Manual Static Proxy Configuration.](/defender-endpoint/linux-static-proxy-configuration)\n-\n-> [!WARNING]\n-> PAC, WPAD, and authenticated proxies aren't supported.\n-> Use only static or transparent proxies.\n-> SSL inspection and intercepting proxies aren't supported for security reasons.\n-> Configure an exception for SSL inspection and your proxy server to allow direct data pass-through from Defender for Endpoint on Linux to the relevant URLs without interception.\n-> Adding your interception certificate to the global store doesn't enable interception.\n-\n-For troubleshooting steps, see [Troubleshoot cloud connectivity issues for Microsoft Defender for Endpoint on Linux](/defender-endpoint/linux-support-connectivity).\n-\n ## Installation methods and tools\n \n There are several methods and tools that you can use to deploy Microsoft Defender for Endpoint on [supported Linux servers](#supported-linux-distributions).\n",
+      "baseCommitSha": "79ac7cf3e3c8deb958243316ebdacee47ae40f29",
+      "commitSha": "c27ed3f3d79084cf259303e0ad307a0cf682767a",
+      "commitMessage": "Moved Network requirements section.",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T22:42:53+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-03-08T20:42:53.000Z",
+      "eventId": "defender-docs:c27ed3f3d79084cf259303e0ad307a0cf682767a:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Moved Network requirements section.",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 433c83751..2f58b1d59 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -142,7 +142,7 @@ The following Linux server distributions are supported:\n \n |Real-time protection and quick/full scans|Custom scans|\n |---|---|\n-|`btrfs`|All filesystems that are supported for real-time protection and quick/full scans are also supported for custom scans.|\n+|`btrfs`|All filesystems that are supported for real-time protection and quick/full scans are also supported for custom scans. In addtion, the filesystems listed below are also supported for custom scans.|\n |`ecryptfs`|`Efs`|\n |`ext2`|`S3fs`|\n |`ext3`|`Blobfuse`|\n",
+      "baseCommitSha": "c483ffcdb0045ee6dd388811993cac4a2e116555",
+      "commitSha": "f4cfde0c47be17bd55259add7ea4ddbda780d7f3",
+      "commitMessage": "Updated text.",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T22:51:25+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-03-08T20:51:25.000Z",
+      "eventId": "defender-docs:f4cfde0c47be17bd55259add7ea4ddbda780d7f3:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated text.",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 10,
+      "changes": 18,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 2f58b1d59..93bd6376c 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -15,7 +15,7 @@ ms.collection:\n ms.topic: article\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 03/06/2026\n+ms.date: 03/08/2026\n ---\n \n # Prerequisites for Microsoft Defender for Endpoint on Linux\n@@ -49,10 +49,8 @@ For detailed licensing information, see [Product Terms: Microsoft Defender for E\n ## Software requirements\n \n - Linux server endpoints should have systemd (system manager) installed.\n-- Administrative privileges on the Linux server endpoint are required for installation.\n-- An appropriate role assigned in Defender for Endpoint. See [Role-based access control](/defender-endpoint/prepare-deployment#role-based-access-control).\n \n-> [!NOTE] \n+> [!NOTE]\n > Linux distributions using system manager support both SystemV and Upstart.\n > The Microsoft Defender for Endpoint on Linux agent is independent from [Operation Management Suite (OMS) agent](/azure/azure-monitor/agents/azure-monitor-agent-overview#log-analytics-agent).\n > Microsoft Defender for Endpoint relies on its own independent telemetry pipeline.\n@@ -103,11 +101,6 @@ If the Microsoft Defender for Endpoint installation fails due to missing depende\n \n For troubleshooting steps, see [Troubleshoot cloud connectivity issues for Microsoft Defender for Endpoint on Linux](/defender-endpoint/linux-support-connectivity).\n \n-## Roles and permissions\n-\n-- Administrative privileges on the Linux server endpoint are required for installation.\n-- An appropriate role assigned in Defender for Endpoint. See [Role-based access control](/defender-endpoint/prepare-deployment#role-based-access-control).\n-\n ## Supported Linux distributions\n \n The following Linux server distributions are supported:\n@@ -163,6 +156,11 @@ The following Linux server distributions are supported:\n > [!NOTE]\n > To scan NFS v3 mount points, make sure to set the `no_root_squash` export option. Without this option, scanning NFS v3 can potentially fail due to lack of permissions.\n \n+## Roles and permissions\n+\n+- Administrative privileges on the Linux server endpoint are required for installation.\n+- An appropriate role assigned in Defender for Endpoint. See [Role-based access control](/defender-endpoint/prepare-deployment#role-based-access-control).\n+\n ## Installation methods and tools\n \n There are several methods and tools that you can use to deploy Microsoft Defender for Endpoint on [supported Linux servers](#supported-linux-distributions).\n@@ -188,7 +186,7 @@ If you experience any installation issues, self-troubleshooting resources are av\n \n ## Next steps\n \n-- [Deploy Defender for Endpoint on Linux](/defender-endpoint/linux-installer-script)\n+- [Deploy Defender for Endpoint on Linux](/defender-endpoint/linux-install-with-defender-deployment-tool.md)\n - [Configure Defender for Endpoint on Linux](/defender-endpoint/linux-preferences)\n - [Deploy updates for Defender for Endpoint on Linux](/defender-endpoint/linux-updates)\n \n",
+      "baseCommitSha": "f4cfde0c47be17bd55259add7ea4ddbda780d7f3",
+      "commitSha": "e0c6cd442b6ef5936542a65af9f1115fa0447a68",
+      "commitMessage": "Misc updates",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-08T22:56:56+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-03-08T20:56:56.000Z",
+      "eventId": "defender-docs:e0c6cd442b6ef5936542a65af9f1115fa0447a68:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Misc updates",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 13,
+    "totalFiles": 14,
+    "authors": [
+      "AbbyMSFT",
+      "Paul Inbar",
+      "drormikdash",
+      "sbreingold-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/data-protection-policies.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/data-protection-policies.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/data-protection-policies.md",
+          "defender-for-cloud-apps/data-protection-policies.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/assign-portal-access.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/android-intune.md. Updated Microsoft Defender documentation in defender-endpoint/android-intune.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation",
+        "sourceFiles": [
+          "defender-endpoint/assign-portal-access.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/android-intune.md",
+          "defender-endpoint/android-intune.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score-improvement-actions.md. Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score.md. Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score.md.",
+        "sourceFiles": [
+          "defender-xdr/microsoft-secure-score-improvement-actions.md",
+          "defender-xdr/microsoft-secure-score.md",
+          "defender-xdr/microsoft-secure-score.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/data-protection-policies.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/data-protection-policies.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/assign-portal-access.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/android-intune.md. Updated Microsoft Defender documentation in defender-endpoint/android-intune.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score-improvement-actions.md. Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score.md. Updated Microsoft Defender documentation in defender-xdr/microsoft-secure-score.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

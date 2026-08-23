@@ -1,0 +1,295 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-for-cloud/defender-for-storage-false-positive-recommendations.md",
+      "status": "added",
+      "additions": 147,
+      "deletions": 0,
+      "changes": 147,
+      "patch": "diff --git a/defender-for-cloud/defender-for-storage-false-positive-recommendations.md b/defender-for-cloud/defender-for-storage-false-positive-recommendations.md\nnew file mode 100644\nindex 000000000..0f60b6389\n--- /dev/null\n+++ b/defender-for-cloud/defender-for-storage-false-positive-recommendations.md\n@@ -0,0 +1,147 @@\n+---\n+title: Manage false-positive security recommendations for Defender for Storage\n+description: Learn how to identify and manage false-positive security recommendations for specialized storage accounts, including Databricks DBFS storage, in Microsoft Defender for Storage.\n+ms.date: 06/21/2026\n+ms.topic: how-to\n+#customer intent: As a security administrator, I want to identify and manage false-positive security recommendations for Databricks and other specialized storage accounts so that my secure score remains accurate and my workloads aren't disrupted.\n+ai-usage: ai-assisted\n+---\n+\n+# Manage false-positive security recommendations for Defender for Storage\n+\n+When you enable Microsoft Defender for Storage at the subscription level, security recommendations appear for all protected storage accounts. For specialized storage accounts—such as Azure Databricks File System (DBFS) root storage—some recommendations represent false positives. Implementing these recommendations can conflict with normal operations, increase costs unnecessarily, or break workload connectivity.\n+\n+This article explains how to identify false-positive recommendations, decide when to exempt versus remediate, and create exemptions using the Azure portal, Azure CLI, or Azure Policy.\n+\n+## Prerequisites\n+\n+- **Owner** or **Security Admin** role on the scope where you create exemptions.\n+- The [Microsoft Cloud Security Benchmark (MCSB)](/security/benchmark/azure/introduction) initiative assigned on the subscription. See [Exempt resources from recommendations](exempt-resource.md#prerequisites) for details.\n+\n+## Defender for Storage and Databricks storage accounts\n+\n+> [!IMPORTANT]\n+> Defender for Storage isn't supported on Databricks-managed storage accounts (DBFS root storage). Databricks enforces deny policies that prevent Defender for Storage from operating on these accounts. If Defender for Cloud recommends enabling Defender for Storage on a Databricks storage account, exempt that recommendation entirely rather than attempting to enable the plan.\n+\n+When you enable Defender for Storage at the subscription level, Defender for Cloud generates a recommendation to enable it on any unprotected storage accounts in the subscription—including Databricks-managed accounts. Because Databricks deny policies block the plan from functioning, this recommendation is a false positive for those accounts.\n+\n+The correct action is to exempt the **Enable Microsoft Defender for Storage** recommendation for all Databricks-managed storage accounts. For other storage-specific recommendations that appear on Databricks accounts, use the decision matrix below to determine the right action.\n+\n+## Decide when to exempt versus remediate\n+\n+Use the following matrix to determine the right action for each recommendation based on your storage account type.\n+\n+| Recommendation | Standard storage | Databricks DBFS | Action for Databricks DBFS |\n+|---|---|---|---|\n+| Enable Microsoft Defender for Storage | Remediate | Exempt | Not supported on Databricks-managed storage due to Databricks deny policies. |\n+| Enable soft delete for blobs | Remediate | Exempt | Conflicts with Databricks cleanup operations. |\n+| Enable malware scanning | Remediate | Exempt | Not supported; Databricks deny policies prevent operation. |\n+| Storage accounts should restrict network access | Remediate | Exempt | Breaks Databricks cluster connectivity. |\n+| Enable logging | Remediate | Remediate | Useful for audit trails; no operational conflict. |\n+| Secure transfer required | Remediate | Remediate | No conflict with Databricks operations. |\n+| Enable blob versioning | Remediate | Exempt | Increases costs for temporary data Databricks manages internally. |\n+\n+## Create an exemption for a Databricks storage account\n+\n+You can create exemptions using the Azure portal, the Azure CLI, or Azure Policy for automated, at-scale exemptions.\n+\n+### Azure portal\n+\n+1. In the Azure portal, go to **Microsoft Defender for Cloud** > **Recommendations**.\n+1. Find and open the recommendation you want to exempt.\n+1. In the **Affected resources** tab, select the Databricks storage account.\n+1. Select **Exempt**.\n+1. In the **Exemption** pane, enter a **Name** and select a **Category**:\n+   - **Risk accepted** – your organization has reviewed and accepted the risk.\n+   - **Mitigated** – you've addressed the risk through another control.\n+1. Optionally set an expiry date.\n+1. In the **Justification** field, describe why this recommendation doesn't apply. For example: *Databricks DBFS root storage requires open network access for cluster connectivity.*\n+1. Select **Save**.\n+\n+### Azure CLI\n+\n+Use the following command to create an exemption with the Azure CLI:\n+\n+```azurecli\n+az policy exemption create \\\n+  --name \"DatabricksStorageExemption\" \\\n+  --resource-group \"<resource-group>\" \\\n+  --scope \"/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>\" \\\n+  --policy-assignment \"/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policyAssignments/<assignment-id>\" \\\n+  --exemption-category \"Waiver\" \\\n+  --description \"Databricks DBFS root storage - network access restriction conflicts with cluster connectivity.\"\n+```\n+\n+Replace `<resource-group>`, `<subscription-id>`, `<storage-account-name>`, and `<assignment-id>` with your values. Use `\"Mitigated\"` instead of `\"Waiver\"` if you've addressed the risk through another control.\n+\n+To find the policy assignment ID for a specific recommendation, run:\n+\n+```azurecli\n+az policy assignment list --scope \"/subscriptions/<subscription-id>\" --query \"[].{Name:name, DisplayName:displayName, Id:id}\" -o table\n+```\n+\n+### Azure Policy for automated, at-scale exemptions\n+\n+For environments with many Databricks storage accounts, use Azure Policy to create exemptions automatically based on resource tags.\n+\n+**Step 1: Tag your Databricks storage accounts**\n+\n+Apply a consistent tag to all Databricks-managed storage accounts:\n+\n+```azurecli\n+az resource tag \\\n+  --resource-group \"<resource-group>\" \\\n+  --name \"<storage-account-name>\" \\\n+  --resource-type \"Microsoft.Storage/storageAccounts\" \\\n+  --tags workload=Databricks\n+```\n+\n+**Step 2: Create a policy exemption assignment**\n+\n+Create a policy definition that targets storage accounts with the `workload=Databricks` tag and exempts them from the relevant recommendations. Deploy the exemption using an ARM template or Bicep file.\n+\n+The following ARM template snippet creates an exemption for storage accounts tagged `workload=Databricks`:\n+\n+```json\n+{\n+  \"type\": \"Microsoft.Authorization/policyExemptions\",\n+  \"apiVersion\": \"2022-07-01-preview\",\n+  \"name\": \"DatabricksStorageSoftDeleteExemption\",\n+  \"properties\": {\n+    \"policyAssignmentId\": \"/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policyAssignments/<assignment-id>\",\n+    \"exemptionCategory\": \"Waiver\",\n+    \"displayName\": \"Databricks DBFS - Soft delete exemption\",\n+    \"description\": \"Soft delete conflicts with Databricks DBFS cleanup operations.\",\n+    \"metadata\": {\n+      \"requestedBy\": \"Security team\",\n+      \"approvedBy\": \"Storage team\"\n+    }\n+  }\n+}\n+```\n+\n+Deploy at the management group or subscription scope to cover all existing and future Databricks storage accounts.\n+\n+## Monitor and review exemptions\n+\n+Exemptions affect your secure score. Review exemptions regularly to make sure they remain valid:\n+\n+1. In the Azure portal, go to **Microsoft Defender for Cloud** > **Recommendations**.\n+1. Select **Exemptions** to view all active exemptions.\n+1. Review the justification and expiry date for each exemption.\n+1. Remove exemptions that no longer apply.\n+\n+You can also query exemptions across subscriptions using Azure Resource Graph:\n+\n+```kusto\n+PolicyResources\n+| where type == \"microsoft.authorization/policyexemptions\"\n+| project name, properties.exemptionCategory, properties.description, properties.expiresOn\n+```\n+\n+## Related content\n+\n+- [Exempt resources from recommendations](exempt-resource.md)\n+- [Exempt resources from recommendations at scale](exempt-resources-at-scale.md)\n+- [What is Microsoft Defender for Storage](defender-for-storage-introduction.md)\n+- [Common questions about Defender for Storage](faq-defender-for-storage.yml)\n",
+      "baseCommitSha": "97adb31bbd44693a4e73e39d896f57e4098404ae",
+      "commitSha": "b14b453fe023ffaf3aed2f56f5904f2bff3183e9",
+      "commitMessage": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T15:31:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/defender-for-storage-false-positive-recommendations.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-false-positive-recommendations",
+      "firstSeenAt": "2026-06-21T12:31:51.000Z",
+      "eventId": "defender-docs:b14b453fe023ffaf3aed2f56f5904f2bff3183e9:added:defender-for-cloud/defender-for-storage-false-positive-recommendations.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+        "summary": "Added Microsoft Defender documentation in defender-for-cloud/defender-for-storage-false-positive-recommendations.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md",
+      "status": "modified",
+      "additions": 85,
+      "deletions": 4,
+      "changes": 89,
+      "patch": "diff --git a/defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md b/defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md\nindex 50876b0bf..f46d33083 100644\n--- a/defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md\n+++ b/defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md\n@@ -1,7 +1,7 @@\n ---\n title: Enable Defender for Storage by Using Infrastructure as Code\n description: Learn how to enable and configure Microsoft Defender for Storage by using infrastructure as code (IaC) templates.\n-ms.date: 07/01/2025\n+ms.date: 06/17/2026\n ms.topic: how-to\n #customer intent: As a security administrator, I want to enable and configure Microsoft Defender for Storage by using IaC templates so that I can help protect all storage accounts.\n ai-usage: ai-assisted\n@@ -9,7 +9,7 @@ ai-usage: ai-assisted\n \n # Enable Defender for Storage by using infrastructure as code\n \n-Use this article to enable and configure Microsoft Defender for Storage by using Terraform, Bicep, or Azure Resource Manager templates at either the subscription level or the storage account level.\n+Use this article to enable and configure Microsoft Defender for Storage by using infrastructure as code (IaC) templates, PowerShell, or Azure Policy. You can enable at either the subscription level or the storage account level. For an overview of Defender for Storage and its features, see [What is Microsoft Defender for Storage](defender-for-storage-introduction.md).\n \n ## Enable Defender for Storage by using infrastructure as code\n \n@@ -268,7 +268,88 @@ By customizing this code, you can:\n >\n > [Learn more on how to set up a response for malware scanning results](defender-for-storage-configure-malware-scan.md).\n \n+## Enable at scale with PowerShell\n+\n+Use PowerShell when you need to enable Defender for Storage for multiple subscriptions.\n+\n+Before you begin, install the `Az.Security` module:\n+\n+```powershell\n+Install-Module -Name Az.Security\n+```\n+\n+Use the following command to enable Defender for Storage on a single subscription:\n+\n+```powershell\n+Set-AzSecurityPricing -Name \"StorageAccounts\" -PricingTier \"Standard\" -SubPlan \"DefenderForStorageV2\"\n+```\n+\n+Use the following script to enable Defender for Storage on all subscriptions in a tenant:\n+\n+```powershell\n+$subscriptions = Get-AzSubscription\n+foreach ($sub in $subscriptions) {\n+    Set-AzContext -SubscriptionId $sub.Id\n+    Write-Host \"Enabling Defender for Storage on subscription: $($sub.Name)\"\n+    Set-AzSecurityPricing -Name \"StorageAccounts\" -PricingTier \"Standard\" -SubPlan \"DefenderForStorageV2\"\n+}\n+```\n+\n+> [!NOTE]\n+> You need the Security Admin or Owner role on each subscription that you update.\n+\n+To verify the configuration, run:\n+\n+```powershell\n+Get-AzSecurityPricing -Name \"StorageAccounts\"\n+```\n+\n+## Enable automatically with Azure Policy\n+\n+Use Azure Policy to help ensure new subscriptions are automatically covered and to help prevent configuration drift.\n+\n+Use the built-in policy definition **Configure Microsoft Defender for Storage to be enabled**.\n+\n+To assign the policy in the Azure portal:\n+\n+1. Go to **Policy**.\n+1. Select **Definitions**.\n+1. Search for **Defender for Storage**.\n+1. Select **Configure Microsoft Defender for Storage to be enabled**.\n+1. Select **Assign**.\n+\n+Use the `DeployIfNotExists` effect to remediate supported resources automatically.\n+\n+You can create policy exemptions for specific storage accounts or subscriptions that shouldn't be covered.\n+\n+> [!NOTE]\n+> Azure Policy assignments can take up to 30 minutes to take effect. Existing non-compliant resources require a remediation task.\n+\n+For more information, see [Azure Policy documentation](/azure/governance/policy/overview).\n+\n+## Validate your deployment\n+\n+After you deploy Defender for Storage, use the following checklist to validate the configuration:\n+\n+1. In the Azure portal, go to **Microsoft Defender for Cloud** > **Environment settings** > select your subscription > confirm **Defender for Storage** shows as **On**.\n+1. Verify storage accounts are listed as protected under **Inventory**.\n+1. Run a test upload to confirm malware scanning is active. Upload an [EICAR test file](https://www.eicar.org/download-anti-malware-testfile/) to a blob container.\n+1. Check role assignments. Defender for Storage requires the `StorageBlobDataReader` role on the storage account for the Defender for Cloud service principal.\n+1. For IaC deployments, confirm no configuration drift by rerunning your template and verifying idempotency.\n+\n+## Troubleshoot common issues\n+\n+| Issue | Likely cause | Resolution |\n+|---|---|---|\n+| Plan activation fails at subscription level | Insufficient permissions | Ensure you have the Security Admin or Owner role on the subscription. |\n+| Storage account not protected after subscription-level enablement | Propagation delay | Protection can take up to 24 hours to apply to existing accounts. |\n+| Configuration drift after ARM/Bicep deployment | Conflicting resource-level settings | Check for resource-level overrides by using `overrideSubscriptionLevelSettings`. Set it to `false` at the storage account level to inherit subscription settings. |\n+| Auto-provisioning not enabling on new subscriptions | Azure Policy not assigned | Assign the **Configure Microsoft Defender for Storage to be enabled** built-in policy to your management group. |\n+| Malware scanning not triggering | Plan enabled but extension disabled | Verify the `OnUploadMalwareScanning` extension has `isEnabled: True` in your template. |\n+\n ## Related content\n \n-> [!div class=\"nextstepaction\"]\n-> [Review Microsoft.Security/DefenderForStorageSettings API documentation](/rest/api/defenderforcloud-composite/defender-for-storage/create?view=rest-defenderforcloud-composite-latest&tabs=HTTP&preserve-view=true)\n+- [What is Microsoft Defender for Storage](defender-for-storage-introduction.md)\n+- [Enable Defender for Storage](tutorial-enable-storage-plan.md)\n+- [Advanced configurations for malware scanning](advanced-configurations-for-malware-scanning.md)\n+- [Review Microsoft.Security/DefenderForStorageSettings API documentation](/rest/api/defenderforcloud-composite/defender-for-storage/create?view=rest-defenderforcloud-composite-latest&tabs=HTTP&preserve-view=true)\n",
+      "baseCommitSha": "e8675ab11b2ade4b4bf3ac3730aad4efee68b49c",
+      "commitSha": "030e8559192f5590bfde2fbf0ab3d396a8e636cf",
+      "commitMessage": "Improve Defender for Storage enablement docs based on support feedback (#8182)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T09:00:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement",
+      "firstSeenAt": "2026-06-21T06:00:51.000Z",
+      "eventId": "defender-docs:030e8559192f5590bfde2fbf0ab3d396a8e636cf:modified:defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve Defender for Storage enablement docs based on support feedback (#8182)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-for-storage-introduction.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 1,
+      "changes": 22,
+      "patch": "diff --git a/defender-for-cloud/defender-for-storage-introduction.md b/defender-for-cloud/defender-for-storage-introduction.md\nindex fcdecdfde..96707b00f 100644\n--- a/defender-for-cloud/defender-for-storage-introduction.md\n+++ b/defender-for-cloud/defender-for-storage-introduction.md\n@@ -1,7 +1,7 @@\n ---\n title: What is Microsoft Defender for Storage\n description: Learn about the benefits, features, and security capabilities of Microsoft Defender for Storage to protect your data and workloads.\n-ms.date: 05/13/2025\n+ms.date: 06/17/2026\n ms.topic: overview\n #customer intent: As a security professional, I want to understand the features and benefits of Microsoft Defender for Storage so that I can ensure the security of my data.\n ai-usage: ai-assisted\n@@ -111,7 +111,27 @@ Hash reputation analysis detects malware in Blob storage and Azure Files by comp\n \n In summary, malware scanning, available exclusively on the new plan for Blob storage, provides a comprehensive approach to malware detection. It achieves this by analyzing the full content of files and incorporating hash reputation analysis into its methodology.\n \n+## Enable Defender for Storage\n+\n+You can enable Defender for Storage at the subscription level or the storage account level. Enabling at the subscription level is recommended to help ensure comprehensive coverage.\n+\n+| Scope | Coverage | Best for |\n+|---|---|---|\n+| Subscription | All existing and new storage accounts in the subscription are automatically protected. | Most organizations. Ensures no accounts are missed. |\n+| Storage account | Protection applies to a single, specific storage account. | Scenarios where you need custom settings on individual accounts, or where subscription-level enablement isn't possible. |\n+\n+> [!NOTE]\n+> When you enable Defender for Storage at the subscription level, you can still override settings for specific storage accounts. See [Advanced configurations for malware scanning](advanced-configurations-for-malware-scanning.md).\n+\n+### Enablement options\n+\n+- **Azure portal** - Enable interactively for one or more subscriptions. See [Enable Defender for Storage](tutorial-enable-storage-plan.md).\n+- **Infrastructure as code** - Use Terraform, Bicep, or ARM templates for repeatable deployments. See [Enable Defender for Storage using infrastructure as code](defender-for-storage-infrastructure-as-code-enablement.md).\n+- **PowerShell** - Enable for multiple subscriptions with a script. See [Enable at scale with PowerShell](defender-for-storage-infrastructure-as-code-enablement.md#enable-at-scale-with-powershell).\n+- **Azure Policy** - Automatically enforce enablement on new subscriptions and help prevent configuration drift. See [Enable automatically with Azure Policy](defender-for-storage-infrastructure-as-code-enablement.md#enable-automatically-with-azure-policy).\n+\n ## Related content\n \n - [Enable Defender for Storage](tutorial-enable-storage-plan.md)\n+- [Enable Defender for Storage using infrastructure as code](defender-for-storage-infrastructure-as-code-enablement.md)\n - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.\n",
+      "baseCommitSha": "e8675ab11b2ade4b4bf3ac3730aad4efee68b49c",
+      "commitSha": "030e8559192f5590bfde2fbf0ab3d396a8e636cf",
+      "commitMessage": "Improve Defender for Storage enablement docs based on support feedback (#8182)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T09:00:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/defender-for-storage-introduction.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
+      "firstSeenAt": "2026-06-21T06:00:51.000Z",
+      "eventId": "defender-docs:030e8559192f5590bfde2fbf0ab3d396a8e636cf:modified:defender-for-cloud/defender-for-storage-introduction.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve Defender for Storage enablement docs based on support feedback (#8182)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-introduction.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/discover-local-ai-agents.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/discover-local-ai-agents.md b/defender-endpoint/discover-local-ai-agents.md\nindex 8b7e1800c..34a6d22f8 100644\n--- a/defender-endpoint/discover-local-ai-agents.md\n+++ b/defender-endpoint/discover-local-ai-agents.md\n@@ -25,11 +25,11 @@ In this article, you learn how to view discovered agents in the inventory, explo\n \n Before you can discover local AI agents on endpoints, make sure you meet the following requirements:\n \n+- Your environment is in the commercial cloud. Sovereign and national clouds aren't supported.\n - Your organization has a Microsoft Defender for Endpoint Plan 2, Microsoft 365 E5, Microsoft Agent 365, or Microsoft 365 E7 license.\n - Your devices are onboarded to [Microsoft Defender for Endpoint](/defender-endpoint/onboard-configure).\n - Your devices run a supported version of Windows or macOS, and Microsoft Defender Antivirus is updated with current monthly platform and engine updates.\n-- Your devices are running Microsoft Defender Antivirus in active mode.\n-- Your environment is in the commercial cloud. Sovereign and national clouds aren't supported.\n+- Your devices are running Microsoft Defender Antivirus in active mode with real-time protection enabled in Windows Security.\n \n You don't need additional deployment, configuration, or scripts beyond the device onboarding requirements. If the device meets all of the prerequisites, agent discovery begins automatically.\n \n@@ -194,4 +194,4 @@ ExposureGraphEdges\n     AIAgent, Device, AssetName, AssetType,\n     Criticality, HasSensitiveData, CriticalityReason\n | sort by Criticality asc, HasSensitiveData desc\n-```\n\\ No newline at end of file\n+```\n",
+      "baseCommitSha": "030e8559192f5590bfde2fbf0ab3d396a8e636cf",
+      "commitSha": "c3261447146a1974fb6e7418a35509df642313d8",
+      "commitMessage": "Clarify prerequisites for local AI agent discovery (#8234)",
+      "commitAuthor": "Spencer Berg",
+      "commitDate": "2026-06-21T01:27:48-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/discover-local-ai-agents.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/discover-local-ai-agents",
+      "firstSeenAt": "2026-06-21T08:27:48.000Z",
+      "eventId": "defender-docs:c3261447146a1974fb6e7418a35509df642313d8:modified:defender-endpoint/discover-local-ai-agents.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify prerequisites for local AI agent discovery (#8234)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/discover-local-ai-agents.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/datalake/create-custom-graphs.md",
+      "status": "modified",
+      "additions": 40,
+      "deletions": 2,
+      "changes": 42,
+      "patch": "diff --git a/sentinel/datalake/create-custom-graphs.md b/sentinel/datalake/create-custom-graphs.md\nindex 46470cb59..96346af90 100644\n--- a/sentinel/datalake/create-custom-graphs.md\n+++ b/sentinel/datalake/create-custom-graphs.md\n@@ -3,11 +3,12 @@ title: Get started with custom graphs in Microsoft Sentinel (preview)\n description: Learn how to create and manage custom graphs in Microsoft Sentinel to model attack patterns, investigate threats, and run advanced graph algorithms.\n ms.author: edbaynash\n author: EdB-MSFT\n-ms.reviewer: sourinpaul, amyhari\n-ms.date: 03/23/2026\n+ms.reviewer: sourinpaul\n+ms.date: 06/18/2026\n ms.topic: how-to \n ms.service: microsoft-sentinel\n ms.subservice: sentinel-graph\n+ai-usage: ai-assisted\n \n #customer intent: As a security researcher, I want to create custom graphs in my tenant so that I can continuously monitor and detect systemic threats.\n ---\n@@ -402,6 +403,43 @@ After you create a graph job, you can view and manage the graph in your tenant f\n 1. You can now query and visualize your graph from the graph visualization in Microsoft Sentinel in the Defender portal. For more information, see [Visualize graphs in Microsoft Sentinel graph (preview)](./graph-visualization.md).\n \n \n+## Update custom graphs\n+\n+After you update notebook graph code, run the notebook locally to validate your changes before you update a graph job.\n+\n+### Edit existing custom graph details\n+\n+Use this workflow to edit an existing graph job.\n+\n+1. In the Visual Studio Code Microsoft Sentinel Graph panel, select **Edit graph job** for the graph you want to update, and then go to **Graph name** > **Job details**.\n+1. Update the fields you want to change:\n+\n+    - **Graph name** (optional). Updating the graph name creates a new graph in your tenant. The existing graph remains unchanged.\n+    - **Description** (optional). Updating the description replaces the current graph description and rebuilds the graph.\n+    - **Cluster configuration** (optional). Updating the cluster configuration changes the compute size and rebuilds the graph.\n+    - **Job frequency** (optional). Updating the job frequency changes the recurring schedule and rebuilds the graph.\n+\n+:::image type=\"content\" source=\"media/create-custom-graphs/edit-graph-job-details.png\" lightbox=\"media/create-custom-graphs/edit-graph-job-details.png\" alt-text=\"A screenshot showing the Edit graph job workflow in the Microsoft Sentinel Graph panel in Visual Studio Code.\":::\n+\n+### Overwrite an existing custom graph\n+\n+Use this workflow when you want to recreate a graph and overwrite an existing graph with the same name.\n+\n+1. Open the updated notebook.\n+1. Select **Create Scheduled Job** in the Sentinel notebook experience, then select **Create a graph job**.\n+1. In the **Create graph** form, provide a graph name.\n+    - If you provide a new graph name, a new graph is created in the tenant, and the existing graph remains available.\n+    - If you reuse an existing graph name for tenant, the existing graph is overwritten after confirmation. Graph names are unique, duplicate graph names aren't supported.\n+\n+1. Verify that **Path** references your updated notebook.\n+1. Update the **Description** for the graph.\n+1. Select **Cluster configuration** and **Job frequency**, similar to creating a new graph.\n+1. Update the **Schedule** information, if needed.\n+1. Update the **Description** field again as needed.\n+1. Select **Submit** to recreate the graph in your tenant.\n+\n+:::image type=\"content\" source=\"media/create-custom-graphs/overwrite-graph-job.png\" lightbox=\"media/create-custom-graphs/overwrite-graph-job.png\" alt-text=\"A screenshot showing the Create graph form used to overwrite an existing custom graph in Visual Studio Code.\":::\n+\n ## Related articles\n \n - [AI-assisted custom graph authoring in Microsoft Sentinel](create-graphs-with-ai.md)\n",
+      "baseCommitSha": "17b65506236f5262ffea2138dd47e855a3eb827e",
+      "commitSha": "97adb31bbd44693a4e73e39d896f57e4098404ae",
+      "commitMessage": "update custom graphs (#8210)",
+      "commitAuthor": "Ed Baynash",
+      "commitDate": "2026-06-21T13:55:16+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/datalake/create-custom-graphs.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/datalake/create-custom-graphs",
+      "firstSeenAt": "2026-06-21T10:55:16.000Z",
+      "eventId": "defender-docs:97adb31bbd44693a4e73e39d896f57e4098404ae:modified:sentinel/datalake/create-custom-graphs.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "update custom graphs (#8210)",
+        "summary": "Updated Microsoft Defender documentation in sentinel/datalake/create-custom-graphs.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-for-storage-introduction.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-for-cloud/defender-for-storage-introduction.md b/defender-for-cloud/defender-for-storage-introduction.md\nindex 96707b00f..737879c72 100644\n--- a/defender-for-cloud/defender-for-storage-introduction.md\n+++ b/defender-for-cloud/defender-for-storage-introduction.md\n@@ -134,4 +134,5 @@ You can enable Defender for Storage at the subscription level or the storage acc\n \n - [Enable Defender for Storage](tutorial-enable-storage-plan.md)\n - [Enable Defender for Storage using infrastructure as code](defender-for-storage-infrastructure-as-code-enablement.md)\n+- [Manage false-positive security recommendations for Defender for Storage](defender-for-storage-false-positive-recommendations.md)\n - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.\n",
+      "baseCommitSha": "97adb31bbd44693a4e73e39d896f57e4098404ae",
+      "commitSha": "b14b453fe023ffaf3aed2f56f5904f2bff3183e9",
+      "commitMessage": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T15:31:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/defender-for-storage-introduction.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
+      "firstSeenAt": "2026-06-21T12:31:51.000Z",
+      "eventId": "defender-docs:b14b453fe023ffaf3aed2f56f5904f2bff3183e9:modified:defender-for-cloud/defender-for-storage-introduction.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-introduction.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-for-storage-threats-alerts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-for-cloud/defender-for-storage-threats-alerts.md b/defender-for-cloud/defender-for-storage-threats-alerts.md\nindex f047191bd..340042ac1 100644\n--- a/defender-for-cloud/defender-for-storage-threats-alerts.md\n+++ b/defender-for-cloud/defender-for-storage-threats-alerts.md\n@@ -69,3 +69,4 @@ Storage aggregated logs in Defender XDR's Advanced Hunting give security teams a\n ## Related content\n \n - [Understanding malware scanning results](understand-malware-scan-results.md)\n+- [Manage false-positive security recommendations for Defender for Storage](defender-for-storage-false-positive-recommendations.md)\n",
+      "baseCommitSha": "97adb31bbd44693a4e73e39d896f57e4098404ae",
+      "commitSha": "b14b453fe023ffaf3aed2f56f5904f2bff3183e9",
+      "commitMessage": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T15:31:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/defender-for-storage-threats-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-threats-alerts",
+      "firstSeenAt": "2026-06-21T12:31:51.000Z",
+      "eventId": "defender-docs:b14b453fe023ffaf3aed2f56f5904f2bff3183e9:modified:defender-for-cloud/defender-for-storage-threats-alerts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-threats-alerts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/exempt-resource.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-for-cloud/exempt-resource.md b/defender-for-cloud/exempt-resource.md\nindex 944cbc8ae..a06978d55 100644\n--- a/defender-for-cloud/exempt-resource.md\n+++ b/defender-for-cloud/exempt-resource.md\n@@ -160,3 +160,6 @@ If the recommendation still shows resources as unhealthy after 24 hours, see [Re\n > [!div class=\"nextstepaction\"]\n > [Review and manage recommendation exemptions](review-exemptions.md)\n \n+## Related content\n+\n+- [Manage false-positive security recommendations for Defender for Storage](defender-for-storage-false-positive-recommendations.md)\n",
+      "baseCommitSha": "97adb31bbd44693a4e73e39d896f57e4098404ae",
+      "commitSha": "b14b453fe023ffaf3aed2f56f5904f2bff3183e9",
+      "commitMessage": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T15:31:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/exempt-resource.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/exempt-resource",
+      "firstSeenAt": "2026-06-21T12:31:51.000Z",
+      "eventId": "defender-docs:b14b453fe023ffaf3aed2f56f5904f2bff3183e9:modified:defender-for-cloud/exempt-resource.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud/exempt-resource.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/exempt-resources-at-scale.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-for-cloud/exempt-resources-at-scale.md b/defender-for-cloud/exempt-resources-at-scale.md\nindex 20a4167c9..ad2a60a45 100644\n--- a/defender-for-cloud/exempt-resources-at-scale.md\n+++ b/defender-for-cloud/exempt-resources-at-scale.md\n@@ -72,3 +72,6 @@ To view or manage existing exemptions, return to the **Exemptions** page in the\n > [!div class=\"nextstepaction\"]\n > [Remediate recommendations](implement-security-recommendations.md)\n \n+## Related content\n+\n+- [Manage false-positive security recommendations for Defender for Storage](defender-for-storage-false-positive-recommendations.md)\n",
+      "baseCommitSha": "97adb31bbd44693a4e73e39d896f57e4098404ae",
+      "commitSha": "b14b453fe023ffaf3aed2f56f5904f2bff3183e9",
+      "commitMessage": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-21T15:31:51+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud/exempt-resources-at-scale.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/exempt-resources-at-scale",
+      "firstSeenAt": "2026-06-21T12:31:51.000Z",
+      "eventId": "defender-docs:b14b453fe023ffaf3aed2f56f5904f2bff3183e9:modified:defender-for-cloud/exempt-resources-at-scale.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Storage: Add false-positive recommendations guide (#8237)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud/exempt-resources-at-scale.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 9,
+    "authors": [
+      "Deborah Langer",
+      "Ed Baynash",
+      "Spencer Berg"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 8 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "Added Microsoft Defender documentation in defender-for-cloud/defender-for-storage-false-positive-recommendations.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-introduction.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-introduction.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-threats-alerts.md. Updated Microsoft Defender documentation in defender-for-cloud/exempt-resource.md. Updated Microsoft Defender documentation in defender-for-cloud/exempt-res",
+        "sourceFiles": [
+          "defender-for-cloud/defender-for-storage-false-positive-recommendations.md",
+          "defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md",
+          "defender-for-cloud/defender-for-storage-introduction.md",
+          "defender-for-cloud/defender-for-storage-introduction.md",
+          "defender-for-cloud/defender-for-storage-threats-alerts.md",
+          "defender-for-cloud/exempt-resource.md",
+          "defender-for-cloud/exempt-resources-at-scale.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/discover-local-ai-agents.md.",
+        "sourceFiles": [
+          "defender-endpoint/discover-local-ai-agents.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "Updated Microsoft Defender documentation in sentinel/datalake/create-custom-graphs.md.",
+        "sourceFiles": [
+          "sentinel/datalake/create-custom-graphs.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "Added Microsoft Defender documentation in defender-for-cloud/defender-for-storage-false-positive-recommendations.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-infrastructure-as-code-enablement.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-introduction.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-introduction.md. Updated Microsoft Defender documentation in defender-for-cloud/defender-for-storage-threats-alerts.md. Updated Microsoft Defender documentation in defender-for-cloud/exempt-resource.md. Updated Microsoft Defender documentation in defender-for-cloud/exempt-res"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/discover-local-ai-agents.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "Updated Microsoft Defender documentation in sentinel/datalake/create-custom-graphs.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

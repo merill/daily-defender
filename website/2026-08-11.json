@@ -1,0 +1,164 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/mac-exclusions.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 5,
+      "changes": 20,
+      "patch": "diff --git a/defender-endpoint/mac-exclusions.md b/defender-endpoint/mac-exclusions.md\nindex c93cb9303..4880196a4 100644\n--- a/defender-endpoint/mac-exclusions.md\n+++ b/defender-endpoint/mac-exclusions.md\n@@ -12,13 +12,13 @@ ms.collection:\n - mde-macos\n ms.topic: how-to\n ms.subservice: macos\n-ms.date: 06/17/2026\n+ms.date: 08/11/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n \n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1014\n+ms.custom: msecd-doc-authoring-1015\n ---\n # Configure and validate exclusions for Microsoft Defender for Endpoint on macOS\n \n@@ -34,6 +34,19 @@ To narrow down which process and/or path and/or extension you need to exclude, u\n \n [!INCLUDE [side-by-side-scenarios](includes/side-by-side-scenarios.md)]\n \n+## Choose the right mitigation\n+\n+Use the narrowest mitigation that addresses the identified component.\n+\n+|Finding|Next step|\n+|---|---|\n+|`wdavdaemon_unprivileged` is affected, and real-time protection statistics identify a file, folder, or process|Consider an antivirus exclusion after reviewing the security impact.|\n+|`wdavdaemon` or `wdavdaemon_enterprise` is affected|Collect hot event sources and Client Analyzer performance data. Antivirus exclusions might not address this event-processing load.|\n+|Another endpoint security product is installed|Confirm the intended active or passive mode and the coexistence settings for both products before adding workload exclusions.|\n+|The affected workload isn't identified|Don't add a broad exclusion. Reproduce the issue and collect performance diagnostics first.|\n+\n+After applying an exclusion, repeat the same workload and compare CPU usage, memory usage, scan counts, and elapsed time. Remove the exclusion if it doesn't provide a measurable improvement.\n+\n ## Supported exclusion types\n \n The following table shows the exclusion types supported by Defender for Endpoint on macOS.\n@@ -176,6 +189,3 @@ For example, to add `EICAR-Test-File (not a virus)` (the threat name associated\n ```bash\n mdatp threat allowed add --name \"EICAR-Test-File (not a virus)\"\n ```\n-\n-\n-\n",
+      "baseCommitSha": "3761e451da9b4a3a0be0ca16ba1c515585000ab3",
+      "commitSha": "fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d",
+      "commitMessage": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+      "commitAuthor": "Josh Bregman",
+      "commitDate": "2026-08-11T13:02:07-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-exclusions",
+      "firstSeenAt": "2026-08-11T17:02:07.000Z",
+      "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mac-support-perf-overview.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 9,
+      "changes": 21,
+      "patch": "diff --git a/defender-endpoint/mac-support-perf-overview.md b/defender-endpoint/mac-support-perf-overview.md\nindex 34d17b0a8..765511295 100644\n--- a/defender-endpoint/mac-support-perf-overview.md\n+++ b/defender-endpoint/mac-support-perf-overview.md\n@@ -7,13 +7,14 @@ ms.reviewer: joshbregman\n ms.service: defender-endpoint\n ms.topic: overview\n ms.localizationpriority: medium\n-ms.date: 04/16/2025\n+ms.date: 08/11/2026\n ms.subservice: macos\n-ms.custom: partner-contribution\n+ms.custom: partner-contribution, msecd-doc-authoring-1015\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n \n+ai-usage: ai-assisted\n ---\n # Overview for how to troubleshoot performance issues for Microsoft Defender for Endpoint on macOS\n \n@@ -33,14 +34,16 @@ Depending on the applications that you're running and your device characteristic\n \n > [!TIP]\n > If you're running other non-Microsoft security products, make sure that the Microsoft Defender for Endpoint on macOS processes and paths are excluded from that non-Microsoft security product and that security product is excluded from Microsoft Defender for Endpoint on macOS. And vice-versa.\n-When troubleshooting performance issues for Microsoft Defender for Endpoint on macOS, you should review the **Activity Monitor** or run **top** to see which of the three (3) processes is leading the high cpu utilization\n \n-|Daemon name|Component|Troubleshooting guide|\n-| -------- | -------- |-------- |\n-|wdavdaemon| Core (privileged)|Open a [Microsoft support case](contact-support.md).|\n-|wdavdaemon_unprivileged| Anti-malware (AV, EPP)|Review [Troubleshoot performance issues for Microsoft Defender for Endpoint on macOS](mac-support-perf.md).|\n-|wdavdaemon_enterprise| Endpoint Detection and Response (EDR)|Open a [Microsoft support case](contact-support.md).|\n+When troubleshooting performance issues for Microsoft Defender for Endpoint on macOS, review **Activity Monitor** or run `top` to identify which Defender process has high CPU or memory usage. Collect the data while the performance issue is occurring.\n \n-Additionally, gather [Defender for Endpoint Client Analyzer](overview-client-analyzer.md) files while the issue occurs. This is used by the support team to investigate the issue. \n+|Daemon name|Component|First troubleshooting step|\n+|---|---|---|\n+|`wdavdaemon`|Core (privileged)|Collect Client Analyzer performance data and hot event sources.|\n+|`wdavdaemon_unprivileged`|Antivirus and endpoint protection platform (EPP)|Use real-time protection statistics to identify files and processes that trigger scans.|\n+|`wdavdaemon_enterprise`|Endpoint detection and response (EDR)|Collect Client Analyzer performance data and hot event sources.|\n \n+For all three processes, record the process name, CPU and memory use, duration, device model and processor, Defender version, macOS version, enforcement mode, workload, and other security products. Gather [Microsoft Defender for Endpoint Client Analyzer](overview-client-analyzer.md) files while the issue occurs.\n \n+> [!IMPORTANT]\n+> Antivirus exclusions affect antivirus scanning. They don't exclude activity from EDR or other Endpoint Security event processing. If an antivirus exclusion doesn't improve performance, don't broaden the exclusion without first identifying the affected component.\n",
+      "baseCommitSha": "3761e451da9b4a3a0be0ca16ba1c515585000ab3",
+      "commitSha": "fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d",
+      "commitMessage": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+      "commitAuthor": "Josh Bregman",
+      "commitDate": "2026-08-11T13:02:07-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-support-perf-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-support-perf-overview",
+      "firstSeenAt": "2026-08-11T17:02:07.000Z",
+      "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-support-perf-overview.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mac-support-perf.md",
+      "status": "modified",
+      "additions": 33,
+      "deletions": 3,
+      "changes": 36,
+      "patch": "diff --git a/defender-endpoint/mac-support-perf.md b/defender-endpoint/mac-support-perf.md\nindex 28b0ffce5..71a11c1f0 100644\n--- a/defender-endpoint/mac-support-perf.md\n+++ b/defender-endpoint/mac-support-perf.md\n@@ -12,12 +12,14 @@ ms.collection:\n - mde-macos\n ms.topic: troubleshooting-general\n ms.subservice: macos\n-ms.date: 06/20/2025\n+ms.date: 08/11/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n   - Microsoft Defender for Individuals\n \n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1015\n ---\n # Troubleshoot performance issues for Microsoft Defender for Endpoint on macOS\n \n@@ -56,7 +58,7 @@ To troubleshoot and mitigate performance issues, follow these steps:\n    | Device isn't managed by organization | **Terminal**: In Terminal, run the following command: `mdatp config real-time-protection --value disabled` |\n    | Device is managed by organization | See [Set preferences for Microsoft Defender for Endpoint on macOS](mac-preferences.md). |\n    \n-   If the performance problem persists while real-time protection is off, the origin of the problem could be the endpoint detection and response component. In this case, contact customer support for further instructions and mitigation.\n+   If the performance problem persists while real-time protection is off, the issue isn't limited to antivirus scanning. Continue with [Troubleshoot core or endpoint detection and response performance issues](#troubleshoot-core-or-endpoint-detection-and-response-performance-issues).\n    \n 1. Open Finder and navigate to **Applications** > **Utilities**. Open **Activity Monitor** and analyze which applications are using the resources on your system. Typical examples include software updaters and compilers.\n \n@@ -152,6 +154,35 @@ To troubleshoot and mitigate performance issues, follow these steps:\n \n See the guide on our support page for [Behavior Monitoring](behavior-monitor-macos.md).\n \n+## Troubleshoot core or endpoint detection and response performance issues\n+\n+Use this workflow when `wdavdaemon` or `wdavdaemon_enterprise` has high resource use, or when the issue continues while real-time protection is disabled.\n+\n+1. Reproduce the issue and confirm the affected Defender process in **Activity Monitor** or by running `top`.\n+1. Record the following information:\n+\n+   - Workload.\n+   - Start and end times.\n+   - CPU and memory use.\n+   - Device model and processor.\n+   - macOS and Defender versions.\n+   - Enforcement mode.\n+   - Other security or monitoring products.\n+\n+1. Collect hot event sources during the affected period:\n+\n+   ```bash\n+   sudo mdatp diagnostic hot-event-sources --time=360\n+   ```\n+\n+   The command creates a report that identifies applications and processes producing the most Endpoint Security events. Run the collection only while the issue is occurring.\n+1. Collect performance data by following the instructions in [Run the client analyzer on macOS and Linux](overview-client-analyzer.md).\n+1. If another endpoint security product is installed, confirm that the products are configured for the intended coexistence mode. See [Microsoft Defender for Endpoint and other security solutions](mde-side-by-side.md).\n+1. Contact Microsoft Support and provide the process measurements, hot event source report, Client Analyzer output, and exact time window when you reproduced the issue.\n+\n+> [!IMPORTANT]\n+> An antivirus exclusion doesn't suppress EDR or other Endpoint Security events. Don't add broad antivirus exclusions to address `wdavdaemon` or `wdavdaemon_enterprise` resource use unless antivirus scanning is also identified as a contributor.\n+\n ## Troubleshoot performance issues using Microsoft Defender for Endpoint Client Analyzer\n \n The Microsoft Defender for Endpoint Client Analyzer (MDECA) can collect traces, logs, and diagnostic information in order to troubleshoot performance issues on [onboarded devices](onboard-configure.md) on macOS.\n@@ -160,4 +191,3 @@ To run the client analyzer for troubleshooting performance issues, see [Run the\n \n > [!NOTE]\n > The Microsoft Defender for Endpoint Client Analyzer tool is regularly used by Microsoft Customer Support Services (CSS) to collect information such as (but not limited    to) IP addresses, PC names that help troubleshoot issues you might be experiencing with Microsoft Defender for Endpoint. For more information about our privacy statement, see [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).\n-\n",
+      "baseCommitSha": "3761e451da9b4a3a0be0ca16ba1c515585000ab3",
+      "commitSha": "fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d",
+      "commitMessage": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+      "commitAuthor": "Josh Bregman",
+      "commitDate": "2026-08-11T13:02:07-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-support-perf.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-support-perf",
+      "firstSeenAt": "2026-08-11T17:02:07.000Z",
+      "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-support-perf.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mac-support-sys-ext.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 8,
+      "changes": 19,
+      "patch": "diff --git a/defender-endpoint/mac-support-sys-ext.md b/defender-endpoint/mac-support-sys-ext.md\nindex b6919090c..c55d90e6a 100644\n--- a/defender-endpoint/mac-support-sys-ext.md\n+++ b/defender-endpoint/mac-support-sys-ext.md\n@@ -12,11 +12,13 @@ ms.collection:\n - mde-macos\n ms.topic: troubleshooting-general\n ms.subservice: macos\n-ms.date: 04/16/2025\n+ms.date: 08/11/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n-ms.custom: sfi-image-nochange\n+\n+ai-usage: ai-assisted\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1015\n ---\n \n # Troubleshoot system extension issues in Microsoft Defender for Endpoint on macOS\n@@ -145,8 +147,8 @@ If you're using Intune, see [Manage macOS software update policies in Intune](/i\n \n    :::image type=\"content\" source=\"media/screen-on-clicking-refresh-devices.png\" alt-text=\"The screen that appears on clicking Refresh devices.\" lightbox=\"media/screen-on-clicking-refresh-devices.png\":::\n \n-1. In Launchpad, type **System Preferences**.\n-1. Double-click **Profiles**.\n+1. Open **System Settings**.\n+1. Select **General** > **Device Management** to review installed management profiles. The exact location can vary by macOS version.\n \n    > [!NOTE]\n    > If you aren't MDM joined, you won't see **Profiles** as an option.  Contact your MDM support team to see why the **Profiles** option isn't visible. You should be able to see the different profiles such as **System Extensions**, **Accessibility**, **Background Services**, **Notifications**, **Microsoft AutoUpdate**, and so on, as shown in the preceding screenshot.\n@@ -164,6 +166,9 @@ The section [Sections that provide guidance on enabling profiles needed for Micr\n \n Using the recommended naming convention enables you to confirm that the correct profiles are dropping down at the time of checking.\n \n+> [!IMPORTANT]\n+> Deploy each Defender for Endpoint mobile configuration as a separate payload provided for that setting. Don't combine the onboarding, system extension, network filter, privacy preferences, background service, notification, or accessibility payloads into one custom payload. The management service might accept a merged or structurally modified payload, but macOS or Defender for Endpoint might ignore it.\n+\n > [!TIP]\n > To ensure that the correct profiles are coming down, instead of typing.mobileconfig (plist)**, you can download this profile from GitHub, to avoid typos elongated hyphens.\n \n@@ -260,12 +265,10 @@ The tool compares your profiles with what we have published in GitHub, and repor\n \n      OR\n \n-     - Run the script directly from the Web by running the following commands:\n+     - Run the script directly from the web:\n \n        ```bash\n-       sudo curl https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/macos/mdm/analyze_profiles.py\n-\n-       | python3 -\n+       curl -fsSL https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/macos/mdm/analyze_profiles.py | sudo python3 -\n        ```\n \n The output shows all potential issues with profiles.\n",
+      "baseCommitSha": "3761e451da9b4a3a0be0ca16ba1c515585000ab3",
+      "commitSha": "fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d",
+      "commitMessage": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+      "commitAuthor": "Josh Bregman",
+      "commitDate": "2026-08-11T13:02:07-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-support-sys-ext.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-support-sys-ext",
+      "firstSeenAt": "2026-08-11T17:02:07.000Z",
+      "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-support-sys-ext.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mac-troubleshoot-netext-mde.md",
+      "status": "modified",
+      "additions": 51,
+      "deletions": 3,
+      "changes": 54,
+      "patch": "diff --git a/defender-endpoint/mac-troubleshoot-netext-mde.md b/defender-endpoint/mac-troubleshoot-netext-mde.md\nindex d7827d021..bb094ffa7 100644\n--- a/defender-endpoint/mac-troubleshoot-netext-mde.md\n+++ b/defender-endpoint/mac-troubleshoot-netext-mde.md\n@@ -12,11 +12,13 @@ ms.collection:\n - mde-macos\n ms.topic: troubleshooting-general\n ms.subservice: macos\n-ms.date: 04/16/2025\n+ms.date: 08/11/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n \n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1015\n ---\n # Troubleshoot Network Extension (NetExt) issues in Defender for Endpoint on Mac \n \n@@ -28,13 +30,59 @@ appliesto:\n \n This article provides information on how to troubleshoot issues with the network extension (NetExt) that's installed as part of Microsoft Defender for Endpoint on macOS. \n \n-NetExt is used by [Network Protection](network-protection-macos.md) is enabled on Mac devices.\n+NetExt provides network event data that multiple Defender for Endpoint capabilities use. [Network Protection](network-protection-macos.md) depends on NetExt, but disabling Network Protection enforcement isn't the same as disabling NetExt.\n \n **Symptom**: \n \n You might notice issues with network related latencies when using your browser or copying files over the network or using a chat/meeting application. \n \n-**Temporary solution**:\n+## Identify the affected component\n+\n+Before disabling NetExt, determine whether the issue occurs only when Network Protection enforcement is enabled or whenever NetExt is running.\n+\n+1. Check Network Protection and system extension health to establish a baseline:\n+\n+   ```bash\n+   mdatp health --field network_protection_status\n+   mdatp health --details system_extensions\n+   mdatp health --details network_protection\n+   ```\n+\n+1. Test the following states and record whether the issue reproduces:\n+\n+   |NetExt|Network Protection|Interpretation|\n+   |---|---|---|\n+   |Enabled|Audit or block|Baseline with both components active.|\n+   |Enabled|Disabled|If the issue remains, investigate NetExt or another capability that uses network events.|\n+   |Disabled|Disabled|If the issue stops only here, NetExt is involved.|\n+\n+1. Record the following information:\n+\n+   - Affected application and protocol.\n+   - Browser or client.\n+   - Destination.\n+   - Proxy configuration.\n+   - Virtual private network (VPN) product and full-tunnel or split-tunnel mode.\n+   - Other installed network-filtering security products.\n+\n+1. Collect a diagnostic package while reproducing the issue:\n+\n+   ```bash\n+   sudo mdatp diagnostic create\n+   ```\n+\n+   If Microsoft Support requests a NetExt log stream, run:\n+\n+   ```bash\n+   log stream --info --debug --style compact --predicate 'process == \"netext\"' > netextlogstream.txt\n+   ```\n+\n+   Reproduce the issue, and then press **Control+C** to stop the trace.\n+\n+> [!CAUTION]\n+> Disabling NetExt reduces network visibility and disables capabilities that depend on network events. Use the smallest possible pilot group, record the original assignment, and restore the configuration after testing.\n+\n+## Temporary solution\n \n This article describes how to temporarily disable NetExt which will temporarily disable network protection, and resolve network stack-related issues by using Intune, JamF, or a manual process on macOS.\n \n",
+      "baseCommitSha": "3761e451da9b4a3a0be0ca16ba1c515585000ab3",
+      "commitSha": "fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d",
+      "commitMessage": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+      "commitAuthor": "Josh Bregman",
+      "commitDate": "2026-08-11T13:02:07-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-troubleshoot-netext-mde.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-troubleshoot-netext-mde",
+      "firstSeenAt": "2026-08-11T17:02:07.000Z",
+      "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-troubleshoot-netext-mde.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 5,
+    "authors": [
+      "Josh Bregman"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md. Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md.",
+        "sourceFiles": [
+          "defender-endpoint/mac-exclusions.md",
+          "defender-endpoint/mac-support-perf-overview.md",
+          "defender-endpoint/mac-support-perf.md",
+          "defender-endpoint/mac-support-sys-ext.md",
+          "defender-endpoint/mac-troubleshoot-netext-mde.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md. Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

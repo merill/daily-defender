@@ -1,0 +1,358 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/android-support-signin.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 16,
+      "changes": 20,
+      "patch": "diff --git a/defender-endpoint/android-support-signin.md b/defender-endpoint/android-support-signin.md\nindex f0f89fb27..2a1848c5e 100644\n--- a/defender-endpoint/android-support-signin.md\n+++ b/defender-endpoint/android-support-signin.md\n@@ -153,22 +153,10 @@ If a user faces an issue, which isn't already addressed in the above sections or\n \n 1. Open the **Microsoft Defender for Endpoint application** on your device and select the **profile icon** in the top-left corner.\n \n-    a. :::image type=\"content\" source=\"media/select-profile-icon-1.jpg\" alt-text=\"The profile icon in the Microsoft Defender for Endpoint portal\" lightbox=\"media/select-profile-icon-1.jpg\":::\n+1. Select **Help & feedback** > **Send feedback**.\n \n-1. Select **Help & feedback**.\n+    :::image type=\"content\" source=\"./media/android-new-ux/bottom-experience-android.png\" alt-text=\"Screenshots showing how to send feedback and logs from the Microsoft Defender mobile app options menu.\" border=\"false\":::\n \n-    a. :::image type=\"content\" source=\"media/selecthelpandfeedback2.png\" alt-text=\"The Help & feedback option that can be selected in the Microsoft Defender for Endpoint portal\" lightbox=\"media/selecthelpandfeedback2.png\":::\n+1. Provide details of the issue that you're facing and check **Include diagnostic data**. We recommend selecting **Include your email address** so that the team can reach back to you with a solution or a follow-up.\n \n-1. Select \"Send feedback to Microsoft\".\n-\n-    a. :::image type=\"content\" alt-text=\"Select send feedback to Microsoft\" source=\"media/send-feedback-to-microsoft-3.jpg\":::\n-\n-1. Choose from the given options. To report an issue, select \"I want to report an issue\".\n-\n-    a. :::image type=\"content\" source=\"media/report-issue-4.jpg\" alt-text=\"The I want to report an issue option\" lightbox=\"media/report-issue-4.jpg\":::\n-\n-1. Provide details of the issue that you're facing and check \"Send diagnostic data\". We recommend checking \"Include your email address\" so that the team can reach back to you with a solution or a follow-up.\n-\n-    a. :::image type=\"content\" source=\"media/finalsubmit5.png\" alt-text=\"The pane on which you can add details and attach diagnostic data\" lightbox=\"media/finalsubmit5.png\":::\n-\n-1. Select on \"Submit\" to successfully send the feedback.\n\\ No newline at end of file\n+1. Select on **Submit** to successfully send the feedback.\n\\ No newline at end of file\n",
+      "baseCommitSha": "43c54012bfdc1e0efa6adf8297e26e2de41e5e1a",
+      "commitSha": "f9ef785ae5069808280befcf79c8c5da5acca963",
+      "commitMessage": "update screenshots in troubleshooting doc",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T09:22:57+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-support-signin.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-support-signin",
+      "firstSeenAt": "2026-04-05T06:22:57.000Z",
+      "eventId": "defender-docs:f9ef785ae5069808280befcf79c8c5da5acca963:modified:defender-endpoint/android-support-signin.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "update screenshots in troubleshooting doc",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/install-sensor.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-identity/deploy/install-sensor.md b/defender-for-identity/deploy/install-sensor.md\nindex 5fb47ccf3..12794686d 100644\n--- a/defender-for-identity/deploy/install-sensor.md\n+++ b/defender-for-identity/deploy/install-sensor.md\n@@ -1,14 +1,14 @@\n ---\n title: Install a sensor | Microsoft Defender for Identity\n description: Learn how to install Microsoft Defender for Identity sensors on your domain controllers, AD FS servers, or AD CS servers.\n-ms.date: 06/21/2023\n+ms.date: 04/05/2026\n ms.topic: how-to\n ms.reviewer: rlitinsky\n ---\n \n # Install a Microsoft Defender for Identity sensor\n \n-This article describes how to install a Microsoft Defender for Identity classic sensor, including a standalone sensor. We recommend installing the sensor from the Defender portal. \n+This article describes how to install a Microsoft Defender for Identity sensor v2.x, including a standalone sensor. We recommend installing the sensor from the Defender portal. \n \n We recommend alternate installation methods for these use cases:\n \n@@ -16,6 +16,8 @@ We recommend alternate installation methods for these use cases:\n \n - If you're using a proxy, we recommend that you install the sensor and configure your proxy together [from the command line](#command-for-running-a-silent-installation-with-a-proxy-configuration). If you need to update your proxy settings later on, use PowerShell or the Azure CLI. For more information, see [Configure endpoint proxy and internet connectivity settings](configure-proxy.md).\n \n+- Installing the v2.x sensor isn't recommended when using the MDE‑integrated MDI sensor (v3.x). For more information, see [Microsoft Defender for Identity deployment overview](deploy-defender-identity.md)\n+\n ## Prerequisites\n \n Before you start, make sure that you have:\n@@ -32,9 +34,9 @@ Before you start, make sure that you have:\n \n - Trusted root certificates on your machine. If your trusted root CA-signed certificates are missing, [you might receive a connection error](../troubleshooting-known-issues.md#proxy-authentication-problem-presents-as-a-connection-error).\n \n-## Install the classic sensor in the Defender portal\n+## Install the sensor v2.x in the Defender portal\n \n-Perform the following steps on the domain controller, Active Directory Federation Services (AD FS) server, Active Directory Certificate Services (AD CS) server or Entra Connect server.\n+Perform the following steps on the domain controller, Active Directory Federation Services (AD FS) server, Active Directory Certificate Services (AD CS) server or Microsoft Entra Connect server.\n \n 1. Verify that the machine has connectivity to the relevant [Defender for Identity cloud service endpoints](configure-proxy.md#enable-access-to-defender-for-identity-service-urls-in-the-proxy-server).\n \n",
+      "baseCommitSha": "43c54012bfdc1e0efa6adf8297e26e2de41e5e1a",
+      "commitSha": "04d72d4fe94d21703de6814ce7c342af877575a7",
+      "commitMessage": "change classic to v2.x sensor",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T09:50:18+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/install-sensor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/install-sensor",
+      "firstSeenAt": "2026-04-05T06:50:18.000Z",
+      "eventId": "defender-docs:04d72d4fe94d21703de6814ce7c342af877575a7:modified:defender-for-identity/deploy/install-sensor.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "change classic to v2.x sensor",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/install-sensor.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/install-sensor.md b/defender-for-identity/deploy/install-sensor.md\nindex 12794686d..ea7fbd343 100644\n--- a/defender-for-identity/deploy/install-sensor.md\n+++ b/defender-for-identity/deploy/install-sensor.md\n@@ -36,7 +36,7 @@ Before you start, make sure that you have:\n \n ## Install the sensor v2.x in the Defender portal\n \n-Perform the following steps on the domain controller, Active Directory Federation Services (AD FS) server, Active Directory Certificate Services (AD CS) server or Microsoft Entra Connect server.\n+Perform the following steps on the domain controller, Active Directory Federation Services (AD FS) server, Active Directory Certificate Services (AD CS) server, or Microsoft Entra Connect server.\n \n 1. Verify that the machine has connectivity to the relevant [Defender for Identity cloud service endpoints](configure-proxy.md#enable-access-to-defender-for-identity-service-urls-in-the-proxy-server).\n \n",
+      "baseCommitSha": "04d72d4fe94d21703de6814ce7c342af877575a7",
+      "commitSha": "6fcb18bd6216f530828437906f1c950c14e4c73c",
+      "commitMessage": "acrolinx fixes",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T14:10:00+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/install-sensor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/install-sensor",
+      "firstSeenAt": "2026-04-05T11:10:00.000Z",
+      "eventId": "defender-docs:6fcb18bd6216f530828437906f1c950c14e4c73c:modified:defender-for-identity/deploy/install-sensor.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "acrolinx fixes",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/install-sensor.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/install-sensor.md b/defender-for-identity/deploy/install-sensor.md\nindex ea7fbd343..5bbec2bf3 100644\n--- a/defender-for-identity/deploy/install-sensor.md\n+++ b/defender-for-identity/deploy/install-sensor.md\n@@ -34,7 +34,7 @@ Before you start, make sure that you have:\n \n - Trusted root certificates on your machine. If your trusted root CA-signed certificates are missing, [you might receive a connection error](../troubleshooting-known-issues.md#proxy-authentication-problem-presents-as-a-connection-error).\n \n-## Install the sensor v2.x in the Defender portal\n+## Install the v2.x sensor in the Defender portal\n \n Perform the following steps on the domain controller, Active Directory Federation Services (AD FS) server, Active Directory Certificate Services (AD CS) server, or Microsoft Entra Connect server.\n \n",
+      "baseCommitSha": "6fcb18bd6216f530828437906f1c950c14e4c73c",
+      "commitSha": "913d6b6e8b40a66ce716ebdaa5f5ab5d4c975a80",
+      "commitMessage": "word fix",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T14:22:01+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/install-sensor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/install-sensor",
+      "firstSeenAt": "2026-04-05T11:22:01.000Z",
+      "eventId": "defender-docs:913d6b6e8b40a66ce716ebdaa5f5ab5d4c975a80:modified:defender-for-identity/deploy/install-sensor.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "word fix",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/security-posture-assessments/accounts.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 4,
+      "changes": 27,
+      "patch": "diff --git a/defender-for-identity/security-posture-assessments/accounts.md b/defender-for-identity/security-posture-assessments/accounts.md\nindex 0c43655da..df75054f4 100644\n--- a/defender-for-identity/security-posture-assessments/accounts.md\n+++ b/defender-for-identity/security-posture-assessments/accounts.md\n@@ -351,10 +351,27 @@ This is required to display the Security tab on domain objects.\n \n This recommendation lists all privileged accounts that don't have the \"not delegated\" setting enabled, highlighting those potentially exposed to delegation-related risks. Privileged accounts are accounts that are being members of a privileged group such as Domain admins, Schema admins, and so on. \n \n+- Domain Admins\n+- Enterprise Admins\n+- Service accounts with elevated privileges\n+\n **User impact**\n \n-If the sensitive flag is disabled, attackers could exploit Kerberos delegation to misuse privileged account credentials, leading to unauthorized access, lateral movement, and potential network-wide security breaches. Setting the sensitive flag on privileged user accounts prevent users from gaining access to the account and manipulating system settings.   \n-For device accounts, setting them to \"not delegated\" is important to prevent it from being used in any delegation scenario, ensuring that credentials on this machine can't be forwarded to access other services.\n+If the sensitive flag is disabled, attackers could exploit Kerberos delegation to misuse privileged account credentials, leading to unauthorized access, lateral movement, and potential network-wide security breaches. \n+\n+Enabling the setting **This account is sensitive and can't be delegated** doesn't affect the account’s ability to login or its assigned permissions. The restriction applies only to delegation scenarios, such as constrained or unconstrained Kerberos delegation. \n+Privileged accounts such as Domain Admins or Enterprise Admins should not be delegated, as this poses a significant security risk. Enabling this setting helps prevent Kerberos delegation attacks by ensuring these accounts cannot be impersonated.\n+\n+**Security recommendation**\n+\n+It is recommended to enable this setting for:\n+\n+Domain Admins\n+Enterprise Admins\n+Service accounts with elevated privileges\n+\n+Avoid applying this setting to accounts that require delegation for legitimate business purposes unless the delegation model is redesigned.\n+\n \n **Implementation**\n \n@@ -363,11 +380,13 @@ For device accounts, setting them to \"not delegated\" is important to prevent it\n \n 1. Take appropriate action on those accounts:\n \n-- For user accounts: by setting the account's control flags to \"this account is sensitive and can't be delegated.\" Under the Account tab, select the check box to this flag in the Account Options section. This prevents users from gaining access to the account and manipulating system settings.    \n+- User accounts: \n+    - Go to the **Accounts** tab >**Account options**.\n+    - Select **Account is sensitive and cannot be delegated.** This prevents users from gaining access to the account and manipulating system settings.\n \n     :::image type=\"content\" source=\"../media/ensure-privileged-accounts-with-sensitive-flag/administrator-properties.png\" alt-text=\"Screenshot of the user profile.\":::\n \n-- For device accounts:  \n+- Device accounts:  \n The safest approach is to use a PowerShell script to configure the device to prevent it from being used in any delegation scenario, ensuring that credentials on this machine can't be forwarded to access other services.\n \n   ```powershell\n",
+      "baseCommitSha": "43c54012bfdc1e0efa6adf8297e26e2de41e5e1a",
+      "commitSha": "3f4853043d8bdd2611a6889a686761f5e7fc66ce",
+      "commitMessage": "explain ensure privileged accounts aren't delegated",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T16:33:13+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/security-posture-assessments/accounts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/security-posture-assessments/accounts",
+      "firstSeenAt": "2026-04-05T13:33:13.000Z",
+      "eventId": "defender-docs:3f4853043d8bdd2611a6889a686761f5e7fc66ce:modified:defender-for-identity/security-posture-assessments/accounts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "explain ensure privileged accounts aren't delegated",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/security-posture-assessments/accounts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/security-posture-assessments/accounts.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 17,
+      "changes": 25,
+      "patch": "diff --git a/defender-for-identity/security-posture-assessments/accounts.md b/defender-for-identity/security-posture-assessments/accounts.md\nindex df75054f4..3f453fa8e 100644\n--- a/defender-for-identity/security-posture-assessments/accounts.md\n+++ b/defender-for-identity/security-posture-assessments/accounts.md\n@@ -58,7 +58,7 @@ Accounts with privileges in both Microsoft Entra ID and Active Directory can be\n \n **Implementation**\n \n-1. Review the list of exposed entities to identify which accounts have privileged access in both Entra ID and Active Directory.\n+1. Review the list of exposed entities to identify which accounts have privileged access in both Microsoft Entra ID and Active Directory.\n \n 1. Remediate the account by reducing privileges in one or both environments to enforce least privilege. Only retain dual privileges if necessary, and document justification.\n \n@@ -191,13 +191,13 @@ Having non-sensitive accounts with **Admin SDHolder** (security descriptor holde\n     :::image type=\"content\" source=\"../media/secure-score/remove-suspicious-access-rights.png\" alt-text=\"Screenshot of the Admin SDHolder security assessment.\" lightbox=\"../media/secure-score/remove-suspicious-access-rights.png\":::\n \n \n-1. Review the list of exposed entities to discover which of your non-sensitive accounts have the **Admin SDHolder** permission.\n+1. Review the list of exposed entities to discover which of your nonsensitive accounts have the **Admin SDHolder** permission.\n \n 1. Take appropriate action on those entities by removing their privileged access rights. For example:\n \n     1. Use the **ADSI Edit** tool to connect to your domain controller.\n     1. Browse to the **CN=System**> **CN=AdminSDHolder** container and open the **CN=AdminSDHolder** container properties.\n-    1. Select the **Security** tab > **Advanced**, and remove any non-sensitive entities. These are the entities marked as exposed in the security assessment.\n+    1. Select the **Security** tab > **Advanced**, and remove any nonsensitive entities. These are the entities marked as exposed in the security assessment.\n \n     For more information, see [Active Directory Service Interfaces](/windows/win32/adsi/active-directory-service-interfaces-adsi) and [ADSI Edit](/previous-versions/windows/it-pro/windows-server-2003/cc773354(v=ws.10)) documentation\n \n@@ -318,25 +318,19 @@ It's crucial to carefully manage and restrict the membership of this group to en\n \n \n 1. Review this list of exposed entities to discover which of your accounts have DCSync permissions and are also nondomain admins.\n-\n 1. Take appropriate action on those entities by removing their privileged access rights.\n-\n To achieve the maximum score, remediate all exposed entities.\n \n You can access Active Directory Users and Computers by signing in to your domain controller.\n To remove DCSync permissions from a non-admin account:\n \n 1. Open Active Directory Users and Computers.\n-\n 1. Turn on Advanced Features.\n This is required to display the Security tab on domain objects.\n \n 1. Open Domain properties, select your domain name (for example, contoso.local), and then select Properties.\n-\n 1. Select the Security tab.\n-\n 1. Select the target user or group and then select the non-admin user or service account that shouldn't have these permissions.\n-\n 1. Uncheck replication permissions. Scroll through the \"Permissions for [User]\" list uncheck the following permissions if they're selected:\n \n     - Replicating Directory Changes\n@@ -359,12 +353,12 @@ This recommendation lists all privileged accounts that don't have the \"not deleg\n \n If the sensitive flag is disabled, attackers could exploit Kerberos delegation to misuse privileged account credentials, leading to unauthorized access, lateral movement, and potential network-wide security breaches. \n \n-Enabling the setting **This account is sensitive and can't be delegated** doesn't affect the account’s ability to login or its assigned permissions. The restriction applies only to delegation scenarios, such as constrained or unconstrained Kerberos delegation. \n-Privileged accounts such as Domain Admins or Enterprise Admins should not be delegated, as this poses a significant security risk. Enabling this setting helps prevent Kerberos delegation attacks by ensuring these accounts cannot be impersonated.\n+Enabling the setting **This account is sensitive and can't be delegated** doesn't affect the account’s ability to log in or its assigned permissions. The restriction applies only to delegation scenarios, such as constrained or unconstrained Kerberos delegation. \n+Privileged accounts such as Domain Admins or Enterprise Admins shouldn't be delegated, as this poses a significant security risk. Enabling this setting helps prevent Kerberos delegation attacks by ensuring these accounts can't be impersonated.\n \n **Security recommendation**\n \n-It is recommended to enable this setting for:\n+It's recommended to enable this setting for:\n \n Domain Admins\n Enterprise Admins\n@@ -372,12 +366,9 @@ Service accounts with elevated privileges\n \n Avoid applying this setting to accounts that require delegation for legitimate business purposes unless the delegation model is redesigned.\n \n-\n **Implementation**\n \n-\n 1. Review the list of exposed entities to discover which of your privileged accounts don’t have the configuration flag \"this account is sensitive and can't be delegated.\"\n-\n 1. Take appropriate action on those accounts:\n \n - User accounts: \n@@ -617,7 +608,7 @@ Organizations that fail to secure their account attributes leave the door unlock\n \n Malicious actors, much like thieves, often look for the easiest and quietest way into any environment. Accounts configured with an unsecure SID History attribute are windows of opportunities for attackers and can expose risks.\n \n-For example, a non-sensitive account in a domain can contain the Enterprise Admin SID in its SID History from another domain in the Active Directory forest, thus \"elevating\" access for the user account to an effective Domain Admin in all domains in the forest. If you have a forest trust without SID Filtering enabled (also called Quarantine), it's possible to inject a SID from another forest and it will be added to the user token when authenticated and used for access evaluations.\n+For example, a nonsensitive account in a domain can contain the Enterprise Admin SID in its SID History from another domain in the Active Directory forest, thus \"elevating\" access for the user account to an effective Domain Admin in all domains in the forest. If you have a forest trust without SID Filtering enabled (also called Quarantine), it's possible to inject a SID from another forest and it will be added to the user token when authenticated and used for access evaluations.\n \n **Implementation**\n \n@@ -665,7 +656,7 @@ For example, if the **PasswordNotRequired** attribute is enabled, an attacker ca\n \n | Recommended action | Remediation | Reason |\n | --- | --- | --- |\n-| Remove Do not require Kerberos preauthentication| Remove this setting from account properties in Active Directory (AD) | Removing this setting requires a Kerberos pre-authentication for the account resulting in improved security. |\n+| Remove Don't require Kerberos preauthentication| Remove this setting from account properties in Active Directory (AD) | Removing this setting requires a Kerberos pre-authentication for the account resulting in improved security. |\n | Remove Store password using reversible encryption | Remove this setting from account properties in AD | Removing this setting prevents easy decryption of the account's password. |\n | Remove Password not required | Remove this setting from account properties in AD | Removing this setting requires a password to be used with the account and helps prevent unauthorized access to resources. |\n | Remove Password stored with weak encryption | Reset the account password | Changing the account's password enables stronger encryption algorithms to be used for its protection. |\n",
+      "baseCommitSha": "3f4853043d8bdd2611a6889a686761f5e7fc66ce",
+      "commitSha": "d7efacffdff1d7a1e9fc90a3742e5885227ead98",
+      "commitMessage": "Acrolinx fixes",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T21:24:44+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/security-posture-assessments/accounts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/security-posture-assessments/accounts",
+      "firstSeenAt": "2026-04-05T18:24:44.000Z",
+      "eventId": "defender-docs:d7efacffdff1d7a1e9fc90a3742e5885227ead98:modified:defender-for-identity/security-posture-assessments/accounts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Acrolinx fixes",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/security-posture-assessments/accounts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/exclusions.md",
+      "status": "modified",
+      "additions": 36,
+      "deletions": 32,
+      "changes": 68,
+      "patch": "diff --git a/defender-for-identity/exclusions.md b/defender-for-identity/exclusions.md\nindex f103b571a..93f2e5d2d 100644\n--- a/defender-for-identity/exclusions.md\n+++ b/defender-for-identity/exclusions.md\n@@ -1,7 +1,7 @@\n ---\n title: Detection exclusions in Microsoft Defender XDR\n description: Learn how to configure Microsoft Defender for Identity detection exclusions in Microsoft Defender XDR.\n-ms.date: 03/23/2023\n+ms.date: 04/05/2026\n ms.topic: how-to\n ms.reviewer: LiorShapiraa\n ---\n@@ -12,61 +12,64 @@ This article explains how to configure [Microsoft Defender for Identity](/defend\n \n Microsoft Defender for Identity enables the exclusion of specific IP addresses, computers, domains, or users from a number of detections.\n \n-For example, a **DNS Reconnaissance** alert could be triggered by a security scanner that uses DNS as a scanning mechanism. Creating an exclusion helps Defender for Identity ignore such scanners and reduce false positives.\n+For example, a **DNS Reconnaissance** alert could be triggered by a security scanner that uses DNS as a scanning mechanism. Creating an exclusion helps Microsoft Defender for Identity ignore such scanners and reduce false positives.\n \n > [!NOTE]\n-> We recommend you to [Tune an alert](/microsoft-365/security/defender/investigate-alerts#tune-an-alert) instead of using exclusions. Alert tuning rules allow more granular conditions than exclusions, and allow you to review the alerts which were tuned.\n+> - We recommend you to [Tune an alert](/microsoft-365/security/defender/investigate-alerts#tune-an-alert) instead of using exclusions. Alert tuning rules allow more granular conditions than exclusions, and allow you to review the alerts, which were tuned.\n+> \n+>- Among the most common domains with [Suspicious communication over DNS](other-alerts.md#suspicious-communication-over-dns-external-id-2031) alerts, we observed the domains that were most frequently excluded from the alert. These domains are added to the exclusions list by default, but you have the option to remove them.\n \n->[!NOTE]\n->Of the most common domains with [Suspicious communication over DNS](other-alerts.md#suspicious-communication-over-dns-external-id-2031) alerts opened on them, we observed the domains that customers most excluded from the alert. These domains are added to the exclusions list by default, but you have the option to easily remove them.\n+When replacing an existing exclusion with an alert tuning rule, identify the detection associated with the excluded entity and map it to the corresponding detector in alert tuning. After creating the tuning rule, verify that the detector appears under Alert tuning in the Microsoft Defender portal to ensure that the intended alert scope is preserved.\n \n ## How to add detection exclusions\n \n-1. In [Microsoft Defender XDR](https://security.microsoft.com/), go to **Settings** and then **Identities**.\n+1. Sign in to the [Microsoft Defender portal](https://security.microsoft.com/)\n+1.  Go to **System** > **Settings** and then **Identities**.\n \n-    ![Go to Settings, then Identities.](media/settings-identities.png)\n+    :::image type=\"content\" source=\"media/detect-exclusions/settings-identities.png\" alt-text=\"Screenshot that shows the identities settings page in the Microsoft Defender portal.\":::\n    \n-1. You'll then see **Excluded entities** in the left-hand menu.\n+1. Select **Excluded entities**.\n \n-    ![Excluded entities.](media/excluded-entities.png)\n+    :::image type=\"content\" source=\"media/detect-exclusions/excluded-entities.png\" alt-text=\"Screenshot of the excluded entities list.\":::\n    \n-   You can then set exclusions by two methods: **Exclusions by detection rule** and **Global excluded entities**.\n+   You can set exclusions using two methods: **Exclusions by detection rule** and **Global excluded entities**.\n \n ## Exclusions by detection rule\n \n-1. In the left-hand menu, select **Exclusions by detection rule**. You'll see a list of detection rules.\n+1. Select **Exclusions by detection rule**. You'll see a list of detection rules.\n \n-    ![Exclusions by detection rule.](media/exclusions-by-detection-rule.png)\n+    :::image type=\"content\" source=\"media/detect-exclusions/exclusions-by-detection-rule.png\" alt-text=\"Screenshot of the exclusions by detection rule option.\":::\n    \n 1. For each detection you want to configure, do the following steps:\n \n-   1. Select the rule. You can search for detections using the search bar. Once selected, a pane will open with the detection rule details.\n+   1. Select a detection rule from the list. \n+   1. View the detection rule details.\n+\n+   :::image type=\"content\" source=\"media/detect-exclusions/detection-rule-details.png\" alt-text=\"Screenshot of the detection rule details.\":::\n    \n-       ![Detection rule details.](media/detection-rule-details.png)\n-      \n-    1. To add an exclusion, select the **Excluded entities** button, and then choose the exclusion type. Different excluded entities are available for each rule. They include users, devices, domains and IP addresses. In this example, the choices are **Exclude devices** and **Exclude IP addresses**.\n+    1. To add an exclusion, select the **Excluded entities** button, and then choose the exclusion type. Different excluded entities are available for each rule. They include users, devices, domains, and IP addresses. In this example, the choices are **Exclude devices** and **Exclude IP addresses**.\n \n-        ![Exclude devices or IP addresses.](media/exclude-devices-or-ip-addresses.png)\n+    :::image type=\"content\" source=\"media//detect-exclusions/exclude-devices-or-ip-addresses.png\" alt-text=\"Screenshot showing the options to exclude devices or IP addresses.\":::\n \n-    1. After choosing the exclusion type, you can add the exclusion. In the pane that opens, select the **+** button to add the exclusion.\n+    1. After choosing the exclusion type, select the **+** button to add the exclusion.\n \n-        ![Add an exclusion.](media/add-exclusion.png)\n+    :::image type=\"content\" source=\"media/detect-exclusions/add-exclusion.png\" alt-text=\"Screenshot of the add exclusion button.\":::\n \n-    1. Then add the entity to be excluded. Select **+ Add** to add the entity to the list.\n+    1. Select **+ Add** to add the excluded entity to the list.\n \n-        ![Add an entity to be excluded.](media/add-excluded-entity.png)\n+    :::image type=\"content\" source=\"media/detect-exclusions/add-excluded-entity.png\" alt-text=\"Screenshot showing how to add an entity to be excluded.\":::\n \n-    1. Then select **Exclude IP addresses** (in this example) to complete the exclusion.\n+    1. Select **Exclude IP addresses** (in this example) to complete the exclusion.\n \n-        ![Exclude IP addresses.](media/exclude-ip-addresses.png)\n+    :::image type=\"content\" source=\"media//detect-exclusions/exclude-ip-addresses.png\" alt-text=\"Screenshot showing the exclusion of IP addresses.\":::\n \n     1. Once you've added exclusions, you can export the list or remove the exclusions by returning to the **Excluded entities** button. In this example, we've returned to **Exclude devices**. To export the list, select the down arrow button.\n \n-        ![Return to Exclude devices.](media/return-to-exclude-devices.png)\n+        :::image type=\"content\" source=\"media//detect-exclusions/return-to-exclude-devices.png\" alt-text=\"Screenshot showing how to return to exclude devices.\":::\n \n     1. To delete an exclusion, select the exclusion and select the trash icon.\n \n-        ![Delete an exclusion.](media/delete-exclusion.png)\n+        :::image type=\"content\" source=\"media//detect-exclusions/delete-exclusion.png\" alt-text=\"Screenshot showing how to delete an exclusion.\":::\n \n ## Global excluded entities\n \n@@ -74,23 +77,24 @@ You can now also configure exclusions by **Global excluded entities**. Global ex\n \n 1. In the left-hand menu, select **Global excluded entities**. You'll see the categories of entities that you can exclude.\n \n-    ![Global excluded entities.](media/global-excluded-entities.png)\n+    :::image type=\"content\" source=\"media//detect-exclusions/global-excluded-entities.png\" alt-text=\"Screenshot showing the global excluded entities.\":::\n    \n 1. Choose an exclusion type. In this example, we selected **Exclude domains**.\n \n-    ![Exclude domains.](media/exclude-domains.png)\n+\n+    :::image type=\"content\" source=\"media//detect-exclusions/exclude-domains.png\" alt-text=\"Screenshot showing the option to exclude domains.\":::\n    \n-1. A pane will open where you can add a domain to be excluded. Add the domain you want to exclude.\n+1. A pane opens where you can add a domain to be excluded. Add the domain you want to exclude.\n \n-    ![Add a domain to be excluded.](media/add-excluded-domain.png)\n+    :::image type=\"content\" source=\"media//detect-exclusions/add-excluded-domain.png\" alt-text=\"Screenshot showing how to add a domain to be excluded.\":::\n    \n-1. The domain will be added to the list. Select **Exclude domains** to complete the exclusion.\n+1. The domain is added to the list. Select **Exclude domains** to complete the exclusion.\n \n-    ![Select exclude domains.](media/select-exclude-domains.png)\n+    :::image type=\"content\" source=\"media//detect-exclusions/select-exclude-domains.png\" alt-text=\"Screenshot showing how to select exclude domains.\":::\n    \n 1. You'll then see the domain in the list of entities to be excluded from all detection rules. You can export the list, or remove the entities by choosing them and selecting the **Remove** button.\n \n-    ![List of global excluded entries.](media/global-excluded-entries-list.png)\n+    :::image type=\"content\" source=\"media//detect-exclusions/global-excluded-entries-list.png\" alt-text=\"Screenshot showing the list of global excluded entries.\":::\n    \n ## Next steps\n \n",
+      "baseCommitSha": "43c54012bfdc1e0efa6adf8297e26e2de41e5e1a",
+      "commitSha": "e5e327755c53fdb8cfb7a4f0eb7068d0e7d7c53d",
+      "commitMessage": "Improvise detection exclusions page for MDI",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T22:24:28+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/exclusions",
+      "firstSeenAt": "2026-04-05T19:24:28.000Z",
+      "eventId": "defender-docs:e5e327755c53fdb8cfb7a4f0eb7068d0e7d7c53d:modified:defender-for-identity/exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improvise detection exclusions page for MDI",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/exclusions.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-identity/exclusions.md b/defender-for-identity/exclusions.md\nindex 93f2e5d2d..6a8d5f52e 100644\n--- a/defender-for-identity/exclusions.md\n+++ b/defender-for-identity/exclusions.md\n@@ -36,7 +36,7 @@ When replacing an existing exclusion with an alert tuning rule, identify the det\n \n ## Exclusions by detection rule\n \n-1. Select **Exclusions by detection rule**. You'll see a list of detection rules.\n+1. Select **Exclusions by detection rule**. \n \n     :::image type=\"content\" source=\"media/detect-exclusions/exclusions-by-detection-rule.png\" alt-text=\"Screenshot of the exclusions by detection rule option.\":::\n    \n@@ -73,9 +73,9 @@ When replacing an existing exclusion with an alert tuning rule, identify the det\n \n ## Global excluded entities\n \n-You can now also configure exclusions by **Global excluded entities**. Global exclusions allow you to define certain entities (IP addresses, subnets, devices, or domains) to be excluded across all of the detections Defender for Identity has. So for example, if you exclude a device, it will only apply to those detections that have device identification as part of the detection.\n+You can now also configure exclusions by **Global excluded entities**. Global exclusions allow you to define certain entities (IP addresses, subnets, devices, or domains) to be excluded across all of the detections Microsoft Defender for Identity has. So for example, if you exclude a device, it will only apply to those detections that have device identification as part of the detection.\n \n-1. In the left-hand menu, select **Global excluded entities**. You'll see the categories of entities that you can exclude.\n+1. Select **Global excluded entities** to see the categories of entities that you can exclude.\n \n     :::image type=\"content\" source=\"media//detect-exclusions/global-excluded-entities.png\" alt-text=\"Screenshot showing the global excluded entities.\":::\n    \n@@ -90,7 +90,7 @@ You can now also configure exclusions by **Global excluded entities**. Global ex\n    \n 1. The domain is added to the list. Select **Exclude domains** to complete the exclusion.\n \n-    :::image type=\"content\" source=\"media//detect-exclusions/select-exclude-domains.png\" alt-text=\"Screenshot showing how to select exclude domains.\":::\n+    :::image type=\"content\" source=\"media//detect-exclusions/select-exclude-domains.png\" alt-text=\"Screenshot showing how to exclude domains.\":::\n    \n 1. You'll then see the domain in the list of entities to be excluded from all detection rules. You can export the list, or remove the entities by choosing them and selecting the **Remove** button.\n \n",
+      "baseCommitSha": "e5e327755c53fdb8cfb7a4f0eb7068d0e7d7c53d",
+      "commitSha": "55b5a39e1f3dc46c6469cd0324cf5c67ef3098ca",
+      "commitMessage": "Acrolinx fixes",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T22:28:37+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/exclusions",
+      "firstSeenAt": "2026-04-05T19:28:37.000Z",
+      "eventId": "defender-docs:55b5a39e1f3dc46c6469cd0324cf5c67ef3098ca:modified:defender-for-identity/exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Acrolinx fixes",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-identity/deploy/create-directory-service-account-gmsa.md b/defender-for-identity/deploy/create-directory-service-account-gmsa.md\nindex 21eb08250..ae41813b7 100644\n--- a/defender-for-identity/deploy/create-directory-service-account-gmsa.md\n+++ b/defender-for-identity/deploy/create-directory-service-account-gmsa.md\n@@ -125,13 +125,13 @@ If you see this alert, check to see if the *Log on as a service policy* is confi\n > [!NOTE]\n > If you use the Group Policy Management Editor to configure the **Log on as a service** setting, make sure to add both **NT Service\\All Services** and the gMSA account you created.\n \n-## Configure a Directory service account in Microsoft Defender XDR\n+## Configure a Directory service account in Microsoft Defender portal\n \n-To connect your sensors with your Active Directory domains, configure Directory service accounts in Microsoft Defender XDR.\n+To connect your sensors with your Active Directory domains, configure Directory service accounts in Microsoft Defender portal.\n \n-1. In [Microsoft Defender XDR](https://security.microsoft.com/), go to **Settings > Identities**.\n+1. In [Microsoft Defender portal](https://security.microsoft.com/), go to **Settings > Identities**.\n \n-    :::image type=\"content\" source=\"../media/settings-identities.png\" alt-text=\"Screenshot that shows the settings page and how to access the Defender for Identity page.\" lightbox=\"../media/settings-identities.png\":::\n+    :::image type=\"content\" source=\"../media//detect-exclusions/settings-identities.png\" alt-text=\"Screenshot that shows the settings page and how to access the Defender for Identity page.\" lightbox=\"../media/settings-identities.png\":::\n \n 1. Select **Directory service accounts** to see which accounts are associated with which domains. \n \n",
+      "baseCommitSha": "55b5a39e1f3dc46c6469cd0324cf5c67ef3098ca",
+      "commitSha": "541aa81d6ba171595b3507fea6a945b474b50fc8",
+      "commitMessage": "fix image link",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T22:30:32+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa",
+      "firstSeenAt": "2026-04-05T19:30:32.000Z",
+      "eventId": "defender-docs:541aa81d6ba171595b3507fea6a945b474b50fc8:modified:defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix image link",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/create-directory-service-account-gmsa.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/exclusions.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 10,
+      "changes": 19,
+      "patch": "diff --git a/defender-for-identity/exclusions.md b/defender-for-identity/exclusions.md\nindex 6a8d5f52e..9e7b2c745 100644\n--- a/defender-for-identity/exclusions.md\n+++ b/defender-for-identity/exclusions.md\n@@ -28,11 +28,10 @@ When replacing an existing exclusion with an alert tuning rule, identify the det\n \n     :::image type=\"content\" source=\"media/detect-exclusions/settings-identities.png\" alt-text=\"Screenshot that shows the identities settings page in the Microsoft Defender portal.\":::\n    \n-1. Select **Excluded entities**.\n+1. Select **Excluded entities**. You can set exclusions using two methods: **Exclusions by detection rule** and **Global excluded entities**.\n \n     :::image type=\"content\" source=\"media/detect-exclusions/excluded-entities.png\" alt-text=\"Screenshot of the excluded entities list.\":::\n-   \n-   You can set exclusions using two methods: **Exclusions by detection rule** and **Global excluded entities**.\n+\n \n ## Exclusions by detection rule\n \n@@ -45,23 +44,24 @@ When replacing an existing exclusion with an alert tuning rule, identify the det\n    1. Select a detection rule from the list. \n    1. View the detection rule details.\n \n-   :::image type=\"content\" source=\"media/detect-exclusions/detection-rule-details.png\" alt-text=\"Screenshot of the detection rule details.\":::\n+       :::image type=\"content\" source=\"media/detect-exclusions/detection-rule-details.png\" alt-text=\"Screenshot of the detection rule details.\":::\n    \n-    1. To add an exclusion, select the **Excluded entities** button, and then choose the exclusion type. Different excluded entities are available for each rule. They include users, devices, domains, and IP addresses. In this example, the choices are **Exclude devices** and **Exclude IP addresses**.\n+    1. To add an exclusion, select the **Excluded entities** button.\n+    1. Choose the exclusion type. Different excluded entities are available for each rule. They include users, devices, domains, and IP addresses. In this example, the choices are **Exclude devices** and **Exclude IP addresses**.\n \n-    :::image type=\"content\" source=\"media//detect-exclusions/exclude-devices-or-ip-addresses.png\" alt-text=\"Screenshot showing the options to exclude devices or IP addresses.\":::\n+        :::image type=\"content\" source=\"media//detect-exclusions/exclude-devices-or-ip-addresses.png\" alt-text=\"Screenshot showing the options to exclude devices or IP addresses.\":::\n \n     1. After choosing the exclusion type, select the **+** button to add the exclusion.\n \n-    :::image type=\"content\" source=\"media/detect-exclusions/add-exclusion.png\" alt-text=\"Screenshot of the add exclusion button.\":::\n+        :::image type=\"content\" source=\"media/detect-exclusions/add-exclusion.png\" alt-text=\"Screenshot of the add exclusion button.\":::\n \n     1. Select **+ Add** to add the excluded entity to the list.\n \n-    :::image type=\"content\" source=\"media/detect-exclusions/add-excluded-entity.png\" alt-text=\"Screenshot showing how to add an entity to be excluded.\":::\n+        :::image type=\"content\" source=\"media/detect-exclusions/add-excluded-entity.png\" alt-text=\"Screenshot showing how to add an entity to be excluded.\":::\n \n     1. Select **Exclude IP addresses** (in this example) to complete the exclusion.\n \n-    :::image type=\"content\" source=\"media//detect-exclusions/exclude-ip-addresses.png\" alt-text=\"Screenshot showing the exclusion of IP addresses.\":::\n+        :::image type=\"content\" source=\"media//detect-exclusions/exclude-ip-addresses.png\" alt-text=\"Screenshot showing the exclusion of IP addresses.\":::\n \n     1. Once you've added exclusions, you can export the list or remove the exclusions by returning to the **Excluded entities** button. In this example, we've returned to **Exclude devices**. To export the list, select the down arrow button.\n \n@@ -81,7 +81,6 @@ You can now also configure exclusions by **Global excluded entities**. Global ex\n    \n 1. Choose an exclusion type. In this example, we selected **Exclude domains**.\n \n-\n     :::image type=\"content\" source=\"media//detect-exclusions/exclude-domains.png\" alt-text=\"Screenshot showing the option to exclude domains.\":::\n    \n 1. A pane opens where you can add a domain to be excluded. Add the domain you want to exclude.\n",
+      "baseCommitSha": "541aa81d6ba171595b3507fea6a945b474b50fc8",
+      "commitSha": "bfe88da9ce1b4a0b2d5a06c284cc2d458358553b",
+      "commitMessage": "fix image indentation",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T22:33:30+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/exclusions",
+      "firstSeenAt": "2026-04-05T19:33:30.000Z",
+      "eventId": "defender-docs:bfe88da9ce1b4a0b2d5a06c284cc2d458358553b:modified:defender-for-identity/exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix image indentation",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/create-directory-service-account-gmsa.md b/defender-for-identity/deploy/create-directory-service-account-gmsa.md\nindex ae41813b7..6d10d6850 100644\n--- a/defender-for-identity/deploy/create-directory-service-account-gmsa.md\n+++ b/defender-for-identity/deploy/create-directory-service-account-gmsa.md\n@@ -131,7 +131,7 @@ To connect your sensors with your Active Directory domains, configure Directory\n \n 1. In [Microsoft Defender portal](https://security.microsoft.com/), go to **Settings > Identities**.\n \n-    :::image type=\"content\" source=\"../media//detect-exclusions/settings-identities.png\" alt-text=\"Screenshot that shows the settings page and how to access the Defender for Identity page.\" lightbox=\"../media/settings-identities.png\":::\n+    :::image type=\"content\" source=\"../media/detect-exclusions/settings-identities.png\" alt-text=\"Screenshot that shows the settings page and how to access the Defender for Identity page.\" lightbox=\"../media/detect-exclusions/settings-identities.png\":::\n \n 1. Select **Directory service accounts** to see which accounts are associated with which domains. \n \n",
+      "baseCommitSha": "bfe88da9ce1b4a0b2d5a06c284cc2d458358553b",
+      "commitSha": "47a229f3f99416fa2614bbbaa7db3bab2b0563bb",
+      "commitMessage": "fix bookmark linking",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T22:37:04+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa",
+      "firstSeenAt": "2026-04-05T19:37:04.000Z",
+      "eventId": "defender-docs:47a229f3f99416fa2614bbbaa7db3bab2b0563bb:modified:defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix bookmark linking",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/create-directory-service-account-gmsa.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/multi-forest.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/multi-forest.md b/defender-for-identity/deploy/multi-forest.md\nindex d733bc051..bda6c6ef4 100644\n--- a/defender-for-identity/deploy/multi-forest.md\n+++ b/defender-for-identity/deploy/multi-forest.md\n@@ -28,7 +28,7 @@ To detect cross-forest activities, Defender for Identity sensors query domain co\n \n - Defender for Identity sensors can be installed on domain controllers in all forests, even forests with no trust.\n \n-- [Add additional credentials](create-directory-service-account-gmsa.md#configure-a-directory-service-account-in-microsoft-defender-xdr) on the **Directory services accounts** page to support any untrusted forests in your environment.\n+- [Add additional credentials](create-directory-service-account-gmsa.md#configure-a-directory-service-account-in-microsoft-defender-portal) on the **Directory services accounts** page to support any untrusted forests in your environment.\n \n   - Only one credential is required to support all forests with a two-way trust.\n \n",
+      "baseCommitSha": "bfe88da9ce1b4a0b2d5a06c284cc2d458358553b",
+      "commitSha": "47a229f3f99416fa2614bbbaa7db3bab2b0563bb",
+      "commitMessage": "fix bookmark linking",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-05T22:37:04+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/multi-forest.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/multi-forest",
+      "firstSeenAt": "2026-04-05T19:37:04.000Z",
+      "eventId": "defender-docs:47a229f3f99416fa2614bbbaa7db3bab2b0563bb:modified:defender-for-identity/deploy/multi-forest.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix bookmark linking",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/multi-forest.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 11,
+    "totalFiles": 12,
+    "authors": [
+      "Devorah Cohen"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md.",
+        "sourceFiles": [
+          "defender-endpoint/android-support-signin.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md. Updated Microsoft Defender documentation in defender-for-identity/security-posture-assessments/accounts.md. Updated Microsoft Defender documentation in defender-for-identity/security-posture-assessments/accounts.md. Updated Microsoft Defender documentation in defender-for-identity/exclusions.md. Updated Microsoft Defender documentation in defender-for-identity/exclusions.md. Updated Microsoft Defender documentation in de",
+        "sourceFiles": [
+          "defender-for-identity/deploy/install-sensor.md",
+          "defender-for-identity/deploy/install-sensor.md",
+          "defender-for-identity/deploy/install-sensor.md",
+          "defender-for-identity/security-posture-assessments/accounts.md",
+          "defender-for-identity/security-posture-assessments/accounts.md",
+          "defender-for-identity/exclusions.md",
+          "defender-for-identity/exclusions.md",
+          "defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+          "defender-for-identity/exclusions.md",
+          "defender-for-identity/deploy/create-directory-service-account-gmsa.md",
+          "defender-for-identity/deploy/multi-forest.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/install-sensor.md. Updated Microsoft Defender documentation in defender-for-identity/security-posture-assessments/accounts.md. Updated Microsoft Defender documentation in defender-for-identity/security-posture-assessments/accounts.md. Updated Microsoft Defender documentation in defender-for-identity/exclusions.md. Updated Microsoft Defender documentation in defender-for-identity/exclusions.md. Updated Microsoft Defender documentation in de"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

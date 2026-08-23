@@ -1,0 +1,607 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/device-timeline-event-flag.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/device-timeline-event-flag.md b/defender-endpoint/device-timeline-event-flag.md\nindex 37d1ca4e9..520da9eab 100644\n--- a/defender-endpoint/device-timeline-event-flag.md\n+++ b/defender-endpoint/device-timeline-event-flag.md\n@@ -105,6 +105,9 @@ On the upper right-hand side of the device timeline, you can choose a date range\n \n You can customize which columns to expose. You can also filter for flagged events by data type or by event group.\n \n+**Timeline data retention:** Device timeline events in Microsoft Defender for Endpoint are retained according to the organization’s data retention policy configured in the security portal and the underlying workspace settings. By default, security event data (including device timeline items) in Defender for Endpoint is retained for 90 days. If your tenant sends logs to a connected Microsoft Sentinel or Log Analytics workspace with a custom retention period, then timeline events retained there may be available for longer durations, as defined by those retention settings.\n+**Important:** The availability of historical timeline data depends on your retention configuration. If the default 90-day retention is insufficient for your investigation or compliance needs, consider exporting events to long-term storage or increasing the retention period in the connected workspace.\n+\n ### Choose columns to expose\n \n You can choose which columns to expose in the timeline by selecting the **Choose columns** button.\n",
+      "baseCommitSha": "e13c26dcd22ff2b7ab0cab31890b8647d20a29f5",
+      "commitSha": "5a48ab6f50490f7c339cc1811738f717caa20dd7",
+      "commitMessage": " (AzureCXP) fixes MicrosoftDocs/defender-docs-pr #549443",
+      "commitAuthor": "RNareddy-msft",
+      "commitDate": "2026-02-02T10:52:58+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-timeline-event-flag.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-timeline-event-flag",
+      "firstSeenAt": "2026-02-02T05:22:58.000Z",
+      "eventId": "defender-docs:5a48ab6f50490f7c339cc1811738f717caa20dd7:modified:defender-endpoint/device-timeline-event-flag.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": " (AzureCXP) fixes MicrosoftDocs/defender-docs-pr #549443",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-timeline-event-flag.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/device-timeline-event-flag.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/device-timeline-event-flag.md b/defender-endpoint/device-timeline-event-flag.md\nindex 520da9eab..d3c469bcd 100644\n--- a/defender-endpoint/device-timeline-event-flag.md\n+++ b/defender-endpoint/device-timeline-event-flag.md\n@@ -106,7 +106,9 @@ On the upper right-hand side of the device timeline, you can choose a date range\n You can customize which columns to expose. You can also filter for flagged events by data type or by event group.\n \n **Timeline data retention:** Device timeline events in Microsoft Defender for Endpoint are retained according to the organization’s data retention policy configured in the security portal and the underlying workspace settings. By default, security event data (including device timeline items) in Defender for Endpoint is retained for 90 days. If your tenant sends logs to a connected Microsoft Sentinel or Log Analytics workspace with a custom retention period, then timeline events retained there may be available for longer durations, as defined by those retention settings.\n-**Important:** The availability of historical timeline data depends on your retention configuration. If the default 90-day retention is insufficient for your investigation or compliance needs, consider exporting events to long-term storage or increasing the retention period in the connected workspace.\n+\n+> [!IMPORTANT]\n+> The availability of historical timeline data depends on your retention configuration. If the default 90-day retention is insufficient for your investigation or compliance needs, consider exporting events to long-term storage or increasing the retention period in the connected workspace.\n \n ### Choose columns to expose\n \n",
+      "baseCommitSha": "5a48ab6f50490f7c339cc1811738f717caa20dd7",
+      "commitSha": "2b0fed3ae780ffcb83884698be75e414166efa52",
+      "commitMessage": "Revise retention policy note for timeline data",
+      "commitAuthor": "RNareddy-msft",
+      "commitDate": "2026-02-02T12:37:38+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-timeline-event-flag.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-timeline-event-flag",
+      "firstSeenAt": "2026-02-02T07:07:38.000Z",
+      "eventId": "defender-docs:2b0fed3ae780ffcb83884698be75e414166efa52:modified:defender-endpoint/device-timeline-event-flag.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Revise retention policy note for timeline data",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-timeline-event-flag.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/get-started.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/get-started.md b/defender-for-cloud-apps/get-started.md\nindex 3a0cd14fc..46787d537 100644\n--- a/defender-for-cloud-apps/get-started.md\n+++ b/defender-for-cloud-apps/get-started.md\n@@ -25,7 +25,7 @@ Microsoft Defender for Cloud Apps is a security tool and therefore doesn't requi\n \n Microsoft Defender for Cloud Apps depends on the following Microsoft Entra ID applications to function properly. Do not disable these applications in Microsoft Entra ID:\n \n-- Microsoft Defender for Cloud Apps - APIs (previously named API Connectors (1st Party)) (ID: 972bb84a-1d27-4bd3-8306-6b8e57679e8c) \n+- Microsoft Defender for Cloud Apps - APIs (or API Connectors (1st Party)) (ID: 972bb84a-1d27-4bd3-8306-6b8e57679e8c) \n - Microsoft Defender for Cloud Apps - Customer Experience (ID: ac6dbf5e-1087-4434-beb2-0ebf7bd1b883)\n - Microsoft Defender for Cloud Apps - Information Protection (ID: 9ba4f733-be8f-4112-9c4a-e3b417c44e7d)\n - Microsoft Defender for Cloud Apps - MIP Server (ID: 0858ddce-8fca-4479-929b-4504feeed95e)\n",
+      "baseCommitSha": "a3137838755029c1e6459cf8e5070dbb139df9c8",
+      "commitSha": "8a04c709a1dff7c4298a95bdb2f422275f553058",
+      "commitMessage": "previously named = or",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-02T12:19:02+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/get-started.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/get-started",
+      "firstSeenAt": "2026-02-02T10:19:02.000Z",
+      "eventId": "defender-docs:8a04c709a1dff7c4298a95bdb2f422275f553058:modified:defender-for-cloud-apps/get-started.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "previously named = or",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/get-started.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 4,
+      "changes": 9,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex 63e01250c..a3032c0ec 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -99,7 +99,7 @@ This section describes how to modify your domain controller's Advanced Audit Pol\n 1. Open the Group Policy Management Editor from **Server Manager** > **Tools** > **Group Policy Management**.\n 1. Expand **Domain Controllers Organizational Units**, right-click **Default Domain Controllers Policy**, and then select **Edit**.\n \n-    ![Screenshot of the pane for editing the default policy for domain controllers.](../media/advanced-audit-policy-check-step-1.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/advanced-audit-policy-check-step-1.png\" alt-text=\"Screenshot of the pane for editing the default policy for domain controllers.\":::\n \n     > [!NOTE]\n     > Use the Default Domain Controllers policy or a dedicated GPO to set these policies.\n@@ -108,7 +108,8 @@ This section describes how to modify your domain controller's Advanced Audit Pol\n \n     1. Go to **Advanced Audit Policy Configuration** > **Audit Policies**.\n \n-        ![Screenshot of selections for opening audit policies.](../media/advanced-audit-policy-check-step-2.png)\n+        :::image type=\"content\" source=\"../media/configure-windows-event-collection/advanced-audit-policy-check-step-2.png\" alt-text=\"Screenshot of selections for opening an audit policy.\":::\n+\n \n     1. Under **Audit Policies**, edit each of the following policies and select **Configure the following audit events** for both **Success** and **Failure** events.\n \n@@ -128,7 +129,7 @@ This section describes how to modify your domain controller's Advanced Audit Pol\n \n         For example, to configure **Audit Security Group Management**, under **Account Management**, double-click **Audit Security Group Management**, and then select **Configure the following audit events** for both **Success** and **Failure** events.\n \n-        ![Screenshot of the Audit Security Group Management Properties dialog.](../media/advanced-audit-policy-check-step-4.png)\n+        :::image type=\"content\" source=\"../media/configure-windows-event-collection/advanced-audit-policy-check-step-4.png\" alt-text=\"Screenshot of the audit security group management properties log.\":::\n \n 1. From an elevated command prompt, enter `gpupdate`.\n 1. After you apply the policy via GPO, confirm that the new events appear in the Event Viewer, under **Windows Logs** > **Security**.\n@@ -246,7 +247,7 @@ This section describes how to modify your Active Directory Federation Services (\n    \n 1. Select **OK**.\n \n-#### Advanced audit policy configuration via Group Policy\n+#### Configure a Group Policy for event auditing\n \n 1. Create a group policy to apply to your Active Directory Federation Services (AD FS). Edit it and configure the following auditing settings:\n \n",
+      "baseCommitSha": "dbc32d0bc3a137c388d9110c27f6b4a201226346",
+      "commitSha": "af122077faba0ea98fb0d947f1fd86031cbe7a5a",
+      "commitMessage": "add steps to windows event collection for AD FS",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-02T14:04:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "firstSeenAt": "2026-02-02T12:04:44.000Z",
+      "eventId": "defender-docs:af122077faba0ea98fb0d947f1fd86031cbe7a5a:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add steps to windows event collection for AD FS",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 12,
+      "changes": 29,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex a3032c0ec..d5b9a95b5 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -177,23 +177,23 @@ To configure domain object auditing:\n 1. Select the **View** menu, and then select **Advanced Features**.\n 1. Right-click the domain and select **Properties**.\n \n-    ![Screenshot of selections for opening container properties.](../media/container-properties.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/container-properties.png\" alt-text=\"Screenshot of selections for opening container properties.\":::\n \n 1. Go to the **Security** tab, and then select **Advanced**.\n \n-    ![Screenshot of the dialog for opening advanced security properties.](../media/security-advanced.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/security-advanced.png\" alt-text=\"Screenshot of the dialog for opening advanced security properties.\":::\n \n 1. In **Advanced Security Settings**, select the **Auditing** tab, and then select **Add**.\n \n-    ![Screenshot of the Auditing tab in the Advanced Security Settings dialog.](../media/auditing-tab.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/auditing-tab.png\" alt-text=\"Screenshot of the Auditing tab in the Advanced Security Settings dialog.\":::\n \n 1. Choose **Select a principal**.\n \n-    ![Screenshot of the button for selecting a principal.](../media/select-a-principal.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/select-a-principal.png\" alt-text=\"Screenshot of the button for selecting a principal.\":::\n \n 1. Under **Enter the object name to select**, enter **Everyone**. Then select **Check Names** > **OK**.\n \n-    ![Screenshot of entering an object name of Everyone.](../media/select-everyone.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/select-everyone.png\" alt-text=\"Screenshot of entering an object name of Everyone.\":::\n \n 1. Go back to **Auditing Entry**, and make the following selections:\n \n@@ -207,7 +207,7 @@ To configure domain object auditing:\n \n     1. Clear the selection for the **List contents**, **Read all properties**, and **Read permissions** permissions, and then select **OK**. This step sets all the **Properties** settings to **Write**.\n \n-        ![Screenshot of selecting permissions.](../media/select-permissions.png)\n+        :::image type=\"content\" source=\"../media/configure-windows-event-collection/select-permissions.png\" alt-text=\"Screenshot of selecting permissions.\":::\n \n         Now, all relevant changes to directory services appear as 4,662 events when they're triggered.\n \n@@ -232,7 +232,8 @@ This section describes how to modify your Active Directory Federation Services (\n 1. Go to the **Active Directory Users and Computers** console, and select the domain where you want to enable the logs.\n 1. Go to **Program Data** > **Microsoft** > **ADFS**.\n \n-    ![Screenshot of a container for Active Directory Federation Services.](../media/adfs-container.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/adfs-container.png\" alt-text=\"Screenshot of a container for Active Directory Federation Services.\":::\n+\n    \n 1. Right-click **ADFS** and select **Properties**.\n 1. Go to the **Security** tab and select **Advanced** > **Advanced Security Settings**. Then go to the **Auditing** tab and select **Add** > **Select a principal**.\n@@ -243,7 +244,8 @@ This section describes how to modify your Active Directory Federation Services (\n    - For **Applies to**, select **This object and all descendant objects**.\n    - Under **Permissions**, scroll down and select **Clear all**. Scroll up and select **Read all properties** and **Write all properties**.\n       \n-    ![Screenshot of the auditing settings for Active Directory Federation Services.](../media/audit-adfs.png)\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/audit-adfs.png\" alt-text=\"Screenshot of the auditing settings for Active Directory Federation Services.\":::\n+    \n    \n 1. Select **OK**.\n \n@@ -255,7 +257,8 @@ This section describes how to modify your Active Directory Federation Services (\n    \n    1. Select the checkboxes to configure audit events for **Success** and **Failure**.  \n \n-   ![Screenshot of the advanced auditing audit policy configuration.](/media/configure-windows-event-collection/image1.png)\n+   :::image type=\"content\" source=\"media/configure-windows-event-collection/group-policy-management-editor.png\" alt-text=\"Screenshot of the advanced auditing audit policy configuration.\":::\n+\n    \n #### Configure Verbose logging for AD FS events\n \n@@ -311,7 +314,7 @@ To configure auditing on Microsoft Entra Connect servers:\n \n    1. Select the checkboxes to configure audit events for **Success** and **Failure**.\n \n-![Screenshot of the Group Policy Management Editor.](media/configure-windows-event-collection/image.png)\n+    :::image type=\"content\" source=\"media/configure-windows-event-collection/success-and-failure.png\" alt-text=\"Screenshot of the Group Policy Management Editor.\":::\n \n ### Configure auditing on the configuration container<a name=\"enable-auditing-on-an-exchange-object\"></a>\n \n@@ -326,7 +329,8 @@ The configuration container audit is required only for environments that current\n \n 1. Right-click the **Configuration** node and select **Properties**.\n \n-    ![Screenshot of selections for opening properties for the Configuration node.](../media/configuration-properties.png)\n+    :::image type=\"content\" source=\"../media/configuration-properties.png\" alt-text=\"Screenshot of selections for opening properties for the Configuration node.\":::\n+    \n \n 1. Select the **Security** tab, and then select **Advanced**.\n 1. In **Advanced Security Settings**, select the **Auditing** tab, and then select **Add**.\n@@ -337,7 +341,8 @@ The configuration container audit is required only for environments that current\n     - For **Applies to**, select **This object and all descendant objects**.\n     - Under **Permissions**, scroll down and select **Clear all**. Scroll up and select **Write all properties**.\n \n-    ![Screenshot of the auditing settings for the Configuration container.](../media/audit-configuration.png)\n+    :::image type=\"content\" source=\"../media/audit-configuration.png\" alt-text=\"Screenshot of the auditing settings for the Configuration container.\":::\n+    \n 1. Select **OK**.\n \n ## Configure Windows event collection using PowerShell\n",
+      "baseCommitSha": "af122077faba0ea98fb0d947f1fd86031cbe7a5a",
+      "commitSha": "136c3ef4015e54a0d222e98e36dfa647c459aea6",
+      "commitMessage": "fix img location & syntax",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-02T14:34:56+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "firstSeenAt": "2026-02-02T12:34:56.000Z",
+      "eventId": "defender-docs:136c3ef4015e54a0d222e98e36dfa647c459aea6:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix img location & syntax",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 5,
+      "changes": 7,
+      "patch": "diff --git a/defender-vulnerability-management/tvm-vulnerable-devices-report.md b/defender-vulnerability-management/tvm-vulnerable-devices-report.md\nindex d3f24c598..8d9656fdb 100644\n--- a/defender-vulnerability-management/tvm-vulnerable-devices-report.md\n+++ b/defender-vulnerability-management/tvm-vulnerable-devices-report.md\n@@ -32,7 +32,7 @@ The vulnerable devices report shows graphs and bar charts with vulnerable device\n This article explains the different sections of the report.\n \n > [!TIP] \n-> To simplify and streamline the report experience, we applied several enhancements to the vulnerable devices report. For more information, see [What's new in Microsoft Defender Vulnerability Management](whats-new-in-microsoft-defender-vulnerability-management.md#january-2026).\n+> To simplify and streamline the report experience, we applied several enhancements to the vulnerable devices report. For more information, see [What's new in Microsoft Defender Vulnerability Management](whats-new-in-microsoft-defender-vulnerability-management.md#february-2026).\n \n ## Vulnerable device report columns and filters\n \n@@ -40,12 +40,9 @@ Access the report in the Microsoft Defender portal by going to **Reports > Vulne\n \n The report includes two columns:\n \n-- Trends: Can show data from the past 30 days up to six months. \n+- Trends: Can show data from the past 30 days up to six months.\n - Status: Shows the current status.\n \n-> [!NOTE] \n-> When you begin using the updated report (see [What's new in Microsoft Defender Vulnerability Management](whats-new-in-microsoft-defender-vulnerability-management.md#january-2026)), the report shows data from the past 30 days. As Vulnerability Management accumulates more data, the report gradually shows more data (up to the past six months).\n-\n You can use the report to:\n \n - Filter the data by device group.\n",
+      "baseCommitSha": "051cbae5d0f848d94ab1fc5ee02609838c0e6547",
+      "commitSha": "7801fd0d07682a20918bdcc80124ea799995aeed",
+      "commitMessage": "Vulnerable devices report - GA",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T14:56:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-vulnerable-devices-report",
+      "firstSeenAt": "2026-02-02T12:56:13.000Z",
+      "eventId": "defender-docs:7801fd0d07682a20918bdcc80124ea799995aeed:modified:defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Vulnerable devices report - GA",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 1,
+      "changes": 13,
+      "patch": "diff --git a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\nindex ec07de791..ff894ca18 100644\n--- a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n+++ b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n@@ -28,6 +28,17 @@ This article provides information about new features and important product updat\n > [!TIP]\n > Did you know you can try all the features in Microsoft Defender Vulnerability Management for free? Find out how to [sign up for a free trial](defender-vulnerability-management-trial.md).\n \n+## February 2026\n+\n+(GA) To simplify and streamline the [Device vulnerabilities report](tvm-vulnerable-devices-report.md) experience, the Vulnerable devices report now includes the following changes and enhancements:\n+\n+- The **Vulnerable devices by Windows 10/11 version over time** section has been removed.\n+- The report’s filters have been simplified to only include the **Device group** filter.\n+- The report’s history is now limited to the last 30 days.\n+\n+> [!NOTE]\n+> These changes are now visible to government cloud customers.\n+\n ## January 2026\n \n (Preview) To simplify and streamline the [Device vulnerabilities report](tvm-vulnerable-devices-report.md) experience, the Vulnerable devices report now includes the following changes and enhancements:\n@@ -37,7 +48,7 @@ This article provides information about new features and important product updat\n - The report’s history is now limited to the last 30 days.\n \n > [!NOTE]\n-> These changes are not yet visible to government cloud customers. The changes will be visible in late January 2026.\n+> These changes are not yet visible to government cloud customers.\n \n ## December 2025\n \n",
+      "baseCommitSha": "051cbae5d0f848d94ab1fc5ee02609838c0e6547",
+      "commitSha": "7801fd0d07682a20918bdcc80124ea799995aeed",
+      "commitMessage": "Vulnerable devices report - GA",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T14:56:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management",
+      "firstSeenAt": "2026-02-02T12:56:13.000Z",
+      "eventId": "defender-docs:7801fd0d07682a20918bdcc80124ea799995aeed:modified:defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Vulnerable devices report - GA",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/api/upload-library.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/api/upload-library.md b/defender-endpoint/api/upload-library.md\nindex 6f0502b62..ef9884c59 100644\n--- a/defender-endpoint/api/upload-library.md\n+++ b/defender-endpoint/api/upload-library.md\n@@ -31,7 +31,7 @@ appliesto:\n Upload file to live response library.\n \n > [!TIP]\n-> You can upload live response files from the [Library management](../configure-libraries-live-response.md) page in the Microsoft Defender portal.\n+> You can also upload live response files from the [Library management](../configure-libraries-live-response.md) page in the Microsoft Defender portal.\n \n ## Limitations\n \n",
+      "baseCommitSha": "8841063d7618687590e34b9329917824b2c3a7dc",
+      "commitSha": "8f80ed80e8fc4a6ed6ba9cf743eae9a625d655df",
+      "commitMessage": "Tweak",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:07:53+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/api/upload-library.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/api/upload-library",
+      "firstSeenAt": "2026-02-02T13:07:53.000Z",
+      "eventId": "defender-docs:8f80ed80e8fc4a6ed6ba9cf743eae9a625d655df:modified:defender-endpoint/api/upload-library.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Tweak",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/api/upload-library.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-libraries-live-response.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/configure-libraries-live-response.md b/defender-endpoint/configure-libraries-live-response.md\nindex 27115ecb5..e30b69eb6 100644\n--- a/defender-endpoint/configure-libraries-live-response.md\n+++ b/defender-endpoint/configure-libraries-live-response.md\n@@ -42,7 +42,7 @@ To view the list of files available for live response:\n    - **Has parameters**: Indicates whether the file has parameters that can be configured during a live response session.\n    - **Parameters description**: A description of the parameters for the file.\n \n-## Add files to the library\n+## Upload files to the library\n \n To add a new file for live response:\n \n@@ -62,7 +62,7 @@ To add a new file for live response:\n \n To manage existing files for live response, select one of the following options from the top menu:\n \n-- **Upload**: [Upload a new file](#add-files-to-the-library) or an updated version of an existing file.\n+- **Upload**: [Upload a new file](#upload-files-to-the-library) or an updated version of an existing file.\n - **Refresh**: Refresh the list of files to see the most up-to-date information.\n - **View details**: View detailed information about a selected file, including its parameters and usage history.\n - **View file**: View the contents of a selected file.\n",
+      "baseCommitSha": "8f80ed80e8fc4a6ed6ba9cf743eae9a625d655df",
+      "commitSha": "41d8a8c1eb7f44140da9e45d1d3e99fa763357ab",
+      "commitMessage": "Changing to upload",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:11:02+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/configure-libraries-live-response.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-libraries-live-response",
+      "firstSeenAt": "2026-02-02T13:11:02.000Z",
+      "eventId": "defender-docs:41d8a8c1eb7f44140da9e45d1d3e99fa763357ab:modified:defender-endpoint/configure-libraries-live-response.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Changing to upload",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 28,
+      "changes": 59,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex d5b9a95b5..41cfd1c3c 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -8,13 +8,13 @@ ms.reviewer: rlitinsky\n \n # Configure Windows event auditing\n \n-This article describes how to configure windows event auditing.\n+This article describes how to configure Windows event auditing.\n \n-Defender for Identity uses Windows event log entries to detect specific activities. This data is used in various detection scenarios and can be used in advanced hunting queries. For optimal protection and monitoring, make sure that collection of windows events is properly configured.\n+Defender for Identity uses Windows event log entries to detect specific activities. This data is used in various detection scenarios and can be used in advanced hunting queries. For optimal protection and monitoring, make sure that collection of Windows events is properly configured.\n \n-Defender for Identity generates health alerts when it detects incorrect windows event auditing configurations. For more information, see [Microsoft Defender for Identity health alerts](../health-alerts.md).\n+Defender for Identity generates health alerts when it detects incorrect Windows event auditing configurations. For more information, see [Microsoft Defender for Identity health alerts](../health-alerts.md).\n \n-If auditing is configured properly, it has minimal effect on server performance.\n+If you configure auditing properly, it has minimal effect on server performance.\n \n ## Before you begin\n \n@@ -47,11 +47,11 @@ Before you begin configuring windows event collection, we recommend that you run\n ## Configure Defender for Identity to collect Windows events automatically (Preview)\n \n > [!NOTE]\n-> Automatic windows event auditing is supported for domain controllers that use the Defender for Identity sensor version 3.x.\n+> Automatic Windows event auditing is supported for domain controllers that use the Defender for Identity sensor version 3.x.\n \n-Automatic windows auditing performs all configuration tasks automatically:\n+Automatic Windows auditing performs all configuration tasks automatically:\n \n-- Checks current windows event auditing configuration.\n+- Checks current Windows event auditing configuration.\n - Identifies any gaps in the configuration.\n - The sensor applies any necessary changes, including all of the steps in the manual configuration:\n     - **Directory services advanced auditing**: Adds audit entries to the domain root object's System Access Control List (SACL) to enable required directory service auditing.\n@@ -64,14 +64,14 @@ Automatic windows auditing performs all configuration tasks automatically:\n - Runs once every 24 hours.\n \n > [!NOTE]\n-> - If you don't turn on automatic Windows auditing, you **must** configure Windows event auditing either [manually](#configure-windows-event-collection-manually) or using [PowerShell](#configure-windows-event-collection-using-powershell).\n+> - If you don't turn on automatic Windows auditing, you **must** configure Windows event auditing either [manually](#configure-windows-event-collection-manually) or by using [PowerShell](#configure-windows-event-collection-using-powershell).\n > - GPO settings can conflict with local settings set by the sensor. \n \n-### Turn on automatic windows auditing:\n+### Turn on automatic Windows auditing\n \n 1. In the [Microsoft Defender portal](https://security.microsoft.com), go to **Settings**, and then **Identities**.\n 1. In the **General** section, select **Advanced features**.\n-1. Turn on **Automatic Windows auditing configuration**.​\n+1. Turn on **Automatic Windows auditing configuration**.\n \n ## Configure Windows event collection manually\n \n@@ -85,7 +85,7 @@ This section includes instructions for manually configuring Windows event collec\n \n ### Configure auditing on domain controllers\n \n-To configure auditing on a domain controller, you must:\n+To configure auditing on a domain controller, complete the following steps:\n \n - [Configure Directory Services Advanced Auditing](#configure-directory-services-advanced-auditing)\n - [Configure NTLM auditing](#configure-ntlm-auditing)\n@@ -104,7 +104,7 @@ This section describes how to modify your domain controller's Advanced Audit Pol\n     > [!NOTE]\n     > Use the Default Domain Controllers policy or a dedicated GPO to set these policies.\n \n-1. In the window that opens, go to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings**. Depending on the policy you want to enable, do the following:\n+1. Go to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings**. Depending on the policy you want to enable, do the following:\n \n     1. Go to **Advanced Audit Policy Configuration** > **Audit Policies**.\n \n@@ -125,7 +125,7 @@ This section describes how to modify your domain controller's Advanced Audit Pol\n         | **DS Access** | **Audit Directory Service Access** | 4662 - For this event, you must also [configure domain object auditing](#configure-domain-object-auditing).  |\n \n         > [!NOTE]\n-        > <a name=failure>*</a> These subcategories don't support failure events. However, we recommend adding them for auditing purposes in case they're implemented in the future. For more information, see [Audit Computer Account Management](/windows/security/threat-protection/auditing/audit-computer-account-management), [Audit Security Group Management](/windows/security/threat-protection/auditing/audit-security-group-management), and [Audit Security System Extension](/windows/security/threat-protection/auditing/audit-security-system-extension).\n+        > <a name=failure>*</a> These subcategories don't support failure events. We recommend adding them for auditing purposes in case they're implemented in the future. For more information, see [Audit Computer Account Management](/windows/security/threat-protection/auditing/audit-computer-account-management), [Audit Security Group Management](/windows/security/threat-protection/auditing/audit-security-group-management), and [Audit Security System Extension](/windows/security/threat-protection/auditing/audit-security-system-extension).\n \n         For example, to configure **Audit Security Group Management**, under **Account Management**, double-click **Audit Security Group Management**, and then select **Configure the following audit events** for both **Success** and **Failure** events.\n \n@@ -148,7 +148,7 @@ For more information, see the [auditpol reference documentation](/windows-server\n When a Defender for Identity sensor parses Windows event 8004, Defender for Identity NTLM authentication activities are enriched with the server-accessed data. This section describes the extra configuration steps that you need for auditing Windows event 8004.\n \n > [!NOTE]\n-> Domain group policies to collect Windows event 8004 should be applied *only* to domain controllers.\n+> Apply domain group policies to collect Windows event 8004 *only* to domain controllers.\n \n To configure NTLM auditing:\n \n@@ -162,7 +162,7 @@ To configure NTLM auditing:\n     | **Network security: Restrict NTLM: Audit NTLM authentication in this domain** | Enable all |\n     | **Network security: Restrict NTLM: Audit Incoming NTLM Traffic** | Enable auditing for all accounts |\n \n-For example, to configure **Outgoing NTLM traffic to remote servers**, under **Security Options**, double-click **Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers**, and then select **Audit all**.\n+1. To configure **Outgoing NTLM traffic to remote servers**, under **Security Options**, double-click **Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers**, and then select **Audit all**.\n \n :::image type=\"content\" source=\"../media/advanced-audit-policy-check-step-3.png\" alt-text=\"Screenshot of the audit configuration for outgoing NTLM traffic to remote servers.\" border=\"false\":::\n \n@@ -220,12 +220,12 @@ To configure domain object auditing:\n \n > [!NOTE]\n >\n-> - You can assign auditing permissions on **All descendant objects**, using only the object types detailed in the last step.\n+> - You can assign auditing permissions to **All descendant objects**, using only the object types detailed in the last step.\n > - The **msDS-DelegatedManagedServiceAccount** class is relevant only for domains running at least one Windows Server 2025 domain controller.\n \n ### Configure auditing on AD FS\n \n-This section describes how to modify your Active Directory Federation Services (AD FS) Audit configurations for Defender for Identity.\n+This section describes how to modify your Active Directory Federation Services (AD FS) audit configurations for Defender for Identity.\n \n #### Object-level auditing on the AD FS configuration folder\n \n@@ -238,7 +238,7 @@ This section describes how to modify your Active Directory Federation Services (\n 1. Right-click **ADFS** and select **Properties**.\n 1. Go to the **Security** tab and select **Advanced** > **Advanced Security Settings**. Then go to the **Auditing** tab and select **Add** > **Select a principal**.\n 1. Under **Enter the object name to select**, enter **Everyone**. Then select **Check Names** > **OK**.\n-1. You then return to **Auditing Entry**. Make the following selections:\n+1. Return to **Auditing Entry**. Make the following selections:\n \n    - For **Type**, select **All**.\n    - For **Applies to**, select **This object and all descendant objects**.\n@@ -251,7 +251,8 @@ This section describes how to modify your Active Directory Federation Services (\n \n #### Configure a Group Policy for event auditing\n \n-1. Create a group policy to apply to your Active Directory Federation Services (AD FS). Edit it and configure the following auditing settings:\n+1. Create a group policy to apply to your Active Directory Federation Services (AD FS). \n+1. Configure the following auditing settings:\n \n    1. Go to **Computer Configuration\\Policies\\Windows Settings\\Security Settings\\Advanced Audit Policy Configuration\\Audit Policies\\Object Access\\Audit Application Generated**.\n    \n@@ -302,13 +303,14 @@ If you're working with a dedicated server that has Active Directory Certificate\n         :::image type=\"content\" source=\"../media/configure-windows-event-collection/auditing.png\" alt-text=\"Screenshot of the Auditing tab for certificate authority properties.\":::\n \n > [!NOTE]\n-> Configuring **Start and Stop Active Directory Certificate Services** event auditing might cause restart delays when you're dealing with a large AD CS database. Consider removing irrelevant entries from the database. Alternatively, refrain from enabling this specific type of event.\n+> Configuring **Start and Stop Active Directory Certificate Services** event auditing might cause restart delays when you're dealing with a large AD CS database. Consider removing irrelevant entries from the database. Alternatively, don't enable this specific type of event.\n \n ### Configure auditing on Microsoft Entra Connect\n \n To configure auditing on Microsoft Entra Connect servers:\n \n-- Create a group policy to apply to your Microsoft Entra Connect servers. Edit it and configure the following auditing settings:\n+1. Create a group policy to apply to your Microsoft Entra Connect servers. \n+1. Edit the group policy and configure the following auditing settings:\n \n    1. Go to **Computer Configuration\\Policies\\Windows Settings\\Security Settings\\Advanced Audit Policy Configuration\\Audit Policies\\Logon/Logoff\\Audit Logon**.\n \n@@ -318,11 +320,12 @@ To configure auditing on Microsoft Entra Connect servers:\n \n ### Configure auditing on the configuration container<a name=\"enable-auditing-on-an-exchange-object\"></a>\n \n-The configuration container audit is required only for environments that currently have or previously had Microsoft Exchange, as these environments have an Exchange container located within the domain's Configuration section.\n+You need the configuration container audit only for environments that currently have or previously had Microsoft Exchange. These environments have an Exchange container located within the domain's Configuration section.\n \n-1. Open the ADSI Edit tool. Select **Start** > **Run**, enter `ADSIEdit.msc`, and then select **OK**.\n-1. On the **Action** menu, select **Connect to**.\n-1. In the **Connection Settings** dialog, under **Select a well known Naming Context**, select **Configuration** > **OK**.\n+1. Open the ADSI Edit tool. \n+1. Select **Start** > **Run**, enter `ADSIEdit.msc`, and then select **OK**.\n+1. In the **Action** menu, select **Connect to**.\n+1. Go to **Connection Settings** > **Select a well known Naming Context**, > **Configuration** and select **OK**.\n 1. Expand the **Configuration** container to show the **Configuration** node, which begins with **\"CN=Configuration,DC=...\"**.\n \n     :::image type=\"content\" source=\"../media/cn-configuration.png\" alt-text=\"Screenshot of selections for opening properties for the CN Configuration node.\":::\n@@ -336,7 +339,7 @@ The configuration container audit is required only for environments that current\n 1. In **Advanced Security Settings**, select the **Auditing** tab, and then select **Add**.\n 1. Choose **Select a principal**.\n 1. Under **Enter the object name to select**, enter **Everyone**. Then select **Check Names** > **OK**.\n-1. You then return to **Auditing Entry**. Make the following selections:\n+1. Return to **Auditing Entry**. Make the following selections:\n     - For **Type**, select **All**.\n     - For **Applies to**, select **This object and all descendant objects**.\n     - Under **Permissions**, scroll down and select **Clear all**. Scroll up and select **Write all properties**.\n@@ -351,7 +354,7 @@ For more information, see the [Defender for Identity PowerShell reference](/powe\n - [Set-MDIConfiguration](/powershell/module/defenderforidentity/set-mdiconfiguration)\n - [Get-MDIConfiguration](/powershell/module/defenderforidentity/get-mdiconfiguration)\n \n-The following commands describe how to modify your domain controller's Advanced Audit Policy settings as needed for Defender for Identity by using PowerShell.\n+The following commands show how to modify your domain controller's Advanced Audit Policy settings for Defender for Identity by using PowerShell.\n \n **To view your audit policies**:\n \n@@ -386,7 +389,7 @@ Set-MDIConfiguration -Mode Domain -Configuration All\n \n ## Update legacy configurations\n \n-Defender for Identity no longer requires logging 1,644 events. If you have either of the following settings enabled, you can remove them from the registry.\n+Defender for Identity no longer requires logging 1,644 events. If you enabled either of the following settings, remove them from the registry.\n \n ```reg\n Windows Registry Editor Version 5.00\n",
+      "baseCommitSha": "136c3ef4015e54a0d222e98e36dfa647c459aea6",
+      "commitSha": "44e4b6bf2db92d062eb85bc530f3e78c4be627c4",
+      "commitMessage": "apply documentor rewrites",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-02T15:25:17+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "firstSeenAt": "2026-02-02T13:25:17.000Z",
+      "eventId": "defender-docs:44e4b6bf2db92d062eb85bc530f3e78c4be627c4:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "apply documentor rewrites",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-libraries-live-response.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/configure-libraries-live-response.md b/defender-endpoint/configure-libraries-live-response.md\nindex e30b69eb6..7f2a5034c 100644\n--- a/defender-endpoint/configure-libraries-live-response.md\n+++ b/defender-endpoint/configure-libraries-live-response.md\n@@ -65,6 +65,9 @@ To manage existing files for live response, select one of the following options\n - **Upload**: [Upload a new file](#upload-files-to-the-library) or an updated version of an existing file.\n - **Refresh**: Refresh the list of files to see the most up-to-date information.\n - **View details**: View detailed information about a selected file, including its parameters and usage history.\n+\n+    :::image type=\"content\" source=\"media/library-management-file-details\" alt-text=\"Library management page - view details for a file\":::\n+\n - **View file**: View the contents of a selected file.\n - **Download**: Download a selected file to your local device.\n - **Delete**: Remove a selected file from the list.\n",
+      "baseCommitSha": "41d8a8c1eb7f44140da9e45d1d3e99fa763357ab",
+      "commitSha": "f2d6d0faae75097994e048c2204430b454eecdf6",
+      "commitMessage": "Adding image",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:35:59+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/configure-libraries-live-response.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-libraries-live-response",
+      "firstSeenAt": "2026-02-02T13:35:59.000Z",
+      "eventId": "defender-docs:f2d6d0faae75097994e048c2204430b454eecdf6:modified:defender-endpoint/configure-libraries-live-response.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Adding image",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/defender-vulnerability-management/tvm-vulnerable-devices-report.md b/defender-vulnerability-management/tvm-vulnerable-devices-report.md\nindex 8d9656fdb..ef9f25b77 100644\n--- a/defender-vulnerability-management/tvm-vulnerable-devices-report.md\n+++ b/defender-vulnerability-management/tvm-vulnerable-devices-report.md\n@@ -34,7 +34,7 @@ This article explains the different sections of the report.\n > [!TIP] \n > To simplify and streamline the report experience, we applied several enhancements to the vulnerable devices report. For more information, see [What's new in Microsoft Defender Vulnerability Management](whats-new-in-microsoft-defender-vulnerability-management.md#february-2026).\n \n-## Vulnerable device report columns and filters\n+## Vulnerable devices report columns and filters\n \n Access the report in the Microsoft Defender portal by going to **Reports > Vulnerable devices**\n \n@@ -43,6 +43,9 @@ The report includes two columns:\n - Trends: Can show data from the past 30 days up to six months.\n - Status: Shows the current status.\n \n+> [!NOTE]\n+> When you begin using the updated report (see [What's new in Microsoft Defender Vulnerability Management](whats-new-in-microsoft-defender-vulnerability-management.md#january-2026)), the report shows data from the past 60 days. As Vulnerability Management accumulates more data, the report gradually shows more data (up to the past six months).\n+\n You can use the report to:\n \n - Filter the data by device group.\n",
+      "baseCommitSha": "7801fd0d07682a20918bdcc80124ea799995aeed",
+      "commitSha": "50e1a951a8660b0944591ce515636998c95b89e8",
+      "commitMessage": "Feedback",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:42:12+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-vulnerable-devices-report",
+      "firstSeenAt": "2026-02-02T13:42:12.000Z",
+      "eventId": "defender-docs:50e1a951a8660b0944591ce515636998c95b89e8:modified:defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Feedback",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "changes": 8,
+      "patch": "diff --git a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\nindex ff894ca18..cf23fe4e9 100644\n--- a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n+++ b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n@@ -37,15 +37,11 @@ This article provides information about new features and important product updat\n - The report’s history is now limited to the last 30 days.\n \n > [!NOTE]\n-> These changes are now visible to government cloud customers.\n+> These changes are now visible to government cloud customers, but aren't yet visible in air-gapped environments.\n \n ## January 2026\n \n-(Preview) To simplify and streamline the [Device vulnerabilities report](tvm-vulnerable-devices-report.md) experience, the Vulnerable devices report now includes the following changes and enhancements:\n-\n-- The **Vulnerable devices by Windows 10/11 version over time** section has been removed.\n-- The report’s filters have been simplified to only include the **Device group** filter.\n-- The report’s history is now limited to the last 30 days.\n+(Preview) To simplify and streamline the [Device vulnerabilities report](tvm-vulnerable-devices-report.md) experience, the Vulnerable devices report now includes several changes and enhancements. For a list of changes, see [February 2026](#february-2026).\n \n > [!NOTE]\n > These changes are not yet visible to government cloud customers.\n",
+      "baseCommitSha": "7801fd0d07682a20918bdcc80124ea799995aeed",
+      "commitSha": "50e1a951a8660b0944591ce515636998c95b89e8",
+      "commitMessage": "Feedback",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:42:12+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management",
+      "firstSeenAt": "2026-02-02T13:42:12.000Z",
+      "eventId": "defender-docs:50e1a951a8660b0944591ce515636998c95b89e8:modified:defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Feedback",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-libraries-live-response.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/configure-libraries-live-response.md b/defender-endpoint/configure-libraries-live-response.md\nindex 7f2a5034c..881ba17cc 100644\n--- a/defender-endpoint/configure-libraries-live-response.md\n+++ b/defender-endpoint/configure-libraries-live-response.md\n@@ -66,7 +66,7 @@ To manage existing files for live response, select one of the following options\n - **Refresh**: Refresh the list of files to see the most up-to-date information.\n - **View details**: View detailed information about a selected file, including its parameters and usage history.\n \n-    :::image type=\"content\" source=\"media/library-management-file-details\" alt-text=\"Library management page - view details for a file\":::\n+    :::image type=\"content\" source=\"media/library-management-file-details.png\" alt-text=\"Library management page - view details for a file\":::\n \n - **View file**: View the contents of a selected file.\n - **Download**: Download a selected file to your local device.\n",
+      "baseCommitSha": "f2d6d0faae75097994e048c2204430b454eecdf6",
+      "commitSha": "b4cf3cb13fdbb20ce89b1da2d085eeb1326de836",
+      "commitMessage": "Fixing image",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:44:28+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/configure-libraries-live-response.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-libraries-live-response",
+      "firstSeenAt": "2026-02-02T13:44:28.000Z",
+      "eventId": "defender-docs:b4cf3cb13fdbb20ce89b1da2d085eeb1326de836:modified:defender-endpoint/configure-libraries-live-response.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing image",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\nindex cf23fe4e9..48fcd1156 100644\n--- a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n+++ b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n@@ -37,7 +37,7 @@ This article provides information about new features and important product updat\n - The report’s history is now limited to the last 30 days.\n \n > [!NOTE]\n-> These changes are now visible to government cloud customers, but aren't yet visible in air-gapped environments.\n+> These changes are now visible to government cloud customers.\n \n ## January 2026\n \n",
+      "baseCommitSha": "50e1a951a8660b0944591ce515636998c95b89e8",
+      "commitSha": "69b744246f522ad3153aeb8cd31f7e483403a833",
+      "commitMessage": "Removing air-gapped",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T15:48:37+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management",
+      "firstSeenAt": "2026-02-02T13:48:37.000Z",
+      "eventId": "defender-docs:69b744246f522ad3153aeb8cd31f7e483403a833:modified:defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Removing air-gapped",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex 41cfd1c3c..5d67483c3 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -332,7 +332,7 @@ You need the configuration container audit only for environments that currently\n \n 1. Right-click the **Configuration** node and select **Properties**.\n \n-    :::image type=\"content\" source=\"../media/configuration-properties.png\" alt-text=\"Screenshot of selections for opening properties for the Configuration node.\":::\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/configuration-properties.png\" alt-text=\"Screenshot of selections for opening properties for the Configuration node.\":::\n     \n \n 1. Select the **Security** tab, and then select **Advanced**.\n@@ -344,7 +344,7 @@ You need the configuration container audit only for environments that currently\n     - For **Applies to**, select **This object and all descendant objects**.\n     - Under **Permissions**, scroll down and select **Clear all**. Scroll up and select **Write all properties**.\n \n-    :::image type=\"content\" source=\"../media/audit-configuration.png\" alt-text=\"Screenshot of the auditing settings for the Configuration container.\":::\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/audit-configuration.png\" alt-text=\"Screenshot of the auditing settings for the Configuration container.\":::\n     \n 1. Select **OK**.\n \n",
+      "baseCommitSha": "44e4b6bf2db92d062eb85bc530f3e78c4be627c4",
+      "commitSha": "59ab7cceee844fcfbe79e2d843ab504ca5e27b82",
+      "commitMessage": "fix image syntax",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-02T16:08:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "firstSeenAt": "2026-02-02T14:08:13.000Z",
+      "eventId": "defender-docs:59ab7cceee844fcfbe79e2d843ab504ca5e27b82:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix image syntax",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\nindex 48fcd1156..b63280e1f 100644\n--- a/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n+++ b/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md\n@@ -37,7 +37,7 @@ This article provides information about new features and important product updat\n - The report’s history is now limited to the last 30 days.\n \n > [!NOTE]\n-> These changes are now visible to government cloud customers.\n+> These changes are now visible to government cloud customers, but aren't yet visible in air-gapped environments. This visibility will be added in the coming months.\n \n ## January 2026\n \n",
+      "baseCommitSha": "69b744246f522ad3153aeb8cd31f7e483403a833",
+      "commitSha": "2ee2a2c2b6e9a60a4bd074aa044324a8a7290f89",
+      "commitMessage": "Adding air-gapped",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-02T17:07:29+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management",
+      "firstSeenAt": "2026-02-02T15:07:29.000Z",
+      "eventId": "defender-docs:2ee2a2c2b6e9a60a4bd074aa044324a8a7290f89:modified:defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Adding air-gapped",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/whats-new-in-microsoft-defender-urbac.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 21,
+      "changes": 42,
+      "patch": "diff --git a/defender-xdr/whats-new-in-microsoft-defender-urbac.md b/defender-xdr/whats-new-in-microsoft-defender-urbac.md\nindex 558a3f9c3..9a0a1c98f 100644\n--- a/defender-xdr/whats-new-in-microsoft-defender-urbac.md\n+++ b/defender-xdr/whats-new-in-microsoft-defender-urbac.md\n@@ -1,6 +1,6 @@\n ---\n-title: What's new in Microsoft Defender unified role-based access control (RBAC)\n-description: See what features are available in the latest release of Microsoft Defender unified role-based access control (RBAC)\n+title: What's new in Microsoft Defender XDR unified role-based access control (RBAC)\n+description: See what features are available in the latest release of Microsoft Defender XDR unified role-based access control (RBAC)\n search.appverid: met150\n ms.service: defender-xdr\n ms.author: bagol\n@@ -23,13 +23,13 @@ This article provides information about new features and important product updat\n \n ### Microsoft Defender for Cloud Apps permissions are now integrated with Microsoft Defender XDR unified RBAC\n \n-[Integration of Microsoft Defender for Cloud Apps permissions with Microsoft Defender unified RBAC](#microsoft-defender-for-cloud-apps-permissions-are-now-integrated-with-microsoft-defender-xdr-unified-rbac-preview) is now available worldwide.\n+[Integration of Microsoft Defender for Cloud Apps permissions with Microsoft Defender XDR unified RBAC](#microsoft-defender-for-cloud-apps-permissions-are-now-integrated-with-microsoft-defender-xdr-unified-rbac-preview) is now available worldwide.\n \n ## November 2025\n \n ### Microsoft Defender for Cloud permissions are now integrated with Microsoft Defender XDR unified RBAC (Preview)\n \n-We’ve introduced unified role-based access control (URBAC) to simplify permission management across Defender for Cloud resources.\n+We’ve introduced Unified Role-Based Access Control (uRBAC) to simplify permission management across Defender for Cloud resources.\n \n Assign roles consistently across cloud scopes.\n Apply least-privilege principles with granular permissions.\n@@ -45,9 +45,9 @@ Starting in July 2025, Microsoft Sentinel data lake permissions are provided thr\n \n For more information, see:\n \n-- [Microsoft Defender unified role-based access control (RBAC)](manage-rbac.md)\n-- [Create custom roles with Microsoft Defender unified RBAC](create-custom-rbac-roles.md)\n-- [Permissions in Microsoft Defender unified role-based access control (RBAC)](custom-permissions-details.md)\n+- [Microsoft Defender XDR unified role-based access control (RBAC)](manage-rbac.md)\n+- [Create custom roles with Microsoft Defender XDR unified RBAC](create-custom-rbac-roles.md)\n+- [Permissions in Microsoft Defender XDR unified role-based access control (RBAC)](custom-permissions-details.md)\n - [Roles and permissions for the Microsoft Sentinel data lake (Preview)](/azure/sentinel/roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)\n \n ## March 2025\n@@ -62,27 +62,27 @@ Starting February 16, 2025, the Microsoft Defender XDR unified RBAC model is the\n \n ### Microsoft Defender for Cloud Apps permissions are now integrated with Microsoft Defender XDR unified RBAC (Preview)\n \n-You can control access and grant granular permissions for Microsoft Defender for Cloud Apps as part of the Microsoft Defender unified RBAC model. For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender unified RBAC permissions](compare-rbac-roles.md#map-microsoft-defender-for-cloud-apps-permissions-to-the-microsoft-defender-xdr-unified-rbac-permissions). To activate the Defender for Cloud Apps workload, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac.md).\n+You can control access and grant granular permissions for Microsoft Defender for Cloud Apps as part of the Microsoft Defender XDR unified RBAC model. For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender XDR unified RBAC permissions](compare-rbac-roles.md#map-microsoft-defender-for-cloud-apps-permissions-to-the-microsoft-defender-xdr-unified-rbac-permissions). To activate the Defender for Cloud Apps workload, see [Activate Microsoft Defender XDR unified RBAC](activate-defender-rbac.md).\n \n ## May 2024\n \n The permissions model to access *Email & collaboration* schema in advanced hunting for Microsoft Defender for Office 365 customers has been updated to align with Threat Explorer.\n \n-As part of this change, customers who are using Microsoft Defender unified RBAC with Defender for Office 365 should use the **Security operations \\ Raw data \\ Email & collaboration metadata (read)** permission to grant analysts access to the *Email & collaboration* schema in advanced hunting.\n+As part of this change, customers who are using Microsoft Defender XDR unified RBAC with Defender for Office 365 should use the **Security operations \\ Raw data \\ Email & collaboration metadata (read)** permission to grant analysts access to the *Email & collaboration* schema in advanced hunting.\n \n Users with the **Security operations \\ Security data \\ Security data basics (read)** permission for Defender for Office 365 will no longer have access to the *Email & collaboration* schema in advanced hunting, but will keep their access to the *Alerts & behaviors* schema.\n \n ## January 2024\n \n-Microsoft Defender XDR unified RBAC is now generally available to GCC High and DoD customers. To learn more about the supported workloads and supported data sources, see [Microsoft Defender unified role-based access control (RBAC)](manage-rbac.md).\n+Microsoft Defender XDR unified RBAC is now generally available to GCC High and DoD customers. To learn more about the supported workloads and supported data sources, see [Microsoft Defender XDR unified role-based access control (RBAC)](manage-rbac.md).\n \n-The process of importing roles from individual workloads' RBAC models into Microsoft Defender unified RBAC has been improved. Admins can now view the permissions and assignment of a role before importing it by clicking the role name at the roles to import selection stage.\n+The process of importing roles from individual workloads' RBAC models into Microsoft Defender XDR unified RBAC has been improved. Admins can now view the permissions and assignment of a role before importing it by clicking the role name at the roles to import selection stage.\n \n ## December 2023\n \n ### Microsoft Defender XDR unified RBAC is now generally available\n \n-Microsoft Defender unified RBAC is now generally available. This offering is also available to GCC Moderate customers. To learn more about the supported workloads and supported data sources, see [Microsoft Defender unified role-based access control (RBAC)](manage-rbac.md).\n+Microsoft Defender XDR unified RBAC is now generally available. This offering is also available to GCC Moderate customers. To learn more about the supported workloads and supported data sources, see [Microsoft Defender XDR unified role-based access control (RBAC)](manage-rbac.md).\n \n ## October 2023\n \n@@ -90,43 +90,43 @@ Microsoft Defender unified RBAC is now generally available. This offering is als\n \n ### Exchange Online permission management for Microsoft Defender for Office 365 is now supported in Microsoft Defender XDR unified role-based access control (RBAC) providing full integration of Defender for Office 365 roles and permissions\n \n-Microsoft Defender unified role-based access control (RBAC) model now supports all security permission management scenarios for Microsoft Defender for Office 365.\n+Microsoft Defender XDR unified Role-Based Access Control (RBAC) model now supports all security permission management scenarios for Microsoft Defender for Office 365.\n \n-In addition to the existing support for scenarios that are controlled by Email & collaboration roles (configured in the Microsoft Defender portal at <https://security.microsoft.com/emailandcollabpermissions>), Microsoft Defender unified RBAC now also supports the management of protection-related Exchange Online permissions, which could previously only be managed in the Exchange admin center (EAC) at <https://admin.exchange.microsoft.com/#/adminRoles>. To learn more about the Exchange Online permissions that are now supported, see [Exchange Online permissions mapping](compare-rbac-roles.md#exchange-online-permissions-mapping).\n+In addition to the existing support for scenarios that are controlled by Email & collaboration roles (configured in the Microsoft Defender portal at <https://security.microsoft.com/emailandcollabpermissions>), Microsoft Defender XDR unified RBAC now also supports the management of protection-related Exchange Online permissions, which could previously only be managed in the Exchange admin center (EAC) at <https://admin.exchange.microsoft.com/#/adminRoles>. To learn more about the Exchange Online permissions that are now supported, see [Exchange Online permissions mapping](compare-rbac-roles.md#exchange-online-permissions-mapping).\n \n ## September 2023\n \n <a name='export-roles-for-microsoft-365-defender-unified-role-based-access-control-rbac'></a>\n \n-### Export roles for Microsoft Defender unified role-based access control (RBAC)\n+### Export roles for Microsoft Defender XDR unified role-based access control (RBAC)\n \n-Now you can easily export your existing roles in Defender XDR unified RBAC to a CSV file. The exported file will include details such as the role name, the included permissions, the assigned users or user groups, and assigned data sources. When a role has multiple assignments, each assignment will be listed on a separate row in the CSV file. The CSV also includes a snapshot of the Defender unified RBAC activation status for each workload available on the tenant. For more information, see [Edit, delete and export roles](./edit-delete-rbac-roles.md#export-roles).\n+Now you can easily export your existing roles in Defender XDR unified RBAC to a CSV file. The exported file will include details such as the role name, the included permissions, the assigned users or user groups, and assigned data sources. When a role has multiple assignments, each assignment will be listed on a separate row in the CSV file. The CSV also includes a snapshot of the Defender XDR unified RBAC activation status for each workload available on the tenant. For more information, see [Edit, delete and export roles](./edit-delete-rbac-roles.md#export-roles).\n \n ## August 2023\n \n ### Detection tuning and Security settings permissions\n \n-You can now assign a new granular permission called **Detection tuning (manage)** in Microsoft Defender XDR unified RBAC. Granting the **Detection Tuning (manage)** permission allows security operations analysts to create and manage Custom Detection, Alerts Tuning, and Threat Indicators of Compromise rules without granting them the full **Security Settings (manage)** permission. </br> </br> You can add the new permissions to a custom role by selecting **Authorization and settings \\ Security settings** when creating or updating the role. For more information, see [Create custom roles with Microsoft Defender unified RBAC](create-custom-rbac-roles.md).\n+You can now assign a new granular permission called **Detection tuning (manage)** in Microsoft Defender XDR unified RBAC. Granting the **Detection Tuning (manage)** permission allows security operations analysts to create and manage Custom Detection, Alerts Tuning, and Threat Indicators of Compromise rules without granting them the full **Security Settings (manage)** permission. </br> </br> You can add the new permissions to a custom role by selecting **Authorization and settings \\ Security settings** when creating or updating the role. For more information, see [Create custom roles with Microsoft Defender XDR unified RBAC](create-custom-rbac-roles.md).\n \n The **Security settings** permission name has been updated to **Core security settings**. This change has no impact on existing roles and permissions.\n \n <a name='microsoft-defender-vulnerability-management-permissions-are-now-integrated-with-microsoft-365-defender-unified-role-based-access-control-rbac'></a>\n \n-### Microsoft Defender Vulnerability Management permissions are now integrated with Microsoft Defender unified role-based access control (RBAC)\n+### Microsoft Defender Vulnerability Management permissions are now integrated with Microsoft Defender XDR unified role-based access control (RBAC)\n \n-You can now control access and grant granular permissions for Microsoft Defender Vulnerability Management as part of the Microsoft Defender unified RBAC model. For more information, see [Microsoft Defender unified role-based access control (RBAC)](manage-rbac.md). You can add the new permissions to a custom role by selecting them from the **Security posture** permissions group when creating the role. For more information, see [Create custom roles with Microsoft Defender unified RBAC](create-custom-rbac-roles.md).\n+You can now control access and grant granular permissions for Microsoft Defender Vulnerability Management as part of the Microsoft Defender XDR unified RBAC model. For more information, see [Microsoft Defender 365 unified role-based access control (RBAC)](manage-rbac.md). You can add the new permissions to a custom role by selecting them from the **Security posture** permissions group when creating the role. For more information, see [Create custom roles with Microsoft Defender XDR unified RBAC](create-custom-rbac-roles.md).\n \n <a name='microsoft-secure-score-permissions-integration-with-microsoft-365-defender-unified-role-based-access-control-rbac-is-now-in-public-preview'></a>\n \n ### Microsoft Secure Score permissions integration with Microsoft Defender XDR unified role-based access control (RBAC) is now in Public Preview\n \n-You can control access and grant granular permissions for the Microsoft Secure Score experience as part of the Microsoft Defender unified RBAC model. For more information, see [Manage permissions with Microsoft Defender unified role-based access control(RBAC)](./microsoft-secure-score.md#manage-permissions-with-microsoft-365-defender-unified-role-based-access-controlrbac).\n+You can control access and grant granular permissions for the Microsoft Secure Score experience as part of the Microsoft Defender XDR unified RBAC model. For more information, see [Manage permissions with Microsoft Defender XDR unified role-based access control(RBAC)](./microsoft-secure-score.md#manage-permissions-with-microsoft-365-defender-unified-role-based-access-controlrbac).\n \n <a name='a-new-file-collection-permission-in-microsoft-365-defender-unified-rbac-is-now-in-public-preview'></a>\n \n ### A new file collection permission in Microsoft Defender XDR unified RBAC is now in Public Preview\n \n-You can now assign a new granular permission in Microsoft Defender unified RBAC that allows users to collect or download files for analysis. This permission enables Microsoft Defender for Endpoint users download files directly from the file page and during a live response investigation in the live response console. You can add the new permission to a custom role by selecting it from the **Security operations** permissions group when creating the role. For more information, see [Create custom roles with Microsoft Defender unified RBAC](create-custom-rbac-roles.md).\n+You can now assign a new granular permission in Microsoft Defender XDR unified RBAC that allows users to collect or download files for analysis. This permission enables Microsoft Defender for Endpoint users download files directly from the file page and during a live response investigation in the live response console. You can add the new permission to a custom role by selecting it from the **Security operations** permissions group when creating the role. For more information, see [Create custom roles with Microsoft Defender XDR unified RBAC](create-custom-rbac-roles.md).\n \n For more information on what's new with other Microsoft Defender security products, see:\n \n",
+      "baseCommitSha": "1a4239ac1b74b27cc4c10c70e9f37d6ba1ae338e",
+      "commitSha": "9cd9b521c18852dc321b17ba267611d977cd6092",
+      "commitMessage": "reverted XDR back in most of whats-new",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-02-02T18:44:22+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/whats-new-in-microsoft-defender-urbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new-in-microsoft-defender-urbac",
+      "firstSeenAt": "2026-02-02T16:44:22.000Z",
+      "eventId": "defender-docs:9cd9b521c18852dc321b17ba267611d977cd6092:modified:defender-xdr/whats-new-in-microsoft-defender-urbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "reverted XDR back in most of whats-new",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/machines-view-overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/machines-view-overview.md b/defender-endpoint/machines-view-overview.md\nindex d032b4b3b..496d49ecf 100644\n--- a/defender-endpoint/machines-view-overview.md\n+++ b/defender-endpoint/machines-view-overview.md\n@@ -187,8 +187,7 @@ You can sort the entries by clicking on an available column header. Select :::im\n   - **Exclusion state**\n   - **Device role**<sup>*</sup>\n   - **Managed by**<sup>*</sup>: Valid values are: **Intune**, **ConfigMgr**, **MDE**, or **Unknown**.\n-  - **Managed by status**<sup>*</sup>: Status values from the **Managed by** authority. For example, **Success**. This field will have the ‘Unknown’ status for devices that are not managed by MDE (i.e. Intune, ConfigMgr, etc.)\n-    \n+  - **Managed by status**<sup>*</sup>: Status values from the **Managed by** authority. For example, **Success**. This field has the status **Unknown** for devices that aren't managed by Defender for Endpoint (for example, Intune or ConfigMgr).\n   - **Mitigation status**<sup>*</sup>\n   - **Cloud platforms**<sup>*</sup>\n \n",
+      "baseCommitSha": "2a69cd518ef1ee7d11bccb6341a4b3f5e6c54f99",
+      "commitSha": "9fa6dccecb7f294c61a99a62a08f51c6f3d94f79",
+      "commitMessage": "Clarify 'Managed by status' description",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-02T11:52:39-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/machines-view-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/machines-view-overview",
+      "firstSeenAt": "2026-02-02T19:52:39.000Z",
+      "eventId": "defender-docs:9fa6dccecb7f294c61a99a62a08f51c6f3d94f79:modified:defender-endpoint/machines-view-overview.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify 'Managed by status' description",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/machines-view-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex edfc12f6d..004ba77d7 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -15,7 +15,7 @@ ms.collection:\n ms.topic: how-to\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 01/31/2025\n+ms.date: 02/02/2026\n ---\n \n # Configure and run antivirus scans with Microsoft Defender for Endpoint on Linux\n@@ -28,8 +28,6 @@ Microsoft Defender for Endpoint on Linux offers robust antivirus scanning capabi\n \n ## Prerequisites\n \n-To use antivirus scanning features, your Linux devices must meet the [prerequisites for Defender for Endpoint on Linux](./mde-linux-prerequisites.md).\n-\n The principal running the scan must have at least a Security Operator or Security Administrator role.\n \n ## Supported scan types\n@@ -97,17 +95,19 @@ Various antivirus settings and configurations can influence both performance and\n |Flag|Description|\n |--|--|\n |**Scan after definitions update**|This setting determines whether to start a process scan after new security intelligence updates are downloaded on the device. When enabled, it initiates an antivirus scan on the device's active processes.|\n-|**Scan archives (on-demand antivirus scans only)**|This setting specifies whether to scan archives during on-demand antivirus scans. |\n+|**Scan archives (on-demand antivirus scans only)**|This setting specifies whether to scan archives (such as *.zip*, *.rar*, *.7z*, etc.) during on-demand antivirus scans. |\n |**Maximum on-demand scan threads**|This setting controls how many threads are used for on-demand scans, impacting both CPU usage and the scan's duration.|\n \n For detailed instructions on configuring the above settings using CLI or managed JSON, see [Configure security settings in Microsoft Defender for Endpoint on Linux](./linux-preferences.md#antivirus-engine-preferences).\n \n ## Best practices\n \n-Starting from version 101.23062.0001, Defender for Endpoint on Linux operates in passive mode by default, meaning real-time protection is turned off. To maintain security, it's recommended to use scheduled scans as needed.\n-\n-Once you've installed Defender for Endpoint on Linux, it's a good practice to run a full scan. This helps identify and address any potential threats that might be present on your system.\n-\n+Starting from version 101.23062.0001, Defender for Endpoint on Linux operates in passive mode by default, meaning real-time protection (RTP) is turned off. In this mode, it's recommended to use scheduled scans as needed to ensure the system is periodically protected.\n+ \n+After installing Defender for Endpoint on Linux, it's a good practice to run a full scan (or a quick scan) to help identify and remediate any existing threats on the system.\n+ \n+This is especially important before switching from passive mode to RTP mode, as enabling RTP primarily provides protection against newly introduced malware, and not the threats already present on the system. Running a scan beforehand helps ensure the device starts from a known clean state.\n+ \n For continuous protection, incorporate quick scans into your regular scheduled scans. Quick scans offer comprehensive coverage for malware that starts with the system and kernel-level threats, all while maintaining minimal impact on your device's performance.\n \n ## Related content\n",
+      "baseCommitSha": "fc7f668cc3baaa486bec4c61904fff22679e0b1e",
+      "commitSha": "18498712fe5324437972df64ebd6f3da02ece9ce",
+      "commitMessage": "Changes as per SMEs",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-02-02T22:54:57+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-02-02T20:54:57.000Z",
+      "eventId": "defender-docs:18498712fe5324437972df64ebd6f3da02ece9ce:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Changes as per SMEs",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 18,
+    "totalFiles": 20,
+    "authors": [
+      "Chris Davis",
+      "Devorah Cohen",
+      "Limor Wainstein",
+      "Paul Inbar",
+      "RNareddy-msft",
+      "sbreingold-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 20 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-timeline-event-flag.md. Updated Microsoft Defender documentation in defender-endpoint/device-timeline-event-flag.md. Updated Microsoft Defender documentation in defender-endpoint/api/upload-library.md. Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md. Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md. Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md. Updated Microsoft Defender documentation in defender-endpoint/machines-view-overview.md. Updated Microsoft Defender documentation",
+        "sourceFiles": [
+          "defender-endpoint/device-timeline-event-flag.md",
+          "defender-endpoint/device-timeline-event-flag.md",
+          "defender-endpoint/api/upload-library.md",
+          "defender-endpoint/configure-libraries-live-response.md",
+          "defender-endpoint/configure-libraries-live-response.md",
+          "defender-endpoint/configure-libraries-live-response.md",
+          "defender-endpoint/machines-view-overview.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/get-started.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/get-started.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "sourceFiles": [
+          "defender-for-identity/deploy/configure-windows-event-collection.md",
+          "defender-for-identity/deploy/configure-windows-event-collection.md",
+          "defender-for-identity/deploy/configure-windows-event-collection.md",
+          "defender-for-identity/deploy/configure-windows-event-collection.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulner",
+        "sourceFiles": [
+          "defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+          "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+          "defender-vulnerability-management/tvm-vulnerable-devices-report.md",
+          "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+          "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
+          "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md.",
+        "sourceFiles": [
+          "defender-xdr/whats-new-in-microsoft-defender-urbac.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/device-timeline-event-flag.md. Updated Microsoft Defender documentation in defender-endpoint/device-timeline-event-flag.md. Updated Microsoft Defender documentation in defender-endpoint/api/upload-library.md. Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md. Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md. Updated Microsoft Defender documentation in defender-endpoint/configure-libraries-live-response.md. Updated Microsoft Defender documentation in defender-endpoint/machines-view-overview.md. Updated Microsoft Defender documentation"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/get-started.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulner"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

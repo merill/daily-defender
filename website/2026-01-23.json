@@ -1,0 +1,297 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/investigate-alerts.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/defender-xdr/investigate-alerts.md b/defender-xdr/investigate-alerts.md\nindex 5fcf57761..ae8301e50 100644\n--- a/defender-xdr/investigate-alerts.md\n+++ b/defender-xdr/investigate-alerts.md\n@@ -7,7 +7,7 @@ f1.keywords:\n ms.author: guywild\n author: guywi-ms\n ms.localizationpriority: medium\n-manager: deniseb\n+manager: orspodek\n audience: ITPro\n ms.collection:\n - m365-security\n@@ -18,7 +18,7 @@ ms.topic: how-to\n search.appverid:\n - MOE150\n - met150\n-ms.date: 12/22/2025\n+ms.date: 01/23/2026\n appliesto: \n - Microsoft Defender XDR\n - Microsoft Sentinel in the Microsoft Defender portal\n@@ -145,6 +145,7 @@ Microsoft Defender XDR alerts come from solutions like Microsoft Defender for En\n | Microsoft Defender for Cloud | `dc{GUID}` |\n | Microsoft Sentinel | `sn{GUID}` |\n | Microsoft Purview Insider Risk Management | `ir{GUID}` |\n+| Microsoft Security Copilot | `sc{GUID}` |\n \n > [!NOTE]\n > If you have provisioned access to Microsoft Purview Insider Risk Management, you can view and manage insider risk management alerts and hunt for insider risk management events in the Microsoft Defender portal. For more information, see [Investigate insider risk threats in the Microsoft Defender portal](irm-investigate-alerts-defender.md).\n",
+      "baseCommitSha": "625e657cb3954fb562f344576a47f8674353752e",
+      "commitSha": "901d9967d91044e6c947eef184fb237787ef7505",
+      "commitMessage": "Update manager, date, and alert source in docs",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-01-23T09:53:32+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/investigate-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-alerts",
+      "firstSeenAt": "2026-01-23T04:23:32.000Z",
+      "eventId": "defender-docs:901d9967d91044e6c947eef184fb237787ef7505:modified:defender-xdr/investigate-alerts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update manager, date, and alert source in docs",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-custom-functions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-custom-functions.md b/defender-xdr/advanced-hunting-custom-functions.md\nindex a7a6164ef..88e71984c 100644\n--- a/defender-xdr/advanced-hunting-custom-functions.md\n+++ b/defender-xdr/advanced-hunting-custom-functions.md\n@@ -21,7 +21,7 @@ appliesto:\n     - Microsoft Defender XDR\n     - Microsoft Sentinel in the Microsoft Defender portal\n ms.topic: how-to\n-ms.date: 12/16/2025\n+ms.date: 01/23/2026\n ---\n \n # Use custom functions\n",
+      "baseCommitSha": "0faffe6ac95d4732bd55339a5e08ae2a7948e003",
+      "commitSha": "d20d52f3aa498532dca917370a26b65718458fc5",
+      "commitMessage": "Update date for advanced hunting custom functions",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-01-23T09:55:50+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-custom-functions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-custom-functions",
+      "firstSeenAt": "2026-01-23T04:25:50.000Z",
+      "eventId": "defender-docs:d20d52f3aa498532dca917370a26b65718458fc5:modified:defender-xdr/advanced-hunting-custom-functions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update date for advanced hunting custom functions",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-custom-functions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-install-with-defender-deployment-tool.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/linux-install-with-defender-deployment-tool.md b/defender-endpoint/linux-install-with-defender-deployment-tool.md\nindex 1597bf767..3466f0518 100644\n--- a/defender-endpoint/linux-install-with-defender-deployment-tool.md\n+++ b/defender-endpoint/linux-install-with-defender-deployment-tool.md\n@@ -62,11 +62,11 @@ The Defender deployment tool enforces the following set of prerequisites checks,\n 1. From a command prompt, extract the contents of the archive:\n \n    ```bash\n-   unzip WindowsDefenderATPOnboardingPackage.zip\n+   unzip LinuxDefenderDeploymentTool.zip\n    ```\n \n    ```console\n-   Archive: WindowsDefenderATPOnboardingPackage.zip\n+   Archive: LinuxDefenderDeploymentTool.zip\n    inflating: defender_deployment_tool.sh\n    ```\n \n",
+      "baseCommitSha": "a984dab9349e4555915a0f537f58434d468624bf",
+      "commitSha": "a317fd06da12f59d158c76f712e9c5fa6f643daa",
+      "commitMessage": "Update installation instructions for Linux Defender tool",
+      "commitAuthor": "dgrover1",
+      "commitDate": "2026-01-23T12:28:55+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-install-with-defender-deployment-tool.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-install-with-defender-deployment-tool",
+      "firstSeenAt": "2026-01-23T06:58:55.000Z",
+      "eventId": "defender-docs:a317fd06da12f59d158c76f712e9c5fa6f643daa:modified:defender-endpoint/linux-install-with-defender-deployment-tool.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update installation instructions for Linux Defender tool",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-install-with-defender-deployment-tool.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex b060f63a8..19cdc3afd 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -1,4 +1,4 @@\n-﻿---\n+---\n title: Prerequisites for Microsoft Defender for Endpoint on Linux\n ms.reviewer: gopkr, pahuijbr, megphapriya\n description: Describes the requirements needed to install and use Microsoft Defender for Endpoint on Linux.\n@@ -15,7 +15,7 @@ ms.collection:\n ms.topic: article\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 12/10/2025\n+ms.date: 01/23/2025\n ---\n \n # Prerequisites for Microsoft Defender for Endpoint on Linux\n@@ -85,7 +85,7 @@ The following Linux server distributions and x64 (AMD64/EM64T) versions are supp\n - Ubuntu 24.04 LTS\n - Ubuntu Pro 22.04\n - Ubuntu Pro 24.04\n-- Debian 9 - 12\n+- Debian 9 - 13\n - SUSE Linux Enterprise Server 12.x\n - SUSE Linux Enterprise Server 15.x\n - Oracle Linux 7.2 and higher\n",
+      "baseCommitSha": "a984dab9349e4555915a0f537f58434d468624bf",
+      "commitSha": "3d89876f9ea49808ef89a335444a8eb310024420",
+      "commitMessage": "Update mde-linux-prerequisites.md",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-23T10:21:14+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-01-23T08:21:14.000Z",
+      "eventId": "defender-docs:3d89876f9ea49808ef89a335444a8eb310024420:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update mde-linux-prerequisites.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-whatsnew.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/linux-whatsnew.md b/defender-endpoint/linux-whatsnew.md\nindex 9738d5613..31b610d1c 100644\n--- a/defender-endpoint/linux-whatsnew.md\n+++ b/defender-endpoint/linux-whatsnew.md\n@@ -6,7 +6,7 @@ ms.author: lwainstein\n author: limwainstein\n ms.reviewer: kumasumit, gopkr; mevasude\n ms.localizationpriority: medium\n-ms.date: 12/24/2025\n+ms.date: 01/23/2025\n manager: bagol\n audience: ITPro\n ms.collection:\n@@ -63,6 +63,8 @@ This article is updated frequently to let you know what's new in the latest rele\n \n - Agent process handling has been streamlined by removing the dependency on telemetryd_v2, enabling more efficient and consistent telemetry collection. This change applies to builds 101.24062.0001 and later, with no impact on functionality, data collection, or customer configurations. All features remain intact, and no customer action is required.\n \n+- Added support for Debian 13.\n+\n ### December-2025 Build: 101.25092.0005 | Release version: 30.125092.0005.0\n \n |Build:             |**101.25092.0005**    |\n",
+      "baseCommitSha": "a984dab9349e4555915a0f537f58434d468624bf",
+      "commitSha": "4972378cfe8e187862bae3874ef5816defd17428",
+      "commitMessage": "Update linux-whatsnew.md",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-23T10:24:59+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-whatsnew.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-whatsnew",
+      "firstSeenAt": "2026-01-23T08:24:59.000Z",
+      "eventId": "defender-docs:4972378cfe8e187862bae3874ef5816defd17428:modified:defender-endpoint/linux-whatsnew.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update linux-whatsnew.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/advanced-delivery-policy-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/advanced-delivery-policy-configure.md b/defender-office-365/advanced-delivery-policy-configure.md\nindex c80333884..b370db63e 100644\n--- a/defender-office-365/advanced-delivery-policy-configure.md\n+++ b/defender-office-365/advanced-delivery-policy-configure.md\n@@ -121,7 +121,7 @@ Back on the **SecOps mailbox** tab, the SecOps mailbox entries that you configur\n \n To configure a non-Microsoft phishing simulation, you need to provide the following information:\n \n-- At least one **Domain**: The domain from the MAIL FROM address (also known as the `5321.MailFrom` address, P1 sender, or envelope sender) that's used in the SMTP transmission of the message **or** a DKIM domain as specified by the phishing simulation vendor.\n+- At least one **Domain**: The domain from the MAIL FROM address (also known as the `5321.MailFrom` address, P1 sender, or envelope sender) that's used in the SMTP transmission of the message **or** a DKIM domain as specified by the phishing simulation vendor. In case of Internationalized Domain Names, Punycode format must be inputed.\n - At least one **Sending IP**.\n - For **non-email** phishing simulations (for example, Microsoft Teams messages, Word documents, or Excel spreadsheets), you can optionally identify the **Simulation URLs to allow** that shouldn't be treated as real threats at time of click: the URLs aren't blocked or detonated, and no URL click alerts or resulting incidents are generated. The URLs are wrapped at time of click, but they aren't blocked.\n \n",
+      "baseCommitSha": "afc44559aa779d3665b0177db48a8d1631a4a08c",
+      "commitSha": "ed9a1badc6041a91973910fe95608cb6df69a797",
+      "commitMessage": "Clarify domain input for phishing simulations",
+      "commitAuthor": "Alexandru Liviu Nita",
+      "commitDate": "2026-01-23T16:35:16+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/advanced-delivery-policy-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/advanced-delivery-policy-configure",
+      "firstSeenAt": "2026-01-23T14:35:16.000Z",
+      "eventId": "defender-docs:ed9a1badc6041a91973910fe95608cb6df69a797:modified:defender-office-365/advanced-delivery-policy-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify domain input for phishing simulations",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex a1f0fa5ea..1d1dbd5f5 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -20,7 +20,7 @@ description: Admins can learn about the roles and role groups in Microsoft Defen\n ms.custom: \n - seo-marvel-apr2020\n ms.service: defender-office-365\n-ms.date: 02/20/2025\n+ms.date: 01/23/2026\n ---\n \n # Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview\n@@ -32,7 +32,7 @@ The [Microsoft Defender portal](/defender-xdr/microsoft-365-defender-portal), [M\n - [Email & collaboration permissions in the Microsoft Defender portal](mdo-portal-permissions.md)\n - [Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/manage-rbac)\n - [Permissions in the Microsoft Purview portal](/purview/purview-portal)\n-- [Permissions in the Microsoft Purview portal](/purview/purview-permissions)\n+- [Permissions in the Microsoft Purview solutions](/purview/purview-permissions)\n - [Permissions in the Microsoft Purview governance portal](/purview/roles-permissions)\n \n These portals let you grant permissions to people who perform tasks like device management, data loss prevention, eDiscovery, retention, and so on. These people can perform only the tasks that you explicitly grant them access to. To access these portals, users need to be a global admin or a member of one or more role groups in Defender for Office 365 (**Email & collaboration** role groups) or Purview (**Microsoft Purview solutions** role groups). The [Microsoft Purview portal (preview)](/purview/purview-portal) provides access to data governance, data security, and risk and compliance solutions.\n@@ -86,8 +86,8 @@ Managing permissions in Defender for Office 365 or Microsoft Purview gives users\n |**Data Security AI Admins**|Use this group to assign editing capabilities for Data Loss Prevention policies related to Copilot and viewing AI content in Data Security Posture Management. Review the role description for access details.|Data Security AI Admin|\n |**Data Security AI Content Viewers**|Use this group to assign read-only permissions to users in Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management to view prompts and responses of interactions in AI apps.|Data Security AI Content Viewer|\n |**Data Security AI Viewers**|Use this group to assign read-only permissions to users for Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management.|Data Security AI Viewer|\n-|**Data Security Investigations Administrators**|Administrators for Data Security Investigations that can create and manage all investigations, processes, and settings.|Case Management <br/><br/> Compliance Search <br/><br/> Data Security Investigations Admin <br/><br/> Export <br/><br/> Preview <br/><br/> Review|\n-|**Data Security Investigations investigators**|Investigators for Data Security Investigations that can create and manage assigned investigations, processes, and settings.|Case Management <br/><br/> Compliance Search <br/><br/> Data Security Investigations Investigator <br/><br/> Export <br/><br/> Preview <br/><br/> Review|\n+|**Data Security Investigations Admins**|Administrators for Data Security Investigations that can create and manage all investigations, processes, and settings.|Case Management <br/><br/> Compliance Search <br/><br/> Data Security Investigations Admin <br/><br/> Export <br/><br/> Preview <br/><br/> Review|\n+|**Data Security Investigations Investigators**|Investigators for Data Security Investigations that can create and manage assigned investigations, processes, and settings.|Case Management <br/><br/> Compliance Search <br/><br/> Data Security Investigations Investigator <br/><br/> Export <br/><br/> Preview <br/><br/> Review|\n |**Data Security Investigations Reviewers**|Reviewers for Data Security Investigations that can create and manage all assigned investigations.|Data Security Investigations Reviewer <br/><br/> Export <br/><br/> Preview <br/><br/> Review|\n |**Data Security Management**|View all Data Security Posture Management insights, use Copilot for Security, and manage Microsoft Purview data security solutions (Data Loss Prevention, Information Protection, and Insider Risk Management).|Case Management <br/><br/> Custodian <br/><br/> Data Classification Content Download <br/><br/> Data Classification Content Viewer <br/><br/> Data Classification List Viewer <br/><br/>Data Connector Admin <br/><br/> Data Map Reader <br/><br/> Data Security Viewer <br/><br/> Information Protection Admin <br/><br/> Information Protection Analyst <br/><br/> Information Protection Investigator <br/><br/> Information Protection Reader <br/><br/> Insider Risk Management Admin <br/><br/> Insider Risk Management Analysis <br/><br/> Insider Risk Management Approval <br/><br/> Insider Risk Management Audit <br/><br/> Insider Risk Management Investigation <br/><br/> Insider Risk Management Reports Administrator <br/><br/> Insider Risk Management Sessions <br/><br/> Insights Reader <br/><br/> Purview Agent Analysis <br/><br/> Purview Evaluation Administrator <br/><br/> Review <br/><br/> Scan Reader <br/><br/> Source Reader <br/><br/> View-Only Case|\n |**Data Security Viewers**|View Data Security Posture Management (DSPM) dashboard insights and use Copilot for Security to view detailed information.|Data Security Viewer|\n",
+      "baseCommitSha": "176cf1072773a7a07752ed4126c2110babf91747",
+      "commitSha": "738d9870ded7ad3a2902237cb6212f1a2b81e21c",
+      "commitMessage": "Update SCC permissions roles and ms.date metadata",
+      "commitAuthor": "Robert Mazzoli",
+      "commitDate": "2026-01-23T11:02:26-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "firstSeenAt": "2026-01-23T19:02:26.000Z",
+      "eventId": "defender-docs:738d9870ded7ad3a2902237cb6212f1a2b81e21c:modified:defender-office-365/scc-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update SCC permissions roles and ms.date metadata",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex 1d1dbd5f5..13331dc8e 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -32,7 +32,7 @@ The [Microsoft Defender portal](/defender-xdr/microsoft-365-defender-portal), [M\n - [Email & collaboration permissions in the Microsoft Defender portal](mdo-portal-permissions.md)\n - [Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/manage-rbac)\n - [Permissions in the Microsoft Purview portal](/purview/purview-portal)\n-- [Permissions in the Microsoft Purview solutions](/purview/purview-permissions)\n+- [Permissions in Microsoft Purview solutions](/purview/purview-permissions)\n - [Permissions in the Microsoft Purview governance portal](/purview/roles-permissions)\n \n These portals let you grant permissions to people who perform tasks like device management, data loss prevention, eDiscovery, retention, and so on. These people can perform only the tasks that you explicitly grant them access to. To access these portals, users need to be a global admin or a member of one or more role groups in Defender for Office 365 (**Email & collaboration** role groups) or Purview (**Microsoft Purview solutions** role groups). The [Microsoft Purview portal (preview)](/purview/purview-portal) provides access to data governance, data security, and risk and compliance solutions.\n",
+      "baseCommitSha": "738d9870ded7ad3a2902237cb6212f1a2b81e21c",
+      "commitSha": "0887aacbeb437fc3cec326b1a9dc162afe904a4a",
+      "commitMessage": "Update defender-office-365/scc-permissions.md",
+      "commitAuthor": "Robert Mazzoli",
+      "commitDate": "2026-01-23T11:03:42-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "firstSeenAt": "2026-01-23T19:03:42.000Z",
+      "eventId": "defender-docs:0887aacbeb437fc3cec326b1a9dc162afe904a4a:modified:defender-office-365/scc-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-office-365/scc-permissions.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex 13331dc8e..df8c33dec 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -176,7 +176,7 @@ Roles that aren't assigned to the Organization Management role group by default\n |<sup>\\*</sup>**Data Investigation Management**|Create, edit, delete, and control access to data investigation.|Compliance Administrator <br/><br/> Data Investigator|\n |<sup>\\*</sup>**Data Map Reader**|Read actions on data map objects.|Compliance Administrator <br/><br/> Data Catalog Curators <br/><br/> Data Estate Insights Readers <br/><br/> Information Protection <br/><br/> Information Protection Admins <br/><br/> Information Protection Analysts <br/><br/> Information Protection Investigators|\n |<sup>\\*</sup>**Data Map Writer**|Create, read, modify, and delete actions on data map objects and establish relationships between objects.|Data Catalog Curators|\n-|<sup>\\*</sup>**Data Security Investigations Admin**|Used to create and manage investigations, processes, and settings in Data Security Investigations.|Data Security Investigations Administrators|\n+|<sup>\\*</sup>**Data Security Investigations Admin**|Used to create and manage investigations, processes, and settings in Data Security Investigations.|Data Security Investigations Admins|\n |<sup>\\*</sup>**Data Security Investigations Investigator**|Used to create and manage assigned investigations, processes, and settings in Data Security Investigations.|Data Security Investigations Investigators|\n |<sup>\\*</sup>**Data Security Investigations Reviewer**|Used to review assigned investigations in Data Security Investigations.|Data Security Investigations Reviewers|\n |**Data Security AI Admin**|Role for editing Data Loss Prevention policies related to Copilot and viewing AI content in Data Security Posture Management. This role does not have access to read prompts and responses of AI interactions.|Data Security AI Admins|\n",
+      "baseCommitSha": "0887aacbeb437fc3cec326b1a9dc162afe904a4a",
+      "commitSha": "4b709670f642cf729e81e99dc59a21c40935a911",
+      "commitMessage": "Update scc-permissions.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-23T11:51:51-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "firstSeenAt": "2026-01-23T19:51:51.000Z",
+      "eventId": "defender-docs:4b709670f642cf729e81e99dc59a21c40935a911:modified:defender-office-365/scc-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update scc-permissions.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 9,
+    "totalFiles": 9,
+    "authors": [
+      "Alexandru Liviu Nita",
+      "Chris Davis",
+      "Paul Inbar",
+      "Paul Oliveria",
+      "Robert Mazzoli",
+      "dgrover1"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 9 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-custom-functions.md.",
+        "sourceFiles": [
+          "defender-xdr/investigate-alerts.md",
+          "defender-xdr/advanced-hunting-custom-functions.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-install-with-defender-deployment-tool.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "sourceFiles": [
+          "defender-endpoint/linux-install-with-defender-deployment-tool.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/linux-whatsnew.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "sourceFiles": [
+          "defender-office-365/advanced-delivery-policy-configure.md",
+          "defender-office-365/scc-permissions.md",
+          "defender-office-365/scc-permissions.md",
+          "defender-office-365/scc-permissions.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-custom-functions.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/linux-install-with-defender-deployment-tool.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md. Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

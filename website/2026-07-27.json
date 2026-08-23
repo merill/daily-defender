@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-identity/migrate-from-ata-overview.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "patch": "diff --git a/defender-for-identity/migrate-from-ata-overview.md b/defender-for-identity/migrate-from-ata-overview.md\nindex 964c23806..4f692b840 100644\n--- a/defender-for-identity/migrate-from-ata-overview.md\n+++ b/defender-for-identity/migrate-from-ata-overview.md\n@@ -10,6 +10,11 @@ ms.custom: msecd-doc-authoring-1014\n \n # Migrate from Advanced Threat Analytics (ATA) to Microsoft Defender for Identity\n \n+> [!IMPORTANT]\n+> ATA is end of life. ATA ended Mainstream Support on January 12, 2021, and Extended Support ended in January 2026. No further updates, including security fixes, will be provided. For more information, read [End of mainstream support for Advanced Threat Analytics](https://techcommunity.microsoft.com/t5/microsoft-security-and/end-of-mainstream-support-for-advanced-threat-analytics-january/ba-p/1539181).\n+>\n+> We strongly recommend migrating to Defender for Identity as soon as possible using the steps in this article.\n+\n This article describes how to migrate from an existing ATA installation to a Microsoft Defender for Identity sensor, and includes the following steps:\n \n > [!div class=\"checklist\"]\n@@ -40,8 +45,6 @@ Defender for Identity also uses the Microsoft 365 security portfolio to automati\n > While you can migrate to Defender for Identity from any ATA version, your ATA data isn't migrated. Therefore, we recommend that you plan to retain your ATA Data Center and any alerts required for ongoing investigations until all ATA alerts are closed or remediated.\n >\n \n-> [!NOTE]\n-> The final release of ATA is [Update 3 for Microsoft Advanced Threat Analytics 1.9](https://support.microsoft.com/help/4568997/update-3-for-microsoft-advanced-threat-analytics-1-9). ATA ended Mainstream Support on January 12, 2021. Extended Support will continue until January 2026. For more information, read [End of mainstream support for Advanced Threat Analytics](https://techcommunity.microsoft.com/t5/microsoft-security-and/end-of-mainstream-support-for-advanced-threat-analytics-january/ba-p/1539181).\n \n ## Prerequisites\n \n",
+      "baseCommitSha": "fc8363adb936d82f2976f1b692502e940744f862",
+      "commitSha": "6a509d41410f64d334b97daa6cc51472a4ef4f2c",
+      "commitMessage": "ATA end-of-life notice (#548)",
+      "commitAuthor": "Martin Schvartzman",
+      "commitDate": "2026-07-27T19:42:57+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/migrate-from-ata-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/migrate-from-ata-overview",
+      "firstSeenAt": "2026-07-27T16:42:57.000Z",
+      "eventId": "defender-docs:6a509d41410f64d334b97daa6cc51472a4ef4f2c:modified:defender-for-identity/migrate-from-ata-overview.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "ATA end-of-life notice (#548)",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/migrate-from-ata-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Martin Schvartzman"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/migrate-from-ata-overview.md.",
+        "sourceFiles": [
+          "defender-for-identity/migrate-from-ata-overview.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/migrate-from-ata-overview.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

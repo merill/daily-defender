@@ -1,0 +1,582 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-xdr/identity-security-dashboard.md",
+      "status": "added",
+      "additions": 158,
+      "deletions": 0,
+      "changes": 158,
+      "patch": "diff --git a/defender-xdr/identity-security-dashboard.md b/defender-xdr/identity-security-dashboard.md\nnew file mode 100644\nindex 000000000..61ec0c693\n--- /dev/null\n+++ b/defender-xdr/identity-security-dashboard.md\n@@ -0,0 +1,158 @@\n+---\n+title: Microsoft Defender coverage and maturity dashboard\n+description: Learn how to use the Coverage & Maturity dashboard in Microsoft Defender to understand identity protection posture across on-premises, cloud, SaaS, and partner environments.\n+ms.date: 02/16/2026\n+ms.topic: how-to\n+ms.reviewer: maelgami\n+ai-usage: ai-assisted\n+---\n+\n+# Work with the Coverage & Maturity dashboard\n+\n+The Coverage & Maturity dashboard provides a unified view of how well your identities are protected across the entire organization, including on-premises, cloud identity providers (IdPs), SaaS applications, and partner integrations.\n+\n+Use the dashboard to understand your current protection posture, identify gaps, and take clear actions to increase identity coverage and reduce risk.\n+\n+The dashboard provides:\n+\n+- **A single, consolidated view of identity protection across all sources.** See how identities are protected across cloud providers, SaaS apps, partners, and on-premises environments.\n+- **Clear visibility into protection gaps.** Each widget quantifies the number of protected versus unprotected identities and highlights where you need to deploy sensors, connect IdPs, configure apps, or enable integrations.\n+- **Actionable next steps.** The dashboard guides you on exactly what to do next, with time estimates and a direct path to fix configuration or deploy missing components.\n+\n+## Prerequisites\n+\n+To access the Coverage & Maturity dashboard, you need:\n+\n+- A Microsoft Defender for Cloud Apps or Microsoft Defender for Identity license.\n+- A user role with at least [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader) permissions.\n+\n+> [!IMPORTANT]\n+> Use roles with the fewest permissions to help improve security for your organization. Global Administrator is a highly privileged role that you should limit to scenarios when you can't use an existing role.\n+\n+## Access the dashboard\n+\n+To access the dashboard, sign into Microsoft Defender and select **Identities > Coverage and maturity**.\n+\n+## Maturity score\n+\n+The maturity score, called the Identity Resiliency Index, shows how much of your identity infrastructure is covered by Microsoft Defender protections. The score consists of a maturity tier label and a visual progress bar with color progression (red to yellow to green).\n+\n+The maturity tiers are:\n+\n+| Score range | Tier name | Customer state | Meaning |\n+|---|---|---|---|\n+| 0-39 | **Connected** | Initial deployment | You connected your environments and gained visibility, but protection is partial. Only one environment is connected. |\n+| 40-69 | **Protected** | Operational | You deployed sensors and SaaS connectors. Key assets are covered, but gaps in non-human or PIM/PAM/IdP remain. |\n+| 70-89 | **Fortified** | Advanced | You have high coverage across hybrid and multicloud. You're tackling advanced use cases like agentic identities. |\n+| 90-100 | **Resilient** | Fully mature | You achieved full coverage of all identity types across all environments. |\n+\n+Select **Learn more** on the maturity score widget to open a side panel that explains how the maturity score works. The side panel shows:\n+\n+- Your current maturity level with a progress bar.\n+- The top three upcoming tasks with name, time estimate, and call-to-action button.\n+- A list of all protection improvement tasks with the number of deployment gaps from all source cards.\n+- A link to documentation.\n+\n+## Take recommended actions\n+\n+The recommended actions section appears directly below the maturity score and displays three contextual action cards. Each action card includes a description, time estimate, and a **Take Action** button. The portal sources these actions from the deployment gaps it identifies across the coverage cards.\n+\n+The portal sorts gaps by impact, highest first. The priority order for deployment gaps is:\n+\n+1. On-premises sensor deployment, Entra ID connector, and App Governance.\n+1. SaaS app connectors.\n+1. IdP / PAM / PIM integrations.\n+\n+The effort and impact for each gap type are:\n+\n+| Gap type | Effort | Impact |\n+|---|---|---|\n+| Entra ID tasks | Low | High |\n+| SaaS app connectors | Low | Medium |\n+| On-premises sensor configuration | Low | Low |\n+| Legacy sensor configuration | Medium | Low |\n+| IdP and partner configuration | Low | Medium |\n+\n+When you resolve all three displayed tasks, the section updates to show the next three deployment gaps. When no deployment gaps remain, the section indicates that your environment is fully protected.\n+\n+## Review coverage cards\n+\n+The dashboard displays one coverage card for each identity domain: on-premises identities, SaaS identities, Entra ID identities, and PIM / PAM & IdPs. The cards you see depend on your environment and licensing. If you can enable coverage for a domain, the card provides a link to configure it.\n+\n+Select anywhere on the card to open the side panel with details.\n+\n+Each card includes:\n+\n+- The name of the identity domain.\n+- **Protection score**: Color-coded indicator reflecting the domain's protection logic.\n+- **Coverage breakdown**: Displays the format *X protected / Y total*. For example, \"12 apps connected / 36 apps in use.\" If the deployment count increases, the percentage turns green. If the deployment count decreases, the percentage turns red.\n+- **Identity count**: Total number of identities in this domain. Select the identity count to go to the identity inventory page with the relevant filter applied.\n+- **Number of deployment gaps**: Count of unresolved gaps.\n+\n+### On-premises identities card\n+\n+When you activate sensors on your on-premises infrastructure, you get enhanced threat detections for Active Directory identities, identity security posture recommendations, automated attack disruption by using Defender XDR, and direct remediation actions on Active Directory identities.\n+\n+The on-premises identities card shows the following information:\n+\n+| Item | Description |\n+|---|---|\n+| **Protection score** | Percentage of servers with MDI sensors activated out of total servers discovered. |\n+| **Coverage breakdown** | X servers activated / Y servers in use |\n+| **Identity count** | Total on-premises identities. Select to go to the identity inventory page with filter. |\n+| **Deployment gaps** | Number of unresolved deployment gaps |\n+\n+If any sensors have an unhealthy deployment, the card displays a notification. Select the notification to go to the **Health issues** page.\n+\n+### SaaS identities card\n+\n+When you connect SaaS applications, you can track user accounts across SaaS apps, investigate user activities in Advanced Hunting, get security posture recommendations for SaaS configurations, and detect threats to OAuth applications.\n+\n+The SaaS identities card shows the following information:\n+\n+| Item | Description |\n+|---|---|\n+| **Protection score** | Percentage of supported SaaS apps with connectors deployed out of supported SaaS apps discovered in use. |\n+| **Coverage breakdown** | X supported apps installed / Y supported apps in use |\n+| **Identity count** | Total SaaS identities. Select to navigate to the identity inventory page with filter. |\n+| **Deployment gaps** | Number of unresolved deployment gaps |\n+\n+If any app connectors have an unhealthy deployment, the card displays a notification. Select the notification to go to the **App connectors settings** page.\n+\n+### Entra ID identities card\n+\n+> [!NOTE]\n+> This card only appears for customers with an Entra ID P2 license.\n+\n+By connecting Entra ID, you get risk insights based on Entra ID Protection, you can hunt for Entra sign-in events in Advanced Hunting, link identities across your environments, receive security posture recommendations for Entra identities, and improve detections for OAuth applications and Entra accounts.\n+\n+The Entra ID identities card shows the following information:\n+\n+| Item | Description |\n+|---|---|\n+| **Protection score** | Based on: Entra ID P2 license available (50%), Microsoft 365 connector for enhanced detections (25%), and service principals protection enabled (25%). |\n+| **Coverage breakdown** | Microsoft 365 connector connected and App Governance enabled. |\n+| **Identity count** | Total Entra ID identities. Select to go to the identity inventory page with filter. |\n+| **Deployment gaps** | Number of unresolved deployment gaps |\n+\n+### PIM / PAM & IdPs card\n+\n+When you connect identity providers and privileged access management solutions, you get a unified view for investigation across all identity providers. You can track user accounts across those providers, investigate activities in Advanced Hunting, and take remediation actions directly on identity provider accounts.\n+\n+The PIM / PAM & IdPs card shows the following information:\n+\n+| Item | Description |\n+|---|---|\n+| **Protection score** | Percentage of IdP providers deployed out of IdP providers discovered in use. Supported IdPs: Okta, PingOne, CyberArk Identity, SailPoint. |\n+| **Coverage breakdown** | X IdPs installed / Y IdPs in use. Additional breakdown: Number of partners deployed. Supported PIM & PAM partners: BeyondTrust, Silverfort, Delinea, CyberArk. A tooltip describes the partner names. |\n+| **Identity count** | Total PIM / PAM & IdPs identities. Select to go to the identity inventory page with filter. |\n+| **Deployment gaps** | Number of unresolved deployment gaps |\n+\n+## Maturity score calculation\n+\n+The maturity score uses a weighted matrix of environment coverage and identity type depth. It distributes 100 points across critical domains. When you achieve full coverage across all identity types and environments, your maturity score reaches 100% and the dashboard displays \"Fully licensed, fully deployed.\"\n+\n+## Next steps\n+\n+- [Microsoft Defender for Identity deployment overview](/defender-for-identity/deploy/deploy-defender-identity)\n+- [Enable instant visibility, protection, and governance actions for your apps](/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps)\n",
+      "baseCommitSha": "5e63952eaeaf48f98c925e24cbc574917351c194",
+      "commitSha": "e8eefafa34926b345509aabdd6bb4a468532ae25",
+      "commitMessage": "Identity security draft",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T16:58:43+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security-dashboard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security-dashboard",
+      "firstSeenAt": "2026-02-16T14:58:43.000Z",
+      "eventId": "defender-docs:e8eefafa34926b345509aabdd6bb4a468532ae25:added:defender-xdr/identity-security-dashboard.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Identity security draft",
+        "summary": "Added Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/exclude-analytics-rules-correlation.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/defender-xdr/exclude-analytics-rules-correlation.md b/defender-xdr/exclude-analytics-rules-correlation.md\nindex 68acf4625..a42a61c54 100644\n--- a/defender-xdr/exclude-analytics-rules-correlation.md\n+++ b/defender-xdr/exclude-analytics-rules-correlation.md\n@@ -16,7 +16,7 @@ ms.topic: how-to\n search.appverid: \n   - MOE150\n   - MET150\n-ms.date: 01/13/2026\n+ms.date: 02/16/2026\n appliesto: \n - Microsoft Defender XDR \n - Microsoft Sentinel in the Microsoft Defender portal\n@@ -125,9 +125,6 @@ Keep the following points in mind when using correlation exclusion:\n   - #dont_corr#    This rule monitors file modifications\n   - #DONT_CORR#This rule has no space after the tag\n \n-- In specific scenarios, the incident title might differ between the Defender portal and Microsoft Sentinel, even when you turn off incident correlation for the rule:\n-  - When an incident contains alerts with different titles, the Defender portal displays the incident name as the common MITRE ATT&CK technique of all alerts, while Microsoft Sentinel uses the title of the first alert.\n-  - Alerts within the same incident can have different titles when the alert title is configured as a dynamic title and alert grouping to incidents is turned on.\n \n ## Next steps\n \n",
+      "baseCommitSha": "d4af0529eb94b27985ef3052dc73d3805ec81e81",
+      "commitSha": "b429be21e9c52d01b13be1a43495d7b7558a0063",
+      "commitMessage": "Update ms.date and remove incident-title note",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-02-16T12:54:59+08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/exclude-analytics-rules-correlation.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/exclude-analytics-rules-correlation",
+      "firstSeenAt": "2026-02-16T04:54:59.000Z",
+      "eventId": "defender-docs:b429be21e9c52d01b13be1a43495d7b7558a0063:modified:defender-xdr/exclude-analytics-rules-correlation.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update ms.date and remove incident-title note",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/exclude-analytics-rules-correlation.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/enable-network-protection.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 6,
+      "changes": 14,
+      "patch": "diff --git a/defender-endpoint/enable-network-protection.md b/defender-endpoint/enable-network-protection.md\nindex e260006d3..c94d31e4e 100644\n--- a/defender-endpoint/enable-network-protection.md\n+++ b/defender-endpoint/enable-network-protection.md\n@@ -3,7 +3,7 @@ title: Turn on network protection\n description: Enable network protection with Group Policy, PowerShell, or Mobile Device Management and Configuration Manager.\n ms.service: defender-endpoint\n ms.localizationpriority: medium\n-ms.date: 01/05/2026\n+ms.date: 02/16/2026\n ms.topic: how-to\n author: paulinbar\n ms.author: painbar\n@@ -131,7 +131,7 @@ To enable network protection, you can use any of the methods described in this a\n \n 3. On the **Microsoft Defender for Endpoint Security Baseline \\| Profiles** page, select **Create policy**.\n \n-4. On the **Create profile** flyout that opens, select **Create**.\n+4. On the **Create a profile** flyout that opens, select **Create**.\n \n 5. The **Create profile** wizard opens. On the **Basics** tab, configure the following settings:\n    - **Name**: Enter a unique, descriptive name for the policy.\n@@ -142,7 +142,8 @@ To enable network protection, you can use any of the methods described in this a\n 6. On the **Configuration settings** tab, expand **Defender** and then select one of the following values for **Enable network protection**:\n    - **Disabled**\n    - **Enabled (block mode)**\n-   - **Enable Network Protection**\n+   - **Enabled (audit mode)**\n+   - **Not configured**\n \n    Select **Next**.\n \n@@ -178,9 +179,10 @@ To enable network protection, you can use any of the methods described in this a\n    Select **Next**.\n \n 5. On the **Configuration settings** tab, select one of the following values for **Enable network protection**:\n-   - **Disabled**\n+   - **Not configured**\n+   - **Disabled (Default)**\n    - **Enabled (block mode)**\n-   - **Enable Network Protection**\n+   - **Enabled (audit mode)**\n \n    Select **Next**.\n \n@@ -218,7 +220,7 @@ To enable network protection, you can use any of the methods described in this a\n \n 5. On the **Configuration settings** tab, select **Microsoft Defender Exploit Guard** > **Network filtering**.\n \n-   Change the **Network protection** value from **Not configured** to **Audit** (for testing and observation) or **Enable**.\n+   Change the **Network protection** value from **Not configured** to **Disable**, **Enable**, or **Audit** (for testing and observation).\n \n    Select **Next**.\n \n",
+      "baseCommitSha": "211df10bccb77b38db5b5ac4ea0b45ce7e5988ad",
+      "commitSha": "ad5b2c598c45b623e3a97b641ea109d2b8cea2a6",
+      "commitMessage": "Enable network protection changes upon review",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-02-16T15:19:33+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/enable-network-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/enable-network-protection",
+      "firstSeenAt": "2026-02-16T13:19:33.000Z",
+      "eventId": "defender-docs:ad5b2c598c45b623e3a97b641ea109d2b8cea2a6:modified:defender-endpoint/enable-network-protection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Enable network protection changes upon review",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/alerts-xdr.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/alerts-xdr.md b/defender-for-identity/alerts-xdr.md\nindex 4273f6ea3..7b04c73e8 100644\n--- a/defender-for-identity/alerts-xdr.md\n+++ b/defender-for-identity/alerts-xdr.md\n@@ -51,7 +51,7 @@ This section describes alerts indicating that a malicious actor might be attempt\n |<a name=\"okta-fastpass-phishing-attack-detected\"></a><details><summary>Okta FastPass phishing attack detected</summary><br>**Description**:<br><br>A successful Okta FastPass phishing attack was detected for user {AccountUpn}. An initial phishing attempt was declined at {phishingAttemptTime}, but the compromised session {SessionId} was later used for authentication actions at {Timestamp}. The session originated from IP address {PhishingIPAddress} and was subsequently reused from {ReuseIPAddress} with user agent {ReuseUserAgent}. Risk level: {SessionReuseRisk}.</details> | High | [T1539](https://attack.mitre.org/techniques/T1539), [T1550.004](https://attack.mitre.org/techniques/T1550/004) | xdr_OktaFastPassPhishingAttempt |\n |<a name=\"okta-privileged-role-assigned-to-application\"></a><details><summary>Okta privileged role assigned to application</summary><br>**Description**:<br><br>{ActorAliasName} assigned {RoleDisplayName} role to applictaion: {ApplicationDisplayName}</details> | High | [T1003.006](https://attack.mitre.org/techniques/T1003/006) | xdr_OktaPrivilegedRoleAssignedToApplication |\n |<a name=\"possible-account-secret-leak\"></a><details><summary>Possible account secret leak</summary><br>**Description**:<br><br>A failed attempt to sign in to a user account by a credential stuffing tool was detected. The error code indicates that the secret was valid but misused. The user account's credentials might have been leaked or are in the possession of an unauthorized party.</details> | High | [T1078](https://attack.mitre.org/techniques/T1078) | xdr_CredentialStuffingToolObserved |\n-|<a name=\"possible-adversary-in-the-middle-aitm-attack-detected-consentfix\"></a><details><summary>Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)</summary><br>**Description**:<br><br>A possible token theft has been detected. Threat actor tricked a user into granting consent or sharing an authorization code through social engineering or adversary-in-the-middle (AiTM) techniques. A stolen code is exchanged for access tokens. Threat actor then impersonates the user without a password or multifactor authentication (MFA). This allows unauthorized access to Microsoft 365 services and sensitive data.</details> | High | [T1557](https://attack.mitre.org/techniques/T1557) | xdr_PossibleAitMConsentFix |\n+|<details><summary id=\"possible-adversary-in-the-middle-aitm-attack-detected-consentfix\">Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)</summary><br>**Description**:<br><br>A possible token theft has been detected. Threat actor tricked a user into granting consent or sharing an authorization code through social engineering or adversary-in-the-middle (AiTM) techniques. A stolen code is exchanged for access tokens. Threat actor then impersonates the user without a password or multifactor authentication (MFA). This allows unauthorized access to Microsoft 365 services and sensitive data.</details> | High | [T1557](https://attack.mitre.org/techniques/T1557) | xdr_PossibleAitMConsentFix|\n |<a name=\"possible-as-rep-roasting-attack\"></a><details><summary>Possible AS-REP roasting attack</summary><br>**Description**:<br><br>A suspicious Kerberos authentication request was made to accounts that do not require pre-authentication. An attacker might be performing an AS-REP roasting attack to steal passwords and gain further access into the network.</details> | Medium | [T1558.004](https://attack.mitre.org/techniques/T1558/004) | xdr_AsrepRoastingAttack |\n |<a name=\"possible-golden-saml-attack\"></a><details><summary>Possible Golden SAML attack</summary><br>**Description**:<br><br>A privileged user account authenticated with characteristics that might be related to a Golden SAML attack.</details> | High | [T1071](https://attack.mitre.org/techniques/T1071), [T1606.002](https://attack.mitre.org/techniques/T1606/002) | xdr_PossibleGoldenSamlAttack |\n |<a name=\"possible-golden-ticket-attack\"></a><details><summary>Possible golden ticket attack</summary><br>**Description**:<br><br>A suspicious Kerberos ticket granting service (TGS) request was observed. An attacker might be using stolen credentials of the KRBTGT account to attempt a golden ticket attack.</details> | High | [T1558.001](https://attack.mitre.org/techniques/T1558/001) | xdr_PossibleGoldenTicketAttacks |\n",
+      "baseCommitSha": "211df10bccb77b38db5b5ac4ea0b45ce7e5988ad",
+      "commitSha": "95e59ffeeb242b9d95d448b3408f3731b4764e6a",
+      "commitMessage": "Add links to new alerts in mdi whats new",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T15:59:03+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/alerts-xdr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/alerts-xdr",
+      "firstSeenAt": "2026-02-16T13:59:03.000Z",
+      "eventId": "defender-docs:95e59ffeeb242b9d95d448b3408f3731b4764e6a:modified:defender-for-identity/alerts-xdr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add links to new alerts in mdi whats new",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 8,
+      "changes": 23,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 2a3c148aa..18c08696f 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -34,21 +34,28 @@ For updates about versions and features released six months ago or earlier, see\n /defender-xdr/advanced-hunting-identityaccountinfo-table)** table. This table provides account information from various sources, including Microsoft Entra ID, and links to the identity that owns the account.\n \n \n-### New security posture assessment: Remove stale Active Directory accounts (Preview)\n+### New security posture assessment: Remove stale Active Directory accounts (Preview) and  Microsoft Entra ID privileged user accounts that are also privileged in Active Directory (Preview)\n \n-This identity security posture assessment lists any user accounts in Active Directory that are stale, meaning they haven't logged in at all during the past 90 days.\n+- [Security posture assessment: Remove stale Active Directory accounts](security-posture-assessments/accounts.md#remove-stale-active-directory-accounts-preview) lists any user accounts in Active Directory that are stale, meaning they haven't logged in at all during the past 90 days.\n \n-For more information, see: [Security posture assessment: Remove stale Active Directory accounts](security-posture-assessments/accounts.md#remove-stale-active-directory-accounts-preview)\n+ - [Security posture assessment: Microsoft Entra ID privileged user accounts that are also privileged in Active Directory](security-posture-assessments/accounts.md#microsoft-entra-id-privileged-user-accounts-that-are-also-privileged-in-active-directory-preview) lists Microsoft Entra ID privileged user accounts that also have privileged roles in Active Directory.\n \n-### New security posture assessment: Microsoft Entra ID privileged user accounts that are also privileged in Active Directory (Preview)\n \n-This identity security posture assessment lists Microsoft Entra ID privileged user accounts that also have privileged roles in Active Directory.\n+### MDI alerts migrated to the unified Defender alerting experience\n \n-For more information, see: [Security posture assessment: Microsoft Entra ID privileged user accounts that are also privileged in Active Directory](security-posture-assessments/accounts.md#microsoft-entra-id-privileged-user-accounts-that-are-also-privileged-in-active-directory-preview)\n+As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format.\n \n+- [Pass-the-Ticket (PtT) attack (Preview)](/defender-for-identity/alerts-xdr.md#lateral-movement-alerts)\n+- [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n+- [Possible Active Directory Certificate Services enumeration](/defender-for-identity/alerts-xdr.md#discovery-alerts)\n+- [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n+- [Possible Active Directory enumeration via ADWS](/defender-for-identity/alerts-xdr.md#discovery-alerts)\n+- [Possible OAuth code theft detected through consent abuse](/defender-for-identity/alerts-xdr.md#r#discovery-alerts)\n+- [Suspicious NTLM authentication](/defender-for-identity/alerts-xdr.md#credential-access-alerts)\n+- [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](/defender-for-identity/alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n \n-### MDI alerts migrated to the unified Defender alerting experience\n-As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, some alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format. Keep in mind that all alerts are based on detections from Defender for Identity sensors. See [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) for the full list of Microsoft Defender alerts.\n+\n+All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) .\n \n ### New Health Alert: Sensor v3.x RPC Audit Misconfigured\n Enhanced RPC auditing is required for some Microsoft Defender for Identity advanced identity detections. A new health alert helps identify v3.x sensors where this configuration is either missing or incorrectly applied. The alert is being rolled out gradually to customers. For more information, see [Configure RPC on sensors v3.x](deploy/prerequisites-sensor-version-3.md#configure-rpc-auditing).\n",
+      "baseCommitSha": "211df10bccb77b38db5b5ac4ea0b45ce7e5988ad",
+      "commitSha": "95e59ffeeb242b9d95d448b3408f3731b4764e6a",
+      "commitMessage": "Add links to new alerts in mdi whats new",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T15:59:03+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T13:59:03.000Z",
+      "eventId": "defender-docs:95e59ffeeb242b9d95d448b3408f3731b4764e6a:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add links to new alerts in mdi whats new",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 18c08696f..b32edff82 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -45,7 +45,7 @@ For updates about versions and features released six months ago or earlier, see\n \n As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format.\n \n-- [Pass-the-Ticket (PtT) attack (Preview)](/defender-for-identity/alerts-xdr.md#lateral-movement-alerts)\n+- [Pass-the-Ticket (PtT) attack (Preview)](/defender-for-identity/alerts-xdr.md#-pass-the-ticket-ptt-attack-preview)\n - [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n - [Possible Active Directory Certificate Services enumeration](/defender-for-identity/alerts-xdr.md#discovery-alerts)\n - [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n",
+      "baseCommitSha": "7379c4633db3b05c1b75b1e5f627cd48741fc3c0",
+      "commitSha": "5efeb22819756dadbdfdc43b48f39a4edeba0061",
+      "commitMessage": "change link",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:03:47+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T14:03:47.000Z",
+      "eventId": "defender-docs:5efeb22819756dadbdfdc43b48f39a4edeba0061:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "change link",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/alerts-xdr.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-for-identity/alerts-xdr.md b/defender-for-identity/alerts-xdr.md\nindex 7b04c73e8..a02ab2ab7 100644\n--- a/defender-for-identity/alerts-xdr.md\n+++ b/defender-for-identity/alerts-xdr.md\n@@ -51,7 +51,8 @@ This section describes alerts indicating that a malicious actor might be attempt\n |<a name=\"okta-fastpass-phishing-attack-detected\"></a><details><summary>Okta FastPass phishing attack detected</summary><br>**Description**:<br><br>A successful Okta FastPass phishing attack was detected for user {AccountUpn}. An initial phishing attempt was declined at {phishingAttemptTime}, but the compromised session {SessionId} was later used for authentication actions at {Timestamp}. The session originated from IP address {PhishingIPAddress} and was subsequently reused from {ReuseIPAddress} with user agent {ReuseUserAgent}. Risk level: {SessionReuseRisk}.</details> | High | [T1539](https://attack.mitre.org/techniques/T1539), [T1550.004](https://attack.mitre.org/techniques/T1550/004) | xdr_OktaFastPassPhishingAttempt |\n |<a name=\"okta-privileged-role-assigned-to-application\"></a><details><summary>Okta privileged role assigned to application</summary><br>**Description**:<br><br>{ActorAliasName} assigned {RoleDisplayName} role to applictaion: {ApplicationDisplayName}</details> | High | [T1003.006](https://attack.mitre.org/techniques/T1003/006) | xdr_OktaPrivilegedRoleAssignedToApplication |\n |<a name=\"possible-account-secret-leak\"></a><details><summary>Possible account secret leak</summary><br>**Description**:<br><br>A failed attempt to sign in to a user account by a credential stuffing tool was detected. The error code indicates that the secret was valid but misused. The user account's credentials might have been leaked or are in the possession of an unauthorized party.</details> | High | [T1078](https://attack.mitre.org/techniques/T1078) | xdr_CredentialStuffingToolObserved |\n-|<details><summary id=\"possible-adversary-in-the-middle-aitm-attack-detected-consentfix\">Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)</summary><br>**Description**:<br><br>A possible token theft has been detected. Threat actor tricked a user into granting consent or sharing an authorization code through social engineering or adversary-in-the-middle (AiTM) techniques. A stolen code is exchanged for access tokens. Threat actor then impersonates the user without a password or multifactor authentication (MFA). This allows unauthorized access to Microsoft 365 services and sensitive data.</details> | High | [T1557](https://attack.mitre.org/techniques/T1557) | xdr_PossibleAitMConsentFix|\n+||<a name=\"possible-adversary-in-the-middle-aitm-attack-detected-consentfix\"></a><details><summary>Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)</summary><br>**Description**:<br><br>A possible token theft has been detected. Threat actor tricked a user into granting consent or sharing an authorization code through social engineering or adversary-in-the-middle (AiTM) techniques. A stolen code is exchanged for access tokens. Threat actor then impersonates the user without a password or multifactor authentication (MFA). This allows unauthorized access to Microsoft 365 services and sensitive data.</details> | High | [T1557](https://attack.mitre.org/techniques/T1557) | xdr_PossibleAitMConsentFix |\n+|<a name=\"possible-as-rep-roasting-attack\"></a><details><summary>Possible AS-REP roasting attack</summary><br>**Description**:<br><br>A suspicious Kerberos authentication request was made to accounts that do not require pre-authentication. An attacker might be performing an AS-REP roasting attack to steal passwords and gain further access into the network.</details> | Medium | [T1558.004](https://attack.mitre.org/techniques/T1558/004) | xdr_AsrepRoastingAttack ||\n |<a name=\"possible-as-rep-roasting-attack\"></a><details><summary>Possible AS-REP roasting attack</summary><br>**Description**:<br><br>A suspicious Kerberos authentication request was made to accounts that do not require pre-authentication. An attacker might be performing an AS-REP roasting attack to steal passwords and gain further access into the network.</details> | Medium | [T1558.004](https://attack.mitre.org/techniques/T1558/004) | xdr_AsrepRoastingAttack |\n |<a name=\"possible-golden-saml-attack\"></a><details><summary>Possible Golden SAML attack</summary><br>**Description**:<br><br>A privileged user account authenticated with characteristics that might be related to a Golden SAML attack.</details> | High | [T1071](https://attack.mitre.org/techniques/T1071), [T1606.002](https://attack.mitre.org/techniques/T1606/002) | xdr_PossibleGoldenSamlAttack |\n |<a name=\"possible-golden-ticket-attack\"></a><details><summary>Possible golden ticket attack</summary><br>**Description**:<br><br>A suspicious Kerberos ticket granting service (TGS) request was observed. An attacker might be using stolen credentials of the KRBTGT account to attempt a golden ticket attack.</details> | High | [T1558.001](https://attack.mitre.org/techniques/T1558/001) | xdr_PossibleGoldenTicketAttacks |\n",
+      "baseCommitSha": "5efeb22819756dadbdfdc43b48f39a4edeba0061",
+      "commitSha": "868585a29942d8595292a66f9999c9f7fb9784ab",
+      "commitMessage": "change table back",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:09:23+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/alerts-xdr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/alerts-xdr",
+      "firstSeenAt": "2026-02-16T14:09:23.000Z",
+      "eventId": "defender-docs:868585a29942d8595292a66f9999c9f7fb9784ab:modified:defender-for-identity/alerts-xdr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "change table back",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex b32edff82..18c08696f 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -45,7 +45,7 @@ For updates about versions and features released six months ago or earlier, see\n \n As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format.\n \n-- [Pass-the-Ticket (PtT) attack (Preview)](/defender-for-identity/alerts-xdr.md#-pass-the-ticket-ptt-attack-preview)\n+- [Pass-the-Ticket (PtT) attack (Preview)](/defender-for-identity/alerts-xdr.md#lateral-movement-alerts)\n - [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n - [Possible Active Directory Certificate Services enumeration](/defender-for-identity/alerts-xdr.md#discovery-alerts)\n - [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n",
+      "baseCommitSha": "5efeb22819756dadbdfdc43b48f39a4edeba0061",
+      "commitSha": "868585a29942d8595292a66f9999c9f7fb9784ab",
+      "commitMessage": "change table back",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:09:23+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T14:09:23.000Z",
+      "eventId": "defender-docs:868585a29942d8595292a66f9999c9f7fb9784ab:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "change table back",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 18c08696f..74bd32bab 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -45,14 +45,14 @@ For updates about versions and features released six months ago or earlier, see\n \n As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format.\n \n-- [Pass-the-Ticket (PtT) attack (Preview)](/defender-for-identity/alerts-xdr.md#lateral-movement-alerts)\n-- [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n-- [Possible Active Directory Certificate Services enumeration](/defender-for-identity/alerts-xdr.md#discovery-alerts)\n-- [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](/defender-for-identity/alerts-xdr.md#initial-access-alerts)\n-- [Possible Active Directory enumeration via ADWS](/defender-for-identity/alerts-xdr.md#discovery-alerts)\n-- [Possible OAuth code theft detected through consent abuse](/defender-for-identity/alerts-xdr.md#r#discovery-alerts)\n-- [Suspicious NTLM authentication](/defender-for-identity/alerts-xdr.md#credential-access-alerts)\n-- [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](/defender-for-identity/alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n+- [Pass-the-Ticket (PtT) attack (Preview)](defender-for-identity/alerts-xdr.md#lateral-movement-alerts)\n+- [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](defender-for-identity/alerts-xdr.md#initial-access-alerts)\n+- [Possible Active Directory Certificate Services enumeration](defender-for-identity/alerts-xdr.md#discovery-alerts)\n+- [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](defender-for-identity/alerts-xdr.md#initial-access-alerts)\n+- [Possible Active Directory enumeration via ADWS](defender-for-identity/alerts-xdr.md#discovery-alerts)\n+- [Possible OAuth code theft detected through consent abuse](defender-for-identity/alerts-xdr.md#discovery-alerts)\n+- [Suspicious NTLM authentication](defender-for-identity/alerts-xdr.md#credential-access-alerts)\n+- [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](defender-for-identity/alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n \n \n All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) .\n",
+      "baseCommitSha": "868585a29942d8595292a66f9999c9f7fb9784ab",
+      "commitSha": "791102a14937d1d8f0398937ad98c7f92cc49903",
+      "commitMessage": "remove forward slash",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:10:21+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T14:10:21.000Z",
+      "eventId": "defender-docs:791102a14937d1d8f0398937ad98c7f92cc49903:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "remove forward slash",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 8,
+      "changes": 17,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 74bd32bab..e3a2b6269 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -45,14 +45,15 @@ For updates about versions and features released six months ago or earlier, see\n \n As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format.\n \n-- [Pass-the-Ticket (PtT) attack (Preview)](defender-for-identity/alerts-xdr.md#lateral-movement-alerts)\n-- [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](defender-for-identity/alerts-xdr.md#initial-access-alerts)\n-- [Possible Active Directory Certificate Services enumeration](defender-for-identity/alerts-xdr.md#discovery-alerts)\n-- [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](defender-for-identity/alerts-xdr.md#initial-access-alerts)\n-- [Possible Active Directory enumeration via ADWS](defender-for-identity/alerts-xdr.md#discovery-alerts)\n-- [Possible OAuth code theft detected through consent abuse](defender-for-identity/alerts-xdr.md#discovery-alerts)\n-- [Suspicious NTLM authentication](defender-for-identity/alerts-xdr.md#credential-access-alerts)\n-- [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](defender-for-identity/alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n+\n+* [Pass-the-Ticket (PtT) attack (Preview)](defender-for-identity/alerts-xdr.md#pass-the-ticket-ptt-attack-preview)\n+* [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](defender-for-identity/alerts-xdr.md#suspicious-sign-in-observed-from-entra-id-sync-application-to-an-uncommon-resource-app)\n+* [Possible Active Directory Certificate Services enumeration](defender-for-identity/alerts-xdr.md#possible-active-directory-certificate-services-enumeration)\n+* [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent]defender-for-identity/alerts-xdr.md#-suspicious-sign-in-observed-to-entra-id-sync-application-using-an-uncommon-user-agent)\n+* [Possible Active Directory enumeration via ADWS](defender-for-identity/alerts-xdr.md#possible-active-directory-enumeration-via-adws)\n+* [Possible OAuth code theft detected through consent abuse](defender-for-identity/alerts-xdr.md#-possible-oauth-code-theft-detected-through-consent-abuse)\n+* [Suspicious NTLM authentication](defender-for-identity/alerts-xdr.md#-suspicious-ntlm-authentication)\n+* [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](defender-for-identity/alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n \n \n All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) .\n",
+      "baseCommitSha": "791102a14937d1d8f0398937ad98c7f92cc49903",
+      "commitSha": "ede9e77fbfed42a7c5502b659031ab457dde9b7d",
+      "commitMessage": "fix links",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:17:23+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T14:17:23.000Z",
+      "eventId": "defender-docs:ede9e77fbfed42a7c5502b659031ab457dde9b7d:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix links",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 9,
+      "changes": 17,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex e3a2b6269..0809cb6c3 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -45,15 +45,14 @@ For updates about versions and features released six months ago or earlier, see\n \n As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format.\n \n-\n-* [Pass-the-Ticket (PtT) attack (Preview)](defender-for-identity/alerts-xdr.md#pass-the-ticket-ptt-attack-preview)\n-* [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](defender-for-identity/alerts-xdr.md#suspicious-sign-in-observed-from-entra-id-sync-application-to-an-uncommon-resource-app)\n-* [Possible Active Directory Certificate Services enumeration](defender-for-identity/alerts-xdr.md#possible-active-directory-certificate-services-enumeration)\n-* [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent]defender-for-identity/alerts-xdr.md#-suspicious-sign-in-observed-to-entra-id-sync-application-using-an-uncommon-user-agent)\n-* [Possible Active Directory enumeration via ADWS](defender-for-identity/alerts-xdr.md#possible-active-directory-enumeration-via-adws)\n-* [Possible OAuth code theft detected through consent abuse](defender-for-identity/alerts-xdr.md#-possible-oauth-code-theft-detected-through-consent-abuse)\n-* [Suspicious NTLM authentication](defender-for-identity/alerts-xdr.md#-suspicious-ntlm-authentication)\n-* [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](defender-for-identity/alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n+* [Pass-the-Ticket (PtT) attack (Preview)](alerts-xdr.md#pass-the-ticket-ptt-attack-preview)\n+* [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](alerts-xdr.md#suspicious-sign-in-observed-from-entra-id-sync-application-to-an-uncommon-resource-app)\n+* [Possible Active Directory Certificate Services enumeration](alerts-xdr.md#possible-active-directory-certificate-services-enumeration)\n+* [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](alerts-xdr.md#-suspicious-sign-in-observed-to-entra-id-sync-application-using-an-uncommon-user-agent)\n+* [Possible Active Directory enumeration via ADWS](alerts-xdr.md#possible-active-directory-enumeration-via-adws)\n+* [Possible OAuth code theft detected through consent abuse](alerts-xdr.md#-possible-oauth-code-theft-detected-through-consent-abuse)\n+* [Suspicious NTLM authentication](alerts-xdr.md#-suspicious-ntlm-authentication)\n+* [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n \n \n All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) .\n",
+      "baseCommitSha": "ede9e77fbfed42a7c5502b659031ab457dde9b7d",
+      "commitSha": "d9cf8074dc838bfd54afdf82f954ede27d89c24e",
+      "commitMessage": "remove defender for identity in the link",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:22:52+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T14:22:52.000Z",
+      "eventId": "defender-docs:d9cf8074dc838bfd54afdf82f954ede27d89c24e:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "remove defender for identity in the link",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 0809cb6c3..c81751e9a 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -48,10 +48,10 @@ As part of the ongoing transition to a unified alerting experience across Micros\n * [Pass-the-Ticket (PtT) attack (Preview)](alerts-xdr.md#pass-the-ticket-ptt-attack-preview)\n * [Suspicious sign-in observed from Entra ID sync application to an uncommon resource app](alerts-xdr.md#suspicious-sign-in-observed-from-entra-id-sync-application-to-an-uncommon-resource-app)\n * [Possible Active Directory Certificate Services enumeration](alerts-xdr.md#possible-active-directory-certificate-services-enumeration)\n-* [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](alerts-xdr.md#-suspicious-sign-in-observed-to-entra-id-sync-application-using-an-uncommon-user-agent)\n+* [Suspicious sign-in observed to Entra ID sync application using an uncommon user agent](alerts-xdr.md#suspicious-sign-in-observed-to-entra-id-sync-application-using-an-uncommon-user-agent)\n * [Possible Active Directory enumeration via ADWS](alerts-xdr.md#possible-active-directory-enumeration-via-adws)\n-* [Possible OAuth code theft detected through consent abuse](alerts-xdr.md#-possible-oauth-code-theft-detected-through-consent-abuse)\n-* [Suspicious NTLM authentication](alerts-xdr.md#-suspicious-ntlm-authentication)\n+* [Possible OAuth code theft detected through consent abuse](alerts-xdr.md#possible-oauth-code-theft-detected-through-consent-abuse)\n+* [Suspicious NTLM authentication](alerts-xdr.md#suspicious-ntlm-authentication)\n * [Possible adversary-in-the-middle (AiTM) attack detected (ConsentFix)](alerts-xdr.md#possible-adversary-in-the-middle-aitm-attack-detected-consentfix)\n \n \n",
+      "baseCommitSha": "d9cf8074dc838bfd54afdf82f954ede27d89c24e",
+      "commitSha": "70b76c6d911bf1e88c8f444e421be6bef4d5f165",
+      "commitMessage": "remove hyphen",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-16T16:26:21+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-16T14:26:21.000Z",
+      "eventId": "defender-docs:70b76c6d911bf1e88c8f444e421be6bef4d5f165:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "remove hyphen",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/enable-network-protection.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/enable-network-protection.md b/defender-endpoint/enable-network-protection.md\nindex c94d31e4e..1bda34bb9 100644\n--- a/defender-endpoint/enable-network-protection.md\n+++ b/defender-endpoint/enable-network-protection.md\n@@ -133,7 +133,7 @@ To enable network protection, you can use any of the methods described in this a\n \n 4. On the **Create a profile** flyout that opens, select **Create**.\n \n-5. The **Create profile** wizard opens. On the **Basics** tab, configure the following settings:\n+5. The **Create a profile** wizard opens. On the **Basics** tab, configure the following settings:\n    - **Name**: Enter a unique, descriptive name for the policy.\n    - **Description**: Enter an optional description.\n \n",
+      "baseCommitSha": "8b8fef0b909e98589524b6e079da1fb4a42c2a75",
+      "commitSha": "f61621c9c7df309ca670d69e18740021b760751d",
+      "commitMessage": "Enable network protection create a profile",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-02-16T16:41:19+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/enable-network-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/enable-network-protection",
+      "firstSeenAt": "2026-02-16T14:41:19.000Z",
+      "eventId": "defender-docs:f61621c9c7df309ca670d69e18740021b760751d:modified:defender-endpoint/enable-network-protection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Enable network protection create a profile",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 64,
+      "changes": 76,
+      "patch": "diff --git a/defender-xdr/identity-security.md b/defender-xdr/identity-security.md\nindex 9c51cae9b..fbfd72099 100644\n--- a/defender-xdr/identity-security.md\n+++ b/defender-xdr/identity-security.md\n@@ -8,79 +8,27 @@ ms.reviewer: AbbyMSFT\n \n # Identity Security\n \n-Identity security is the practice of protecting the digital identities of individuals and organizations. This includes protecting passwords, usernames, and other credentials that can be used to access sensitive data or systems. Identity security is essential for protecting against a wide range of cyber threats, including phishing, malware, and data breaches.\n+The Microsoft Defender Identity security solution focuses on detecting, investigating, and responding to threats that target digital identities. Identities are the most common attack vector in enterprise security breaches. Identity security solutions continuously monitor identity-related activities, analyze behavior patterns, and identify anomalies that indicate malicious activity. When threats are detected, these solutions enable rapid response through actions such as isolating compromised accounts, enforcing strong authentication, or triggering automated remediation workflows.\n \n-## Prerequisites\n+Microsoft Defender provides identity security capabilities that protect identities across your entire organization. This includes identities in on-premises Active Directory environments, cloud identity providers like Microsoft Entra ID, SaaS applications, and third-party identity providers and partners. Defender identity security covers both human identities (user accounts) and non-human identities such as service accounts, service principals, and OAuth applications. By connecting these identity sources, you gain visibility into identity-based threats across all your environments and can respond to attacks before they spread.\n \n-- Your organization must have a Microsoft Defender for Identity license.\n-- [Review prerequisites and permissions needed](/security-exposure-management/prerequisites) for working with Security Exposure Management.\n+## Key features\n \n-## View Identity Security Initiatives\n-1. Navigate to the [Microsoft Defender portal](https://security.microsoft.com/).\n-1. From the Exposure management section on the navigation bar, select **Exposure insights** **>** **Initiatives** to open the Identity Security page.\n+Defender identity security includes the following capabilities:\n \n-   :::image type=\"content\" source=\"media/identity-security-initiative/screenshot-of-the-identity-security-initiative-page.png\" alt-text=\"Screenshot showing the Identity security initiative page.\" lightbox=\"media/identity-security-initiative/screenshot-of-the-identity-security-initiative-page.png\":::\n+- **Unified identity inventory**: Consolidates identity accounts and their relationships across on-premises Active Directory, Entra ID, SaaS applications, and third-party identity providers into a single view. This enables you to see all identities in your organization regardless of where they're managed.\n \n-## Review security metrics\n+- **Coverage & Maturity dashboard**: Shows your current identity protection posture with a maturity score that indicates how well your identities are protected. The dashboard identifies deployment gaps and provides recommended actions to improve coverage. For more information, see [Work with the Coverage & Maturity dashboard](identity-security-dashboard.md).\n \n-Metrics in security initiatives help you to measure exposure risk for different areas within the initiative. Each metric gathers together one or more recommendations for similar assets.\n-Metrics can be associated with one or more initiatives.\n+- **Identity risk score**: Aggregates signals from Microsoft Defender for Identity, Microsoft Entra ID Protection, and other sources into a unified risk score. This score drives policy enforcement through Conditional Access and enables automated threat response.\n \n-On the **Metrics** tab of an initiative, or in the Metrics section of Exposure Insights, you can see the metric state, its effect, and relative importance in an initiative, and recommendations to improve the metric.\n-We recommend that you prioritize metrics with the highest impact on Initiative Score level. This composite measure considers both the weight value of each recommendation and the percentage of noncompliant recommendations.\n+- **Lateral movement path analysis**: Identifies paths that attackers could use to move between accounts and systems. This helps you understand how a compromised identity could lead to access to sensitive resources.\n \n-:::image type=\"content\" source=\"media/identity-security-initiative/screenshot-of-the-security-metrics-page.png\" alt-text=\"Screenshot showing the security metrics page.\" lightbox=\"media/identity-security-initiative/screenshot-of-the-security-metrics-page.png\":::\n+- **Threat detection**: Detects identity-based attacks including Kerberos attacks, credential theft, domain controller compromise, rogue device registration, and suspicious authentication patterns across hybrid and cloud environments.\n \n+- **Attack disruption**: Automatically contains threats by disabling compromised accounts, revoking sessions, isolating devices, and resetting credentials. These actions stop attacks from spreading while you investigate.\n \n-|Metric property |Description  |\n-|---------|---------|\n-|**Metric name**    | The name of the metric.        |\n-|**Progress**   |Shows the improvement of the exposure level for the metric from 0 (high exposure) to 100 (no exposure).         |\n-|**State**   | Shows if the metric needs attention or if the target was met.       |\n-|**Total assets**  | Total number of assets under the metric scope.        |\n-|**Recommendations**   | Security recommendations associated with the metric.        |\n-|**Weight**    | The relative weight (importance) of the metric within the initiative, and its effect on the initiative score. Shown as High, Medium, and Low. It can also be defined as Risk accepted.        |\n-|**14-day trend** | Shows the metric value changes over the last 14 days.        |\n-|**Last updated** | Shows a timestamp of when the metric was last updated.\n+- **Non-human identity protection**: Discovers and protects service accounts, service principals, OAuth applications, and other non-human identities that are often targeted by attackers.\n \n-> [!NOTE]\n-> The Affected assets experience isn't fully supported during the Preview phase.\n+- **Third-party identity provider support**: Extends protection to identities managed by third-party providers including Okta, PingOne, CyberArk, and SailPoint, as well as privileged access management (PAM) solutions.\n \n-## View Identity security recommendations\n-\n- The Security recommendations tab displays a list of prioritized remediation actions related to your identity security posture. Each recommendation is evaluated for compliance and mapped to its corresponding risk impact, workload, and domain. This view helps you triage and take action based on urgency and business relevance.\n-\n-:::image type=\"content\" source=\"media/identity-security-initiative/screenshot-showing-the-security-recommendations-page.png\" alt-text=\"Showing showing the security recommendations page.\" lightbox=\"media/identity-security-initiative/screenshot-showing-the-security-recommendations-page.png\":::\n-\n-Sort the recommendations by any of the headings or filter them based on your task needs. \n-\n-| **Column**             | **Description**                                                                 |\n-|------------------------|---------------------------------------------------------------------------------|\n-| **Name**               | The name of the recommended action (for example, *Configure VPN integration*, *Enable MFA*). |\n-| **State**              | Indicates whether the recommendation is *Compliant* or *Not Compliant*.         |\n-| **Impact**             | The security impact level (Low, Medium, or High) of implementing the recommendation. |\n-| **Workload**           | The Microsoft service area the recommendation applies to (for example, Defender for Identity, Microsoft Entra ID). |\n-| **Domain**             | The security domain (for example, identity, apps) associated with the recommendation.   |\n-| **Last calculated**    | The most recent time the recommendation's status was evaluated.                 |\n-| **Last state change**  | When the recommendation’s compliance state last changed.                        |\n-| **Related initiatives**| Number of security initiatives impacted by this recommendation.                 |\n-| **Related metrics**    | Number of security metrics that this recommendation contributes to.             |\n-\n-Security Exposure Management categorizes recommendations by compliance status, as follows:\n-\n-- **Compliant**: Indicates that the recommendation was implemented successfully.\n-- **Not complaint**: Indicates that the recommendation wasn't fixed.\n-\n-## Set target score\n-\n-You can set a customized target score for the initiative, taking your organization’s unique set of circumstances, priorities, and risk appetite into account.\n-\n-To set a target store, select the initiative, and then select **Set target score** from the top of the initiative pane.\n-\n-:::image type=\"content\" source=\"media/identity-security-initiative/set-target-score.png\" alt-text=\"Screenshot showing the set target score button.\" lightbox=\"media/identity-security-initiative/set-target-score.png\":::\n-\n-## Related content\n-\n-- [Review security initiatives](/security-exposure-management/initiatives)\n-\n-- [Investigate security initiative metrics](/security-exposure-management/security-metrics)\n",
+      "baseCommitSha": "5e63952eaeaf48f98c925e24cbc574917351c194",
+      "commitSha": "e8eefafa34926b345509aabdd6bb4a468532ae25",
+      "commitMessage": "Identity security draft",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T16:58:43+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security",
+      "firstSeenAt": "2026-02-16T14:58:43.000Z",
+      "eventId": "defender-docs:e8eefafa34926b345509aabdd6bb4a468532ae25:modified:defender-xdr/identity-security.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Identity security draft",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security-dashboard.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/identity-security-dashboard.md b/defender-xdr/identity-security-dashboard.md\nindex 61ec0c693..21a6a32dd 100644\n--- a/defender-xdr/identity-security-dashboard.md\n+++ b/defender-xdr/identity-security-dashboard.md\n@@ -3,8 +3,11 @@ title: Microsoft Defender coverage and maturity dashboard\n description: Learn how to use the Coverage & Maturity dashboard in Microsoft Defender to understand identity protection posture across on-premises, cloud, SaaS, and partner environments.\n ms.date: 02/16/2026\n ms.topic: how-to\n+ms.author: abbyweisberg\n+author: AbbyMSFT\n ms.reviewer: maelgami\n ai-usage: ai-assisted\n+ms.service: Microsoft Defender\n ---\n \n # Work with the Coverage & Maturity dashboard\n",
+      "baseCommitSha": "322bf44f5fae5522f2a0171c01be07d108d98235",
+      "commitSha": "b4cba4f5fe07871762f9746cc7c0116b7c46e977",
+      "commitMessage": "Identity Security draft",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T17:05:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security-dashboard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security-dashboard",
+      "firstSeenAt": "2026-02-16T15:05:48.000Z",
+      "eventId": "defender-docs:b4cba4f5fe07871762f9746cc7c0116b7c46e977:modified:defender-xdr/identity-security-dashboard.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Identity Security draft",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/identity-security.md b/defender-xdr/identity-security.md\nindex fbfd72099..7081662be 100644\n--- a/defender-xdr/identity-security.md\n+++ b/defender-xdr/identity-security.md\n@@ -4,6 +4,9 @@ description: Learn how to enhance your organization's identity security.\n ms.topic: overview\n ms.date: 01/29/2026\n ms.reviewer: AbbyMSFT\n+ms.author: abbyweisberg\n+author: AbbyMSFT\n+ms.service: Microsoft Defender\n ---\n \n # Identity Security\n",
+      "baseCommitSha": "322bf44f5fae5522f2a0171c01be07d108d98235",
+      "commitSha": "b4cba4f5fe07871762f9746cc7c0116b7c46e977",
+      "commitMessage": "Identity Security draft",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T17:05:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security",
+      "firstSeenAt": "2026-02-16T15:05:48.000Z",
+      "eventId": "defender-docs:b4cba4f5fe07871762f9746cc7c0116b7c46e977:modified:defender-xdr/identity-security.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Identity Security draft",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security-dashboard.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 12,
+      "changes": 14,
+      "patch": "diff --git a/defender-xdr/identity-security-dashboard.md b/defender-xdr/identity-security-dashboard.md\nindex 21a6a32dd..18d4e455a 100644\n--- a/defender-xdr/identity-security-dashboard.md\n+++ b/defender-xdr/identity-security-dashboard.md\n@@ -7,7 +7,7 @@ ms.author: abbyweisberg\n author: AbbyMSFT\n ms.reviewer: maelgami\n ai-usage: ai-assisted\n-ms.service: Microsoft Defender\n+ms.service: defender-xdr\n ---\n \n # Work with the Coverage & Maturity dashboard\n@@ -58,7 +58,7 @@ Select **Learn more** on the maturity score widget to open a side panel that exp\n \n ## Take recommended actions\n \n-The recommended actions section appears directly below the maturity score and displays three contextual action cards. Each action card includes a description, time estimate, and a **Take Action** button. The portal sources these actions from the deployment gaps it identifies across the coverage cards.\n+The recommended actions displays three action cards. Each action card includes a description, time estimate, and a **Take Action** button. The portal generates these actions based on the deployment gaps it identifies in the coverage cards.\n \n The portal sorts gaps by impact, highest first. The priority order for deployment gaps is:\n \n@@ -66,16 +66,6 @@ The portal sorts gaps by impact, highest first. The priority order for deploymen\n 1. SaaS app connectors.\n 1. IdP / PAM / PIM integrations.\n \n-The effort and impact for each gap type are:\n-\n-| Gap type | Effort | Impact |\n-|---|---|---|\n-| Entra ID tasks | Low | High |\n-| SaaS app connectors | Low | Medium |\n-| On-premises sensor configuration | Low | Low |\n-| Legacy sensor configuration | Medium | Low |\n-| IdP and partner configuration | Low | Medium |\n-\n When you resolve all three displayed tasks, the section updates to show the next three deployment gaps. When no deployment gaps remain, the section indicates that your environment is fully protected.\n \n ## Review coverage cards\n",
+      "baseCommitSha": "b4cba4f5fe07871762f9746cc7c0116b7c46e977",
+      "commitSha": "b6bccd61d97d7f3283ce34ece03c309ffacb890e",
+      "commitMessage": "Edits",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T17:13:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security-dashboard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security-dashboard",
+      "firstSeenAt": "2026-02-16T15:13:44.000Z",
+      "eventId": "defender-docs:b6bccd61d97d7f3283ce34ece03c309ffacb890e:modified:defender-xdr/identity-security-dashboard.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edits",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/identity-security.md b/defender-xdr/identity-security.md\nindex 7081662be..ae4ed01c5 100644\n--- a/defender-xdr/identity-security.md\n+++ b/defender-xdr/identity-security.md\n@@ -6,7 +6,7 @@ ms.date: 01/29/2026\n ms.reviewer: AbbyMSFT\n ms.author: abbyweisberg\n author: AbbyMSFT\n-ms.service: Microsoft Defender\n+ms.service: defender-xdr\n ---\n \n # Identity Security\n@@ -21,7 +21,7 @@ Defender identity security includes the following capabilities:\n \n - **Unified identity inventory**: Consolidates identity accounts and their relationships across on-premises Active Directory, Entra ID, SaaS applications, and third-party identity providers into a single view. This enables you to see all identities in your organization regardless of where they're managed.\n \n-- **Coverage & Maturity dashboard**: Shows your current identity protection posture with a maturity score that indicates how well your identities are protected. The dashboard identifies deployment gaps and provides recommended actions to improve coverage. For more information, see [Work with the Coverage & Maturity dashboard](identity-security-dashboard.md).\n+- **Coverage & maturity dashboard**: Shows your current identity protection posture with a maturity score that indicates how well your identities are protected. The dashboard identifies deployment gaps and provides recommended actions to improve coverage. For more information, see [Work with the Coverage & Maturity dashboard](identity-security-dashboard.md).\n \n - **Identity risk score**: Aggregates signals from Microsoft Defender for Identity, Microsoft Entra ID Protection, and other sources into a unified risk score. This score drives policy enforcement through Conditional Access and enables automated threat response.\n \n",
+      "baseCommitSha": "b4cba4f5fe07871762f9746cc7c0116b7c46e977",
+      "commitSha": "b6bccd61d97d7f3283ce34ece03c309ffacb890e",
+      "commitMessage": "Edits",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T17:13:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security",
+      "firstSeenAt": "2026-02-16T15:13:44.000Z",
+      "eventId": "defender-docs:b6bccd61d97d7f3283ce34ece03c309ffacb890e:modified:defender-xdr/identity-security.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edits",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security-dashboard.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/identity-security-dashboard.md b/defender-xdr/identity-security-dashboard.md\nindex 18d4e455a..329709f5d 100644\n--- a/defender-xdr/identity-security-dashboard.md\n+++ b/defender-xdr/identity-security-dashboard.md\n@@ -56,6 +56,10 @@ Select **Learn more** on the maturity score widget to open a side panel that exp\n - A list of all protection improvement tasks with the number of deployment gaps from all source cards.\n - A link to documentation.\n \n+### Maturity score calculation\n+\n+The maturity score uses a weighted matrix of environment coverage and identity type depth. It distributes 100 points across critical domains. When you achieve full coverage across all identity types and environments, your maturity score reaches 100% and the dashboard displays \"Fully licensed, fully deployed.\"\n+\n ## Take recommended actions\n \n The recommended actions displays three action cards. Each action card includes a description, time estimate, and a **Take Action** button. The portal generates these actions based on the deployment gaps it identifies in the coverage cards.\n@@ -141,9 +145,7 @@ The PIM / PAM & IdPs card shows the following information:\n | **Identity count** | Total PIM / PAM & IdPs identities. Select to go to the identity inventory page with filter. |\n | **Deployment gaps** | Number of unresolved deployment gaps |\n \n-## Maturity score calculation\n \n-The maturity score uses a weighted matrix of environment coverage and identity type depth. It distributes 100 points across critical domains. When you achieve full coverage across all identity types and environments, your maturity score reaches 100% and the dashboard displays \"Fully licensed, fully deployed.\"\n \n ## Next steps\n \n",
+      "baseCommitSha": "b6bccd61d97d7f3283ce34ece03c309ffacb890e",
+      "commitSha": "ac6432efc4e0fd421721527c8ce3717e84dda4af",
+      "commitMessage": "moved Maturity score section",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T17:19:43+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security-dashboard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security-dashboard",
+      "firstSeenAt": "2026-02-16T15:19:43.000Z",
+      "eventId": "defender-docs:ac6432efc4e0fd421721527c8ce3717e84dda4af:modified:defender-xdr/identity-security-dashboard.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "moved Maturity score section",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/identity-security-dashboard.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 10,
+      "changes": 20,
+      "patch": "diff --git a/defender-xdr/identity-security-dashboard.md b/defender-xdr/identity-security-dashboard.md\nindex 329709f5d..b7a06b181 100644\n--- a/defender-xdr/identity-security-dashboard.md\n+++ b/defender-xdr/identity-security-dashboard.md\n@@ -1,6 +1,6 @@\n ---\n title: Microsoft Defender coverage and maturity dashboard\n-description: Learn how to use the Coverage & Maturity dashboard in Microsoft Defender to understand identity protection posture across on-premises, cloud, SaaS, and partner environments.\n+description: Learn how to use the Coverage and maturity dashboard in Microsoft Defender to understand identity protection posture across on-premises, cloud, SaaS, and partner environments.\n ms.date: 02/16/2026\n ms.topic: how-to\n ms.author: abbyweisberg\n@@ -10,9 +10,9 @@ ai-usage: ai-assisted\n ms.service: defender-xdr\n ---\n \n-# Work with the Coverage & Maturity dashboard\n+# Work with the Coverage and maturity dashboard\n \n-The Coverage & Maturity dashboard provides a unified view of how well your identities are protected across the entire organization, including on-premises, cloud identity providers (IdPs), SaaS applications, and partner integrations.\n+The Coverage and maturity dashboard provides a unified view of how well your identities are protected across the entire organization, including on-premises, cloud identity providers (IdPs), SaaS applications, and partner integrations.\n \n Use the dashboard to understand your current protection posture, identify gaps, and take clear actions to increase identity coverage and reduce risk.\n \n@@ -24,7 +24,7 @@ The dashboard provides:\n \n ## Prerequisites\n \n-To access the Coverage & Maturity dashboard, you need:\n+To access the Coverage and maturity dashboard, you need:\n \n - A Microsoft Defender for Cloud Apps or Microsoft Defender for Identity license.\n - A user role with at least [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader) permissions.\n@@ -38,7 +38,7 @@ To access the dashboard, sign into Microsoft Defender and select **Identities >\n \n ## Maturity score\n \n-The maturity score, called the Identity Resiliency Index, shows how much of your identity infrastructure is covered by Microsoft Defender protections. The score consists of a maturity tier label and a visual progress bar with color progression (red to yellow to green).\n+The maturity score shows how much of your identity infrastructure is protected by Microsoft Defender protections. The score consists of a maturity tier label and a visual progress bar with color progression (red to yellow to green).\n \n The maturity tiers are:\n \n@@ -74,7 +74,7 @@ When you resolve all three displayed tasks, the section updates to show the next\n \n ## Review coverage cards\n \n-The dashboard displays one coverage card for each identity domain: on-premises identities, SaaS identities, Entra ID identities, and PIM / PAM & IdPs. The cards you see depend on your environment and licensing. If you can enable coverage for a domain, the card provides a link to configure it.\n+The dashboard displays one coverage card for each identity domain: on-premises identities, SaaS identities, Entra ID identities, and PIM / PAM and IdPs. The cards you see depend on your environment and licensing. If you can enable coverage for a domain, the card provides a link to configure it.\n \n Select anywhere on the card to open the side panel with details.\n \n@@ -132,17 +132,17 @@ The Entra ID identities card shows the following information:\n | **Identity count** | Total Entra ID identities. Select to go to the identity inventory page with filter. |\n | **Deployment gaps** | Number of unresolved deployment gaps |\n \n-### PIM / PAM & IdPs card\n+### PIM / PAM and IdPs card\n \n When you connect identity providers and privileged access management solutions, you get a unified view for investigation across all identity providers. You can track user accounts across those providers, investigate activities in Advanced Hunting, and take remediation actions directly on identity provider accounts.\n \n-The PIM / PAM & IdPs card shows the following information:\n+The PIM / PAM and IdPs card shows the following information:\n \n | Item | Description |\n |---|---|\n | **Protection score** | Percentage of IdP providers deployed out of IdP providers discovered in use. Supported IdPs: Okta, PingOne, CyberArk Identity, SailPoint. |\n-| **Coverage breakdown** | X IdPs installed / Y IdPs in use. Additional breakdown: Number of partners deployed. Supported PIM & PAM partners: BeyondTrust, Silverfort, Delinea, CyberArk. A tooltip describes the partner names. |\n-| **Identity count** | Total PIM / PAM & IdPs identities. Select to go to the identity inventory page with filter. |\n+| **Coverage breakdown** | X IdPs installed / Y IdPs in use. Additional breakdown: Number of partners deployed. Supported PIM and PAM partners: BeyondTrust, Silverfort, Delinea, CyberArk. A tooltip describes the partner names. |\n+| **Identity count** | Total PIM / PAM and IdPs identities. Select to go to the identity inventory page with filter. |\n | **Deployment gaps** | Number of unresolved deployment gaps |\n \n \n",
+      "baseCommitSha": "ac6432efc4e0fd421721527c8ce3717e84dda4af",
+      "commitSha": "dde0ae2cbc17260a8cf62d9a9f9c1a6fe760372f",
+      "commitMessage": "capitalization",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-16T17:25:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/identity-security-dashboard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/identity-security-dashboard",
+      "firstSeenAt": "2026-02-16T15:25:13.000Z",
+      "eventId": "defender-docs:dde0ae2cbc17260a8cf62d9a9f9c1a6fe760372f:modified:defender-xdr/identity-security-dashboard.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "capitalization",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 15,
+    "totalFiles": 20,
+    "authors": [
+      "AbbyMSFT",
+      "Devorah Cohen",
+      "Paul Inbar",
+      "Paul Oliveria"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 19 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Added Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Microsoft Defender documentation in defender-xdr/exclude-analytics-rules-correlation.md. Updated Microsoft Defender documentation in defender-xdr/identity-security.md. Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Microsoft Defender documentation in defender-xdr/identity-security.md. Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Microsoft Defender documentation in defender-xdr/identity-security.md. Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Micr",
+        "sourceFiles": [
+          "defender-xdr/identity-security-dashboard.md",
+          "defender-xdr/exclude-analytics-rules-correlation.md",
+          "defender-xdr/identity-security.md",
+          "defender-xdr/identity-security-dashboard.md",
+          "defender-xdr/identity-security.md",
+          "defender-xdr/identity-security-dashboard.md",
+          "defender-xdr/identity-security.md",
+          "defender-xdr/identity-security-dashboard.md",
+          "defender-xdr/identity-security-dashboard.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md. Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md.",
+        "sourceFiles": [
+          "defender-endpoint/enable-network-protection.md",
+          "defender-endpoint/enable-network-protection.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-i",
+        "sourceFiles": [
+          "defender-for-identity/alerts-xdr.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/alerts-xdr.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Added Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Microsoft Defender documentation in defender-xdr/exclude-analytics-rules-correlation.md. Updated Microsoft Defender documentation in defender-xdr/identity-security.md. Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Microsoft Defender documentation in defender-xdr/identity-security.md. Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Microsoft Defender documentation in defender-xdr/identity-security.md. Updated Microsoft Defender documentation in defender-xdr/identity-security-dashboard.md. Updated Micr"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md. Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-i"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

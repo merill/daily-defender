@@ -1,0 +1,258 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md b/defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md\nindex db456fb65..e25500de3 100644\n--- a/defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md\n+++ b/defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md\n@@ -105,7 +105,7 @@ To configure protection update checks before scans in Group Policy, perform the\n Use the following cmdlets:\n \n ```PowerShell\n-Set-MpPreference -CheckForSignaturesBeforeRunningScan\n+Set-MpPreference -CheckForSignaturesBeforeRunningScan 1\n ```\n \n For more information, see [Use PowerShell cmdlets to configure and run Microsoft Defender Antivirus](use-powershell-cmdlets-microsoft-defender-antivirus.md) and [Defender Antivirus cmdlets](/powershell/module/defender/index).\n",
+      "baseCommitSha": "bc5252e183a9e7eee9dc9ef9b2565ab1dddacbc9",
+      "commitSha": "70c002199d41227d798f67372b7d07cd80631b21",
+      "commitMessage": "Update manage-event-based-updates-microsoft-defender-antivirus.md (#345)",
+      "commitAuthor": "0xbadfca11",
+      "commitDate": "2026-07-06T12:06:40+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus",
+      "firstSeenAt": "2026-07-06T03:06:40.000Z",
+      "eventId": "defender-docs:70c002199d41227d798f67372b7d07cd80631b21:modified:defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update manage-event-based-updates-microsoft-defender-antivirus.md (#345)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md b/defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md\nindex 4409d4f73..27e577553 100644\n--- a/defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md\n+++ b/defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md\n@@ -262,11 +262,11 @@ If you encounter problems with your deployment, create or append your Microsoft\n \n    :::image type=\"content\" source=\"media/microsoft-defender-antivirus-deploy-ring-group-policy-wsus-gp-policy-define-order.png\" alt-text=\"Screenshot that shows a screen capture of the Define the order of sources for downloading security intelligence updates page.\" lightbox=\"media/microsoft-defender-antivirus-deploy-ring-group-policy-wsus-gp-policy-define-order.png\":::\n \n-1. Select **Define the order of sources for downloading security intelligence updates**.\n+1. Select **Define file shares for downloading security intelligence updates**.\n \n 1. Select the radio button named **Disabled**, select **Apply**, and then select **OK**. The disabled option is shown in the following figure:\n \n-   :::image type=\"content\" source=\"media/microsoft-defender-antivirus-deploy-ring-group-policy-wsus-gp-policy-disabled.png\" alt-text=\"Screenshot that shows a screen capture of the Define the order of sources for downloading security intelligence updates page with Security Intelligence updates disabled.\" lightbox=\"media/microsoft-defender-antivirus-deploy-ring-group-policy-wsus-gp-policy-disabled.png\":::\n+   :::image type=\"content\" source=\"media/microsoft-defender-antivirus-deploy-ring-group-policy-wsus-gp-policy-disabled.png\" alt-text=\"Screenshot that shows a screen capture of the Define file shares for downloading security intelligence updates page.\" lightbox=\"media/microsoft-defender-antivirus-deploy-ring-group-policy-wsus-gp-policy-disabled.png\":::\n \n 1. The change is active when Group Policy updates. There are two methods to refresh Group Policy:\n \n",
+      "baseCommitSha": "70c002199d41227d798f67372b7d07cd80631b21",
+      "commitSha": "da30af8689b8429944b3f016f30a07a29673b011",
+      "commitMessage": "Update with the correct GPO setting name (#365)",
+      "commitAuthor": "Adrian",
+      "commitDate": "2026-07-06T05:07:30+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share",
+      "firstSeenAt": "2026-07-06T03:07:30.000Z",
+      "eventId": "defender-docs:da30af8689b8429944b3f016f30a07a29673b011:modified:defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update with the correct GPO setting name (#365)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-business/mdb-onboard-devices.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-business/mdb-onboard-devices.md b/defender-business/mdb-onboard-devices.md\nindex 9c250ce59..d306f2e4c 100644\n--- a/defender-business/mdb-onboard-devices.md\n+++ b/defender-business/mdb-onboard-devices.md\n@@ -102,20 +102,20 @@ You can onboard Windows clients and other devices in Intune by using the Intune\n \n When you set up automatic enrollment, users add their work account to the device. In the background, the device registers and joins Microsoft Entra ID and is enrolled in Intune.\n \n-1. Go to the Azure portal ([https://portal.azure.com/](https://portal.azure.com/)) and sign in.\n+1. Go to the Microsoft Entra admin center ([https://entra.microsoft.com/](https://entra.microsoft.com/)) and sign in.\n \n-2. Select **Microsoft Entra ID** \\> **Mobility (MDM and MAM)** \\> **Microsoft Intune**.\n+2. Select **Entra ID** > **Mobility** > **Microsoft Intune**.\n \n-3. Configure the **MDM User scope** and the **MAM user scope**.\n+3. Configure the **MDM User scope** and the **Windows Information Protection (WIP) user scope**.\n \n-   :::image type=\"content\" source=\"media/mem-mam-scope-azure-ad.png\" alt-text=\"Screenshot of setting MDM user scope and MAM user scope in Intune.\":::\n+   :::image type=\"content\" source=\"media/mem-wip-scope-entra-admin.png\" alt-text=\"Screenshot of setting MDM user scope and WIP user scope in Entra admin center.\":::\n \n    - For MDM User scope, we recommend that you select **All** so that all users can automatically enroll their Windows devices.\n-   - In the MAM user scope section, we recommend the following default values for the URLs:\n+   - In the WIP user scope section, we recommend the following default values for the URLs:\n \n-       - **MDM Terms of use URL**\n-       - **MDM Discovery URL**\n-       - **MDM Compliance URL**\n+       - **WIP terms of use URL**\n+       - **WIP discovery URL**\n+       - **WIP compliance URL**\n \n 4. Select **Save**.\n \n",
+      "baseCommitSha": "da30af8689b8429944b3f016f30a07a29673b011",
+      "commitSha": "f69897e7e31051c890a3ddf656f620484b0b4755",
+      "commitMessage": "MDB: Update references to the onboarding (#377)",
+      "commitAuthor": "Mathieu Simon",
+      "commitDate": "2026-07-06T05:09:18+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-business/mdb-onboard-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-business/mdb-onboard-devices",
+      "firstSeenAt": "2026-07-06T03:09:18.000Z",
+      "eventId": "defender-docs:f69897e7e31051c890a3ddf656f620484b0b4755:modified:defender-business/mdb-onboard-devices.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MDB: Update references to the onboarding (#377)",
+        "summary": "Updated Microsoft Defender documentation in defender-business/mdb-onboard-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/defender-deployment-tool-windows.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/defender-deployment-tool-windows.md b/defender-endpoint/defender-deployment-tool-windows.md\nindex ab81d96f4..126aaff6f 100644\n--- a/defender-endpoint/defender-deployment-tool-windows.md\n+++ b/defender-endpoint/defender-deployment-tool-windows.md\n@@ -208,7 +208,7 @@ The following examples illustrate how to use the tool.\n       DefenderDT.exe -MakeConfig\n       ```\n \n-  2. Use Notepad to open the *MdeConfig.txt* file that was created in the directory. Specify parameters you want to use.\n+  2. Use Notepad to open the *DefenderDTconfig.txt* file that was created in the directory. Specify parameters you want to use.\n \n      For example:\n \n@@ -274,13 +274,13 @@ The following examples illustrate how to use the tool.\n       DefenderDT.exe -File:\\\\server\\DDT\\Defenderconfig.txt\n       ```\n \n-      If the *MdeConfig.txt* file is stored in the same directory as the tool, you don't need to specify a path.\n+      If the *DefenderDTconfig.txt* file is stored in the same directory as the tool, you don't need to specify a path.\n \n ## Using Group Policy for deployment\n \n The following steps show how to create a scheduled task to run the tool using Group Policy:\n \n-1. Place the files *DefenderDT.exe* and *WindowsDefenderATP.onboarding* on a shared location that can be accessed by the device. If you've previously created an *MDEConfig.txt* configuration file, place it in the same location.\n+1. Place the files *DefenderDT.exe* and *WindowsDefenderATP.onboarding* on a shared location that can be accessed by the device. If you've previously created an *DefenderDTconfig.txt* configuration file, place it in the same location.\n \n 1. To create a new Group Policy Object (GPO), open the [Group Policy Management Console](/internet-explorer/ie11-deploy-guide/group-policy-and-group-policy-mgmt-console-ie11) (GPMC), right-click Group Policy Objects you want to configure and select **New**. Enter the name of the new GPO in the dialogue box that is displayed and select **OK**.\n \n",
+      "baseCommitSha": "f69897e7e31051c890a3ddf656f620484b0b4755",
+      "commitSha": "b6864c628fd5f3974a9db2c3349bc807c5ef700b",
+      "commitMessage": "Change MDEConfig.txt to DefenderDTconfig.txt (#418)",
+      "commitAuthor": "alexsuppanz",
+      "commitDate": "2026-07-06T05:19:06+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/defender-deployment-tool-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/defender-deployment-tool-windows",
+      "firstSeenAt": "2026-07-06T03:19:06.000Z",
+      "eventId": "defender-docs:b6864c628fd5f3974a9db2c3349bc807c5ef700b:modified:defender-endpoint/defender-deployment-tool-windows.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Change MDEConfig.txt to DefenderDTconfig.txt (#418)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/defender-deployment-tool-windows.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md b/defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md\nindex a24869e27..5bebfd978 100644\n--- a/defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md\n+++ b/defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md\n@@ -53,7 +53,7 @@ Make sure that there are no firewall or network filtering rules denying access t\n |Service and description|URL|\n |---|---|\n |Microsoft Defender Antivirus cloud-delivered protection service is referred to as Microsoft Active Protection Service (MAPS).<br/> Microsoft Defender Antivirus uses the MAPS service to provide cloud-delivered protection.|`*.wdcp.microsoft.com` <br/>`*.wdcpalt.microsoft.com`<br/>`*.wd.microsoft.com`  |\n-|Microsoft Update Service (MU) and Windows Update Service (WU)<br/>These services allow security intelligence and product updates.|`*.update.microsoft.com`<br/>`*.delivery.mp.microsoft.com`<br/>`*.windowsupdate.com` <br/>`ctldl.windowsupdate.com`<br/><br/>For more information, see [Connection endpoints for Windows Update](/windows/privacy/manage-windows-1709-endpoints#windows-update).|\n+|Microsoft Update Service (MU) and Windows Update Service (WU)<br/>These services allow security intelligence and product updates.|`*.update.microsoft.com`<br/>`*.delivery.mp.microsoft.com`<br/>`*.windowsupdate.com` <br/>`ctldl.windowsupdate.com`<br/><br/>For more information, see [Connection endpoints for Windows Update](https://github.com/mesfin30seg/win-2916-GP/blob/master/windows/privacy/manage-windows-1709-endpoints.md#windows-update).|\n |Security intelligence updates Alternate Download Location (ADL)<br/>This is an alternate location for Microsoft Defender Antivirus Security intelligence updates, if the installed Security intelligence is out of date (Seven or more days behind).|`*.download.microsoft.com`<br/>`*.download.windowsupdate.com` (Port 80 is required)<br/>`go.microsoft.com` (Port 80 is required)<br/>`https://www.microsoft.com/security/encyclopedia/adlpackages.aspx` <br/>`https://definitionupdates.microsoft.com/download/DefinitionUpdates/`<br/>`https://fe3cr.delivery.mp.microsoft.com/ClientWebService/client.asmx`|\n |Malware submission storage<br/>This is an upload location for files submitted to Microsoft via the Submission form or automatic sample submission.|`ussus1eastprod.blob.core.windows.net`<br/>`ussus2eastprod.blob.core.windows.net`<br/>`ussus3eastprod.blob.core.windows.net`<br/>`ussus4eastprod.blob.core.windows.net`<br/>`wsus1eastprod.blob.core.windows.net`<br/>`wsus2eastprod.blob.core.windows.net`<br/>`ussus1westprod.blob.core.windows.net`<br/>`ussus2westprod.blob.core.windows.net`<br/>`ussus3westprod.blob.core.windows.net`<br/>`ussus4westprod.blob.core.windows.net`<br/>`wsus1westprod.blob.core.windows.net`<br/>`wsus2westprod.blob.core.windows.net`<br/>`usseu1northprod.blob.core.windows.net`<br/>`wseu1northprod.blob.core.windows.net`<br/>`usseu1westprod.blob.core.windows.net`<br/>`wseu1westprod.blob.core.windows.net`<br/>`ussuk1southprod.blob.core.windows.net`<br/>`wsuk1southprod.blob.core.windows.net`<br/>`ussuk1westprod.blob.core.windows.net`<br/>`wsuk1westprod.blob.core.windows.net`|\n |Certificate Revocation List (CRL)<br/>Windows use this list while creating the SSL connection to MAPS for updating the CRL.|`http://www.microsoft.com/pkiops/crl/`<br/>`http://www.microsoft.com/pkiops/certs`<br/>`http://crl.microsoft.com/pki/crl/products`<br/>`http://www.microsoft.com/pki/certs`|\n",
+      "baseCommitSha": "b6864c628fd5f3974a9db2c3349bc807c5ef700b",
+      "commitSha": "0ffd98f6f02dfe94a2046000e1f76b4fd0f2034b",
+      "commitMessage": "Update configure-network-connections-microsoft-defender-antivirus.md (#448)",
+      "commitAuthor": "ktb-jcm",
+      "commitDate": "2026-07-05T23:21:01-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-network-connections-microsoft-defender-antivirus",
+      "firstSeenAt": "2026-07-06T03:21:01.000Z",
+      "eventId": "defender-docs:0ffd98f6f02dfe94a2046000e1f76b4fd0f2034b:modified:defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update configure-network-connections-microsoft-defender-antivirus.md (#448)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-microsoft-defender.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-microsoft-defender.md b/defender-xdr/advanced-hunting-microsoft-defender.md\nindex 06be2b7ef..778025125 100644\n--- a/defender-xdr/advanced-hunting-microsoft-defender.md\n+++ b/defender-xdr/advanced-hunting-microsoft-defender.md\n@@ -88,6 +88,7 @@ In the unified portal, you can view the schema column names and descriptions, as\n - Custom detections have the following limitations:\n     - Near real-time detection frequency isn't available for detections that include Microsoft Sentinel data. \n     - Custom functions that you create and save in Microsoft Sentinel aren't supported.\n+- When creating a new Microsoft Sentinel function in Log Analytics, there is a delay of up to 20 minutes until it appears in Advanced Hunting.\n - Bookmarks aren't supported in the advanced hunting experience. They're supported in the **Microsoft Sentinel > Threat management > Hunting** feature. Alternatively, you can use the [Link to incident](advanced-hunting-defender-results.md#link-query-results-to-an-incident) feature to link query results to new or existing incidents.\n - If you're streaming Defender XDR tables to Log Analytics, there might be a difference between the `Timestamp` and `TimeGenerated` columns. If the data arrives to Log Analytics after 48 hours, the ingestion process overrides it to `now()`. Therefore, to get the actual time the event happened, rely on the `Timestamp` column.\n - When prompting [Security Copilot](advanced-hunting-security-copilot.md) for advanced hunting queries, you might find that not all Microsoft Sentinel tables are currently supported. However, support for these tables can be expected in the future.\n",
+      "baseCommitSha": "0ffd98f6f02dfe94a2046000e1f76b4fd0f2034b",
+      "commitSha": "b69b3403b65bd197d763cb565cfeeb2b1a31eedd",
+      "commitMessage": "Update advanced-hunting-microsoft-defender.md (#343)",
+      "commitAuthor": "Neelam Nursee",
+      "commitDate": "2026-07-06T16:33:42+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-microsoft-defender.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-microsoft-defender",
+      "firstSeenAt": "2026-07-06T15:33:42.000Z",
+      "eventId": "defender-docs:b69b3403b65bd197d763cb565cfeeb2b1a31eedd:modified:defender-xdr/advanced-hunting-microsoft-defender.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update advanced-hunting-microsoft-defender.md (#343)",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-microsoft-defender.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/tenant-allow-block-list-teams-domains-configure.md b/defender-office-365/tenant-allow-block-list-teams-domains-configure.md\nindex 8e231a8a0..4b25ca116 100644\n--- a/defender-office-365/tenant-allow-block-list-teams-domains-configure.md\n+++ b/defender-office-365/tenant-allow-block-list-teams-domains-configure.md\n@@ -43,7 +43,7 @@ This article describes how security admins can manage entries for blocked domain\n \n - Check the [Microsoft Teams external domain anomalies report](/microsoftteams/teams-analytics-and-reports/external-domain-anomalies-report).\n \n-- After you add the block entry for the domain or sender address in Teams, all new Teams communication from that organization is blocked. Block communication includes new Teams meetings, chats, channels, and calls. Existing Teams meetings, chats, channels, and calls are deleted.\n+- After you add the block entry for the domain or sender address in Teams, all new Teams communication from that organization is blocked. Blocked communication includes new Teams meeting chats, chats, channels, and calls. Existing Teams meeting chats, chats, channels, and calls are deleted.\n \n - On the **Organization settings** tab of the **External access** page in the Microsoft Teams admin center at <https://admin.teams.microsoft.com/company-wide-settings/external-communications>, the following settings are required to create and manage block entries for domains and senders in Teams using the Tenant Allow/Block List:\n   - **Teams and Skype for Business users in external organizations** must be **Allow all external domains** or **Block only specific external domains**.\n",
+      "baseCommitSha": "b69b3403b65bd197d763cb565cfeeb2b1a31eedd",
+      "commitSha": "9c04d57dba1a52ef7eeaa64088a9b997e93d7a25",
+      "commitMessage": "Fix grammar in Teams block entry instructions (#496)",
+      "commitAuthor": "ShoKoyama",
+      "commitDate": "2026-07-07T05:13:29+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-teams-domains-configure",
+      "firstSeenAt": "2026-07-06T20:13:29.000Z",
+      "eventId": "defender-docs:9c04d57dba1a52ef7eeaa64088a9b997e93d7a25:modified:defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix grammar in Teams block entry instructions (#496)",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 7,
+    "totalFiles": 7,
+    "authors": [
+      "0xbadfca11",
+      "Adrian",
+      "Mathieu Simon",
+      "Neelam Nursee",
+      "ShoKoyama",
+      "alexsuppanz",
+      "ktb-jcm"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md. Updated Microsoft Defender documentation in defender-endpoint/defender-deployment-tool-windows.md. Updated Microsoft Defender documentation in defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md.",
+        "sourceFiles": [
+          "defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md",
+          "defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md",
+          "defender-endpoint/defender-deployment-tool-windows.md",
+          "defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Business",
+        "summary": "Updated Microsoft Defender documentation in defender-business/mdb-onboard-devices.md.",
+        "sourceFiles": [
+          "defender-business/mdb-onboard-devices.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-microsoft-defender.md.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-microsoft-defender.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md.",
+        "sourceFiles": [
+          "defender-office-365/tenant-allow-block-list-teams-domains-configure.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/manage-event-based-updates-microsoft-defender-antivirus.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-ring-deployment-group-policy-network-share.md. Updated Microsoft Defender documentation in defender-endpoint/defender-deployment-tool-windows.md. Updated Microsoft Defender documentation in defender-endpoint/configure-network-connections-microsoft-defender-antivirus.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Business",
+        "detail": "Updated Microsoft Defender documentation in defender-business/mdb-onboard-devices.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-microsoft-defender.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

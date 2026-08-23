@@ -1,0 +1,438 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/api/run-av-scan.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/api/run-av-scan.md b/defender-endpoint/api/run-av-scan.md\nindex c27e34c98..b15a2d121 100644\n--- a/defender-endpoint/api/run-av-scan.md\n+++ b/defender-endpoint/api/run-av-scan.md\n@@ -37,7 +37,9 @@ Rate limitations for this API are 100 calls per minute and 1500 calls per hour.\n \n ### Supported operating systems\n \n-- This action is available for devices on Windows 10, version  1709 or later, and on Windows 11.\n+- Windows 10, version  1709 or later, and on Windows 11.\n+- Linux Servers. See [Supported Linux distributions](https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites#supported-linux-distributions)\n+- macOS. See [Microsoft Defender for Endpoint on macOS](https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-mac#system-requirements)\n \n ## Permissions\n \n",
+      "baseCommitSha": "6ff535f37749a4d7a59fe38d17ad0040e359aa7b",
+      "commitSha": "cce1168c3f50582799becc20645527717af417b9",
+      "commitMessage": "Update supported operating systems for AV scan",
+      "commitAuthor": "Yuji Aoki",
+      "commitDate": "2026-04-08T14:37:29+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/api/run-av-scan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/api/run-av-scan",
+      "firstSeenAt": "2026-04-08T05:37:29.000Z",
+      "eventId": "defender-docs:cce1168c3f50582799becc20645527717af417b9:modified:defender-endpoint/api/run-av-scan.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update supported operating systems for AV scan",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/api/run-av-scan.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 0,
+      "changes": 14,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 5113951e5..7ebea1f96 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -498,6 +498,20 @@ For detailed information on Microsoft security updates, see the [Microsoft Secur\n \n See the full list of [Android UX improvements](android-new-ux.md).\n \n+### Android | April 2026 | Platform: 1.0.8805.0103\n+\n+#### Release details\n+\n+| Platform version| Release Date |\n+| -------- | -------- |\n+|1.0.8805.0103 |April 7, 2025 |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+|--------------|---------------|\n+| General | Performance improvement and bug fixes. |\n+\n ### Android | December 2025 | Platform: 1.0.8412.0101\n \n #### Release details\n",
+      "baseCommitSha": "6ff535f37749a4d7a59fe38d17ad0040e359aa7b",
+      "commitSha": "774d23f4b5ff94fb956cbb0bcdc85587c3e4b217",
+      "commitMessage": "Add April 2026 Android release details",
+      "commitAuthor": "Harish S",
+      "commitDate": "2026-04-08T12:49:06+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-04-08T07:19:06.000Z",
+      "eventId": "defender-docs:774d23f4b5ff94fb956cbb0bcdc85587c3e4b217:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add April 2026 Android release details",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/android-configure-mam.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/android-configure-mam.md b/defender-endpoint/android-configure-mam.md\nindex 78a075bfc..502ad4cb5 100644\n--- a/defender-endpoint/android-configure-mam.md\n+++ b/defender-endpoint/android-configure-mam.md\n@@ -295,6 +295,6 @@ Defender for Endpoint on Android is enabled by default in MAM mode. To prevent e\n \n - [Overview of Microsoft Defender for Endpoint on Android](microsoft-defender-endpoint-android.md)\n \n-- [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)\n+- [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)\n \n \n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-configure-mam.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-configure-mam",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-endpoint/android-configure-mam.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-configure-mam.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/android-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/android-configure.md b/defender-endpoint/android-configure.md\nindex c52b995be..59805c76e 100644\n--- a/defender-endpoint/android-configure.md\n+++ b/defender-endpoint/android-configure.md\n@@ -267,7 +267,6 @@ Use the following steps to configure the Device tags:\n \n 1. Select Next and assign this policy to targeted devices and users.\n \n-\n > [!NOTE]\n > The Defender app needs to be opened for tags to be synced with Intune and passed to Security Portal. It might take up to 18 hours for tags to reflect in the portal.\n \n@@ -275,6 +274,6 @@ Use the following steps to configure the Device tags:\n \n - [Overview of Microsoft Defender for Endpoint on Android](microsoft-defender-endpoint-android.md)\n \n-- [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)\n+- [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)\n \n \n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-configure",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-endpoint/android-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/deployment-strategy.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/deployment-strategy.md b/defender-endpoint/deployment-strategy.md\nindex ce53d139b..f92f00c80 100644\n--- a/defender-endpoint/deployment-strategy.md\n+++ b/defender-endpoint/deployment-strategy.md\n@@ -50,7 +50,7 @@ Once you have determined the architecture of your environment and have created a\n |**Windows Server** <br/>(Requires a server plan) | [Local script](configure-endpoints-script.md)<br/>[Integration with Microsoft Defender for Cloud](azure-server-integration.md)<br/>[Guidance for Windows Server with SAP](mde-sap-windows-server.md)<br/>[Defender deployment tool (preview)](./defender-deployment-tool-windows.md) for Windows Server 2008 R2 SP1 |\n |**macOS**| [Intune](mac-install-with-intune.md)<br/>[JAMF Pro](mac-install-with-jamf.md) <br/>[Local script](mac-install-manually.md)(manual deployment) <br/>[MDM tools](mac-install-with-other-mdm.md)|\n |**Linux server**<br/>(Requires a server plan)|[Defender deployment tool](./linux-install-with-defender-deployment-tool.md)<br/>[Installer script based deployment](linux-installer-script.md)<br/>[Ansible](linux-install-with-ansible.md)<br/>[Chef](linux-deploy-defender-for-endpoint-with-chef.md)<br/>[Puppet](linux-install-with-puppet.md) <br/>[Saltstack](linux-install-with-saltack.md)<br/>[Manual deployment](linux-install-manually.md)<br/>[Direct onboarding with Defender for Cloud](/azure/defender-for-cloud/onboard-machines-with-defender-for-endpoint)<br/>[Guidance for Linux with SAP](mde-linux-deployment-on-sap.md)|\n-|**Android**|[Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)|\n+|**Android**|[Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)|\n |**iOS**|[Microsoft Intune](ios-install.md) <br/> [Mobile Application Manager](ios-install-unmanaged.md) |\n \n > [!NOTE]\n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/deployment-strategy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/deployment-strategy",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-endpoint/deployment-strategy.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/deployment-strategy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-p1-setup-configuration.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/mde-p1-setup-configuration.md b/defender-endpoint/mde-p1-setup-configuration.md\nindex 23c234333..a660eec77 100644\n--- a/defender-endpoint/mde-p1-setup-configuration.md\n+++ b/defender-endpoint/mde-p1-setup-configuration.md\n@@ -128,7 +128,7 @@ When you're ready to onboard your organization's endpoints, you can choose from\n |---|---|\n |**Windows**|[Local script (up to 10 devices)](configure-endpoints-script.md) <br>  [Group Policy](configure-endpoints-gp.md) <br>  [Microsoft Intune/ Mobile Device Manager](configure-endpoints-mdm.md) <br>   [Microsoft Configuration Manager](configure-endpoints-sccm.md) <br> [VDI scripts](configure-endpoints-vdi.md)|\n |**macOS**|[Local script](mac-install-manually.md) <br> [Microsoft Intune](mac-install-with-intune.md) <br> [JAMF Pro](mac-install-with-jamf.md) <br> [Mobile Device Management](mac-install-with-other-mdm.md)|\n-|**Android**|[Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)|\n+|**Android**|[Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)|\n |**iOS**|[Microsoft Intune](ios-install.md) <br> [Mobile Application Manager](ios-install-unmanaged.md) |\n \n \n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-p1-setup-configuration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-p1-setup-configuration",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-endpoint/mde-p1-setup-configuration.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-p1-setup-configuration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-android.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-android.md b/defender-endpoint/microsoft-defender-endpoint-android.md\nindex 216b6eb6b..8bb97210e 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-android.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-android.md\n@@ -73,7 +73,7 @@ This article describes how to install, configure, update, and use Defender for E\n \n Microsoft Defender for Endpoint on Android supports installation on Android Enterprise modes. Personally-owned devices with work profile, Corporate-owned devices with work profile, and Corporate-owned fully managed user device enrollments are supported in Android Enterprise.\n \n-- Deployment of Microsoft Defender for Endpoint on Android is via Microsoft Intune (MDM). For more information, see [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json).\n+- Deployment of Microsoft Defender for Endpoint on Android is via Microsoft Intune (MDM). For more information, see [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json).\n \n - Installation of Microsoft Defender for Endpoint on devices that aren't enrolled using Intune mobile device management (MDM), see [Configure Microsoft Defender for Endpoint risk signals in app protection policy (MAM)](android-configure-mam.md).\n \n@@ -126,7 +126,7 @@ For information on how to configure Defender for Endpoint on Android features, s\n \n ## Related articles\n \n-- [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)\n+- [Deploy and configure Microsoft Defender for Endpoint on Android with Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)\n \n - [Configure Microsoft Defender for Endpoint on Android features](android-configure.md)\n \n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-android",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-endpoint/microsoft-defender-endpoint-android.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/switch-to-mde-phase-3.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/switch-to-mde-phase-3.md b/defender-endpoint/switch-to-mde-phase-3.md\nindex e0c08e08a..5b493f5a3 100644\n--- a/defender-endpoint/switch-to-mde-phase-3.md\n+++ b/defender-endpoint/switch-to-mde-phase-3.md\n@@ -67,7 +67,7 @@ Deployment methods vary, depending on operating system and preferred methods. Th\n |**Windows servers<br><br>Linux servers** | [Integration with Microsoft Defender for Cloud](azure-server-integration.md)\n |macOS|[Local script](mac-install-manually.md) <br> [Microsoft Intune](mac-install-with-intune.md) <br> [JAMF Pro](mac-install-with-jamf.md) <br> [Mobile Device Management](mac-install-with-other-mdm.md)|\n |Linux|[Local script](linux-install-manually.md) <br> [Puppet](linux-install-with-puppet.md) <br> [Ansible](linux-install-with-ansible.md) <br> [Chef](linux-deploy-defender-for-endpoint-with-chef.md)|\n-|Android|[Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)| \n+|Android|[Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json)| \n |iOS|[Microsoft Intune](ios-install.md) <br> [Mobile Application Manager](ios-install-unmanaged.md) |\n \n > [!NOTE]\n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/switch-to-mde-phase-3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/switch-to-mde-phase-3",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-endpoint/switch-to-mde-phase-3.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/switch-to-mde-phase-3.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/pilot-deploy-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/pilot-deploy-defender-endpoint.md b/defender-xdr/pilot-deploy-defender-endpoint.md\nindex 09e5689e2..dd60f9718 100644\n--- a/defender-xdr/pilot-deploy-defender-endpoint.md\n+++ b/defender-xdr/pilot-deploy-defender-endpoint.md\n@@ -142,7 +142,7 @@ The following table lists the available tools based on the endpoint that you nee\n | **Windows** | - [Local script (up to 10 devices)](/defender-endpoint/configure-endpoints-script)<br/>- [Group Policy](/defender-endpoint/configure-endpoints-gp)<br/>- [Microsoft Intune / Mobile Device Manager](/defender-endpoint/configure-endpoints-mdm)<br/>- [Microsoft Endpoint Configuration Manager](/defender-endpoint/configure-endpoints-sccm)<br/>- [VDI scripts](/defender-endpoint/configure-endpoints-vdi) |\n | **macOS** | - [Local scripts](/defender-endpoint/mac-install-manually)<br/>- [Microsoft Intune](/defender-endpoint/mac-install-with-intune)<br/>- [JAMF Pro](/defender-endpoint/mac-install-with-jamf)<br/>- [Mobile Device Management](/defender-endpoint/mac-install-with-other-mdm) |\n | **iOS** | [App-based](/defender-endpoint/ios-install) |\n-| **Android** | [Microsoft Intune](/intune/intune-service/apps/apps-defender-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json) |\n+| **Android** | [Microsoft Intune](/intune/intune-service/protect/microsoft-defender-deploy-android?toc=/defender-endpoint/toc.json&bc=/defender-endpoint/breadcrumb/toc.json) |\n \n When you pilot Microsoft Defender for Endpoint, you may choose to onboard a few devices to the service before onboarding your entire organization.  \n \n",
+      "baseCommitSha": "0b1ec20c8aff63b00d9d64fb08791d37a18f3eae",
+      "commitSha": "fb68b60f3d0ad4cf5279fa69a923f976f4da775c",
+      "commitMessage": "Link fixes for Intune article location",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T07:02:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/pilot-deploy-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/pilot-deploy-defender-endpoint",
+      "firstSeenAt": "2026-04-08T14:02:12.000Z",
+      "eventId": "defender-docs:fb68b60f3d0ad4cf5279fa69a923f976f4da775c:modified:defender-xdr/pilot-deploy-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Link fixes for Intune article location",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/pilot-deploy-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/defender-for-identity/deploy/prerequisites-sensor-version-3.md b/defender-for-identity/deploy/prerequisites-sensor-version-3.md\nindex 197d475a7..cbaceaf9d 100644\n--- a/defender-for-identity/deploy/prerequisites-sensor-version-3.md\n+++ b/defender-for-identity/deploy/prerequisites-sensor-version-3.md\n@@ -46,6 +46,14 @@ Both F5 licenses require Microsoft 365 F1/F3 or Office 365 F3 and Enterprise Mob\n   - `System settings (Read and manage)`\n   - `Security settings (All permissions)`\n \n+## Networking requirements\n+\n+The Defender for Identity sensor utilizes the same URIs as Microsoft Defender for Endpoint. Please review the following documents for Defender for Endpoint, based on your systems connectivity, for a complete list of required service endpoint.\n+\n+- [Microsoft Defender for Endpoint streamlined connectivity URLs - commercial](https://learn.microsoft.com/en-us/defender-endpoint/streamlined-device-connectivity-urls-commercial?tabs=Windows)\n+\n+- [Microsoft Defender for Endpoint standard connectivity URLs - commercial](https://learn.microsoft.com/en-us/defender-endpoint/standard-device-connectivity-urls-commercial)\n+\n ## Memory requirements\n \n The following table describes memory requirements on the server used for the Defender for Identity sensor, depending on the type of virtualization you're using:\n@@ -61,6 +69,8 @@ The following table describes memory requirements on the server used for the Def\n \n Version 3 of the sensor prevents the sensor from overusing CPU or memory by limiting CPU utilization at 30%, and memory usage to 1.5 GB. However, if Falcon Identity already uses substantial system resources, the domain controller might still experience performance strain.\n \n+Refer to the [Defender for Identity Capacity Planning documentation](https://learn.microsoft.com/en-us/defender-for-identity/deploy/capacity-planning) to determine whether your domain controller servers have enough resources for a Microsoft Defender for Identity sensor. \n+\n ## Configure RPC auditing\n \n Applying the **Unified Sensor RPC Audit** tag to a device improves security visibility and unlocks more identity detections. Once applied, the configuration is enforced on all existing and future devices that match the rule criteria. The tag is visible in the Device Inventory for transparency and auditing capabilities.\n@@ -79,7 +89,7 @@ Applying the **Unified Sensor RPC Audit** tag to a device improves security visi\n 1. Add the **Unified Sensor RPC Audit** tag to the selected devices.\n \n     ![Screenshot that shows the config tag.](media/prerequisites-sensor-version-3/tag.png)\n-\n+   \n 1. Select **Next** to review and finish creating the rule, and then select **Submit**. The rule might take up to one hour to take effect.\n \n ### Remove RPC auditing from a device\n",
+      "baseCommitSha": "f0508a05d3daee086f37ba55b6dc7a1297a1476f",
+      "commitSha": "abe75403b6a2220c63d13dd3e813d522f928493f",
+      "commitMessage": "Learn Editor: Update prerequisites-sensor-version-3.md",
+      "commitAuthor": "David M",
+      "commitDate": "2026-04-08T16:13:06-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3",
+      "firstSeenAt": "2026-04-08T20:13:06.000Z",
+      "eventId": "defender-docs:abe75403b6a2220c63d13dd3e813d522f928493f:modified:defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update prerequisites-sensor-version-3.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-identity/deploy/prerequisites-sensor-version-3.md b/defender-for-identity/deploy/prerequisites-sensor-version-3.md\nindex cbaceaf9d..fa4278374 100644\n--- a/defender-for-identity/deploy/prerequisites-sensor-version-3.md\n+++ b/defender-for-identity/deploy/prerequisites-sensor-version-3.md\n@@ -50,9 +50,9 @@ Both F5 licenses require Microsoft 365 F1/F3 or Office 365 F3 and Enterprise Mob\n \n The Defender for Identity sensor utilizes the same URIs as Microsoft Defender for Endpoint. Please review the following documents for Defender for Endpoint, based on your systems connectivity, for a complete list of required service endpoint.\n \n-- [Microsoft Defender for Endpoint streamlined connectivity URLs - commercial](https://learn.microsoft.com/en-us/defender-endpoint/streamlined-device-connectivity-urls-commercial?tabs=Windows)\n+- [Microsoft Defender for Endpoint streamlined connectivity URLs - commercial](/defender-endpoint/streamlined-device-connectivity-urls-commercial?tabs=Windows)\n \n-- [Microsoft Defender for Endpoint standard connectivity URLs - commercial](https://learn.microsoft.com/en-us/defender-endpoint/standard-device-connectivity-urls-commercial)\n+- [Microsoft Defender for Endpoint standard connectivity URLs - commercial](/defender-endpoint/standard-device-connectivity-urls-commercial)\n \n ## Memory requirements\n \n@@ -69,7 +69,7 @@ The following table describes memory requirements on the server used for the Def\n \n Version 3 of the sensor prevents the sensor from overusing CPU or memory by limiting CPU utilization at 30%, and memory usage to 1.5 GB. However, if Falcon Identity already uses substantial system resources, the domain controller might still experience performance strain.\n \n-Refer to the [Defender for Identity Capacity Planning documentation](https://learn.microsoft.com/en-us/defender-for-identity/deploy/capacity-planning) to determine whether your domain controller servers have enough resources for a Microsoft Defender for Identity sensor. \n+Refer to the [Defender for Identity Capacity Planning documentation](/defender-for-identity/deploy/capacity-planning) to determine whether your domain controller servers have enough resources for a Microsoft Defender for Identity sensor. \n \n ## Configure RPC auditing\n \n",
+      "baseCommitSha": "207fee19cdb4bf79ab0633d4b7a10f8f89fd35f8",
+      "commitSha": "36c5458cc00aa7df94f7cceef07fa2b09628b6bf",
+      "commitMessage": "Learn Editor: Update prerequisites-sensor-version-3.md",
+      "commitAuthor": "David M",
+      "commitDate": "2026-04-08T16:22:18-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3",
+      "firstSeenAt": "2026-04-08T20:22:18.000Z",
+      "eventId": "defender-docs:36c5458cc00aa7df94f7cceef07fa2b09628b6bf:modified:defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update prerequisites-sensor-version-3.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/tvm-remediation.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-vulnerability-management/tvm-remediation.md b/defender-vulnerability-management/tvm-remediation.md\nindex d6035f73e..37a0f6b06 100644\n--- a/defender-vulnerability-management/tvm-remediation.md\n+++ b/defender-vulnerability-management/tvm-remediation.md\n@@ -36,7 +36,7 @@ To use this capability, enable your Microsoft Intune connections. In the Microso\n > [!NOTE]\n > If you have the Intune connection enabled, you get an option to create an Intune security task when creating a remediation request. This option doesn't appear if the connection isn't set.\n \n-See [Use Intune to remediate vulnerabilities identified by Microsoft Defender for Endpoint](/mem/intune/protect/atp-manage-vulnerabilities) for details.\n+See [Use Intune to remediate vulnerabilities identified by Microsoft Defender for Endpoint](/intune/intune-service/protect/microsoft-defender-manage-vulnerabilities) for details.\n \n ### Remediation request steps\n \n@@ -52,7 +52,7 @@ See [Use Intune to remediate vulnerabilities identified by Microsoft Defender fo\n \n 4. Review the details of your request then, select **Submit**. Submitting a remediation request creates a remediation activity item within vulnerability management, which can be used for monitoring the remediation progress for this recommendation. This action doesn't trigger a remediation or apply any changes to devices.\n \n-5. Notify your IT Administrator about the new request and have them log into Intune to approve or reject the request and start a package deployment. If you want to check how the ticket shows up in Intune, See [Use Intune to remediate vulnerabilities identified by Microsoft Defender for Endpoint](/mem/intune/protect/atp-manage-vulnerabilities) for details.\n+5. Notify your IT Administrator about the new request and have them log into Intune to approve or reject the request and start a package deployment. If you want to check how the ticket shows up in Intune, See [Use Intune to remediate vulnerabilities identified by Microsoft Defender for Endpoint](/intune/intune-service/protect/microsoft-defender-manage-vulnerabilities) for details.\n \n 6. Go to the [**Remediation**](tvm-remediation.md) page to view the status of your remediation request.\n \n",
+      "baseCommitSha": "6ff535f37749a4d7a59fe38d17ad0040e359aa7b",
+      "commitSha": "2426592b9bccde3a1e352c808bda3958cf41eb1b",
+      "commitMessage": "Fixing links that point to a renamed Intuen article",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-08T13:25:13-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/tvm-remediation.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-remediation",
+      "firstSeenAt": "2026-04-08T20:25:13.000Z",
+      "eventId": "defender-docs:2426592b9bccde3a1e352c808bda3958cf41eb1b:modified:defender-vulnerability-management/tvm-remediation.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing links that point to a renamed Intuen article",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-remediation.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 1,
+      "changes": 17,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 08cada57d..d5b366550 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -7,7 +7,7 @@ author: lwainstein\n ms.author: lwainstein\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 04/01/2026\n+ms.date: 04/08/2026\n appliesto: Microsoft Defender for Endpoint Plan 1, Microsoft Defender for Endpoint Plan 2, Microsoft Defender XDR\n ---\n \n@@ -25,6 +25,7 @@ This table includes supported releases for all supported platforms in the past s\n \n |OS  |Build |Month released|Details  |Learn more  |\n |---------|---------|---------|---------|---------|\n+|macOS |101.26022.0020  |April 2026 |- Release version: 20.126022.20.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--april-2026--101260220020) |\n |Linux  |101.26021.0002  |March 2026 |- Release version: 30.126021.0002.0<br>- Engine version: 1.1.26010.1003<br>- Signature version: 1.445.553.0 |[Release details and updates](#linux--march-2026--101260210002) |\n |macOS |101.26012.0017  |March 2026 |- Release version: 20.126012.17.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120017) |\n |macOS |101.26012.0015  |March 2026 |- Release version: 20.126012.15.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120015) |\n@@ -128,6 +129,20 @@ To get latest features, configure your device for the Beta channel (formerly Ins\n \n For known issues, see [macOS known issues](#macos-known-issues).\n \n+### macOS | April-2026 | 101.26022.0020\n+\n+#### Versions\n+\n+| Release version | Engine version | Signature version |\n+|-----------------|----------------|-------------------|\n+| 20.126022.20.0  | 1.1.25100.4000 | 1.439.74.0        |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+| ------------ | -------------- |\n+| General      | Resolved a performance regression that caused degraded responsiveness and stability under high load conditions. |\n+\n ### macOS | April-2026 | 101.26022.0018\n \n #### Versions\n",
+      "baseCommitSha": "38b86f96d10ad09f805fcbde08ca9430a7629f4d",
+      "commitSha": "7b6ed625fc3578a7c500d4efba5ad0acc52d3409",
+      "commitMessage": "add macos defender 101.26022.0020",
+      "commitAuthor": "lianx",
+      "commitDate": "2026-04-08T16:10:19-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-04-08T23:10:19.000Z",
+      "eventId": "defender-docs:7b6ed625fc3578a7c500d4efba5ad0acc52d3409:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add macos defender 101.26022.0020",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex f5d7ba73a..02630548c 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -7,7 +7,7 @@ author: lwainstein\n ms.author: lwainstein\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 11/19/2025\n+ms.date: 04/08/2026\n audience: ITPro\n ms.collection:\n - m365-security\n@@ -26,6 +26,12 @@ For recent releases of Microsoft Defender for Endpoint, including build numbers,\n \n Learn more about [Preview features](/defender-xdr/preview).\n \n+## April 2026\n+\n+|Type  |Feature  |Preview/GA  |Description  |\n+|---------|------------|-------------|-------------|\n+|Release - macOS |Build 101.26022.0020 |GA |Release version 20.126022.20.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--april-2026--101260220020). |\n+\n ## March 2026\n \n |Type  |Feature  |Preview/GA  |Description  |\n",
+      "baseCommitSha": "38b86f96d10ad09f805fcbde08ca9430a7629f4d",
+      "commitSha": "7b6ed625fc3578a7c500d4efba5ad0acc52d3409",
+      "commitMessage": "add macos defender 101.26022.0020",
+      "commitAuthor": "lianx",
+      "commitDate": "2026-04-08T16:10:19-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-04-08T23:10:19.000Z",
+      "eventId": "defender-docs:7b6ed625fc3578a7c500d4efba5ad0acc52d3409:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add macos defender 101.26022.0020",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 7,
+    "totalFiles": 14,
+    "authors": [
+      "Brent Dunsire",
+      "David M",
+      "Harish S",
+      "Yuji Aoki",
+      "lianx"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/api/run-av-scan.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endpoint/android-configure-mam.md. Updated Microsoft Defender documentation in defender-endpoint/android-configure.md. Updated Microsoft Defender documentation in defender-endpoint/deployment-strategy.md. Updated Microsoft Defender documentation in defender-endpoint/mde-p1-setup-configuration.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-android.md. Updated Microsoft Defender documentation in defender-endpoint/",
+        "sourceFiles": [
+          "defender-endpoint/api/run-av-scan.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/android-configure-mam.md",
+          "defender-endpoint/android-configure.md",
+          "defender-endpoint/deployment-strategy.md",
+          "defender-endpoint/mde-p1-setup-configuration.md",
+          "defender-endpoint/microsoft-defender-endpoint-android.md",
+          "defender-endpoint/switch-to-mde-phase-3.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/pilot-deploy-defender-endpoint.md.",
+        "sourceFiles": [
+          "defender-xdr/pilot-deploy-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
+        "sourceFiles": [
+          "defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+          "defender-for-identity/deploy/prerequisites-sensor-version-3.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-remediation.md.",
+        "sourceFiles": [
+          "defender-vulnerability-management/tvm-remediation.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/api/run-av-scan.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endpoint/android-configure-mam.md. Updated Microsoft Defender documentation in defender-endpoint/android-configure.md. Updated Microsoft Defender documentation in defender-endpoint/deployment-strategy.md. Updated Microsoft Defender documentation in defender-endpoint/mde-p1-setup-configuration.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-android.md. Updated Microsoft Defender documentation in defender-endpoint/"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/pilot-deploy-defender-endpoint.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-remediation.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

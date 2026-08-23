@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/create-custom-rbac-roles.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/create-custom-rbac-roles.md b/defender-xdr/create-custom-rbac-roles.md\nindex 1666fe29d..b2f9456db 100644\n--- a/defender-xdr/create-custom-rbac-roles.md\n+++ b/defender-xdr/create-custom-rbac-roles.md\n@@ -38,7 +38,7 @@ Creating custom roles for [Microsoft Sentinel data lake](https://aka.ms/data-lak\n \n To create custom roles in Microsoft Defender unified RBAC, you must be assigned one of the following roles or permissions:\n \n-- At leastSecurity Administrator in Microsoft Entra ID.\n+- At least Security Administrator in Microsoft Entra ID.\n - All **Authorization** permissions assigned in Microsoft Defender Unified RBAC.\n \n For more information on permissions, see [Permission prerequisites](manage-rbac.md#permissions-prerequisites).\n",
+      "baseCommitSha": "4af48dc2db230cf570eed88d0cf17bb2091037c8",
+      "commitSha": "b45f8e2303d7c2ee3c414ad8b3bd08280a9e765d",
+      "commitMessage": "Fix typo in prerequisites section (#542)",
+      "commitAuthor": "Nick OConnor",
+      "commitDate": "2026-07-16T11:51:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/create-custom-rbac-roles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/create-custom-rbac-roles",
+      "firstSeenAt": "2026-07-16T15:51:30.000Z",
+      "eventId": "defender-docs:b45f8e2303d7c2ee3c414ad8b3bd08280a9e765d:modified:defender-xdr/create-custom-rbac-roles.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix typo in prerequisites section (#542)",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/create-custom-rbac-roles.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Nick OConnor"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/create-custom-rbac-roles.md.",
+        "sourceFiles": [
+          "defender-xdr/create-custom-rbac-roles.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/create-custom-rbac-roles.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

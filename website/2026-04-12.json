@@ -1,0 +1,479 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-xdr/multitenant-governance.md",
+      "status": "added",
+      "additions": 277,
+      "deletions": 0,
+      "changes": 277,
+      "patch": "diff --git a/defender-xdr/multitenant-governance.md b/defender-xdr/multitenant-governance.md\nnew file mode 100644\nindex 000000000..73318a5c0\n--- /dev/null\n+++ b/defender-xdr/multitenant-governance.md\n@@ -0,0 +1,277 @@\n+---\n+title: Configure delegated access with GDAP for multitenant organizations\n+description: Learn how to set up granular delegated admin privileges (GDAP) for managing multiple tenants in Microsoft Defender.\n+ms.service: defender-xdr\n+ms.author: guywild\n+author: guywi-ms\n+ms.topic: how-to\n+ms.date: 11/19/2024\n+---\n+\n+# Configure delegated access with GDAP for multitenant organizations\n+\n+This article explains how to configure granular delegated admin privileges (GDAP) for multitenant organizations and managed security service providers (MSSPs) to manage delegated access to customer tenants through the Microsoft Defender portal.\n+\n+> [!IMPORTANT]\n+> This feature is currently in limited preview.\n+\n+## Overview\n+\n+GDAP (Granular Delegated Admin Privileges) enables governing tenants to manage security operations across multiple customer tenants with fine-grained role assignments. This capability supports multitenant organizations (MTOs) and MSSPs that need to provide security services across multiple Microsoft Entra tenants.\n+\n+### Key concepts\n+\n+- **Governing tenant**: The home tenant that manages access to other tenants (also called \"home tenant\" or \"managing tenant\")\n+- **Governed tenant**: The customer tenant that grants access to the governing tenant (also called \"target tenant\" or \"managed tenant\")\n+- **GDAP**: Granular Delegated Admin Privileges - a permission model that allows delegated access with specific role assignments\n+- **CSP**: Cloud Solution Provider - Microsoft partners who sell cloud services\n+\n+## Prerequisites\n+\n+Before you configure delegated access, ensure you meet the following requirements:\n+\n+- Both the governing tenant and governed tenant must be enrolled in the limited preview. To enroll, contact your Microsoft account team with your tenant IDs.\n+- Both tenants require at least one Microsoft Entra ID P1 license.\n+- Both tenants require at least one Microsoft 365 E3/E5 license or Microsoft Sentinel enabled in Microsoft Defender.\n+- Both tenants need access to Microsoft Defender XDR. Validate access by confirming you can view incidents in the portal.\n+- A user with the Global Administrator role in the governing tenant.\n+- A user with the Global Administrator role in the governed tenant.\n+- Governance relationships enabled in the governing tenant.\n+\n+## Enable tenant governance settings\n+\n+Before establishing delegated access, you must enable the ability to receive governance invitations in your tenant. This setting is disabled by default.\n+\n+### Enable governance invitations in Entra Admin Center (recommended)\n+\n+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).\n+\n+1. Navigate to **Tenant Governance** > **Tenant Governance settings**.\n+\n+1. In the **Governance invitations** section, change the setting to **Enabled**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/governance-relationships.png\" alt-text=\"Screenshot showing governance invitations enabled in tenant settings.\":::\n+\n+### Enable governance invitations using API\n+\n+You can also configure this setting using Microsoft Graph API calls.\n+\n+#### Get current settings\n+\n+Use the following API call to retrieve current tenant governance settings:\n+\n+```http\n+GET https://graph.microsoft.com/beta/directory/tenantGovernance/settings\n+```\n+\n+#### Update settings\n+\n+Use the following API call to enable governance invitations:\n+\n+```http\n+PATCH https://graph.microsoft.com/beta/directory/tenantGovernance/settings\n+Content-Type: application/json\n+\n+{\n+  \"canReceiveInvitations\": true\n+}\n+```\n+\n+## Set up delegated access\n+\n+The GDAP setup process involves three steps: the governed tenant sends an invitation, the governing tenant creates and sends an access request, and the governed tenant approves the request.\n+\n+### Step 1: Send invitation from governed tenant\n+\n+The governed tenant initiates the relationship by sending an invitation to the governing tenant. This step is required for non-CSP scenarios to prevent unauthorized access.\n+\n+1. In the governed tenant, sign in to the Microsoft Defender portal.\n+\n+1. Navigate to **System** > **Permissions** > **Delegated Access**.\n+\n+1. Select **Send invitation**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/send-invitation.png\" alt-text=\"Screenshot of delegated access interface with send invitation option.\":::\n+\n+1. Enter the tenant ID of the governing tenant that you want to invite.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/tenant-id.png\" alt-text=\"Screenshot showing where to enter the tenant ID for the invitation.\":::\n+\n+1. Select **Send** to send the invitation.\n+\n+### Step 2: Create and send access request from governing tenant\n+\n+After receiving the invitation, the governing tenant creates a relationship template that defines delegated access permissions.\n+\n+1. In the governing tenant, sign in to the Microsoft Defender portal.\n+\n+1. Navigate to **System** > **Permissions** > **Delegated Access**.\n+\n+1. Select **Create relationship template**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/access-template.png\" alt-text=\"Screenshot of create access template interface.\":::\n+\n+1. Define the relationship template with the following information:\n+\n+   - **Template name**: A descriptive name for this access template\n+   - **Microsoft Entra built-in roles**: Select one or more roles to assign\n+   - **Security groups**: Select security groups from your governing tenant that will receive the assigned roles\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/define-access-template.png\" alt-text=\"Screenshot showing fields for defining the relationship template.\" lightbox=\"media/multitenant-governance/define-access-template.png\":::\n+\n+1. Select **Send relationship request**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/send-request.png\" alt-text=\"Screenshot of send relationship request option.\":::\n+\n+1. Select the governed tenant that invited you, then select **Submit**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/submit-request.png\" alt-text=\"Screenshot showing the GDAP request submission.\":::\n+\n+### Step 3: Approve access request in governed tenant\n+\n+The governed tenant administrator reviews and approves the delegated access request.\n+\n+1. In the governed tenant, sign in to the Microsoft Defender portal.\n+\n+1. Navigate to **System** > **Permissions** > **Microsoft XDR permissions**.\n+\n+1. Review the pending access request and select **Approve** or **Reject**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/approve-reject.png\" alt-text=\"Screenshot showing options to approve or reject the access request.\":::\n+\n+1. After approval, you'll see a confirmation message.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/request-approved.png\" alt-text=\"Screenshot of confirmation that delegated access was approved.\":::\n+\n+After the approval is complete, users in the specified security groups receive permissions in the governed tenant based on the defined roles.\n+\n+## Configure GDAP permissions for Microsoft Sentinel\n+\n+When GDAP access is established between tenants, synchronized security groups appear as \"remote tenant groups\" in the governed tenant. You can assign these groups to Azure Resource Manager (ARM) resources to enable Microsoft Sentinel management capabilities.\n+\n+Assigning Microsoft Sentinel roles enables multitenant management features including:\n+\n+- Alert and incident management\n+- Threat intelligence\n+- Hunting\n+- Content distribution\n+- Direct management through the Defender portal\n+\n+### Assign permissions to Log Analytics workspace\n+\n+Follow these steps to grant Microsoft Sentinel permissions to your delegated access groups.\n+\n+#### Step 1: Assign ARM permissions\n+\n+1. In the governed tenant, sign in to the [Azure portal](https://portal.azure.com).\n+\n+1. Navigate to your Log Analytics workspace.\n+\n+1. Select **Access Control (IAM)**.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/access-control.png\" alt-text=\"Screenshot of Access Control panel showing role assignments.\" lightbox=\"media/multitenant-governance/access-control.png\":::\n+\n+1. Select **Add** > **Add role assignment**.\n+\n+1. Select the Microsoft Sentinel role you want to assign (for example, Microsoft Sentinel Contributor).\n+\n+1. On the **Members** tab, under **Assign access to**, select **Remote tenant group**.\n+\n+1. Select the synchronized security groups from the governing tenant.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/add-role-assignment.png\" alt-text=\"Screenshot showing role assignment to a remote tenant group.\" lightbox=\"media/multitenant-governance/add-role-assignment.png\":::\n+\n+1. Select **Review + assign** to complete the assignment.\n+\n+1. Verify the role assignments by returning to **Access Control (IAM)** and reviewing the role assignments list.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/validate-role.png\" alt-text=\"Screenshot showing validated role assignments.\":::\n+\n+#### Step 2: Add tenant to tenant groups\n+\n+1. Sign in to the governing tenant at [mto.security.microsoft.com](https://mto.security.microsoft.com).\n+\n+1. Navigate to **Multi-tenant governance** > **Tenant Groups**.\n+\n+1. Verify that the governed tenant is included in your tenant groups.\n+\n+#### Step 3: Add Sentinel workspace to Advanced Hunting\n+\n+1. Navigate to **Hunting** > **Advanced Hunting**.\n+\n+1. Select **Tenant Scope** to open the scope selector.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/advanced-hunting.png\" alt-text=\"Screenshot of Advanced Hunting interface with tenant scope option.\" lightbox=\"media/multitenant-governance/advanced-hunting.png\":::\n+\n+1. Select the governed tenant and the Log Analytics workspace.\n+\n+1. Select **Apply** to save your selection.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/tenant-scope.png\" alt-text=\"Screenshot showing tenant scope selection interface.\":::\n+\n+### Manage Microsoft Sentinel in the governed tenant\n+\n+After configuring permissions, you can manage Microsoft Sentinel directly from the governing tenant's Defender portal.\n+\n+#### Step 1: Switch to the governed tenant\n+\n+1. In the governing tenant's Defender portal, select the multitenant switcher.\n+\n+1. Select the governed tenant you want to manage.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/switch-view.png\" alt-text=\"Screenshot of tenant switcher with available tenants.\":::\n+\n+#### Step 2: Access Microsoft Sentinel\n+\n+1. Navigate to **Microsoft Sentinel** in the left navigation.\n+\n+1. You can now fully manage the Microsoft Sentinel instance in the governed tenant.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/tables.png\" alt-text=\"Screenshot of Microsoft Sentinel data management interface.\" lightbox=\"media/multitenant-governance/tables.png\":::\n+\n+## Troubleshooting\n+\n+### Send relationship request option is unavailable\n+\n+**Symptom**: The **Send relationship request** option is greyed out, and you see an error message stating \"Failed to load data. Please try again later.\"\n+\n+:::image type=\"content\" source=\"media/multitenant-governance/relationshop-request-disabled.png\" alt-text=\"Screenshot showing disabled send relationship request option.\" lightbox=\"media/multitenant-governance/relationshop-request-disabled.png\":::\n+\n+**Cause**: This feature requires both Microsoft Entra ID and multitenant capabilities to be enabled for your tenant. The enrollment process can take up to 7 days to complete.\n+\n+**Resolution**:\n+\n+1. Press F12 to open browser developer tools.\n+\n+1. Navigate to the **Network** tab.\n+\n+1. Filter by `governancePolicyTemplates`.\n+\n+1. Refresh the page and check the response for error messages.\n+\n+   :::image type=\"content\" source=\"media/multitenant-governance/error-messages.png\" alt-text=\"Screenshot of browser developer tools showing enrollment error.\":::\n+\n+The following table lists common error messages and their resolutions:\n+\n+| Error message | Resolution |\n+|---|---|\n+| Tenant XXXX-XXXX-XXXX-XXXXXXX is not allowlisted | Allow up to 7 days for the enrollment process to complete. If the issue persists, contact Microsoft Support. |\n+\n+### Security group not displayed when creating a template\n+\n+**Symptom**: Your security group doesn't appear in the list when creating a relationship template.\n+\n+**Cause**: Only security groups that meet specific criteria are supported for GDAP delegation.\n+\n+**Resolution**: Ensure your security group meets the following requirements:\n+\n+- SecurityEnabled property is set to true\n+- IsAssignableToRole property is set to true\n+- Not a Microsoft 365 group (unified group)\n+\n+Security groups that don't meet these criteria aren't supported for GDAP delegation.\n+\n+## Related content\n+\n+- [Microsoft Defender XDR multitenant management](microsoft-365-defender-multitenant.md)\n+- [MSSP portal access](mssp-access.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "ec29a9a1627bf912e1decf756e0b9118e398bfc2",
+      "commitSha": "0b17dcad2ca0b471fcac0039fcbad8ffb418b319",
+      "commitMessage": "GDAP - Yossi Basha",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-04-12T22:06:44+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/multitenant-governance.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/multitenant-governance",
+      "firstSeenAt": "2026-04-12T19:06:44.000Z",
+      "eventId": "defender-docs:0b17dcad2ca0b471fcac0039fcbad8ffb418b319:added:defender-xdr/multitenant-governance.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "GDAP - Yossi Basha",
+        "summary": "Added Microsoft Defender documentation in defender-xdr/multitenant-governance.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/android-support-signin.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/android-support-signin.md b/defender-endpoint/android-support-signin.md\nindex 2a1848c5e..d5f3a2994 100644\n--- a/defender-endpoint/android-support-signin.md\n+++ b/defender-endpoint/android-support-signin.md\n@@ -155,8 +155,8 @@ If a user faces an issue, which isn't already addressed in the above sections or\n \n 1. Select **Help & feedback** > **Send feedback**.\n \n-    :::image type=\"content\" source=\"./media/android-new-ux/bottom-experience-android.png\" alt-text=\"Screenshots showing how to send feedback and logs from the Microsoft Defender mobile app options menu.\" border=\"false\":::\n+    :::image type=\"content\" source=\"./media/android-new-ux/bottom-experience-android.png\" alt-text=\"Screenshots showing how to send feedback and logs from the Microsoft Defender mobile app options menu.\" border=\"false\" lightbox=\"./media/android-new-ux/bottom-experience-android.png\":::\n \n 1. Provide details of the issue that you're facing and check **Include diagnostic data**. We recommend selecting **Include your email address** so that the team can reach back to you with a solution or a follow-up.\n \n-1. Select on **Submit** to successfully send the feedback.\n\\ No newline at end of file\n+1. Select on **Submit** to successfully send the feedback.\n",
+      "baseCommitSha": "f9ef785ae5069808280befcf79c8c5da5acca963",
+      "commitSha": "36f5a7bfc4af797f6c4d78a87b0eb7e1aac4f645",
+      "commitMessage": "Enhance feedback section with image lightbox",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-04-12T11:58:30+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-support-signin.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-support-signin",
+      "firstSeenAt": "2026-04-12T08:58:30.000Z",
+      "eventId": "defender-docs:36f5a7bfc4af797f6c4d78a87b0eb7e1aac4f645:modified:defender-endpoint/android-support-signin.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Enhance feedback section with image lightbox",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/android-support-signin.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/android-support-signin.md b/defender-endpoint/android-support-signin.md\nindex d5f3a2994..748dd645b 100644\n--- a/defender-endpoint/android-support-signin.md\n+++ b/defender-endpoint/android-support-signin.md\n@@ -13,7 +13,7 @@ ms.collection:\n ms.topic: troubleshooting-general\n ms.subservice: android\n search.appverid: met150\n-ms.date: 12/10/2025\n+ms.date: 04/12/2026\n appliesto:\n - Microsoft Defender for Endpoint Plan 1\n - Microsoft Defender for Endpoint Plan 2\n",
+      "baseCommitSha": "36f5a7bfc4af797f6c4d78a87b0eb7e1aac4f645",
+      "commitSha": "a26cbe301974ed3c029ba5fc2572a0d41f719948",
+      "commitMessage": "Update date in android-support-signin.md",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-04-12T12:07:00+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-support-signin.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-support-signin",
+      "firstSeenAt": "2026-04-12T09:07:00.000Z",
+      "eventId": "defender-docs:a26cbe301974ed3c029ba5fc2572a0d41f719948:modified:defender-endpoint/android-support-signin.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update date in android-support-signin.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 13,
+      "changes": 24,
+      "patch": "diff --git a/defender-xdr/security-for-ai/defender-security-for-ai.md b/defender-xdr/security-for-ai/defender-security-for-ai.md\nindex 39904ffcf..0af2156b6 100644\n--- a/defender-xdr/security-for-ai/defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/defender-security-for-ai.md\n@@ -13,15 +13,15 @@ description: Learn how Microsoft Defender secures AI workloads across their life\n \n # Secure AI assets and runtime behavior using Microsoft Defender\n \n-Adopting artificial intelligence (AI) introduces new security vulnerabilities beyond the risks posed by traditional applications. AI exposes new attack surfaces across AI agents and applications, the AI models they use, plugins to these AI assets, and generative AI prompts and responses. \n+Adopting artificial intelligence (AI) introduces new security threats and vulnerabilities beyond the risks posed by traditional applications. AI exposes new attack surfaces across AI agents and applications, the AI models they use, plugins to these assets, and generative AI prompts and responses.\n \n-By embedding security into the fabric of AI development and operations, Microsoft lets you build AI responsibly and adopt AI with confidence, at scale.\n+By embedding security into the fabric of AI development and operations, Microsoft lets you build AI responsibly and adopt AI with confidence, at scale. As part of Microsoft’s comprehensive approach to AI security, Microsoft Defender helps you discover AI assets and detect, block, and investigate AI‑specific threats during development, configuration, and runtime execution.\n \n-This article provides an overview of the Microsoft Defender capabilities that secure AI assets against vulnerabilities and emerging threats.\n+This article provides an overview of the Microsoft Defender capabilities that help secure AI assets against vulnerabilities and emerging threats.\n \n ## The AI threat landscape\n \n-AI security threats span runtime risks with AI agents and applications - the main user interfaces - but it's equally important to secure the models, infrastructure, and integrations the agents and applications depend on.\n+AI security threats span the full AI lifecycle, from build‑time and configuration risks - such as misconfigurations and insecure dependencies - to runtime threats affecting AI agents and applications.\n \n Key security risks to your AI assets include:\n \n@@ -32,18 +32,16 @@ Key security risks to your AI assets include:\n \n Addressing these risks requires security controls that span discovery, posture management, detection, and runtime protection.\n \n-## Secure AI assets using Microsoft Defender\n+## Secure AI assets across the AI lifecycle using Microsoft Defender\n \n-Microsoft Defender helps you secure AI assets as you deploy and scale across cloud environments, through a combination of preventive and detective capabilities:\n+Microsoft Defender helps security teams address AI risks by providing visibility into AI assets and by discovering AI assets and their security posture, detecting and blocking threats, and facilitating investigation of AI‑specific threats - from build‑time through the AI application and agent lifecycle, including runtime. \n \n-| Capability | Description |\n-|---|---|\n-| **AI asset discovery** | <ul><li>Discover AI agents, applications, models, and services to gain visibility across your AI estate.</li></ul> |\n-| **Security posture management** | <ul><li>Identify unsafe AI artifacts, misconfigurations, risky dependencies, insecure instructions, and excessive privileges.</li><li>Prioritize risk by using security recommendations, risk factors, and attack-path analysis.</li></ul> |\n-| **Threat detection and blocking** | <ul><li>Detect malicious or abnormal AI behavior, and correlate signals across Microsoft Defender, Microsoft Entra, and Microsoft Purview.</li><li>Help block unsafe actions in real time, such as prompt injection attempts, unsafe tool usage, and suspicious access patterns, before impact.</li></ul> |\n-| **Threat investigation and hunting** | <ul><li>Investigate flagged events, and trace actions such as tool calls, MCP interactions, and memory changes.</li><li>Search and analyze threats across agents, applications, and devices by using Kusto Query Language (KQL).</li></ul> |\n+:::image type=\"content\" source=\"media/defender-security-for-ai/defender-secure-ai-lifecycle.png\" alt-text=\"Diagram of AI lifecycle risks, highlighting usage, agent misbehavior, data leaks, and model threats.\":::\n \n-The following sections explain how to apply these capabilities.\n+The following sections describe how Microsoft Defender applies these capabilities to:\n+\n+- AI agents, where runtime behavior, tool usage, and agent decision‑making introduce exposure.\n+- AI  applications and infrastructure, including models, platforms, services, and integrations, where configuration and deployment weaknesses can create broader attack paths.\n \n ## Protect AI agents using Microsoft Defender\n \n",
+      "baseCommitSha": "13340117c9f764f6e35b53623584af6acff3920f",
+      "commitSha": "416c9bddaa40f5736166fbc33933e259ca1c4785",
+      "commitMessage": "updates",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-04-12T14:01:08+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "firstSeenAt": "2026-04-12T11:01:08.000Z",
+      "eventId": "defender-docs:416c9bddaa40f5736166fbc33933e259ca1c4785:modified:defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 4,
+      "changes": 9,
+      "patch": "diff --git a/defender-xdr/security-for-ai/defender-security-for-ai.md b/defender-xdr/security-for-ai/defender-security-for-ai.md\nindex 0af2156b6..41f6dff42 100644\n--- a/defender-xdr/security-for-ai/defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/defender-security-for-ai.md\n@@ -34,14 +34,15 @@ Addressing these risks requires security controls that span discovery, posture m\n \n ## Secure AI assets across the AI lifecycle using Microsoft Defender\n \n-Microsoft Defender helps security teams address AI risks by providing visibility into AI assets and by discovering AI assets and their security posture, detecting and blocking threats, and facilitating investigation of AI‑specific threats - from build‑time through the AI application and agent lifecycle, including runtime. \n+Microsoft Defender helps security teams address AI risks across the AI lifecycle by providing visibility into AI assets, assessing their security posture, detecting and blocking AI‑specific threats, and providing the signals and context needed to investigate threats - from build time through the AI application and agent lifecycle, including runtime. \n \n-:::image type=\"content\" source=\"media/defender-security-for-ai/defender-secure-ai-lifecycle.png\" alt-text=\"Diagram of AI lifecycle risks, highlighting usage, agent misbehavior, data leaks, and model threats.\":::\n+:::image type=\"content\" source=\"media/defender-security-for-ai/defender-secure-ai-lifecycle.png\" alt-text=\"Diagram of AI lifecycle risks, highlighting usage, agent misbehavior, data leaks, and model threats.\" lightbox=\"media/defender-security-for-ai/defender-secure-ai-lifecycle.png\":::\n \n The following sections describe how Microsoft Defender applies these capabilities to:\n \n-- AI agents, where runtime behavior, tool usage, and agent decision‑making introduce exposure.\n-- AI  applications and infrastructure, including models, platforms, services, and integrations, where configuration and deployment weaknesses can create broader attack paths.\n+- **AI agents**, where configuration, permissions, and runtime behavior - including tool usage and agent decision‑making-introduce exposure.\n+- **AI applications and infrastructure**, including models, platforms, services, and integrations, where supply-chain risks, configuration, and deployment weaknesses can create broader attack paths.\n+\n \n ## Protect AI agents using Microsoft Defender\n \n",
+      "baseCommitSha": "416c9bddaa40f5736166fbc33933e259ca1c4785",
+      "commitSha": "151cd0f572ae3963b6b837cf33a69a5ae7290ee5",
+      "commitMessage": "Update defender-security-for-ai.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-04-12T15:00:32+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "firstSeenAt": "2026-04-12T12:00:32.000Z",
+      "eventId": "defender-docs:151cd0f572ae3963b6b837cf33a69a5ae7290ee5:modified:defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-security-for-ai.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 994ee7e62..47cade30e 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -340,6 +340,10 @@ For detailed information on Microsoft security updates, see the [Microsoft Secur\n >\n > If you have any concerns or need assistance during this transition, contact support.\n \n+### Linux | March 24, 2026 | Update: post-release fix\n+ \n+Fixed an issue in the January 2026 release, where real-time scanning of the /dev/watchdog device could trigger unexpected system reboots on systems with hardware watchdog enabled. For more information, see [Linux | January 2026 | Platform: 101.25102.0005](#linux--january-2026--platform-101251020005).\n+\n ### Linux | March 2026 | 101.26021.0002\n \n #### Release details\n",
+      "baseCommitSha": "ec29a9a1627bf912e1decf756e0b9118e398bfc2",
+      "commitSha": "3b6431c645c8dee574703d84e663f4873d829121",
+      "commitMessage": "Adding post-release fix heading for Linux",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-04-12T15:05:14+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-04-12T12:05:14.000Z",
+      "eventId": "defender-docs:3b6431c645c8dee574703d84e663f4873d829121:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Adding post-release fix heading for Linux",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/security-for-ai/defender-security-for-ai.md b/defender-xdr/security-for-ai/defender-security-for-ai.md\nindex 41f6dff42..3b6629abd 100644\n--- a/defender-xdr/security-for-ai/defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/defender-security-for-ai.md\n@@ -46,16 +46,16 @@ The following sections describe how Microsoft Defender applies these capabilitie\n \n ## Protect AI agents using Microsoft Defender\n \n-AI agents introduce unique security risks because of their ability to reason, invoke tools, access data, and take autonomous actions across systems. Securing agents at scale requires centralized visibility, governance, and runtime protections.\n+AI agents introduce unique security risks because of their ability to reason, invoke tools, access data, and take autonomous actions across systems. Securing agents at scale requires centralized visibility, security posture and risk management, runtime protection, and advanced investigation capabilities to detect the root cause of the attack.\n \n-[Microsoft Agent 365](/microsoft-agent-365/overview) provides an enterprise control plane for managing and governing AI agents across the organization.  Microsoft Defender integrates with Agent 365 and provides AI agent security at two levels, as described in the table below:\n-- **Agents onboarded to Microsoft Agent 365** - Microsoft Defender provides a core set of security capabilities.\n+[Microsoft Agent 365](/microsoft-agent-365/overview) provides an enterprise control plane for managing and governing AI agents across the organization.  Microsoft Defender seamlessly integrates with Agent 365 and provides AI agent security at two levels, as described in the table below:\n+- **Agents onboarded to Microsoft Agent 365** - Microsoft Defender provides a core set of security capabilities, from discovery and risk-based prioritization to runtime and investigation capabilities.\n - **Extended capabilities for supported agents** - Microsoft Defender provides extended security capabilities for supported agents when you enable the relevant features. These extended capabilities are available for agents built with Microsoft Copilot Studio and the following pro‑developer platforms: Microsoft Foundry, AWS Bedrock, and GCP Vertex AI. Capability availability varies by platform and scenario, as detailed in the table below.\n \n \n | Capability | Description | Learn more |\n |---|---|---|\n-| **AI agent discovery** | <ul><li>**All Agent 365-managed agents** - View agent details and configuration attributes using Kusto Query Language (KQL) queries in Advanced Hunting in Microsoft Defender.</li><li>**Extended capabilities for supported agents** - The AI agent inventory in the Defender portal shows supported agents in a unified UI. This is currently supported for agents built with Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock, and GCP Vertex AI.</li></ul> | [Discover AI agents and assess security posture using Microsoft Defender](/defender-xdr/ai-agent-inventory) |\n+| **AI agent discovery** | <ul><li>**All Agent 365-managed agents** - Discover all agents onboarded to A365 using the observability SDK and view agent details and configuration attributes using Kusto Query Language (KQL) queries in Advanced Hunting in Microsoft Defender.</li><li>**Extended capabilities for supported agents** - The AI agent inventory in the Defender portal shows supported agents in a unified UI. This is currently supported for agents built with Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock, and GCP Vertex AI.</li></ul> | [Discover AI agents and assess security posture using Microsoft Defender](/defender-xdr/ai-agent-inventory) |\n | **Agent security posture management** | <ul><li>**All Agent 365-managed agents** - Use Advanced Hunting in Microsoft Defender, which provides a set of prebuilt queries to help you identify misconfigurations, risky agent settings, and excessive permissions. </li><li>**Extended capabilities for supported agents** - The AI agent inventory in the Defender portal lets you assess security posture through risk factors, attack paths, and prioritized security recommendations. This is currently supported for agents built with Microsoft Foundry, AWS Bedrock, and GCP Vertex AI.</li></ul> | [Discover AI agents and assess security posture using Microsoft Defender](/defender-xdr/ai-agent-inventory) |\n | **Agent threat detection and blocking** | <ul><li>**All Agent 365-managed agents** - Near-real-time detections and alerts help you identify and respond to malicious agent behavior, including prompt‑based attacks, unsafe tool usage, and anomalous execution patterns.</li><li> **Extended capabilities for supported agents** - Microsoft Defender provides real-time protection by evaluating the safety of an action before an agent invokes a tool and blocks the action if it’s deemed unsafe. This helps prevent attempts to expose internal tools, exfiltrate data to malicious destinations, use obfuscated or hidden content to manipulate behavior, or leak credentials. Real-time protection is supported for all agents onboarded Agent 365 using the [agent tools gateway](TBD).<br>Microsoft Defender also provides an extended set of real-time protection capabilities for Microsoft Copilot Studio agents when you enable the relevant features.</li></ul>| [Detect, block, and investigate threats to AI agents using Microsoft Defender](real-time-agent-protection-during-runtime.md) |\n | **Agent threat investigation and hunting** | <ul><li>**All Agent 365-managed agents** - Microsoft Defender XDR incident correlation and Advanced Hunting capabilities help defenders understand the full context and blast radius of AI agent threats.</li><li> **Extended capabilities for supported agents** - Collect audit logs for Agent 365-managed agents for deep investigation and hunting by enabling the Microsoft 365 app connector. </li></ul> | [Detect, block, and investigate threats to AI agents using Microsoft Defender](real-time-agent-protection-during-runtime.md)|\n",
+      "baseCommitSha": "151cd0f572ae3963b6b837cf33a69a5ae7290ee5",
+      "commitSha": "cbebad58323e6073f8152a6736e5773946f3c94f",
+      "commitMessage": "Update defender-security-for-ai.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-04-12T15:37:22+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "firstSeenAt": "2026-04-12T12:37:22.000Z",
+      "eventId": "defender-docs:cbebad58323e6073f8152a6736e5773946f3c94f:modified:defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-security-for-ai.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/defender-security-for-ai.md b/defender-xdr/security-for-ai/defender-security-for-ai.md\nindex 3b6629abd..42e10087f 100644\n--- a/defender-xdr/security-for-ai/defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/defender-security-for-ai.md\n@@ -57,7 +57,7 @@ AI agents introduce unique security risks because of their ability to reason, in\n |---|---|---|\n | **AI agent discovery** | <ul><li>**All Agent 365-managed agents** - Discover all agents onboarded to A365 using the observability SDK and view agent details and configuration attributes using Kusto Query Language (KQL) queries in Advanced Hunting in Microsoft Defender.</li><li>**Extended capabilities for supported agents** - The AI agent inventory in the Defender portal shows supported agents in a unified UI. This is currently supported for agents built with Microsoft Copilot Studio, Microsoft Foundry, AWS Bedrock, and GCP Vertex AI.</li></ul> | [Discover AI agents and assess security posture using Microsoft Defender](/defender-xdr/ai-agent-inventory) |\n | **Agent security posture management** | <ul><li>**All Agent 365-managed agents** - Use Advanced Hunting in Microsoft Defender, which provides a set of prebuilt queries to help you identify misconfigurations, risky agent settings, and excessive permissions. </li><li>**Extended capabilities for supported agents** - The AI agent inventory in the Defender portal lets you assess security posture through risk factors, attack paths, and prioritized security recommendations. This is currently supported for agents built with Microsoft Foundry, AWS Bedrock, and GCP Vertex AI.</li></ul> | [Discover AI agents and assess security posture using Microsoft Defender](/defender-xdr/ai-agent-inventory) |\n-| **Agent threat detection and blocking** | <ul><li>**All Agent 365-managed agents** - Near-real-time detections and alerts help you identify and respond to malicious agent behavior, including prompt‑based attacks, unsafe tool usage, and anomalous execution patterns.</li><li> **Extended capabilities for supported agents** - Microsoft Defender provides real-time protection by evaluating the safety of an action before an agent invokes a tool and blocks the action if it’s deemed unsafe. This helps prevent attempts to expose internal tools, exfiltrate data to malicious destinations, use obfuscated or hidden content to manipulate behavior, or leak credentials. Real-time protection is supported for all agents onboarded Agent 365 using the [agent tools gateway](TBD).<br>Microsoft Defender also provides an extended set of real-time protection capabilities for Microsoft Copilot Studio agents when you enable the relevant features.</li></ul>| [Detect, block, and investigate threats to AI agents using Microsoft Defender](real-time-agent-protection-during-runtime.md) |\n+| **Agent threat detection and blocking** | <ul><li>**All Agent 365-managed agents** - Near-real-time detections and alerts help you identify and respond to malicious agent behavior, including prompt‑based attacks, unsafe tool usage, and anomalous execution patterns.</li><li> **Extended capabilities for supported agents** - Microsoft Defender provides real-time protection by evaluating the safety of an action before an agent invokes a tool and blocks the action if it’s deemed unsafe. This helps prevent attempts to expose internal tools, exfiltrate data to malicious destinations, use obfuscated or hidden content to manipulate behavior, or leak credentials. Real-time protection is supported for all agents onboarded Agent 365 using the [agent tools gateway](TBD).<br>Microsoft Defender also provides an extended set of real-time protection capabilities for Microsoft Copilot Studio agents, and an extended set of near-real-time detections for Microsoft Foundry agents when you enable the relevant features.</li></ul>| [Detect, block, and investigate threats to AI agents using Microsoft Defender](real-time-agent-protection-during-runtime.md) |\n | **Agent threat investigation and hunting** | <ul><li>**All Agent 365-managed agents** - Microsoft Defender XDR incident correlation and Advanced Hunting capabilities help defenders understand the full context and blast radius of AI agent threats.</li><li> **Extended capabilities for supported agents** - Collect audit logs for Agent 365-managed agents for deep investigation and hunting by enabling the Microsoft 365 app connector. </li></ul> | [Detect, block, and investigate threats to AI agents using Microsoft Defender](real-time-agent-protection-during-runtime.md)|\n \n ## Protect AI infrastructure using Microsoft Defender\n",
+      "baseCommitSha": "cbebad58323e6073f8152a6736e5773946f3c94f",
+      "commitSha": "7f67f415f30590ae30fa6fc6878678417d04cd1b",
+      "commitMessage": "Update defender-security-for-ai.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-04-12T15:48:01+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "firstSeenAt": "2026-04-12T12:48:01.000Z",
+      "eventId": "defender-docs:7f67f415f30590ae30fa6fc6878678417d04cd1b:modified:defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-security-for-ai.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "status": "modified",
+      "additions": 42,
+      "deletions": 4,
+      "changes": 46,
+      "patch": "diff --git a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\nindex dcb8e041e..2f4ffdcf2 100644\n--- a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n+++ b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n@@ -196,12 +196,50 @@ To re-enable connected apps:\n 1. In the **Connected apps** page, in the relevant row, select the three dots and choose **Edit settings**. This starts the process to add a connector.\n 1. Add the connector using the steps in the relevant API connector guide. For example, if you are re-enabling GitHub, use the steps in [Connect GitHub Enterprise Cloud to Microsoft Defender for Cloud Apps](protect-github.md#connect-github-enterprise-cloud-to-microsoft-defender-for-cloud-apps).\n \n-## Next steps\n \n-> [!div class=\"nextstepaction\"]\n-> [Best practices for protecting your organization](best-practices.md)\n+## Troubleshoot missing activities after you connect an app\n+\n+If expected activities don't appear after you connect an app, perform the following checks to determine where the data should be available and whether additional configuration is required.\n+\n+**Step 1: Confirm the connector is healthy**\n+Verify that the app connector is connected successfully and that there are no configuration warnings or permission issues.\n+\n+**Step 2: Review connector-specific activity options**\n+For connectors that support selectable activity types, confirm that the required options are enabled. For example, if you're investigating sign-in activity, verify that the connector is configured to collect the relevant sign-in data.\n+\n+**Step 3: Validate the expected logging surface**\n+Not all events appear in the same place. Depending on the activity type, validate the event in the appropriate source:\n+\n+\n+|Event  |Source  |\n+|---------|---------|\n+|Defender for Cloud Apps policy administration changes     |  Defender for Cloud Apps Activity log       |\n+|Entra sign-in events     |  Microsoft Entra sign-in logs       |\n+|Identity-related investigation data     |  Advanced Hunting identity tables       |\n+\n+**Step 4: Apply filters before concluding that data is missing**\n \n-[!INCLUDE [Open support ticket](includes/support.md)]\n+Use filters such as:\n \n+- Time range\n+- User or administrator\n+- Activity type\n+- App or workload\n \n+**Step 5: Check for known scope limitations**\n \n+Some activities might not be fully represented in every logging surface. If an event is missing from one source, confirm whether that activity is documented as available in another source.\n+\n+> [!IMPORTANT]\n+> Missing activity in one portal doesn't always indicate connector failure. First confirm whether the activity is expected in Defender for Cloud Apps, Microsoft Entra logs, Microsoft 365 audit logs, or Advanced Hunting.\n+\n+**Step 6: When to investigate further**\n+\n+- The connector shows a healthy state but no expected data appears in any supported logging surface\n+- Required activity options are enabled, but the event is still absent after a reasonable validation period\n+- The same activity type is consistently unavailable across multiple checks\n+\n+## Next steps\n+\n+> [!div class=\"nextstepaction\"]\n+> [Best practices for protecting your organization](best-practices.md)\n",
+      "baseCommitSha": "ec29a9a1627bf912e1decf756e0b9118e398bfc2",
+      "commitSha": "399643ff22a56d7fbdec24efaf9d1deec1926fca",
+      "commitMessage": "add troubleshooting for missing app activities",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-12T15:53:44+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps",
+      "firstSeenAt": "2026-04-12T12:53:44.000Z",
+      "eventId": "defender-docs:399643ff22a56d7fbdec24efaf9d1deec1926fca:modified:defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add troubleshooting for missing app activities",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 13,
+      "changes": 26,
+      "patch": "diff --git a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\nindex 2f4ffdcf2..00214c656 100644\n--- a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n+++ b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n@@ -12,17 +12,17 @@ ms.reviewer: AmitMishaeli\n \n App connectors use the APIs of app providers to enable greater visibility and control by Microsoft Defender for Cloud Apps over the apps you connect to.\n \n-Microsoft Defender for Cloud Apps leverages the APIs provided by the cloud provider. All communication between Defender for Cloud Apps and connected apps is encrypted using HTTPS. Each service has its own framework and API limitations such as throttling, API limits, dynamic time-shifting API windows, and others. Microsoft Defender for Cloud Apps worked with the services to optimize the usage of the APIs and to provide the best performance. Taking into account different limitations services impose on the APIs, the Defender for Cloud Apps engines use the allowed capacity. Some operations, such as scanning all files in the tenant, require numerous APIs so they're spread over a longer period. Expect some policies to run for several hours or several days.\n+Microsoft Defender for Cloud Apps uses the APIs provided by the cloud provider. All communication between Defender for Cloud Apps and connected apps is encrypted using HTTPS. Each service has its own framework and API limitations such as throttling, API limits, dynamic time-shifting API windows, and others. Microsoft Defender for Cloud Apps worked with the services to optimize the usage of the APIs and to provide the best performance. Taking into account different limitations services impose on the APIs, the Microsoft Defender for Cloud Apps engines use the allowed capacity. Some operations, such as scanning all files in the tenant, require numerous APIs so they're spread over a longer period. Expect some policies to run for several hours or several days.\n \n > [!IMPORTANT]\n > Starting **September 1, 2024**, we'll be deprecating the **Files** page from Microsoft Defender for Cloud Apps. At that point, create and modify Information Protection policies and find malware files from the **Cloud apps > Policies > Policy Management** page. For more information, see [File policies in Microsoft Defender for Cloud Apps](data-protection-policies.md).\n \n ## Multi-instance support\n \n-Defender for Cloud Apps supports multiple instances of the same connected app. For example, if you have more than one instance of Salesforce (one for sales, one for marketing) you can connect both to Defender for Cloud Apps. You can manage the different instances from the same console to create granular policies and deeper investigation. This support applies only to API connected apps, not to Cloud Discovered apps or Proxy connected apps.\n+Defender for Cloud Apps supports multiple instances of the same connected app. For example, if you have more than one instance of Salesforce (one for sales, one for marketing) you can connect both to Defender for Cloud Apps. You can manage the different instances from the same console to create granular policies and deeper investigation. This support applies only to API connected apps, not to Cloud Discovered apps, or Proxy connected apps.\n \n > [!NOTE]\n-> Multi-instance is not supported for Microsoft 365 and Azure.\n+> Multi-instance isn't supported for Microsoft 365 and Azure.\n \n ## How it works\n \n@@ -32,10 +32,10 @@ The App Connector flow is as follows:\n \n 1. Defender for Cloud Apps scans and saves authentication permissions.\n \n-1. Defender for Cloud Apps requests the user list. The first time the request is done, it may take some time until the scan completes. After the user scan is over, Defender for Cloud Apps moves on to activities and files. As soon as the scan starts, some activities will be available in Defender for Cloud Apps.\n+1. Defender for Cloud Apps requests the user list. The first time the request is done, it might take some time until the scan completes. After the user scan is over, Defender for Cloud Apps moves on to activities and files. As soon as the scan starts, some activities will be available in Defender for Cloud Apps.\n 1. After completion of the user request, Defender for Cloud Apps periodically scans users, groups, activities, and files. All activities will be available after the first full scan.\n \n-This connection may take some time depending on the size of the tenant, the number of users, and the size and number of files that need to be scanned.\n+This connection might take some time depending on the size of the tenant, the number of users, and the size and number of files that need to be scanned.\n \n Depending on the app to which you're connecting, API connection enables the following items:\n \n@@ -50,7 +50,7 @@ Depending on the app to which you're connecting, API connection enables the foll\n The following tables list, per cloud app, which abilities are supported with App connectors:\n \n >[!NOTE]\n->Since not all app connectors support all abilities, some rows may be empty.\n+>Since not all app connectors support all abilities, some rows might be empty.\n \n ### Users and activities\n \n@@ -152,7 +152,7 @@ The following tables list, per cloud app, which abilities are supported with App\n \n - When working with the [Microsoft 365 connector](protect-office-365.md), you'll need a license for each service where you want to view security recommendations. For example, to view recommendations for Microsoft Forms, you'll need a license that supports Forms.\n \n-- For some apps, it may be necessary to allow list IP addresses to enable Defender for Cloud Apps to collect logs and provide access for the Defender for Cloud Apps console. For more information, see [Network requirements](network-requirements.md).\n+- For some apps, it might be necessary to allow list IP addresses to enable Defender for Cloud Apps to collect logs and provide access for the Defender for Cloud Apps console. For more information, see [Network requirements](network-requirements.md).\n \n > [!NOTE]\n > To get updates when URLs and IP addresses are changed, subscribe to the RSS as explained in: [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges).\n@@ -179,22 +179,22 @@ For more information about  Microsoft Peering, see [ExpressRoute circuits and ro\n \n > [!NOTE]\n >\n-> - Before disabling an app connector, make sure you have the connection details available as you will need them if you want to re-enable the connector.\n-> - These steps cannot be used to disable conditional access app control apps and security configuration apps.\n+> - Before disabling an app connector, make sure you have the connection details available as you'll need them if you want to re-enable the connector.\n+> - These steps can't be used to disable conditional access app control apps and security configuration apps.\n \n To disable connected apps:\n \n 1. In the **Connected apps** page, in the relevant row, select the three dots and choose **Disable App connector**.\n-1. In the pop-up, click **Disable App connector instance** to confirm the action.\n+1. In the pop-up, select **Disable App connector instance** to confirm the action.\n \n-Once disabled, the connector instance will stop consuming data from the connector.\n+Once disabled, the connector instance stops consuming data from the connector.\n \n ## Re-enable app connectors\n \n To re-enable connected apps:\n \n 1. In the **Connected apps** page, in the relevant row, select the three dots and choose **Edit settings**. This starts the process to add a connector.\n-1. Add the connector using the steps in the relevant API connector guide. For example, if you are re-enabling GitHub, use the steps in [Connect GitHub Enterprise Cloud to Microsoft Defender for Cloud Apps](protect-github.md#connect-github-enterprise-cloud-to-microsoft-defender-for-cloud-apps).\n+1. Add the connector using the steps in the relevant API connector guide. For example, if you're re-enabling GitHub, use the steps in [Connect GitHub Enterprise Cloud to Microsoft Defender for Cloud Apps](protect-github.md#connect-github-enterprise-cloud-to-microsoft-defender-for-cloud-apps).\n \n \n ## Troubleshoot missing activities after you connect an app\n@@ -214,7 +214,7 @@ Not all events appear in the same place. Depending on the activity type, validat\n |Event  |Source  |\n |---------|---------|\n |Defender for Cloud Apps policy administration changes     |  Defender for Cloud Apps Activity log       |\n-|Entra sign-in events     |  Microsoft Entra sign-in logs       |\n+|Microsoft Entra sign-in events     |  Microsoft Entra sign-in logs       |\n |Identity-related investigation data     |  Advanced Hunting identity tables       |\n \n **Step 4: Apply filters before concluding that data is missing**\n",
+      "baseCommitSha": "399643ff22a56d7fbdec24efaf9d1deec1926fca",
+      "commitSha": "c798bef94b9387f579c1f03c8173b4162d8fd187",
+      "commitMessage": "Acrolinx fixes",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-12T16:00:37+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps",
+      "firstSeenAt": "2026-04-12T13:00:37.000Z",
+      "eventId": "defender-docs:c798bef94b9387f579c1f03c8173b4162d8fd187:modified:defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Acrolinx fixes",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-copilot-m365d-incident-summary.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 3,
+      "changes": 34,
+      "patch": "diff --git a/defender-xdr/security-copilot-m365d-incident-summary.md b/defender-xdr/security-copilot-m365d-incident-summary.md\nindex 844122f29..d2a522924 100644\n--- a/defender-xdr/security-copilot-m365d-incident-summary.md\n+++ b/defender-xdr/security-copilot-m365d-incident-summary.md\n@@ -62,10 +62,10 @@ Incidents containing up to 100 alerts can be summarized into one incident summar\n \n To summarize an incident:\n \n-1. Open an incident page. Copilot automatically creates an incident summary upon opening the page. You can stop the summary creation by selecting **Cancel** or restart creation by selecting **Regenerate**.\n+1. Open an incident page. Copilot automatically creates an incident summary in the **Tasks** pane. You can stop the summary creation by selecting **Cancel** or restart creation by selecting **Regenerate**.\n \n 1. The incident summary card loads on the Copilot pane. Review the generated summary on the card. Review the summary and use the information to guide your investigation and response to the incident.\n- \n+\n    :::image type=\"content\" source=\"media/copilot-in-defender/incident-summary/copilot-defender-incident-summary.png\" alt-text=\"Screenshot that shows the incident summary card on the Copilot pane as seen in the Microsoft Defender incident page.\" lightbox=\"media/copilot-in-defender/incident-summary/copilot-defender-incident-summary.png\":::\n \n    > [!TIP]\n@@ -73,7 +73,7 @@ To summarize an incident:\n \n 1. Select **See prompts** to view suggested prompts. Suggested prompts surface relevant follow-up questions based on the most crucial information in the given incident.\n \n-   Select a suggested prompt to get more insights about the specific assets involved in the incident, such as device summaries, identity summaries, and related threat intelligence. \n+   Select a suggested prompt to get more insights about the specific assets involved in the incident, such as device summaries, identity summaries, and related threat intelligence.\n \n    :::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/copilot-defender-incident-summary-see-prompts.png\" lightbox=\"media/security-copilot-m365d-incident-summary/copilot-defender-incident-summary-see-prompts-large.png\" alt-text=\"Screenshot that shows the Copilot suggested prompts on the incident summary card.\":::\n \n@@ -81,6 +81,34 @@ To summarize an incident:\n \n    :::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/incident-summary-options.png\" alt-text=\"Screenshot that shows the actions available on the incident summary card.\":::\n \n+### Unified incident management\n+\n+The Copilot tab consolidates incident-related actions into a single, unified chat experience, eliminating the need to switch between multiple panels or layers. \n+\n+:::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/copilot-tab.png\" alt-text=\"Screenshot that shows the Copilot tab in the top right corner of the screen.\":::\n+\n+Select the **Copilot** tab on the incident page to view the incident summary, get recommendations, or generate a report.\n+\n+:::image type=\"content\" source=\"./media/security-copilot-m365d-incident-summary/copilot-tab-details.png\" alt-text=\"Screenshot that shows the available options in the Copilot tab, including incident summary, recommendations, and report generation.\":::\n+\n+Select **Summarize** to generate the incident summary or view it if it already exists. You can view summaries and interact with of all your events and related prompts in the same panel.\n+\n+You can run multiple summary requests in parallel for different entities (such as users and devices), and the results are cached unless regenerated.\n+\n+:::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/copilot-integrations.png\" alt-text=\"Screenshot that shows the Copilot summary panel with multiple summary suggestions.\" lightbox=\"media/security-copilot-m365d-incident-summary/copilot-integrations.png\":::\n+\n+:::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/summarize-device.png\" alt-text=\"Screenshot that shows the Copilot panel generating a device summary in response to a summarize request in the device page.\":::\n+\n+When you close a summary panel, the summary process stops.\n+\n+Incident chats persist across incidents. When you switch to a different incident, the chat automatically closes, but when you reopen the Copilot panel you see the chat history. This lets you compare summaries of different incidents and navigate to relevant reports.\n+\n+:::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/multiple-summaries.png\" alt-text=\"Screenshot that shows the Copilot chat history with summaries of different incidents.\" lightbox=\"media/security-copilot-m365d-incident-summary/multiple-summaries.png\":::\n+\n+This feature will be further developed based on user feedback.\n+\n+You can also select **Recommendations** to get AI-powered recommendations for next steps on how to investigate and remediate the incident, or select **Report** to generate a comprehensive report of the incident that includes the summary, timelines, involved entities, and more.\n+\n ### Manage Copilot incident summaries settings (preview)\n \n By default, Copilot generates a summary for each incident the user opens, but you can change this setting to display incident summaries only in specific instances. You can choose to have summaries generated:\n",
+      "baseCommitSha": "25484a944aaf41864e3f1b05dc3ddd33dd51452c",
+      "commitSha": "90ad3fc8d97fbf9b2ab5d69bf798da4c5f7dfd2e",
+      "commitMessage": "Incident summaries update - Yotam",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-04-12T17:27:20+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-copilot-m365d-incident-summary.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-copilot-m365d-incident-summary",
+      "firstSeenAt": "2026-04-12T14:27:20.000Z",
+      "eventId": "defender-docs:90ad3fc8d97fbf9b2ab5d69bf798da4c5f7dfd2e:modified:defender-xdr/security-copilot-m365d-incident-summary.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Incident summaries update - Yotam",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-copilot-m365d-incident-summary.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/defender-security-for-ai.md b/defender-xdr/security-for-ai/defender-security-for-ai.md\nindex 42e10087f..3b342217f 100644\n--- a/defender-xdr/security-for-ai/defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/defender-security-for-ai.md\n@@ -11,7 +11,7 @@ ms.topic: concept-article\n description: Learn how Microsoft Defender secures AI workloads across their lifecycle - from build and configuration to runtime - and supports organizations in managing AI security risks.\n ---\n \n-# Secure AI assets and runtime behavior using Microsoft Defender\n+# Defend AI assets from emerging threats and vulnerabilities using Microsoft Defender\n \n Adopting artificial intelligence (AI) introduces new security threats and vulnerabilities beyond the risks posed by traditional applications. AI exposes new attack surfaces across AI agents and applications, the AI models they use, plugins to these assets, and generative AI prompts and responses.\n \n",
+      "baseCommitSha": "7f67f415f30590ae30fa6fc6878678417d04cd1b",
+      "commitSha": "5040e254117bcc50064ca71fd4bbc6006a3e1045",
+      "commitMessage": "Update defender-security-for-ai.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-04-12T17:30:23+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "firstSeenAt": "2026-04-12T14:30:23.000Z",
+      "eventId": "defender-docs:5040e254117bcc50064ca71fd4bbc6006a3e1045:modified:defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-security-for-ai.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/security-for-ai/defender-security-for-ai.md b/defender-xdr/security-for-ai/defender-security-for-ai.md\nindex 3b342217f..cf5f5c5a1 100644\n--- a/defender-xdr/security-for-ai/defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/defender-security-for-ai.md\n@@ -1,5 +1,5 @@\n ---\n-title: Secure your AI assets using Microsoft Defender\n+title: Protect AI assets from emerging threats and vulnerabilities using Microsoft Defender\n ms.author: guywild\n author: guywi-ms\n ms.reviewer: itaicohen\n@@ -11,7 +11,7 @@ ms.topic: concept-article\n description: Learn how Microsoft Defender secures AI workloads across their lifecycle - from build and configuration to runtime - and supports organizations in managing AI security risks.\n ---\n \n-# Defend AI assets from emerging threats and vulnerabilities using Microsoft Defender\n+# Protect AI assets from emerging threats and vulnerabilities using Microsoft Defender\n \n Adopting artificial intelligence (AI) introduces new security threats and vulnerabilities beyond the risks posed by traditional applications. AI exposes new attack surfaces across AI agents and applications, the AI models they use, plugins to these assets, and generative AI prompts and responses.\n \n",
+      "baseCommitSha": "5040e254117bcc50064ca71fd4bbc6006a3e1045",
+      "commitSha": "0b8159acb6a6d1ca27bf2e781cea2012bfb3fd56",
+      "commitMessage": "Update defender-security-for-ai.md",
+      "commitAuthor": "guywi-ms",
+      "commitDate": "2026-04-12T17:31:06+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "firstSeenAt": "2026-04-12T14:31:06.000Z",
+      "eventId": "defender-docs:0b8159acb6a6d1ca27bf2e781cea2012bfb3fd56:modified:defender-xdr/security-for-ai/defender-security-for-ai.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update defender-security-for-ai.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 7,
+      "changes": 15,
+      "patch": "diff --git a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\nindex 00214c656..d3419f3ec 100644\n--- a/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n+++ b/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md\n@@ -201,23 +201,22 @@ To re-enable connected apps:\n \n If expected activities don't appear after you connect an app, perform the following checks to determine where the data should be available and whether additional configuration is required.\n \n-**Step 1: Confirm the connector is healthy**\n+### Confirm the connector is healthy\n Verify that the app connector is connected successfully and that there are no configuration warnings or permission issues.\n \n-**Step 2: Review connector-specific activity options**\n+### Review connector-specific activity options\n For connectors that support selectable activity types, confirm that the required options are enabled. For example, if you're investigating sign-in activity, verify that the connector is configured to collect the relevant sign-in data.\n \n-**Step 3: Validate the expected logging surface**\n+### Validate the expected logging surface\n Not all events appear in the same place. Depending on the activity type, validate the event in the appropriate source:\n \n-\n |Event  |Source  |\n |---------|---------|\n |Defender for Cloud Apps policy administration changes     |  Defender for Cloud Apps Activity log       |\n |Microsoft Entra sign-in events     |  Microsoft Entra sign-in logs       |\n |Identity-related investigation data     |  Advanced Hunting identity tables       |\n \n-**Step 4: Apply filters before concluding that data is missing**\n+### Apply filters before concluding that data is missing\n \n Use filters such as:\n \n@@ -226,14 +225,16 @@ Use filters such as:\n - Activity type\n - App or workload\n \n-**Step 5: Check for known scope limitations**\n+### Check for known scope limitations\n \n Some activities might not be fully represented in every logging surface. If an event is missing from one source, confirm whether that activity is documented as available in another source.\n \n > [!IMPORTANT]\n > Missing activity in one portal doesn't always indicate connector failure. First confirm whether the activity is expected in Defender for Cloud Apps, Microsoft Entra logs, Microsoft 365 audit logs, or Advanced Hunting.\n \n-**Step 6: When to investigate further**\n+### Investigate further\n+\n+Investigate further when:\n \n - The connector shows a healthy state but no expected data appears in any supported logging surface\n - Required activity options are enabled, but the event is still absent after a reasonable validation period\n",
+      "baseCommitSha": "c798bef94b9387f579c1f03c8173b4162d8fd187",
+      "commitSha": "d41b5d6dbf3afd301df2fedfdb7f33e1c6953232",
+      "commitMessage": "fix headers",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-12T18:00:21+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps",
+      "firstSeenAt": "2026-04-12T15:00:21.000Z",
+      "eventId": "defender-docs:d41b5d6dbf3afd301df2fedfdb7f33e1c6953232:modified:defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix headers",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-copilot-m365d-incident-summary.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/security-copilot-m365d-incident-summary.md b/defender-xdr/security-copilot-m365d-incident-summary.md\nindex d2a522924..48bd8e3f2 100644\n--- a/defender-xdr/security-copilot-m365d-incident-summary.md\n+++ b/defender-xdr/security-copilot-m365d-incident-summary.md\n@@ -135,8 +135,8 @@ To change the settings for Copilot incident summaries in Microsoft Sentinel, fol\n \n     :::image type=\"content\" source=\"./media/security-copilot-m365d-incident-summary/incident-severity.png\" alt-text=\"Screenshot that shows the approximate number of incidents of each severity level.\":::\n \n-- Copilot saves generated incident summaries for a week. If the incident you select has a summary already in the cache, and the incident hasn't changed significantly, the summary is automatically redisplayed at no cost regardless of the setting.\n-- To generate a summary on demand for an incident that's not automatically generated, select the **Generate** button.\n+- Copilot saves generated incident summaries for a week. If the incident you select has a summary already in the cache, and the incident didn't change significantly, the summary is automatically redisplayed at no cost regardless of the setting.\n+- To generate a summary on demand for an incident that doesn't automatically generate, select the **Generate** button.\n \n     :::image type=\"content\" source=\"media/security-copilot-m365d-incident-summary/generate-summary.png\" alt-text=\"Screenshot that shows the Generate summary button on the incident page.\":::\n \n@@ -147,7 +147,7 @@ In the Security Copilot standalone portal, you can use the following prompt to g\n - *Provide a summary for Defender incident {incident ID}.*\n \n > [!TIP]\n-> When generating an incident summary in the Security Copilot portal, Microsoft recommends including the word ***Defender*** in your prompts to ensure that the incident summary capability delivers the results.\n+> When you generate an incident summary in the Security Copilot portal, include the word ***Defender*** in your prompts to ensure that the incident summary capability delivers the results.\n \n ## Provide feedback\n \n",
+      "baseCommitSha": "73f93e40e016bc54264467158a36da8091fbe6f5",
+      "commitSha": "98145a695edd83d3baa590385cfae243dd1077c0",
+      "commitMessage": "Incident summaries update - Yotam",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-04-12T19:07:36+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/security-copilot-m365d-incident-summary.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-copilot-m365d-incident-summary",
+      "firstSeenAt": "2026-04-12T16:07:36.000Z",
+      "eventId": "defender-docs:98145a695edd83d3baa590385cfae243dd1077c0:modified:defender-xdr/security-copilot-m365d-incident-summary.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Incident summaries update - Yotam",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-copilot-m365d-incident-summary.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/multitenant-governance.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/multitenant-governance.md b/defender-xdr/multitenant-governance.md\nindex 73318a5c0..01614ab71 100644\n--- a/defender-xdr/multitenant-governance.md\n+++ b/defender-xdr/multitenant-governance.md\n@@ -235,7 +235,7 @@ After configuring permissions, you can manage Microsoft Sentinel directly from t\n \n **Symptom**: The **Send relationship request** option is greyed out, and you see an error message stating \"Failed to load data. Please try again later.\"\n \n-:::image type=\"content\" source=\"media/multitenant-governance/relationshop-request-disabled.png\" alt-text=\"Screenshot showing disabled send relationship request option.\" lightbox=\"media/multitenant-governance/relationshop-request-disabled.png\":::\n+:::image type=\"content\" source=\"media/multitenant-governance/relationship-request-disabled.png\" alt-text=\"Screenshot showing disabled send relationship request option.\" lightbox=\"media\\multitenant-governance\\relationship-request-disabled.png\":::\n \n **Cause**: This feature requires both Microsoft Entra ID and multitenant capabilities to be enabled for your tenant. The enrollment process can take up to 7 days to complete.\n \n@@ -273,5 +273,5 @@ Security groups that don't meet these criteria aren't supported for GDAP delegat\n \n ## Related content\n \n-- [Microsoft Defender XDR multitenant management](microsoft-365-defender-multitenant.md)\n-- [MSSP portal access](mssp-access.md)\n\\ No newline at end of file\n+- [Entra governance relationships](/entra/id-governance/tenant-governance/governance-relationships)\n+- [MSSP portal access](mssp-access.md)\n",
+      "baseCommitSha": "0b17dcad2ca0b471fcac0039fcbad8ffb418b319",
+      "commitSha": "23dbaa3defc9dd5263f52d6b607b19aaa65765c7",
+      "commitMessage": "GDAP - Yossi Basha",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-04-12T22:17:42+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/multitenant-governance.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/multitenant-governance",
+      "firstSeenAt": "2026-04-12T19:17:42.000Z",
+      "eventId": "defender-docs:23dbaa3defc9dd5263f52d6b607b19aaa65765c7:modified:defender-xdr/multitenant-governance.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "GDAP - Yossi Basha",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/multitenant-governance.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 16,
+    "totalFiles": 16,
+    "authors": [
+      "Devorah Cohen",
+      "Limor Wainstein",
+      "Mona Berdugo",
+      "Paul Inbar",
+      "guywi-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 15 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Added Microsoft Defender documentation in defender-xdr/multitenant-governance.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-copilot-m365d-incident-summary.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated",
+        "sourceFiles": [
+          "defender-xdr/multitenant-governance.md",
+          "defender-xdr/security-for-ai/defender-security-for-ai.md",
+          "defender-xdr/security-for-ai/defender-security-for-ai.md",
+          "defender-xdr/security-for-ai/defender-security-for-ai.md",
+          "defender-xdr/security-for-ai/defender-security-for-ai.md",
+          "defender-xdr/security-copilot-m365d-incident-summary.md",
+          "defender-xdr/security-for-ai/defender-security-for-ai.md",
+          "defender-xdr/security-for-ai/defender-security-for-ai.md",
+          "defender-xdr/security-copilot-m365d-incident-summary.md",
+          "defender-xdr/multitenant-governance.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md. Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "sourceFiles": [
+          "defender-endpoint/android-support-signin.md",
+          "defender-endpoint/android-support-signin.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+          "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
+          "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Added Microsoft Defender documentation in defender-xdr/multitenant-governance.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated Microsoft Defender documentation in defender-xdr/security-copilot-m365d-incident-summary.md. Updated Microsoft Defender documentation in defender-xdr/security-for-ai/defender-security-for-ai.md. Updated"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md. Updated Microsoft Defender documentation in defender-endpoint/android-support-signin.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

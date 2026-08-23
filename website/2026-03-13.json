@@ -1,0 +1,319 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/attack-surface-reduction-rules-deployment-test.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 23,
+      "changes": 25,
+      "patch": "diff --git a/defender-endpoint/attack-surface-reduction-rules-deployment-test.md b/defender-endpoint/attack-surface-reduction-rules-deployment-test.md\nindex 87b924f00..885a6db9f 100644\n--- a/defender-endpoint/attack-surface-reduction-rules-deployment-test.md\n+++ b/defender-endpoint/attack-surface-reduction-rules-deployment-test.md\n@@ -188,30 +188,9 @@ To configure specific rule exclusions, you have the choices of using the Defende\n \n #### Via Group Policy\n \n-Use Group Policy to set the per-user ASR rule exclusions.\n+For instructions, see [Configure ASR rules via group policy](enable-attack-surface-reduction.md#group-policy).\n \n-1. On your Group Policy management computer, open the [Group Policy Management Console](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).\n-\n-1. Right-click the Group Policy Object you want to configure, and then select **Edit**.\n-\n-1. In the **Group Policy Management Editor** go to **Computer configuration**.\n-\n-1. Select **Administrative templates**.\n-\n-1. Expand the tree to **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard > Attack Surface Reduction**.\n-\n-1. Double-click **Apply a list of exclusions to specific attack surface reduction (ASR) rules**, and set the option to **Enabled**. \n-\n-1. Then select **Show...**.\n-\n-1. Under **Value Name**, enter GUID for the ASR Rule.\n-\n-1. Under **Value**, enter the <drive_letter:\\Path\\ProcessName>. In order to add multiple processes, it's separated by a greater than sign (>). For example, `C:\\Notepad.exe>c:\\regedit.exe>C:\\SomeFolder\\test.exe`.\n-   \n-1. select **OK**. This setting allows the processes that are being blocked by the particular ASR Rule to continue running.\n-\n-> [!NOTE]\n-> If policies aren't applying, review [Troubleshoot Microsoft Defender Antivirus settings](/defender-endpoint/troubleshoot-settings).\n+If the GPO isn't applied to devices, see [Troubleshoot Microsoft Defender Antivirus settings](/defender-endpoint/troubleshoot-settings).\n \n ### Use PowerShell as an alternative method to enable attack surface reduction rules\n \n",
+      "baseCommitSha": "ed5cb4c1b2c10d7ec8cb7879bcd875f4b4761481",
+      "commitSha": "cf188478d4f1d728ae8390cb0f2472a990e85b3a",
+      "commitMessage": "Clarified per-ASR rule exclusions per IM request",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T17:45:35-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/attack-surface-reduction-rules-deployment-test.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-deployment-test",
+      "firstSeenAt": "2026-03-13T00:45:35.000Z",
+      "eventId": "defender-docs:cf188478d4f1d728ae8390cb0f2472a990e85b3a:modified:defender-endpoint/attack-surface-reduction-rules-deployment-test.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarified per-ASR rule exclusions per IM request",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-deployment-test.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/enable-attack-surface-reduction.md",
+      "status": "modified",
+      "additions": 74,
+      "deletions": 15,
+      "changes": 89,
+      "patch": "diff --git a/defender-endpoint/enable-attack-surface-reduction.md b/defender-endpoint/enable-attack-surface-reduction.md\nindex 09fbb28ab..9911a9269 100644\n--- a/defender-endpoint/enable-attack-surface-reduction.md\n+++ b/defender-endpoint/enable-attack-surface-reduction.md\n@@ -320,30 +320,89 @@ Example:\n > [!WARNING]\n > If you manage your computers and devices with Intune, Configuration Manager, or other enterprise-level management platform, the management software overwrites any conflicting group policy settings on startup.\n \n-1. On your Group Policy management computer, open the [Group Policy Management Console](https://technet.microsoft.com/library/cc731212.aspx), right-click the Group Policy Object you want to configure and select **Edit**.\n+1. Open the [Group Policy Management Console (GPMC)](/windows-server/identity/ad-ds/manage/group-policy/group-policy-management-console) on your Group Policy management computer.\n \n-1. In the **Group Policy Management Editor**, go to **Computer configuration** and select **Administrative templates**.\n+1. In the GPMC console tree, expand Group Policy Objects in the forest and domain containing the GPO that you want to edit.\n \n-1. Expand the tree to **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack surface reduction**.\n+1. Right-click on the GPO, and then select **Edit**.\n \n-1. Select **Configure Attack surface reduction rules** and select **Enabled**. You can then set the individual state for each rule in the options section. Select **Show...** and enter the rule ID in the **Value name** column and your chosen state in the **Value** column as follows:\n+1. In the **Group Policy Management Editor**, go to **Computer configuration** \\> **Administrative templates** \\> **Windows components** \\> **Microsoft Defender Antivirus** \\> **Microsoft Defender Exploit Guard \\> Attack Surface Reduction**.\n \n-   - 0: Disable (Disable the attack surface reduction rule)\n-   - 1: Block (Enable the attack surface reduction rule)\n-   - 2: Audit (Evaluate how the attack surface reduction rule would impact your organization if enabled)\n-   - 6: Warn (Enable the attack surface reduction rule but allow the end-user to bypass the block)\n+1. In the details pane of **Attack Surface Reduction**, the available settings are:\n \n-   :::image type=\"content\" source=\"media/asr-rules-gp.png\" alt-text=\"attack surface reduction rules in Group Policy\" lightbox=\"media/asr-rules-gp.png\":::\n+   - [Configure Attack Surface Reduction rules](#enable-asr-rules)\n+   - [Exclude files and paths from Attack surface reduction rules](#apply-exclusions-for-all-asr-rules)\n+   - [Apply a list of exclusions to specific attack surface reduction (ASR) rules](#apply-per-rule-exclusions)\n \n-1. To exclude files and folders from attack surface reduction rules, select the **Exclude files and paths from Attack surface reduction rules** setting and set the option to **Enabled**. Select **Show** and enter each file or folder in the **Value name** column. Enter **0** in the **Value** column for each item.\n+   To open and configure an ASR rule setting, use any of the following methods:\n+   - Double-click on the setting.\n+   - Right-click on the setting, and then select **Edit**\n+   - Select the setting, and then select **Action** \\> **Edit**.\n \n-   > [!WARNING]\n-   > Don't use quotes as they aren't supported for either the **Value name** column or the **Value** column.\n-   > The rule ID shouldn't have any leading or trailing spaces.\n+The available settings are described in the following subsections.\n+\n+> [!IMPORTANT]\n+> Quotation marks aren't supported in any of the group policy values.\n+>\n+> Don't use leading or trailing spaces in ASR rule IDs.\n+>\n+> Microsoft renamed Windows Defender Antivirus to Microsoft Defender Antivirus beginning with Windows 10 version 2004 (May 2020). Group Policy paths on earlier versions of Windows might still reference Windows Defender Antivirus, while newer builds show Microsoft Defender Antivirus. Both names refer to the same policy location.\n+\n+#### Enable ASR rules\n+\n+1. In the details pane of **Attack Surface Reduction**, open the **Configure Attack Surface Reduction rules** setting.\n+\n+1. In the setting window that opens, configure the following options:\n+   1. Select **Enabled**.\n+   2. **Set the state for each ASR rule**: Select **Show...**.\n+\n+1. In the **Set the state for each ASR rule** dialog that opens, configure the following settings:\n+   - **Value name**: Enter the [GUID value of the ASR rule](attack-surface-reduction-rules-reference.md#asr-rule-to-guid-matrix).\n+   - **Value**: Enter one of the following values:\n+     - 0: Off\n+     - 1: Block\n+     - 2: Audit\n+     - 5: Not configured\n+     - 6: Warn\n+\n+   :::image type=\"content\" source=\"media/asr-rules-gp.png\" alt-text=\"Screenshot of Configure Attack Surface Reduction rules in Group Policy.\" lightbox=\"media/asr-rules-gp.png\":::\n+\n+   For more information, see [ASR rule modes](attack-surface-reduction-rules-reference.md#asr-rule-modes).\n+\n+   Repeat this step as many times as necessary. When you're finished, select **OK**.\n+\n+#### Apply exclusions for all ASR rules\n+\n+1. In the details pane of **Attack Surface Reduction**, open the **Exclude files and paths from Attack surface reduction rules** setting.\n+\n+1. In the setting window that opens, configure the following options:\n+   1. Select **Enabled**.\n+   2. **Exclusions from ASR rules**: Select **Show...**.\n+\n+1. In the **Exclusions from ASR rules** dialog that opens, configure the following settings:\n+   - **Value name**: Enter the [GUID value of the ASR rule](attack-surface-reduction-rules-reference.md#asr-rule-to-guid-matrix).\n+   - **Value**: Enter one of the following types of values:\n+     - To exclude all files in a folder, enter the full folder path. For example, `C:\\Data\\Test`.\n+     - To exclude a specific file in a specify folder (recommended), enter the path and filename. For example, `C:\\Data\\Test\\test.exe`.\n+\n+   Repeat this step as many times as necessary. When you're finished, select **OK**.\n+\n+#### Apply per-rule exclusions\n \n > [!NOTE]\n-> Microsoft rebranded Windows Defender Antivirus to Microsoft Defender Antivirus beginning with Windows 10 version 20H1.\n-> Group Policy paths on earlier Windows versions may still reference Windows Defender Antivirus, while newer builds show Microsoft Defender Antivirus. Both names refer to the same policy location.\n+> If the **Apply a list of exclusions to specific attack surface reduction (ASR) rules** setting isn't available in your GPMC, you need version 24H2 or later of the [Administrative Templates files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store#links-to-download-the-administrative-templates-files-based-on-the-operating-system-version) in your [Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store#the-central-store).\n+\n+1. In the details pane of **Attack Surface Reduction**, open the **Apply a list of exclusions to specific attack surface reduction (ASR) rules** setting.\n+\n+1. In the setting window that opens, configure the following options:\n+   1. Select **Enabled**.\n+   2. **Exclusions for each ASR rule**: Select **Show...**.\n+\n+1. In the **Exclusions for each ASR rule** dialog that opens, configure the following settings:\n+   - **Value name**: Enter the [GUID value of the ASR rule](attack-surface-reduction-rules-reference.md#asr-rule-to-guid-matrix).\n+   - **Value**: Enter one or more exclusions for the ASR rule. Use the syntax `Path1\\ProcessName1>Path2ProcessName2>...PathNProcessNameN`. For example, `C:\\Windows\\Notepad.exe>c:\\Windows\\regedit.exe>C:\\SomeFolder\\test.exe`.\n+\n+   Repeat this step as many times as necessary. When you're finished, select **OK**.\n \n ### PowerShell\n \n",
+      "baseCommitSha": "ed5cb4c1b2c10d7ec8cb7879bcd875f4b4761481",
+      "commitSha": "cf188478d4f1d728ae8390cb0f2472a990e85b3a",
+      "commitMessage": "Clarified per-ASR rule exclusions per IM request",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T17:45:35-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/enable-attack-surface-reduction.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/enable-attack-surface-reduction",
+      "firstSeenAt": "2026-03-13T00:45:35.000Z",
+      "eventId": "defender-docs:cf188478d4f1d728ae8390cb0f2472a990e85b3a:modified:defender-endpoint/enable-attack-surface-reduction.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarified per-ASR rule exclusions per IM request",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/managing-exclusions.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/defender-endpoint/managing-exclusions.md b/defender-endpoint/managing-exclusions.md\nindex 6a18a3443..53e743205 100644\n--- a/defender-endpoint/managing-exclusions.md\n+++ b/defender-endpoint/managing-exclusions.md\n@@ -118,11 +118,11 @@ Use `Set-MpPreference` or `Get-MpPreference` in the [Defender PowerShell Module]\n \n |Exclusion Type | Setting location | Reference |\n | -------- | -------- | -----|\n-| Custom antivirus exclusion - Path| **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Path Exclusions** | See [Use Group Policy to configure folder or file extension exclusions](/defender-endpoint/configure-extension-file-exclusions-microsoft-defender-antivirus#use-group-policy-to-configure-folder-or-file-extension-exclusions) |\n-| Custom antivirus exclusions - Process | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Process Exclusions** | See [Use Group Policy to exclude files that have been opened by specified processes from scans](/defender-endpoint/configure-process-opened-file-exclusions-microsoft-defender-antivirus#use-group-policy-to-exclude-files-that-have-been-opened-by-specified-processes-from-scans) |\n-| Attack Surface Reduction only exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack Surface Reduction** > **Exclude files and paths from Attack Surface Reduction rules** | See [Group Policy](/defender-endpoint/enable-attack-surface-reduction#group-policy) |\n-| Attack surface reduction rule per rule exclusion | **Windows components > Microsoft Defender Antivirus > Microsoft Defender Exploit Guard > Attack surface reduction > Apply a list of exclusions to specific Attack Surface Reduction (ASR) rules**|See [Group Policy ](/defender-endpoint/enable-attack-surface-reduction#group-policy)|\n-| Automatic antivirus exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Enabled** | See [Use Group Policy to disable the autoexclusions list on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025Azure Stack HCI OS, version 23H2 and later.](/defender-endpoint/configure-server-exclusions-microsoft-defender-antivirus#use-group-policy-to-disable-the-auto-exclusions-list-on-windows-server-2016-windows-server-2019-and-windows-server-2022) |\n+| Custom antivirus exclusion - Path| **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Path Exclusions** | See [Use Group Policy to configure folder or file extension exclusions](configure-extension-file-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-configure-folder-or-file-extension-exclusions) |\n+| Custom antivirus exclusions - Process | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Process Exclusions** | See [Use Group Policy to exclude files that have been opened by specified processes from scans](configure-process-opened-file-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-exclude-files-that-have-been-opened-by-specified-processes-from-scans) |\n+| Attack Surface Reduction only exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack Surface Reduction** > **Exclude files and paths from Attack Surface Reduction rules** | See [Group Policy](enable-attack-surface-reduction#group-policy.md) |\n+| Attack surface reduction rule per rule exclusion | **Windows components > Microsoft Defender Antivirus > Microsoft Defender Exploit Guard > Attack surface reduction > Apply a list of exclusions to specific Attack Surface Reduction (ASR) rules**|See [Group Policy](enable-attack-surface-reduction.md#group-policy)|\n+| Automatic antivirus exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Enabled** | See [Use Group Policy to disable the autoexclusions list on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025Azure Stack HCI OS, version 23H2 and later.](configure-server-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-disable-the-auto-exclusions-list-on-windows-server-2016-windows-server-2019-and-windows-server-2022) |\n | Automation folder exclusions | Not supported ||\n | Controlled Folder Access exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Windows Defender Exploit Guard** > **Controlled folder access** > **Configure allowed applications** | See [Use group policy to allow specific apps](/defender-endpoint/customize-controlled-folders#use-group-policy-to-allow-specific-apps) |\n \n",
+      "baseCommitSha": "ed5cb4c1b2c10d7ec8cb7879bcd875f4b4761481",
+      "commitSha": "cf188478d4f1d728ae8390cb0f2472a990e85b3a",
+      "commitMessage": "Clarified per-ASR rule exclusions per IM request",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T17:45:35-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/managing-exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/managing-exclusions",
+      "firstSeenAt": "2026-03-13T00:45:35.000Z",
+      "eventId": "defender-docs:cf188478d4f1d728ae8390cb0f2472a990e85b3a:modified:defender-endpoint/managing-exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarified per-ASR rule exclusions per IM request",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/managing-exclusions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/managing-exclusions.md b/defender-endpoint/managing-exclusions.md\nindex 53e743205..969e147fe 100644\n--- a/defender-endpoint/managing-exclusions.md\n+++ b/defender-endpoint/managing-exclusions.md\n@@ -120,7 +120,7 @@ Use `Set-MpPreference` or `Get-MpPreference` in the [Defender PowerShell Module]\n | -------- | -------- | -----|\n | Custom antivirus exclusion - Path| **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Path Exclusions** | See [Use Group Policy to configure folder or file extension exclusions](configure-extension-file-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-configure-folder-or-file-extension-exclusions) |\n | Custom antivirus exclusions - Process | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Process Exclusions** | See [Use Group Policy to exclude files that have been opened by specified processes from scans](configure-process-opened-file-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-exclude-files-that-have-been-opened-by-specified-processes-from-scans) |\n-| Attack Surface Reduction only exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack Surface Reduction** > **Exclude files and paths from Attack Surface Reduction rules** | See [Group Policy](enable-attack-surface-reduction#group-policy.md) |\n+| Attack Surface Reduction only exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack Surface Reduction** > **Exclude files and paths from Attack Surface Reduction rules** | See [Group Policy](enable-attack-surface-reduction.md#group-policy.md) |\n | Attack surface reduction rule per rule exclusion | **Windows components > Microsoft Defender Antivirus > Microsoft Defender Exploit Guard > Attack surface reduction > Apply a list of exclusions to specific Attack Surface Reduction (ASR) rules**|See [Group Policy](enable-attack-surface-reduction.md#group-policy)|\n | Automatic antivirus exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Enabled** | See [Use Group Policy to disable the autoexclusions list on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025Azure Stack HCI OS, version 23H2 and later.](configure-server-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-disable-the-auto-exclusions-list-on-windows-server-2016-windows-server-2019-and-windows-server-2022) |\n | Automation folder exclusions | Not supported ||\n",
+      "baseCommitSha": "cf188478d4f1d728ae8390cb0f2472a990e85b3a",
+      "commitSha": "64158e587bb6891dc88161f1f7e186f552d9489a",
+      "commitMessage": "Update managing-exclusions.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T18:00:08-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/managing-exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/managing-exclusions",
+      "firstSeenAt": "2026-03-13T01:00:08.000Z",
+      "eventId": "defender-docs:64158e587bb6891dc88161f1f7e186f552d9489a:modified:defender-endpoint/managing-exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update managing-exclusions.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/managing-exclusions.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/managing-exclusions.md b/defender-endpoint/managing-exclusions.md\nindex 969e147fe..5d3a87686 100644\n--- a/defender-endpoint/managing-exclusions.md\n+++ b/defender-endpoint/managing-exclusions.md\n@@ -120,9 +120,9 @@ Use `Set-MpPreference` or `Get-MpPreference` in the [Defender PowerShell Module]\n | -------- | -------- | -----|\n | Custom antivirus exclusion - Path| **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Path Exclusions** | See [Use Group Policy to configure folder or file extension exclusions](configure-extension-file-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-configure-folder-or-file-extension-exclusions) |\n | Custom antivirus exclusions - Process | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Process Exclusions** | See [Use Group Policy to exclude files that have been opened by specified processes from scans](configure-process-opened-file-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-exclude-files-that-have-been-opened-by-specified-processes-from-scans) |\n-| Attack Surface Reduction only exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack Surface Reduction** > **Exclude files and paths from Attack Surface Reduction rules** | See [Group Policy](enable-attack-surface-reduction.md#group-policy.md) |\n+| Attack Surface Reduction only exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Microsoft Defender Exploit Guard** > **Attack Surface Reduction** > **Exclude files and paths from Attack Surface Reduction rules** | See [Group Policy](enable-attack-surface-reduction.md#group-policy) |\n | Attack surface reduction rule per rule exclusion | **Windows components > Microsoft Defender Antivirus > Microsoft Defender Exploit Guard > Attack surface reduction > Apply a list of exclusions to specific Attack Surface Reduction (ASR) rules**|See [Group Policy](enable-attack-surface-reduction.md#group-policy)|\n-| Automatic antivirus exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Enabled** | See [Use Group Policy to disable the autoexclusions list on Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025Azure Stack HCI OS, version 23H2 and later.](configure-server-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-disable-the-auto-exclusions-list-on-windows-server-2016-windows-server-2019-and-windows-server-2022) |\n+| Automatic antivirus exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Exclusions** > **Enabled** | See [Use Group Policy to disable the auto-exclusions list on Windows Server 2016, Windows Server 2019, and later](configure-server-exclusions-microsoft-defender-antivirus.md#use-group-policy-to-disable-the-auto-exclusions-list-on-windows-server-2016-windows-server-2019-and-later) |\n | Automation folder exclusions | Not supported ||\n | Controlled Folder Access exclusions | **Windows components** > **Microsoft Defender Antivirus** > **Windows Defender Exploit Guard** > **Controlled folder access** > **Configure allowed applications** | See [Use group policy to allow specific apps](/defender-endpoint/customize-controlled-folders#use-group-policy-to-allow-specific-apps) |\n \n",
+      "baseCommitSha": "63d76b7c3b650185f05de0e0424ffdc2cf16daa5",
+      "commitSha": "4cedaedf5bcb1192a043b5c1e72127127cca7e51",
+      "commitMessage": "Update managing-exclusions.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T18:47:19-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/managing-exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/managing-exclusions",
+      "firstSeenAt": "2026-03-13T01:47:19.000Z",
+      "eventId": "defender-docs:4cedaedf5bcb1192a043b5c1e72127127cca7e51:modified:defender-endpoint/managing-exclusions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update managing-exclusions.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex 459d2c512..dba7f816a 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -47,7 +47,7 @@ To manage custom detections on Microsoft Defender XDR data, you need to be assig\n \n You can manage custom detections that apply to data from specific Defender XDR solutions if you have the right permissions for them. For example, if you only have manage permissions for Microsoft Defender for Office 365, you can create custom detections using `Email*` tables but not `Identity*` tables.\n \n-Likewise, since the `IdentityLogonEvents` table holds authentication activity information from both Microsoft Defender for Cloud Apps and Defender for Identity, you need to have manage permissions for both services to manage custom detections querying the said table.\n+Likewise, since the `IdentityLogonEvents` table holds authentication activity information from both Microsoft Defender for Cloud Apps and Defender for Identity, you need to have manage permissions for both services to manage custom detections querying that table.\n \n > [!NOTE]\n > To manage custom detections, Security Operators must have the Manage Security Settings permission in Microsoft Defender for Endpoint if RBAC is turned on.\n@@ -171,7 +171,8 @@ When you edit a rule, the next run time scheduled according to the frequency you\n \n >[!IMPORTANT]\n > Custom detections evaluate `ingestion_time()` to account for ingestion delays. Because of this condition, events with `Timestamp` or `TimeGenerated` values older than the configured lookback period might still be included in the rule evaluation.\n-\n+>\n+> When the lookback period is longer than the frequency, duplicate events might occur. However, custom detections [group and deduplicate them automatically](#how-custom-detections-handle-duplicate-alerts) to reduce alert noise and fatigue.\n \n ##### Continuous (NRT) frequency\n \n@@ -253,7 +254,7 @@ In the **Custom details** section, add key-value pairs corresponding to the de\n   \n :::image type=\"content\" source=\"media/custom-detection-rules/ah-custom-details.png\" alt-text=\"Screenshot that shows the Custom details option in the Custom detections wizard.\" lightbox=\"media/custom-detection-rules/ah-custom-details.png\":::\n \n-The following screenshot shows how the custom details are surfaced in the alert side panel: \n+The following screenshot shows how the custom details surface in the alert side panel: \n \n :::image type=\"content\" source=\"media/custom-detection-rules/ah-custom-details-panel.png\" alt-text=\"Screenshot that shows the custom details as they appear in the alert side panel of the Defender portal.\" lightbox=\"media/custom-detection-rules/ah-custom-details-panel.png\":::\n \n",
+      "baseCommitSha": "aebcfcefe05a7caf0fd8d83938f221a924430dc4",
+      "commitSha": "7f51a18cb0d77647fa94089e71ab25f8016ab042",
+      "commitMessage": "Improve wording in custom detection rules",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-13T11:12:21+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "firstSeenAt": "2026-03-13T05:42:21.000Z",
+      "eventId": "defender-docs:7f51a18cb0d77647fa94089e71ab25f8016ab042:modified:defender-xdr/custom-detection-rules.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Improve wording in custom detection rules",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/defender-for-office-365-whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/defender-for-office-365-whats-new.md b/defender-office-365/defender-for-office-365-whats-new.md\nindex d6b2a4518..13075354e 100644\n--- a/defender-office-365/defender-for-office-365-whats-new.md\n+++ b/defender-office-365/defender-for-office-365-whats-new.md\n@@ -37,7 +37,7 @@ For more information on what's new with other Microsoft Defender security produc\n - [What's new in Microsoft Defender XDR](/defender-xdr/whats-new)\n - [What's new in Microsoft Defender for Endpoint](/defender-endpoint/whats-new-in-microsoft-defender-endpoint)\n - [What's new in Microsoft Defender for Identity](/defender-for-identity/whats-new)\n-- [What's new in Microsoft Defender for Cloud Apps](/cloud-app-security/release-notes)\n+- [What's new in Microsoft Defender for Cloud Apps](/defender-cloud-apps/release-notes)\n \n ## February 2026\n \n",
+      "baseCommitSha": "9167db4d11379e8043ef8600f34a7fdf88543391",
+      "commitSha": "40308556ba26d2fa3fa1abe7fa531612214a94d9",
+      "commitMessage": "Links cloud-app-security to defender-cloud-apps",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-13T14:36:39-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/defender-for-office-365-whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/defender-for-office-365-whats-new",
+      "firstSeenAt": "2026-03-13T21:36:39.000Z",
+      "eventId": "defender-docs:40308556ba26d2fa3fa1abe7fa531612214a94d9:modified:defender-office-365/defender-for-office-365-whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Links cloud-app-security to defender-cloud-apps",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/detect-and-remediate-illicit-consent-grants.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/detect-and-remediate-illicit-consent-grants.md b/defender-office-365/detect-and-remediate-illicit-consent-grants.md\nindex 623b2072f..269bd063b 100644\n--- a/defender-office-365/detect-and-remediate-illicit-consent-grants.md\n+++ b/defender-office-365/detect-and-remediate-illicit-consent-grants.md\n@@ -10,7 +10,7 @@ ms.topic: how-to\n ms.collection:\n - tier2\n - m365-security\n-ms.date: 02/13/2025\n+ms.date: 03/13/2026\n ms.localizationpriority: medium\n search.appverid:\n   - MET150\n@@ -39,7 +39,7 @@ In an illicit consent grant attack, the attacker creates a registered applicatio\n This article explains the steps to identify illicit consent grants in your organization, and how to remediate them.\n \n > [!TIP]\n-> Do you suspect that you're experiencing problems with illicit consent grants right now? Microsoft Defender for Cloud Apps has tools to detect, investigate, and remediate your OAuth apps. This Defender for Cloud Apps article has a tutorial that outlines how to go about [investigating risky OAuth apps](/cloud-app-security/investigate-risky-oauth). You can also set [OAuth app policies](/cloud-app-security/app-permission-policy) to investigate app-requested permissions, which users are authorizing these apps, and widely approve or ban these permissions requests.\n+> Do you suspect that you're experiencing problems with illicit consent grants right now? Microsoft Defender for Cloud Apps has tools to detect, investigate, and remediate your OAuth apps. This Defender for Cloud Apps article has a tutorial that outlines how to go about [investigating risky OAuth apps](/defender-cloud-apps/investigate-risky-oauth). You can also set [OAuth app policies](/defender-cloud-apps/app-permission-policy) to investigate app-requested permissions, which users are authorizing these apps, and widely approve or ban these permissions requests.\n \n ## What do you need to know before you begin?\n \n",
+      "baseCommitSha": "9167db4d11379e8043ef8600f34a7fdf88543391",
+      "commitSha": "40308556ba26d2fa3fa1abe7fa531612214a94d9",
+      "commitMessage": "Links cloud-app-security to defender-cloud-apps",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-13T14:36:39-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/detect-and-remediate-illicit-consent-grants.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-illicit-consent-grants",
+      "firstSeenAt": "2026-03-13T21:36:39.000Z",
+      "eventId": "defender-docs:40308556ba26d2fa3fa1abe7fa531612214a94d9:modified:defender-office-365/detect-and-remediate-illicit-consent-grants.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Links cloud-app-security to defender-cloud-apps",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/detect-and-remediate-illicit-consent-grants.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md b/defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md\nindex 99eebe81b..9b1b18e7d 100644\n--- a/defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md\n+++ b/defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md\n@@ -228,7 +228,7 @@ The Rules and Forms exploits are only used by an attacker after they've stolen o\n \n The best way to protect user accounts (especially admin accounts) is to [set up MFA for users](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication). You should also:\n \n-- Monitor how user accounts are [accessed and used](/entra/identity/monitoring-health/overview-monitoring-health). You may not prevent the initial breach, but you can shorten the duration and the effects of the breach by detecting it sooner. You can use these [Office 365 Cloud App Security policies](/cloud-app-security/what-is-cloud-app-security) to monitor accounts and alert you to unusual activity:\n+- Monitor how user accounts are [accessed and used](/entra/identity/monitoring-health/overview-monitoring-health). You may not prevent the initial breach, but you can shorten the duration and the effects of the breach by detecting it sooner. You can use these [Office 365 Cloud App Security policies](/defender-cloud-apps/what-is-defender-for-cloud-apps) to monitor accounts and alert you to unusual activity:\n \n   - **Multiple failed login attempts**: Triggers an alert when users perform multiple failed sign in activities in a single session with respect to the learned baseline, which could indicate an attempted breach.\n \n",
+      "baseCommitSha": "9167db4d11379e8043ef8600f34a7fdf88543391",
+      "commitSha": "40308556ba26d2fa3fa1abe7fa531612214a94d9",
+      "commitMessage": "Links cloud-app-security to defender-cloud-apps",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-13T14:36:39-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/detect-and-remediate-outlook-rules-forms-attack",
+      "firstSeenAt": "2026-03-13T21:36:39.000Z",
+      "eventId": "defender-docs:40308556ba26d2fa3fa1abe7fa531612214a94d9:modified:defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Links cloud-app-security to defender-cloud-apps",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/siem-server-integration.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/siem-server-integration.md b/defender-office-365/siem-server-integration.md\nindex 0ca521738..2b2ec80a5 100644\n--- a/defender-office-365/siem-server-integration.md\n+++ b/defender-office-365/siem-server-integration.md\n@@ -51,7 +51,7 @@ A SIEM server can receive data from a wide variety of Microsoft 365 services and\n |---|---|---|\n |[Microsoft Defender for Office 365](mdo-about.md)|Audit logs|[SIEM integration with Microsoft Defender for Office 365](siem-integration-with-office-365-ti.md)|\n |[Microsoft Defender for Endpoint](/windows/security/threat-protection/)|HTTPS endpoint hosted in Azure <p> REST API|[Pull alerts to your SIEM tools](/defender-endpoint/configure-siem)|\n-|[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)|Log integration|[SIEM integration with Microsoft Defender for Cloud Apps](/cloud-app-security/siem)|\n+|[Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)|Log integration|[SIEM integration with Microsoft Defender for Cloud Apps](/defender-cloud-apps/siem)|\n \n > [!TIP]\n > Take a look at [Microsoft Sentinel](/azure/sentinel/overview). Microsoft Sentinel comes with connectors for Microsoft solutions. These connectors are available \"out of the box\" and provide for real-time integration. You can use Microsoft Sentinel with your Microsoft Defender XDR solutions and Microsoft 365 services, including Office 365, Microsoft Entra ID, Microsoft Defender for Identity, Microsoft Defender for Cloud Apps, and more.\n",
+      "baseCommitSha": "9167db4d11379e8043ef8600f34a7fdf88543391",
+      "commitSha": "40308556ba26d2fa3fa1abe7fa531612214a94d9",
+      "commitMessage": "Links cloud-app-security to defender-cloud-apps",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-13T14:36:39-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/siem-server-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/siem-server-integration",
+      "firstSeenAt": "2026-03-13T21:36:39.000Z",
+      "eventId": "defender-docs:40308556ba26d2fa3fa1abe7fa531612214a94d9:modified:defender-office-365/siem-server-integration.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Links cloud-app-security to defender-cloud-apps",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/siem-server-integration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 5,
+    "totalFiles": 10,
+    "authors": [
+      "Chris Davis",
+      "Paul Oliveria"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-deployment-test.md. Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md. Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md.",
+        "sourceFiles": [
+          "defender-endpoint/attack-surface-reduction-rules-deployment-test.md",
+          "defender-endpoint/enable-attack-surface-reduction.md",
+          "defender-endpoint/managing-exclusions.md",
+          "defender-endpoint/managing-exclusions.md",
+          "defender-endpoint/managing-exclusions.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+        "sourceFiles": [
+          "defender-xdr/custom-detection-rules.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/detect-and-remediate-illicit-consent-grants.md. Updated Microsoft Defender documentation in defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md. Updated Microsoft Defender documentation in defender-office-365/siem-server-integration.md.",
+        "sourceFiles": [
+          "defender-office-365/defender-for-office-365-whats-new.md",
+          "defender-office-365/detect-and-remediate-illicit-consent-grants.md",
+          "defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md",
+          "defender-office-365/siem-server-integration.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-deployment-test.md. Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md. Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/managing-exclusions.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/detect-and-remediate-illicit-consent-grants.md. Updated Microsoft Defender documentation in defender-office-365/detect-and-remediate-outlook-rules-forms-attack.md. Updated Microsoft Defender documentation in defender-office-365/siem-server-integration.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

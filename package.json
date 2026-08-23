@@ -1,0 +1,19 @@
+{
+  "name": "daily-defender",
+  "version": "1.0.0",
+  "description": "Daily.Defender.Admin.News: product configuration, assets and site for the dailynews engine.",
+  "scripts": {
+    "engine:link": "node scripts/link-engine.js",
+    "start": "dailynews monitor",
+    "dev": "dailynews serve",
+    "preview:site": "dailynews serve",
+    "build:site": "dailynews build-site && dailynews search-index",
+    "summaries:periods": "dailynews summaries --current",
+    "summaries:periods:backfill": "dailynews summaries --all",
+    "generate-historical": "node scripts/generate-historical-data.js",
+    "test": "node --test src/test-config.js src/test-icons.js src/test-workflows.js"
+  },
+  "keywords": ["microsoft", "defender", "documentation", "monitoring"],
+  "author": "Merill Fernando",
+  "license": "MIT"
+}

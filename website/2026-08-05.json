@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md b/defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md\nindex a626acb24..cba87b91d 100644\n--- a/defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md\n+++ b/defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md\n@@ -389,7 +389,7 @@ This policy setting controls the level of intensity that Microsoft Defender Anti\n \n    CSP: [SignatureUpdateFallbackOrder](/windows/client-management/mdm/policy-csp-defender#signatureupdatefallbackorder)\n \n-  This policy setting allows you to specify the order in which different security intelligence update sources are contacted. Enter the value as a pipe-separated string, listing the security intelligence update sources in the desired order. Possible values include: \"InternalDefinitionUpdateServer,\" \"MicrosoftUpdateServer,\" \"MMPC,\" and \"FileShares.\"\n+  This policy setting allows you to specify the order in which different security intelligence update sources are contacted. Although the underlying policy is stored as a pipe-separated string, Intune presents this setting as a prioritized list of update sources. Administrators should configure the desired order using the Intune UI, where sources are evaluated from top to bottom. Possible values include: \"InternalDefinitionUpdateServer,\" \"MicrosoftUpdateServer,\" \"MMPC,\" and \"FileShares.\"\n \n   - **Not configured** - The setting reverts to the system default. Meaning, security intelligence update sources are contacted in a default order.\n   - **Enabled** - Security intelligence update sources are contacted in the order specified.\n",
+      "baseCommitSha": "3e913ef1187a6ea001eb6df467970a007da91eb5",
+      "commitSha": "23a594b316f365400290c15e397e911e476f09a1",
+      "commitMessage": "Enhance clarity on Signature Update Fallback Order (#567)",
+      "commitAuthor": "Felizano",
+      "commitDate": "2026-08-04T18:16:47-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus",
+      "firstSeenAt": "2026-08-05T00:16:47.000Z",
+      "eventId": "defender-docs:23a594b316f365400290c15e397e911e476f09a1:modified:defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Enhance clarity on Signature Update Fallback Order (#567)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Felizano"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md.",
+        "sourceFiles": [
+          "defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-office-365/mdo-gov.md",
+      "status": "added",
+      "additions": 58,
+      "deletions": 0,
+      "changes": 58,
+      "patch": "diff --git a/defender-office-365/mdo-gov.md b/defender-office-365/mdo-gov.md\nnew file mode 100644\nindex 000000000..8660b6687\n--- /dev/null\n+++ b/defender-office-365/mdo-gov.md\n@@ -0,0 +1,58 @@\n+---\n+title: Microsoft Defender for Office 365 for US Government customers\n+author: chrisda\n+ms.author: chrisda\n+manager: bagol\n+audience: Admin\n+ms.topic: overview\n+ms.localizationpriority: high\n+search.appverid: \n+  - MET150\n+  - MOE150\n+ms.assetid:\n+ms.collection: \n+  - m365-security\n+  - tier1\n+  - highpri\n+  - essentials-overview\n+ms.custom:\n+description: Learn about the Microsoft Defender for Office 365 for US Government\n+ms.service: defender-office-365\n+adobe-target: true\n+ms.date: 10/13/2025\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Default email protections for cloud mailboxes</a>\n+  - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n+  - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n+---\n+\n+# Microsoft Defender for Office 365 for US government customers\n+\n+Microsoft Defender for Office 365 for US Government customers, built in the Azure US Government environment, uses the same underlying technologies as Defender for Microsoft 365 in Azure Commercial.\n+\n+This offering is available to Microsoft GCC, Microsoft 365 GCC High, and Microsoft 365 DoD customers and is based on the same prevention, detection, investigation, and remediation as the commercial version. However, there are some differences in the availability of capabilities for this offering.\n+\n+> [!NOTE]\n+> If you're a GCC customer using Defender for Endpoint in Commercial, see the [Defender for Endpoint documentation](/defender-endpoint/).\n+\n+## Licensing requirements\n+\n+Defender for Office 365 for US Government customers requires one of the following Microsoft volume licensing offers:\n+\n+|GCC|GCC High|DoD|\n+|-----------------------------------------|-----------------------------------------|-----------------------------------------|\n+|Microsoft 365 GCC G5|Microsoft 365 E5 for GCC High|Microsoft 365 G5 for DOD|\n+|Microsoft 365 G5 Security GCC|Microsoft 365 G5 Security for GCC High|Microsoft 365 G5 Security for DOD|\n+|Standalone Defender for Identity licenses|Standalone Defender for Identity licenses|Standalone Defender for Identity licenses|\n+\n+## URLs\n+\n+To access Microsoft Defender for Identity for US Government offerings, use the appropriate addresses in this table:\n+\n+|US Government offering|Microsoft Defender portal|Sensor (agent) endpoint|\n+|------------------------|-------------------------------|---------------------------------------------------|\n+|DoD|`security.microsoft.us`|`<your-workspace-name>sensorapi.atp.azure.us`|\n+|GCC-H|`security.microsoft.us`|`<your-workspace-name>sensorapi.atp.azure.us`|\n+|GCC|`security.microsoft.com`|`<your-workspace-name>sensorapi.gcc.atp.azure.com`|\n+\n+You can also use the IP address ranges in our Azure service tag (**AzureAdvancedThreatProtection**) to enable access to Defender for Identity. For more information about service tags, see [Virtual network service tags](/azure/virtual-network/service-tags-overview) or download [the Azure IP Ranges and Service Tags – US Government Cloud file](https://www.microsoft.com/download/details.aspx?id=57063).\n\\ No newline at end of file\n",
+      "baseCommitSha": "74e6d924b32b83384cc5d4b24ee9bd10f1485109",
+      "commitSha": "4f5ee1776ffc060f2650dbce2f0e087fe7fb554a",
+      "commitMessage": "Create mdo-gov.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-09T18:40:02-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-gov.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-gov",
+      "firstSeenAt": "2026-01-10T02:40:02.000Z",
+      "eventId": "defender-docs:4f5ee1776ffc060f2650dbce2f0e087fe7fb554a:added:defender-office-365/mdo-gov.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Create mdo-gov.md",
+        "summary": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/safe-documents-in-e5-plus-security-about.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 15,
+      "changes": 36,
+      "patch": "diff --git a/defender-office-365/safe-documents-in-e5-plus-security-about.md b/defender-office-365/safe-documents-in-e5-plus-security-about.md\nindex ecdc05845..c4a4b210d 100644\n--- a/defender-office-365/safe-documents-in-e5-plus-security-about.md\n+++ b/defender-office-365/safe-documents-in-e5-plus-security-about.md\n@@ -1,5 +1,5 @@\n ---\n-title: Safe Documents in Microsoft Defender for Office 365\n+title: Safe Documents in Microsoft 365 A5/E5/G5 or Microsoft Defender Suite\n author: chrisda\n ms.author: chrisda\n manager: bagol\n@@ -16,14 +16,17 @@ ms.assetid:\n ms.collection:\n   - m365-security\n   - tier1\n-description: Learn about Safe Documents in Microsoft 365 A5 or E5 Security.\n+description: Learn about Safe Documents in Microsoft 365 A5 or Defender Suite.\n ms.service: defender-office-365\n-ms.date: 10/13/2023\n+ms.date: 01/09/2026\n appliesto:\n-  - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n+  - ✅ <a href=\"https://www.microsoft.com/education/products/microsoft-365/compare-microsoft-365-education-plans\" target=\"_blank\">Microsoft 365 A5</a>\n+  - ✅ <a href=\"https://www.microsoft.com/microsoft-365/enterprise/e5\" target=\"_blank\">Microsoft 365 E5</a>\n+  - ✅ <a href=\"https://learn.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/microsoft-365-government-how-to-buy#what-sales-channels-are-available-for-microsoft-365-government\" target=\"_blank\">Microsoft 365 GCC and GCC High</a>\n+  - ✅ <a href=\"https://www.microsoft.com/security/pricing/enterprise/security-suites\" target=\"_blank\">Microsoft Defender Suite</a>\n ---\n \n-# Safe Documents in Microsoft 365 A5 or E5 Security\n+# Safe Documents in Microsoft 365 A5/E5/G5 or Microsoft Defender Suite\n \n [!INCLUDE [MDO Trial banner](../includes/mdo-trial-banner.md)]\n \n@@ -32,16 +35,20 @@ Safe Documents is a premium feature that uses the cloud back end of [Microsoft D\n Users don't need Defender for Endpoint installed on their local devices to get Safe Documents protection. Users get Safe Documents protection if all of the following requirements are met:\n \n - Safe Documents is enabled in the organization as described in this article.\n-- Licenses from a required licensing plan are assigned to the users. Safe Documents is controlled by the **Office 365 SafeDocs** (or **SAFEDOCS** or **bf6f5520-59e3-4f82-974b-7dbbc4fd27c7**) service plan (also known as a service). This service plan is available in the following licensing plans (also known as license plans, Microsoft 365 plans, or products):\n-  - Microsoft 365 A5 for Faculty\n-  - Microsoft 365 A5 for Students\n-  - Microsoft Defender Suite\n \n-  Safe Documents isn't included in Microsoft Defender for Office 365 licensing plans.\n+- Users are assigned licenses from a [required licensing plan](/entra/identity/users/licensing-service-plan-reference).\n+\n+  Safe Documents is controlled by the **Office 365 SafeDocs** (or **SAFEDOCS** or **bf6f5520-59e3-4f82-974b-7dbbc4fd27c7**) service plan. This service plan is available in the following products:\n+  \n+  - Microsoft 365 A5\n+  - Microsoft 365 E5\n+  - Microsoft 365 Government Community Cloud (GCC) G5\n+  - Microsoft 365 GCC High G5\n+  - Microsoft Defender Suite\n \n-  For more information, see [Product names and service plan identifiers for licensing](/entra/identity/users/licensing-service-plan-reference).\n+  Safe Documents isn't included in Microsoft Defender for Office 365 Plan 1 or Plan 2.\n \n-- They're using Microsoft 365 Apps for enterprise (formerly known as Office 365 ProPlus) version 2004 or later.\n+- Users are using Microsoft 365 Apps for enterprise (formerly known as Office 365 ProPlus) version 2004 or later.\n \n ## What do you need to know before you begin?\n \n@@ -88,9 +95,9 @@ Set-AtpPolicyForO365 -EnableSafeDocs <$true | $false> -AllowSafeDocsOpen <$true\n ```\n \n - The _EnableSafeDocs_ parameter enables or disables Safe Documents for the entire organization.\n-- The _AllowSafeDocsOpen_ parameter allows or prevents users from leaving Protected View (that is, opening the document) if the document has been identified as malicious.\n+- The _AllowSafeDocsOpen_ parameter allows or prevents users from leaving Protected View (that is, opening the document) if the document is identified as malicious.\n \n-This example enables Safe Documents for the entire organization, and prevents users from opening documents that have been identified as malicious from Protected View.\n+This example enables Safe Documents for the entire organization, and prevents users from opening documents identified as malicious from Protected View.\n \n ```powershell\n Set-AtpPolicyForO365 -EnableSafeDocs $true -AllowSafeDocsOpen $false\n@@ -132,7 +139,6 @@ To verify you successfully enabled and configured Safe Documents, do any of the\n   ```\n \n - The following files are available to test Safe Documents protection. These files are similar to the EICAR.TXT file for testing anti-malware and anti-virus solutions. The files aren't harmful, but they trigger Safe Documents protection.\n-\n   - [SafeDocsDemo.docx](https://download.microsoft.com/download/1/9/7/19774467-5ff1-4c4d-9224-27b3751fa58f/SafeDocsDemo.docx)\n   - [SafeDocsDemo.pptx](https://download.microsoft.com/download/b/e/f/bef1df26-2c91-45b3-b8d0-348c6fead4af/SafeDocsDemo.pptx)\n   - [SafeDocsDemo.xlsx](https://download.microsoft.com/download/d/1/5/d1547fa8-575b-4ae0-969c-0d5265f6d985/SafeDocsDemo.xlsx)\n",
+      "baseCommitSha": "ba8fb9e08838c5bbc79871da9d8c3c4d56272227",
+      "commitSha": "885b159cd4837fcf9960a2974ef99adf1f458399",
+      "commitMessage": "Modernization of Safe Docs",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-10T09:10:21-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/safe-documents-in-e5-plus-security-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-documents-in-e5-plus-security-about",
+      "firstSeenAt": "2026-01-10T17:10:21.000Z",
+      "eventId": "defender-docs:885b159cd4837fcf9960a2974ef99adf1f458399:modified:defender-office-365/safe-documents-in-e5-plus-security-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Modernization of Safe Docs",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Chris Davis"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md. Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md.",
+        "sourceFiles": [
+          "defender-office-365/mdo-gov.md",
+          "defender-office-365/safe-documents-in-e5-plus-security-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md. Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

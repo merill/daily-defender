@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/defender-deployment-tool-windows.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/defender-deployment-tool-windows.md b/defender-endpoint/defender-deployment-tool-windows.md\nindex fe10c5418..43a7711bb 100644\n--- a/defender-endpoint/defender-deployment-tool-windows.md\n+++ b/defender-endpoint/defender-deployment-tool-windows.md\n@@ -115,7 +115,7 @@ The following steps show how to generate and download a new onboarding package.\n \n    Copy the key and save it, as it will be needed with the deployment tool.\n \n-   After you've copied the key and saved it, select **Download deployment tool**. This downloads a *.zip* file of the Defender deployment tool executable.\n+   After you've copied the key and saved it, select **Download deployment tool**. This downloads a *.zip* or *.exe* file of the Defender deployment tool executable, depending on the download choice you make.\n \n ## Deploy Defender endpoint security on devices\n \n",
+      "baseCommitSha": "4b5b279d4640f02cf6705cdb7274f84946f749b6",
+      "commitSha": "36d236f92c2a1279705048b0b5350d8998a3f7b3",
+      "commitMessage": "Mentioned the zip / exe choice",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-08T22:09:45+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/defender-deployment-tool-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/defender-deployment-tool-windows",
+      "firstSeenAt": "2026-06-08T19:09:45.000Z",
+      "eventId": "defender-docs:36d236f92c2a1279705048b0b5350d8998a3f7b3:modified:defender-endpoint/defender-deployment-tool-windows.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mentioned the zip / exe choice",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/defender-deployment-tool-windows.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Paul Inbar"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/defender-deployment-tool-windows.md.",
+        "sourceFiles": [
+          "defender-endpoint/defender-deployment-tool-windows.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/defender-deployment-tool-windows.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

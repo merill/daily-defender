@@ -1,0 +1,189 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud-apps/proxy-intro-aad.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/proxy-intro-aad.md b/defender-for-cloud-apps/proxy-intro-aad.md\nindex eaa0da861..6271dfcf6 100644\n--- a/defender-for-cloud-apps/proxy-intro-aad.md\n+++ b/defender-for-cloud-apps/proxy-intro-aad.md\n@@ -35,6 +35,8 @@ Conditional Access app control uses access policies and session policies to moni\n \n Each policy has conditions to define *who* (which user or group of users), *what* (which cloud apps), and *where* (which locations and networks) the policy is applied to. After you determine the conditions, route your users first to Defender for Cloud Apps. There, you can apply the access and session controls to help protect your data.\n \n+Conditional Access policies are applied at the application level, not at the individual file level. As a result, you can't exclude specific files from the policy settings.\n+\n Access and session policies include the following types of activities:\n \n |Activity |Description |\n",
+      "baseCommitSha": "c871ad85ef00459b9bfd2dbd89e13f54389e83eb",
+      "commitSha": "8d5a2cb0d9bbf25e3cb4f271d68f854ef6fdea0b",
+      "commitMessage": "Conditional Access policies are applied at the application level",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-01T15:26:46+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/proxy-intro-aad.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/proxy-intro-aad",
+      "firstSeenAt": "2026-04-01T12:26:46.000Z",
+      "eventId": "defender-docs:8d5a2cb0d9bbf25e3cb4f271d68f854ef6fdea0b:modified:defender-for-cloud-apps/proxy-intro-aad.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Conditional Access policies are applied at the application level",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/proxy-intro-aad.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-privacy.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/defender-office-365/mdo-privacy.md b/defender-office-365/mdo-privacy.md\nindex a32ddc719..f45f178ce 100644\n--- a/defender-office-365/mdo-privacy.md\n+++ b/defender-office-365/mdo-privacy.md\n@@ -4,7 +4,7 @@ f1.keywords:\n - NOCSH\n author: chrisda\n ms.author: chrisda\n-ms.date: 05/08/2025\n+ms.date: 04/01/2026\n audience: ITPro\n ms.topic: concept-article\n ms.service: defender-office-365\n@@ -117,3 +117,7 @@ Defender for Office 365 shares data, including customer data, among the followin\n - Microsoft 365 Defender XDR\n - Microsoft Sentinel\n - Audit logs\n+\n+## Advanced email analysis in Defender for Office 365\n+\n+Defender for Office 365 improves email filtering against unwanted, malicious and abusive email by analyzing email messages processed by the service. Microsoft uses limited email data, with human review, for research purposes to improve the security and effectiveness of Defender for Office 365 and to reduce unwanted or malicious email (for example, spam, phishing or malware), in accordance with Microsoft's compliance, legal, and privacy standards.\n",
+      "baseCommitSha": "c871ad85ef00459b9bfd2dbd89e13f54389e83eb",
+      "commitSha": "89efea6b746377ccf06b4910fd6e4f827b5154ab",
+      "commitMessage": "Update mdo-privacy.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-01T09:59:54-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-privacy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-privacy",
+      "firstSeenAt": "2026-04-01T16:59:54.000Z",
+      "eventId": "defender-docs:89efea6b746377ccf06b4910fd6e4f827b5154ab:modified:defender-office-365/mdo-privacy.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update mdo-privacy.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-privacy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-admin-manage-messages-files.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 18,
+      "changes": 29,
+      "patch": "diff --git a/defender-office-365/quarantine-admin-manage-messages-files.md b/defender-office-365/quarantine-admin-manage-messages-files.md\nindex 74fdcb019..d5350a511 100644\n--- a/defender-office-365/quarantine-admin-manage-messages-files.md\n+++ b/defender-office-365/quarantine-admin-manage-messages-files.md\n@@ -17,7 +17,7 @@ ms.custom:\n   - seo-marvel-apr2020\n description: Admins can learn how to view and manage quarantined messages for all users in Microsoft 365 organizations with cloud mailboxes. Admins in organizations with Microsoft Defender for Office 365 can also manage quarantined files in SharePoint, OneDrive, and Microsoft Teams.\n ms.service: defender-office-365\n-ms.date: 02/23/2026\n+ms.date: 04/01/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -162,7 +162,7 @@ To filter the entries, select :::image type=\"icon\" source=\"media/m365-cc-sc-filt\n   - **High confidence phishing**\n - **Recipient**: Select one of the following values:\n   - **All users** (the default value, even if it doesn't appear selected)\n-  - **Only me**: Show only messages where whomever is signed in is a recipient. This value is required for administrators to see the [Allow sender](#allow-email-senders-from-quarantine) and [Block sender](#block-email-senders-from-quarantine) actions.\n+  - **Only me**: Show messages sent to the currently signed in recipient only. This value is required for admins to see the [Allow sender](#allow-email-senders-from-quarantine) and [Block sender](#block-email-senders-from-quarantine) actions.\n - **Blocked sender**: One of the following values:\n   - **Don't show blocked senders** (default)\n   - **Show all senders**\n@@ -227,25 +227,22 @@ In the details flyout that opens, the following information is available:\n   - **Quarantine reason**: Shows if a message was identified as **Spam**, **Bulk**, **Phish**, matched a mail flow rule (**Transport rule**), or was identified as containing **Malware**.\n   - **Policy type**\n   - **Policy name**\n-  - **Recipient count**\n-  - **Recipients**: If the message contains many recipients, you can use [Preview message](#preview-email-from-quarantine) or [View message header](#view-email-message-headers) to see the complete list of recipients.\n-\n-    Recipient email addresses always resolve to the primary email address, even if the message was sent to a [proxy address](/exchange/recipients-in-exchange-online/manage-user-mailboxes/add-or-remove-email-addresses).\n-\n+  - **Recipient**\n+    - Recipient email addresses always resolve to the primary email address, even if the message was sent to a [proxy address](/exchange/recipients-in-exchange-online/manage-user-mailboxes/add-or-remove-email-addresses).\n+    - If the original message was sent to multiple recipients, select :::image type=\"icon\" source=\"media/m365-cc-sc-more-actions-icon.png\" border=\"false\"::: **More options** \\> :::image type=\"icon\" source=\"media/m365-cc-sc-preview-message-icon.png\" border=\"false\"::: **Preview message** or :::image type=\"icon\" source=\"media/m365-cc-sc-more-actions-icon.png\" border=\"false\"::: **More options** \\> :::image type=\"icon\" source=\"media/m365-cc-sc-view-message-headers-icon.png\" border=\"false\"::: **View message headers** to see the complete list of recipients.\n   - **Not yet released to**, **Released to**, and/or **Released by**: Depending on the state of the message, one or more of the following values might be available:\n     - **Not yet released to**: Email addresses of recipients who didn't receive the released message.\n     - **Released to**: Email addresses of recipients the message was released to.\n     - **Released by**:\n-      - Admin released: `<email address of admin who released the message> released for <recipient>`. For example, `admin@contoso.onmicrosoft.com released to laura@contoso.onmicrosoft.com`.\n+      - Admin released: `<email address of admin who released the message> released for <recipient>`. For example, `admin@contoso.com released to laura@contoso.com`.\n       - User released: The user's SMTP address.\n       - System released: \"System released.\"\n       - Other: The default behavior is admin released.\n-\n   - **Sender address override reason**\n \n The rest of the details flyout contains the **Delivery details**, **Email details**, **Authentication**, **URLs**, and **Attachments** sections that are part of the _Email summary panel_. For more information, see [The Email summary panel](mdo-email-entity-page.md#the-email-summary-panel).\n \n-:::image type=\"content\" source=\"media/quarantine-message-details-flyout-released-by.png\" alt-text=\"Screenshot of the details flyout that opens after you select a quarantined email message from the Email tab of the Quarantine page.\" lightbox=\"media/quarantine-message-details-flyout-released-by.png\":::\n+:::image type=\"content\" source=\"media/quarantine-message-details-flyout-with-actions.png\" alt-text=\"Screenshot of the details flyout that opens after you select a quarantined email message from the Email tab of the Quarantine page.\" lightbox=\"media/quarantine-message-details-flyout-with-actions.png\":::\n \n To take action on the message, see the next section.\n \n@@ -315,19 +312,15 @@ After you select the message, use either of the following methods to release it:\n \n In the **Release email to recipient inboxes** flyout that opens, configure the following options:\n \n-- Select one of the following values:\n-  - **Release to all recipients**\n-  - **Release to one or more of the original recipients of the email**: Enter the recipients in the **Recipients** box that appears.\n+- **Send a copy of this message to other recipients**: If you select this option, select one or more recipients by clicking in the **Recipients** box that appears. Select :::image type=\"icon\" source=\"media/m365-cc-sc-remove-selection-icon.png\" border=\"false\"::: to remove an entry.\n \n-- **Send a copy of this message to another recipient**: If you select this option, select one or more recipients by clicking in the **Recipients** box that appears. Select :::image type=\"icon\" source=\"media/m365-cc-sc-remove-selection-icon.png\" border=\"false\"::: to remove an entry.\n+- **Submit the message to Microsoft to improve detection (false positive)**: If you select this option, the erroneously quarantined message is reported to Microsoft as a false positive. Depending on the results of their analysis, the service-wide spam filter rules might be adjusted to allow the message through.\n \n-- **Submit the message to Microsoft to improve detection**: If you select this option, the erroneously quarantined message is reported to Microsoft as a false positive. Depending on the results of their analysis, the service-wide spam filter rules might be adjusted to allow the message through.\n-\n-  Selecting this option reveals the following options:\n+  Selecting this option also reveals the following options:\n \n   - **Allow this message**: If you select this option, allow entries are added to the [Tenant Allow/Block List](tenant-allow-block-list-about.md) for the sender and any related URLs or attachments in the message. The following options also appear:\n     - **Remove entry after**: The default value is **45 days after last used date**, but you can also select **1 day**, **7 days**, **30 days**, or a **Specific date** that's less than 30 days.\n-    - **Allow entry note**: Enter an optional note that contains additional information.\n+    - **Allow entry note (optional)**: Enter an optional note that contains additional information.\n \n When you're finished on the **Release email to recipient inboxes** flyout, select **Release message**.\n \n",
+      "baseCommitSha": "fd512ae504840c2726853b8417eaacdfffc99341",
+      "commitSha": "31b5dad3ebffe8a73faaa5bea36efab74ae04cc5",
+      "commitMessage": "Updates for one recipient per line in quarantine",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-01T15:23:23-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-admin-manage-messages-files.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-admin-manage-messages-files",
+      "firstSeenAt": "2026-04-01T22:23:23.000Z",
+      "eventId": "defender-docs:31b5dad3ebffe8a73faaa5bea36efab74ae04cc5:modified:defender-office-365/quarantine-admin-manage-messages-files.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updates for one recipient per line in quarantine",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-end-user.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/defender-office-365/quarantine-end-user.md b/defender-office-365/quarantine-end-user.md\nindex 5180e1bad..de3995b08 100644\n--- a/defender-office-365/quarantine-end-user.md\n+++ b/defender-office-365/quarantine-end-user.md\n@@ -19,12 +19,12 @@ ms.custom:\n description: Users can learn how to view and manage quarantined email messages in Microsoft 365 that were meant to be delivered to them.\n ms.service: defender-office-365\n adobe-target: true\n-ms.date: 07/08/2025\n+ms.date: 04/01/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n-#customer intent:  As an end user who receives email in Microsoft 365, I want clear, step‑by‑step guidance to find, view, and manage messages and files placed in quarantine (view, preview, release, request release, delete, and allow/block senders) so I can recover legitimate messages and keep my mailbox secure. \n+#customer intent:  As an end user who receives email in Microsoft 365, I want clear, step‑by‑step guidance to find, view, and manage messages and files placed in quarantine (view, preview, release, request release, delete, and allow/block senders) so I can recover legitimate messages and keep my mailbox secure.\n ---\n \n # Manage quarantined messages and files as a user\n@@ -192,8 +192,10 @@ In the details flyout that opens, the following information is available:\n     - The message matched a mail flow rule (**Transport rule**).\n     - The message was identified as **Malware**.\n   - **Policy type**\n-  - **Recipient count**\n-  - **Recipients**: If the message contains multiple recipients, you might need to select :::image type=\"icon\" source=\"media/m365-cc-sc-more-actions-icon.png\" border=\"false\"::: \\> **Preview message** or :::image type=\"icon\" source=\"media/m365-cc-sc-more-actions-icon.png\" border=\"false\"::: \\> **View message header** to see the complete list of recipients.\n+  - **Recipient**\n+\n+    If the original message was sent to multiple recipients, select :::image type=\"icon\" source=\"media/m365-cc-sc-preview-message-icon.png\" border=\"false\"::: **Preview message** or :::image type=\"icon\" source=\"media/m365-cc-sc-view-message-headers-icon.png\" border=\"false\"::: **View message headers** to see the complete list of recipients.\n+\n   - **Sender override reason**\n   - **Released by**:\n     - User released: The user's email address is shown.\n",
+      "baseCommitSha": "fd512ae504840c2726853b8417eaacdfffc99341",
+      "commitSha": "31b5dad3ebffe8a73faaa5bea36efab74ae04cc5",
+      "commitMessage": "Updates for one recipient per line in quarantine",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-01T15:23:23-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-end-user.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-end-user",
+      "firstSeenAt": "2026-04-01T22:23:23.000Z",
+      "eventId": "defender-docs:31b5dad3ebffe8a73faaa5bea36efab74ae04cc5:modified:defender-office-365/quarantine-end-user.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updates for one recipient per line in quarantine",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 4,
+      "changes": 24,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 3ce8d0393..08cada57d 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -7,7 +7,7 @@ author: lwainstein\n ms.author: lwainstein\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 09/03/2025\n+ms.date: 04/01/2026\n appliesto: Microsoft Defender for Endpoint Plan 1, Microsoft Defender for Endpoint Plan 2, Microsoft Defender XDR\n ---\n \n@@ -70,7 +70,7 @@ This table includes supported releases for all supported platforms in the past s\n \n ## Windows releases\n \n-This section covers Microsoft Defender for Endpoint EDR `MsSense.exe` versions. You can also check the file information section in the monthly cumulative rollup updates in the following articles: \n+This section covers Microsoft Defender for Endpoint EDR `MsSense.exe` versions. You can also check the file information section in the monthly cumulative rollup updates in the following articles:\n \n - [Windows 11 release information](/windows/release-health/windows11-release-information)\n - [Windows 10 updates](https://support.microsoft.com/topic/windows-10-update-history-8127c2c6-6edf-4fdf-8b9f-0f7be1ef3562)\n@@ -128,6 +128,22 @@ To get latest features, configure your device for the Beta channel (formerly Ins\n \n For known issues, see [macOS known issues](#macos-known-issues).\n \n+### macOS | April-2026 | 101.26022.0018\n+\n+#### Versions\n+\n+| Release version | Engine version | Signature version |\n+|-----------------|----------------|-------------------|\n+| 20.126022.18.0  | 1.1.25100.4000 | 1.439.74.0        |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+| ------------ | -------------- |\n+| General      | \\[packaging\\] macOS >= 14 supported only |\n+| General      | CVE-2025-68664/5 LangGrinch (langchain vulnerability) |\n+| General      | Bug and performance fixes |\n+\n ### macOS | March-2026 | 101.26012.0017\n \n #### Versions\n@@ -284,10 +300,10 @@ Bug and performance fixes\n \n - In macOS Sequoia (version 15.0), if you have Network Protection enabled, you might see crashes of the network extension (NetExt). This issue results in intermittent network connectivity issues for end users. Upgrade to macOS Sequoia version 15.1 or newer.\n \n-- On macOS Sequoia (Version 15.0 - 15.1.1), users might encounter prompts about incoming network connections from applications when the native firewall is active.  \n+- On macOS Sequoia (Version 15.0 - 15.1.1), users might encounter prompts about incoming network connections from applications when the native firewall is active.\n \n    ![Screenshot showing prompts about incoming network connections.](media/mac-whatsnew/image.png)\n-  \n+\n If an end user encounters a prompt for Defender for Endpoint on macOS processes such as `wdavdaemon_enterprise` or `Microsoft Defender Helper`, the end user can safely choose the **Deny** option. This selection doesn't affect Defender for Endpoint's functionality.  Enterprises can also add *Microsoft Defender* to allow [incoming connections](https://support.apple.com/en-ca/guide/deployment/dep8d306275f/web). This issue is fixed in macOS Sequoia 15.2.\n \n ## Linux releases\n",
+      "baseCommitSha": "fd512ae504840c2726853b8417eaacdfffc99341",
+      "commitSha": "b67b134de9119f0acfb3d2398319a9d1b8288bd0",
+      "commitMessage": "Update microsoft-defender-endpoint-releases.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-01T15:37:44-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-04-01T22:37:44.000Z",
+      "eventId": "defender-docs:b67b134de9119f0acfb3d2398319a9d1b8288bd0:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update microsoft-defender-endpoint-releases.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 5,
+    "authors": [
+      "Chris Davis",
+      "Devorah Cohen"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/proxy-intro-aad.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/proxy-intro-aad.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-privacy.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "sourceFiles": [
+          "defender-office-365/mdo-privacy.md",
+          "defender-office-365/quarantine-admin-manage-messages-files.md",
+          "defender-office-365/quarantine-end-user.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/proxy-intro-aad.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-privacy.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

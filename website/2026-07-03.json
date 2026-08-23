@@ -1,0 +1,87 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/advanced-hunting-emailattachmentinfo-table.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-emailattachmentinfo-table.md b/defender-xdr/advanced-hunting-emailattachmentinfo-table.md\nindex 977a76b66..944bc295c 100644\n--- a/defender-xdr/advanced-hunting-emailattachmentinfo-table.md\n+++ b/defender-xdr/advanced-hunting-emailattachmentinfo-table.md\n@@ -46,7 +46,7 @@ For information on other tables in the advanced hunting schema, [see the advance\n | `RecipientEmailAddress` | `string` | Email address of the recipient, or email address of the recipient after distribution list expansion |\n | `RecipientObjectId` | `string` | Unique identifier for the email recipient in Microsoft Entra ID |\n | `FileName` | `string` | Name of the file that the recorded action was applied to |\n-| `FileType` | `string` | File extension type |\n+| `FileType` | `string` | File content type |\n | `SHA256` | `string` | SHA-256 of the file that the recorded action was applied to. This field is usually not populated — use the SHA1 column when available. |\n | `FileSize` | `long` | Size of the file in bytes |\n | `ThreatTypes` | `string` | Verdict from the email filtering stack on whether the email contains malware, phishing, or other threats |\n",
+      "baseCommitSha": "1ee8e5b0769e6f00907848cb87f10b57ee07ccaa",
+      "commitSha": "6754078259b0aff297b298709998525c594a8ddf",
+      "commitMessage": "Update advanced-hunting-emailattachmentinfo-table.md (#307)",
+      "commitAuthor": "David",
+      "commitDate": "2026-07-03T16:37:55+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-emailattachmentinfo-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-emailattachmentinfo-table",
+      "firstSeenAt": "2026-07-03T14:37:55.000Z",
+      "eventId": "defender-docs:6754078259b0aff297b298709998525c594a8ddf:modified:defender-xdr/advanced-hunting-emailattachmentinfo-table.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update advanced-hunting-emailattachmentinfo-table.md (#307)",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-emailattachmentinfo-table.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-take-action.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 0,
+      "changes": 9,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-take-action.md b/defender-xdr/advanced-hunting-take-action.md\nindex 9cf52edee..83ff41f5e 100644\n--- a/defender-xdr/advanced-hunting-take-action.md\n+++ b/defender-xdr/advanced-hunting-take-action.md\n@@ -121,6 +121,15 @@ Apart from device-focused remediation steps, you can also take actions on emails\n \n   **Initiate automated investigation** might be disabled if mandatory columns are missing. To resolve this issue, select **Show empty columns** before you select **Take actions**.\n \n+  Use the following query as a reference to enable **Submit to Microsoft** and **Initiate automated investigation**.\n+\n+   ```kusto\n+   EmailEvents\n+  | where ThreatTypes contains \"spam\"\n+  | project  Timestamp, NetworkMessageId,RecipientEmailAddress,SenderFromAddress,SenderMailFromAddress,Subject,SenderFromDomain,TimeGenerated,SenderIPv4,SenderIPv6\n+  | join EmailUrlInfo on NetworkMessageId\n+   ```\n+  \n   :::image type=\"content\" source=\"media/advanced-hunting-take-action/advanced-hunting-take-actions-choose-actions.png\" alt-text=\"Screenshot of the Choose actions page of the Take actions wizard with Initiate automated investigation selected.\" lightbox=\"media/advanced-hunting-take-action/advanced-hunting-take-actions-choose-actions.png\":::\n \n You can provide a remediation name and a short description of the action to track it in the action center history. Use the Approval ID provided at the end of the wizard to filter for these actions in the action center:\n",
+      "baseCommitSha": "6754078259b0aff297b298709998525c594a8ddf",
+      "commitSha": "bc5252e183a9e7eee9dc9ef9b2565ab1dddacbc9",
+      "commitMessage": "Update advanced-hunting-take-action.md with query reference (#406)",
+      "commitAuthor": "Mattias Borg",
+      "commitDate": "2026-07-03T16:46:31+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-take-action.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-take-action",
+      "firstSeenAt": "2026-07-03T14:46:31.000Z",
+      "eventId": "defender-docs:bc5252e183a9e7eee9dc9ef9b2565ab1dddacbc9:modified:defender-xdr/advanced-hunting-take-action.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update advanced-hunting-take-action.md with query reference (#406)",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-take-action.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "David",
+      "Mattias Borg"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-emailattachmentinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-take-action.md.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-emailattachmentinfo-table.md",
+          "defender-xdr/advanced-hunting-take-action.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-emailattachmentinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-take-action.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

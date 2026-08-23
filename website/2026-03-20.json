@@ -1,0 +1,414 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/troubleshoot-asr.md",
+      "status": "modified",
+      "additions": 84,
+      "deletions": 87,
+      "changes": 171,
+      "patch": "diff --git a/defender-endpoint/troubleshoot-asr.md b/defender-endpoint/troubleshoot-asr.md\nindex 778478114..5c39a0017 100644\n--- a/defender-endpoint/troubleshoot-asr.md\n+++ b/defender-endpoint/troubleshoot-asr.md\n@@ -24,17 +24,12 @@ appliesto:\n \n # Troubleshoot attack surface reduction rules\n \n+When you use [attack surface reduction rules](attack-surface-reduction-rules-overview.md), you might run into issues. For example:\n \n-The first and most immediate way is to check locally, on a Windows device, which attack surface reduction rules are enabled (and their configuration) is by using the PowerShell cmdlets.\n-\n-Here are a few other sources of information that Windows offers, to troubleshoot attack surface reduction rules' impact and operation.\n-\n-When you use [attack surface reduction rules](attack-surface-reduction.md) you might run into issues, such as:\n-\n-- A rule blocks a file, process, or performs some other action that it shouldn't (false positive); or\n+- A rule blocks a file or process, or does some other action that it shouldn't (false positive).\n - A rule doesn't work as described, or doesn't block a file or process that it should (false negative).\n \n-There are four steps to troubleshooting these problems:\n+Use the following steps to troubleshooting these problems:\n \n 1. [Confirm prerequisites](#confirm-prerequisites).\n 1. [Use audit mode to test the rule](#use-audit-mode-to-test-the-rule).\n@@ -43,148 +38,150 @@ There are four steps to troubleshooting these problems:\n \n ## Confirm prerequisites\n \n-Attack surface reduction rules only work on devices with the following conditions:\n+Attack surface reduction rules are active and working on devices that meet the following conditions:\n \n-- Devices are running Windows 10 Enterprise or later.\n-- Devices are using Microsoft Defender Antivirus as the sole antivirus protection app. [Using any other antivirus app causes Microsoft Defender Antivirus to disable itself](/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-compatibility).\n+- Windows 10 Enterprise or later.\n+- Microsoft Defender Antivirus is the only active antivirus protection app. Microsoft Defender Antivirus disables itself [if any other antivirus app is installed on the device](/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-compatibility).\n - [Real-time protection](/windows/security/threat-protection/microsoft-defender-antivirus/configure-real-time-protection-microsoft-defender-antivirus) is enabled.\n-- Audit mode isn't enabled. Use Group Policy to set the rule to `Disabled` (value: `0`) as described in [Enable attack surface reduction rules](enable-attack-surface-reduction.md).\n+- Attack surface reduction rules on the device are in one of the following modes:\n+  - **Block** mode.\n+  - **Warn** mode.\n+  - Not configured or disabled.\n \n If these prerequisites are met, proceed to the next step to test the rule in audit mode.\n \n-## Best practices when setting up attack surface reduction rules using Group Policy\n-\n-When setting up the attack surface reduction rules by using Group Policy, here are a few best practices to avoid making common mistakes:\n+<a name=\"best-practices-when-setting-up-attack-surface-reduction-rules-using-group-policy\"></a>\n \n-1. Make sure when adding the GUID for attack surface reduction rules, there are **no double quotes** (like this: \"ASR Rules GUID\") at the beginning or at the end of the GUID.\n+## Verify rule ID values in group policy\n \n-1. Make sure that there are **no spaces** at the beginning or at the end when adding the GUID for attack surface reduction rules.\n+If you used group policy to configure attack surface reduction rules, verify there are no extra characters like quotation marks or spaces in the identifying GUID value.\n \n-### Querying which rules are active\n+For more information about configuring attack surface reduction rules in group policy, see [Enable attack surface reduction rules with group policy](enable-attack-surface-reduction.md#group-policy).\n \n-One of the easiest ways to determine if attack surface reduction rules are already enabled is through a PowerShell cmdlet, Get-MpPreference.\n+<a name=\"querying-which-rules-are-active\"></a>\n \n-Here's an example:\n+### Verify active rules and actions on the device\n \n-:::image type=\"content\" source=\"media/getmpreferencescriptnew.png\" alt-text=\"Screenshot showing the get mppreference script.\" lightbox=\"media/getmpreferencescriptnew.png\":::\n+Run the following command in PowerShell to see the state of all configured attack surface reduction rules on a device:\n \n-There are multiple attack surface reduction rules active, with different configured actions.\n-\n-To expand information on attack surface reduction rules, you can use the properties `AttackSurfaceReductionRules_Ids` and/or `AttackSurfaceReductionRules_Actions`.\n+```powershell\n+$p=Get-MpPreference;0..([math]::Min($p.AttackSurfaceReductionRules_Ids.Count,$p.AttackSurfaceReductionRules_Actions.Count)-1) | % {[pscustomobject]@{Id=$p.AttackSurfaceReductionRules_Ids[$_];Action=$p.AttackSurfaceReductionRules_Actions[$_]}} | Format-Table -AutoSize\n+```\n \n-Example:\n+Example output from this command might look like this:\n \n ```powershell\n-Get-MPPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids\n+Id                                   Action\n+--                                   ------\n+01443614-cd74-433a-b99e-2ecdc07bfc25      2\n+26190899-1602-49e8-8b27-eb1d0a1ce869      1\n+3b576869-a4ec-4529-8536-b80a7769e899      1\n+5beb7efe-fd9a-4556-801d-275e5ffc04cc      1\n+75668c1f-73b5-4cf0-bb93-3ecf5cb7cc84      1\n+7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c      1\n+92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b      1\n+9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2      2\n+b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4      1\n+be9ba2d9-53ea-4cdc-84e5-9b1eeee46550      1\n+c1db55ab-c21a-4637-bb3f-a12568109d35      2\n+d1e49aac-8f56-4280-b9ba-993a6d77406c      1\n+d3e037e1-3eb8-44c8-a917-57927947596d      2\n+d4f940ab-401b-4efc-aadc-ad5f3c50688a      2\n+e6db77e5-3df2-4cf1-b95a-636979351e5b      1\n ```\n \n-:::image type=\"content\" source=\"media/getmpref-examplenew.png\" alt-text=\"Screenshot showing the get mpreference example.\" lightbox=\"media/getmpref-examplenew.png\":::\n+In this example, [the displayed rules](attack-surface-reduction-rules-reference.md#asr-rule-to-guid-matrix) are active in [different modes](attack-surface-reduction-rules-reference.md#asr-rule-modes) (2 = **Audit** mode, 1 = **Block** mode).\n \n-The preceding image shows all the IDs for attack surface reduction rules that have a setting different from 0 (Not Configured).\n+<a name=\"use-audit-mode-to-test-the-rule\"></a>\n \n-The next step is then to list the actual actions (Block or Audit) that each rule is configured with.\n+## Test problem rules in Audit mode\n \n-```powershell\n-Get-MPPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Actions\n-```\n+ **Audit mode** doesn't block files or processes identified by the attack surface reduction rule, but logs the detection. Follow these instructions from [Use the demo tool to see how attack surface reduction rules work](attack-surface-reduction-rules-deployment-test.md) to test the specific rule you're having problems with:\n+\n+1. Enable **Audit** mode for the rule. Use group policy to set the rule mode to 2 as described in [Enable attack surface reduction rules](enable-attack-surface-reduction.md).\n \n-:::image type=\"content\" source=\"media/getmpref-example2new.png\" alt-text=\"Screenshot that shows the get mppreference example2.\" lightbox=\"media/getmpref-example2new.png\":::\n+1. Do the action that causes the issue. For example, open the file or run the process that isn't blocked but should be blocked (false negative).\n \n-## Use audit mode to test the rule\n+1. [Review the attack surface reduction rule event logs](attack-surface-reduction.md) to see if the file or process would have been blocked if the rule was in **Block** mode.\n \n-Follow these instructions in [Use the demo tool to see how attack surface reduction rules work](attack-surface-reduction-rules-deployment-test.md) to test the specific rule you're encountering problems with.\n+If a rule isn't blocking a file or process that you expect it to block, verify the rule isn't in **Audit** mode. The rule might be in **Audit** mode in the following scenarios:\n \n-1. Enable audit mode for the specific rule you want to test. Use Group Policy to set the rule to `Audit mode` (value: `2`) as described in [Enable attack surface reduction rules](enable-attack-surface-reduction.md). Audit mode allows the rule to report the file or process, but allows it to run.\n+- You were testing another feature.\n+- The rule was set to **Audit** mode by an automated PowerShell script.\n+- You forgot to disable the rule or enable it in **Block** mode after the test was completed.\n \n-1. Perform the activity that is causing an issue. For example, open the file or run the process that should be blocked, but is allowed.\n+If you did the tests in this section and the rule still isn't working as expected, proceed to one of the following sections in this article:\n \n-1. [Review the attack surface reduction rule event logs](attack-surface-reduction.md) to see if the rule would block the file or process if the rule were set to `Enabled`.\n+- **False positive** (good files blocked): [Add exclusions for a false positive](#add-exclusions-for-a-false-positive).\n+- **False negative** (bad files allowed): [Collect diagnostic data](#collect-diagnostic-data) and report the issue to Microsoft.\n \n-If a rule isn't blocking a file or process that you're expecting it should block, first check to see if audit mode is enabled. Audit mode might be enabled for testing another feature, or by an automated PowerShell script, and might not be disabled after the tests were completed. \n+<a name=\"querying-blocking-and-auditing-events\"></a>\n \n-If you tested the rule with the demo tool and with audit mode, and attack surface reduction rules are working on preconfigured scenarios, but the rule isn't working as expected, proceed to either of the following sections based on your situation:\n+### View block and audit events in Windows Event Viewer\n \n-- If the attack surface reduction rule is blocking something that it shouldn't block (also known as a false positive), you can [first add an attack surface reduction rule exclusion](#add-exclusions-for-a-false-positive).\n-- If the attack surface reduction rule isn't blocking something that it should block (also known as a false negative), you can proceed immediately to the last step, [collecting diagnostic data and submitting the issue to us](#collect-microsoft-defender-anti-malware-protection-diagnostic-data-for-file-submissions).\n+You can view attack surface reduction rule events in the **Windows Defender** area of Windows Event Viewer.\n \n-### Querying blocking and auditing events\n+1. Open **Event Viewer**. For example:\n+   1. Open the **Start** menu, and then type **event**.\n+   1. Select the **Event Viewer** result.\n \n-Attack surface reduction rule events can be viewed within the Windows Defender log.\n+1. In **Event viewer** console tree, go to **Applications and Services Logs** \\> **Microsoft** \\> **Windows** \\> **Windows Defender** \\> **Operational**.\n \n-To access it, open Windows Event Viewer, and browse to **Applications and Services Logs** \\> **Microsoft** \\> **Windows** \\> **Windows Defender** \\> **Operational**.\n+1. In the details pane of **Operational**, you can filter the entries for attack surface reduction rule events using the following **Event ID** values**:\n+   - **Block events**: 1121, 1126, 1131, 1133\n+   - **Audit events**: 1122, 1125, 1132, 1134\n+   - **User override events in Warn mode**: 1129\n+   - **Attack surface reduction configuration changes**: 5007\n \n-:::image type=\"content\" source=\"media/eventviewerscrnew.png\" alt-text=\"Screenshot that shows the Event Viewer page.\" lightbox=\"media/eventviewerscrnew.png\":::\n+:::image type=\"content\" source=\"media/eventviewerscrnew.png\" alt-text=\"Screenshot of the Event Viewer page.\" lightbox=\"media/eventviewerscrnew.png\":::\n \n ## Add exclusions for a false positive\n \n-If the attack surface reduction rule is blocking something that it shouldn't block (also known as a false positive), you can add exclusions to prevent attack surface reduction rules from evaluating the excluded files or folders.\n+If the attack surface reduction rule is blocking something that it shouldn't block, you can add exclusions to safelist the excluded files or folders.\n \n To add an exclusion, see [Customize attack surface reduction](attack-surface-reduction-rules-deployment-implement.md#customize-attack-surface-reduction-rules).\n \n-> [!IMPORTANT]\n-> You can specify individual files and folders to be excluded, but you can't specify individual rules.\n-> This means any files or folders that are excluded from all ASR rules.\n-\n ## Report a false positive or false negative\n \n Use the [Microsoft Security Intelligence web-based submission form](https://www.microsoft.com/wdsi/support/report-exploit-guard) to report a false negative or false positive for network protection. With a Windows E5 subscription, you can also [provide a link to any associated alert](alerts-queue.md).\n \n-## Collect Microsoft Defender Anti-malware Protection diagnostic data for file submissions\n+<a name=\"collect-microsoft-defender-anti-malware-protection-diagnostic-data-for-file-submissions\"></a>\n+\n+## Collect diagnostic data\n+\n+When you report a problem involving attack surface reduction rules, you need to collect and submit diagnostic data for Microsoft support and engineering teams to help troubleshoot issues.\n \n-When you report a problem with attack surface reduction rules, you're asked to collect and submit diagnostic data for Microsoft support and engineering teams to help troubleshoot issues.\n+<a name=\"using-the-mde-client-analyzer\"></a>\n \n-### Using the MDE Client Analyzer\n+### Collect diagnostic data with the MDE Client Analyzer\n \n 1. Download the [MDE Client Analyzer](overview-client-analyzer.md).\n \n-1. Run the MDE Client Analyzer using [Live Response or locally](run-analyzer-windows.md).\n+1. Close any apps that aren't essential to reproducing the issue, and then run the MDE Client Analyzer [locally or using Live Response](run-analyzer-windows.md).\n \n    > [!TIP]\n-   > Ensure that log collection takes place during the reproduction attempt. Also, close any applications that aren't essential to reproducing the issue.\n+   > Ensure that log collection takes place during the reproduction attempt.\n \n 1. Run the MDE Client Analyzer with the `-v` switches:\n \n-   ```powershell\n+   ```dos\n    C:\\Work\\tools\\MDEClientAnalyzer\\MDEClientAnalyzer.cmd -v\n    ```\n \n-### Manual process\n+<a name=\"manual-process\"></a>\n \n-1. Open Command Prompt as an administrator and open the Windows Defender directory:\n+### Collect diagnostic data with MpCmdRun\n \n-   ```console\n-   cd \"c:\\program files\\Windows Defender\"\n-   ```\n-\n-1. Run this command to generate the diagnostic logs:\n-\n-   ```console\n-   mpcmdrun -getfiles\n-   ```\n-\n-1. By default, they're saved to `C:\\ProgramData\\Microsoft\\Windows Defender\\Support\\MpSupportFiles.cab`. Attach the file to the submission form.\n-\n-\n-You can also view rule events through the Microsoft Defender Antivirus dedicated command-line tool, called `*mpcmdrun.exe*`, that can be used to manage and configure, and automate tasks if needed.\n+To use `MpCmdRun.exe -GetFiles` to manually generate the diagnostic log files to `C:\\ProgramData\\Microsoft\\Windows Defender\\Support\\MpSupportFiles.cab`, see the instructions at [Collect Microsoft Defender Antivirus diagnostic data](collect-diagnostic-data.md).\n \n-You can find this utility in *%ProgramFiles%\\Windows Defender\\MpCmdRun.exe*. You must run it from an elevated command prompt (that is, run as Admin).\n+In the `MpSupportFiles.cab` file, the following files are most relevant:\n \n-To generate the support information, type `MpCmdRun.exe -getfiles`. After a while, several logs will be packaged into an archive (MpSupportFiles.cab) and made available at `C:\\ProgramData\\Microsoft\\Windows Defender\\Support`.\n-\n-:::image type=\"content\" source=\"media/malware-prot-logsnew.png\" alt-text=\"Screenshot that shows the malware protection logs.\" lightbox=\"media/malware-prot-logsnew.png\":::\n-\n-Extract that archive and you have many files available for troubleshooting purposes.\n-\n-The most relevant files are as follows:\n-\n-- `MPOperationalEvents.txt`: This file contains same level of information found in Event Viewer for Windows Defender's Operational log.\n-- `MPRegistry.txt`: In this file you can analyze all the current Windows Defender configurations, from the moment, the support logs were captured.\n-- `MPLog.txt`: This log contains more verbose information about all the actions/operations of the Windows Defender.\n+- `MPOperationalEvents.txt`: Contains same level of information found in Event Viewer for the Windows Defender Operational log.\n+- `MPRegistry.txt`: Analyze all the current Windows Defender configurations from when you generated the .cab file.\n+- `MPLog.txt`: Verbose information about all the actions and operations of Windows Defender.\n \n ## Related articles\n \n - [Attack surface reduction rules](attack-surface-reduction.md)\n - [Enable attack surface reduction rules](enable-attack-surface-reduction.md)\n - [Evaluate attack surface reduction rules](attack-surface-reduction-rules-deployment-test.md)\n-\n-\n",
+      "baseCommitSha": "2879a461a4c5e20aafa2e0150c1b60d1d705f527",
+      "commitSha": "e411d3fb0d23e93c43977302c2cfea70f84153a3",
+      "commitMessage": "Update troubleshoot-asr.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-19T18:07:49-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/troubleshoot-asr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-asr",
+      "firstSeenAt": "2026-03-20T01:07:49.000Z",
+      "eventId": "defender-docs:e411d3fb0d23e93c43977302c2cfea70f84153a3:modified:defender-endpoint/troubleshoot-asr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update troubleshoot-asr.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-asr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/troubleshoot-asr.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/troubleshoot-asr.md b/defender-endpoint/troubleshoot-asr.md\nindex 5c39a0017..bad59aabe 100644\n--- a/defender-endpoint/troubleshoot-asr.md\n+++ b/defender-endpoint/troubleshoot-asr.md\n@@ -24,7 +24,7 @@ appliesto:\n \n # Troubleshoot attack surface reduction rules\n \n-When you use [attack surface reduction rules](attack-surface-reduction-rules-overview.md), you might run into issues. For example:\n+When you use [attack surface reduction rules](attack-surface-reduction.md), you might run into issues. For example:\n \n - A rule blocks a file or process, or does some other action that it shouldn't (false positive).\n - A rule doesn't work as described, or doesn't block a file or process that it should (false negative).\n",
+      "baseCommitSha": "e411d3fb0d23e93c43977302c2cfea70f84153a3",
+      "commitSha": "1628b4e5be7a49a82672a44b03b35a5a84466265",
+      "commitMessage": "Update troubleshoot-asr.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-19T18:14:18-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/troubleshoot-asr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-asr",
+      "firstSeenAt": "2026-03-20T01:14:18.000Z",
+      "eventId": "defender-docs:1628b4e5be7a49a82672a44b03b35a5a84466265:modified:defender-endpoint/troubleshoot-asr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update troubleshoot-asr.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-asr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-graph.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-graph.md b/defender-xdr/advanced-hunting-graph.md\nindex 9e864ccf3..c3ec4a1ec 100644\n--- a/defender-xdr/advanced-hunting-graph.md\n+++ b/defender-xdr/advanced-hunting-graph.md\n@@ -48,7 +48,7 @@ In the advanced hunting page, select the hunting graph icon ![Screenshot of the\n \n :::image type=\"content\" source=\"./media/advanced-hunting-graph/hunting-graph-new.png\" alt-text=\"Screenshot of the Create new Hunting graph option in the advanced hunting page.\" lightbox=\"./media/advanced-hunting-graph/hunting-graph-new.png\":::\n \n-A new hunting graph page appears as tab labeled **New hunt** in the advanced hunting page.\n+A new hunting graph page appears as tab labeled **New graph** in the advanced hunting page.\n \n ## Hunting graph features\n \n@@ -122,4 +122,4 @@ After selecting a scenario and applying the necessary filters, select **Run** to\n \n ## See also\n - [Proactively hunt for threats with advanced hunting in Microsoft Defender](advanced-hunting-overview.md)\n-- [Choose between guided and advanced modes to hunt in Microsoft Defender XDR](advanced-hunting-modes.md)\n\\ No newline at end of file\n+- [Choose between guided and advanced modes to hunt in Microsoft Defender XDR](advanced-hunting-modes.md)\n",
+      "baseCommitSha": "66042b0e70e8397bdadfcfd1a3e79102a3f17662",
+      "commitSha": "96e58d2107559324749e5ce27bd0138cc722b60c",
+      "commitMessage": "Update label from 'New hunt' to 'New graph'",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-20T11:53:15+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-graph.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-graph",
+      "firstSeenAt": "2026-03-20T06:23:15.000Z",
+      "eventId": "defender-docs:96e58d2107559324749e5ce27bd0138cc722b60c:modified:defender-xdr/advanced-hunting-graph.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update label from 'New hunt' to 'New graph'",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graph.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-install-manually.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/defender-endpoint/linux-install-manually.md b/defender-endpoint/linux-install-manually.md\nindex 9ba68650e..28713d53c 100644\n--- a/defender-endpoint/linux-install-manually.md\n+++ b/defender-endpoint/linux-install-manually.md\n@@ -116,24 +116,24 @@ You can use either the `dnf` or the `yum` package manager to deploy Defender for\n    > [!TIP]\n    > Use hostnamectl command to identify system related information including release *[version]*.\n \n-   For example, if you're running CentOS 7 and want to deploy Defender for Endpoint on Linux from the `prod` channel:\n+   For example, if you're running CentOS 8 and want to deploy Defender for Endpoint on Linux from the `prod` channel:\n \n    ```bash\n-   sudo dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/7/prod.repo\n+   sudo dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/8/prod.repo\n    ```\n    or\n    ```bash\n-   sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/7/prod.repo\n+   sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/8/prod.repo\n    ```\n \n    Or if you wish to explore new features on selected devices, you might want to deploy Defender for Endpoint on Linux to *insiders-fast* channel:\n \n    ```bash\n-   sudo dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/7/insiders-fast.repo\n+   sudo dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/8/insiders-fast.repo\n    ```\n    or\n    ```bash\n-   sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/7/insiders-fast.repo\n+   sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/8/insiders-fast.repo\n    ```\n \n 4. Install the Microsoft GPG public key:\n",
+      "baseCommitSha": "9867f696ff8b41a463bf7d02dcdf76a5b3792390",
+      "commitSha": "c4c661d45a263e74c48762be96c5f6e890ef8738",
+      "commitMessage": "Updated example to show RHEL version 8 instead of 7",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-20T10:02:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-install-manually.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-install-manually",
+      "firstSeenAt": "2026-03-20T08:02:48.000Z",
+      "eventId": "defender-docs:c4c661d45a263e74c48762be96c5f6e890ef8738:modified:defender-endpoint/linux-install-manually.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated example to show RHEL version 8 instead of 7",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-install-manually.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/linux-install-manually.md b/defender-endpoint/linux-install-manually.md\nindex 28713d53c..cf0a83b74 100644\n--- a/defender-endpoint/linux-install-manually.md\n+++ b/defender-endpoint/linux-install-manually.md\n@@ -15,7 +15,7 @@ ms.collection:\n ms.topic: install-set-up-deploy\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 03/19/2026\n+ms.date: 03/20/2026\n ---\n \n # Deploy Microsoft Defender for Endpoint on Linux manually\n",
+      "baseCommitSha": "c4c661d45a263e74c48762be96c5f6e890ef8738",
+      "commitSha": "dd25cb89824d5dfa444967b059f0c00ffa3fca3b",
+      "commitMessage": "Updated date",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-20T10:08:31+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-install-manually.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-install-manually",
+      "firstSeenAt": "2026-03-20T08:08:31.000Z",
+      "eventId": "defender-docs:dd25cb89824d5dfa444967b059f0c00ffa3fca3b:modified:defender-endpoint/linux-install-manually.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated date",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-install-manually.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 7,
+      "changes": 9,
+      "patch": "diff --git a/defender-endpoint/linux-install-manually.md b/defender-endpoint/linux-install-manually.md\nindex cf0a83b74..a58864c1f 100644\n--- a/defender-endpoint/linux-install-manually.md\n+++ b/defender-endpoint/linux-install-manually.md\n@@ -15,18 +15,13 @@ ms.collection:\n ms.topic: install-set-up-deploy\n ms.subservice: linux\n search.appverid: met150\n+appliesto:\n+  - Microsoft Defender for Servers\n ms.date: 03/20/2026\n ---\n \n # Deploy Microsoft Defender for Endpoint on Linux manually\n \n-\n-**Applies to:**\n-\n-- Microsoft Defender for Endpoint for servers\n-\n-> Want to experience Defender for Endpoint? [Sign up for a free trial.](https://go.microsoft.com/fwlink/p/?linkid=2225630&clcid=0x409&culture=&country=us)\n-\n You can deploy [Defender for Endpoint on Linux](microsoft-defender-endpoint-linux.md) by using various tools and methods. This article describes how to deploy Defender for Endpoint on Linux manually. To use another method, refer to the [Related content section](#related-content). \n \n [!INCLUDE [side-by-side-scenarios](includes/side-by-side-scenarios.md)]\n",
+      "baseCommitSha": "95613f8ec026b132135788321e738dab5f6eea1b",
+      "commitSha": "47e3b30ea87e8065d5cb1a5b9c061e1e16c4c50e",
+      "commitMessage": "Changed applies to placement",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-20T10:22:29+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-install-manually.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-install-manually",
+      "firstSeenAt": "2026-03-20T08:22:29.000Z",
+      "eventId": "defender-docs:47e3b30ea87e8065d5cb1a5b9c061e1e16c4c50e:modified:defender-endpoint/linux-install-manually.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Changed applies to placement",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 19,
+      "changes": 43,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex b772b69c8..3be0c5293 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -23,7 +23,7 @@ appliesto:\n     - Microsoft Defender XDR\n     - Microsoft Sentinel in the Microsoft Defender portal\n ms.topic: how-to\n-ms.date: 03/16/2026\n+ms.date: 03/20/2026\n ---\n \n # Create custom detection rules\n@@ -156,12 +156,12 @@ In the query editor, select **Create detection rule** and specify the following\n \n #### Rule frequency\n \n-When you save a new rule, it runs and checks for matches from the past 30 days of data. The rule then runs again at fixed intervals, applying a lookback period based on the frequency you choose:\n+When you save a new rule, it runs and checks for matches from the past 30 days of data. The rule then runs again at fixed intervals, applying a [lookback period](#lookback) based on the frequency you choose:\n \n-- **Every 24 hours** - Runs every 24 hours, checking data from the past 30 days.\n-- **Every 12 hours** - Runs every 12 hours, checking data from the past 48 hours.\n-- **Every 3 hours** - Runs every 3 hours, checking data from the past 12 hours.\n-- **Every hour** - Runs hourly, checking data from the past 4 hours.\n+- **Every 24 hours**\n+- **Every 12 hours**\n+- **Every 3 hours**\n+- **Every hour**\n - **Continuous (NRT)** - Runs continuously, checking data from events as they're collected and processed in near real-time (NRT). For more information, see [Continuous (NRT) frequency](custom-detection-rules.md#continuous-nrt-frequency).\n - **Custom** - Runs according to the frequency you selected. This option is available if the rule is based only on data that is ingested to Microsoft Sentinel. For more information, see [Custom frequency for Microsoft Sentinel data](#custom-frequency-for-microsoft-sentinel-data).\n \n@@ -172,8 +172,7 @@ When you edit a rule, the next run time scheduled according to the frequency you\n \n >[!IMPORTANT]\n > Custom detections evaluate `ingestion_time()` to account for ingestion delays. Because of this condition, events with `Timestamp` or `TimeGenerated` values older than the configured lookback period might still be included in the rule evaluation.\n->\n-> When the lookback period is longer than the frequency, duplicate events might occur. However, custom detections [group and deduplicate them automatically](#how-custom-detections-handle-duplicate-alerts) to reduce alert noise and fatigue.\n+\n \n ##### Continuous (NRT) frequency\n \n@@ -214,9 +213,7 @@ Near real-time detections support the following tables:\n \n Microsoft Sentinel customers who onboard to Microsoft Defender can select **Custom** frequency when the rule is based only on data that Microsoft Sentinel ingests. \n \n-When you select this frequency option, the **Run query every input** component appears. Type the desired frequency for the rule and use the dropdown to select the units: minutes, hours, or days. The supported range is any value from 5 minutes to 14 days. When you select a frequency, the lookback period is determined automatically by using the following logic: \n-1.\tFor detections set to run more frequently than once a day, the lookback is four times the frequency. For example, if the frequency is 20 minutes, the lookback is 80 minutes.  \n-1.\tFor detections set to run once a day or less frequently, the lookback is 30 days. For example, if set to run every three days, the lookback is 30 days.  \n+When you select this frequency option, the **Run query every input** component appears. Type the desired frequency for the rule and use the dropdown to select the units: minutes, hours, or days. The supported range is any value from 5 minutes to 14 days. \n \n :::image type=\"content\" source=\"media/custom-detection-rules/ah-custom-frequency.png\" alt-text=\"Screenshot that shows the Custom frequency option in the Custom detections setup guide.\" lightbox=\"media/custom-detection-rules/ah-custom-frequency.png\":::\n \n@@ -227,14 +224,22 @@ When you select this frequency option, the **Run query every input** component a\n \n #### Lookback\n \n-The lookback period of your custom detections can range from five minutes to 30 days, depending on the frequency of your query.\n+The lookback period of your custom detections can range from five minutes to 30 days, depending on the target data and frequency of your query.\n \n-> [!NOTE]\n-> Lookback only applies to custom detection queries that target data from Microsoft Sentinel only.\n+If your custom detections include Defender XDR data, a fixed lookback period is applied depending on the rule frequency that you choose:\n+- For detections set to run **every 24 hours**, the lookback period is **30 days**.\n+- For detections set to run **every 12 hours**, the lookback period is **48 hours**.\n+- For detections set to run **every three hours**, the lookback period is **12 hours**.\n+- For detections set to run **hourly**, the lookback period is **four hours**.\n+\n+If your custom detections target Microsoft Sentinel data only and you apply a custom frequency, the lookback period is determined automatically by using the following logic: \n+- For detections set to run in frequencies **higher (more frequent) than one hour**, the lookback is limited to **less than 48 hours**. \n+- For detections set to run in frequencies **higher than one day**, the lookback can be set **up to 14 days**. \n+- For detections set to run in frequencies of **one day or less**, the lookback can be set **up to 30 days**.  \n+\n+> [!IMPORTANT]\n+> When the lookback period is longer than the frequency, duplicate events might occur. However, custom detections [group and deduplicate them automatically](#how-custom-detections-handle-duplicate-alerts) to reduce alert noise and fatigue.\n \n-- For detection frequencies **higher (more frequent) than one hour**, the lookback is limited to **less than 48 hours**. \n-- For frequencies **higher than one day**, the lookback can be set **up to 14 days**. \n-- For frequencies of **one day or less**, the lookback can be set **up to 30 days**.  \n \n ### 3. Define alert enrichment details \n You can enrich alerts by providing and defining more details. When you enrich alerts, you can:\n@@ -299,7 +304,7 @@ The expanded **Entity mapping** section has two sections where you can select en\n     - Azure resource \n     - Amazon Web Services resource \n     - Google Cloud Platform resource \n-- **Related evidence** – Add nonassets that appear in the selected events. The supported entity types are: \n+- **Related evidence** – Add nonassets that appear in the selected events. The supported entity types are: \n     - Process \n     - File \n     - Registry value \n@@ -389,7 +394,7 @@ After reviewing the rule, select **Create** to save it. The custom detection rul\n \n #### How custom detections handle duplicate alerts\n \n-An important consideration when creating and reviewing custom detection rules is alert noise and fatigue. Custom detections group and deduplicate events into a single alert. If a custom detection rule fires twice on an event that contains the same entities, custom details, and dynamic details, it creates one alert for both events. If the detection rule recognizes that the events are identical, it logs one of the events on the created alert and takes care of the duplicates. Duplicates can occur when the lookback period is longer than the frequency. If the events are different, the custom detection logs both events on the alert.\n+An important consideration when creating and reviewing custom detection rules is alert noise and fatigue. Custom detections group and deduplicate events into a single alert. If a custom detection rule runs twice on an event that contains the same entities, custom details, and dynamic details, it creates one alert for both events. If the detection rule recognizes that the events are identical, it logs one of the events on the created alert and takes care of the duplicates. Duplicates can occur when the lookback period is longer than the frequency. If the events are different, the custom detection logs both events on the alert.\n \n ## See also\n \n",
+      "baseCommitSha": "b98dd344ace9745920c96700b3bcece315038e84",
+      "commitSha": "2c553a7e46cf793107bf87f52de0764853591b2b",
+      "commitMessage": "Clarify lookback and frequency in docs",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-20T15:00:44+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "firstSeenAt": "2026-03-20T09:30:44.000Z",
+      "eventId": "defender-docs:2c553a7e46cf793107bf87f52de0764853591b2b:modified:defender-xdr/custom-detection-rules.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify lookback and frequency in docs",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex 33335e46c..6df457406 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -171,10 +171,6 @@ When you save a new rule, it runs and checks for matches from the past 30 days o\n \n When you edit a rule, the next run time scheduled according to the frequency you set applies the changes. The rule frequency is based on the event timestamp and not the ingestion time. Small delays might occur in specific runs, so the configured frequency isn't 100% accurate.\n \n->[!IMPORTANT]\n-> Custom detections evaluate `ingestion_time()` to account for ingestion delays. Because of this condition, events with `Timestamp` or `TimeGenerated` values older than the configured lookback period might still be included in the rule evaluation.\n-\n-\n ##### Continuous (NRT) frequency\n \n Setting a custom detection to run in Continuous (NRT) frequency increases your organization's ability to identify threats faster. Using the Continuous (NRT) frequency has minimal to no impact on your resource usage. Consider using it for any qualified custom detection rule in your organization.\n@@ -239,6 +235,8 @@ If your custom detections target Microsoft Sentinel data only and you apply a cu\n - For detections set to run in frequencies of **one day or less**, the lookback can be set **up to 30 days**.  \n \n > [!IMPORTANT]\n+> Custom detections evaluate `ingestion_time()` to account for ingestion delays. Because of this condition, events with `Timestamp` or `TimeGenerated` values older than the configured lookback period might still be included in the rule evaluation.\n+> \n > When the lookback period is longer than the frequency, duplicate events might occur. However, custom detections [group and deduplicate them automatically](#how-custom-detections-handle-duplicate-alerts) to reduce alert noise and fatigue.\n \n \n",
+      "baseCommitSha": "e270d89f96fc227ec9d8f88c1e6245fa06b734d8",
+      "commitSha": "3d31cd38783748655bd7bb634719843fc47dec23",
+      "commitMessage": "Clarify custom detection rules regarding ingestion time",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-20T15:08:23+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "firstSeenAt": "2026-03-20T09:38:23.000Z",
+      "eventId": "defender-docs:3d31cd38783748655bd7bb634719843fc47dec23:modified:defender-xdr/custom-detection-rules.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify custom detection rules regarding ingestion time",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 3ac579651..1e3aaee3c 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -33,6 +33,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n |---------|------------|-------------|-------------|\n |Feature |New Microsoft Secure Score recommendations |Preview |Microsoft Secure Score now includes new recommendations to help organizations reduce exposure to common attack techniques involving remote access and authentication relay attacks:<br> - **Block file transfer over RDP**: Restricts file transfer capabilities in Remote Desktop Protocol (RDP) sessions. This helps prevent attackers from using RDP sessions to transfer malicious files into the environment or exfiltrate sensitive data.<br> - **SMB server security hardening against authentication relay attacks**: Helps protect servers from credential relay attacks by strengthening Server Message Block (SMB) authentication protections, including enforcing Extended Protection for Authentication (EPA), SMB signing, and SMB encryption to ensure authentication integrity and protect SMB traffic from tampering or interception. |\n |Release - macOS|Build 101.26012.0015 |GA |Release version 20.126012.15.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--march-2026--101260120015).|\n+|Release - Linux |Build 101.26012.0007 |GA |Release version 30.126012.0007.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#linux--march-2026--101260120007). |\n |Feature |[Proactive user containment (contain user)](respond-machine-alerts.md#contain-user-from-the-network) |GA |The proactive user containment (contain user) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.|\n \n ## February 2026\n",
+      "baseCommitSha": "de2b8b152898bdd977cc7e1fe9f1fd338ab06ff8",
+      "commitSha": "96ed2e21a029f1c5630bf8de745de7d55d7e0024",
+      "commitMessage": "Add new features and updates for Defender Endpoint - Linux 26012.0007",
+      "commitAuthor": "Swapna Johnny",
+      "commitDate": "2026-03-20T21:51:55+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-20T16:21:55.000Z",
+      "eventId": "defender-docs:96ed2e21a029f1c5630bf8de745de7d55d7e0024:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add new features and updates for Defender Endpoint - Linux 26012.0007",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 1,
+      "changes": 18,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex cdfe62400..abdb30e63 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -32,6 +32,7 @@ This table includes supported releases for all supported platforms in the past s\n |OS  |Build |Month released|Details  |Learn more  |\n |---------|---------|---------|---------|---------|\n |macOS |101.26012.0015  |March 2026 |- Release version: 20.126012.15.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120015) |\n+|Linux  |101.26012.0007  |March 2026 |- Release version: 30.126012.0007.0<br>- Engine version: 1.1.25090.4000<br>- Signature version: 1.437.18.0 |[Release details and updates](#linux--march-2026--101260120007) |\n |macOS |101.26012.0012  |February 2026 |- Release version: 20.126012.12.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101260120012) |\n |macOS |101.25122.0008  |February 2026 |- Release version: 20.125122.8.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101251220008) |\n |Linux  |101.25122.0004  |February 2026 |- Release version: 30.125122.0004.0<br>- Engine version: 1.1.25110.3002<br>- Signature version: 1.443.508.0 |[Release details and updates](#linux--february-2026--101251220004) |\n@@ -291,6 +292,21 @@ For detailed information on Microsoft security updates, see the [Microsoft Secur\n >\n > If you have any concerns or need assistance during this transition, contact support.\n \n+### Linux | March 2026 | 101.26012.0007\n+\n+#### Release details\n+\n+| Release version | Engine version | Signature version |\n+| -------- | -------- |-------- |\n+|30.126012.0007.0 |1.1.25090.4000 |1.437.18.0 |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+|--------------|---------------|\n+| Vulnerability detection | Strengthened Linux security coverage for Python workloads by improving vulnerability detection across system, user, and virtual environments, expanding coverage for CVE‑2025‑68664/5 LangGrinch (langchain vulnerability).|\n+| General | Bug and perfomance fixes |\n+\n ### Linux | February 2026 | 101.25122.0004\n \n #### Release details\n@@ -722,4 +738,4 @@ For more information about Microsoft Defender Antivirus updates, see [Microsoft\n | Anti-malware Service | Reduced startup delay for Anti-malware Service: Improved Defender service startup time by removing its dependency on Core Service startup. This change improves overall system startup performance. |\n | x86 compatibility | Fixed crash in Defender settings on x86 devices: Corrected an issue that caused the system to crash when applying Defender configuration settings on 32-bit machines. |\n | Service startup | Fixed Defender startup issue: The platform no longer crashes when processing invalid Attack Surface Reduction rule exclusions. |\n-| System resources | Reduced system resource usage: Defender no longer generates excessive Data Loss Prevention (DLP) logs that caused high disk activity, improving overall performance and stability. |\n\\ No newline at end of file\n+| System resources | Reduced system resource usage: Defender no longer generates excessive Data Loss Prevention (DLP) logs that caused high disk activity, improving overall performance and stability. |\n",
+      "baseCommitSha": "96ed2e21a029f1c5630bf8de745de7d55d7e0024",
+      "commitSha": "2e8f32b704decbcb0d01b55b6458bac64d208197",
+      "commitMessage": "Add Linux release details for March 2026",
+      "commitAuthor": "Swapna Johnny",
+      "commitDate": "2026-03-20T22:26:40+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-20T16:56:40.000Z",
+      "eventId": "defender-docs:2e8f32b704decbcb0d01b55b6458bac64d208197:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add Linux release details for March 2026",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex abdb30e63..dd6c55cf1 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -32,7 +32,7 @@ This table includes supported releases for all supported platforms in the past s\n |OS  |Build |Month released|Details  |Learn more  |\n |---------|---------|---------|---------|---------|\n |macOS |101.26012.0015  |March 2026 |- Release version: 20.126012.15.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120015) |\n-|Linux  |101.26012.0007  |March 2026 |- Release version: 30.126012.0007.0<br>- Engine version: 1.1.25090.4000<br>- Signature version: 1.437.18.0 |[Release details and updates](#linux--march-2026--101260120007) |\n+|Linux  |101.26012.0007  |March 2026 |- Release version: 30.126012.0007.0<br>- Engine version: 1.1.25110.3002<br>- Signature version: 1.443.508.0 |[Release details and updates](#linux--march-2026--101260120007) |\n |macOS |101.26012.0012  |February 2026 |- Release version: 20.126012.12.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101260120012) |\n |macOS |101.25122.0008  |February 2026 |- Release version: 20.125122.8.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101251220008) |\n |Linux  |101.25122.0004  |February 2026 |- Release version: 30.125122.0004.0<br>- Engine version: 1.1.25110.3002<br>- Signature version: 1.443.508.0 |[Release details and updates](#linux--february-2026--101251220004) |\n",
+      "baseCommitSha": "2e8f32b704decbcb0d01b55b6458bac64d208197",
+      "commitSha": "c7e6cffc90e35e0b2f82435a239490e3b39b5e97",
+      "commitMessage": "Update Linux release details for March 2026",
+      "commitAuthor": "Swapna Johnny",
+      "commitDate": "2026-03-20T23:14:50+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-20T17:44:50.000Z",
+      "eventId": "defender-docs:c7e6cffc90e35e0b2f82435a239490e3b39b5e97:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Linux release details for March 2026",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex dd6c55cf1..b0247c0c0 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -298,7 +298,7 @@ For detailed information on Microsoft security updates, see the [Microsoft Secur\n \n | Release version | Engine version | Signature version |\n | -------- | -------- |-------- |\n-|30.126012.0007.0 |1.1.25090.4000 |1.437.18.0 |\n+|30.126012.0007.0 |1.1.25110.3002 |1.443.508.0 |\n \n #### Enhancements and features\n \n",
+      "baseCommitSha": "c7e6cffc90e35e0b2f82435a239490e3b39b5e97",
+      "commitSha": "f9aa859a0a9eacda8e777e99d017ecff388d2ca3",
+      "commitMessage": "Update engine and signature versions for release 30.126012.0007.0",
+      "commitAuthor": "Swapna Johnny",
+      "commitDate": "2026-03-20T23:16:07+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-20T17:46:07.000Z",
+      "eventId": "defender-docs:f9aa859a0a9eacda8e777e99d017ecff388d2ca3:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update engine and signature versions for release 30.126012.0007.0",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 0,
+      "changes": 15,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex cdfe62400..ff1e6f9a3 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -31,6 +31,7 @@ This table includes supported releases for all supported platforms in the past s\n \n |OS  |Build |Month released|Details  |Learn more  |\n |---------|---------|---------|---------|---------|\n+|macOS |101.26012.0017  |March 2026 |- Release version: 20.126012.17.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120017) |\n |macOS |101.26012.0015  |March 2026 |- Release version: 20.126012.15.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120015) |\n |macOS |101.26012.0012  |February 2026 |- Release version: 20.126012.12.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101260120012) |\n |macOS |101.25122.0008  |February 2026 |- Release version: 20.125122.8.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101251220008) |\n@@ -132,6 +133,20 @@ For known issues, see [macOS known issues](#macos-known-issues).\n \n ### macOS | March-2026 | 101.26012.0015\n \n+### macOS | March-2026 | 101.26012.0017\n+\n+#### Versions\n+\n+| Release version | Engine version | Signature version |\n+|-----------------|----------------|-------------------|\n+| 20.126012.17.0  | 1.1.25100.4000 | 1.439.74.0        |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+|--------------|----------------|\n+| General      | Fixed an issue that could cause epsext to unexpectedly crash |\n+\n #### Versions\n \n | Release version | Engine version | Signature version |\n",
+      "baseCommitSha": "de2b8b152898bdd977cc7e1fe9f1fd338ab06ff8",
+      "commitSha": "af1a0105394d52b9342984f4d5bc0679f4b20518",
+      "commitMessage": "[mac] Whatsnew 101.26012.0017",
+      "commitAuthor": "Max Velitchko",
+      "commitDate": "2026-03-20T16:41:11-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-20T23:41:11.000Z",
+      "eventId": "defender-docs:af1a0105394d52b9342984f4d5bc0679f4b20518:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "[mac] Whatsnew 101.26012.0017",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 3ac579651..2085fa241 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -31,6 +31,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n \n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------|\n+|Release - macOS |Build 101.26012.0017 |GA |Release version 20.126012.17.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--march-2026--101260120017).|\n |Feature |New Microsoft Secure Score recommendations |Preview |Microsoft Secure Score now includes new recommendations to help organizations reduce exposure to common attack techniques involving remote access and authentication relay attacks:<br> - **Block file transfer over RDP**: Restricts file transfer capabilities in Remote Desktop Protocol (RDP) sessions. This helps prevent attackers from using RDP sessions to transfer malicious files into the environment or exfiltrate sensitive data.<br> - **SMB server security hardening against authentication relay attacks**: Helps protect servers from credential relay attacks by strengthening Server Message Block (SMB) authentication protections, including enforcing Extended Protection for Authentication (EPA), SMB signing, and SMB encryption to ensure authentication integrity and protect SMB traffic from tampering or interception. |\n |Release - macOS|Build 101.26012.0015 |GA |Release version 20.126012.15.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--march-2026--101260120015).|\n |Feature |[Proactive user containment (contain user)](respond-machine-alerts.md#contain-user-from-the-network) |GA |The proactive user containment (contain user) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.|\n",
+      "baseCommitSha": "de2b8b152898bdd977cc7e1fe9f1fd338ab06ff8",
+      "commitSha": "af1a0105394d52b9342984f4d5bc0679f4b20518",
+      "commitMessage": "[mac] Whatsnew 101.26012.0017",
+      "commitAuthor": "Max Velitchko",
+      "commitDate": "2026-03-20T16:41:11-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-20T23:41:11.000Z",
+      "eventId": "defender-docs:af1a0105394d52b9342984f4d5bc0679f4b20518:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "[mac] Whatsnew 101.26012.0017",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 13,
+    "totalFiles": 14,
+    "authors": [
+      "Chris Davis",
+      "Max Velitchko",
+      "Paul Inbar",
+      "Paul Oliveria",
+      "Swapna Johnny"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-asr.md. Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-asr.md. Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md. Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md. Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endp",
+        "sourceFiles": [
+          "defender-endpoint/troubleshoot-asr.md",
+          "defender-endpoint/troubleshoot-asr.md",
+          "defender-endpoint/linux-install-manually.md",
+          "defender-endpoint/linux-install-manually.md",
+          "defender-endpoint/linux-install-manually.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graph.md. Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md. Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-graph.md",
+          "defender-xdr/custom-detection-rules.md",
+          "defender-xdr/custom-detection-rules.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-asr.md. Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-asr.md. Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md. Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md. Updated Microsoft Defender documentation in defender-endpoint/linux-install-manually.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endp"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graph.md. Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md. Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

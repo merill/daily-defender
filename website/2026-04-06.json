@@ -1,0 +1,230 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/start-using-mdex-xdr.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/start-using-mdex-xdr.md b/defender-xdr/start-using-mdex-xdr.md\nindex 1546fa45b..d6302a38c 100644\n--- a/defender-xdr/start-using-mdex-xdr.md\n+++ b/defender-xdr/start-using-mdex-xdr.md\n@@ -13,7 +13,7 @@ ms.collection:\n   - essentials-manage\n ms.topic: how-to\n search.appverid: met150\n-ms.date: 03/24/2026\n+ms.date: 04/06/2026\n ---\n \n # Start using Defender Experts for XDR service\n@@ -22,7 +22,7 @@ ms.date: 03/24/2026\n \n - [Microsoft Defender XDR](microsoft-365-defender.md)\n \n-After you complete the [onboarding steps and readiness checks](get-started-xdr.md) for Microsoft Defender Experts for XDR and once the experts begin to perform comprehensive response work on your behalf, you start receiving notifications about incidents that require remediation steps and targeted recommendations on critical incidents. You can also start chatting with the experts or your security delivery experts (SDXs) and viewing reports on the number of incidents they investigated and resolved.\n+After you complete the [onboarding steps and readiness checks](get-started-xdr.md) for Microsoft Defender Experts for XDR and the experts start performing comprehensive response work on your behalf, you receive notifications about incidents that require remediation steps and targeted recommendations on critical incidents. You can also start chatting with the experts or your security delivery experts (SDXs) and view reports on the number of incidents they investigated and resolved.\n \n This article describes the different in-portal experiences in Microsoft Defender where you can view and perform the previously mentioned Defender Experts notifications and activities, among others. These experiences provide you visibility into the experts' activities and clear entry points into tasks that require your attention.\n \n@@ -38,7 +38,7 @@ You can view and monitor Defender Experts activities in the following sections o\n \n The Defender Experts status card in the Defender portal home page is located in the upper portion. You see a summary of the experts' activities and items requiring your attention immediately when you open the portal. \n \n-By default, this status card is located in the top row immediately after the home page banner. It might surface the following information:\n+By default, this status card is located in the top row immediately after the home page banner. It surfaces the following information, depending on the state of your environment:\n - Onboarding and readiness calls to action\n - Managed response incidents that require customer action\n - Messages that might be awaiting your response\n@@ -53,7 +53,7 @@ From this navigation menu, you can go directly to the Defender Experts overview\n \n #### Overview\n \n-The **Defender Experts Overview** page provides a consolidated view of Defender Experts activity, status, and outcomes. You can understand the value of the service without navigating across multiple areas in the portal.\n+The **Defender Experts Overview** page provides a consolidated view of Defender Experts activity, status, and outcomes. It helps you easily understand what Defender Experts needs you to do and observe the value of the service without navigating to multiple areas of the portal.\n \n :::image type=\"content\" source=\"media/start-using-mdex-xdr/defender-experts-overview-page.png\" alt-text=\"Screenshot of Defender Experts overview page.\" lightbox=\"media/start-using-mdex-xdr/defender-experts-overview-page.png\":::\n \n",
+      "baseCommitSha": "6da29b8f11a72e2c9f582718fe69097eee3366d2",
+      "commitSha": "003e1f7fb87c560eb314ce18c99090b5abcc2e91",
+      "commitMessage": "Update Defender Experts doc copy and date",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-04-06T09:41:03+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/start-using-mdex-xdr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/start-using-mdex-xdr",
+      "firstSeenAt": "2026-04-06T04:11:03.000Z",
+      "eventId": "defender-docs:003e1f7fb87c560eb314ce18c99090b5abcc2e91:modified:defender-xdr/start-using-mdex-xdr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Defender Experts doc copy and date",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/start-using-mdex-xdr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-proxy-internet.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/configure-proxy-internet.md b/defender-endpoint/configure-proxy-internet.md\nindex 486320738..3e024284a 100644\n--- a/defender-endpoint/configure-proxy-internet.md\n+++ b/defender-endpoint/configure-proxy-internet.md\n@@ -174,6 +174,8 @@ For devices running Windows 7, Windows 8.1, Windows Server 2008 R2, and servers\n \n [STEP 3: Verify client connectivity to Microsoft Defender for Endpoint service URLs](verify-connectivity.md)\n \n+For the required service endpoints, see [Microsoft Defender for Endpoint streamlined connectivity URLs - commercial](streamlined-device-connectivity-urls-commercial.md)\n+\n ## Related articles\n \n - [Disconnected environments, proxies, and Microsoft Defender for Endpoint](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/disconnected-environments-proxies-and-microsoft-defender-for/ba-p/3710502)\n",
+      "baseCommitSha": "43c54012bfdc1e0efa6adf8297e26e2de41e5e1a",
+      "commitSha": "3088214658bccc938c9f67c865bd667cc9e95252",
+      "commitMessage": "add link to streamlined url doc",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-04-06T11:23:15+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/configure-proxy-internet.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-proxy-internet",
+      "firstSeenAt": "2026-04-06T08:23:15.000Z",
+      "eventId": "defender-docs:3088214658bccc938c9f67c865bd667cc9e95252:modified:defender-endpoint/configure-proxy-internet.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add link to streamlined url doc",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-proxy-internet.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-business/mdb-mtd.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-business/mdb-mtd.md b/defender-business/mdb-mtd.md\nindex 5460d40cb..0d9a87d61 100644\n--- a/defender-business/mdb-mtd.md\n+++ b/defender-business/mdb-mtd.md\n@@ -31,7 +31,7 @@ The following table summarizes the capabilities that are included in mobile thre\n |Capability|Android|iOS|\n |---|---|---|\n |**Web Protection** <br/> Anti-phishing, blocking unsafe network connections, and support for custom indicators. <br/> Web protection is turned on by default with [web content filtering](mdb-web-content-filtering.md).|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::|\n-|**Malware protection** <br/> Scanning for malicious apps.|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::|:::image type=\"icon\" source=\"media/feature-absent-icon.png\" border=\"false\":::|\n+|**Malware protection** <br/> Scanning for malicious apps (system apps included).|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::|:::image type=\"icon\" source=\"media/feature-absent-icon.png\" border=\"false\":::|\n |**Jailbreak detection** <br/> Detection of jailbroken devices.|:::image type=\"icon\" source=\"media/feature-absent-icon.png\" border=\"false\":::|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::|\n |**Microsoft Defender Vulnerability Management**<br/>Vulnerability assessment of onboarded mobile devices. Includes vulnerability assessments for operating systems and apps for Android and iOS. <br/> For more information, see [Use your vulnerability management dashboard in Microsoft Defender for Business](mdb-view-tvm-dashboard.md).|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::¹|\n |**Network Protection** <br/> Protection against rogue Wi-Fi related threats and rogue certificates. <br/> Network protection is turned on by default with [next-generation protection](mdb-next-generation-protection.md). <br/> As part of mobile threat defense, network protection also includes the ability to allow root certification authority and private root certification authority certificates in Intune. It also establishes trust with endpoints.|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::²|:::image type=\"icon\" source=\"media/feature-present-icon.png\" border=\"false\":::²|\n",
+      "baseCommitSha": "9c67605405bf847ca2698676af82cdc7adb5ed3a",
+      "commitSha": "37102941cae3ccfe1d9b93355ebbbfb663346e96",
+      "commitMessage": "Update malware protection description in mdb-mtd.md",
+      "commitAuthor": "Harish S",
+      "commitDate": "2026-04-06T16:09:26+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-business/mdb-mtd.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-business/mdb-mtd",
+      "firstSeenAt": "2026-04-06T10:39:26.000Z",
+      "eventId": "defender-docs:37102941cae3ccfe1d9b93355ebbbfb663346e96:modified:defender-business/mdb-mtd.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update malware protection description in mdb-mtd.md",
+        "summary": "Updated Microsoft Defender documentation in defender-business/mdb-mtd.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/tenant-allow-block-list-email-spoof-configure.md b/defender-office-365/tenant-allow-block-list-email-spoof-configure.md\nindex 16bf742f0..a86c0174b 100644\n--- a/defender-office-365/tenant-allow-block-list-email-spoof-configure.md\n+++ b/defender-office-365/tenant-allow-block-list-email-spoof-configure.md\n@@ -60,7 +60,7 @@ This article describes how admins can manage entries for email senders in the Mi\n - An entry should be active within 5 minutes.\n \n - You need to be assigned permissions before you can do the procedures in this article. You have the following options:\n-  - [Microsoft Defender XDR Unified role based access control (RBAC)](/defender-xdr/manage-rbac) (If **Email & collaboration** \\> **Defender for Office 365** permissions is :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Active**. Affects the Defender portal only, not PowerShell):\n+  - [Microsoft Defender XDR Unified role based access control (RBAC)](/defender-xdr/manage-rbac) (If **Email & collaboration** \\> **Defender for Office 365** and **Email & collaboration** \\> **Exchange Online permissions** are both :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Active**. Affects the Defender portal only, not PowerShell):\n     - *Add and remove entries from the Tenant Allow/Block List*: Membership assigned with the following permissions:\n       - **Authorization and settings/Security settings/Detection tuning (manage)**\n     - *Read-only access to the Tenant Allow/Block List*:\n",
+      "baseCommitSha": "8615592b6a710e044ab759f4845410ec2acf65e2",
+      "commitSha": "ff3caa7f64b054266ffdc470cc2b21f9989151d3",
+      "commitMessage": "Update tenant-allow-block-list-email-spoof-configure.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-06T10:08:07-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-email-spoof-configure",
+      "firstSeenAt": "2026-04-06T17:08:07.000Z",
+      "eventId": "defender-docs:ff3caa7f64b054266ffdc470cc2b21f9989151d3:modified:defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update tenant-allow-block-list-email-spoof-configure.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/tenant-allow-block-list-email-spoof-configure.md b/defender-office-365/tenant-allow-block-list-email-spoof-configure.md\nindex 16bf742f0..a86c0174b 100644\n--- a/defender-office-365/tenant-allow-block-list-email-spoof-configure.md\n+++ b/defender-office-365/tenant-allow-block-list-email-spoof-configure.md\n@@ -60,7 +60,7 @@ This article describes how admins can manage entries for email senders in the Mi\n - An entry should be active within 5 minutes.\n \n - You need to be assigned permissions before you can do the procedures in this article. You have the following options:\n-  - [Microsoft Defender XDR Unified role based access control (RBAC)](/defender-xdr/manage-rbac) (If **Email & collaboration** \\> **Defender for Office 365** permissions is :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Active**. Affects the Defender portal only, not PowerShell):\n+  - [Microsoft Defender XDR Unified role based access control (RBAC)](/defender-xdr/manage-rbac) (If **Email & collaboration** \\> **Defender for Office 365** and **Email & collaboration** \\> **Exchange Online permissions** are both :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Active**. Affects the Defender portal only, not PowerShell):\n     - *Add and remove entries from the Tenant Allow/Block List*: Membership assigned with the following permissions:\n       - **Authorization and settings/Security settings/Detection tuning (manage)**\n     - *Read-only access to the Tenant Allow/Block List*:\n",
+      "baseCommitSha": "f3d1f23d9958acc86692a6a5e70f6f2bc288cd76",
+      "commitSha": "9cb1a8fdcdfd715fb1dfe14a26776a6685c896cc",
+      "commitMessage": "Update tenant-allow-block-list-email-spoof-configure.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-06T10:11:15-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-email-spoof-configure",
+      "firstSeenAt": "2026-04-06T17:11:15.000Z",
+      "eventId": "defender-docs:9cb1a8fdcdfd715fb1dfe14a26776a6685c896cc:modified:defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update tenant-allow-block-list-email-spoof-configure.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mac-schedule-scan.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/mac-schedule-scan.md b/defender-endpoint/mac-schedule-scan.md\nindex d97baafa0..6af3aa390 100644\n--- a/defender-endpoint/mac-schedule-scan.md\n+++ b/defender-endpoint/mac-schedule-scan.md\n@@ -142,9 +142,9 @@ Open a text editor and use the following examples as a guide for your own schedu\n </plist>\n ```\n \n-1. Save the file as `com.microsoft.wdav.mobileconfig`.\n+- Save the file as `com.microsoft.wdav.mobileconfig`.\n \n-#### For JamF and other 3rd-party MDMs\n+#### For JamF and other third-party MDMs\n \n ``` XML\n <?xml version=\"1.0\" encoding=\"UTF-8\"?> \n@@ -277,9 +277,9 @@ Open a text editor and use the following examples as a guide for your own schedu\n </plist> \n ```\n \n-1. Save the file as `com.microsoft.wdav.mobileconfig`.\n+- Save the file as `com.microsoft.wdav.mobileconfig`.\n \n-#### For JamF and other 3rd-party MDMs\n+#### For JamF and other third-party MDMs\n \n ```XML\n     <?xml version=\"1.0\" encoding=\"UTF-8\"?> \n",
+      "baseCommitSha": "1d3960352f0f552d1c155b5ec718ea73a5b1ad07",
+      "commitSha": "90a8b05cda9c36b0639cca7fe38ed9edb90b850d",
+      "commitMessage": "Bullet nonsequential list items, style adjustment",
+      "commitAuthor": "Dennis Rea",
+      "commitDate": "2026-04-06T13:59:50-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-schedule-scan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-schedule-scan",
+      "firstSeenAt": "2026-04-06T20:59:50.000Z",
+      "eventId": "defender-docs:90a8b05cda9c36b0639cca7fe38ed9edb90b850d:modified:defender-endpoint/mac-schedule-scan.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Bullet nonsequential list items, style adjustment",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-schedule-scan.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 6,
+    "totalFiles": 6,
+    "authors": [
+      "Chris Davis",
+      "Dennis Rea",
+      "Devorah Cohen",
+      "Harish S",
+      "Paul Oliveria"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/start-using-mdex-xdr.md.",
+        "sourceFiles": [
+          "defender-xdr/start-using-mdex-xdr.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-proxy-internet.md. Updated Microsoft Defender documentation in defender-endpoint/mac-schedule-scan.md.",
+        "sourceFiles": [
+          "defender-endpoint/configure-proxy-internet.md",
+          "defender-endpoint/mac-schedule-scan.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Business",
+        "summary": "Updated Microsoft Defender documentation in defender-business/mdb-mtd.md.",
+        "sourceFiles": [
+          "defender-business/mdb-mtd.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md. Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md.",
+        "sourceFiles": [
+          "defender-office-365/tenant-allow-block-list-email-spoof-configure.md",
+          "defender-office-365/tenant-allow-block-list-email-spoof-configure.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/start-using-mdex-xdr.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-proxy-internet.md. Updated Microsoft Defender documentation in defender-endpoint/mac-schedule-scan.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Business",
+        "detail": "Updated Microsoft Defender documentation in defender-business/mdb-mtd.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md. Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

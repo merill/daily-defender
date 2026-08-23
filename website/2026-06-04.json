@@ -1,0 +1,335 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/teams-restrictions-dexapp.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/teams-restrictions-dexapp.md b/defender-xdr/teams-restrictions-dexapp.md\nindex 5b6decb5d..43f1fc6c0 100644\n--- a/defender-xdr/teams-restrictions-dexapp.md\n+++ b/defender-xdr/teams-restrictions-dexapp.md\n@@ -106,7 +106,7 @@ To add a new app permission policy, follow these steps:\n \n ## Teams channel unavailable\n \n-You can't receive updates or chat with Defender Experts if the Managed Response channel is archived or deleted. To learn more, see how to [archive](https://support.microsoft.com/office/archive-or-restore-a-channel-53c46491-a265-4391-a2a7-001c5026c9e5) or [restore a deleted channel](https://support.microsoft.com/office/delete-a-channel-in-microsoft-teams-973f9014-53db-4165-8ab4-365021fe36b7).\n+You can't receive updates or chat with Defender Experts if the Managed Response or Hunting notification channel is archived or deleted. To learn more, see how to [archive](https://support.microsoft.com/office/archive-or-restore-a-channel-53c46491-a265-4391-a2a7-001c5026c9e5) or [restore a deleted channel](https://support.microsoft.com/office/delete-a-channel-in-microsoft-teams-973f9014-53db-4165-8ab4-365021fe36b7).\n \n If the Teams app is deleted, you can reconfigure it again in the Defender portal by going to **Settings** > **Defender Experts** > **Teams**.\n \n",
+      "baseCommitSha": "da535ef9e61a53843a963bf0bdea474ff0952f70",
+      "commitSha": "562d0567b7f80059b3e2d2891a71b5a2ab6112ea",
+      "commitMessage": "Update teams-restrictions-dexapp.md",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-06-04T13:12:40+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/teams-restrictions-dexapp.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/teams-restrictions-dexapp",
+      "firstSeenAt": "2026-06-04T07:42:40.000Z",
+      "eventId": "defender-docs:562d0567b7f80059b3e2d2891a71b5a2ab6112ea:modified:defender-xdr/teams-restrictions-dexapp.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update teams-restrictions-dexapp.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/teams-restrictions-dexapp.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/onboarding-defender-experts-for-hunting.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "changes": 5,
+      "patch": "diff --git a/defender-xdr/onboarding-defender-experts-for-hunting.md b/defender-xdr/onboarding-defender-experts-for-hunting.md\nindex bbe851724..0042dadb0 100644\n--- a/defender-xdr/onboarding-defender-experts-for-hunting.md\n+++ b/defender-xdr/onboarding-defender-experts-for-hunting.md\n@@ -116,15 +116,14 @@ When Teams notifications are enabled:\n 1. In the Microsoft Defender portal, go to **Settings** > **Defender Experts**.\n 1. Select **Teams**.\n 1. Turn on **Notify me on Teams**.\n-1. Select **Save**.\n+1. Select **Save**. Any notification contacts you added on the previous onboarding step are also added automatically as members of the Teams channel. \n+1. To add additional SOC team members to the created channel, go to **Microsoft Teams** > **Defender Experts team** > **More options (...)** > **Manage team** > **Add member**.\n \n After setup, the system creates the Defender Experts team and the **Hunting notifications** channel, and provides a link to open the Teams channel. A welcome message appears in Teams confirming the setup is complete.\n \n > [!TIP]\n > If the setup fails, see [Configuring the Microsoft Defender Experts app in Teams](teams-restrictions-dexapp.md) for troubleshooting guidance.\n \n-Any notification contacts you added on the previous onboarding step are also added automatically as members of the Teams channel. To add additional SOC team members to the created channel, go to **Microsoft Teams** > **Defender Experts team** > **More options (...)** > **Manage team** > **Add member**.\n-\n ### Generate sample Defender Experts Notifications\n \n You can generate a sample Defender Experts Notification to start experiencing the Defender Experts for Hunting service without waiting for an actual critical activity in your environment. By generating a sample notification, you can also test the [email notifications](#set-up-defender-experts-email-notifications) you previously configured in the Microsoft Defender portal for this service. You can also test the configuration of playbooks (if configured for such notifications) and rules in your Security Information and Event Management (SIEM) environment.\n",
+      "baseCommitSha": "da535ef9e61a53843a963bf0bdea474ff0952f70",
+      "commitSha": "45e68ce7e090d3f75ec2c5ef88b1a87ca3c658e9",
+      "commitMessage": "Update onboarding instructions for Teams notifications",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-06-04T13:14:56+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/onboarding-defender-experts-for-hunting.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/onboarding-defender-experts-for-hunting",
+      "firstSeenAt": "2026-06-04T07:44:56.000Z",
+      "eventId": "defender-docs:45e68ce7e090d3f75ec2c5ef88b1a87ca3c658e9:modified:defender-xdr/onboarding-defender-experts-for-hunting.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update onboarding instructions for Teams notifications",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/onboarding-defender-experts-for-hunting.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "exposure-management/risk-evaluation-changelog.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 7,
+      "changes": 21,
+      "patch": "diff --git a/exposure-management/risk-evaluation-changelog.md b/exposure-management/risk-evaluation-changelog.md\nindex f28f89cda..7cf5aad9e 100644\n--- a/exposure-management/risk-evaluation-changelog.md\n+++ b/exposure-management/risk-evaluation-changelog.md\n@@ -11,22 +11,29 @@ The Risk Evaluation Framework (REF) changelog documents MSEM-initiated changes t\n \n Review this changelog if you notice unexpected changes to:\n \n-- Your Secure Score\n+- Your risk-based secure score\n+\n - Recommendation risk levels\n \n-## Understanding REF changes\n+## Understanding REF updates\n \n MSEM initiates REF changes, not customer actions. They might include:\n \n-- New recommendations introduced to the framework\n-- New risk factors added to evaluations\n-- Risk weighting updates\n-- Evaluation scope or domain definition changes\n+- **New recommendations introduced to the framework** to expand risk visibility across emerging security scenarios\n+\n+- **New asset risk factors added to evaluations** to improve attack surface coverage and strengthen risk assessment depth\n+\n+- **Risk weighting updates** to improve evaluation accuracy and better reflect relative security impact\n+\n+- **Evaluation scope or domain definition changes** to provide more granular and context-aware risk evaluation metrics\n \n > [!NOTE]\n > These changes reflect updates to risk evaluation inputs and components. The core scoring formula remains stable.\n-\n ## Changelog\n \n+> [!NOTE]\n+> This changelog includes publicly available changes only. Private preview updates are communicated separately through preview communications and in-app experiences.\n+\n+\n | Date | Change type | Description | More information |\n |------|-------------|-------------|------------------|\n",
+      "baseCommitSha": "fd8577cd0621bde5d3ffc993480b814b0934cf94",
+      "commitSha": "18f6dd5535d469d295a91f906841ee9ea5320ced",
+      "commitMessage": "Learn Editor: Update risk-evaluation-changelog.md",
+      "commitAuthor": "Roy Hirsch",
+      "commitDate": "2026-06-04T13:10:08+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/exposure-management/risk-evaluation-changelog.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/risk-evaluation-changelog",
+      "firstSeenAt": "2026-06-04T10:10:08.000Z",
+      "eventId": "defender-docs:18f6dd5535d469d295a91f906841ee9ea5320ced:modified:exposure-management/risk-evaluation-changelog.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update risk-evaluation-changelog.md",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "exposure-management/risk-evaluation-changelog.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/exposure-management/risk-evaluation-changelog.md b/exposure-management/risk-evaluation-changelog.md\nindex 7cf5aad9e..911a4da2c 100644\n--- a/exposure-management/risk-evaluation-changelog.md\n+++ b/exposure-management/risk-evaluation-changelog.md\n@@ -36,4 +36,4 @@ MSEM initiates REF changes, not customer actions. They might include:\n \n \n | Date | Change type | Description | More information |\n-|------|-------------|-------------|------------------|\n+|EXAMPLE|New recommendations|100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents(azure/defender-for-cloud/release-notes-recommendations-alerts)|\n",
+      "baseCommitSha": "18f6dd5535d469d295a91f906841ee9ea5320ced",
+      "commitSha": "b6679f205a3b0774322fb1fbd22c0b19ae671afd",
+      "commitMessage": "Apply suggestion from @DebLanger",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-04T13:36:38+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/exposure-management/risk-evaluation-changelog.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/risk-evaluation-changelog",
+      "firstSeenAt": "2026-06-04T10:36:38.000Z",
+      "eventId": "defender-docs:b6679f205a3b0774322fb1fbd22c0b19ae671afd:modified:exposure-management/risk-evaluation-changelog.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Apply suggestion from @DebLanger",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "exposure-management/risk-evaluation-changelog.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/exposure-management/risk-evaluation-changelog.md b/exposure-management/risk-evaluation-changelog.md\nindex 911a4da2c..4ec40a119 100644\n--- a/exposure-management/risk-evaluation-changelog.md\n+++ b/exposure-management/risk-evaluation-changelog.md\n@@ -34,6 +34,6 @@ MSEM initiates REF changes, not customer actions. They might include:\n > [!NOTE]\n > This changelog includes publicly available changes only. Private preview updates are communicated separately through preview communications and in-app experiences.\n \n-\n | Date | Change type | Description | More information |\n-|EXAMPLE|New recommendations|100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents(azure/defender-for-cloud/release-notes-recommendations-alerts)|\n+| -------- | -------- | -------- | -------- |\n+| EXAMPLE | New recommendations |100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents(azure/defender-for-cloud/release-notes-recommendations-alerts) |\n",
+      "baseCommitSha": "8cf8cb42c273701994577da7df2ed69469181e6b",
+      "commitSha": "3bd3833e9c420a4c3d707b007156628de23c1666",
+      "commitMessage": "Fix formatting in risk evaluation changelog",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-04T14:02:32+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/exposure-management/risk-evaluation-changelog.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/risk-evaluation-changelog",
+      "firstSeenAt": "2026-06-04T11:02:32.000Z",
+      "eventId": "defender-docs:3bd3833e9c420a4c3d707b007156628de23c1666:modified:exposure-management/risk-evaluation-changelog.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix formatting in risk evaluation changelog",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "exposure-management/risk-evaluation-changelog.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/exposure-management/risk-evaluation-changelog.md b/exposure-management/risk-evaluation-changelog.md\nindex 4ec40a119..c92deafd8 100644\n--- a/exposure-management/risk-evaluation-changelog.md\n+++ b/exposure-management/risk-evaluation-changelog.md\n@@ -36,4 +36,4 @@ MSEM initiates REF changes, not customer actions. They might include:\n \n | Date | Change type | Description | More information |\n | -------- | -------- | -------- | -------- |\n-| EXAMPLE | New recommendations |100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents(azure/defender-for-cloud/release-notes-recommendations-alerts) |\n+| EXAMPLE | New recommendations |100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents](azure/defender-for-cloud/release-notes-recommendations-alerts) |\n",
+      "baseCommitSha": "eac9bb7ea45639a6a068c0386581d33c48bf6140",
+      "commitSha": "7340411d74eaf370c5a423aee5202af6d696b88e",
+      "commitMessage": "Apply suggestion from @DebLanger",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-04T14:11:54+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/exposure-management/risk-evaluation-changelog.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/risk-evaluation-changelog",
+      "firstSeenAt": "2026-06-04T11:11:54.000Z",
+      "eventId": "defender-docs:7340411d74eaf370c5a423aee5202af6d696b88e:modified:exposure-management/risk-evaluation-changelog.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Apply suggestion from @DebLanger",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "exposure-management/risk-evaluation-changelog.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/exposure-management/risk-evaluation-changelog.md b/exposure-management/risk-evaluation-changelog.md\nindex c92deafd8..b93dcecda 100644\n--- a/exposure-management/risk-evaluation-changelog.md\n+++ b/exposure-management/risk-evaluation-changelog.md\n@@ -36,4 +36,4 @@ MSEM initiates REF changes, not customer actions. They might include:\n \n | Date | Change type | Description | More information |\n | -------- | -------- | -------- | -------- |\n-| EXAMPLE | New recommendations |100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents](azure/defender-for-cloud/release-notes-recommendations-alerts) |\n+| EXAMPLE | New recommendations |100 new recommendations are now generally available.|[What's new in Defender for Cloud recommendations, alerts, and incidents](/azure/defender-for-cloud/release-notes-recommendations-alerts) |\n",
+      "baseCommitSha": "7340411d74eaf370c5a423aee5202af6d696b88e",
+      "commitSha": "292757d797a70b26d837879cc32efa46258fa12b",
+      "commitMessage": "Apply suggestion from @DebLanger",
+      "commitAuthor": "Deborah Langer",
+      "commitDate": "2026-06-04T14:17:46+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/exposure-management/risk-evaluation-changelog.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/risk-evaluation-changelog",
+      "firstSeenAt": "2026-06-04T11:17:46.000Z",
+      "eventId": "defender-docs:292757d797a70b26d837879cc32efa46258fa12b:modified:exposure-management/risk-evaluation-changelog.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Apply suggestion from @DebLanger",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 1,
+      "changes": 11,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 9de650e90..62064a2ef 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -56,7 +56,16 @@ To use [device isolation functionality](./respond-machine-alerts.md#isolate-devi\n \n - `iptables`\n - `ip6tables`\n-- Linux kernel with `CONFIG_NETFILTER`, `CONFIG_IP_NF_IPTABLES`, and `CONFIG_IP_NF_MATCH_OWNER` for kernel version lower than 5.x and `CONFIG_NETFILTER_XT_MATCH_OWNER` from 5.x kernel.\n+- The following kernel configurations (enabled by default on the supported distros).\n+\n+  | Older kernels (lower than 5.x) | Newer kernels (5.x and later) | All kernel versions |\n+  |---|---|---|\n+  | `CONFIG_NETFILTER_XT_TARGET_NFQUEUE` | `CONFIG_NF_TABLES` | `CONFIG_NETFILTER` |\n+  | `CONFIG_IP_NF_IPTABLES` | `CONFIG_NFT_QUEUE` | `CONFIG_NETFILTER_NETLINK_QUEUE` |\n+  | `CONFIG_IP_NF_FILTER` | `CONFIG_NFT_COMPAT` | `CONFIG_PROC_FS` |\n+  | `CONFIG_IP6_NF_IPTABLES` | `CONFIG_NETFILTER_XT_MATCH_OWNER` | `CONFIG_UNIX` |\n+  | `CONFIG_IP6_NF_FILTER` | | |\n+  | `CONFIG_IP_NF_MATCH_OWNER` | | |\n \n ## Network requirements\n \n",
+      "baseCommitSha": "61af04626cfcb1ccdd1f8e939fa44cd5fa3f968a",
+      "commitSha": "9a4598ec23a6a406c27193189901a63b77055a36",
+      "commitMessage": "Update Linux isolation prerequisites with full kernel config table",
+      "commitAuthor": "Divyanand Rangu",
+      "commitDate": "2026-06-04T16:54:39+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-04T11:24:39.000Z",
+      "eventId": "defender-docs:9a4598ec23a6a406c27193189901a63b77055a36:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Linux isolation prerequisites with full kernel config table",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 0,
+      "changes": 11,
+      "patch": "diff --git a/defender-vulnerability-management/fixed-reported-inaccuracies.md b/defender-vulnerability-management/fixed-reported-inaccuracies.md\nindex 47a2041c9..0457d15a6 100644\n--- a/defender-vulnerability-management/fixed-reported-inaccuracies.md\n+++ b/defender-vulnerability-management/fixed-reported-inaccuracies.md\n@@ -40,6 +40,15 @@ For misconfiguration recommendation inaccuracies, such as security baselines and\n \n The following tables present the relevant vulnerability assessment information organized by month.\n \n+## June 2026\n+\n+| Inaccuracy report ID | Description | Fix date |\n+|---|---|---|\n+| 140979 | Improved detection logic for Cisco Webex | 1-June-26 |\n+| - | Improved detection logic for Riotgames Leagueoflegends and Riotclient | 1-June-26 |\n+| - | Fixed inaccuracy in Vulnerabilities - CVE-2021-44228, CVE-2021-45046 by removing Tableau CPEs | 1-June-26 |\n+| 142691 | Fixed incorrect recommendations in Docker Desktop Vulnerabilities - CVE-2026-5843, CVE-2026-5817 | 1-June-26 |\n+\n ## May 2026\n \n | Inaccuracy report ID | Description | Fix date |\n@@ -64,11 +73,13 @@ The following tables present the relevant vulnerability assessment information o\n | 140116 | Updated CVSS score for CVE-2026-40175 | 13-May-26 |\n | 137412 | Fixed detection logic for Microsoft CLR Types for SQL Server | 17-May-26 |\n | - | Fixed bad detection in Microsoft Onenote | 17-May-26 |\n+| 138173 | Fixed inaccuracy in Centos Vulnerabilities - CVE-2025-6965, CVE-2026-5121, CVE-2026-4424 | 18-May-26 |\n | 88590 | Updated detection logic for PDF-XChange | 19-May-26 |\n | 134946 | Updated detection logic for Root | 19-May-26 |\n | - | Fixed inaccurate recommended versions in the PAN‑OS vulnerability - CVE‑2026‑0300 | 19-May-26 |\n | 141549 | Fixed inaccurate recommended versions in the OpenSSL Vulnerability - CVE-2025-15467 | 19-May-26 |\n | 137724 | Fixed invalid version detections in Horizon Client | 20-May-26 |\n+| - | Fixed inaccuracy in Use Bruno Vulnerability - CVE-2026-34841 | 25-May-26 |\n \n ## April 2026\n \n",
+      "baseCommitSha": "da535ef9e61a53843a963bf0bdea474ff0952f70",
+      "commitSha": "264ec6efab65de61c9e2ab1c3b905b3f8196493e",
+      "commitMessage": "Learn Editor: Update fixed-reported-inaccuracies.md",
+      "commitAuthor": "v-gjandla",
+      "commitDate": "2026-06-04T18:36:35+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/fixed-reported-inaccuracies",
+      "firstSeenAt": "2026-06-04T13:06:35.000Z",
+      "eventId": "defender-docs:264ec6efab65de61c9e2ab1c3b905b3f8196493e:modified:defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update fixed-reported-inaccuracies.md",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-urlclickevents-table.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-urlclickevents-table.md b/defender-xdr/advanced-hunting-urlclickevents-table.md\nindex 09a7fa9fe..e831c2a87 100644\n--- a/defender-xdr/advanced-hunting-urlclickevents-table.md\n+++ b/defender-xdr/advanced-hunting-urlclickevents-table.md\n@@ -16,7 +16,7 @@ appliesto:\n     - Microsoft Defender XDR\n     - Microsoft Sentinel in the Microsoft Defender portal\n ms.topic: reference\n-ms.date: 05/08/2026\n+ms.date: 06/04/2026\n ---\n \n # UrlClickEvents\n@@ -43,7 +43,7 @@ For information on other tables in the advanced hunting schema, see [the advance\n | `IsClickedThrough` | `bool` | Indicates whether the user was able to click through to the original URL (1) or not (0) on the Safe Links warning page using \"Continue anyway\" option |\n | `UrlChain` | `string` | For scenarios involving redirections, it includes URLs present in the redirection chain|\n | `ReportId` | `string` | The unique identifier for a click event. For clickthrough scenarios, report ID would have same value, and therefore it should be used to correlate a click event |\n-| `AppName` | `string` | The application's display name as exposed by the associated service principal |\n+| `AppName` | `string` | Name of the client application where the click occurred |\n | `AppVersion` | `string` | Version of the client application where the click occurred |\n | `SourceId` | `string` | Unique identifier for the source of the click |\n | `TenantId` | `string` | The Log Analytics workspace ID |\n",
+      "baseCommitSha": "339137726b8a9789cff567c9a4f0ce7342898351",
+      "commitSha": "38ffd6c895d08bf4fd1403d8763233f625cc6397",
+      "commitMessage": "Update advanced-hunting-urlclickevents-table.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-06-04T13:05:28-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-urlclickevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-urlclickevents-table",
+      "firstSeenAt": "2026-06-04T20:05:28.000Z",
+      "eventId": "defender-docs:38ffd6c895d08bf4fd1403d8763233f625cc6397:modified:defender-xdr/advanced-hunting-urlclickevents-table.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update advanced-hunting-urlclickevents-table.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-urlclickevents-table.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 10,
+    "authors": [
+      "Chris Davis",
+      "Deborah Langer",
+      "Divyanand Rangu",
+      "Paul Oliveria",
+      "Roy Hirsch",
+      "v-gjandla"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/teams-restrictions-dexapp.md. Updated Microsoft Defender documentation in defender-xdr/onboarding-defender-experts-for-hunting.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-urlclickevents-table.md.",
+        "sourceFiles": [
+          "defender-xdr/teams-restrictions-dexapp.md",
+          "defender-xdr/onboarding-defender-experts-for-hunting.md",
+          "defender-xdr/advanced-hunting-urlclickevents-table.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md.",
+        "sourceFiles": [
+          "exposure-management/risk-evaluation-changelog.md",
+          "exposure-management/risk-evaluation-changelog.md",
+          "exposure-management/risk-evaluation-changelog.md",
+          "exposure-management/risk-evaluation-changelog.md",
+          "exposure-management/risk-evaluation-changelog.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "sourceFiles": [
+          "defender-endpoint/mde-linux-prerequisites.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md.",
+        "sourceFiles": [
+          "defender-vulnerability-management/fixed-reported-inaccuracies.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/teams-restrictions-dexapp.md. Updated Microsoft Defender documentation in defender-xdr/onboarding-defender-experts-for-hunting.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-urlclickevents-table.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md. Updated Microsoft Defender documentation in exposure-management/risk-evaluation-changelog.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

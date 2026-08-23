@@ -1,0 +1,242 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/mdo-support-teams-quick-configure.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-quick-configure.md b/defender-office-365/mdo-support-teams-quick-configure.md\nindex 92410088e..e1c578bc3 100644\n--- a/defender-office-365/mdo-support-teams-quick-configure.md\n+++ b/defender-office-365/mdo-support-teams-quick-configure.md\n@@ -133,7 +133,7 @@ For complete instructions, see [User reported message settings in Microsoft Team\n \n    If the value is :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Off**, move the toggle to :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **On**, and then select **Save**.\n \n-   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\" alt-text=\"Screenshot of the 'Report incorrect security detections' toggle on the Messaging settings page in the Microsoft Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\":::\n+   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\" alt-text=\"Screenshot of the Report incorrect security detections toggle on the Messaging settings page in the Microsoft Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\":::\n \n 7. In the Teams admin center, go to the **Calling settings** page at <https://admin.teams.microsoft.com/one-policy/settings/calling>.\n \n@@ -141,7 +141,7 @@ For complete instructions, see [User reported message settings in Microsoft Team\n \n    If the value is :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Off**, move the toggle to :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **On**, and then select **Save**.\n \n-   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-security-risk-call.png\" alt-text=\"Screenshot of the 'Report incorrect security detections' toggle on the Messaging settings page in the Microsoft Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-security-risk-call.png\":::\n+   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-security-risk-call.png\" alt-text=\"Screenshot of the 'Report a call toggle on the Call settings page in the Microsoft Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-security-risk-call.png\":::\n \n 9. In the Microsoft Defender portal, go to the **User reported settings** page at <https://security.microsoft.com/securitysettings/userSubmission>.\n \n",
+      "baseCommitSha": "d81f9a8da7d07a617b4c4e274010fe4b5410c9f7",
+      "commitSha": "7165553dba62287680ed782c7378bd3fcba1ecea",
+      "commitMessage": "Alt text fixes per build report",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T17:02:14-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-quick-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-quick-configure",
+      "firstSeenAt": "2026-04-03T00:02:14.000Z",
+      "eventId": "defender-docs:7165553dba62287680ed782c7378bd3fcba1ecea:modified:defender-office-365/mdo-support-teams-quick-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Alt text fixes per build report",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-quick-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/submissions-teams.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/submissions-teams.md b/defender-office-365/submissions-teams.md\nindex 3fb19bcd0..01e45e903 100644\n--- a/defender-office-365/submissions-teams.md\n+++ b/defender-office-365/submissions-teams.md\n@@ -83,7 +83,7 @@ To view or configure this setting, you need to be a member of the **Global Admin\n \n    If the value is :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Off**, move the toggle to :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **On**, and then select **Save**.\n \n-   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-security-risk.png\" alt-text=\"Screenshot of the 'Report a security concern' toggle in Messaging policies in the Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-security-risk.png\":::\n+   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-security-risk.png\" alt-text=\"Screenshot of the Report a security concern toggle in the policy details page in the Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-security-risk.png\":::\n \n 5. In the Teams admin center, go to the **Messaging settings** page at <https://admin.teams.microsoft.com/one-policy/settings/messaging>.\n \n@@ -91,7 +91,7 @@ To view or configure this setting, you need to be a member of the **Global Admin\n \n    If the value is :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Off**, move the toggle to :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **On**, and then select **Save**.\n \n-   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\" alt-text=\"Screenshot of the 'Report incorrect security detections' toggle on the Messaging settings page in the Microsoft Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\":::\n+   :::image type=\"content\" source=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\" alt-text=\"Screenshot of the Report incorrect security detections toggle on the Messaging settings page in the Microsoft Teams admin center.\" lightbox=\"media/submissions-teams-turn-on-off-tac-not-security-risk.png\":::\n \n 7. In the Teams admin center, go to the **Calling settings** page at <https://admin.teams.microsoft.com/one-policy/settings/calling>.\n \n",
+      "baseCommitSha": "d81f9a8da7d07a617b4c4e274010fe4b5410c9f7",
+      "commitSha": "7165553dba62287680ed782c7378bd3fcba1ecea",
+      "commitMessage": "Alt text fixes per build report",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T17:02:14-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/submissions-teams.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/submissions-teams",
+      "firstSeenAt": "2026-04-03T00:02:14.000Z",
+      "eventId": "defender-docs:7165553dba62287680ed782c7378bd3fcba1ecea:modified:defender-office-365/submissions-teams.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Alt text fixes per build report",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/submissions-teams.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+      "status": "modified",
+      "additions": 32,
+      "deletions": 21,
+      "changes": 53,
+      "patch": "diff --git a/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md b/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md\nindex 1ed41e0f3..d48f60f0c 100644\n--- a/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md\n+++ b/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md\n@@ -5,17 +5,17 @@ ms.author: chrisda\n audience: Admin\n ms.topic: how-to\n ms.localizationpriority: medium\n-search.appverid: \n+search.appverid:\n   - MOE150\n   - MED150\n   - MBS150\n   - MET150\n-ms.collection: \n+ms.collection:\n   - m365-security\n   - tier2\n description: Admins can learn how to configure the junk email settings in Exchange Online mailboxes. Many of these settings are available to users in Outlook or Outlook on the web.\n ms.service: defender-office-365\n-ms.date: 07/31/2025\n+ms.date: 04/02/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -151,27 +151,38 @@ The safelist collection (the Safe Senders list, the Safe Recipients list, and th\n   For more information about this limit and how to change it, see [KB2669081](https://support.microsoft.com/help/2669081).\n \n - The synchronized safelist collection in Microsoft 365 has the following synchronization limits:\n-  - 1,024 total entries in the Safe Senders list, the Safe Recipients list, and external contacts if **Trust email from my contacts** is enabled.\n-  - 65,535 total entries in the Blocked Senders list and the Blocked Domains list.\n-\n-  When the 1024 entry limit is reached, the following things happen:\n-\n-  - The list stops accepting entries in PowerShell and Outlook on the web, but no error is displayed.\n-\n-    Outlook users can continue to add more than 1,024 entries until they reach the Outlook limit of 510 KB. Outlook can use these extra entries, as long as a Microsoft 365 filter doesn't block the message before delivery to the mailbox (mail flow rules, anti-spoofing, and so on).\n \n-- With directory synchronization, the entries are synchronized to Microsoft Entra ID in the following order:\n-  1. Mail contacts if **Trust email from my contacts** is enabled.\n-  2. The Safe Senders list and the Safe Recipient list are combined, deduplicated, and sorted alphabetically whenever a change is made for the first 1,024 entries.\n-\n-  The first 1,024 entries are used, and relevant information is stamped in the message headers.\n-\n-  For remaining entries over 1,024, Outlook processes unsynchronized entries, but no information is stamped in the message headers. This behavior doesn't occur in Outlook on the web.\n+  - 65,535 total entries in the Blocked Senders list and the Blocked Domains list.\n \n-As you can see, enabling the **Trust email from my contacts** setting reduces the number of Safe Senders and Safe Recipients that can be synchronized. If this reduction is a concern, we recommend using Group Policy to turn off this feature:\n+    > [!NOTE]\n+    > Only the first 500 blocked sender entries have their hashes synced to Microsoft Entra ID. These 500 synced entries determine whether messages from blocked senders receive a **User Block** verdict:\n+    >\n+    > - **Blocked senders in the first 500 entries** (hashes synced): Messages are quarantined with a **User Block** verdict. These quarantined messages have the following characteristics:\n+    >   - The messages are hidden when the **Don't show blocked senders** filter is active in quarantine.\n+    >   - Quarantine notifications aren't sent for these messages.\n+    >   - The **Sender address override reason** property has the value **Message sender is blocked by recipient settings**.\n+    > - **Blocked senders beyond the first 500 entries** (hashes not synced): Messages don't receive a **User Block** verdict. If the messages are quarantined, they have the following characteristics:\n+    >   - The messages are visible, even if the **Don't show blocked senders** filter is active in quarantine.\n+    >   - Quarantine notifications are sent for these messages.\n+    >   - The **Sender address override reason** property has the value **None**.\n+    >\n+    >   Messages from these senders that aren't otherwise detected as malicious are delivered to the Junk Email folder instead of quarantine.\n+    >\n+    > In other words, two nearly identical spam messages from two different blocked senders could have different behavior in quarantine, or one message might not even be quarantined at all.\n \n-- File name: outlk16.opax\n-- Policy setting: **Trust e-mail from contacts**\n+  - 1,024 total entries in the Safe Senders list, the Safe Recipients list, and external contacts if **Trust email from my contacts** is enabled.\n+    - When the 1,024 entry limit is reached, the following things happen:\n+      - The list stops accepting entries in PowerShell and Outlook on the web, but no error is displayed.\n+\n+        Outlook users can continue to add more than 1,024 entries until they reach the Outlook limit of 510 KB. Outlook can use these extra entries, as long as a Microsoft 365 filter doesn't block the message before delivery to the mailbox (mail flow rules, anti-spoofing, and so on).\n+    - With directory synchronization, the entries are synchronized to Microsoft Entra ID in the following order:\n+      1. Mail contacts if **Trust email from my contacts** is enabled.\n+      2. The Safe Senders list and the Safe Recipient list are combined, deduplicated, and sorted alphabetically whenever a change is made for the first 1,024 entries.\n+    - The first 1,024 entries are used, and relevant information is stamped in the message headers.\n+    - For remaining entries over 1,024, Outlook processes unsynchronized entries, but no information is stamped in the message headers. This behavior doesn't occur in Outlook on the web.\n+    - As you can see, enabling the **Trust email from my contacts** setting reduces the number of Safe Senders and Safe Recipients that can be synchronized. If this reduction is a concern, we recommend using Group Policy to turn off this feature:\n+      - File name: outlk16.opax\n+      - Policy setting: **Trust e-mail from contacts**\n \n > [!IMPORTANT]\n > The following button helps identify and resolve issues with the safelist collection in user mailboxes (the Safe Senders list and Blocked Senders list) which includes individual senders and domains:\n",
+      "baseCommitSha": "114b02b7c425ac9c00d7c29e390aacea58c3bc89",
+      "commitSha": "deddb57d91ea93a977583575fa1d698bb537bac6",
+      "commitMessage": "500 synched blocked senders info",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T18:51:54-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/configure-junk-email-settings-on-exo-mailboxes",
+      "firstSeenAt": "2026-04-03T01:51:54.000Z",
+      "eventId": "defender-docs:deddb57d91ea93a977583575fa1d698bb537bac6:modified:defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "500 synched blocked senders info",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-admin-manage-messages-files.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/quarantine-admin-manage-messages-files.md b/defender-office-365/quarantine-admin-manage-messages-files.md\nindex 74fdcb019..23d88bc3c 100644\n--- a/defender-office-365/quarantine-admin-manage-messages-files.md\n+++ b/defender-office-365/quarantine-admin-manage-messages-files.md\n@@ -17,7 +17,7 @@ ms.custom:\n   - seo-marvel-apr2020\n description: Admins can learn how to view and manage quarantined messages for all users in Microsoft 365 organizations with cloud mailboxes. Admins in organizations with Microsoft Defender for Office 365 can also manage quarantined files in SharePoint, OneDrive, and Microsoft Teams.\n ms.service: defender-office-365\n-ms.date: 02/23/2026\n+ms.date: 04/02/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -121,7 +121,7 @@ You can sort the entries by clicking on an available column header. Select :::im\n   - **Message sender is blocked by administrator settings**\n \n   > [!TIP]\n-  > If a sender is blocked and **Don't show blocked senders** is selected (default), messages from those senders are shown on the **Quarantine** page and are included in quarantine notifications when the **Sender address override reason** value is **None**. This behavior occurs because the messages were blocked due to reasons other than sender address overrides.\n+  > If a sender is blocked and **Don't show blocked senders** is selected (default), messages from those senders are shown on the **Quarantine** page and are included in quarantine notifications when the **Sender address override reason** value is **None**. This behavior occurs because the messages were blocked due to reasons other than sender address overrides. For more information, see [Limits for junk email settings](configure-junk-email-settings-on-exo-mailboxes.md#limits-for-junk-email-settings).\n \n - **Released by**<sup>\\*</sup>\n - **Message ID**\n",
+      "baseCommitSha": "114b02b7c425ac9c00d7c29e390aacea58c3bc89",
+      "commitSha": "deddb57d91ea93a977583575fa1d698bb537bac6",
+      "commitMessage": "500 synched blocked senders info",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T18:51:54-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-admin-manage-messages-files.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-admin-manage-messages-files",
+      "firstSeenAt": "2026-04-03T01:51:54.000Z",
+      "eventId": "defender-docs:deddb57d91ea93a977583575fa1d698bb537bac6:modified:defender-office-365/quarantine-admin-manage-messages-files.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "500 synched blocked senders info",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-end-user.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/quarantine-end-user.md b/defender-office-365/quarantine-end-user.md\nindex 5180e1bad..139b24585 100644\n--- a/defender-office-365/quarantine-end-user.md\n+++ b/defender-office-365/quarantine-end-user.md\n@@ -19,7 +19,7 @@ ms.custom:\n description: Users can learn how to view and manage quarantined email messages in Microsoft 365 that were meant to be delivered to them.\n ms.service: defender-office-365\n adobe-target: true\n-ms.date: 07/08/2025\n+ms.date: 04/02/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -99,7 +99,7 @@ You can sort the entries by clicking on an available column header. Select :::im\n   - **Message sender is blocked by administrator settings**\n \n   > [!TIP]\n-  > If a sender is blocked and **Don't show blocked senders** is selected (default), messages from those senders are shown on the **Quarantine** page and are included in quarantine notifications when the **Sender address override reason** value is **None**. This behavior occurs because the messages were blocked due to reasons other than sender address overrides.\n+  > If a sender is blocked and **Don't show blocked senders** is selected (default), messages from those senders are shown on the **Quarantine** page and are included in quarantine notifications when the **Sender address override reason** value is **None**. This behavior occurs because the messages were blocked due to reasons other than sender address overrides. For more information, see [Limits for junk email settings](configure-junk-email-settings-on-exo-mailboxes.md#limits-for-junk-email-settings).\n \n - **Released by**<sup>\\*</sup>\n - **Message ID**\n",
+      "baseCommitSha": "114b02b7c425ac9c00d7c29e390aacea58c3bc89",
+      "commitSha": "deddb57d91ea93a977583575fa1d698bb537bac6",
+      "commitMessage": "500 synched blocked senders info",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T18:51:54-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-end-user.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-end-user",
+      "firstSeenAt": "2026-04-03T01:51:54.000Z",
+      "eventId": "defender-docs:deddb57d91ea93a977583575fa1d698bb537bac6:modified:defender-office-365/quarantine-end-user.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "500 synched blocked senders info",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-end-user.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/quarantine-end-user.md b/defender-office-365/quarantine-end-user.md\nindex 139b24585..e3a535ce4 100644\n--- a/defender-office-365/quarantine-end-user.md\n+++ b/defender-office-365/quarantine-end-user.md\n@@ -136,7 +136,7 @@ To filter the entries, select :::image type=\"icon\" source=\"media/m365-cc-sc-filt\n   - **Show all senders**\n \n   > [!TIP]\n-  > If a sender is blocked and **Don't show blocked senders** is selected, messages from those senders are shown on the **Quarantine** page and are included in quarantine notifications when the **Sender address override reason** value is **None**. This behavior occurs because the messages were blocked due to reasons other than sender address overrides.\n+  > If a sender is blocked and **Don't show blocked senders** is selected, messages from those senders are shown on the **Quarantine** page and are included in quarantine notifications when the **Sender address override reason** value is **None**. This behavior occurs because the messages were blocked due to reasons other than sender address overrides. For more information, see [Limits for junk email settings](configure-junk-email-settings-on-exo-mailboxes.md#limits-for-junk-email-settings).\n \n - **Release status**: Any of the following values:\n   - **Needs review**\n",
+      "baseCommitSha": "deddb57d91ea93a977583575fa1d698bb537bac6",
+      "commitSha": "45b8e91a72da995183497df5e55a4918444f5759",
+      "commitMessage": "Update quarantine-end-user.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T18:52:34-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-end-user.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-end-user",
+      "firstSeenAt": "2026-04-03T01:52:34.000Z",
+      "eventId": "defender-docs:45b8e91a72da995183497df5e55a4918444f5759:modified:defender-office-365/quarantine-end-user.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update quarantine-end-user.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md b/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md\nindex d48f60f0c..d350d2505 100644\n--- a/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md\n+++ b/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md\n@@ -124,7 +124,7 @@ To verify you successfully configured the safelist collection on a mailbox, use\n \n ## About Outlook junk email settings\n \n-To enable, disable, and configure the client-side Junk Email Filter settings that are available in Outlook, use [Group Policy](https://support.microsoft.com/help/2252421). For more information, see [Administrative Template files (ADMX/ADML) and Office Customization Tool for Microsoft 365 Apps for enterprise, Office 2019, and Office 2016](https://www.microsoft.com/download/details.aspx?id=49030).\n+To enable, disable, and configure the client-side Junk Email Filter settings that are available in Outlook, use Group Policy. For more information, see [Administrative Template files (ADMX/ADML) and Office Customization Tool for Microsoft 365 Apps for enterprise, Office 2019, and Office 2016](https://www.microsoft.com/download/details.aspx?id=49030).\n \n When the Outlook Junk Email Filter is set to the default value **No automatic filtering** in **Home** \\> **Junk** \\> **Junk E-Mail Options** \\> **Options**, Outlook doesn't attempt to classify messages as spam, but still uses the safelist collection (the Safe Senders list, the Safe Recipients list, and the Blocked Senders list) to move messages to the Junk Email folder after delivery. For more information about these settings, see [Overview of the Junk Email Filter](https://support.microsoft.com/office/5ae3ea8e-cf41-4fa0-b02a-3b96e21de089).\n \n",
+      "baseCommitSha": "45b8e91a72da995183497df5e55a4918444f5759",
+      "commitSha": "9aa510269680a62c11be67457f9eb0fd990abfd5",
+      "commitMessage": "Update configure-junk-email-settings-on-exo-mailboxes.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-02T18:57:33-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/configure-junk-email-settings-on-exo-mailboxes",
+      "firstSeenAt": "2026-04-03T01:57:33.000Z",
+      "eventId": "defender-docs:9aa510269680a62c11be67457f9eb0fd990abfd5:modified:defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update configure-junk-email-settings-on-exo-mailboxes.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-end-user.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/defender-office-365/quarantine-end-user.md b/defender-office-365/quarantine-end-user.md\nindex de3995b08..f1776e1e6 100644\n--- a/defender-office-365/quarantine-end-user.md\n+++ b/defender-office-365/quarantine-end-user.md\n@@ -187,7 +187,7 @@ In the details flyout that opens, the following information is available:\n   - **Received**: The date/time when the message was received.\n   - **Expires**: The date/time when the message is automatically and permanently deleted from quarantine.\n   - **Subject**\n-  - **Quarantine reason**:\n+  - **Quarantine reason**: For example:\n     - The message was identified as **Spam**, **Bulk**, or **Phish**.\n     - The message matched a mail flow rule (**Transport rule**).\n     - The message was identified as **Malware**.\n@@ -197,10 +197,10 @@ In the details flyout that opens, the following information is available:\n     If the original message was sent to multiple recipients, select :::image type=\"icon\" source=\"media/m365-cc-sc-preview-message-icon.png\" border=\"false\"::: **Preview message** or :::image type=\"icon\" source=\"media/m365-cc-sc-view-message-headers-icon.png\" border=\"false\"::: **View message headers** to see the complete list of recipients.\n \n   - **Sender override reason**\n-  - **Released by**:\n-    - User released: The user's email address is shown.\n-    - Admin released: The value **Admin** is shown.\n-    - System released: The value **System** is shown.\n+  - **Released by**: For example:\n+    - User released: The user's email address.\n+    - Admin released: The value is **Admin**.\n+    - System released: The value is **System**.\n     - Other: The default value is **Admin**.\n - **Email details** section:\n   - **Sender address**\n@@ -208,7 +208,7 @@ In the details flyout that opens, the following information is available:\n   - **Network message ID**\n   - **Recipients**\n \n-:::image type=\"content\" source=\"media/quarantine-user-message-details-released-by.png\" alt-text=\"The details flyout of a quarantined message\" lightbox=\"media/quarantine-user-message-details-released-by.png\":::\n+:::image type=\"content\" source=\"media/quarantine-user-message-details-with-actions.png\" alt-text=\"Screenshot of the details flyout of a quarantined message.\" lightbox=\"media/quarantine-user-message-details-with-actions.png\":::\n \n To take action on the message, see the next section.\n \n",
+      "baseCommitSha": "352f2d05e2c7e4f2958b69c8ff4637eac622392e",
+      "commitSha": "1eee6c3eb4f4d1890935b53223c43e09ac8583f3",
+      "commitMessage": "End-user quarantine updates",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-04-03T09:50:59-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-end-user.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-end-user",
+      "firstSeenAt": "2026-04-03T16:50:59.000Z",
+      "eventId": "defender-docs:1eee6c3eb4f4d1890935b53223c43e09ac8583f3:modified:defender-office-365/quarantine-end-user.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "End-user quarantine updates",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 5,
+    "totalFiles": 8,
+    "authors": [
+      "Chris Davis"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-quick-configure.md. Updated Microsoft Defender documentation in defender-office-365/submissions-teams.md. Updated Microsoft Defender documentation in defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md. Updated Microsoft Defender documentation in defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md.",
+        "sourceFiles": [
+          "defender-office-365/mdo-support-teams-quick-configure.md",
+          "defender-office-365/submissions-teams.md",
+          "defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+          "defender-office-365/quarantine-admin-manage-messages-files.md",
+          "defender-office-365/quarantine-end-user.md",
+          "defender-office-365/quarantine-end-user.md",
+          "defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md",
+          "defender-office-365/quarantine-end-user.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-quick-configure.md. Updated Microsoft Defender documentation in defender-office-365/submissions-teams.md. Updated Microsoft Defender documentation in defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md. Updated Microsoft Defender documentation in defender-office-365/configure-junk-email-settings-on-exo-mailboxes.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/zero-hour-auto-purge.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/defender-office-365/zero-hour-auto-purge.md b/defender-office-365/zero-hour-auto-purge.md\nindex d820a965a..0bd6ccb72 100644\n--- a/defender-office-365/zero-hour-auto-purge.md\n+++ b/defender-office-365/zero-hour-auto-purge.md\n@@ -32,7 +32,12 @@ Spam and malware signatures in the service are updated in real-time on a daily b\n - Zero-day malware that was undetectable during mail flow.\n - Content weaponized after delivery to users.\n \n-ZAP addresses these issues by continually monitoring spam and malware signature updates in the service, and is seamless for users. ZAP finds and takes automated action on messages that are already in a user's mailbox. ZAP's search is limited to the last 48 hours of delivered email. Users aren't notified if ZAP detects and moves a message.\n+ZAP addresses these issues by continually monitoring spam and malware signature updates in the service, and is seamless for users. ZAP finds and takes automated action on messages that are already in a user's mailbox. ZAP acts on delivered mail through two paths:\n+\n+- **Per-message reevaluation** rescans individual messages within **48 hours** of delivery.\n+- **Campaign-based remediation** retroactively acts on messages later identified as part of a malicious campaign, **including messages older than 48 hours** — typically within a few hours to a few days after delivery.\n+\n+Users aren't notified when ZAP moves a message.\n \n Watch this short video to learn how ZAP in Microsoft Defender for Office 365 automatically detects and neutralizes threats in email.\n \n",
+      "baseCommitSha": "e3e647c6514202d72b2ed43f515c706ed1da4a2b",
+      "commitSha": "fc8363adb936d82f2976f1b692502e940744f862",
+      "commitMessage": "Enhance ZAP description with detailed functionality (#546)",
+      "commitAuthor": "puneethmeister",
+      "commitDate": "2026-07-22T23:42:54+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/zero-hour-auto-purge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/zero-hour-auto-purge",
+      "firstSeenAt": "2026-07-22T18:12:54.000Z",
+      "eventId": "defender-docs:fc8363adb936d82f2976f1b692502e940744f862:modified:defender-office-365/zero-hour-auto-purge.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Enhance ZAP description with detailed functionality (#546)",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "puneethmeister"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "sourceFiles": [
+          "defender-office-365/zero-hour-auto-purge.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

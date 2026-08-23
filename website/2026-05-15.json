@@ -1,0 +1,190 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 0,
+      "changes": 31,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 913cff88b..15dd077b3 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -571,6 +571,21 @@ Fixed an issue in the January 2026 release, where real-time scanning of the /dev\n \n See the full list of [Android UX improvements](android-new-ux.md).\n \n+### Android | May 2026 | Platform: 1.0.8913.0101\n+\n+#### Release details\n+\n+| Platform version| Release Date |\n+| -------- | -------- |\n+|1.0.8913.0101|May 18, 2026|\n+\n+#### Enhancements and features\n+\n+|__Feature Area__| __Update Summary__|\n+| -------- | -------- |\n+|Feature Enhancements|Android malware scanning now covers system apps, along with the existing support for installed apps.|\n+|General|Performance improvements and general bug fixes.  |\n+\n ### Android | April 2026 | Platform: 1.0.8805.0103\n \n #### Release details\n@@ -722,6 +737,22 @@ See the full list of [Android UX improvements](android-new-ux.md).\n \n For the latest UX improvements, see [iOS UX improvements](ios-new-ux.md).\n \n+### iOS | May 2026 | Platform Version: 1.1.77130101\n+\n+#### Release details\n+\n+| Platform version | Release Date |\n+| -------- | -------- |\n+| 1.1.77130101| May 15, 2026 |\n+\n+#### Enhancements and features\n+\n+|__Feature Area__| __Update Summary__|\n+| -------- | -------- |\n+|Fixes|Fixed unexpected hang in Control Filter.|\n+|Improvements|Performance improvements and general bug fixes.|\n+|Telemetry|Enhanced telemetry for onboarding events.|\n+\n ### iOS | November 2025 | Platform: 1.1.70290103\n \n #### Release details\n",
+      "baseCommitSha": "c11048674b2b2cc8a3adf9df5c436966294af305",
+      "commitSha": "358da2646e807d8f202ec8ab2702c850dd9951af",
+      "commitMessage": "Learn Editor: Update microsoft-defender-endpoint-releases.md",
+      "commitAuthor": "saranshgaur1",
+      "commitDate": "2026-05-15T14:26:46+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-05-15T08:56:46.000Z",
+      "eventId": "defender-docs:358da2646e807d8f202ec8ab2702c850dd9951af:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update microsoft-defender-endpoint-releases.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/datalake/sentinel-mcp-data-exploration-tool.md",
+      "status": "modified",
+      "additions": 118,
+      "deletions": 3,
+      "changes": 121,
+      "patch": "diff --git a/sentinel/datalake/sentinel-mcp-data-exploration-tool.md b/sentinel/datalake/sentinel-mcp-data-exploration-tool.md\nindex d080697b1..bcf4bf557 100644\n--- a/sentinel/datalake/sentinel-mcp-data-exploration-tool.md\n+++ b/sentinel/datalake/sentinel-mcp-data-exploration-tool.md\n@@ -6,7 +6,7 @@ ms.author: pauloliveria\n author: poliveria\n ms.reviewer: macasgra\n ms.topic: how-to\n-ms.date: 04/14/2026\n+ms.date: 05/15/2026\n ms.service: microsoft-sentinel\n ms.subservice: sentinel-platform\n \n@@ -57,9 +57,124 @@ This tool discovers data lake tables relevant to a given natural language input\n \n #### Supported tables\n \n-This tool supports Azure Monitor Log Analytics. For a full list of tables, see [Azure Monitor Log Analytics log tables organized by category](/azure/azure-monitor/reference/tables-category).\n+This tool supports nearly all known standard and partner content hub tables out of the box, including [Azure Monitor Log Analytics tables organized by category](/azure/azure-monitor/reference/tables-category) and most [Microsoft Sentinel tables and associated connectors](../sentinel-tables-connectors-reference.md).\n \n-It also supports most of the Microsoft Sentinel tables listed in [Microsoft Sentinel tables and associated connectors](../sentinel-tables-connectors-reference.md). The following tables aren't supported:\n+<details>\n+<summary>Expand to see the full list of supported third-party tables</summary>\n+\n+| Provider | Supported tables |\n+|----------|----------|\n+| Abnormal Security | `ABNORMAL_CASES_CL`, `ABNORMAL_THREAT_MESSAGES_CL` |\n+| ADO (Azure DevOps) | `ADOAuditLogs_CL` |\n+| AIShield | `AIShield_CL` |\n+| AliCloud | `AliCloud_CL` |\n+| Amazon Web Services (AWS) | `AWSCloudFront_AccessLog_CL`, `AWSCloudTrail`, `AWSCloudWatch`, `AWSGuardDuty`, `AWSNetworkFirewallAlert`, `AWSNetworkFirewallFlow`, `AWSNetworkFirewallTls`, `AWSRoute53Resolver`, `AWSS3ServerAccess`, `AWSSecurityHubFindings`, `AWSVPCFlow`, `AWSWAF` |\n+| Anvilogic | `Anvilogic_Alerts_CL` |\n+| Apache | `ApacheHTTPServer_CL` |\n+| ARGOS | `ARGOS_CL` |\n+| Armis | `Armis_Activities_CL`, `Armis_Alerts_CL`, `Armis_Devices_CL` |\n+| Atlassian | `atlassian_beacon_alerts_CL` |\n+| Auth0 | `Auth0AM_CL` |\n+| Better Mobile | `BetterMTDAppLog_CL`, `BetterMTDDeviceLog_CL`, `BetterMTDIncidentLog_CL`, `BetterMTDNetflowLog_CL` |\n+| Bitglass | `BitglassLogs_CL` |\n+| BitSight | `BitsightAlerts_data_CL`, `BitsightBreaches_data_CL`, `BitsightCompany_details_CL`, `BitsightCompany_rating_details_CL`, `BitsightDiligence_historical_statistics_CL`, `BitsightDiligence_statistics_CL`, `BitsightFindings_data_CL`, `BitsightFindings_summary_CL`, `BitsightGraph_data_CL`, `BitsightIndustrial_statistics_CL`, `BitsightObservation_statistics_CL` |\n+| Box | `BoxEvents_CL`, `BoxEventsV2_CL` |\n+| Carbon Black | `CarbonBlackAuditLogs_CL`, `CarbonBlackEvents_CL`, `CarbonBlackNotifications_CL` |\n+| CBS | `CBSLog_Azure_1_CL` |\n+| Cisco | `Cisco_Umbrella_audit_CL`, `Cisco_Umbrella_cloudfirewall_CL`, `Cisco_Umbrella_dlp_CL`, `Cisco_Umbrella_dns_CL`, `Cisco_Umbrella_fileevent_CL`, `Cisco_Umbrella_firewall_CL`, `Cisco_Umbrella_intrusion_CL`, `Cisco_Umbrella_ip_CL`, `Cisco_Umbrella_ravpnlogs_CL`, `Cisco_Umbrella_ztaflow_CL`, `Cisco_Umbrella_ztna_CL`, `CiscoETD_CL`, `CiscoSDWANNetflow_CL`, `CiscoSecureEndpointAuditLogsV2_CL`, `CiscoSecureEndpointEventsV2_CL` |\n+| Cloudflare | `Cloudflare_CL`, `CloudflareV2_CL` |\n+| Cognni | `CognniIncidents_CL` |\n+| Cohesity | `Cohesity_CL` |\n+| Commvault | `CommvaultSecurityIQ_CL` |\n+| Contrast Security | `ContrastADR_CL`, `ContrastADRIncident_CL` |\n+| Cribl | `CriblInternal_CL` |\n+| CrowdStrike | `CrowdStrike_Additional_Events_CL`, `CrowdStrikeAlerts`, `CrowdStrikeDetections`, `CrowdStrikeHosts`, `CrowdStrikeIncidents`, `CrowdStrikeVulnerabilities` |\n+| CyberArk | `CyberArk_AuditEvents_CL` |\n+| Cyberpion | `CyberpionActionItems_CL` |\n+| Cyfirma | `CyfirmaASCertificatesAlerts_CL`, `CyfirmaASCloudWeaknessAlerts_CL`, `CyfirmaASConfigurationAlerts_CL`, `CyfirmaASDomainIPReputationAlerts_CL`, `CyfirmaASDomainIPVulnerabilityAlerts_CL`, `CyfirmaASOpenPortsAlerts_CL`, `CyfirmaBIDomainITAssetAlerts_CL`, `CyfirmaBIExecutivePeopleAlerts_CL`, `CyfirmaBIMaliciousMobileAppsAlerts_CL`, `CyfirmaBIProductSolutionAlerts_CL`, `CyfirmaBISocialHandlersAlerts_CL`, `CyfirmaCampaigns_CL`, `CyfirmaCompromisedAccounts_CL`, `CyfirmaDBWMDarkWebAlerts_CL`, `CyfirmaDBWMPhishingAlerts_CL`, `CyfirmaDBWMRansomwareAlerts_CL`, `CyfirmaIndicators_CL`, `CyfirmaMalware_CL`, `CyfirmaSPEConfidentialFilesAlerts_CL`, `CyfirmaSPEPIIAndCIIAlerts_CL`, `CyfirmaSPESocialThreatAlerts_CL`, `CyfirmaSPESourceCodeAlerts_CL`, `CyfirmaThreatActors_CL`, `CyfirmaVulnerabilities_CL` |\n+| Cymru Scout | `Cymru_Scout_Account_Usage_Data_CL`, `Cymru_Scout_Domain_Data_CL`, `Cymru_Scout_IP_Data_Communications_CL`, `Cymru_Scout_IP_Data_Details_CL`, `Cymru_Scout_IP_Data_Fingerprints_CL`, `Cymru_Scout_IP_Data_Foundation_CL`, `Cymru_Scout_IP_Data_OpenPorts_CL`, `Cymru_Scout_IP_Data_PDNS_CL`, `Cymru_Scout_IP_Data_Summary_Certs_CL`, `Cymru_Scout_IP_Data_Summary_Details_CL`, `Cymru_Scout_IP_Data_Summary_Fingerprints_CL`, `Cymru_Scout_IP_Data_Summary_OpenPorts_CL`, `Cymru_Scout_IP_Data_Summary_PDNS_CL`, `Cymru_Scout_IP_Data_x509_CL` |\n+| Cynerio | `CynerioEvent_CL` |\n+| Darktrace | `darktrace_model_alerts_CL` |\n+| Databricks | `DatabricksAccounts`, `DatabricksApps`, `DatabricksBrickStoreHttpGateway`, `DatabricksBudgetPolicyCentral`, `DatabricksCapsule8Dataplane`, `DatabricksClamAVScan`, `DatabricksCloudStorageMetadata`, `DatabricksClusterLibraries`, `DatabricksClusterPolicies`, `DatabricksClusters`, `DatabricksDashboards`, `DatabricksDatabricksSQL`, `DatabricksDataMonitoring`, `DatabricksDataRooms`, `DatabricksDBFS`, `DatabricksDeltaPipelines`, `DatabricksFeatureStore`, `DatabricksFiles`, `DatabricksFilesystem`, `DatabricksGenie`, `DatabricksGitCredentials`, `DatabricksGlobalInitScripts`, `DatabricksGroups`, `DatabricksIAMRole`, `DatabricksIngestion`, `DatabricksInstancePools`, `DatabricksJobs`, `DatabricksLakeviewConfig`, `DatabricksLineageTracking`, `DatabricksMarketplaceConsumer`, `DatabricksMarketplaceProvider`, `DatabricksMLflowAcledArtifact`, `DatabricksMLflowExperiment`, `DatabricksModelRegistry`, `DatabricksNotebook`, `DatabricksOnlineTables`, `DatabricksPartnerHub`, `DatabricksPredictiveOptimization`, `DatabricksRBAC`, `DatabricksRemoteHistoryService`, `DatabricksRepos`, `DatabricksRFA`, `DatabricksSecrets`, `DatabricksServerlessRealTimeInference`, `DatabricksSQL`, `DatabricksSQLPermissions`, `DatabricksSSH`, `DatabricksTables`, `DatabricksUnityCatalog`, `DatabricksVectorSearch`, `DatabricksWebhookNotifications`, `DatabricksWebTerminal`, `DatabricksWorkspace`, `DatabricksWorkspaceFiles` |\n+| Dataminr | `DataminrPulse_Alerts_CL` |\n+| Digital Shadows | `DigitalShadows_CL` |\n+| Doppel | `DoppelTable_CL` |\n+| Dragos | `DragosAlerts_CL` |\n+| ESI (Exchange Security Insights) | `ESIExchangeConfig_CL`, `ESIExchangeOnlineConfig_CL` |\n+| Exchange | `ExchangeHttpProxy_CL`, `MessageTrackingLog_CL` |\n+| ExtraHop | `ExtraHop_Detections_CL` |\n+| F5 | `F5Telemetry_ASM_CL`, `F5Telemetry_LTM_CL`, `F5Telemetry_system_CL` |\n+| Feedly | `feedly_indicators_CL` |\n+| Forescout | `FncEventsDetections_CL`, `FncEventsObservation_CL`, `FncEventsSuricata_CL`, `ForescoutHostProperties_CL` |\n+| Forcepoint | `ForcepointDLPEvents_CL` |\n+| Gigamon | `Gigamon_CL` |\n+| GitHub | `githubscanaudit_CL` |\n+| Google | `GCPApigee`, `GCPAuditLogs`, `GCPCDN`, `GCPCloudRun`, `GCPCloudSQL`, `GCPComputeEngine`, `GCPDNS`, `GCPFirewallLogs`, `GCPIAM`, `GCPIDS`, `GCPLoadBalancer`, `GCPMonitoring`, `GCPNAT`, `GCPNATAudit`, `GCPResourceManager`, `GCPVPCFlow`, `GKEAPIServer`, `GKEApplication`, `GKEAudit`, `GKEControllerManager`, `GKEHPADecision`, `GKEScheduler`, `GoogleCloudSCC`, `GoogleWorkspaceReports` |\n+| HackerView | `HackerViewLog_Azure_1_CL` |\n+| Illumio | `Illumio_Auditable_Events_CL`, `IlumioInsights` |\n+| Imperva | `ImpervaWAFCloud_CL` |\n+| Infoblox | `dossier_atp_CL`, `dossier_atp_threat_CL`, `dossier_dns_CL`, `dossier_geo_CL`, `dossier_infoblox_web_cat_CL`, `dossier_inforank_CL`, `dossier_malware_analysis_v3_CL`, `dossier_nameserver_CL`, `dossier_nameserver_matches_CL`, `dossier_ptr_CL`, `dossier_rpz_feeds_CL`, `dossier_rpz_feeds_records_CL`, `dossier_threat_actor_CL`, `dossier_tld_risk_CL`, `dossier_whois_CL`, `Infoblox_Failed_Indicators_CL`, `InfobloxInsight_CL` |\n+| InfoSec | `InfoSecAnalytics_CL` |\n+| Jamf Protect | `jamfprotectalerts_CL`, `jamfprotecttelemetryv2_CL`, `jamfprotectunifiedlogs_CL` |\n+| Jira | `Jira_Audit_CL`, `Jira_Audit_v2_CL` |\n+| Juniper | `JuniperIDP_CL` |\n+| Keeper Security | `KeeperSecurityEventNewLogs_CL` |\n+| LastPass | `LastPassNativePoller_CL` |\n+| MailGuard 365 | `MailGuard365_Threats_CL` |\n+| MailRisk | `MailRiskEmails_CL` |\n+| MarkLogic | `MarkLogicAudit_CL` |\n+| MDBA | `MDBALogTable_CL` |\n+| Meraki | `meraki_CL` |\n+| Mimecast | `MimecastAudit_CL`, `MimecastDLP_CL`, `MimecastSIEM_CL`, `MimecastTTPAttachment_CL`, `MimecastTTPImpersonation_CL`, `MimecastTTPUrl_CL` |\n+| MongoDB | `MongoDBAudit_CL` |\n+| MuleSoft | `MuleSoft_Cloudhub_CL` |\n+| NCProtect | `NCProtectUAL_CL` |\n+| Netskope | `alertscompromisedcredentialdata_CL`, `alertsctepdata_CL`, `alertsdlpdata_CL`, `alertsmalsitedata_CL`, `alertsmalwaredata_CL`, `alertspolicydata_CL`, `alertsquarantinedata_CL`, `alertsremediationdata_CL`, `alertssecurityassessmentdata_CL`, `alertsubadata_CL`, `Audits_Data_CL`, `Detections_Data_CL`, `Entities_Data_CL`, `Entity_Scoring_Data_CL`, `eventsapplicationdata_CL`, `eventsauditdata_CL`, `eventsconnectiondata_CL`, `eventsincidentdata_CL`, `eventsnetworkdata_CL`, `eventspagedata_CL`, `Lockdown_Data_CL`, `net_assets_CL`, `Netskope_WebTx_metrics_CL`, `NetskopeAlerts_CL`, `NetskopeWebtxData_CL`, `NetskopeWebtxErrors_CL`, `web_assets_CL` |\n+| Nginx | `NGINX_CL`, `NginxUpstreamUpdateLogs` |\n+| NordPass | `NordPassEventLogs_CL` |\n+| OCI (Oracle Cloud Infrastructure) | `OCI_LogsV2_CL` |\n+| Okta | `Okta_CL`, `OktaSystemLogs` |\n+| 1Password | `OnePasswordEventLogs_CL` |\n+| OneLogin | `OneLoginEventsV2_CL`, `OneLoginUsersV2_CL` |\n+| Oracle | `OracleCloudDatabase` |\n+| Orca | `OrcaAlerts_CL` |\n+| Palo Alto Networks | `CortexXDR_Incidents_CL`, `PaloAltoCortexXDR_Incidents_CL`, `PaloAltoPrismaCloudAlertV2_CL` |\n+| Perimeter 81 | `Perimeter81_CL` |\n+| PostgreSQL | `PostgreSQL_CL` |\n+| Prancer | `prancer_CL` |\n+| Proofpoint | `ProofPointTAPClicksPermittedV2_CL`, `ProofPointTAPMessagesDeliveredV2_CL` |\n+| Qualys | `QualysHostDetectionV3_CL`, `QualysKB_CL` |\n+| Rapid7 Nexpose/InsightVM | `NexposeInsightVMCloud_assets_CL`, `NexposeInsightVMCloud_vulnerabilities_CL` |\n+| Rubrik | `Rubrik_Anomaly_Data_CL`, `Rubrik_Events_Data_CL`, `Rubrik_Ransomware_Data_CL`, `Rubrik_ThreatHunt_Data_CL` |\n+| SailPoint | `SailPointIDN_Events_CL`, `SailPointIDN_Triggers_CL` |\n+| Salesforce | `SalesforceServiceCloudV2_CL` |\n+| SAP | `SAPBTPAuditLog_CL`, `SAPETDAlerts_CL`, `SAPETDInvestigations_CL` |\n+| SecurityBridge | `SecurityBridgeLogs_CL` |\n+| SentinelOne | `SentinelOne_CL`, `SentinelOneActivities_CL`, `SentinelOneAgents_CL`, `SentinelOneAlerts_CL`, `SentinelOneGroups_CL`, `SentinelOneThreats_CL` |\n+| Snowflake | `SnowflakeLoad_CL`, `SnowflakeLogin_CL`, `SnowflakeMaterializedView_CL`, `SnowflakeQuery_CL`, `SnowflakeRoleGrant_CL`, `SnowflakeRoles_CL`, `SnowflakeTables_CL`, `SnowflakeTableStorageMetrics_CL`, `SnowflakeUserGrant_CL`, `SnowflakeUsers_CL` |\n+| Sonrai | `Sonrai_Tickets_CL` |\n+| Sophos | `SophosCloudOptix_CL`, `SophosEP_CL`, `SophosEPEvents_CL` |\n+| Squid Proxy | `SquidProxy_CL` |\n+| Symantec | `SymantecICDx_CL` |\n+| Talon | `Talon_CL` |\n+| Tenable | `Tenable_VM_Asset_CL`, `Tenable_VM_Compliance_CL`, `Tenable_VM_Vuln_CL`, `Tenable_WAS_Vuln_CL` |\n+| TheHive | `TheHive_CL` |\n+| Theom | `TheomAlerts_CL` |\n+| Tomcat | `Tomcat_CL` |\n+| Trend Micro | `TrendMicro_XDR_OAT_CL`, `TrendMicro_XDR_RCA_Result_CL`, `TrendMicro_XDR_RCA_Task_CL`, `TrendMicro_XDR_WORKBENCH_CL` |\n+| Varonis | `VaronisAlerts_CL` |\n+| Vectra | `VectraStream_CL` |\n+| Veeam | `VeeamAuthorizationEvents_CL`, `VeeamCovewareFindings_CL`, `VeeamMalwareEvents_CL`, `VeeamOneTriggeredAlarms_CL`, `VeeamSecurityComplianceAnalyzer_CL`, `VeeamSessions_CL` |\n+| WatchGuard | `WsSecurityEvents_CL` |\n+| Workplace from Meta | `Workplace_Facebook_CL` |\n+| ZeroFox | `ZeroFox_CTI_advanced_dark_web_CL`, `ZeroFox_CTI_botnet_CL`, `ZeroFox_CTI_breaches_CL`, `ZeroFox_CTI_C2_CL`, `ZeroFox_CTI_compromised_credentials_CL`, `ZeroFox_CTI_credit_cards_CL`, `ZeroFox_CTI_dark_web_CL`, `ZeroFox_CTI_discord_CL`, `ZeroFox_CTI_disruption_CL`, `ZeroFox_CTI_email_addresses_CL`, `ZeroFox_CTI_exploits_CL`, `ZeroFox_CTI_irc_CL`, `ZeroFox_CTI_malware_CL`, `ZeroFox_CTI_national_ids_CL`, `ZeroFox_CTI_phishing_CL`, `ZeroFox_CTI_phone_numbers_CL`, `ZeroFox_CTI_ransomware_CL`, `ZeroFox_CTI_telegram_CL`, `ZeroFox_CTI_threat_actors_CL`, `ZeroFox_CTI_vulnerabilities_CL`, `ZeroFoxAlertPoller_CL` |\n+| Zoom | `Zoom_CL` |\n+| Zscaler | `ZNSegmentAudit_CL`, `ZPA_CL` |\n+| Other | `Failed_Range_To_Ingest_CL`, `FinanceOperationsActivity_CL`, `fluentbit_CL`, `IntegrationTable_CL`, `IntegrationTableIncidents_CL` |\n+\n+</details>\n+\n+The following Microsoft Sentinel tables aren't supported:\n \n |Unsupported Microsoft Sentinel tables| |\n |----------|----------|\n",
+      "baseCommitSha": "c11048674b2b2cc8a3adf9df5c436966294af305",
+      "commitSha": "f3742e9baf55b4b4215049b6c654c07d7470d73d",
+      "commitMessage": "Update supported tables list and date",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-05-15T21:21:28+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/datalake/sentinel-mcp-data-exploration-tool.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/datalake/sentinel-mcp-data-exploration-tool",
+      "firstSeenAt": "2026-05-15T15:51:28.000Z",
+      "eventId": "defender-docs:f3742e9baf55b4b4215049b6c654c07d7470d73d:modified:sentinel/datalake/sentinel-mcp-data-exploration-tool.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update supported tables list and date",
+        "summary": "Updated Microsoft Defender documentation in sentinel/datalake/sentinel-mcp-data-exploration-tool.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/reports-email-security.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/reports-email-security.md b/defender-office-365/reports-email-security.md\nindex fa45f45ff..917a58fd2 100644\n--- a/defender-office-365/reports-email-security.md\n+++ b/defender-office-365/reports-email-security.md\n@@ -1141,7 +1141,7 @@ On the report page, the :::image type=\"icon\" source=\"media/m365-cc-sc-download-i\n \n You need to be assigned permissions before you can view and use the reports that are described in this article. You have the following options:\n \n-- [Microsoft Defender XDR Unified role based access control (RBAC)](/defender-xdr/manage-rbac) (If **Email & collaboration** \\> **Defender for Office 365** permissions is :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Active**. Affects the Defender portal only, not PowerShell): **Security operations/Security data/Security data basics (read)** or **Authorization and settings/System settings/manage**.\n+- [Microsoft Defender XDR Unified role based access control (RBAC)](/defender-xdr/manage-rbac) (If **Email & collaboration** \\> **Defender for Office 365** permissions is :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Active**. Affects the Defender portal only, not PowerShell): **Authorization and settings/Security Settings/Core security Settings (read)** or **Authorization and settings/System settings/Read-only**.\n - [Email & collaboration permissions in the Microsoft Defender portal](mdo-portal-permissions.md): Membership in any of the following role groups:\n   - **Organization Management**¹\n   - **Security Administrator**\n",
+      "baseCommitSha": "c11048674b2b2cc8a3adf9df5c436966294af305",
+      "commitSha": "7e66696a919f15a8ba0e635af88b555af8ebce37",
+      "commitMessage": "Update reports-email-security.md",
+      "commitAuthor": "Mithun Rathinam",
+      "commitDate": "2026-05-15T21:37:34+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/reports-email-security.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/reports-email-security",
+      "firstSeenAt": "2026-05-15T16:07:34.000Z",
+      "eventId": "defender-docs:7e66696a919f15a8ba0e635af88b555af8ebce37:modified:defender-office-365/reports-email-security.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update reports-email-security.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/reports-email-security.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/outbound-spam-policies-configure.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/outbound-spam-policies-configure.md b/defender-office-365/outbound-spam-policies-configure.md\nindex 4b4332063..8aa3c4cd6 100644\n--- a/defender-office-365/outbound-spam-policies-configure.md\n+++ b/defender-office-365/outbound-spam-policies-configure.md\n@@ -111,14 +111,14 @@ You can configure outbound spam policies in the Microsoft Defender portal or in\n \n    - **Restriction placed on users who reach the message limit**: Select an action from the dropdown list when any of the limits in the **Protection settings** section are exceeded.\n \n-     For all actions, the senders specified in the **User restricted from sending email** alert policy (and in the now redundant **Notify these users and groups if a sender is blocked due to sending outbound spam** setting on this page) receive email notifications.\n+     For all actions, the recipients specified in the **User restricted from sending email** alert policy (and in the now redundant **Notify these users and groups if a sender is blocked due to sending outbound spam** setting on this page) receive email notifications.\n \n      - **Restrict the user from sending mail until the following day**: This value is the default. Email notifications are sent, and the user is unable to send any more messages until the following day, based on UTC time.\n        - The alert policy named **User restricted from sending email** notifies admins (via email and on the **Incidents & alerts** \\> **View alerts** page).\n        - Any recipients specified in the **Notify specific people if a sender is blocked due to sending outbound spam** setting in the policy are also notified.\n        - The user is unable to send any more messages until the following day, based on UTC time.\n      - **Restrict the user from sending mail**: Email notifications are sent, the user is added to **Restricted users** <https://security.microsoft.com/restrictedusers> in the Microsoft Defender portal, and the user can't send email until they're removed from **Restricted users** by an admin. After an admin removes the user from the list, the user won't be restricted again for that day. For instructions, see [Remove blocked users from the Restricted entities page](outbound-spam-restore-restricted-users.md).\n-     - **No action, alert only**: Email notifications are sent.\n+     - **No action, alert only**: The alert policy named **Email sending limit exceeded** notifies admins (via email and on the **Incidents & alerts** \\> **View alerts** page).\n \n    - **Forwarding rules** section: The setting in this section controls automatic email forwarding by **Exchange Online mailboxes** to external recipients. For more information, see [Control automatic external email forwarding](outbound-spam-policies-external-email-forwarding.md).\n \n",
+      "baseCommitSha": "c11048674b2b2cc8a3adf9df5c436966294af305",
+      "commitSha": "d9e146234fbc962db6dbdb2f089802dff6b5c42d",
+      "commitMessage": "Update outbound-spam-policies-configure.md",
+      "commitAuthor": "Mithun Rathinam",
+      "commitDate": "2026-05-15T21:45:34+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/outbound-spam-policies-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-configure",
+      "firstSeenAt": "2026-05-15T16:15:34.000Z",
+      "eventId": "defender-docs:d9e146234fbc962db6dbdb2f089802dff6b5c42d:modified:defender-office-365/outbound-spam-policies-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update outbound-spam-policies-configure.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/outbound-spam-policies-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\nindex cd0c9c836..97c06fc64 100644\n--- a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n+++ b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n@@ -85,7 +85,7 @@ _Currently_, this feature has the following requirements:\n - The **Bulk moves enabled** setting is turned on in anti-spam policies. Turning on this setting results in a **Promotions** folder in affected user mailboxes.\n \n > [!NOTE]\n-> By default, this feature is inactive. An admin needs to both of the previous steps to enable the feature.\n+> By default, this feature is inactive. An admin needs to complete both of the previous steps to enable the feature.\n \n If a user is affected by the mail flow rule and the anti-spam policy, bulk mail that would normally be delivered to the Inbox is delivered to the **Promotions** folder instead.\n \n",
+      "baseCommitSha": "81855510a91ff278922ad8ebfec1f967335d080d",
+      "commitSha": "216e557310f2eb4581583bb785464b52762aac11",
+      "commitMessage": "Update anti-spam-bulk-complaint-level-bcl-about.md",
+      "commitAuthor": "Mithun Rathinam",
+      "commitDate": "2026-05-15T23:10:56+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-complaint-level-bcl-about",
+      "firstSeenAt": "2026-05-15T17:40:56.000Z",
+      "eventId": "defender-docs:216e557310f2eb4581583bb785464b52762aac11:modified:defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update anti-spam-bulk-complaint-level-bcl-about.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 5,
+    "totalFiles": 5,
+    "authors": [
+      "Mithun Rathinam",
+      "Paul Oliveria",
+      "saranshgaur1"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "Updated Microsoft Defender documentation in sentinel/datalake/sentinel-mcp-data-exploration-tool.md.",
+        "sourceFiles": [
+          "sentinel/datalake/sentinel-mcp-data-exploration-tool.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/reports-email-security.md. Updated Microsoft Defender documentation in defender-office-365/outbound-spam-policies-configure.md. Updated Microsoft Defender documentation in defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md.",
+        "sourceFiles": [
+          "defender-office-365/reports-email-security.md",
+          "defender-office-365/outbound-spam-policies-configure.md",
+          "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "Updated Microsoft Defender documentation in sentinel/datalake/sentinel-mcp-data-exploration-tool.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/reports-email-security.md. Updated Microsoft Defender documentation in defender-office-365/outbound-spam-policies-configure.md. Updated Microsoft Defender documentation in defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/configure-endpoints-script.md",
+      "status": "modified",
+      "additions": 59,
+      "deletions": 62,
+      "changes": 121,
+      "patch": "diff --git a/defender-endpoint/configure-endpoints-script.md b/defender-endpoint/configure-endpoints-script.md\nindex 3c0e9326c..3e117694d 100644\n--- a/defender-endpoint/configure-endpoints-script.md\n+++ b/defender-endpoint/configure-endpoints-script.md\n@@ -19,7 +19,6 @@ ms.date: 11/24/2025\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n-\n ---\n \n # Onboard Windows devices using a local script\n@@ -27,7 +26,7 @@ appliesto:\n You can also manually onboard individual devices to Defender for Endpoint. You might want to onboard some devices when you're testing the service before you commit to onboarding all devices in your network.\n \n > [!IMPORTANT]\n-> The script described in this article is recommended for manually onboarding devices to Defender for Endpoint. It should only be used on a limited number of devices. If you're deploying to a production environment, see [other deployment options](onboard-client.md), such as Intune, Group Policy, or Configuration Manager.\n+> The script described in this article is recommended for manually onboarding devices to Defender for Endpoint. You should use it on a limited number of devices only (10 devices or less). If you're deploying to a production environment, see [other deployment options](onboard-client.md), such as Intune, Group Policy, or Configuration Manager.\n \n Check out [Identify Defender for Endpoint architecture and deployment method](deployment-strategy.md) to see the various paths in deploying Defender for Endpoint.\n \n@@ -35,61 +34,64 @@ Check out [Identify Defender for Endpoint architecture and deployment method](de\n \n ## Onboard devices\n \n-1. Open the configuration package .zip file (*WindowsDefenderATPOnboardingPackage.zip*) that you downloaded from the service onboarding wizard. You can also get the package from the [Microsoft Defender portal](https://security.microsoft.com):\n-\n-    > [!NOTE]\n-    > If the Endpoints section isn't visible, try accessing other Defender features (such as Incidents or Hunting) or wait a few minutes for the environment to initialize. Also ensure you have the required roles (like Security Administrator) and appropriate licensing.\n+> [!TIP]\n+> If **Endpoints** isn't available in **System** \\> **Settings**, do one or more of the following troubleshooting steps:\n+>\n+> - Wait a few minutes for the environment to initialize.\n+> - Try opening other Microsoft Defender XDR features (for example, Incidents or Hunting).\n+> - Verify you have the required roles (at least [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator)) and appropriate licensing.\n \n-1. In the navigation pane, expand the **Security** section, then select **Settings** \\> **Endpoints** \\> **Device management** \\> **Onboarding**.\n-   \n-1. Select Windows 10 or Windows 11 as the operating system.\n-   \n-1. In the **Deployment method** field, select **Local Script**.\n-1. Select **Download package** and save the .zip file.\n+1. Open the configuration package .zip file (*WindowsDefenderATPOnboardingPackage.zip*) that you downloaded from the service onboarding wizard.\n \n-1. Extract the contents of the configuration package to a location on the device you want to onboard (for example, the Desktop). You should have a file named *WindowsDefenderATPLocalOnboardingScript.cmd*.\n+   Or, you can get the onboarding package from the Microsoft Defender portal using the following steps:\n \n-1. Open an elevated command-line prompt on the device and run the script:\n+   1. In the Defender portal at <https://security.microsoft.com>, go to **System** \\> **Settings** \\> **Endpoints** \\> **Device management** section \\> **Onboarding**. Or, to go directly to the **Onboarding** page, use <https://security.microsoft.com/securitysettings/endpoints/onboarding>.\n+   2. On the **Onboarding** page, configure the following settings:\n+      - At the top of the page, verify **Windows 10 and 11** is selected.\n+      - **1. Onboard a device** section:\n+        - **Connectivity type**: Select one of the following values:\n+          - **Standard**: Use the traditional, full set of Microsoft Defender for Endpoint service URLs.\n+          - **Streamlined**: Simplify firewall/proxy configuration by consolidating connectivity to fewer endpoints. For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](configure-device-connectivity.md).\n+        - **Deployment method**: Verify **Local script (for up to 10 devices)** is selected.\n+   3. Select **Download onboarding package** to download the *WindowsDefenderATPOnboardingPackage.zip* file.\n \n-   1. Go to **Start** and type **cmd**.\n-   \n-   1. Right-click **Command prompt** and select **Run as administrator**.\n+2. Extract the contents of the .zip file on the device in a location that's easy to find (for example, the Desktop). The .zip file contains a single file named *WindowsDefenderATPLocalOnboardingScript.cmd*.\n \n-    :::image type=\"content\" source=\"media/run-as-admin.png\" alt-text=\"The Window Start menu pointing to Run as administrator\" lightbox=\"media/run-as-admin.png\":::\n+3. On the device, run the following commands in an elevated command prompt (a Command Prompt window you opened by selecting **Run as administrator**):\n+   1. Go to the folder where you saved the extracted *WindowsDefenderATPLocalOnboardingScript.cmd* file. For example, to go to the Desktop folder, run the following command:\n \n-1. Type the location of the script file. If you copied the file to the desktop, type: `%userprofile%\\Desktop\\WindowsDefenderATPLocalOnboardingScript.cmd`\n+      ```dos\n+      if exist \"%OneDrive%\\Desktop\" (cd /d \"%OneDrive%\\Desktop\") else if exist \"%USERPROFILE%\\Desktop\" cd /d \"%USERPROFILE%\\Desktop\"\n+      ```\n \n-1. Press the **Enter** key or select **OK**.\n+   2. Run the *WindowsDefenderATPLocalOnboardingScript.cmd* script:\n \n-1. Type \"Y\" and enter when prompted.\n+      ```dos\n+      WindowsDefenderATPLocalOnboardingScript.cmd\n+      ```\n \n-1. After the script completes, it will display \"Press any key to continue...\". Press any key to complete the steps on the device.\n+   After the script completes, it displays **Press any key to continue...**. Press any key to complete the steps on the device.\n \n For information on how you can manually validate that the device is compliant and correctly reports sensor data see, [Troubleshoot Microsoft Defender for Endpoint onboarding issues](troubleshoot-onboarding.md).\n \n > [!TIP]\n-> After onboarding the device, you can choose to run a detection test to verify that a device is properly onboarded to the service. For more information, see [Run a detection test on a newly onboarded Microsoft Defender for Endpoint endpoint](run-detection-test.md).\n+> After onboarding the device, you can run a detection test to verify that a device is properly onboarded to the service. For more information, see [Run a detection test on a newly onboarded Microsoft Defender for Endpoint endpoint](run-detection-test.md).\n \n ## Configure sample collection settings\n \n-For each device, you can set a configuration value to state whether samples can be collected from the device when a request is made through Microsoft Defender XDR to submit a file for deep analysis.\n+On each device, a registry setting configures whether samples can be collected from the device when a request is made through Microsoft Defender XDR to submit a file for deep analysis. The AllowSampleCollection DWORD has the following possible values:\n \n-You can manually configure the sample sharing setting on the device by using *regedit* or creating and running a `.reg` file.\n-\n-The configuration is set through the following registry key entry:\n-\n-```console\n-Path: \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Advanced Threat Protection\"\n-Name: \"AllowSampleCollection\"\n-Value: 0 or 1\n-```\n+- 0 (00000000): Sample sharing isn't allowed from the device.\n+- 1 (00000001): Sharing of all file types is allowed from the device. This value is the default if the registry key doesn't exist.\n \n-Where Name type is a D-WORD. Possible values are:\n+Copy the following text into Notepad, set the AllowSampleCollection value, save the file as a .reg file, and then run the .reg file on the device.\n \n-- 0 - doesn't allow sample sharing  from this device\n-- 1 - allows sharing of all file types from this device\n+```text\n+Windows Registry Editor Version 5.00\n \n-The default value in case the registry key doesn't exist is 1.\n+[HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Advanced Threat Protection]\n+\"AllowSampleCollection\"=dword:00000000\n+```\n \n ## Run a detection test to verify onboarding\n \n@@ -100,33 +102,33 @@ After onboarding the device, you can choose to run a detection test to verify th\n For security reasons, the package used to offboard devices expires seven days after the date it was downloaded. Expired offboarding packages sent to a device are rejected. When downloading an offboarding package, you're notified of the package's expiry date, and that date is included in the package file name.\n \n > [!NOTE]\n-> Onboarding and offboarding policies must not be deployed on the same device at the same time. Otherwise, unpredictable collisions might occur.\n+> Don't deploy onboarding and offboarding policies on the same device at the same time. Unpredictable collisions might occur.\n \n-1. Get the offboarding package from the [Microsoft Defender portal](https://security.microsoft.com):\n+1. Get the package from the Microsoft Defender portal using the following steps:\n+   1. In the Defender portal at <https://security.microsoft.com>, go to **System** \\> **Settings** \\> **Endpoints** \\> **Device management** section \\> **Offboarding**. Or, to go directly to the **Offboarding** page, use <https://security.microsoft.com/securitysettings/endpoints/offboarding>.\n+   2. On the **Onboarding** page, configure the following settings:\n+      - At the top of the page, verify **Windows 10 and 11** is selected.\n+      - **Deployment method**: Verify **Local script (for up to 10 devices)** is selected.\n+   3. Select **Download package**, and then select **Download** in the confirmation dialog to download the *WindowsDefenderATPOffboardingPackage_valid_until_YYYY-MM-DD.zip* file.\n \n-   1. In the navigation pane, expand the **Security** section, then select **Settings** \\> **Endpoints** \\> **Device management** \\> **Offboarding**.\n-   \n-   1. Select Windows 10 or Windows 11 as the operating system.\n-   \n-   1. In the **Deployment method** field, select **Local Script**.\n-   \n-   1. Select **Download package** and save the .zip file.\n+2. Extract the contents of the .zip file on the device in a location that's easy to find (for example, the Desktop). The .zip file contains a single file named *WindowsDefenderATPOffboardingScript_valid_until_YYYY-MM-DD.cmd*.\n \n-1. Extract the contents of the .zip file to a shared, read-only location that devices can access. You should have a file named `WindowsDefenderATPOffboardingScript_valid_until_YYYY-MM-DD.cmd`.\n+3. On the device, run the following commands in an elevated command prompt (a Command Prompt window you opened by selecting **Run as administrator**):\n \n-1. Open an elevated command-line prompt on the device and run the script:\n+   1. Go to the folder where you saved the extracted *WindowsDefenderATPOffboardingScript_valid_until_YYYY-MM-DD.cmd* file. For example, to go to the Desktop folder, run the following command:\n \n-   1. Go to **Start** and type **cmd**.\n-   \n-   1. Right-click **Command prompt** and select **Run as administrator**.\n+      ```dos\n+      if exist \"%OneDrive%\\Desktop\" (cd /d \"%OneDrive%\\Desktop\") else if exist \"%USERPROFILE%\\Desktop\" cd /d \"%USERPROFILE%\\Desktop\"\n+      ```\n \n-      :::image type=\"content\" source=\"media/run-as-admin.png\" alt-text=\"The Windows Start menu pointing to the Run as administrator option\" lightbox=\"media/run-as-admin.png\":::\n+   2. Run the *WindowsDefenderATPOffboardingScript_valid_until_YYYY-MM-DD.cmd* script:\n \n-1. Type the location of the script file. If you copied the file to the desktop, type: `%userprofile%\\Desktop\\WindowsDefenderATPOffboardingScript_valid_until_YYYY-MM-DD.cmd`\n-1. Press the **Enter** key or select **OK**.\n+      ```dos\n+      WindowsDefenderATPOffboardingScript_valid_until_YYYY-MM-DD.cmd\n+      ```\n \n > [!IMPORTANT]\n-> Offboarding causes the device to stop sending sensor data to the portal but data from the device, including reference to any alerts it has had will be retained for up to 6 months.\n+> Offboarding a device causes the device to stop sending sensor data to the portal. Data from the device, including reference to any of its alerts, is retained for up to six months.\n \n ## Monitor device configuration\n \n@@ -136,11 +138,9 @@ Monitoring can also be done directly on the portal, or by using the different de\n \n ### Monitor devices using the portal\n \n-1. Go to the [Microsoft Defender portal](https://security.microsoft.com).\n-\n-1. Select **Devices inventory**.\n+In the Defender portal at <https://security.microsoft.com>, go to **Assets** \\> **Devices**. Or, to go directly to the **Device inventory** page, use <https://security.microsoft.com/machines?category=all-devices>.\n \n-1. Verify that devices are appearing.\n+On the **All devices** tab of the **Devices inventory** page, verify that devices are appearing.\n \n ## Related articles\n \n@@ -150,6 +150,3 @@ Monitoring can also be done directly on the portal, or by using the different de\n - [Onboard non-persistent virtual desktop infrastructure (VDI) devices](configure-endpoints-vdi.md)\n - [Run a detection test on a newly onboarded Microsoft Defender for Endpoint device](run-detection-test.md)\n - [Troubleshoot Microsoft Defender for Endpoint onboarding issues](troubleshoot-onboarding.md)\n-\n-\n-\n",
+      "baseCommitSha": "d177f36cc0936e38ac4eb9f4f3ba03c499b237e4",
+      "commitSha": "ec6316b89ee09994e2086732a8aaf136b8fe385b",
+      "commitMessage": "Update configure-endpoints-script.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-15T19:15:49-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/configure-endpoints-script.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-endpoints-script",
+      "firstSeenAt": "2026-01-16T03:15:49.000Z",
+      "eventId": "defender-docs:ec6316b89ee09994e2086732a8aaf136b8fe385b:modified:defender-endpoint/configure-endpoints-script.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update configure-endpoints-script.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-antivirus-windows.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-antivirus-windows.md b/defender-endpoint/microsoft-defender-antivirus-windows.md\nindex f1ccacff4..8c41893d5 100644\n--- a/defender-endpoint/microsoft-defender-antivirus-windows.md\n+++ b/defender-endpoint/microsoft-defender-antivirus-windows.md\n@@ -158,6 +158,9 @@ It's important to keep Microsoft Defender Antivirus (or any antivirus/antimalwar\n > - [Configure Defender for Endpoint on Android features](android-configure.md)\n > - [Configure Microsoft Defender for Endpoint on iOS features](ios-configure-features.md)\n \n+>[!Note]\n+>After installing the latest Microsoft Defender Antivirus platform or engine update, certain registry entries may not update automatically. To ensure the registry reflects the current version, administrators should manually verify and update the relevant keys using **Registry Editor (regedit)** or a supported deployment script.\n+\n ## See also\n \n - [Performance analyzer for Microsoft Defender Antivirus](tune-performance-defender-antivirus.md)\n",
+      "baseCommitSha": "f7321158e2348a3397710dc9905b02ed28a93377",
+      "commitSha": "07d4c9bfc107c2879ec090e633952b4bd9c28113",
+      "commitMessage": "(AzureCXP) fixes MicrosoftDocs/defender-docs-pr#545401",
+      "commitAuthor": "pradeepmi-MSFT",
+      "commitDate": "2026-01-16T12:41:41+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-antivirus-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-antivirus-windows",
+      "firstSeenAt": "2026-01-16T07:11:41.000Z",
+      "eventId": "defender-docs:07d4c9bfc107c2879ec090e633952b4bd9c28113:modified:defender-endpoint/microsoft-defender-antivirus-windows.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "(AzureCXP) fixes MicrosoftDocs/defender-docs-pr#545401",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-windows.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-whatsnew.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/linux-whatsnew.md b/defender-endpoint/linux-whatsnew.md\nindex eb2dade5a..027080594 100644\n--- a/defender-endpoint/linux-whatsnew.md\n+++ b/defender-endpoint/linux-whatsnew.md\n@@ -61,7 +61,7 @@ This article is updated frequently to let you know what's new in the latest rele\n \n - Enhanced vulnerability detection for React components through improved telemetry. This includes support for identifying [(CVE-2025-55182)](https://github.com/advisories/GHSA-fv66-9v8q-g76r), providing more comprehensive security coverage for React-based applications.\n \n-- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resulting in more efficient and consistent telemetry collection. This change applies to builds 101.25102.0005 and later. There is no impact to existing functionality, how data is collected, or customer configurations. All features and capabilities remain fully intact, and no action is required on customer side.\n+- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resulting in more efficient and consistent telemetry collection. This change applies to builds 101.24062.0001 and later. There is no impact to existing functionality, how data is collected, or customer configurations. All features and capabilities remain fully intact, and no action is required on customer side.\n \n ### December-2025 Build: 101.25092.0005 | Release version: 30.125092.0005.0\n \n",
+      "baseCommitSha": "546155d04946aa33928edc1cab0f83beacd6251a",
+      "commitSha": "34056824a2e3679724c53d3c2085513b6aedb6b3",
+      "commitMessage": "Learn Editor: Update linux-whatsnew.md",
+      "commitAuthor": "Atharv Anand",
+      "commitDate": "2026-01-16T13:06:08+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-whatsnew.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-whatsnew",
+      "firstSeenAt": "2026-01-16T07:36:08.000Z",
+      "eventId": "defender-docs:34056824a2e3679724c53d3c2085513b6aedb6b3:modified:defender-endpoint/linux-whatsnew.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update linux-whatsnew.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/linux-whatsnew.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/linux-whatsnew.md b/defender-endpoint/linux-whatsnew.md\nindex 027080594..ca5070a84 100644\n--- a/defender-endpoint/linux-whatsnew.md\n+++ b/defender-endpoint/linux-whatsnew.md\n@@ -61,7 +61,7 @@ This article is updated frequently to let you know what's new in the latest rele\n \n - Enhanced vulnerability detection for React components through improved telemetry. This includes support for identifying [(CVE-2025-55182)](https://github.com/advisories/GHSA-fv66-9v8q-g76r), providing more comprehensive security coverage for React-based applications.\n \n-- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resulting in more efficient and consistent telemetry collection. This change applies to builds 101.24062.0001 and later. There is no impact to existing functionality, how data is collected, or customer configurations. All features and capabilities remain fully intact, and no action is required on customer side.\n+- Agent process handling has been streamlined by removing the dedicated telemetryd_v2 process, resulting in more efficient and consistent telemetry collection. This change applies to builds 101.24062.0001 and later. There is no impact on existing functionality, data collection behavior, or customer configurations. All features and capabilities remain fully intact, and no action is required from customers.\n \n ### December-2025 Build: 101.25092.0005 | Release version: 30.125092.0005.0\n \n",
+      "baseCommitSha": "34056824a2e3679724c53d3c2085513b6aedb6b3",
+      "commitSha": "8d0f3b30788d186cb5441afee93ffd9970ef91f1",
+      "commitMessage": "Learn Editor: Update linux-whatsnew.md",
+      "commitAuthor": "Atharv Anand",
+      "commitDate": "2026-01-16T13:10:52+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/linux-whatsnew.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-whatsnew",
+      "firstSeenAt": "2026-01-16T07:40:52.000Z",
+      "eventId": "defender-docs:8d0f3b30788d186cb5441afee93ffd9970ef91f1:modified:defender-endpoint/linux-whatsnew.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update linux-whatsnew.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/manage-rbac.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/manage-rbac.md b/defender-xdr/manage-rbac.md\nindex 84a452235..53c980554 100644\n--- a/defender-xdr/manage-rbac.md\n+++ b/defender-xdr/manage-rbac.md\n@@ -32,7 +32,7 @@ search.appverid: met150\n - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)\n - [Microsoft Security Exposure Management](/security-exposure-management/)\n - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)\n-- [Microsoft Sentinel](/azure/sentinel/sentinel-overview)\n+- [Microsoft Sentinel (Preview)](/azure/sentinel/sentinel-overview)\n \n Microsoft Defender XDR provides integrated threat protection, detection, and response across endpoints, email, identities, applications, and data within a single portal. Controlling a user's permissions around their access to view data or complete tasks is essential for organizations to minimize the risks associated with unauthorized access.\n \n",
+      "baseCommitSha": "4edd7521f52c491f9a43b9b2870fe5cff7598d0f",
+      "commitSha": "52f071a1612fb7f8ed4a18d3bcc636349def65ef",
+      "commitMessage": "added \"Preview\" end of Sentinel",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-01-16T10:29:00+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/manage-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-rbac",
+      "firstSeenAt": "2026-01-16T08:29:00.000Z",
+      "eventId": "defender-docs:52f071a1612fb7f8ed4a18d3bcc636349def65ef:modified:defender-xdr/manage-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "added \"Preview\" end of Sentinel",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/activate-defender-rbac.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/activate-defender-rbac.md b/defender-xdr/activate-defender-rbac.md\nindex 3d9745c15..6122d6e90 100644\n--- a/defender-xdr/activate-defender-rbac.md\n+++ b/defender-xdr/activate-defender-rbac.md\n@@ -48,7 +48,8 @@ The following steps guide you on how to activate the Microsoft Defender XDR Unif\n * [Activate in Microsoft Defender XDR settings](#activate-in-microsoft-365-defender-settings)\n \n > [!IMPORTANT]\n-> You must be at least a Security Administrator in Microsoft Entra ID to perform this task. For more information on permissions, see [Permission prerequisites](manage-rbac.md#permissions-prerequisites).\n+> You must be at least a Security Administrator in Microsoft Entra ID to perform this task. See [Permission prerequisites](manage-rbac.md#permissions-prerequisites) for more information, including prerequisites for activating Sentinel workspaces.\n+>\n > Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization.\n \n ### Activate from the Permissions and roles page\n",
+      "baseCommitSha": "52f071a1612fb7f8ed4a18d3bcc636349def65ef",
+      "commitSha": "cb6e2aa586933accaec1bd409153db2dd5f629bc",
+      "commitMessage": "Update permission prerequisites info for activating Sentinel workspaces",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-01-16T10:35:04+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/activate-defender-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/activate-defender-rbac",
+      "firstSeenAt": "2026-01-16T08:35:04.000Z",
+      "eventId": "defender-docs:cb6e2aa586933accaec1bd409153db2dd5f629bc:modified:defender-xdr/activate-defender-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update permission prerequisites info for activating Sentinel workspaces",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/activate-defender-rbac.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-xdr/activate-defender-rbac.md b/defender-xdr/activate-defender-rbac.md\nindex 6122d6e90..8c426c9b4 100644\n--- a/defender-xdr/activate-defender-rbac.md\n+++ b/defender-xdr/activate-defender-rbac.md\n@@ -24,6 +24,7 @@ appliesto:\n - Microsoft Defender for Cloud\n - Microsoft Defender for Cloud Apps\n - Microsoft Security Exposure Management\n+- Microsoft Sentinel\n #customer intent: As a security administrator, I want to activate Microsoft Defender XDR Unified RBAC so that I can enforce permissions and assignments configured in my new custom roles or imported roles.\n ---\n \n",
+      "baseCommitSha": "cb6e2aa586933accaec1bd409153db2dd5f629bc",
+      "commitSha": "e6de4cca2f12dc7d0812ce65124a0f0ba0e82b1f",
+      "commitMessage": "Add Sentinel to appliesto list and fix URBAC capitalization",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-01-16T10:39:32+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/activate-defender-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/activate-defender-rbac",
+      "firstSeenAt": "2026-01-16T08:39:32.000Z",
+      "eventId": "defender-docs:e6de4cca2f12dc7d0812ce65124a0f0ba0e82b1f:modified:defender-xdr/activate-defender-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add Sentinel to appliesto list and fix URBAC capitalization",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/whats-new-in-microsoft-defender-urbac.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/whats-new-in-microsoft-defender-urbac.md b/defender-xdr/whats-new-in-microsoft-defender-urbac.md\nindex f2dd5e0b3..ef4ddd5bd 100644\n--- a/defender-xdr/whats-new-in-microsoft-defender-urbac.md\n+++ b/defender-xdr/whats-new-in-microsoft-defender-urbac.md\n@@ -29,7 +29,7 @@ This article provides information about new features and important product updat\n \n ### Microsoft Defender for Cloud permissions are now integrated with Microsoft Defender XDR unified RBAC (Preview)\n \n-We’ve introduced Unified Role-Based Access Control (uRBAC) to simplify permission management across Defender for Cloud resources.\n+We’ve introduced Unified Role-Based Access Control (URBAC) to simplify permission management across Defender for Cloud resources.\n \n Assign roles consistently across cloud scopes.\n Apply least-privilege principles with granular permissions.\n",
+      "baseCommitSha": "cb6e2aa586933accaec1bd409153db2dd5f629bc",
+      "commitSha": "e6de4cca2f12dc7d0812ce65124a0f0ba0e82b1f",
+      "commitMessage": "Add Sentinel to appliesto list and fix URBAC capitalization",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-01-16T10:39:32+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/whats-new-in-microsoft-defender-urbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new-in-microsoft-defender-urbac",
+      "firstSeenAt": "2026-01-16T08:39:32.000Z",
+      "eventId": "defender-docs:e6de4cca2f12dc7d0812ce65124a0f0ba0e82b1f:modified:defender-xdr/whats-new-in-microsoft-defender-urbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add Sentinel to appliesto list and fix URBAC capitalization",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/defender-for-office-365-whats-new.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-office-365/defender-for-office-365-whats-new.md b/defender-office-365/defender-for-office-365-whats-new.md\nindex 6ae8ce249..9766ef94e 100644\n--- a/defender-office-365/defender-for-office-365-whats-new.md\n+++ b/defender-office-365/defender-for-office-365-whats-new.md\n@@ -8,7 +8,7 @@ author: chrisda\n ms.author: chrisda\n manager: bagol\n ms.localizationpriority: medium\n-ms.date: 01/08/2026\n+ms.date: 01/16/2026\n audience: ITPro\n ms.collection:\n   - m365-security\n@@ -41,9 +41,9 @@ For more information on what's new with other Microsoft Defender security produc\n \n ## January 2026\n \n-- **Block communication from sender email address and domains in Teams**: Admins can directly block malicious domains and email addresses from within the Microsoft Defender portal, seamlessly adding targeted entries to the Teams Admin Center (TAC) blocked domains and users list. This capability enables near real-time protection. When suspicious or abusive external organizations are identified, SOC teams can immediately block them, effectively halting new external chat messages, invites, and channel communications from those domains and senders while deleting existing ones.\n+- **Block communication from sender email address and domains in Teams**: Admins can directly block [malicious domains and email addresses](tenant-allow-block-list-teams-domains-configure.md) from within the Microsoft Defender portal, seamlessly adding targeted entries to the Teams Admin Center (TAC) blocked domains and users list. This capability enables near real-time protection. When suspicious or abusive external organizations are identified, SOC teams can immediately block them, effectively halting new external chat messages, invites, and channel communications from those domains and senders while deleting existing ones.\n \n-- **Expanding ZAP and Teams Admin quarantine to Plan 1**: Zero-hour-auto-purge (ZAP) and Teams Admin quarantine is available to Microsoft Defender for Plan 1 by default, bringing post-delivery protection layer.  \n+- **Expanding ZAP and Teams Admin quarantine to Plan 1**: [Zero-hour-auto-purge (ZAP)](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams) and [Teams Admin quarantine](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages) is available to Microsoft Defender for Plan 1 by default, bringing post-delivery protection layer. \n \n ## October 2025\n \n",
+      "baseCommitSha": "80e0f9c2d90a0b5c8da6ac0e19388840563856f6",
+      "commitSha": "560674a8cab31d6e2e5ccb7b2c43228e186972fd",
+      "commitMessage": "Update Teams feature comparison and add cross-references",
+      "commitAuthor": "Dhairyya Agarwal",
+      "commitDate": "2026-01-16T11:09:20-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/defender-for-office-365-whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/defender-for-office-365-whats-new",
+      "firstSeenAt": "2026-01-16T19:09:20.000Z",
+      "eventId": "defender-docs:560674a8cab31d6e2e5ccb7b2c43228e186972fd:modified:defender-office-365/defender-for-office-365-whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Teams feature comparison and add cross-references",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-about.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-office-365/mdo-about.md b/defender-office-365/mdo-about.md\nindex 8d71e0569..e0bef39c3 100644\n--- a/defender-office-365/mdo-about.md\n+++ b/defender-office-365/mdo-about.md\n@@ -22,7 +22,7 @@ ms.custom:\n description: Is Microsoft Defender for Office 365 worth it? Let's find out.\n ms.service: defender-office-365\n adobe-target: true\n-ms.date: 10/13/2025\n+ms.date: 01/16/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Default email protections for cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -129,7 +129,9 @@ The extra features that you get in **Defender for Office 365 Plan 2** on top of\n \n ## Defender for Office 365 Plan 1 vs. Plan 2 cheat sheet\n \n-This quick-reference section summarizes the different capabilities between Defender for Office 365 Plan 1 and Plan 2 that aren't included in the default email protections for cloud mailboxes.\n+This quick-reference section summarizes the different capabilities between Defender for Office 365 Plan 1 and Plan 2 for email that aren't included in the default email protections for cloud mailboxes.\n+\n+To check the different capabilities between Plan 1 and Plan 2 for Teams, see [Microsoft Defender for Office 365 support for Microsoft Teams](defender-office-365/mdo-support-teams-about.md#Microsoft-Defender-for-Office-365-support-for-Microsoft-Teams).\n \n |Defender for Office 365 Plan 1|Defender for Office 365 Plan 2|\n |---|---|\n",
+      "baseCommitSha": "80e0f9c2d90a0b5c8da6ac0e19388840563856f6",
+      "commitSha": "560674a8cab31d6e2e5ccb7b2c43228e186972fd",
+      "commitMessage": "Update Teams feature comparison and add cross-references",
+      "commitAuthor": "Dhairyya Agarwal",
+      "commitDate": "2026-01-16T11:09:20-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-about",
+      "firstSeenAt": "2026-01-16T19:09:20.000Z",
+      "eventId": "defender-docs:560674a8cab31d6e2e5ccb7b2c43228e186972fd:modified:defender-office-365/mdo-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Teams feature comparison and add cross-references",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 1,
+      "changes": 18,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\nindex c46cdb0a8..1583c6214 100644\n--- a/defender-office-365/mdo-support-teams-about.md\n+++ b/defender-office-365/mdo-support-teams-about.md\n@@ -16,7 +16,7 @@ ms.collection:\n   - tier1\n description: Admins can learn about Microsoft Teams features in Microsoft Defender for Office 365.\n ms.service: defender-office-365\n-ms.date: 01/13/2026\n+ms.date: 01/16/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n@@ -28,6 +28,22 @@ appliesto:\n \n [!INCLUDE [MDO Trial banner](../includes/mdo-trial-banner.md)]\n \n+\n+  | Feature | All Teams Licenses | MDO P1 | MDO P2 |\n+  |---------|:------------------:|:------:|:------:|\n+  | Built-in virus protection (SharePoint, OneDrive, Teams) | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Near real-time URL warnings (up to 48 hrs post-delivery) | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Safe Links (time-of-click URL protection) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Safe Attachments (time-of-click file protection) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Tenant Allow/Block List (domains, URLs, files) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Zero-hour Auto Purge (ZAP) for Teams | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Teams messages in quarantine (admin-managed) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Teams Message Entity Panel | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | User-reported Teams messages | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Remove users from Teams chat (admin remediation) | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Attack simulation training with Teams messages | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+  | Advanced hunting on Teams messages | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n+\n With the increased use of collaboration tools like Microsoft Teams, the possibility of malicious attacks using chat messages has also increased.\n \n All licenses of Microsoft Teams in Microsoft 365 include the following built-in protections:\n",
+      "baseCommitSha": "80e0f9c2d90a0b5c8da6ac0e19388840563856f6",
+      "commitSha": "560674a8cab31d6e2e5ccb7b2c43228e186972fd",
+      "commitMessage": "Update Teams feature comparison and add cross-references",
+      "commitAuthor": "Dhairyya Agarwal",
+      "commitDate": "2026-01-16T11:09:20-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "firstSeenAt": "2026-01-16T19:09:20.000Z",
+      "eventId": "defender-docs:560674a8cab31d6e2e5ccb7b2c43228e186972fd:modified:defender-office-365/mdo-support-teams-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Teams feature comparison and add cross-references",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/defender-for-office-365-whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/defender-for-office-365-whats-new.md b/defender-office-365/defender-for-office-365-whats-new.md\nindex 9766ef94e..ad4010b41 100644\n--- a/defender-office-365/defender-for-office-365-whats-new.md\n+++ b/defender-office-365/defender-for-office-365-whats-new.md\n@@ -43,7 +43,7 @@ For more information on what's new with other Microsoft Defender security produc\n \n - **Block communication from sender email address and domains in Teams**: Admins can directly block [malicious domains and email addresses](tenant-allow-block-list-teams-domains-configure.md) from within the Microsoft Defender portal, seamlessly adding targeted entries to the Teams Admin Center (TAC) blocked domains and users list. This capability enables near real-time protection. When suspicious or abusive external organizations are identified, SOC teams can immediately block them, effectively halting new external chat messages, invites, and channel communications from those domains and senders while deleting existing ones.\n \n-- **Expanding ZAP and Teams Admin quarantine to Plan 1**: [Zero-hour-auto-purge (ZAP)](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams) and [Teams Admin quarantine](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages) is available to Microsoft Defender for Plan 1 by default, bringing post-delivery protection layer. \n+- **Expanding ZAP and Teams Admin quarantine to Plan 1**: [Zero-hour-auto-purge (ZAP)](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams) and [admin management of quarantined Teams messages](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages) is available to Microsoft Defender for Plan 1 by default, bringing a post-delivery protection layer.\n \n ## October 2025\n \n",
+      "baseCommitSha": "560674a8cab31d6e2e5ccb7b2c43228e186972fd",
+      "commitSha": "74c0953eef29838de5aaac9fc3e36acce262422e",
+      "commitMessage": "Edits",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-16T15:14:00-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/defender-for-office-365-whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/defender-for-office-365-whats-new",
+      "firstSeenAt": "2026-01-16T23:14:00.000Z",
+      "eventId": "defender-docs:74c0953eef29838de5aaac9fc3e36acce262422e:modified:defender-office-365/defender-for-office-365-whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edits",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-about.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/mdo-about.md b/defender-office-365/mdo-about.md\nindex e0bef39c3..fa7571a1f 100644\n--- a/defender-office-365/mdo-about.md\n+++ b/defender-office-365/mdo-about.md\n@@ -129,9 +129,9 @@ The extra features that you get in **Defender for Office 365 Plan 2** on top of\n \n ## Defender for Office 365 Plan 1 vs. Plan 2 cheat sheet\n \n-This quick-reference section summarizes the different capabilities between Defender for Office 365 Plan 1 and Plan 2 for email that aren't included in the default email protections for cloud mailboxes.\n+This quick-reference section summarizes the different capabilities between Defender for Office 365 Plan 1 and Plan 2 **for email** that aren't included in the default email protections for cloud mailboxes.\n \n-To check the different capabilities between Plan 1 and Plan 2 for Teams, see [Microsoft Defender for Office 365 support for Microsoft Teams](defender-office-365/mdo-support-teams-about.md#Microsoft-Defender-for-Office-365-support-for-Microsoft-Teams).\n+To compare the different capabilities between Defender for Office 365 Plan 1 and Plan 2 **for Microsoft Teams**, see [Microsoft Defender for Office 365 support for Microsoft Teams](mdo-support-teams-about.md).\n \n |Defender for Office 365 Plan 1|Defender for Office 365 Plan 2|\n |---|---|\n",
+      "baseCommitSha": "560674a8cab31d6e2e5ccb7b2c43228e186972fd",
+      "commitSha": "74c0953eef29838de5aaac9fc3e36acce262422e",
+      "commitMessage": "Edits",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-16T15:14:00-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-about",
+      "firstSeenAt": "2026-01-16T23:14:00.000Z",
+      "eventId": "defender-docs:74c0953eef29838de5aaac9fc3e36acce262422e:modified:defender-office-365/mdo-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edits",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 18,
+      "changes": 37,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\nindex 1583c6214..64bb146b9 100644\n--- a/defender-office-365/mdo-support-teams-about.md\n+++ b/defender-office-365/mdo-support-teams-about.md\n@@ -28,23 +28,7 @@ appliesto:\n \n [!INCLUDE [MDO Trial banner](../includes/mdo-trial-banner.md)]\n \n-\n-  | Feature | All Teams Licenses | MDO P1 | MDO P2 |\n-  |---------|:------------------:|:------:|:------:|\n-  | Built-in virus protection (SharePoint, OneDrive, Teams) | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Near real-time URL warnings (up to 48 hrs post-delivery) | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Safe Links (time-of-click URL protection) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Safe Attachments (time-of-click file protection) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Tenant Allow/Block List (domains, URLs, files) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Zero-hour Auto Purge (ZAP) for Teams | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Teams messages in quarantine (admin-managed) | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Teams Message Entity Panel | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | User-reported Teams messages | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Remove users from Teams chat (admin remediation) | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Attack simulation training with Teams messages | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-  | Advanced hunting on Teams messages | | | :::image type=\"icon\" source=\"media/feature_present_icon.png\"::: |\n-\n-With the increased use of collaboration tools like Microsoft Teams, the possibility of malicious attacks using chat messages has also increased.\n+With the increased use of collaboration tools like Microsoft Teams, the possibility of malicious attacks using chat messages has also increased. This article describes the Microsoft 365 and Microsoft Defender for Office 365 protection features for Microsoft Teams.\n \n All licenses of Microsoft Teams in Microsoft 365 include the following built-in protections:\n \n@@ -73,12 +57,29 @@ Microsoft 365 E5 and Defender for Office 365 Plan 2 extend Teams protection with\n \n - **Report Teams messages**: Users can report Teams messages as malicious or not malicious. Depending on the reported message settings in the organization, reported messages go to the specified reporting mailbox, to Microsoft, or both. For more information, see [User reported settings in Teams](submissions-teams.md).\n \n--  **Remove users from Teams chat**: To remediate malicious attacks, you can remove users from teams chats directly from the [Teams message entity panel](teams-message-entity-panel.md#remove-users-from-teams-chats-in-the-teams-message-entity-panel).\n+- **Remove users from Teams chat**: To remediate malicious attacks, you can remove users from teams chats directly from the [Teams message entity panel](teams-message-entity-panel.md#remove-users-from-teams-chats-in-the-teams-message-entity-panel).\n \n - **Attack simulation training using Teams messages**: To ensure users are resilient to phishing attacks in Microsoft Teams, admins can configure phishing simulations using Teams messages instead of email messages. For more information, see [Microsoft Teams in Attack simulation training](attack-simulation-training-teams.md).\n \n - **Hunting on Teams messages with URLs**: You can hunt for Teams messages containing URL across three new advanced hunting tables: [MessageEvents](/defender-xdr/advanced-hunting-messageevents-table), [MessagePostDeliveryEvents](/defender-xdr/advanced-hunting-messagepostdeliveryevents-table), and [MessageURLInfo](/defender-xdr/advanced-hunting-messageurlinfo-table).\n \n+These features are summarized in the following table:\n+\n+|Feature|All Teams<br/>licenses|Defender for Office 365<br/>Plan 1|Defender for Office 365<br/>Plan 2|\n+|---|:---:|:---:|:---:|\n+|Built-in virus protection (SharePoint, OneDrive, Teams)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Near real-time URL warnings (up to 48 hours post-delivery)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Safe Links (time-of-click URL protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Safe Attachments (time-of-click file protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Tenant Allow/Block List (domains, URLs, files)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Zero-hour auto purge (ZAP) for Teams||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Teams messages in quarantine (admin-managed)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Teams message entity panel||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|User-reported Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Remove users from Teams chats (admin remediation)|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Attack simulation training with Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Advanced hunting on Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+\n <a name='configure-zap-for-teams-protection-in-defender-for-office-365-plan-2'></a>\n \n ## Configure ZAP for Teams protection in Defender for Office 365\n",
+      "baseCommitSha": "560674a8cab31d6e2e5ccb7b2c43228e186972fd",
+      "commitSha": "74c0953eef29838de5aaac9fc3e36acce262422e",
+      "commitMessage": "Edits",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-16T15:14:00-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "firstSeenAt": "2026-01-16T23:14:00.000Z",
+      "eventId": "defender-docs:74c0953eef29838de5aaac9fc3e36acce262422e:modified:defender-office-365/mdo-support-teams-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Edits",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 9,
+    "totalFiles": 14,
+    "authors": [
+      "Atharv Anand",
+      "Chris Davis",
+      "Dhairyya Agarwal",
+      "pradeepmi-MSFT",
+      "sbreingold-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-windows.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "sourceFiles": [
+          "defender-endpoint/configure-endpoints-script.md",
+          "defender-endpoint/microsoft-defender-antivirus-windows.md",
+          "defender-endpoint/linux-whatsnew.md",
+          "defender-endpoint/linux-whatsnew.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md.",
+        "sourceFiles": [
+          "defender-xdr/manage-rbac.md",
+          "defender-xdr/activate-defender-rbac.md",
+          "defender-xdr/activate-defender-rbac.md",
+          "defender-xdr/whats-new-in-microsoft-defender-urbac.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "sourceFiles": [
+          "defender-office-365/defender-for-office-365-whats-new.md",
+          "defender-office-365/mdo-about.md",
+          "defender-office-365/mdo-support-teams-about.md",
+          "defender-office-365/defender-for-office-365-whats-new.md",
+          "defender-office-365/mdo-about.md",
+          "defender-office-365/mdo-support-teams-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-windows.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

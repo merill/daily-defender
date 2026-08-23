@@ -1,0 +1,86 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "sentinel/move-to-defender.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 5,
+      "changes": 12,
+      "patch": "diff --git a/sentinel/move-to-defender.md b/sentinel/move-to-defender.md\nindex 6268edf94..51f5c6329 100644\n--- a/sentinel/move-to-defender.md\n+++ b/sentinel/move-to-defender.md\n@@ -104,14 +104,16 @@ For more information, see:\n \n ### Confirm and configure data collection\n \n-When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental architecture of data collection and telemetry flow remains intact. Existing connectors that were configured in Microsoft Sentinel, whether for Microsoft Defender products or other data sources, continue operating without interruption.\n+When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental architecture of data collection and telemetry flow remains intact. Existing non-Microsoft data connectors continue operating without interruption. However, alert ingestion for Microsoft security products changes after onboarding to the Defender portal with Microsoft Defender XDR. Alerts from Microsoft security products are routed through the Microsoft Defender XDR connector instead of standalone Microsoft security product alert connectors.\n \n-From a Log Analytics perspective, Microsoft Sentinel’s integration into Microsoft Defender introduces no change to the underlying ingestion pipeline or data schema. Despite the front-end unification, the Microsoft Sentinel backend remains fully integrated with Log Analytics for data storage, search, and correlation.\n+In multi-workspace environments, the Microsoft Defender XDR connector is connected to the primary workspace only. To prevent duplicate tenant-based alerts across workspaces, standalone data connectors for Microsoft Defender for Office 365, Microsoft Entra ID Protection, Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity are automatically disconnected in secondary workspaces during onboarding. As a result, tenant-based alerts from these Microsoft security products are available only in the primary workspace.\n+\n+From a Log Analytics perspective, Microsoft Sentinel’s integration into Microsoft Defender doesn't change how Microsoft Sentinel stores log data in Log Analytics. Despite the front-end unification, the Microsoft Sentinel backend remains fully integrated with Log Analytics for data storage, search, and correlation.\n \n Alerts related to Defender products are streamed directly from the [Microsoft Defender XDR connector](/azure/sentinel/connect-microsoft-365-defender) to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. Once you have this data connector configured in your workspace, [offboarding the workspace from Microsoft Defender](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel) also disconnects the Microsoft Defender XDR connector.\n \n > [!NOTE]\n-> This change in connectors results in schema differences for some alerts. For a detailed comparison, see [Alert schema differences: Standalone vs. XDR connector](security-alert-schema-differences.md).\n+> This change in connectors results in schema differences for some alerts. For a detailed comparison, see [Alert schema differences: Standalone vs. Microsoft Defender XDR connector](security-alert-schema-differences.md).\n \n For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).\n \n@@ -171,7 +173,7 @@ The following limitations apply to Microsoft Sentinel automation rules and playb\n \n ### Configure APIs\n \n-The unified experience in the Defender portal introduces notable changes to incidents and alerts from APIs. It supports API calls based on the [Microsoft Graph REST API v1.0](/graph/api/resources/security-api-overview?view=graph-rest-1.0), which can be used for automation related to alerts, incidents, advanced hunting, and more.\n+The unified experience in the Defender portal introduces notable changes to incidents and alerts from APIs. It supports API calls based on the [Microsoft Graph REST API v1.0](/graph/api/resources/security-api-overview?view=graph-rest-1.0&preserve-view=true), which can be used for automation related to alerts, incidents, advanced hunting, and more.\n \n The [Microsoft Sentinel API](/rest/api/securityinsights/api-versions) continues to support actions against Microsoft Sentinel resources, like analytics rules, automation rules and more.   For interacting with unified incidents and alerts, we recommend that you use the Microsoft Graph REST API.\n If you're using the Microsoft Sentinel `SecurityInsights` API to interact with Microsoft Sentinel incidents, you may need to update your automation conditions and trigger criteria due to changes in the response body.\n@@ -304,4 +306,4 @@ The Microsoft Sentinel [similar incidents](investigate-cases.md#similar-incident\n - [The Best of Microsoft Sentinel - now in Microsoft Defender](https://techcommunity.microsoft.com/blog/MicrosoftThreatProtectionBlog/the-best-of-microsoft-sentinel-%E2%80%94-now-in-microsoft-defender/4415822) (blog)\n - Watch the webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4).\n - See frequently asked questions in the [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) or the [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048).\n-- Review [alert schema differences between Standalone and XDR connectors](security-alert-schema-differences.md)\n+- Review [alert schema differences between standalone and Microsoft Defender XDR connectors](security-alert-schema-differences.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "67485bdd06809184461d30efa2eaf3248eee2221",
+      "commitSha": "b9f904b8ba07596c8047b366625310715a6093ef",
+      "commitMessage": "wi587559-sa-alert-connector-usx (#8167)",
+      "commitAuthor": "Sophia Nikolayev",
+      "commitDate": "2026-06-24T12:08:14+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/move-to-defender.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/move-to-defender",
+      "firstSeenAt": "2026-06-24T09:08:14.000Z",
+      "eventId": "defender-docs:b9f904b8ba07596c8047b366625310715a6093ef:modified:sentinel/move-to-defender.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "wi587559-sa-alert-connector-usx (#8167)",
+        "summary": "Updated Microsoft Defender documentation in sentinel/move-to-defender.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "sentinel/security-alert-schema-differences.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 7,
+      "changes": 28,
+      "patch": "diff --git a/sentinel/security-alert-schema-differences.md b/sentinel/security-alert-schema-differences.md\nindex 2e1c7d0ae..4102e2c4e 100644\n--- a/sentinel/security-alert-schema-differences.md\n+++ b/sentinel/security-alert-schema-differences.md\n@@ -1,25 +1,39 @@\n ---\n title: Microsoft Sentinel alert schema differences between standalone and XDR connectors\n-description: Learn how alert schema, field mappings, and ingestion behavior differ between standalone connectors and the XDR connector in Microsoft Sentinel.\n+description: Learn how alert schema, field mappings, and ingestion behavior differ between standalone connectors and the Microsoft Defender XDR connector in Microsoft Sentinel.\n ms.author: guywild\n author: guywi-ms\n ms.reviewer: idpelleg\n ms.topic: reference\n-ms.date: 01/27/2026\n+ms.date: 06/17/2026\n \n # customer intent: As a security analyst, I want to understand how alerts differ when ingested through the XDR connector so that I can update my queries, analytic rules, and workbooks accordingly.\n ---\n \n-# Alert schema differences: Standalone vs. XDR connector\n+# Alert schema differences: Standalone vs. Microsoft Defender XDR connector\n \n-This article explains the differences between alerts ingested through standalone connectors and alerts ingested through the Extended Detection and Response (XDR) connector in Microsoft Sentinel.\n+This article explains the differences between alerts ingested through standalone connectors and alerts ingested through the Microsoft Defender XDR connector in Microsoft Sentinel.\n \n-Standalone connectors ingest alerts directly from the original security products, whereas the XDR connector ingests alerts through the Microsoft Defender XDR pipeline. This includes connectors such as Microsoft Defender for Office 365, Microsoft Defender for Endpoint, Microsoft Defender for Identity, Information Rights Management (IRM), Data Loss Prevention (DLP), Microsoft Defender for Cloud (MDC), and Microsoft Defender for Cloud Apps (MDA).\n+Standalone connectors ingest alerts directly from the original security products, whereas the Microsoft Defender XDR connector ingests alerts through the Microsoft Defender XDR pipeline. This includes connectors such as Microsoft Defender for Office 365, Microsoft Defender for Endpoint, Microsoft Defender for Identity, Information Risk Management (IRM), Data Loss Prevention (DLP), Microsoft Defender for Cloud (MDC), and Microsoft Defender for Cloud Apps (MDA).\n \n-These differences can affect field mappings, derived field behavior, schema structure, and alert ingestion, which might impact your existing queries, analytic rules, and workbooks. Review these differences before migrating to the XDR connector.\n+These differences can affect field mappings, derived field behavior, schema structure, alert ingestion, and connector behavior, which might impact your existing queries, analytic rules, workbooks, and automation. Review these differences before migrating to the XDR connector or onboarding Microsoft Sentinel to the Defender portal with Microsoft Defender XDR.\n \n For the full alert schema, see the [Security alert schema reference](security-alert-schema.md).\n \n+## Standalone connector behavior after onboarding to the Defender portal\n+\n+After you onboard Microsoft Sentinel to the Defender portal with Microsoft Defender XDR, alerts from Microsoft security products are routed through the Microsoft Defender XDR connector instead of standalone Microsoft security product alert connectors.\n+\n+In a single-workspace environment, alerts from Microsoft security products continue to be available in Microsoft Sentinel, but are ingested through the Microsoft Defender XDR connector. This change can affect source-related fields, field mappings, schema behavior, queries, analytic rules, workbooks, and automation.\n+\n+In a multi-workspace environment, the Microsoft Defender XDR connector is connected to the primary workspace only. To prevent duplicate tenant-based alerts across workspaces, standalone data connectors for Microsoft Defender for Office 365, Microsoft Entra ID Protection, Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity are automatically disconnected in secondary workspaces during onboarding.\n+\n+As a result, tenant-based alerts from these Microsoft security products are available only in the primary workspace. Any queries, analytic rules, workbooks, automation rules, or integrations that depend on alerts from standalone Microsoft security product connectors in secondary workspaces no longer function as expected after onboarding.\n+\n+Non-Microsoft data connectors aren't affected by this behavior.\n+\n+For more information, see [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md#primary-and-secondary-workspaces).\n+\n ## CompromisedEntity behavior\n \n The CompromisedEntity field is handled differently across products when alerts are ingested through the XDR connector.\n@@ -57,7 +71,7 @@ The standalone Microsoft Defender for Identity (MDI) connector sometimes used pl\n | ResourceAccessInfo.ResourceIdentifier.ResourceName | `resourceAccessEvents[].ResourceIdentifier` |\n | DomainResourceIdentifier | `resourceAccessEvents[].ResourceIdentifier` |\n \n-ResourceAccessInfo.ComputerId is no longer required because it's 'identical to the Host entity that ResourceAccessInfo is defined in.\n+ResourceAccessInfo.ComputerId is no longer required because it's identical to the Host entity that ResourceAccessInfo is defined in.\n \n ## Alert ingestion filtering\n \n",
+      "baseCommitSha": "67485bdd06809184461d30efa2eaf3248eee2221",
+      "commitSha": "b9f904b8ba07596c8047b366625310715a6093ef",
+      "commitMessage": "wi587559-sa-alert-connector-usx (#8167)",
+      "commitAuthor": "Sophia Nikolayev",
+      "commitDate": "2026-06-24T12:08:14+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/sentinel/security-alert-schema-differences.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/security-alert-schema-differences",
+      "firstSeenAt": "2026-06-24T09:08:14.000Z",
+      "eventId": "defender-docs:b9f904b8ba07596c8047b366625310715a6093ef:modified:sentinel/security-alert-schema-differences.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "wi587559-sa-alert-connector-usx (#8167)",
+        "summary": "Updated Microsoft Defender documentation in sentinel/security-alert-schema-differences.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "Sophia Nikolayev"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "Updated Microsoft Defender documentation in sentinel/move-to-defender.md. Updated Microsoft Defender documentation in sentinel/security-alert-schema-differences.md.",
+        "sourceFiles": [
+          "sentinel/move-to-defender.md",
+          "sentinel/security-alert-schema-differences.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "Updated Microsoft Defender documentation in sentinel/move-to-defender.md. Updated Microsoft Defender documentation in sentinel/security-alert-schema-differences.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

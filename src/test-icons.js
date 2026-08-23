@@ -1,0 +1,48 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const test = require('node:test');
+const { getConfig } = require('@merill/dailynews-engine/config');
+
+const { taxonomy } = getConfig();
+
+// This product's icon set is conformance, not shared behaviour: the code only
+// ever reads `icon.file`, so what is worth asserting is that every declared
+// slug names an SVG that is actually committed, and that the provenance the
+// manifest records has not drifted from the drawing it was taken from.
+function assertIconsResolve(entries, dir) {
+  assert.ok(entries.length, `${dir} should declare at least one entry`);
+  for (const entry of entries) {
+    assert.equal(path.extname(entry.icon.file), '.svg', `${entry.slug} should name an SVG`);
+    const asset = path.resolve(__dirname, '..', 'assets', 'site', dir, entry.icon.file);
+    assert.ok(fs.existsSync(asset), `${entry.slug} should have an asset at ${asset}`);
+    // Some drawings carry an XML prolog and some do not; both are valid SVG.
+    assert.match(fs.readFileSync(asset, 'utf8'), /^(<\?xml[^>]*\?>\s*)?<svg\b/);
+  }
+}
+
+test('every topic renders a committed SVG', () => {
+  assertIconsResolve(taxonomy.topics, 'topics');
+});
+
+test('every product renders a committed SVG', () => {
+  assertIconsResolve(taxonomy.products, 'products');
+});
+
+test('each topic has a drawing of its own', () => {
+  const files = taxonomy.topics.map(topic => topic.icon.file);
+  assert.equal(new Set(files).size, files.length);
+  const sources = taxonomy.topics.map(topic => topic.icon.sourcePath);
+  assert.equal(new Set(sources).size, sources.length);
+});
+
+test('the Defender mark is deliberately shared by the services without one of their own', () => {
+  const shared = taxonomy.products.filter(entry => entry.icon.match === 'shared');
+  assert.ok(shared.length, 'at least one product should share a drawing');
+  const xdr = taxonomy.products.find(entry => entry.slug === 'defender-xdr');
+  for (const product of shared) {
+    assert.equal(product.icon.file, `${product.slug}.svg`);
+    assert.equal(product.icon.sourcePath, xdr.icon.sourcePath,
+      `${product.slug} shares the Defender mark, so it should record the same source`);
+  }
+});

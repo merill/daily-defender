@@ -1,0 +1,307 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 9de650e90..f304f35fd 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -12,7 +12,7 @@ ms.collection:\n - mde-linux\n ms.topic: article\n ms.subservice: linux\n-ms.date: 04/30/2026\n+ms.date: 06/12/2026\n ---\n \n # Prerequisites for Microsoft Defender for Endpoint on Linux\n@@ -103,12 +103,17 @@ The following Linux server distributions are supported:\n | Debian | 9–13 | 11, 12, 13 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n-| Amazon Linux | 2, 2023 | 2, 2023 |\n+| Amazon Linux | 2, 2023 | 2, 2023 (See deprecation note below) |\n | Fedora | 33–42 | - |\n | Rocky Linux | 8.7+, 9.2+ | 8.7+, 9.2+ |\n | Alma Linux | 8.4+, 9.2+ | 8.4+, 9.2+ |\n | Mariner | 2 | 2 |\n \n+> [!IMPORTANT]\n+> Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026, when the last supported version, 101.25122.0004, expires. After this date, newer Defender versions will not install on servers running AL2 (ARM64), and support for existing deployments will end. Customers are advised to migrate to a supported Linux distribution before this date.\n+>  \n+> This change only applies to ARM64-based AL2 machines. AMD64 and x86_64 architectures are not impacted.\n+\n > [!NOTE]\n > Distributions and versions that aren't explicitly listed above are unsupported\n > Microsoft Defender for Endpoint is kernel-version agnostic for all other supported distributions and versions. The minimal requirement for the kernel version is `3.10.0-327` or later.\n",
+      "baseCommitSha": "3cb97c6a10d9e81a4afe51f20fba9e4d8cf5649d",
+      "commitSha": "6c024b551bc1f94c7d9fc4fe84963a94d7b3f83f",
+      "commitMessage": "AL2 ARM63 deprecation",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:08:15+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:08:15.000Z",
+      "eventId": "defender-docs:6c024b551bc1f94c7d9fc4fe84963a94d7b3f83f:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AL2 ARM63 deprecation",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex f304f35fd..ed4cbba34 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -103,16 +103,18 @@ The following Linux server distributions are supported:\n | Debian | 9–13 | 11, 12, 13 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n-| Amazon Linux | 2, 2023 | 2, 2023 (See deprecation note below) |\n+| Amazon Linux | 2, 2023 | 2, 2023 (Support retiring on 31 October 2026. See note below.) |\n | Fedora | 33–42 | - |\n | Rocky Linux | 8.7+, 9.2+ | 8.7+, 9.2+ |\n | Alma Linux | 8.4+, 9.2+ | 8.4+, 9.2+ |\n | Mariner | 2 | 2 |\n \n > [!IMPORTANT]\n-> Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026, when the last supported version, 101.25122.0004, expires. After this date, newer Defender versions will not install on servers running AL2 (ARM64), and support for existing deployments will end. Customers are advised to migrate to a supported Linux distribution before this date.\n->  \n-> This change only applies to ARM64-based AL2 machines. AMD64 and x86_64 architectures are not impacted.\n+> Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026.\n+>\n+> The last supported Defender version for AL2 (ARM64) is 101.25122.0004, which expires on 31 October 2026. After that date, official support for AL2 (ARM64) will end. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n+>\n+> This change applies only to ARM64-based AL2 machines. AMD64 and x86_64 architectures are not impacted.\n \n > [!NOTE]\n > Distributions and versions that aren't explicitly listed above are unsupported\n",
+      "baseCommitSha": "6c024b551bc1f94c7d9fc4fe84963a94d7b3f83f",
+      "commitSha": "3591e6d2916f59143fc9472b916b24fcf1805f19",
+      "commitMessage": "Changes as per PM",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:34:42+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:34:42.000Z",
+      "eventId": "defender-docs:3591e6d2916f59143fc9472b916b24fcf1805f19:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Changes as per PM",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex ed4cbba34..a57bba8d3 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -110,11 +110,13 @@ The following Linux server distributions are supported:\n | Mariner | 2 | 2 |\n \n > [!IMPORTANT]\n-> Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026.\n+> [!IMPORTANT]\n+\n+> **Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026**.\n >\n > The last supported Defender version for AL2 (ARM64) is 101.25122.0004, which expires on 31 October 2026. After that date, official support for AL2 (ARM64) will end. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n >\n-> This change applies only to ARM64-based AL2 machines. AMD64 and x86_64 architectures are not impacted.\n+> This change applies only to ARM64-based AL2 machines. **AMD64 and x86_64 architectures are not impacted**.\n \n > [!NOTE]\n > Distributions and versions that aren't explicitly listed above are unsupported\n",
+      "baseCommitSha": "3591e6d2916f59143fc9472b916b24fcf1805f19",
+      "commitSha": "a941f2bd9300b619d812a9ed01d00c835d688407",
+      "commitMessage": "Added bolding",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:38:20+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:38:20.000Z",
+      "eventId": "defender-docs:a941f2bd9300b619d812a9ed01d00c835d688407:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added bolding",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex a57bba8d3..54d71f6a2 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -109,9 +109,7 @@ The following Linux server distributions are supported:\n | Alma Linux | 8.4+, 9.2+ | 8.4+, 9.2+ |\n | Mariner | 2 | 2 |\n \n-> [!IMPORTANT]\n-> [!IMPORTANT]\n-\n+> [!NOTE]\n > **Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026**.\n >\n > The last supported Defender version for AL2 (ARM64) is 101.25122.0004, which expires on 31 October 2026. After that date, official support for AL2 (ARM64) will end. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n",
+      "baseCommitSha": "a941f2bd9300b619d812a9ed01d00c835d688407",
+      "commitSha": "7e149b7a3175fdab154d07fa5638f0ba13918837",
+      "commitMessage": "Corrections",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:43:03+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:43:03.000Z",
+      "eventId": "defender-docs:7e149b7a3175fdab154d07fa5638f0ba13918837:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrections",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 54d71f6a2..31dd888e3 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -112,7 +112,7 @@ The following Linux server distributions are supported:\n > [!NOTE]\n > **Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026**.\n >\n-> The last supported Defender version for AL2 (ARM64) is 101.25122.0004, which expires on 31 October 2026. After that date, official support for AL2 (ARM64) will end. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n+> The last supported Defender version for AL2 (ARM64) is 101.25122.0004, which expires on 31 October 2026. **After that date, official support for AL2 (ARM64) will end**. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n >\n > This change applies only to ARM64-based AL2 machines. **AMD64 and x86_64 architectures are not impacted**.\n \n",
+      "baseCommitSha": "7e149b7a3175fdab154d07fa5638f0ba13918837",
+      "commitSha": "ea862bc01f1986eb15cab10d4362790dd0f68d5f",
+      "commitMessage": "Modified bolding",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:46:21+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:46:21.000Z",
+      "eventId": "defender-docs:ea862bc01f1986eb15cab10d4362790dd0f68d5f:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Modified bolding",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 31dd888e3..5b3343018 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -112,7 +112,7 @@ The following Linux server distributions are supported:\n > [!NOTE]\n > **Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026**.\n >\n-> The last supported Defender version for AL2 (ARM64) is 101.25122.0004, which expires on 31 October 2026. **After that date, official support for AL2 (ARM64) will end**. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n+> The last supported Defender version for AL2 (ARM64) is 101.25122.0004 (expiry 31 October 2026). **After that date, official support for AL2 (ARM64) will end**. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n >\n > This change applies only to ARM64-based AL2 machines. **AMD64 and x86_64 architectures are not impacted**.\n \n",
+      "baseCommitSha": "ea862bc01f1986eb15cab10d4362790dd0f68d5f",
+      "commitSha": "a95cfe6784ccc5ec5fa477b0fcd525049c9e70fc",
+      "commitMessage": "Minor change",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:53:38+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:53:38.000Z",
+      "eventId": "defender-docs:a95cfe6784ccc5ec5fa477b0fcd525049c9e70fc:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Minor change",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 5b3343018..9c181f285 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -103,7 +103,7 @@ The following Linux server distributions are supported:\n | Debian | 9–13 | 11, 12, 13 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n-| Amazon Linux | 2, 2023 | 2, 2023 (Support retiring on 31 October 2026. See note below.) |\n+| Amazon Linux | 2, 2023 | 2 (Support retiring on 31 October 2026. See note below.), 2023 |\n | Fedora | 33–42 | - |\n | Rocky Linux | 8.7+, 9.2+ | 8.7+, 9.2+ |\n | Alma Linux | 8.4+, 9.2+ | 8.4+, 9.2+ |\n@@ -114,7 +114,7 @@ The following Linux server distributions are supported:\n >\n > The last supported Defender version for AL2 (ARM64) is 101.25122.0004 (expiry 31 October 2026). **After that date, official support for AL2 (ARM64) will end**. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n >\n-> This change applies only to ARM64-based AL2 machines. **AMD64 and x86_64 architectures are not impacted**.\n+> This change applies only to ARM64-based AL2 machines. **AMD64/x86_64 architectures are not impacted**.\n \n > [!NOTE]\n > Distributions and versions that aren't explicitly listed above are unsupported\n",
+      "baseCommitSha": "a95cfe6784ccc5ec5fa477b0fcd525049c9e70fc",
+      "commitSha": "17254dac7d8b64700bce9cbd13da7284576e0de4",
+      "commitMessage": "Changes as per PM",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:57:17+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:57:17.000Z",
+      "eventId": "defender-docs:17254dac7d8b64700bce9cbd13da7284576e0de4:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Changes as per PM",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 9c181f285..18a2754cb 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -103,13 +103,13 @@ The following Linux server distributions are supported:\n | Debian | 9–13 | 11, 12, 13 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n-| Amazon Linux | 2, 2023 | 2 (Support retiring on 31 October 2026. See note below.), 2023 |\n+| Amazon Linux | 2, 2023 | 2 (Support retiring on 31 October 2026. See notice below.), 2023 |\n | Fedora | 33–42 | - |\n | Rocky Linux | 8.7+, 9.2+ | 8.7+, 9.2+ |\n | Alma Linux | 8.4+, 9.2+ | 8.4+, 9.2+ |\n | Mariner | 2 | 2 |\n \n-> [!NOTE]\n+> [!IMPORTANT]\n > **Support for Microsoft Defender for Endpoint on Amazon Linux 2 (AL2) running on ARM64 architecture will be deprecated on 31 October 2026**.\n >\n > The last supported Defender version for AL2 (ARM64) is 101.25122.0004 (expiry 31 October 2026). **After that date, official support for AL2 (ARM64) will end**. Customers are advised to migrate to a supported Linux distribution before this date to ensure continued protection and support.\n",
+      "baseCommitSha": "17254dac7d8b64700bce9cbd13da7284576e0de4",
+      "commitSha": "463629a180cb671670e3e5f91a4095508a78f7f4",
+      "commitMessage": "Changed note to important",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T11:59:06+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T08:59:06.000Z",
+      "eventId": "defender-docs:463629a180cb671670e3e5f91a4095508a78f7f4:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Changed note to important",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 18a2754cb..e59e31cd7 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -103,7 +103,7 @@ The following Linux server distributions are supported:\n | Debian | 9–13 | 11, 12, 13 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n-| Amazon Linux | 2, 2023 | 2 (Support retiring on 31 October 2026. See notice below.), 2023 |\n+| Amazon Linux | 2, 2023 | 2 (Support retiring 31 October 2026. See notice below.)<br>2023 |\n | Fedora | 33–42 | - |\n | Rocky Linux | 8.7+, 9.2+ | 8.7+, 9.2+ |\n | Alma Linux | 8.4+, 9.2+ | 8.4+, 9.2+ |\n",
+      "baseCommitSha": "463629a180cb671670e3e5f91a4095508a78f7f4",
+      "commitSha": "d226aade5e2b43badf4f9a2bdb7613f8e586580c",
+      "commitMessage": "Added line break to table",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-06-12T12:15:25+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-06-12T09:15:25.000Z",
+      "eventId": "defender-docs:d226aade5e2b43badf4f9a2bdb7613f8e586580c:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added line break to table",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-malware-protection-about.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/anti-malware-protection-about.md b/defender-office-365/anti-malware-protection-about.md\nindex 02d29bab5..a1cc716fb 100644\n--- a/defender-office-365/anti-malware-protection-about.md\n+++ b/defender-office-365/anti-malware-protection-about.md\n@@ -41,7 +41,7 @@ Microsoft 365 quarantines messages when malware is found in _any_ attachment<sup\n - [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy)\n - [Manage quarantined messages and files as an admin](quarantine-admin-manage-messages-files.md).\n \n-Anti-malware policies also contain a _common attachments filter_. Messages that contain the specified file types are _automatically_ identified as malware. For more information, see the [Common attachments filter in anti-malware policies](#common-attachments-filter-in-anti-malware-policies) section later in this article.\n+Anti-malware policies also contain a _common attachments filter_. Messages that contain the specified file types are automatically rejected (default) or quarantined based on the policy setting. For more information, see the [Common attachments filter in anti-malware policies](#common-attachments-filter-in-anti-malware-policies) section later in this article.\n \n For more information about anti-malware protection, see the [Frequently asked questions: Anti-malware protection](anti-malware-protection-faq.yml).\n \n",
+      "baseCommitSha": "d1e374f33e9f126490dbacbf3d9d3d41efe98306",
+      "commitSha": "a303cf1b405a37ff173ff70117802d92b98ccc05",
+      "commitMessage": "Update anti-malware-protection-about.md (#7999)",
+      "commitAuthor": "Mithun Rathinam",
+      "commitDate": "2026-06-12T21:24:54+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/anti-malware-protection-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-protection-about",
+      "firstSeenAt": "2026-06-12T15:54:54.000Z",
+      "eventId": "defender-docs:a303cf1b405a37ff173ff70117802d92b98ccc05:modified:defender-office-365/anti-malware-protection-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update anti-malware-protection-about.md (#7999)",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-malware-protection-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 10,
+    "authors": [
+      "Mithun Rathinam",
+      "Paul Inbar"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linu",
+        "sourceFiles": [
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/anti-malware-protection-about.md.",
+        "sourceFiles": [
+          "defender-office-365/anti-malware-protection-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linu"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/anti-malware-protection-about.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

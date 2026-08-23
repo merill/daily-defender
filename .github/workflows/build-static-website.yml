@@ -1,0 +1,70 @@
+name: Build generated website
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      # The generator lives in the engine now, so what can change this site from
+      # inside this repository is its configuration, its assets, and the engine
+      # version this workflow pins.
+      - '.github/workflows/build-static-website.yml'
+      - 'dailynews.config.js'
+      - 'assets/site/**'
+      - 'package.json'
+  workflow_dispatch:
+
+concurrency:
+  group: defender-docs-monitor
+  cancel-in-progress: false
+
+jobs:
+  build-website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+
+      - name: Clone Defender Docs repository
+        run: git clone --filter=blob:none --single-branch --branch public https://github.com/MicrosoftDocs/defender-docs.git defender-docs
+
+      - name: Clone Message Center repository
+        run: git clone --depth 1 https://github.com/merill/mc.git mc
+
+      - name: Set up the dailynews engine
+        # Resolves without a token: this repository and the engine are both
+        # private, and the engine allows repositories owned by the same user to
+        # use its actions, so GitHub checks it out with this workflow's token.
+        uses: merill/dailynews-engine/.github/actions/setup@v1.1.0
+
+      - name: Pin the site generation time to the last refresh
+        # Without this the site drifts from refresh-status.json: a rebuild triggered
+        # by a push stamps itself with the build time, inventing a day page for
+        # "today" that the data does not cover. Pinning keeps the generated site a
+        # pure function of its inputs, which is what makes it verifiable.
+        run: echo "SITE_GENERATED_AT=$(node -p "require('./website/refresh-status.json').lastCheckedAt")" >> "$GITHUB_ENV"
+
+      - name: Build generated website
+        env:
+          MC_DATA_PATH: './mc/@data'
+          KIT_DAILY_FORM_UID: ${{ secrets.KIT_DAILY_FORM_UID }}
+          KIT_DAILY_FORM_EMBED_SRC: ${{ secrets.KIT_DAILY_FORM_EMBED_SRC }}
+          USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
+        run: dailynews build-site && dailynews search-index
+
+      - name: Commit generated website
+        run: |
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@github.com'
+          git add website/
+          if git diff --staged --quiet; then
+            echo 'Generated website is already current.'
+          else
+            git commit -m "Rebuild Defender website for ${GITHUB_SHA::7}"
+            git push
+          fi

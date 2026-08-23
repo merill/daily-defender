@@ -1,0 +1,190 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-iot/configure-permissions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot/configure-permissions.md b/defender-for-iot/configure-permissions.md\nindex 50c338b6b..f07a5638d 100644\n--- a/defender-for-iot/configure-permissions.md\n+++ b/defender-for-iot/configure-permissions.md\n@@ -2,7 +2,7 @@\n title: Configure the permissions needed for Microsoft Defender for IoT in the Defender portal\n description: This article describes how to configure the permissions required for Microsoft Defender for IoT in the Microsoft Defender portal.\n ms.service: defender-for-iot\n-author: lwainstein\n+author: limwainstein\n ms.author: lwainstein\n ms.localizationpriority: medium\n ms.date: 07/23/2024\n",
+      "baseCommitSha": "a35ac506f3867959ab0656f349d4b30b3781c2b8",
+      "commitSha": "cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f",
+      "commitMessage": "Fixing author",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-01T11:26:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot/configure-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-iot/configure-permissions",
+      "firstSeenAt": "2026-03-01T09:26:48.000Z",
+      "eventId": "defender-docs:cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f:modified:defender-for-iot/configure-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing author",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/configure-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot/get-started.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-iot/get-started.md b/defender-for-iot/get-started.md\nindex 630d679c9..c0d13a681 100644\n--- a/defender-for-iot/get-started.md\n+++ b/defender-for-iot/get-started.md\n@@ -1,8 +1,8 @@\n ---\n title: Get started and set up a license for Microsoft Defender for IoT in the Defender portal\n-description: This article describes how to get started and set up a license got Microsoft Defender for IoT in the Defender portal.\n+description: This article describes how to get started and set up a license for Microsoft Defender for IoT in the Defender portal.\n ms.service: defender-for-iot\n-author: lwainstein\n+author: limwainstein\n ms.author: lwainstein\n ms.localizationpriority: medium\n ms.date: 05/19/2024\n",
+      "baseCommitSha": "a35ac506f3867959ab0656f349d4b30b3781c2b8",
+      "commitSha": "cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f",
+      "commitMessage": "Fixing author",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-01T11:26:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot/get-started.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-iot/get-started",
+      "firstSeenAt": "2026-03-01T09:26:48.000Z",
+      "eventId": "defender-docs:cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f:modified:defender-for-iot/get-started.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing author",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/get-started.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot/investigate-threats.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot/investigate-threats.md b/defender-for-iot/investigate-threats.md\nindex 62570b27b..e033970c8 100644\n--- a/defender-for-iot/investigate-threats.md\n+++ b/defender-for-iot/investigate-threats.md\n@@ -2,7 +2,7 @@\n title: Investigate incidents and alerts in Microsoft Defender for IoT in the Defender portal\n description: This article describes how to investigate incidents and alerts in Microsoft Defender for IoT in the Defender portal.\n ms.service: defender-for-iot\n-author: lwainstein\n+author: limwainstein\n ms.author: lwainstein\n ms.localizationpriority: medium\n ms.date: 06/26/2024\n",
+      "baseCommitSha": "a35ac506f3867959ab0656f349d4b30b3781c2b8",
+      "commitSha": "cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f",
+      "commitMessage": "Fixing author",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-01T11:26:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot/investigate-threats.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-iot/investigate-threats",
+      "firstSeenAt": "2026-03-01T09:26:48.000Z",
+      "eventId": "defender-docs:cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f:modified:defender-for-iot/investigate-threats.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing author",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/investigate-threats.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot/prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot/prerequisites.md b/defender-for-iot/prerequisites.md\nindex 12a0f268e..7f4a26f7d 100644\n--- a/defender-for-iot/prerequisites.md\n+++ b/defender-for-iot/prerequisites.md\n@@ -2,7 +2,7 @@\n title: Prerequisites for a license or setting up a site for Microsoft Defender for IoT in the Defender portal\n description: This article describes the prerequisites for a license or setting up a site for Microsoft Defender for IoT in the Microsoft Defender portal.\n ms.service: defender-for-iot\n-author: lwainstein\n+author: limwainstein\n ms.author: lwainstein\n ms.localizationpriority: medium\n ms.date: 05/19/2024\n",
+      "baseCommitSha": "a35ac506f3867959ab0656f349d4b30b3781c2b8",
+      "commitSha": "cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f",
+      "commitMessage": "Fixing author",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-01T11:26:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot/prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-iot/prerequisites",
+      "firstSeenAt": "2026-03-01T09:26:48.000Z",
+      "eventId": "defender-docs:cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f:modified:defender-for-iot/prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing author",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot/set-up-rbac.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot/set-up-rbac.md b/defender-for-iot/set-up-rbac.md\nindex 4325e0df9..a971bce80 100644\n--- a/defender-for-iot/set-up-rbac.md\n+++ b/defender-for-iot/set-up-rbac.md\n@@ -2,7 +2,7 @@\n title: Permissions needed for the site security feature of Microsoft Defender for IoT in the Defender portal\n description: This article describes the permissions required for the site security feature of Microsoft Defender for IoT in the Microsoft Defender portal.\n ms.service: defender-for-iot\n-author: lwainstein\n+author: limwainstein\n ms.author: lwainstein\n ms.localizationpriority: medium\n ms.date: 07/23/2024\n",
+      "baseCommitSha": "a35ac506f3867959ab0656f349d4b30b3781c2b8",
+      "commitSha": "cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f",
+      "commitMessage": "Fixing author",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-01T11:26:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot/set-up-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-iot/set-up-rbac",
+      "firstSeenAt": "2026-03-01T09:26:48.000Z",
+      "eventId": "defender-docs:cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f:modified:defender-for-iot/set-up-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing author",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/set-up-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-iot/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-iot/whats-new.md b/defender-for-iot/whats-new.md\nindex 02467187d..0003830c1 100644\n--- a/defender-for-iot/whats-new.md\n+++ b/defender-for-iot/whats-new.md\n@@ -3,7 +3,7 @@ title: What's new in Microsoft Defender for IoT in the Defender portal\n description: This article describes new features available in Microsoft Defender for IoT in the Defender portal, including both OT and Enterprise IoT networks.\n ms.topic: whats-new\n ms.service: defender-for-iot\n-author: lwainstein\n+author: limwainstein\n ms.author: lwainstein\n ms.localizationpriority: medium\n ms.date: 01/08/2025\n",
+      "baseCommitSha": "a35ac506f3867959ab0656f349d4b30b3781c2b8",
+      "commitSha": "cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f",
+      "commitMessage": "Fixing author",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-01T11:26:48+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-iot/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-iot/whats-new",
+      "firstSeenAt": "2026-03-01T09:26:48.000Z",
+      "eventId": "defender-docs:cd9b18a42914a9cc74a2b3bff546c5f9ed2d2f0f:modified:defender-for-iot/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixing author",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 6,
+    "authors": [
+      "Limor Wainstein"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for IoT",
+        "summary": "Updated Microsoft Defender documentation in defender-for-iot/configure-permissions.md. Updated Microsoft Defender documentation in defender-for-iot/get-started.md. Updated Microsoft Defender documentation in defender-for-iot/investigate-threats.md. Updated Microsoft Defender documentation in defender-for-iot/prerequisites.md. Updated Microsoft Defender documentation in defender-for-iot/set-up-rbac.md. Updated Microsoft Defender documentation in defender-for-iot/whats-new.md.",
+        "sourceFiles": [
+          "defender-for-iot/configure-permissions.md",
+          "defender-for-iot/get-started.md",
+          "defender-for-iot/investigate-threats.md",
+          "defender-for-iot/prerequisites.md",
+          "defender-for-iot/set-up-rbac.md",
+          "defender-for-iot/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for IoT",
+        "detail": "Updated Microsoft Defender documentation in defender-for-iot/configure-permissions.md. Updated Microsoft Defender documentation in defender-for-iot/get-started.md. Updated Microsoft Defender documentation in defender-for-iot/investigate-threats.md. Updated Microsoft Defender documentation in defender-for-iot/prerequisites.md. Updated Microsoft Defender documentation in defender-for-iot/set-up-rbac.md. Updated Microsoft Defender documentation in defender-for-iot/whats-new.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

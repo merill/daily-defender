@@ -1,0 +1,674 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-for-identity/connect-cyber-ark.md",
+      "status": "added",
+      "additions": 97,
+      "deletions": 0,
+      "changes": 97,
+      "patch": "diff --git a/defender-for-identity/connect-cyber-ark.md b/defender-for-identity/connect-cyber-ark.md\nnew file mode 100644\nindex 000000000..f58eeab25\n--- /dev/null\n+++ b/defender-for-identity/connect-cyber-ark.md\n@@ -0,0 +1,97 @@\n+---\n+title: Connect CyberArk Identity to Microsoft Defender for Identity (Preview)\n+description: Learn how to connect your CyberArk Identity app to Defender for Identity using the API connector.\n+ms.date: 02/15/2026\n+ms.topic: how-to\n+ms. reviewer: Himanch\n+---\n+\n+# Connect CyberArk Identity to Microsoft Defender for Identity (Preview)\n+\n+This section provides instructions for connecting Microsoft Defender for Identity to your existing CyberArk Identity account using the connector APIs. This connection gives you visibility into and control over CyberArk identities.  \n+\n+## Prerequisites \n+\n+Before connecting your CyberArk Identity to Microsoft Defender for Identity, make sure the following prerequisites are met:\n+\n+**CyberArk Identity roles**\n+\n+- The System Admin role is required to create an application.\n+\n+**Microsoft Entra and Defender XDR role-based access options**\n+\n+To configure the CyberArk Identity connector in Microsoft Defender for Identity, your account must have either of the following access configurations assigned:\n+\n+- **Microsoft Entra roles:**\n+\n+    - Security Operator \n+\n+    - Security Admin \n+\n+- **Defender XDR Unified RBAC permission:** \n+    - Core security settings (manage)\n+\n+## Connect CyberArk Identity to Microsoft Defender for Identity \n+\n+This section provides instructions for connecting Microsoft Defender for Identity to your dedicated CyberArk Identity account using the connector APIs. This connection gives you visibility into and control over CyberArk Identity use.\n+\n+### Create a custom CyberArk Identity role\n+\n+1. Sign in to CyberArk Identity console as a system administrator.\n+1. Navigate to **Identity Administration > Core Services > Roles**\n+1. Select **Add Role**.\n+1. Add an appropriate name for the custom role.\n+1. Select **Save**.\n+1. Select **Administrative Rights** and add rights for **User Management**.\n+1. Select **Save**.\n+\n+### Create a CyberArk OAuth Confidential Client\n+\n+To support ongoing API access, create a new user and assign the custom role.\n+\n+1. Sign in to CyberArk Identity console as a system administrator.\n+1. Navigate to **Identity Administration > Core Services > Users**.\n+1. Select **Add User**.\n+1. Enter the **Login Name** and **Display Name**.\n+1. Under **Status**, select **Is OAuth confidential client**.\n+1. Copy the username and password. You'll need these credentials later. \n+1. Select **Create User**.\n+1. Navigate to the previously created custom role \n+1. Select **Members** and add the user as a member. \n+1. Select **Save**.\n+\n+### Connect CyberArk Identity to Defender for Identity \n+\n+1. Sign in to the [Microsoft Defender Portal](https://security.microsoft.com).\n+1. Go to **System > Data Management > Data Connectors**.\n+\n+    :::image type=\"content\" source=\"media/connect-cyber-ark/data-connector-cyber-ark.png\" alt-text=\"Screenshot that shows where to find the data connector for CyberArk in the Microsoft Defender portal.\" lightbox=\"media/connect-cyber-ark/data-connector-cyber-ark.png\":::\n+1. Select **Catalog > CyberArk Identity**.\n+1. Select on **Connect a connector**  \n+1. Enter a name for your connector. \n+1. To determine the CyberArk Identity endpoint URL:\n+    1. In CyberArk Identity, select the signed-in user.\n+    1. Select **About**.\n+    1. Copy the **Identity ID** value.\n+    1. Add `.id.cyberark.cloud` to the Identity ID. For example, `contoso.id.cyberark.cloud`.\n+1. Enter your CyberArk Identity Privilege Cloud service endpoint.\n+    1. In the CyberArk Identity Admin console, go to **Identity Administration > Settings > Integration** and locate the **PVWA URL**. Use the value after `https://`. For example,`contoso.privilegecloud.cyberark.cloud`\n+1. Enter the username and password for the Oauth user. Include the complete username and the CyberArk domain. \n+\n+    :::image type=\"content\" source=\"media/connect-cyber-ark/cyber-ark-connector-details.png\" alt-text=\"Screenshot that shows where to enter your CyberArk connector details in the Defender portal.\" lightbox=\"media/connect-cyber-ark/cyber-ark-connector-details.png\":::\n+\n+1. Select **Next**. \n+1. Select **Protection Types > Identity**, and select **Next**. \n+1. Review the information and select **Connect**.\n+1. Verify that the CyberArk Identity connector appears in the **My Connector** table as **Connection Status: Ok**.\n+\n+    :::image type=\"content\" source=\"media/connect-cyber-ark/my-connectors-status.png\" alt-text=\"Screenshot that shows your CyberARk connector status in the Defender portal.\" lightbox=\"media/connect-cyber-ark/my-connectors-status.png\":::\n+\n+1. To setup **Actions**, go to **Microsoft Sentinel > Configuration > Next Gen Automation**. \n+1. Select **Integration profile** and create one for CyberArk with the same credentials.\n+\n+    :::image type=\"content\" source=\"media/connect-cyber-ark/add-integration-profile.png\" alt-text=\"Screenshot that shows how to add an integration profile in the Defender portal.\" lightbox=\"media/connect-cyber-ark/add-integration-profile.png\":::\n+\n+## Related articles\n+\n+- [How Microsoft Defender for Identity protects your CyberArk accounts](defender-for-identity-cyberark-overview.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "5e6384bd29bd53e6aba62dc0c26372006c99141f",
+      "commitSha": "34d4a5282396ee62d9bc6b6eb334227b0d3c09d2",
+      "commitMessage": "rename files and images",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T22:34:47+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/connect-cyber-ark.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/connect-cyber-ark",
+      "firstSeenAt": "2026-02-23T20:34:47.000Z",
+      "eventId": "defender-docs:34d4a5282396ee62d9bc6b6eb334227b0d3c09d2:added:defender-for-identity/connect-cyber-ark.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "rename files and images",
+        "summary": "Added Microsoft Defender documentation in defender-for-identity/connect-cyber-ark.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/defender-for-identity-cyber-ark-overview.md",
+      "status": "added",
+      "additions": 31,
+      "deletions": 0,
+      "changes": 31,
+      "patch": "diff --git a/defender-for-identity/defender-for-identity-cyber-ark-overview.md b/defender-for-identity/defender-for-identity-cyber-ark-overview.md\nnew file mode 100644\nindex 000000000..5faa0687c\n--- /dev/null\n+++ b/defender-for-identity/defender-for-identity-cyber-ark-overview.md\n@@ -0,0 +1,31 @@\n+---\n+title: How Microsoft Defender for Identity protects your CyberArk identity accounts\n+description: Learn how Microsoft Defender for Identity protect your CyberArk accounts and what the integration enables.\n+ms.date: 02/15/2026\n+ms.topic: overview\n+ms.reviewer: himanch\n+# customer-intent: As a security administrator, I want to understand what happens when I connect CyberArk to Microsoft Defender for Identity, so that I can decide whether to enable the integration.\n+---\n+\n+# How Microsoft Defender for Identity protects your CyberArk identity accounts\n+\n+CyberArk Identity is a SaaS-based privileged access management (PAM) solution that manages privileged accounts across cloud and enterprise environments.\n+\n+When you connect CyberArk Identity with Microsoft Defender for Identity, identity data from CyberArk Identity is added to the identity inventory and correlated with identities from on-premises Active Directory and Microsoft Entra ID. Accounts that are managed by CyberArk Identity as PAM accounts are tagged in the inventory.\n+\n+\n+## What you can do after connecting CyberArk Identity to Microsoft Defender for Identity\n+\n+\n+After you connect CyberArk Identity, Microsoft Defender for Identity provides the following capabilities:\n+\n+| Capability | Description |\n+|------------|------------|\n+| View CyberArk accounts in the identity inventory | - Adds CyberArk Identity users into the identity inventory and correlates them with identities from on-premises, Active Directory and Microsoft Entra ID.<br> - Accounts that are managed by CyberArk Identity as PAM accounts are tagged in the inventory.  |\n+| Improve CyberArk security posture | Evaluates CyberArk Identity accounts for security risks such as stale privileged accounts and excessive privileged role assignments, and generates posture recommendations. Example recommendations include: <br> - Change password for CyberArk Identity privileged user accounts<br>- Remove stale CyberArk Identity privileged accounts <br>- Limit the number of CyberArk Identity accounts with system admin role <br>- High number of CyberArk Identity accounts with a privileged role assigned |\n+| Use advanced hunting to investigate CyberArk identities and their related activities | Captures CyberArk Identity inventory The [IdentityInfo](/defender-xdr/advanced-hunting-identityinfo-table) table includes account metadata such as privilege level, group membership, and identity source. |\n+| Take remediation actions | If an identity is determined to be at risk, the following remediation actions can be taken from within the MicrosoftDefender portal: <br>- Disable user in CyberArk Identity <br> - Enable user in CyberArk Identity  |\n+\n+## Next steps\n+\n+- [Connect CyberArk Identity to Microsoft Defender for Identity](connect-cyberark.md)\n",
+      "baseCommitSha": "5e6384bd29bd53e6aba62dc0c26372006c99141f",
+      "commitSha": "34d4a5282396ee62d9bc6b6eb334227b0d3c09d2",
+      "commitMessage": "rename files and images",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T22:34:47+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/defender-for-identity-cyber-ark-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/defender-for-identity-cyber-ark-overview",
+      "firstSeenAt": "2026-02-23T20:34:47.000Z",
+      "eventId": "defender-docs:34d4a5282396ee62d9bc6b6eb334227b0d3c09d2:added:defender-for-identity/defender-for-identity-cyber-ark-overview.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "rename files and images",
+        "summary": "Added Microsoft Defender documentation in defender-for-identity/defender-for-identity-cyber-ark-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/email-authentication-spf-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/email-authentication-spf-configure.md b/defender-office-365/email-authentication-spf-configure.md\nindex 556843d03..1d1359e8d 100644\n--- a/defender-office-365/email-authentication-spf-configure.md\n+++ b/defender-office-365/email-authentication-spf-configure.md\n@@ -78,7 +78,7 @@ v=spf1 <valid mail sources> <enforcement rule>\n Or:\n \n ```text\n-v=spf1 [<ip4>|<ip6>:<PublicIPAddress1> <ip4>|<ip6>:<PublicIPAddress2>... <ip4>|<ip6>:<PublicIPAddressN>] [include:<DomainName1> include:<DomainName1>... include:<DomainNameN>] <-all | ~all>\n+v=spf1 [<ip4>|<ip6>:<PublicIPAddress1> <ip4>|<ip6>:<PublicIPAddress2>... <ip4>|<ip6>:<PublicIPAddressN>] [include:<DomainName1> include:<DomainName2>... include:<DomainNameN>] <-all | ~all>\n ```\n \n For example:\n",
+      "baseCommitSha": "dcf0700615384a9e462fa78e2e7d7b54b873d816",
+      "commitSha": "4e6a1b950e1eb8bfac39acfe91191502d7f6c3fc",
+      "commitMessage": "Fix typo in SPF configuration example",
+      "commitAuthor": "Yusuke Tobo",
+      "commitDate": "2026-02-23T10:10:48+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/email-authentication-spf-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-spf-configure",
+      "firstSeenAt": "2026-02-23T01:10:48.000Z",
+      "eventId": "defender-docs:4e6a1b950e1eb8bfac39acfe91191502d7f6c3fc:modified:defender-office-365/email-authentication-spf-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix typo in SPF configuration example",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/email-authentication-spf-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 21,
+      "changes": 51,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex 81552e26d..c5beaf4f1 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -90,6 +90,28 @@ To configure auditing on a domain controller, complete the following steps:\n - [Configure NTLM auditing](#configure-ntlm-auditing)\n - [Configure Domain object auditing](#configure-domain-object-auditing)\n \n+#### Object-level auditing on the AD FS configuration folder\n+\n+1. Go to the **Active Directory Users and Computers** console, and select the domain where you want to enable the logs.\n+1. Go to **Program Data** > **Microsoft** > **ADFS**.\n+\n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/adfs-container.png\" alt-text=\"Screenshot of a container for Active Directory Federation Services.\":::\n+\n+   \n+1. Right-click **ADFS** and select **Properties**.\n+1. Go to the **Security** tab and select **Advanced** > **Advanced Security Settings**. Then go to the **Auditing** tab and select **Add** > **Select a principal**.\n+1. Under **Enter the object name to select**, enter **Everyone**. Then select **Check Names** > **OK**.\n+1. Return to **Auditing Entry**. Make the following selections:\n+\n+   - For **Type**, select **All**.\n+   - For **Applies to**, select **This object and all descendant objects**.\n+   - Under **Permissions**, scroll down and select **Clear all**. Scroll up and select **Read all properties** and **Write all properties**.\n+      \n+    :::image type=\"content\" source=\"../media/configure-windows-event-collection/audit-adfs.png\" alt-text=\"Screenshot of the auditing settings for Active Directory Federation Services.\":::\n+    \n+   \n+1. Select **OK**.\n+\n #### Configure Directory Services Advanced Auditing\n \n This section describes how to modify your domain controller's Advanced Audit Policy settings for Defender for Identity.\n@@ -226,27 +248,6 @@ To configure domain object auditing:\n \n This section describes how to modify your Active Directory Federation Services (AD FS) audit configurations for Defender for Identity.\n \n-#### Object-level auditing on the AD FS configuration folder\n-\n-1. Go to the **Active Directory Users and Computers** console, and select the domain where you want to enable the logs.\n-1. Go to **Program Data** > **Microsoft** > **ADFS**.\n-\n-    :::image type=\"content\" source=\"../media/configure-windows-event-collection/adfs-container.png\" alt-text=\"Screenshot of a container for Active Directory Federation Services.\":::\n-\n-   \n-1. Right-click **ADFS** and select **Properties**.\n-1. Go to the **Security** tab and select **Advanced** > **Advanced Security Settings**. Then go to the **Auditing** tab and select **Add** > **Select a principal**.\n-1. Under **Enter the object name to select**, enter **Everyone**. Then select **Check Names** > **OK**.\n-1. Return to **Auditing Entry**. Make the following selections:\n-\n-   - For **Type**, select **All**.\n-   - For **Applies to**, select **This object and all descendant objects**.\n-   - Under **Permissions**, scroll down and select **Clear all**. Scroll up and select **Read all properties** and **Write all properties**.\n-      \n-    :::image type=\"content\" source=\"../media/configure-windows-event-collection/audit-adfs.png\" alt-text=\"Screenshot of the auditing settings for Active Directory Federation Services.\":::\n-    \n-   \n-1. Select **OK**.\n \n #### Configure a Group Policy for event auditing\n \n@@ -259,6 +260,14 @@ This section describes how to modify your Active Directory Federation Services (\n \n    :::image type=\"content\" source=\"media/configure-windows-event-collection/group-policy-management-editor.png\" alt-text=\"Screenshot of the advanced auditing audit policy configuration.\":::\n \n+### Configure AD FS event auditing in AD FS Management\n+\n+1. Select **Start** > **Programs** > **Administrative Tools** > **AD FS Management**.\n+1. Go to **Actions** > **Edit Federation Service Properties**.\n+1. Select the **Events** tab.\n+1. Select the **Success audits** and **Failure audits** check boxes.\n+1. Select **OK**.\n+\n    \n #### Configure Verbose logging for AD FS events\n \n",
+      "baseCommitSha": "e01491b4cecfe0c30c8c82a3495ffd5d0a5f3808",
+      "commitSha": "23ddfb315f12ace0302c1d1828930a5b4e00955f",
+      "commitMessage": "update configure windows event auditing",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T10:26:41+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "firstSeenAt": "2026-02-23T08:26:41.000Z",
+      "eventId": "defender-docs:23ddfb315f12ace0302c1d1828930a5b4e00955f:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "update configure windows event auditing",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex c5beaf4f1..9cc5dbf9d 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -268,6 +268,8 @@ This section describes how to modify your Active Directory Federation Services (\n 1. Select the **Success audits** and **Failure audits** check boxes.\n 1. Select **OK**.\n \n+    :::image type=\"content\" source=\"media/configure-windows-event-collection/federation-services-dialog.png\" alt-text=\"Screenshot that shows the Federation service properties page.\" lightbox=\"media/configure-windows-event-collection/federation-services-dialog.png\":::\n+\n    \n #### Configure Verbose logging for AD FS events\n \n",
+      "baseCommitSha": "23ddfb315f12ace0302c1d1828930a5b4e00955f",
+      "commitSha": "19f760d13934564d81b70dfeef70ddca4abe66df",
+      "commitMessage": "add screenshot",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T10:46:18+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "firstSeenAt": "2026-02-23T08:46:18.000Z",
+      "eventId": "defender-docs:19f760d13934564d81b70dfeef70ddca4abe66df:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add screenshot",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-users.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 11,
+      "changes": 22,
+      "patch": "diff --git a/defender-xdr/investigate-users.md b/defender-xdr/investigate-users.md\nindex dab6061b2..1f07f987a 100644\n--- a/defender-xdr/investigate-users.md\n+++ b/defender-xdr/investigate-users.md\n@@ -49,7 +49,7 @@ From the **Overview** page, use the **Actions** menu to trigger [remediation act\n \n :::image type=\"content\" source=\"media/investigate-users/identity-actions.png\" alt-text=\"Screenshot of the identity page with the identity actions menu showing.\":::\n \n-### Overview tab\n+## Overview tab\n \n The **Overview** tab provides a high‑level snapshot that helps analysts quickly assess risk and decide whether deeper investigation is required.\n \n@@ -78,15 +78,15 @@ Additional details appear depending on enabled services and features. For exampl\n - (Preview) Environments with [Microsoft Purview Insider Risk Management](/purview/insider-risk-management-solution-overview) can see a user's insider risk severity and gain insights on a user's suspicious activities in the user page. Select the **insider risk severity** to see the risk insights about the user.\n - (Preview) Environments with [Microsoft Sentinel User and Entity Behavior Analytics (UEBA)](/azure/sentinel/identify-threats-with-entity-behavior-analytics), can see:\n   - The user's top three UEBA anomalies from the last 30 days.\n-  - Links to launch pre-built advanced hunting queries and view all anomalous behaviors related to the user on the [Sentinel events tab](#sentinel-events-tab).\n+  - Links to launch pre-built advanced hunting queries and view all anomalous behaviors related to the user on the [Sentinel events tab](#microsoft-sentinel-events-tab).\n \n-### Incidents and alerts tab\n+## Incidents and alerts tab\n \n The **Incidents and alerts** tab lists all alerts and incidents involving the identity within the supported retention window. See the incidents page or the alerts page for a detailed description of the specific item.\n \n :::image type=\"content\" source=\"media/investigate-users/identity-incidents-and-alerts.png\" alt-text=\"Screenshot of the Incidents and alerts tab on the Identity page in Microsoft Defender.\":::\n \n-### Observed in organization tab\n+## Observed in organization tab\n \n The **Observed in organization** tab shows where and how the identity appears across the environment, helping analysts understand blast radius and potential lateral movement.\n \n@@ -99,7 +99,7 @@ This tab can include:\n | Locations | Locations observed for sign-ins |\n | Groups | Groups associated with the identity (when available) |\n \n-#### Primary accounts\n+### Primary accounts\n \n Each identity can include multiple related accounts from different identity providers. Microsoft Defender identifies one account as the primary account and uses that account’s profile values for identity-level fields, such as display name and job title.\n \n@@ -107,7 +107,7 @@ The primary account is selected by Microsoft Defender based on internal correlat\n \n :::image type=\"content\" source=\"media/investigate-users/identity-observed-in-organization.png\" alt-text=\"Screenshot of the Observed in organization tab on the Identity page in Microsoft Defender.\":::\n \n-### Timeline tab\n+## Timeline tab\n \n The **Timeline** tab provides a chronological view of identity related activity and alerts aggregated from integrated Microsoft security products, such as Microsoft Defender for Identity, Microsoft Defender for Endpoint, Microsoft Defender for Cloud Apps, and Microsoft Sentinel.\n \n@@ -122,27 +122,27 @@ Analysts can:\n - Customize visible columns\n - Export timeline data to CSV (within supported limits)\n \n-### Security recommendations tab\n+## Security recommendations tab\n \n The **Security recommendations** tab displays identity related posture assessments identified through Identity Security Posture Management (ISPM). These recommendations highlight misconfigurations or risky settings across the identity’s accounts, and selecting a recommendation opens the details in Microsoft Secure Score for remediation guidance.\n \n :::image type=\"content\" source=\"media/investigate-users/identity-posture-recommendations.png\" alt-text=\"Screenshot of the Security recommendations tab on the Identity page in Microsoft Defender.\":::\n \n-### Attack paths tab\n+## Attack paths tab\n \n The **Attack paths** tab visualizes potential lateral movement paths that involve the identity or lead to it. These insights help security teams understand exploitable relationships and reduce identity‑based attack surface.\n \n-### Policies tab\n+## Policies tab\n \n The **Policies** tab displays identity‑related security policies that are relevant to the identity based on its attributes, roles, and observed activity.\n \n This view provides investigation context by showing which policies apply to the identity and how they influence access or risk evaluation. Policies are managed elsewhere; this tab helps analysts correlate policy enforcement with sign‑ins, alerts, and investigation findings.\n \n-### Microsoft Sentinel events tab\n+## Microsoft Sentinel events tab\n \n When Microsoft Sentinel is connected to the Defender portal, this tab can show a Sentinel timeline for the identity. The timeline includes alerts associated with the identity, including alerts also shown on the **Incidents and alerts** tab and alerts created by Microsoft Sentinel. It also shows bookmarked hunts that reference the identity, activity events from external data sources, and unusual behaviors identified by Microsoft Sentinel anomaly rules.\n \n-#### Insights\n+### Insights\n \n The **Insights** section shows entity insights, which are investigation queries defined by Microsoft security researchers to help analysts investigate identities more efficiently. These insights automatically highlight key security signals such as sign‑in activity, group changes, and anomalous behavior, and present results as tables and visualizations. Insights are powered by Microsoft Sentinel and the data sources connected to it, including Microsoft Entra ID logs and Microsoft Sentinel UEBA when enabled.\n \n",
+      "baseCommitSha": "03c8dffcd9d9ee336106953e891227b5cb8b1a07",
+      "commitSha": "eb6b6c5ef29427e090a603b793fd49401a9757f2",
+      "commitMessage": "edits",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T13:00:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/investigate-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-users",
+      "firstSeenAt": "2026-02-23T11:00:13.000Z",
+      "eventId": "defender-docs:eb6b6c5ef29427e090a603b793fd49401a9757f2:modified:defender-xdr/investigate-users.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "edits",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-users.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-users.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 10,
+      "changes": 20,
+      "patch": "diff --git a/defender-xdr/investigate-users.md b/defender-xdr/investigate-users.md\nindex 1f07f987a..a78340c6c 100644\n--- a/defender-xdr/investigate-users.md\n+++ b/defender-xdr/investigate-users.md\n@@ -1,6 +1,6 @@\n ---\n title: Investigate Identities\n-description: Learn how to use the Identity page in Microsoft Defender to investigate user identities, review alerts, analyze activity timelines, and assess security risks across linked accounts.\n+description: Learn how to use the Identity page in Microsoft Defender. Investigate user identities, review alerts, analyze activity timelines, and assess security risks across linked accounts.\n #customer intent: As a security analyst using Microsoft Defender, I want to understand how to use the Identity page so that I can investigate potentially compromised identities, assess risk, and correlate alerts across linked user accounts.\n author: AbbyMSFT\n ms.author: abbyweisberg\n@@ -11,7 +11,7 @@ ms.service: microsoft-defender\n \n # Identity entity page in Microsoft Defender\n \n-In Microsoft Defender, an **identity** represents a person or entity in your organization. Because users often have multiple accounts across providers such as on-premises Active Directory, Microsoft Entra ID, SaaS applications, and other IDPs, Defender correlates them into a single identity.\n+In Microsoft Defender, an **identity** represents a person or entity in your organization. Users often have multiple accounts across providers such as on-premises Active Directory, Microsoft Entra ID, SaaS applications, and other IDPs. Defender correlates these accounts into a single identity.\n \n Each identity has a primary account. When multiple accounts are associated with an identity, Microsoft Defender designates one account as primary and uses it for identity-level profile details.\n \n@@ -25,9 +25,9 @@ The **Identity** page consolidates identity details, observed activity, alerts,\n - Activity log\n - Action center\n \n-The Identity page is organized into a top section and a set of tabs. The top section shows identity context such as the org information and tags, and includes the **Actions** menu. Below that, use the tabs to review summary details, related alerts, and deeper investigation views.\n+The Identity page is organized into a top section and a set of tabs. The top section shows identity context such as the org information and tags, and includes the **Actions** menu. Use the tabs to review summary details, related alerts, and deeper investigation views.\n \n-- Org information: The identity’s job title, department and more.\n+- Org information: The identity’s job title, department, and more.\n - Account tags: Active Directory tags associated with the identity\n \n The Identity page includes these tabs:\n@@ -39,7 +39,7 @@ The Identity page includes these tabs:\n - Security recommendations\n - Attack paths\n - Policies\n-- Microsoft Sentinel events (for Sentinel customers)\n+- Microsoft Sentinel events (for Microsoft Sentinel customers)\n \n :::image type=\"content\" source=\"media/investigate-users/identity-page.png\" alt-text=\"Screenshot of the Identity page in Microsoft Defender portal.\" lightbox=\"media/investigate-users/identity-page.png\":::\n \n@@ -70,7 +70,7 @@ The Entity details panel summarizes key identity information and investigation s\n - Linked user accounts, devices, and group memberships\n - Related alerts and incidents, grouped by severity\n \n-Additional details appear depending on enabled services and features. For example:\n+Other details appear depending on enabled services and features. For example:\n \n - Environments with Microsoft Defender for Identity can see:\n   - Active Directory account control flags, such as password‑never‑expires or account lock status\n@@ -78,7 +78,7 @@ Additional details appear depending on enabled services and features. For exampl\n - (Preview) Environments with [Microsoft Purview Insider Risk Management](/purview/insider-risk-management-solution-overview) can see a user's insider risk severity and gain insights on a user's suspicious activities in the user page. Select the **insider risk severity** to see the risk insights about the user.\n - (Preview) Environments with [Microsoft Sentinel User and Entity Behavior Analytics (UEBA)](/azure/sentinel/identify-threats-with-entity-behavior-analytics), can see:\n   - The user's top three UEBA anomalies from the last 30 days.\n-  - Links to launch pre-built advanced hunting queries and view all anomalous behaviors related to the user on the [Sentinel events tab](#microsoft-sentinel-events-tab).\n+  - Links to launch pre-built advanced hunting queries and view all anomalous behaviors related to the user on the [Microsoft Sentinel events tab](#microsoft-sentinel-events-tab).\n \n ## Incidents and alerts tab\n \n@@ -94,7 +94,7 @@ This tab can include:\n \n | Section | Description |\n |----|----|\n-| Accounts | All accounts associated with the identity across identity systems, including automatically and manually correlated accounts. Analysts can [manually link additional related accounts](/defender-for-identity/manage-related-identities-accounts). An indicator shows which account is the primary account. |\n+| Accounts | All accounts associated with the identity across identity systems, including automatically and manually correlated accounts. Analysts can [manually link other related accounts](/defender-for-identity/manage-related-identities-accounts). An indicator shows which account is the primary account. |\n | Devices | Devices the identity signed into. This usually shows you recent activity, |\n | Locations | Locations observed for sign-ins |\n | Groups | Groups associated with the identity (when available) |\n@@ -103,7 +103,7 @@ This tab can include:\n \n Each identity can include multiple related accounts from different identity providers. Microsoft Defender identifies one account as the primary account and uses that account’s profile values for identity-level fields, such as display name and job title.\n \n-The primary account is selected by Microsoft Defender based on internal correlation logic.\n+Microsoft Defender uses internal correlation logic to determine the primary account.\n \n :::image type=\"content\" source=\"media/investigate-users/identity-observed-in-organization.png\" alt-text=\"Screenshot of the Observed in organization tab on the Identity page in Microsoft Defender.\":::\n \n@@ -140,7 +140,7 @@ This view provides investigation context by showing which policies apply to the\n \n ## Microsoft Sentinel events tab\n \n-When Microsoft Sentinel is connected to the Defender portal, this tab can show a Sentinel timeline for the identity. The timeline includes alerts associated with the identity, including alerts also shown on the **Incidents and alerts** tab and alerts created by Microsoft Sentinel. It also shows bookmarked hunts that reference the identity, activity events from external data sources, and unusual behaviors identified by Microsoft Sentinel anomaly rules.\n+When Microsoft Sentinel is connected to the Defender portal, this tab shows a Sentinel timeline for the identity. The timeline includes alerts associated with the identity, including alerts also shown on the **Incidents and alerts** tab and alerts created by Microsoft Sentinel. It also shows bookmarked hunts that reference the identity, activity events from external data sources, and unusual behaviors identified by Microsoft Sentinel anomaly rules.\n \n ### Insights\n \n",
+      "baseCommitSha": "eb6b6c5ef29427e090a603b793fd49401a9757f2",
+      "commitSha": "84a20d6eeefd4c7eda07123583748d5d46c7fe79",
+      "commitMessage": "acrolinx improvements",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T13:59:30+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/investigate-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-users",
+      "firstSeenAt": "2026-02-23T11:59:30.000Z",
+      "eventId": "defender-docs:84a20d6eeefd4c7eda07123583748d5d46c7fe79:modified:defender-xdr/investigate-users.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "acrolinx improvements",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-users.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-quarantine-notifications.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-office-365/quarantine-quarantine-notifications.md b/defender-office-365/quarantine-quarantine-notifications.md\nindex 376c835c3..a3430af69 100644\n--- a/defender-office-365/quarantine-quarantine-notifications.md\n+++ b/defender-office-365/quarantine-quarantine-notifications.md\n@@ -74,6 +74,9 @@ The actions that are available for messages in the quarantine notification depen\n \n   Selecting the action takes you to the details flyout of the message in quarantine. It's the same result as going to the **Email** tab on the **Quarantine** page at <https://security.microsoft.com/quarantine?viewid=Email>, and selecting the message by clicking anywhere in the row other than the check box next to the first column. For more information, see [View quarantined message details](quarantine-end-user.md#view-quarantined-message-details).\n \n+  > [!TIP]\n+  > The **Review message** button cannot be removed by modifying the [Quarantine policy permission details](quarantine-policies.md#quarantine-policy-permission-details).\n+\n - **Release**: Available for messages quarantined by features using a quarantine policy with the **Full access** permission group or the individual **Allow recipients to release a message from quarantine** (_PermissionToRelease_) permission. For example, DefaultFullAccessWithNotificationPolicy, NotificationEnabledPolicy, or custom quarantine policies.\n \n   Selecting the action opens an informational web page that acknowledges the message was released from quarantine (for example, **Spam message was released from quarantine**). The **Release status** value of the message on the **Email** tab of the **Quarantine** page is **Released**. The message is delivered to the user's Inbox (or some other folder, depending on any [Inbox rules](https://support.microsoft.com/office/c24f5dea-9465-4df4-ad17-a50704d66c59) in the mailbox).\n",
+      "baseCommitSha": "e01491b4cecfe0c30c8c82a3495ffd5d0a5f3808",
+      "commitSha": "b8530d2a9ffb5a5a1823f1b619b621c6ba0a8fe8",
+      "commitMessage": "Update quarantine-quarantine-notifications.md",
+      "commitAuthor": "Mithun Rathinam",
+      "commitDate": "2026-02-23T18:31:04+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-quarantine-notifications.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-quarantine-notifications",
+      "firstSeenAt": "2026-02-23T13:01:04.000Z",
+      "eventId": "defender-docs:b8530d2a9ffb5a5a1823f1b619b621c6ba0a8fe8:modified:defender-office-365/quarantine-quarantine-notifications.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update quarantine-quarantine-notifications.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/remediation-actions.md",
+      "status": "modified",
+      "additions": 33,
+      "deletions": 26,
+      "changes": 59,
+      "patch": "diff --git a/defender-for-identity/remediation-actions.md b/defender-for-identity/remediation-actions.md\nindex 699695016..ad04930e6 100644\n--- a/defender-for-identity/remediation-actions.md\n+++ b/defender-for-identity/remediation-actions.md\n@@ -1,7 +1,7 @@\n ---\n title: Remediation actions\n description: Learn how to respond to compromised users with remediation actions in Microsoft Defender for Identity\n-ms.date: 08/28/2023\n+ms.date: 02/23/2026\n ms.topic: how-to\n ---\n \n@@ -18,50 +18,57 @@ The response actions on users are available directly from the user page, the use\n \n Watch the following video to learn more about remediation actions in Defender for Identity:\n \n-<br>\n \n > [!VIDEO https://www.youtube.com/embed/tpTJiJCgdck?si=prONSe2wj_KZBcKl]\n \n+## How remediation actions work\n \n-## Prerequisites\n+Microsoft Defender for Identity remediation actions run in one of two ways.\n \n-To perform any of the [supported actions](#supported-actions), you need to:\n+- **LocalSystem impersonation on the domain controller**: The Defender for Identity sensor runs actions by impersonating the LocalSystem account on the domain controller. This behavior can be modified by configuring group Managed Service Account (gMSA) scoping and permissions.\n \n-- Configure the account that Microsoft Defender for Identity will use to perform them. By default, the Microsoft Defender for Identity sensor installed on a domain controller will impersonate the *LocalSystem* account of the domain controller and perform the above actions. However, you can change this default behavior by [setting up a gMSA account](manage-action-accounts.md) and scope the permissions as you need.\n+- **Microsoft Entra ID–based execution**: For some remediation actions, Defender for Identity creates an enterprise application in Microsoft Entra ID. The enterprise application, Microsoft Defender for Identity, is created automatically in the tenant and is used only to execute remediation actions. When a user initiates an action from the Defender portal, the request is authorized based on the user’s Entra ID roles and executed by the Defender for Identity application, enforcing Entra ID role‑based access control (RBAC) and audit logging.\n \n-- Be signed into Microsoft Defender XDR to with relevant permissions. For Defender for Identity actions, you'll need a custom role with **Response (manage)** permissions. For more information, see [Create custom roles with Microsoft Defender XDR Unified RBAC](/microsoft-365/security/defender/create-custom-rbac-roles).\n+  - Enterprise application name: `Microsoft Defender for Identity`(legacy name: `Radius Aad Syncer`).\n+  - Application ID: 60ca1954-583c-4d1f-86de-39d835f3e452\n \n-## Supported actions\n+## Prerequisites\n \n-The following Defender for Identity actions can be performed on Identities:\n+To perform any of the [supported actions](#supported-actions), you need to:\n+\n+- Sign in to Microsoft Defender with the user performing the actions.\n+- Ensure the account used by Microsoft Defender for Identity has the required permissions. Authorization is enforced through Microsoft Entra ID roles. If built‑in roles don’t meet the requirement, create a custom role using Microsoft Defender XDR Unified RBAC with Response (Manage) permissions. For more information, see [Create custom roles with Microsoft Defender XDR Unified RBAC](/microsoft-365/security/defender/create-custom-rbac-roles).\n \n-| Remediation Action  | Description     |          Scope                        | \n-| ------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |\n-|Disable                 | You can choose to disable **all accounts linked to an identity** or **only one of them**. Disabling an identity prevents sign-in and access to network resources until the accounts are re-enabled. This action doesn’t delete the identity profile or associated data such as documents, calendar events, or email messages. | Active Directory, Microsoft Entra ID, and Okta\n-|Enable              | Re-enables accounts that were previously disabled for the selected identity. | Active Directory, Microsoft Entra ID, and Okta\n-|Revoke session     | Revoke an identity's active session. | Microsoft Entra ID and Okta\n-|Mark as compromised     | Marks all accounts linked to the selected identity as compromised in Microsoft Entra ID. | Microsoft Entra ID\n-|Force password change| Force a password change for one or more accounts linked to the selected identity. This prompts the identity to change their password on the next logon, ensuring that this account can't be used for further impersonation attempts.| Active Directory\n-|Deactivate | This action can be used when a non-legit malicious account was detected, to deactivate the account permanently | Okta\n-|Set account risk to High/Medium/Low |Set account risk scoring to one of the defined levels. This action is only available if [Risk Scoring](https://help.okta.com/en-us/Content/Topics/Security/Security_Risk_Scoring.htm) feature is enabled | Okta\n+## Supported actions\n \n+The following Defender for Identity actions can be performed on Identities. Depending on your Microsoft Entra ID roles, you might see additional Microsoft Entra ID actions, such as requiring users to sign in again and confirming a user as compromised. For more information, see [Remediate risks and unblock users](/entra/id-protection/howto-identity-protection-remediate-unblock).\n \n-Depending on your Microsoft Entra ID roles, you might see additional Microsoft Entra ID actions, such as requiring users to sign in again and confirming a user as compromised. For more information, see [Remediate risks and unblock users](/entra/id-protection/howto-identity-protection-remediate-unblock).\n+| Remediation Action | Description | Scope |\n+| ------------------ | ----------- | ------ |\n+| Disable | You can choose to disable **all accounts linked to an identity** or **only one of them**. Disabling an identity prevents sign-in and access to network resources until the accounts are re-enabled. This action doesn’t delete the identity profile or associated data such as documents, calendar events, or email messages. | Active Directory, Microsoft Entra ID, and Okta |\n+| Enable | Re-enables accounts that were previously disabled for the selected identity. | Active Directory, Microsoft Entra ID, and Okta|\n+| Revoke session | Revoke an identity's active session. | Microsoft Entra ID and Okta|\n+| Mark as compromised | Marks all accounts linked to the selected identity as compromised in Microsoft Entra ID. | Microsoft Entra ID |\n+| Force password change | Force a password change for one or more accounts linked to the selected identity. This prompts the identity to change their password on the next logon, ensuring that this account can't be used for further impersonation attempts. | Active Directory |\n+| Deactivate | This action can be used when a non-legit malicious account was detected, to deactivate the account permanently | Okta |\n+| Set account risk to High/Medium/Low |Set account risk scoring to one of the defined levels. This action is only available if the [Risk Scoring](https://help.okta.com/en-us/Content/Topics/Security/Security_Risk_Scoring.htm) feature is enabled. | Okta |\n \n ## Roles and Permissions\n \n-| Remediation Action | Active Directory  |Microsoft Entra ID   | Okta  |\n-|--|--|--|--|\n-|Disable | Refer to [Required permissions Defender for Identity in Microsoft Defender XDR](/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Microsoft Entra Roles: <br> - Global Administrator <br>  - User Administrator <br>  - Authentication Administrator <br>  - Privileged Authentication Administrator <br>  - Directory Writers <br>  | A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n-| Enable | Refer to [Required permissions Defender for Identity in Microsoft Defender XDR](/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Microsoft Entra Roles: <br> - Global Administrator <br>  - User Administrator <br>  - Authentication Administrator <br>  - Privileged Authentication Administrator <br>  - Directory Writers <br>  | A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n-| Revoke session |N\\A  | Microsoft Entra Roles: <br> - Global Administrator <br>  - User Administrator <br>  - Authentication Administrator <br>  - Privileged Authentication Administrator <br>  - Directory Writers <br> - Helpdesk Administrator <br>| A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n-| Mark as compromised |N\\A  |  Microsoft Entra Roles: <br> - Global Administrator <br> -Security Administrator <br> - Security Operator <br>  | N/A|\n+This table lists the remediation actions supported by Defender for Identity and the roles required to initiate each action.\n+\n+| Remediation Action | Active Directory |Microsoft Entra ID | Okta |\n+| ---- | ---- | ---- | ---- |\n+|Disable | Refer to [Required permissions Defender for Identity in Microsoft Defender XDR](/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Microsoft Entra Roles: <br> - Global Administrator <br> - User Administrator <br> - Authentication Administrator <br> - Privileged Authentication Administrator <br> - Directory Writers | A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n+| Enable | Refer to [Required permissions Defender for Identity in Microsoft Defender XDR](/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Microsoft Entra Roles: <br> - Global Administrator <br> - User Administrator <br> - Authentication Administrator <br> - Privileged Authentication Administrator <br> - Directory Writers | A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n+| Revoke session |N\\A | Microsoft Entra Roles: <br> - Global Administrator <br> - User Administrator <br> - Authentication Administrator <br> - Privileged Authentication Administrator <br> - Directory Writers <br> - Helpdesk Administrator | A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n+| Mark as compromised |N\\A |  Microsoft Entra Roles: <br> - Global Administrator <br> -Security Administrator <br> - Security Operator | N/A |\n | Force password change| Refer to [Required permissions Defender for Identity in Microsoft Defender XDR](/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | N\\A | N\\A\n | Deactivate | N\\A | N\\A | A custom role defined with permissions for Response (manage) or one of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator\n-| Set identity risk to High/Medium/Low  | N\\A | N\\A | A custom role defined with permissions for Response (manage) or One of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator\n+| Set identity risk to High/Medium/Low | N\\A | N\\A | A custom role defined with permissions for Response (manage) or One of the following Microsoft Entra roles: <br> - Security Operator <br> - Security Administrator <br> - Global Administrator |\n \n > [!NOTE]\n-> There are some limitations for Microsoft Entra ID when performing certain actions on other roles. For more information, see the [Graph API documentation](/graph/api/resources/users?view=graph-rest-1.0&preserve-view=true ).\n+> There are some limitations for Microsoft Entra ID when performing certain actions on other roles. For more information, see the [Graph API documentation](/graph/api/resources/users?view=graph-rest-1.0&preserve-view=true).\n \n ## Related videos\n \n",
+      "baseCommitSha": "e01491b4cecfe0c30c8c82a3495ffd5d0a5f3808",
+      "commitSha": "5a173f76740ee8791b581139eaa7acb550d84b57",
+      "commitMessage": "remediation actions",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T16:10:25+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/remediation-actions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/remediation-actions",
+      "firstSeenAt": "2026-02-23T14:10:25.000Z",
+      "eventId": "defender-docs:5a173f76740ee8791b581139eaa7acb550d84b57:modified:defender-for-identity/remediation-actions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "remediation actions",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/remediation-actions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 4,
+      "changes": 18,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 291c909d3..2151233a8 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -53,7 +53,7 @@ As part of the ongoing transition to a unified alerting experience across Micros\n - [Possible Kerberoasting attack using a stealthy LDAP search](alerts-xdr.md#possible-kerberoasting-attack-using-a-stealthy-ldap-search)\n - [Suspicious Kerberos authentication (TGT request using TGS-REQ)](alerts-xdr.md#suspicious-kerberos-authentication-tgt-request-using-tgs-req)\n \n-All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) .\n+All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md).\n \n ### Identity inventory enhancements are now generally available\n \n@@ -65,13 +65,23 @@ All alerts are based on detections from Defender for Identity sensors. For the f\n \n ### New security posture assessments\n \n-- [Remove stale Active Directory accounts (Preview)](security-posture-assessments/accounts.md#remove-stale-active-directory-accounts-preview) lists any user accounts in Active Directory that are stale, meaning they haven't logged in at all during the past 90 days.\n-\n- - [Microsoft Entra ID privileged user accounts that are also privileged in Active Directory (Preview)](security-posture-assessments/accounts.md#microsoft-entra-id-privileged-user-accounts-that-are-also-privileged-in-active-directory-preview) lists Microsoft Entra ID privileged user accounts that also have privileged roles in Active Directory.\n+- [Remove stale Active Directory accounts (Preview)](security-posture-assessments/accounts.md#remove-stale-active-directory-accounts-preview) lists any user accounts in Active Directory that are stale, meaning they haven't logged in at all during the past 90 days. \n+- [Microsoft Entra ID privileged user accounts that are also privileged in Active Directory (Preview)](security-posture-assessments/accounts.md#microsoft-entra-id-privileged-user-accounts-that-are-also-privileged-in-active-directory-preview) lists Microsoft Entra ID privileged user accounts that also have privileged roles in Active Directory.\n \n ### New Health Alert: Sensor v3.x RPC Audit Misconfigured\n Enhanced RPC auditing is required for some Microsoft Defender for Identity advanced identity detections. A new health alert helps identify v3.x sensors where this configuration is either missing or incorrectly applied. The alert is being rolled out gradually to customers. For more information, see [Configure RPC on sensors v3.x](deploy/prerequisites-sensor-version-3.md#configure-rpc-auditing).\n \n+### New Entra ID user roles to support remediation actions\n+\n+For some [remediation actions](remediation-actions.md), Defender for Identity creates an enterprise application in Microsoft Entra ID. The Microsoft Defender for Identity enterprise application is created automatically in the tenant and is used only to execute remediation actions. When a user initiates an action from the Defender portal, the request is authorized based on the user’s Entra ID roles and executed by the Defender for Identity application, enforcing Entra ID role‑based access control (RBAC) and audit logging. These new Entra ID roles are supported:\n+\n+- User Administrator\n+- Authentication Administrator\n+- Privileged Authentication Administrator\n+- Directory Writers\n+- Helpdesk Administrator\n+- Security Operator\n+\n ### Automatic Windows event auditing configuration for Defender for Identity sensors v3.x (Preview)\n \n We’re gradually rolling out automatic Windows event-auditing configuration for sensors v3.x, along with related health alerts. Automatic Windows event-auditing streamlines deployment by automatically applying the required auditing settings to new sensors and correcting misconfigurations on existing ones.\n",
+      "baseCommitSha": "e01491b4cecfe0c30c8c82a3495ffd5d0a5f3808",
+      "commitSha": "5a173f76740ee8791b581139eaa7acb550d84b57",
+      "commitMessage": "remediation actions",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T16:10:25+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-23T14:10:25.000Z",
+      "eventId": "defender-docs:5a173f76740ee8791b581139eaa7acb550d84b57:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "remediation actions",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/prerequisites-sensor-version-2.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/prerequisites-sensor-version-2.md b/defender-for-identity/deploy/prerequisites-sensor-version-2.md\nindex d901edd3a..6e925af59 100644\n--- a/defender-for-identity/deploy/prerequisites-sensor-version-2.md\n+++ b/defender-for-identity/deploy/prerequisites-sensor-version-2.md\n@@ -30,7 +30,7 @@ The Defender for Identity sensor must be able to communicate with the Defender f\n \n |Method  |Description  |Considerations |Learn more |\n |---------|---------|---------|---------|\n-|Proxy | Customers who have a forward proxy deployed can take advantage of the proxy to provide connectivity to the MDI cloud service.<br><br> If you choose this option, you'll need to configure your proxy later in the deployment process. Proxy configurations include allowing traffic to the sensor URL, and configuring Defender for Identity URLs to any explicit allowlists used by your proxy or firewall. |  Allows access to the internet for a single URL  <br><br>SSL inspection isn't supported      |    [Configure endpoint proxy and internet connectivity settings](configure-proxy.md) <br><br>[Run a silent installation with a proxy configuration](install-sensor.md#command-for-running-a-silent-installation-with-a-proxy-configuration)   |\n+|Proxy | Customers who have a forward proxy deployed can take advantage of the proxy to provide connectivity to the MDI cloud service.<br><br> If you choose this option, you'll need to configure your proxy later in the deployment process. Proxy configurations include allowing traffic to the sensor URL, and configuring Defender for Identity URLs to any explicit allow lists used by your proxy or firewall. |  Allows access to the internet for a single URL  <br><br>SSL inspection isn't supported      |    [Configure endpoint proxy and internet connectivity settings](configure-proxy.md) <br><br>[Run a silent installation with a proxy configuration](install-sensor.md#command-for-running-a-silent-installation-with-a-proxy-configuration)   |\n |ExpressRoute  | ExpressRoute can be configured to forward MDI sensor traffic over customer's express route. <br><br> To route network traffic destined to the Defender for Identity cloud servers use ExpressRoute Microsoft peering and add the Microsoft Defender for Identity (12076:5220) service BGP community to your route filter.    |  Requires ExpressRoute      |       [Service to BGP community value](/azure/expressroute/expressroute-routing#service-to-bgp-community-value)  |\n |Firewall, using the Defender for Identity Azure IP addresses  | Customers who don't have a proxy or ExpressRoute can configure their firewall with the IP addresses assigned to the MDI cloud service. This requires that the customer monitor the Azure IP address list for any changes in the IP addresses used by the MDI cloud service.  <br><br> If you chose this option, we recommend that you download the [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) file and use the **AzureAdvancedThreatProtection** service tag to add the relevant IP addresses.      |  Customer must monitor Azure IP assignments       |   [Virtual network service tags](/azure/virtual-network/service-tags-overview)      |\n \n",
+      "baseCommitSha": "e6256b5b7a5400d449f882196e178bc9f7285fb7",
+      "commitSha": "498a039dc0770ca063729b1788022d4c3285b39e",
+      "commitMessage": "fix blocking issues",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T16:20:59+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/prerequisites-sensor-version-2.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2",
+      "firstSeenAt": "2026-02-23T14:20:59.000Z",
+      "eventId": "defender-docs:498a039dc0770ca063729b1788022d4c3285b39e:modified:defender-for-identity/deploy/prerequisites-sensor-version-2.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix blocking issues",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/what-is.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-identity/what-is.md b/defender-for-identity/what-is.md\nindex d77321205..0cfd15058 100644\n--- a/defender-for-identity/what-is.md\n+++ b/defender-for-identity/what-is.md\n@@ -7,11 +7,11 @@ ms.topic: overview\n ms.reviewer: AbbyMSFT\n ---\n \n-# Microsoft Defender for Identity Overview\n+# Microsoft Defender for Identity overview\n \n Microsoft Defender for Identity helps organizations detect, investigate, and respond to identity-based attacks across on-premises, cloud, and hybrid environments. Threat actors frequently target identities such as users, applications, and service accounts to gain access, escalate privileges, and maintain persistence.\n \n-Defender for Identity monitors identity signals from on-premises Active Directory and, Entra ID, other IAM solution (e.g. Okta) and identity infrastructure, combining behavioral analytics, threat intelligence, and known attack patterns to detect suspicious activity across the full identity attack lifecycle. Alerts are delivered with clear investigation context in the Microsoft Defender portal, enabling security teams to understand what happened, why it matters, and how to respond.\n+Defender for Identity monitors identity signals from on-premises Active Directory and Microsoft Entra ID, other IAM solution (e.g. Okta) and identity infrastructure, combining behavioral analytics, threat intelligence, and known attack patterns to detect suspicious activity across the full identity attack lifecycle. Alerts are delivered with clear investigation context in the Microsoft Defender portal, enabling security teams to understand what happened, why it matters, and how to respond.\n \n ## Identity Threat Detection and Response (ITDR)\n \n@@ -58,7 +58,7 @@ The following table shows how Defender for Identity detections align to key stag\n |----|----|\n | Reconnaissance | Identifies suspicious discovery activity, such as attempts to enumerate user names, group membership, IP addresses, and resources. |\n | Compromised credentials | Detects attempts to compromise credentials using techniques such as brute force, repeated failed authentications, and suspicious changes to user group membership. |\n-| Lateral movement| Detects attempts to move laterally and expand control of sensitive identities and across different environments . |\n+| Lateral movement| Detects attempts to move laterally and expand control of sensitive identities and across different environments. |\n | AD Domain dominance | Highlights behavior associated with full domain compromise, such as remote code execution on domain controllers, DCShadow, malicious domain controller replication, and Golden Ticket activity. |\n \n Attackers often begin with any accessible identity and then move laterally toward high value targets such as privileged accounts such as domain administrators, global admin, application admins and sensitive data. Defender for Identity helps identify these behaviors early by building behavioral profiles for users, devices, and accounts and detecting deviations that indicate attacker activity.\n",
+      "baseCommitSha": "e6256b5b7a5400d449f882196e178bc9f7285fb7",
+      "commitSha": "498a039dc0770ca063729b1788022d4c3285b39e",
+      "commitMessage": "fix blocking issues",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T16:20:59+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/what-is.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/what-is",
+      "firstSeenAt": "2026-02-23T14:20:59.000Z",
+      "eventId": "defender-docs:498a039dc0770ca063729b1788022d4c3285b39e:modified:defender-for-identity/what-is.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix blocking issues",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/what-is.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/api/exposed-apis-create-app-nativeapp.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/api/exposed-apis-create-app-nativeapp.md b/defender-endpoint/api/exposed-apis-create-app-nativeapp.md\nindex e05da041c..64308fdce 100644\n--- a/defender-endpoint/api/exposed-apis-create-app-nativeapp.md\n+++ b/defender-endpoint/api/exposed-apis-create-app-nativeapp.md\n@@ -126,6 +126,9 @@ This page explains how to create a Microsoft Entra application, get an access to\n \n For more information on Microsoft Entra tokens, see [Microsoft Entra tutorial](/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds).\n \n+> [!NOTE]\n+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.\n+\n ### Using C\\#\n \n - Copy/Paste the below class in your application.\n",
+      "baseCommitSha": "f54fecae6acc15b4588a4454abfb13dc84fa02e8",
+      "commitSha": "54fe8892d2b28cde3b36a8ef1cd2d6de13b0aefe",
+      "commitMessage": "add authentication flow",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T18:07:11+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/api/exposed-apis-create-app-nativeapp.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/api/exposed-apis-create-app-nativeapp",
+      "firstSeenAt": "2026-02-23T16:07:11.000Z",
+      "eventId": "defender-docs:54fe8892d2b28cde3b36a8ef1cd2d6de13b0aefe:modified:defender-endpoint/api/exposed-apis-create-app-nativeapp.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add authentication flow",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/api/exposed-apis-create-app-nativeapp.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/active-directory-federation-services.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-for-identity/deploy/active-directory-federation-services.md b/defender-for-identity/deploy/active-directory-federation-services.md\nindex 6c6d02ee2..3b8b68341 100644\n--- a/defender-for-identity/deploy/active-directory-federation-services.md\n+++ b/defender-for-identity/deploy/active-directory-federation-services.md\n@@ -110,6 +110,7 @@ $SQLConnection.Close()\n > [!NOTE]\n > This section is applicable only if the Entra Connect database is hosted on an external SQL server instance.\n >\n+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.\n \n Sensors running on Microsoft Entra Connect servers need to have access to the ADSync database, and have execute permissions for the relevant stored procedures. If you have more than one Microsoft Entra Connect server, make sure to run this across all of them. \n \n",
+      "baseCommitSha": "f54fecae6acc15b4588a4454abfb13dc84fa02e8",
+      "commitSha": "54fe8892d2b28cde3b36a8ef1cd2d6de13b0aefe",
+      "commitMessage": "add authentication flow",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T18:07:11+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/active-directory-federation-services.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services",
+      "firstSeenAt": "2026-02-23T16:07:11.000Z",
+      "eventId": "defender-docs:54fe8892d2b28cde3b36a8ef1cd2d6de13b0aefe:modified:defender-for-identity/deploy/active-directory-federation-services.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add authentication flow",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/active-directory-federation-services.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new-archive.md",
+      "status": "modified",
+      "additions": 47,
+      "deletions": 0,
+      "changes": 47,
+      "patch": "diff --git a/defender-for-identity/whats-new-archive.md b/defender-for-identity/whats-new-archive.md\nindex bf7cae4ac..f6f1dfb11 100644\n--- a/defender-for-identity/whats-new-archive.md\n+++ b/defender-for-identity/whats-new-archive.md\n@@ -16,6 +16,53 @@ For information about the latest versions and features, see [What's new in Micro\n >\n >For the two months after June 15 2022, the sensor will continue to function. After this two-month period, starting August 15, 2022, the sensor will no longer function on Windows Server 2008 R2 platforms. More details can be found at: <https://aka.ms/mdi/2008r2>\n \n+## August 2025\n+\n+### Microsoft Entra ID risk level is now available in near real time in Microsoft Defender for Identity (Preview)\n+\n+Microsoft Entra ID risk level is now available on the Identity Inventory assets page, the identity details page, and in the IdentityInfo table in Advanced Hunting, and includes the Microsoft Entra ID risk score. SOC analysts can use this data to correlate risky users with sensitive or highly privileged users, create custom detections based on current or historical user risk, and improve investigation context.\n+\n+Previously, Defender for Identity tenants received Microsoft Entra ID risk level in the IdentityInfo table through user and entity behavior analytics (UEBA). With this update, the Microsoft Entra ID risk level is now updated in near real time through Microsoft Defender for Identity.\n+\n+For UEBA tenants without a Microsoft Defender for Identity license, synchronization of Microsoft Entra ID risk level to the IdentityInfo table remains unchanged.\n+\n+### New security assessment: Remove inactive service accounts\n+\n+Microsoft Defender for Identity now includes a new security assessment that helps you identify and remove inactive service accounts in your organization. This assessment lists Active Directory service accounts that were inactive for the past 90 days, to help you mitigate security risks associated with unused accounts.\n+\n+For more information, see: Security Assessment: [Remove Inactive Service Accounts (Preview)](/defender-for-identity/remove-inactive-service-account).\n+\n+### New Graph based API for response actions (preview)\n+\n+We're excited to announce a new Graph-based API for initiating and managing remediation actions in Microsoft Defender for Identity.\n+\n+This capability is currently in preview and available in API Beta version.\n+\n+For more information, see [Managing response actions through Graph API](/graph/api/resources/security-identityaccounts?view=graph-rest-beta&preserve-view=true).\n+\n+### Identity scoping is now generally available (GA)\n+\n+Identity scoping is now generally available across all environments. Organizations can now define and refine the scope of MDI monitoring and gain granular control over which entities and resources are included in security analysis.\n+\n+For more information, see [Configure scoped access for Microsoft Defender for Identity](configure-scoped-access.md).\n+\n+### New security posture assessment: Remove discoverable passwords in Active Directory account attributes (Preview)\n+\n+The new security posture assessment highlights unsecured Active Directory attributes that contain passwords or credential clues and recommends steps to remove them, helping reduce the risk of identity compromise.\n+\n+For more information, see: [Security Assessment: Remove discoverable passwords in Active Directory account attributes (Preview)](/defender-for-identity/security-posture-assessments/accounts#remove-discoverable-passwords-in-active-directory-account-attributes-preview)\n+\n+### Microsoft Defender for Identity sensor version updates\n+\n+|Version number|Updates|\n+|---|---|\n+|2.247|Includes bug fixes and stability improvements for the Microsoft Defender for Identity sensor.|\n+|2.246|Includes bug fixes and stability improvements for the Microsoft Defender for Identity sensor.|\n+\n+### Detection update: Suspected Brute Force attack (Kerberos, NTLM)\n+\n+Improved detection logic to include scenarios where accounts were locked during attacks. As a result, the number of triggered alerts might increase.\n+\n ## July 2025\n \n ### Expanded coverage in ITDR deployment health widget\n",
+      "baseCommitSha": "e01491b4cecfe0c30c8c82a3495ffd5d0a5f3808",
+      "commitSha": "20c58ee1ae0accd0861ff4524923e4dee63ca2e5",
+      "commitMessage": "Whats new Feb 2026 sensor updates",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T18:11:52+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new-archive.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new-archive",
+      "firstSeenAt": "2026-02-23T16:11:52.000Z",
+      "eventId": "defender-docs:20c58ee1ae0accd0861ff4524923e4dee63ca2e5:modified:defender-for-identity/whats-new-archive.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Whats new Feb 2026 sensor updates",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new-archive.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 53,
+      "changes": 68,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 291c909d3..7f7529f17 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new | Microsoft Defender for Identity\n description: This article is updated frequently to let you know what's new in the latest release of Microsoft Defender for Identity.\n-ms.date: 02/19/2026\n+ms.date: 02/23/2026\n ms.topic: overview\n #CustomerIntent: As a Defender for Identity customer, I want to know what's new in the latest release of Defender for Identity, so that I can take advantage of new features and functionality.\n ms.reviewer: AbbyMSFT\n@@ -23,6 +23,14 @@ For more information, see also:\n \n For updates about versions and features released six months ago or earlier, see the [What's new archive for Microsoft Defender for Identity](whats-new-archive.md).\n \n+## February 2026\n+\n+### Defender for Identity sensor updates\n+\n+|Version number|Updates|\n+|---|---|\n+|2.255|This sensor update includes bug fixes.|\n+\n ## January 2026\n \n ### Changes to Defender for Identity security alerts\n@@ -53,7 +61,7 @@ As part of the ongoing transition to a unified alerting experience across Micros\n - [Possible Kerberoasting attack using a stealthy LDAP search](alerts-xdr.md#possible-kerberoasting-attack-using-a-stealthy-ldap-search)\n - [Suspicious Kerberos authentication (TGT request using TGS-REQ)](alerts-xdr.md#suspicious-kerberos-authentication-tgt-request-using-tgs-req)\n \n-All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md) .\n+All alerts are based on detections from Defender for Identity sensors. For the full list of Microsoft Defender alerts see [Microsoft Defender for Identity XDR security alerts](alerts-xdr.md).\n \n ### Identity inventory enhancements are now generally available\n \n@@ -66,8 +74,7 @@ All alerts are based on detections from Defender for Identity sensors. For the f\n ### New security posture assessments\n \n - [Remove stale Active Directory accounts (Preview)](security-posture-assessments/accounts.md#remove-stale-active-directory-accounts-preview) lists any user accounts in Active Directory that are stale, meaning they haven't logged in at all during the past 90 days.\n-\n- - [Microsoft Entra ID privileged user accounts that are also privileged in Active Directory (Preview)](security-posture-assessments/accounts.md#microsoft-entra-id-privileged-user-accounts-that-are-also-privileged-in-active-directory-preview) lists Microsoft Entra ID privileged user accounts that also have privileged roles in Active Directory.\n+- [Microsoft Entra ID privileged user accounts that are also privileged in Active Directory (Preview)](security-posture-assessments/accounts.md#microsoft-entra-id-privileged-user-accounts-that-are-also-privileged-in-active-directory-preview) lists Microsoft Entra ID privileged user accounts that also have privileged roles in Active Directory.\n \n ### New Health Alert: Sensor v3.x RPC Audit Misconfigured\n Enhanced RPC auditing is required for some Microsoft Defender for Identity advanced identity detections. A new health alert helps identify v3.x sensors where this configuration is either missing or incorrectly applied. The alert is being rolled out gradually to customers. For more information, see [Configure RPC on sensors v3.x](deploy/prerequisites-sensor-version-3.md#configure-rpc-auditing).\n@@ -82,6 +89,8 @@ To ensure consistent protection, we recommend that you make sure all servers wit\n - Automatic Windows event auditing enabled \n For more information, see [Configure automatic windows auditing](deploy/configure-windows-event-collection.md#configure-defender-for-identity-to-collect-windows-events-automatically-preview).\n \n+### Sensor updates\n+\n |Version number|Updates|\n |---|---|\n |2.254|The sensor now supports a new DNS zone target for *.aatp.gcc.azure.com. Make sure your sensors in GCC can access this zone with your sensor DNS prefix.|\n@@ -174,9 +183,9 @@ The [Microsoft Defender for Identity sensor v3.x](/defender-for-identity/deploy/\n \n ## September 2025\n \n-### MDI alerts transitioned to the unified Defender alerting experience\n+### Defender for Identity alerts transitioned to the unified Defender alerting experience\n \n-As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the MDI XDR alert format. Keep in mind that all alerts are based on detections from Defender for Identity sensors.\n+As part of the ongoing transition to a unified alerting experience across Microsoft Defender products, the following alerts were converted from the Microsoft Defender for Identity classic format to the the unified Defender alerting format. Keep in mind that all alerts are based on detections from Defender for Identity sensors.\n \n |Classic Alert Title|External ID|XDR Alert Name|Detector ID|\n |---|---|---|---|\n@@ -241,53 +250,6 @@ Microsoft Defender for Identity supports the [Unified connectors](/azure/sentine\n \n For more information, see: [Connect Okta to Microsoft Defender for Identity (Preview)](okta-integration.md)\n \n-## August 2025\n-\n-### Microsoft Entra ID risk level is now available in near real time in Microsoft Defender for Identity (Preview)\n-\n-Microsoft Entra ID risk level is now available on the Identity Inventory assets page, the identity details page, and in the IdentityInfo table in Advanced Hunting, and includes the Microsoft Entra ID risk score. SOC analysts can use this data to correlate risky users with sensitive or highly privileged users, create custom detections based on current or historical user risk, and improve investigation context.\n-\n-Previously, Defender for Identity tenants received Microsoft Entra ID risk level in the IdentityInfo table through user and entity behavior analytics (UEBA). With this update, the Microsoft Entra ID risk level is now updated in near real time through Microsoft Defender for Identity.\n-\n-For UEBA tenants without a Microsoft Defender for Identity license, synchronization of Microsoft Entra ID risk level to the IdentityInfo table remains unchanged.\n-\n-### New security assessment: Remove inactive service accounts\n-\n-Microsoft Defender for Identity now includes a new security assessment that helps you identify and remove inactive service accounts in your organization. This assessment lists Active Directory service accounts that were inactive for the past 90 days, to help you mitigate security risks associated with unused accounts.\n-\n-For more information, see: Security Assessment: [Remove Inactive Service Accounts (Preview)](/defender-for-identity/remove-inactive-service-account).\n-\n-### New Graph based API for response actions (preview)\n-\n-We're excited to announce a new Graph-based API for initiating and managing remediation actions in Microsoft Defender for Identity.\n-\n-This capability is currently in preview and available in API Beta version.\n-\n-For more information, see [Managing response actions through Graph API](/graph/api/resources/security-identityaccounts?view=graph-rest-beta&preserve-view=true).\n-\n-### Identity scoping is now generally available (GA)\n-\n-Identity scoping is now generally available across all environments. Organizations can now define and refine the scope of MDI monitoring and gain granular control over which entities and resources are included in security analysis.\n-\n-For more information, see [Configure scoped access for Microsoft Defender for Identity](configure-scoped-access.md).\n-\n-### New security posture assessment: Remove discoverable passwords in Active Directory account attributes (Preview)\n-\n-The new security posture assessment highlights unsecured Active Directory attributes that contain passwords or credential clues and recommends steps to remove them, helping reduce the risk of identity compromise.\n-\n-For more information, see: [Security Assessment: Remove discoverable passwords in Active Directory account attributes (Preview)](/defender-for-identity/security-posture-assessments/accounts#remove-discoverable-passwords-in-active-directory-account-attributes-preview)\n-\n-### Microsoft Defender for Identity sensor version updates\n-\n-|Version number|Updates|\n-|---|---|\n-|2.247|Includes bug fixes and stability improvements for the Microsoft Defender for Identity sensor.|\n-|2.246|Includes bug fixes and stability improvements for the Microsoft Defender for Identity sensor.|\n-\n-### Detection update: Suspected Brute Force attack (Kerberos, NTLM)\n-\n-Improved detection logic to include scenarios where accounts were locked during attacks. As a result, the number of triggered alerts might increase.\n-\n ## Next steps\n \n - [What is Microsoft Defender for Identity?](what-is.md)\n",
+      "baseCommitSha": "e01491b4cecfe0c30c8c82a3495ffd5d0a5f3808",
+      "commitSha": "20c58ee1ae0accd0861ff4524923e4dee63ca2e5",
+      "commitMessage": "Whats new Feb 2026 sensor updates",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-02-23T18:11:52+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-02-23T16:11:52.000Z",
+      "eventId": "defender-docs:20c58ee1ae0accd0861ff4524923e4dee63ca2e5:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Whats new Feb 2026 sensor updates",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-quarantine-notifications.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/quarantine-quarantine-notifications.md b/defender-office-365/quarantine-quarantine-notifications.md\nindex a3430af69..6c18401d2 100644\n--- a/defender-office-365/quarantine-quarantine-notifications.md\n+++ b/defender-office-365/quarantine-quarantine-notifications.md\n@@ -75,7 +75,7 @@ The actions that are available for messages in the quarantine notification depen\n   Selecting the action takes you to the details flyout of the message in quarantine. It's the same result as going to the **Email** tab on the **Quarantine** page at <https://security.microsoft.com/quarantine?viewid=Email>, and selecting the message by clicking anywhere in the row other than the check box next to the first column. For more information, see [View quarantined message details](quarantine-end-user.md#view-quarantined-message-details).\n \n   > [!TIP]\n-  > The **Review message** button cannot be removed by modifying the [Quarantine policy permission details](quarantine-policies.md#quarantine-policy-permission-details).\n+  > You can't use [quarantine policy permissions](quarantine-policies.md#quarantine-policy-permission-details) to remove the **Review message** button.\n \n - **Release**: Available for messages quarantined by features using a quarantine policy with the **Full access** permission group or the individual **Allow recipients to release a message from quarantine** (_PermissionToRelease_) permission. For example, DefaultFullAccessWithNotificationPolicy, NotificationEnabledPolicy, or custom quarantine policies.\n \n",
+      "baseCommitSha": "b8530d2a9ffb5a5a1823f1b619b621c6ba0a8fe8",
+      "commitSha": "82c511571c8e89d3f479c4d506111756bd0577d2",
+      "commitMessage": "Clarify removal of Review message button in quarantine",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-23T10:51:15-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-quarantine-notifications.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-quarantine-notifications",
+      "firstSeenAt": "2026-02-23T18:51:15.000Z",
+      "eventId": "defender-docs:82c511571c8e89d3f479c4d506111756bd0577d2:modified:defender-office-365/quarantine-quarantine-notifications.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify removal of Review message button in quarantine",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/air-about.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/air-about.md b/defender-office-365/air-about.md\nindex 9cbdedd35..b1438e4f9 100644\n--- a/defender-office-365/air-about.md\n+++ b/defender-office-365/air-about.md\n@@ -7,7 +7,7 @@ ms.author: chrisda\n manager: bagol\n audience: ITPro\n ms.topic: article\n-ms.date: 01/30/2026\n+ms.date: 02/23/2026\n ms.localizationpriority: medium\n search.appverid:\n - MET150\n@@ -68,7 +68,7 @@ An alert is triggered, and a security playbook starts an automated investigation\n 4. The SecOps team reviews the [investigation results and recommendations](air-view-investigation-results.md) in the investigation itself, the incident, or in the Action center, and [approves or rejects the remediation actions](air-review-approve-pending-completed-actions.md).\n \n    > [!TIP]\n-   >We are expanding the auto-remediation capabilities in Automated Investigations and Response (AIR) to fully automate the remediation of malicious similarity clusters. Earlier this year, we introduced auto-remediation for malicious URL and file clusters. Building on that foundation, this enhancement enables AIR to automatically approve all pending remediation actions it generates—eliminating the need for manual intervention and streamlining the response process for SOC teams.\n+   > We expanded the auto-remediation capabilities in automated investigations and response (AIR) to fully automate the remediation of malicious similarity clusters. In 2025, we introduced auto-remediation for malicious URL and file clusters. Building on that foundation, this enhancement enables AIR to automatically approve all pending remediation actions it generates. This capability eliminates the need for manual intervention and streamlines the response process for SOC teams.\n    >\n    > AIR also saves time by evaluating and automatically resolving alerts and incidents where no threats were found. This result is common in user submission scenarios. AIR closes the investigation if no threats were found or threats were found in messages that were already remediated. Typically\n \n",
+      "baseCommitSha": "68dd3de4b8ab9cc64670837be4bb7132af5e43ff",
+      "commitSha": "85ce0fd54b671a73ee2a3554edb6b5dff0f74bce",
+      "commitMessage": "Update air-about.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-23T11:40:29-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/air-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/air-about",
+      "firstSeenAt": "2026-02-23T19:40:29.000Z",
+      "eventId": "defender-docs:85ce0fd54b671a73ee2a3554edb6b5dff0f74bce:modified:defender-office-365/air-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update air-about.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/air-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/advanced-delivery-policy-configure.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/advanced-delivery-policy-configure.md b/defender-office-365/advanced-delivery-policy-configure.md\nindex 95aa1fe86..e91217944 100644\n--- a/defender-office-365/advanced-delivery-policy-configure.md\n+++ b/defender-office-365/advanced-delivery-policy-configure.md\n@@ -16,7 +16,7 @@ ms.collection:\n ms.custom:\n description: Admins can learn how to use the advanced delivery policy in Microsoft 365 to identify messages that shouldn't be filtered in specific supported scenarios. For example, non-Microsoft phishing simulations and messages delivered to security operations (SecOps) mailboxes.\n ms.service: defender-office-365\n-ms.date: 07/02/2025\n+ms.date: 02/23/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -121,7 +121,7 @@ Back on the **SecOps mailbox** tab, the SecOps mailbox entries that you configur\n \n To configure a non-Microsoft phishing simulation, you need to provide the following information:\n \n-- At least one **Domain**: The domain from the MAIL FROM address (also known as the `5321.MailFrom` address, P1 sender, or envelope sender) that's used in the SMTP transmission of the message **or** a DKIM domain as specified by the phishing simulation vendor. In case of Internationalized Domain Names, Punycode format must be inputed.\n+- At least one **Domain**: The domain from the MAIL FROM address (also known as the `5321.MailFrom` address, P1 sender, or envelope sender) that's used in the SMTP transmission of the message **or** a DKIM domain as specified by the phishing simulation vendor. For internationalized domain names, use Punycode.\n - At least one **Sending IP**.\n - For **non-email** phishing simulations (for example, Microsoft Teams messages, Word documents, or Excel spreadsheets), you can optionally identify the **Simulation URLs to allow** that shouldn't be treated as real threats at time of click: the URLs aren't blocked or detonated, and no URL click alerts or resulting incidents are generated. The URLs are wrapped at time of click, but they aren't blocked.\n \n",
+      "baseCommitSha": "8c47ac73afd5e0bccbcbcd8711f47095299b78d5",
+      "commitSha": "bc17e1aefa2574d2dcb1f6e88ba8a3fbe786f09f",
+      "commitMessage": "Update date and clarify Punycode format in documentation",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-23T11:46:11-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/advanced-delivery-policy-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/advanced-delivery-policy-configure",
+      "firstSeenAt": "2026-02-23T19:46:11.000Z",
+      "eventId": "defender-docs:bc17e1aefa2574d2dcb1f6e88ba8a3fbe786f09f:modified:defender-office-365/advanced-delivery-policy-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update date and clarify Punycode format in documentation",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/advanced-delivery-policy-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/advanced-delivery-policy-configure.md b/defender-office-365/advanced-delivery-policy-configure.md\nindex e91217944..a3eb038e5 100644\n--- a/defender-office-365/advanced-delivery-policy-configure.md\n+++ b/defender-office-365/advanced-delivery-policy-configure.md\n@@ -121,7 +121,7 @@ Back on the **SecOps mailbox** tab, the SecOps mailbox entries that you configur\n \n To configure a non-Microsoft phishing simulation, you need to provide the following information:\n \n-- At least one **Domain**: The domain from the MAIL FROM address (also known as the `5321.MailFrom` address, P1 sender, or envelope sender) that's used in the SMTP transmission of the message **or** a DKIM domain as specified by the phishing simulation vendor. For internationalized domain names, use Punycode.\n+- At least one **Domain**: The domain from the MAIL FROM address (also known as the `5321.MailFrom` address, P1 sender, or envelope sender) that's used in the SMTP transmission of the message **or** a DKIM domain as specified by the phishing simulation vendor. For internationalized domain names (IDNA), use Punycode.\n - At least one **Sending IP**.\n - For **non-email** phishing simulations (for example, Microsoft Teams messages, Word documents, or Excel spreadsheets), you can optionally identify the **Simulation URLs to allow** that shouldn't be treated as real threats at time of click: the URLs aren't blocked or detonated, and no URL click alerts or resulting incidents are generated. The URLs are wrapped at time of click, but they aren't blocked.\n \n",
+      "baseCommitSha": "c5ba0d216b691fec30e4775fe0da30dbaa88bdb5",
+      "commitSha": "8d833c328bb0642d09ca5c73eb863dac3175f099",
+      "commitMessage": "Clarify domain requirements for phishing simulations",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-23T11:47:50-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/advanced-delivery-policy-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/advanced-delivery-policy-configure",
+      "firstSeenAt": "2026-02-23T19:47:50.000Z",
+      "eventId": "defender-docs:8d833c328bb0642d09ca5c73eb863dac3175f099:modified:defender-office-365/advanced-delivery-policy-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify domain requirements for phishing simulations",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-admin-manage-messages-files.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/defender-office-365/quarantine-admin-manage-messages-files.md b/defender-office-365/quarantine-admin-manage-messages-files.md\nindex 5cc6fc2a8..1ee135773 100644\n--- a/defender-office-365/quarantine-admin-manage-messages-files.md\n+++ b/defender-office-365/quarantine-admin-manage-messages-files.md\n@@ -18,7 +18,7 @@ ms.custom:\n   - seo-marvel-apr2020\n description: Admins can learn how to view and manage quarantined messages for all users in Microsoft 365 organizations with cloud mailboxes. Admins in organizations with Microsoft Defender for Office 365 can also manage quarantined files in SharePoint, OneDrive, and Microsoft Teams.\n ms.service: defender-office-365\n-ms.date: 12/15/2025\n+ms.date: 02/23/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -34,7 +34,12 @@ In all organizations with cloud mailboxes, quarantine holds potentially dangerou\n \n Admins in Microsoft 365 organizations with Defender for Office 365 (included or in an add-on subscription) can also manage files quarantined by [Safe Attachments for SharePoint, OneDrive, and Microsoft Teams](safe-attachments-for-spo-odfb-teams-about.md) and Microsoft Teams messages [quarantined by zero-hour auto purge (ZAP)](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams).\n \n-Users can manage most quarantined email messages based on the _quarantine policy_ for [supported email protection features](quarantine-policies.md#step-2-assign-a-quarantine-policy-to-supported-features). For more information about quarantine policies, see [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy).\n+Users can manage most quarantined email messages based on the _quarantine policy_ for [supported email protection features](quarantine-policies.md#step-2-assign-a-quarantine-policy-to-supported-features). In particular, admins can use quarantine policies to configure:\n+\n+- Whether recipients are notified about quarantined messages.\n+- The actions that recipients can take on their quarantined messages.\n+\n+For more information about quarantine policies, see [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy).\n \n Admins and users (depending on the [user reported settings](submissions-user-reported-messages-custom-mailbox.md) for the organization) can report false positives to Microsoft from quarantine.\n \n",
+      "baseCommitSha": "67a74b4b376f1a15b758503f05ce8aed87b87d71",
+      "commitSha": "32ce1ee954ddc00b8fe49a51fddf246028ca4c40",
+      "commitMessage": "Update quarantine-admin-manage-messages-files.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-02-23T15:52:07-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-admin-manage-messages-files.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-admin-manage-messages-files",
+      "firstSeenAt": "2026-02-23T23:52:07.000Z",
+      "eventId": "defender-docs:32ce1ee954ddc00b8fe49a51fddf246028ca4c40:modified:defender-office-365/quarantine-admin-manage-messages-files.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update quarantine-admin-manage-messages-files.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "defender-for-identity/connect-cyberark.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 95,
+      "changes": 95,
+      "patch": "diff --git a/defender-for-identity/connect-cyberark.md b/defender-for-identity/connect-cyberark.md\ndeleted file mode 100644\nindex 218298dbe..000000000\n--- a/defender-for-identity/connect-cyberark.md\n+++ /dev/null\n@@ -1,97 +0,0 @@\n----\n-title: Connect CyberArk Identity to Microsoft Defender for Identity (Preview)\n-description: Learn how to connect your CyberArk Identity app to Defender for Identity using the API connector.\n-ms.date: 02/15/2026\n-ms.topic: how-to\n-ms. reviewer: Himanch\n----\n-\n-# Connect CyberArk Identity to Microsoft Defender for Identity (Preview)\n-\n-This section provides instructions for connecting Microsoft Defender for Identity to your existing CyberArk Identity account using the connector APIs. This connection gives you visibility into and control over CyberArk identities.  \n-\n-## Prerequisites \n-\n-Before connecting your CyberArk Identity to Microsoft Defender for Identity, make sure the following prerequisites are met:\n-\n-**CyberArk Identity roles**\n-\n-- The System Admin role is required to create an application.\n-\n-**Microsoft Entra and Defender XDR role-based access options**\n-\n-To configure the CyberArk Identity connector in Microsoft Defender for Identity, your account must have either of the following access configurations assigned:\n-\n-- **Microsoft Entra roles:**\n-\n-    - Security Operator \n-\n-    - Security Admin \n-\n-- **Defender XDR Unified RBAC permission:** \n-    - Core security settings (manage)\n-\n-## Connect CyberArk Identity to Microsoft Defender for Identity \n-\n-This section provides instructions for connecting Microsoft Defender for Identity to your dedicated CyberArk Identity account using the connector APIs. This connection gives you visibility into and control over CyberArk Identity use.\n-\n-### Create a custom CyberArk Identity role\n-\n-1. Sign in to CyberArk Identity console as a system administrator.\n-1. Navigate to **Identity Administration > Core Services > Roles**\n-1. Select **Add Role**.\n-1. Add an appropriate name for the custom role.\n-1. Select **Save**.\n-1. Select **Administrative Rights** and add rights for **User Management**.\n-1. Select **Save**.\n-\n-### Create a CyberArk OAuth Confidential Client\n-\n-To support ongoing API access, create a new user and assign the custom role.\n-\n-1. Sign in to CyberArk Identity console as a system administrator.\n-1. Navigate to **Identity Administration > Core Services > Users**.\n-1. Select **Add User**.\n-1. Enter the **Login Name** and **Display Name**.\n-1. Under **Status**, select **Is OAuth confidential client**.\n-1. Copy the username and password. You'll need these credentials later. \n-1. Select **Create User**.\n-1. Navigate to the previously created custom role \n-1. Select **Members** and add the user as a member. \n-1. Select **Save**.\n-\n-### Connect CyberArk Identity to Defender for Identity \n-\n-1. Sign in to the [Microsoft Defender Portal](https://security.microsoft.com).\n-1. Go to **System > Data Management > Data Connectors**.\n-\n-    :::image type=\"content\" source=\"media/connect-cyberark/data-connector-cyberark.png\" alt-text=\"Screenshot that shows where to find the data connector for CyberArk in the Microsoft Defender portal.\" lightbox=\"media/connect-cyberark/data-connector-cyberark.png\":::\n-1. Select **Catalog > CyberArk Identity**.\n-1. Select on **Connect a connector**  \n-1. Enter a name for your connector. \n-1. To determine the CyberArk Identity endpoint URL:\n-    1. In CyberArk Identity, select the signed-in user.\n-    1. Select **About**.\n-    1. Copy the **Identity ID** value.\n-    1. Add `.id.cyberark.cloud` to the Identity ID. For example, `contoso.id.cyberark.cloud`.\n-1. Enter your CyberArk Identity Privilege Cloud service endpoint.\n-    1. In the CyberArk Identity Admin console, go to **Identity Administration > Settings > Integration** and locate the **PVWA URL**. Use the value after `https://`. For example,`contoso.privilegecloud.cyberark.cloud`\n-1. Enter the username and password for the Oauth user. Include the complete username and the CyberArk domain. \n-\n-    :::image type=\"content\" source=\"media/connect-cyberark/cyberark-connector-details.png\" alt-text=\"Screenshot that shows where to enter your CyberArk connector details in the Defender portal.\" lightbox=\"media/connect-cyberark/cyberark-connector-details.png\":::\n-\n-1. Select **Next**. \n-1. Select **Protection Types > Identity**, and select **Next**. \n-1. Review the information and select **Connect**.\n-1. Verify that the CyberArk Identity connector appears in the **My Connector** table as **Connection Status: Ok**.\n-\n-    :::image type=\"content\" source=\"media/connect-cyberark/my-connectors-status.png\" alt-text=\"Screenshot that shows your CyberARk connector status in the Defender portal.\" lightbox=\"media/connect-cyberark/my-connectors-status.png\":::\n-\n-1. To setup **Actions**, go to **Microsoft Sentinel > Configuration > Next Gen Automation**. \n-1. Select **Integration profile** and create one for CyberArk with the same credentials.\n-\n-    :::image type=\"content\" source=\"media/connect-cyberark/add-integration-profile.png\" alt-text=\"Screenshot that shows how to add an integration profile in the Defender portal.\" lightbox=\"media/connect-cyberark/add-integration-profile.png\":::\n-\n-## Related articles\n-\n-- [How Microsoft Defender for Identity protects your CyberArk accounts](defender-for-identity-cyberark-overview.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "5e6384bd29bd53e6aba62dc0c26372006c99141f",
+      "commitSha": "34d4a5282396ee62d9bc6b6eb334227b0d3c09d2",
+      "commitMessage": "rename files and images",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T22:34:47+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/connect-cyberark.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/connect-cyberark",
+      "firstSeenAt": "2026-02-23T20:34:47.000Z",
+      "eventId": "defender-docs:34d4a5282396ee62d9bc6b6eb334227b0d3c09d2:removed:defender-for-identity/connect-cyberark.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "rename files and images",
+        "summary": "Removed Microsoft Defender documentation in defender-for-identity/connect-cyberark.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/defender-for-identity-cyberark-overview.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 29,
+      "changes": 29,
+      "patch": "diff --git a/defender-for-identity/defender-for-identity-cyberark-overview.md b/defender-for-identity/defender-for-identity-cyberark-overview.md\ndeleted file mode 100644\nindex 5faa0687c..000000000\n--- a/defender-for-identity/defender-for-identity-cyberark-overview.md\n+++ /dev/null\n@@ -1,31 +0,0 @@\n----\n-title: How Microsoft Defender for Identity protects your CyberArk identity accounts\n-description: Learn how Microsoft Defender for Identity protect your CyberArk accounts and what the integration enables.\n-ms.date: 02/15/2026\n-ms.topic: overview\n-ms.reviewer: himanch\n-# customer-intent: As a security administrator, I want to understand what happens when I connect CyberArk to Microsoft Defender for Identity, so that I can decide whether to enable the integration.\n----\n-\n-# How Microsoft Defender for Identity protects your CyberArk identity accounts\n-\n-CyberArk Identity is a SaaS-based privileged access management (PAM) solution that manages privileged accounts across cloud and enterprise environments.\n-\n-When you connect CyberArk Identity with Microsoft Defender for Identity, identity data from CyberArk Identity is added to the identity inventory and correlated with identities from on-premises Active Directory and Microsoft Entra ID. Accounts that are managed by CyberArk Identity as PAM accounts are tagged in the inventory.\n-\n-\n-## What you can do after connecting CyberArk Identity to Microsoft Defender for Identity\n-\n-\n-After you connect CyberArk Identity, Microsoft Defender for Identity provides the following capabilities:\n-\n-| Capability | Description |\n-|------------|------------|\n-| View CyberArk accounts in the identity inventory | - Adds CyberArk Identity users into the identity inventory and correlates them with identities from on-premises, Active Directory and Microsoft Entra ID.<br> - Accounts that are managed by CyberArk Identity as PAM accounts are tagged in the inventory.  |\n-| Improve CyberArk security posture | Evaluates CyberArk Identity accounts for security risks such as stale privileged accounts and excessive privileged role assignments, and generates posture recommendations. Example recommendations include: <br> - Change password for CyberArk Identity privileged user accounts<br>- Remove stale CyberArk Identity privileged accounts <br>- Limit the number of CyberArk Identity accounts with system admin role <br>- High number of CyberArk Identity accounts with a privileged role assigned |\n-| Use advanced hunting to investigate CyberArk identities and their related activities | Captures CyberArk Identity inventory The [IdentityInfo](/defender-xdr/advanced-hunting-identityinfo-table) table includes account metadata such as privilege level, group membership, and identity source. |\n-| Take remediation actions | If an identity is determined to be at risk, the following remediation actions can be taken from within the MicrosoftDefender portal: <br>- Disable user in CyberArk Identity <br> - Enable user in CyberArk Identity  |\n-\n-## Next steps\n-\n-- [Connect CyberArk Identity to Microsoft Defender for Identity](connect-cyberark.md)\n",
+      "baseCommitSha": "5e6384bd29bd53e6aba62dc0c26372006c99141f",
+      "commitSha": "34d4a5282396ee62d9bc6b6eb334227b0d3c09d2",
+      "commitMessage": "rename files and images",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-02-23T22:34:47+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/defender-for-identity-cyberark-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/defender-for-identity-cyberark-overview",
+      "firstSeenAt": "2026-02-23T20:34:47.000Z",
+      "eventId": "defender-docs:34d4a5282396ee62d9bc6b6eb334227b0d3c09d2:removed:defender-for-identity/defender-for-identity-cyberark-overview.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "rename files and images",
+        "summary": "Removed Microsoft Defender documentation in defender-for-identity/defender-for-identity-cyberark-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 16,
+    "totalFiles": 23,
+    "authors": [
+      "AbbyMSFT",
+      "Chris Davis",
+      "Devorah Cohen",
+      "Mithun Rathinam",
+      "Yusuke Tobo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 19 updated, and 2 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Added Microsoft Defender documentation in defender-for-identity/connect-cyber-ark.md. Added Microsoft Defender documentation in defender-for-identity/defender-for-identity-cyber-ark-overview.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/remediation-actions.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md. Upd",
+        "sourceFiles": [
+          "defender-for-identity/connect-cyber-ark.md",
+          "defender-for-identity/defender-for-identity-cyber-ark-overview.md",
+          "defender-for-identity/deploy/configure-windows-event-collection.md",
+          "defender-for-identity/deploy/configure-windows-event-collection.md",
+          "defender-for-identity/remediation-actions.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/deploy/prerequisites-sensor-version-2.md",
+          "defender-for-identity/what-is.md",
+          "defender-for-identity/deploy/active-directory-federation-services.md",
+          "defender-for-identity/whats-new-archive.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/connect-cyberark.md",
+          "defender-for-identity/defender-for-identity-cyberark-overview.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/email-authentication-spf-configure.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md. Updated Microsoft Defender documentation in defender-office-365/air-about.md. Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md. Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md",
+        "sourceFiles": [
+          "defender-office-365/email-authentication-spf-configure.md",
+          "defender-office-365/quarantine-quarantine-notifications.md",
+          "defender-office-365/quarantine-quarantine-notifications.md",
+          "defender-office-365/air-about.md",
+          "defender-office-365/advanced-delivery-policy-configure.md",
+          "defender-office-365/advanced-delivery-policy-configure.md",
+          "defender-office-365/quarantine-admin-manage-messages-files.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-users.md. Updated Microsoft Defender documentation in defender-xdr/investigate-users.md.",
+        "sourceFiles": [
+          "defender-xdr/investigate-users.md",
+          "defender-xdr/investigate-users.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/api/exposed-apis-create-app-nativeapp.md.",
+        "sourceFiles": [
+          "defender-endpoint/api/exposed-apis-create-app-nativeapp.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Added Microsoft Defender documentation in defender-for-identity/connect-cyber-ark.md. Added Microsoft Defender documentation in defender-for-identity/defender-for-identity-cyber-ark-overview.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/remediation-actions.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md. Upd"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/email-authentication-spf-configure.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-quarantine-notifications.md. Updated Microsoft Defender documentation in defender-office-365/air-about.md. Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md. Updated Microsoft Defender documentation in defender-office-365/advanced-delivery-policy-configure.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/investigate-users.md. Updated Microsoft Defender documentation in defender-xdr/investigate-users.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/api/exposed-apis-create-app-nativeapp.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

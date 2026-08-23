@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex 3ebc66bc4..c4302f115 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -102,7 +102,7 @@ The following Linux server distributions are supported:\n | CentOS Stream | 8.x, 9.x, 10.x | 8.x, 9.x, 10.x |\n | Ubuntu LTS | 16.04, 18.04, 20.04, 22.04,24.04 | 20.04, 22.04, 24.04 |\n | Ubuntu Pro | 22.04, 24.04 | 22.04, 24.04 |\n-| Debian | 9–13 | 11, 12 |\n+| Debian | 9–13 | 11, 12, 13 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n | Amazon Linux | 2, 2023 | 2, 2023 |\n",
+      "baseCommitSha": "2f30701660fe6dd1d13b6151f8b1f19a426bbc5e",
+      "commitSha": "c351075d2a3dba8638e3d85e8392e7c474da42bd",
+      "commitMessage": "Update Debian support version in prerequisites",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-04-11T15:28:54+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-04-11T12:28:54.000Z",
+      "eventId": "defender-docs:c351075d2a3dba8638e3d85e8392e7c474da42bd:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Debian support version in prerequisites",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Paul Inbar"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "sourceFiles": [
+          "defender-endpoint/mde-linux-prerequisites.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

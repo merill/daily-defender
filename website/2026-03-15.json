@@ -1,0 +1,203 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/prerequisites-sensor-version-3.md b/defender-for-identity/deploy/prerequisites-sensor-version-3.md\nindex 36c4c85e0..197d475a7 100644\n--- a/defender-for-identity/deploy/prerequisites-sensor-version-3.md\n+++ b/defender-for-identity/deploy/prerequisites-sensor-version-3.md\n@@ -25,7 +25,7 @@ Before activating the Defender for Identity sensor v3.x, make sure that the serv\n - Has Defender for Endpoint deployed. The Microsoft Defender Antivirus component can be in either active or passive mode.\n - Doesn't have a Defender for Identity sensor v2.x already deployed.\n - Is running Windows Server 2019 or later.\n-- Includes the [October 2025 or later](https://support.microsoft.com/topic/october-14-2025-kb5066782-os-build-20348-4294-f4af3c9e-7a60-4d17-a964-cfe1f1dd15f6) cumulative update.\n+- Includes the [March 2026 or later](https://support.microsoft.com/en-us/topic/march-10-2026-kb5078766-os-build-20348-4893-fa3ee26a-0877-47d7-a4b2-9dd632ea8cea) cumulative update.\n \n ## Licensing requirements\n \n",
+      "baseCommitSha": "e00dca1af8e71c316b94af0caea3210a9c41a7c7",
+      "commitSha": "5f27124d2594e22ff9351dc98f73f672a9f204e3",
+      "commitMessage": "Update prerequisites-sensor-version-3.md",
+      "commitAuthor": "rlitinsky",
+      "commitDate": "2026-03-15T12:42:25+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3",
+      "firstSeenAt": "2026-03-15T10:42:25.000Z",
+      "eventId": "defender-docs:5f27124d2594e22ff9351dc98f73f672a9f204e3:modified:defender-for-identity/deploy/prerequisites-sensor-version-3.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update prerequisites-sensor-version-3.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/device-control-report.md",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 1,
+      "changes": 25,
+      "patch": "diff --git a/defender-endpoint/device-control-report.md b/defender-endpoint/device-control-report.md\nindex 0e650f9ae..01196c928 100644\n--- a/defender-endpoint/device-control-report.md\n+++ b/defender-endpoint/device-control-report.md\n@@ -3,7 +3,7 @@ title: View device control events and information in Microsoft Defender for Endp\n description: Monitor your organization's data security through device control reports.\n ms.service: defender-endpoint\n ms.localizationpriority: medium\n-ms.date: 06/25/2024\n+ms.date: 03/15/2026\n ms.author: lwainstein\n author: limwainstein\n ms.topic: article\n@@ -136,6 +136,29 @@ There might be a delay of up to six hours from the time a media connection occur\n \n ---\n \n+## Deduplication of access events (preview)\n+\n+[!INCLUDE [Microsoft Defender for Endpoint preview](../includes/prerelease.md)]\n+\n+By default, device control sends an audit event for every operating system access request that matches a policy. In high-activity environments, this can generate a large volume of events, potentially reaching the 300 events per device per day limit for `RemovableStoragePolicyTriggered` events.\n+\n+When deduplication of access events is enabled, device control sends a single audit event per device instead of reporting every individual request. This reduces event noise and helps ensure that audit events remain useful for evaluating how policies behave before you switch to deny mode.\n+\n+<!-- TODO: Confirm the exact deduplication scope — is it one event per device per policy, per device per access type, or one event per device total? -->\n+<!-- TODO: Confirm the deduplication time window — is it per day, per session, or per configurable interval? -->\n+\n+### Why use event deduplication\n+\n+- **Stay within event limits**: Avoid reaching the 300 events per device per day cap for `RemovableStoragePolicyTriggered` events in advanced hunting.\n+- **Evaluate policies before enforcement**: Use audit mode effectively to understand how policies behave across your environment before switching to deny mode.\n+- **Reduce noise**: Focus on meaningful audit signals instead of processing duplicate events for the same device and policy.\n+\n+<!-- TODO: Confirm how deduplication is enabled — is it automatically enabled for preview participants, or is there a setting/toggle? Add the appropriate instructions here. -->\n+<!-- TODO: Confirm which event types are affected — only RemovableStoragePolicyTriggered, or also PnPDeviceConnected, PnPDeviceAllowed, etc.? -->\n+<!-- TODO: Confirm whether deduplicated events include an aggregated count field (e.g., EventCount) or other new fields in AdditionalFields. If so, add a sample advanced hunting query showing the new fields. -->\n+<!-- TODO: Confirm whether the device control report in the Defender portal is also affected by deduplication, or only advanced hunting events. -->\n+<!-- TODO: Confirm platform support — Windows only, or also macOS? -->\n+<!-- TODO: Confirm minimum agent/platform version required for this feature. -->\n \n ## See also\n \n",
+      "baseCommitSha": "416690d2330fd0e2f6b5a907c084ba2e6bf76583",
+      "commitSha": "fcca53cde023d465309ba0fd2f919f5cef7c5efb",
+      "commitMessage": "Add device control event deduplication documentation (preview)",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-15T16:35:19+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-control-report.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-control-report",
+      "firstSeenAt": "2026-03-15T14:35:19.000Z",
+      "eventId": "defender-docs:fcca53cde023d465309ba0fd2f919f5cef7c5efb:modified:defender-endpoint/device-control-report.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add device control event deduplication documentation (preview)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex fbb66a3f2..5bdc72cb6 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -32,6 +32,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------|\n |Feature |[Proactive user containment (contain user)](/defender-endpoint/respond-machine-alerts#contain-user-from-the-network) |GA |The proactive user containment (contain user) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.|\n+|Feature |[Deduplication of device control access events](device-control-report.md#deduplication-of-access-events-preview) |Preview |Device control can now deduplicate audit events, sending a single event per device instead of one for every access request. This helps you stay within the 300-event daily limit and evaluate policies in audit mode before enforcing them. |\n \n ## February 2026\n \n",
+      "baseCommitSha": "416690d2330fd0e2f6b5a907c084ba2e6bf76583",
+      "commitSha": "fcca53cde023d465309ba0fd2f919f5cef7c5efb",
+      "commitMessage": "Add device control event deduplication documentation (preview)",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-15T16:35:19+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-15T14:35:19.000Z",
+      "eventId": "defender-docs:fcca53cde023d465309ba0fd2f919f5cef7c5efb:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add device control event deduplication documentation (preview)",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/device-control-report.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 24,
+      "changes": 24,
+      "patch": "diff --git a/defender-endpoint/device-control-report.md b/defender-endpoint/device-control-report.md\nindex 01196c928..762a32d25 100644\n--- a/defender-endpoint/device-control-report.md\n+++ b/defender-endpoint/device-control-report.md\n@@ -136,30 +136,6 @@ There might be a delay of up to six hours from the time a media connection occur\n \n ---\n \n-## Deduplication of access events (preview)\n-\n-[!INCLUDE [Microsoft Defender for Endpoint preview](../includes/prerelease.md)]\n-\n-By default, device control sends an audit event for every operating system access request that matches a policy. In high-activity environments, this can generate a large volume of events, potentially reaching the 300 events per device per day limit for `RemovableStoragePolicyTriggered` events.\n-\n-When deduplication of access events is enabled, device control sends a single audit event per device instead of reporting every individual request. This reduces event noise and helps ensure that audit events remain useful for evaluating how policies behave before you switch to deny mode.\n-\n-<!-- TODO: Confirm the exact deduplication scope — is it one event per device per policy, per device per access type, or one event per device total? -->\n-<!-- TODO: Confirm the deduplication time window — is it per day, per session, or per configurable interval? -->\n-\n-### Why use event deduplication\n-\n-- **Stay within event limits**: Avoid reaching the 300 events per device per day cap for `RemovableStoragePolicyTriggered` events in advanced hunting.\n-- **Evaluate policies before enforcement**: Use audit mode effectively to understand how policies behave across your environment before switching to deny mode.\n-- **Reduce noise**: Focus on meaningful audit signals instead of processing duplicate events for the same device and policy.\n-\n-<!-- TODO: Confirm how deduplication is enabled — is it automatically enabled for preview participants, or is there a setting/toggle? Add the appropriate instructions here. -->\n-<!-- TODO: Confirm which event types are affected — only RemovableStoragePolicyTriggered, or also PnPDeviceConnected, PnPDeviceAllowed, etc.? -->\n-<!-- TODO: Confirm whether deduplicated events include an aggregated count field (e.g., EventCount) or other new fields in AdditionalFields. If so, add a sample advanced hunting query showing the new fields. -->\n-<!-- TODO: Confirm whether the device control report in the Defender portal is also affected by deduplication, or only advanced hunting events. -->\n-<!-- TODO: Confirm platform support — Windows only, or also macOS? -->\n-<!-- TODO: Confirm minimum agent/platform version required for this feature. -->\n-\n ## See also\n \n - [Device control in Microsoft Defender for Endpoint](device-control-overview.md)\n",
+      "baseCommitSha": "fed143b3bd38ed80604d4c8b5587e82a68b3017d",
+      "commitSha": "2658fa78c859e6fdaf94ede662e35e70bf58a496",
+      "commitMessage": "Removing device control changes",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-15T16:41:10+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-control-report.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-control-report",
+      "firstSeenAt": "2026-03-15T14:41:10.000Z",
+      "eventId": "defender-docs:2658fa78c859e6fdaf94ede662e35e70bf58a496:modified:defender-endpoint/device-control-report.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Removing device control changes",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/device-control-report.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/device-control-report.md b/defender-endpoint/device-control-report.md\nindex 762a32d25..0c2f9a00f 100644\n--- a/defender-endpoint/device-control-report.md\n+++ b/defender-endpoint/device-control-report.md\n@@ -3,12 +3,11 @@ title: View device control events and information in Microsoft Defender for Endp\n description: Monitor your organization's data security through device control reports.\n ms.service: defender-endpoint\n ms.localizationpriority: medium\n-ms.date: 03/15/2026\n+ms.date: 06/25/2024\n ms.author: lwainstein\n author: limwainstein\n ms.topic: article\n manager: bagol\n-ms.reviewer: joshbregman\n audience: ITPro\n ms.subservice: asr\n ms.collection: \n",
+      "baseCommitSha": "2658fa78c859e6fdaf94ede662e35e70bf58a496",
+      "commitSha": "caacec96bb200095f7fdd8c0eea85f0252a5924c",
+      "commitMessage": "Date",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-15T16:43:29+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-control-report.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-control-report",
+      "firstSeenAt": "2026-03-15T14:43:29.000Z",
+      "eventId": "defender-docs:caacec96bb200095f7fdd8c0eea85f0252a5924c:modified:defender-endpoint/device-control-report.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Date",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 5bdc72cb6..fbb66a3f2 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -32,7 +32,6 @@ Learn more about [Preview features](/defender-xdr/preview).\n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------|\n |Feature |[Proactive user containment (contain user)](/defender-endpoint/respond-machine-alerts#contain-user-from-the-network) |GA |The proactive user containment (contain user) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.|\n-|Feature |[Deduplication of device control access events](device-control-report.md#deduplication-of-access-events-preview) |Preview |Device control can now deduplicate audit events, sending a single event per device instead of one for every access request. This helps you stay within the 300-event daily limit and evaluate policies in audit mode before enforcing them. |\n \n ## February 2026\n \n",
+      "baseCommitSha": "2658fa78c859e6fdaf94ede662e35e70bf58a496",
+      "commitSha": "caacec96bb200095f7fdd8c0eea85f0252a5924c",
+      "commitMessage": "Date",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-03-15T16:43:29+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-15T14:43:29.000Z",
+      "eventId": "defender-docs:caacec96bb200095f7fdd8c0eea85f0252a5924c:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Date",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 6,
+    "authors": [
+      "Limor Wainstein",
+      "rlitinsky"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
+        "sourceFiles": [
+          "defender-for-identity/deploy/prerequisites-sensor-version-3.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "sourceFiles": [
+          "defender-endpoint/device-control-report.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/device-control-report.md",
+          "defender-endpoint/device-control-report.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-report.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

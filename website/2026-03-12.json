@@ -1,0 +1,686 @@
+{
+  "newFiles": [
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "added",
+      "additions": 201,
+      "deletions": 0,
+      "changes": 201,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\nnew file mode 100644\nindex 000000000..40490400f\n--- /dev/null\n+++ b/defender-office-365/mdo-support-teams-about.md\n@@ -0,0 +1,201 @@\n+---\n+title: Microsoft Defender for Office 365 support for Microsoft Teams\n+f1.keywords: \n+  - NOCSH\n+author: chrisda\n+ms.author: chrisda\n+manager: bagol\n+audience: Admin\n+ms.topic: overview\n+ms.localizationpriority: medium\n+search.appverid: \n+  - MET150\n+  - MOE150\n+ms.collection: \n+  - m365-security\n+  - tier1\n+description: Admins can learn about Microsoft Teams features in Microsoft Defender for Office 365.\n+ms.service: defender-office-365\n+ms.date: 03/11/2026\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n+  - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n+---\n+\n+# Microsoft Defender for Office 365 support for Microsoft Teams\n+\n+[!INCLUDE [Prerelease information](../includes/prerelease.md)]\n+\n+[!INCLUDE [MDO Trial banner](../includes/mdo-trial-banner.md)]\n+\n+With the increased use of collaboration tools like Microsoft Teams, the possibility of malicious attacks using chat messages has also increased. This article describes the Microsoft 365 and Microsoft Defender for Office 365 protection features for Microsoft Teams.\n+\n+All licenses of Microsoft Teams in Microsoft 365 include the following built-in protections:\n+\n+- [Built-in virus protection in SharePoint, SharePoint Embedded, OneDrive, and Microsoft Teams](anti-malware-protection-for-spo-odfb-teams-about.md)\n+- **Near real-time URL protection in Teams messages (currently in Preview)**: Known, malicious URLs in Teams messages are delivered with a warning. Messages found to contain malicious URLs up to 48 hours after delivery also receive a warning. The warning is added to messages in internal and external chats and channels for all URL verdicts (not just malware or high confidence phishing).\n+\n+  :::image type=\"content\" source=\"media/teams-message-url-warning.png\" alt-text=\"Screenshot showing a Microsoft Teams message with a URL warning.\" lightbox=\"media/teams-message-url-warning.png\":::\n+\n+  To turn this feature off or on, see [Verify warnings for unsafe links are shown in Microsoft Teams messages](mdo-support-teams-quick-configure.md#step-3-verify-warnings-for-unsafe-links-are-shown-in-microsoft-teams-messages).\n+\n+Microsoft Defender for Office 365 Plan 1 provides the following extra Teams protection features:\n+\n+- Time of click protection for URLs and files in Teams messages through [Safe Links for Microsoft Teams](safe-links-about.md#safe-links-settings-for-microsoft-teams) and [Safe Attachments for SharePoint, OneDrive, and Microsoft Teams](safe-attachments-for-spo-odfb-teams-about.md).\n+- Allow/block [domains and addresses](tenant-allow-block-list-teams-domains-configure.md), [URLs](tenant-allow-block-list-urls-configure.md) and [files](tenant-allow-block-list-files-configure.md) inside Teams using the Tenant Allow Block List.\n+- **Zero-hour auto protection (ZAP) for Teams**: ZAP is an existing email protection feature that detects and neutralizes spam, phishing, and malware messages after delivery by moving the messages to the Junk Email folder or quarantine.\n+\n+  ZAP for Teams quarantines messages in internal Teams chats or channels that are found to be malware or high confidence phishing. For more information, see [Zero-hour auto purge (ZAP) in Microsoft Teams](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams).\n+\n+  Instructions to configure ZAP for Teams protection are in the next section.\n+\n+- **Teams messages in quarantine**: By default, only admins are allowed to manage Teams messages quarantined by ZAP for Teams. This is the same default limitation for email messages identified as malware or high confidence phishing. For more information, see [Manage quarantined Teams messages](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages).\n+\n+- **Teams message entity panel**: A single place to store all Teams message metadata for immediate SecOps review. Any threats coming from Teams chats, group chats, meeting chats, and other channels can be found in one place as soon as they're assessed. For more information, see [the Teams message entity panel](teams-message-entity-panel.md).\n+\n+- **Report Teams messages**: Users can report Teams messages as malicious or not malicious. Depending on the reported message settings in the organization, reported messages go to the specified reporting mailbox, to Microsoft, or both. For more information, see [User reported settings in Teams](submissions-teams.md).\n+\n+Microsoft 365 E5 and Defender for Office 365 Plan 2 extend Teams protection with a set of extra capabilities designed to disrupt the attack chain:\n+\n+- **Remove users from Teams chat**: To remediate malicious attacks, you can remove users from teams chats directly from the [Teams message entity panel](teams-message-entity-panel.md#remove-users-from-teams-chats-in-the-teams-message-entity-panel).\n+\n+- **Attack simulation training using Teams messages**: To ensure users are resilient to phishing attacks in Microsoft Teams, admins can configure phishing simulations using Teams messages instead of email messages. For more information, see [Microsoft Teams in Attack simulation training](attack-simulation-training-teams.md).\n+\n+- **Hunting on Teams messages with URLs**: You can hunt for Teams messages containing URL across three new advanced hunting tables: [MessageEvents](/defender-xdr/advanced-hunting-messageevents-table), [MessagePostDeliveryEvents](/defender-xdr/advanced-hunting-messagepostdeliveryevents-table), and [MessageURLInfo](/defender-xdr/advanced-hunting-messageurlinfo-table).\n+\n+These features are summarized in the following table:\n+\n+|Feature|All Teams<br/>licenses|Defender for Office 365<br/>Plan 1|Defender for Office 365<br/>Plan 2|\n+|---|:---:|:---:|:---:|\n+|Built-in virus protection (SharePoint, OneDrive, Teams)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Near real-time URL warnings (up to 48 hours post-delivery)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Safe Links (time-of-click URL protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Safe Attachments (time-of-click file protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Tenant Allow/Block List (domains, URLs, files)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Zero-hour auto purge (ZAP) for Teams||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Teams messages in quarantine (admin-managed)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Teams message entity panel||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|User-reported Teams messages||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Remove users from Teams chats (admin remediation)|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Attack simulation training with Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Advanced hunting on Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+\n+<a name='configure-zap-for-teams-protection-in-defender-for-office-365-plan-2'></a>\n+\n+## Configure ZAP for Teams protection in Defender for Office 365\n+\n+1. In the Microsoft Defender portal at <https://security.microsoft.com>, go to **Settings** \\> **Email & collaboration** \\> **Microsoft Teams protection**. Or, to go directly to the **Microsoft Teams protection** page, use <https://security.microsoft.com/securitysettings/teamsProtectionPolicy>.\n+\n+2. On the **Microsoft Teams protection** page, verify the toggle in the **Zero-hour auto purge (ZAP)** section:\n+   - **Turn on ZAP for Teams**: Verify the toggle is **On** :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\":::.\n+   - **Turn off ZAP for Teams**: Slide the toggle to **Off** :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\":::.\n+\n+3. When the toggle is **On** :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\":::, use the remaining settings on the page to customize ZAP for Teams protection:\n+\n+   - **Quarantine policies** section: You can select the existing quarantine policy to use for messages that are quarantined by ZAP for Teams protection as **Malware** or **High confidence phishing**. Quarantine policies define what users are able to do to quarantined messages, and whether users receive quarantine notifications. For more information, see [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy).\n+\n+     > [!NOTE]\n+     > Currently, quarantined Teams messages are available only to admins, and users don't receive quarantine notifications (the AdminOnlyAccess quarantine policy is used).\n+\n+   - **Exclude these participants** section: Specify the **Users**, **Groups**, or **Domains** to exclude from ZAP for Teams protection. Exclusions matter for message _recipients_, not message _senders_. For more information, see [Zero-hour auto purge (ZAP) in Microsoft Teams](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams).\n+\n+     You can use an exception only once, but the exception can contain multiple values:\n+\n+     - Multiple **values** of the **same exception** use OR logic (for example, _\\<recipient1\\>_ or _\\<recipient2\\>_). If the recipient matches **any** of the specified values, ZAP for Teams protection isn't applied to them.\n+     - Different **types of exceptions** use OR logic (for example, _\\<recipient1\\>_ or _\\<member of group1\\>_ or _\\<member of domain1\\>_). If the recipient matches **any** of the specified exception values, ZAP for Teams protection isn't applied to them.\n+\n+4. When you're finished on the **Microsoft Teams protection** page, select **Save**.\n+\n+:::image type=\"content\" source=\"media/zap-teams-policy-mdo.png\" alt-text=\"Image showing policy settings for Microsoft Teams.\" lightbox=\"media/zap-teams-policy-mdo.png\":::\n+\n+### Use Exchange Online PowerShell to configure ZAP for Teams protection\n+\n+If you'd rather use [Exchange Online PowerShell](/powershell/exchange/connect-to-exchange-online-powershell) to configure ZAP for Microsoft Teams, the following cmdlets are involved:\n+\n+- The Teams protection policy (**\\*-TeamsProtectionPolicy** cmdlets) turns ZAP for Teams on and off and specifies the quarantine policies to use for malware and high confidence phishing detections.\n+- The Teams protection policy rule (**\\*-TeamsProtectionPolicyRule** cmdlets) identifies the Teams protection policy and specifies any exceptions for ZAP for Teams protection (users, groups, or domains).\n+\n+**Notes**:\n+\n+- There's only one Teams protection policy in an organization. By default, that policy is named Teams Protection Policy.\n+- Using the **New-TeamsProtectionPolicy** cmdlet is meaningful only if there's no Teams protection policy in the organization (the **Get-TeamsProtectionPolicy** cmdlet returns nothing). You can run the cmdlet without error, but no new Teams protection policies are created if one already exists.\n+- You can't remove an existing Teams protection policy or Teams protection policy rule (there's no **Remove-TeamsProtectionPolicy** or **Remove-TeamsProtectionPolicyRule** cmdlet).\n+- By default, there's a Teams protection policy rule named Teams Protection Policy Rule in an organization as returned by the **Get-TeamsProtectionPolicyRule** cmdlet. You can use the Defender portal or the **Set-TeamsProtectionPolicyRule** cmdlet to modify the quarantine policies or exceptions for ZAP for Teams.\n+\n+#### Use PowerShell to view the Teams protection policy and Teams protection policy rule\n+\n+To view the important values in Teams protection policy and Teams protection policy rule, run the following commands:\n+\n+```powershell\n+Get-TeamsProtectionPolicy | Format-List Name,ZapEnabled,HighConfidencePhishQuarantineTag,MalwareQuarantineTag\n+\n+Get-TeamsProtectionPolicyRule | Format-List Name,TeamsProtectionPolicy,ExceptIfSentTo,ExceptIfSentToMemberOf,ExceptIfRecipientDomainIs\n+```\n+\n+For detailed syntax and parameter information, see [Get-TeamsProtectionPolicy](/powershell/module/exchangepowershell/get-teamsprotectionpolicy) and [Get-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/get-teamsprotectionpolicyrule).\n+\n+#### Use PowerShell to modify the Teams protection policy\n+\n+To modify the Teams protection policy, use the following syntax:\n+\n+```powershell\n+Set-TeamsProtectionPolicy -Identity \"Teams Protection Policy\" [-ZapEnabled <$true | $false>] [-HighConfidencePhishQuarantineTag \"<QuarantinePolicyName>\"] [-MalwareQuarantineTag \"<QuarantinePolicyName>\"]\n+```\n+\n+This example enables ZAP for Teams and changes the quarantine policy that's used for high confidence phishing detections:\n+\n+```powershell\n+Set-TeamsProtectionPolicy -Identity \"Teams Protection Policy\" -ZapEnabled $true -HighConfidencePhishQuarantineTag AdminOnlyWithNotifications\n+```\n+\n+For detailed syntax and parameter information, see [Set-TeamsProtectionPolicy](/powershell/module/exchangepowershell/set-teamsprotectionpolicy).\n+\n+#### Use PowerShell to create the Teams protection policy rule\n+\n+By default, there's no Teams protection policy rule, because there are no default exceptions for ZAP for Teams.\n+\n+To create a new Teams protection policy rule, use the following syntax:\n+\n+```powershell\n+New-TeamsProtectionPolicyRule -Name \"Teams Protection Policy Rule\" -TeamsProtectionPolicy \"Teams Protection Policy\" [-ExceptIfSentTo <UserEmail1,UserEmail2,...UserEmailN>] [-ExceptIfSentToMemberOf <GroupEmail1,GroupEmail2,...GroupEmailN>] [-ExceptIfRecipientDomainIs <Domain1,Domain2,...DomainN>]\n+```\n+\n+> [!IMPORTANT]\n+> As explained previously in this article, multiple exception types (users, groups, and domains) use OR logic, not AND.\n+\n+This example creates the Teams protection policy rule with members of the group named Research excluded from ZAP for Teams protection.\n+\n+```powershell\n+New-TeamsProtectionPolicyRule -Name \"Teams Protection Policy Rule\" -TeamsProtectionPolicy \"Teams Protection Policy\" -ExceptIfSentToMemberOf research@contoso.onmicrosoft.com\n+```\n+\n+For detailed syntax and parameter information, see [New-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/new-teamsprotectionpolicyrule).\n+\n+#### Use PowerShell to modify the Teams protection policy rule\n+\n+If the Teams protection policy rule already exists (the **Get-TeamsProtectionPolicyRule** cmdlet returns output), use the following syntax to modify the rule:\n+\n+```powershell\n+Set-TeamsProtectionPolicyRule -Identity \"Teams Protection Policy Rule\" [-ExceptIfSentTo <UserEmailAddresses | $null>] [-ExceptIfSentToMemberOf <GroupEmailAddresses | $null>] [-ExceptIfRecipientDomainIs <Domains | $null>]\n+```\n+\n+**Notes**:\n+\n+- For information about the syntax for adding, removing, and replacing all values for the _ExceptIfSentTo_, _ExceptIfSentToMemberOf_, and _ExceptIfRecipientDomainIs_ parameters, see the parameter descriptions in [Set-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/set-teamsprotectionpolicyrule).\n+- To empty the _ExceptIfSentTo_, _ExceptIfSentToMemberOf_, or _ExceptIfRecipientDomainIs_ parameters, use the value `$null`.\n+\n+This example modifies the existing Teams protection policy rule by excluding recipients in the domains research.contoso.com and research.contoso.net from ZAP for Teams protection.\n+\n+```powershell\n+Set-TeamsProtectionPolicyRule -Identity \"Teams Protection Policy Rule\" -ExceptIfRecipientDomainIs research.contoso.com,research.contoso.net\n+```\n+\n+For detailed syntax and parameter information, see [Set-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/set-teamsprotectionpolicyrule).\n+\n+## See also\n+\n+- [Microsoft Teams](/microsoftteams/teams-overview)\n+- [Managing Teams quarantined messages](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages)\n+- [Get started using Attack simulation training in Defender for Office 365](attack-simulation-training-get-started.md)\n+- [Get started with Defender for Cloud Apps for Microsoft Teams](/defender-cloud-apps/what-is-defender-for-cloud-apps)\n+- [Get started with Compliance and DLP protection for Microsoft Teams](/microsoftteams/security-compliance-overview)\n",
+      "baseCommitSha": "e0c6cc7c0fd359c52d3adaf145a1a8ccc13b2b21",
+      "commitSha": "39b67812961237e28cc2a55ade4e9659fe1c3dd4",
+      "commitMessage": "Corrections",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T10:21:18-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "firstSeenAt": "2026-03-12T17:21:18.000Z",
+      "eventId": "defender-docs:39b67812961237e28cc2a55ade4e9659fe1c3dd4:added:defender-office-365/mdo-support-teams-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrections",
+        "summary": "Added Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/defender-vulnerability-management/fixed-reported-inaccuracies.md b/defender-vulnerability-management/fixed-reported-inaccuracies.md\nindex 8ef354782..1e2ba0941 100644\n--- a/defender-vulnerability-management/fixed-reported-inaccuracies.md\n+++ b/defender-vulnerability-management/fixed-reported-inaccuracies.md\n@@ -44,12 +44,17 @@ The following tables present the relevant vulnerability information organized by\n \n | Inaccuracy report ID | Description | Fix date |\n |---|---|---|\n+| - | Added Microsoft Defender Vulnerability Management support for MS Azure Connected Machine Agent | 01-Feb-26 | \n | 128881 | Improved detection logic for Microsoft EdgeView2 Runtime to include file evidence | 05-Feb-26 |\n | 125295 | Improved detection logic for Splunk Universal Forwarder | 05-Feb-26 |\n+| 128146 | Fixed incorrect detections in Vendor- Information Security Corporation | 11-Feb-26 |\n+| 129051 | Updated CPE detection logic for Firebird | 11-Feb-26 |\n+| 128670 | Fixed bad normalization in Microsoft Visual Studio Enterprise 2026 | 11-Feb-26 |\n | 127073 | Fixed inaccuracy in CentOS Bzip2 vulnerability- CVE-2019-12900 | 12-Feb-26 |\n | 128036 | Updated CVSS score for CVE-2024-12718 | 12-Feb-26 |\n | 128106 | Fixed inaccuracy in dtSearch vulnerability- CVE-2025-8088 | 12-Feb-26 |\n | 129824 | Added Microsoft Defender Vulnerability Management support for Office 2019 vulnerability- CVE-2026-21509 | 12-Feb-26 |\n+| 127088 | Fixed bad normalization in Adobe Acrobat DC | 17-Feb-26 | \n \n ## January 2026\n \n",
+      "baseCommitSha": "697fe8dae4b10469b9e562de302ff0e1dec214b4",
+      "commitSha": "58f03fbf4afab57bdde6d8c5c054c51082483e87",
+      "commitMessage": "Learn Editor: Update fixed-reported-inaccuracies.md",
+      "commitAuthor": "harshitabijlani",
+      "commitDate": "2026-03-12T13:34:38+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/fixed-reported-inaccuracies",
+      "firstSeenAt": "2026-03-12T08:04:38.000Z",
+      "eventId": "defender-docs:58f03fbf4afab57bdde6d8c5c054c51082483e87:modified:defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update fixed-reported-inaccuracies.md",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/create-custom-rbac-roles.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 1,
+      "changes": 11,
+      "patch": "diff --git a/defender-xdr/create-custom-rbac-roles.md b/defender-xdr/create-custom-rbac-roles.md\nindex 2178316d6..236103ce5 100644\n--- a/defender-xdr/create-custom-rbac-roles.md\n+++ b/defender-xdr/create-custom-rbac-roles.md\n@@ -12,7 +12,7 @@ ms.collection:\n - tier3\n ms.custom: \n ms.topic: how-to\n-ms.date: 07/06/2025\n+ms.date: 03/12/2026\n ms.reviewer: \n search.appverid: met150\n appliesto:\n@@ -156,6 +156,15 @@ You can configure scoped access using Microsoft Defender XDR’s Unified RBAC mo\n \n For more information, see: [Manage cloud scopes and unified role-based access control](/azure/defender-for-cloud/cloud-scopes-unified-rbac?pivots=defender-portal).\n \n+## Scoping considerations for Microsoft Defender for Endpoint device groups\n+\n+Microsoft Defender for Endpoint device groups continue to govern per-device visibility and actions alongside unified RBAC. When you create or import URBAC roles, device group assignments determine which devices assigned users can see and act on. Configure device groups in the Microsoft Defender portal separately from URBAC role assignments to ensure proper scoping.\n+\n+For more information, see [Create and manage device groups in Microsoft Defender for Endpoint](/defender-endpoint/machine-groups).\n+\n+> [!NOTE]\n+> In multi-workspace Microsoft Sentinel environments, URBAC data source selections control access to Sentinel workspace data in the Defender portal. These selections don't change SIEM access or permissions configured through Azure RBAC for individual workspaces. Azure RBAC continues to govern direct workspace access outside the Defender portal.\n+\n ## Next steps\n \n - [Import existing RBAC roles](import-rbac-roles.md)\n",
+      "baseCommitSha": "d1400ac4c36cdde8a5076c0f1a0f5a816e4b7826",
+      "commitSha": "47f595e84271532a142663ca298267f29cd2fc15",
+      "commitMessage": "AI FEEDBACK from wi-541826",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-12T10:36:12+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/create-custom-rbac-roles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/create-custom-rbac-roles",
+      "firstSeenAt": "2026-03-12T08:36:12.000Z",
+      "eventId": "defender-docs:47f595e84271532a142663ca298267f29cd2fc15:modified:defender-xdr/create-custom-rbac-roles.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI FEEDBACK from wi-541826",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/create-custom-rbac-roles.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/manage-rbac.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/manage-rbac.md b/defender-xdr/manage-rbac.md\nindex 86140f7f1..a0020c752 100644\n--- a/defender-xdr/manage-rbac.md\n+++ b/defender-xdr/manage-rbac.md\n@@ -12,7 +12,7 @@ ms.collection:\n - tier3\n ms.custom: \n ms.topic: overview\n-ms.date: 03/02/2025\n+ms.date: 03/12/2026\n ms.reviewer: \n search.appverid: met150\n #customer intent: As a security administrator, I want to manage permissions and access to Microsoft Defender portal experiences using unified role-based access control (RBAC).\n@@ -62,7 +62,7 @@ Centralized permissions management is supported for the following services:\n |**Microsoft Sentinel** (Preview)| Supports unified access management for all Microsoft Sentinel workspaces onboarded to the Defender portal.<br><br> Sentinel experiences in the Defender portal continue to respect ARM roles and permissions in addition to URBAC. Therefore, users with more permissions in ARM than in URBAC may see more data in the Sentinel pages in the Defender portal than configured in their URBAC permissions. <br><br>Supports permission management for the Microsoft Sentinel data lake default workspace, when Microsoft Sentinel is onboarded to both the Defender portal and the Microsoft Sentinel data lake. <br><br>Microsoft Sentinel users with built-in Azure RBAC roles for their workspaces receive parallel permissions in the Microsoft Sentinel data lake experiences, such as the lake explorer and notebooks. For more information, see [Roles and permissions for the Microsoft Sentinel data lake (Preview)](/azure/sentinel/roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview). <br><br>To see which roles are supported, check the [unified RBAC roles mapping](compare-rbac-roles.md#microsoft-sentinel-preview].|\n \n > [!NOTE]\n-> Scenarios and experiences controlled by Compliance permissions are managed in the Microsoft Purview portal.\n+> Scenarios and experiences controlled by Compliance permissions are managed in the Microsoft Purview portal. Specifically, Data Loss Prevention (DLP) and Insider Risk Management experiences accessible from the Defender portal are governed by Microsoft Purview RBAC, not Microsoft Defender unified RBAC. To manage permissions for these experiences, see [Permissions in the Microsoft Purview portal](/purview/purview-permissions).\n \n ## Before you start\n \n",
+      "baseCommitSha": "d1400ac4c36cdde8a5076c0f1a0f5a816e4b7826",
+      "commitSha": "47f595e84271532a142663ca298267f29cd2fc15",
+      "commitMessage": "AI FEEDBACK from wi-541826",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-12T10:36:12+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/manage-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-rbac",
+      "firstSeenAt": "2026-03-12T08:36:12.000Z",
+      "eventId": "defender-docs:47f595e84271532a142663ca298267f29cd2fc15:modified:defender-xdr/manage-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI FEEDBACK from wi-541826",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/activate-defender-rbac.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/activate-defender-rbac.md b/defender-xdr/activate-defender-rbac.md\nindex f41788460..4ca471819 100644\n--- a/defender-xdr/activate-defender-rbac.md\n+++ b/defender-xdr/activate-defender-rbac.md\n@@ -104,6 +104,9 @@ Follow these steps to activate your workloads directly in Microsoft Defender XDR\n > [!NOTE]\n > The Microsoft Defender unified RBAC model only impacts the Microsoft Defender portal. It doesn't impact the [Microsoft Purview portal](https://purview.microsoft.com) or the [Exchange Admin Center](https://admin.exchange.microsoft.com).\n \n+> [!IMPORTANT]\n+> Once unified RBAC is activated for Microsoft Sentinel, use unified RBAC in the Defender portal to manage Sentinel permissions. Making permission changes in the Azure portal after unified RBAC is active for a workspace might lead to sync errors. If a sync error occurs, a notification appears on the **Permissions** page in the Defender portal with instructions on how to resolve it.\n+\n <a name='deactivate-microsoft-365-defender-unified-rbac'></a>\n \n ## Deactivate Microsoft Defender unified RBAC\n",
+      "baseCommitSha": "47f595e84271532a142663ca298267f29cd2fc15",
+      "commitSha": "e71880e3abfd869d8bca529ec30d08677b312996",
+      "commitMessage": "Adding Tomas' notes",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-12T10:57:58+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/activate-defender-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/activate-defender-rbac",
+      "firstSeenAt": "2026-03-12T08:57:58.000Z",
+      "eventId": "defender-docs:e71880e3abfd869d8bca529ec30d08677b312996:modified:defender-xdr/activate-defender-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Adding Tomas' notes",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/manage-rbac.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/manage-rbac.md b/defender-xdr/manage-rbac.md\nindex a0020c752..574544bf6 100644\n--- a/defender-xdr/manage-rbac.md\n+++ b/defender-xdr/manage-rbac.md\n@@ -125,6 +125,9 @@ Use the following steps as a guide to start using the Microsoft Defender unified\n 4. **Learn more about Microsoft Defender for Identity scoped access**\n    - [Configure scoped access in Microsoft Defender for Identity](/defender-for-identity/configure-scoped-access).\n \n+5. **Manage unified RBAC across multiple tenants**\n+   - [Manage unified role-based access control in multitenant management](/unified-secops-platform/mto-urbac)\n+\n Watch the following video to see the preceding steps in action:\n \n > [!VIDEO https://learn-video.azurefd.net/vod/player?id=0b4bc29d-0b8b-41f1-ad8b-105b0d0386f8]\n",
+      "baseCommitSha": "47f595e84271532a142663ca298267f29cd2fc15",
+      "commitSha": "e71880e3abfd869d8bca529ec30d08677b312996",
+      "commitMessage": "Adding Tomas' notes",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-12T10:57:58+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/manage-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-rbac",
+      "firstSeenAt": "2026-03-12T08:57:58.000Z",
+      "eventId": "defender-docs:e71880e3abfd869d8bca529ec30d08677b312996:modified:defender-xdr/manage-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Adding Tomas' notes",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/compare-rbac-roles.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 21,
+      "changes": 41,
+      "patch": "diff --git a/defender-xdr/compare-rbac-roles.md b/defender-xdr/compare-rbac-roles.md\nindex 4258afaaf..ac52ae571 100644\n--- a/defender-xdr/compare-rbac-roles.md\n+++ b/defender-xdr/compare-rbac-roles.md\n@@ -193,7 +193,27 @@ Use the following table to learn how your existing permissions for Microsoft Sen\n \n The following roles aren't available in unified RBAC and must be managed in the Azure portal: Microsoft Sentinel Playbook Operator, Automation Contributor, and Workbook Contributor.\n \n+### Sample permission mappings of Microsoft Sentinel built-in roles to Microsoft Defender unified RBAC roles\n+\n+These are examples of the permissions that can be assigned to the users based on their roles in Microsoft Sentinel. As unified RBAC provides the option to have more granular permissions on Microsoft Defender XDR, you can utilize that granularity to separate certain Microsoft Defender XDR permissions on Tier level as well. For example, you can apply Live Response Basic to Tier 1, but Live Response Advanced permission to Tier 2.\n \n+If some users need only read access to Microsoft Sentinel SIEM raw data, they can also utilize Log Analytics [Granular RBAC](/azure/azure-monitor/logs/granular-rbac-log-analytics) functionality to scope access to only specific data saved in Log Analytics workspace. Please note that Granular RBAC will not scope access to Microsoft Sentinel incidents, alerts, watchlists, UEBA, TI, or any other Microsoft Sentinel SIEM features.\n+\n+| Group | Role | Scope | Notes |\n+|---|---|---|---|\n+| Security Analysts | Microsoft Sentinel Responder | Microsoft Sentinel's Resource Group | View data, incidents, workbooks, and other Microsoft Sentinel resources. Manage incidents (assign, dismiss, etc.) |\n+| Security Analysts | Microsoft Sentinel Playbook Operator | Microsoft Sentinel's Resource Group (or the Resource Group where Playbooks are stored) | List, view and run playbooks. To attach playbooks to analytics rules, Microsoft Sentinel Contributor role is needed |\n+| Security Analysts | Security Operator Unified RBAC role | Microsoft Defender portal | View, investigate, and respond to security threats alerts<br />Manage Microsoft Defender XDR security settings<br />List of URBAC permissions equivalent for Security Operator Entra ID role are listed on this link:<br />/defender-xdr/compare-rbac-roles#microsoft-entra-global-roles-access |\n+| Security Engineer | Microsoft Sentinel Contributor | Microsoft Sentinel's Resource Group | View data, incidents, workbooks, and other Microsoft Sentinel resources. Manage incidents (assign, dismiss, etc.). Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources. |\n+| Security Engineer | Logic Apps Contributor | Microsoft Sentinel's Resource Group (or the Resource Group where Playbooks are stored) | Run and modify playbooks.<br />Attach playbooks to analytics rules and automation rules. |\n+| Security Engineer | Monitoring Contributor | Subscription and/or Resource group and/or An existing data collection rule | Create or edit data collection rules |\n+| Security Engineer | Log Analytics Contributor | Microsoft Sentinel's Resource Group | Use the Search feature |\n+| Security Engineer | Virtual Machine Contributor Azure Connected Machine Resource Administrator | Virtual machines, virtual machine scale sets Arc-enabled servers | Deploy DCR associations (i.e. to assign rules to the machine) |\n+| Security Engineer | Template Spec Contributor | Microsoft Sentinel's Resource Group | Deploy v2.0 solutions from Content hub. |\n+| Security Engineer | Security Administrator Unified RBAC role | Microsoft Defender portal | Monitor security-related policies across Microsoft Defender XDR services<br />Manage security threats and alerts<br />View reports<br /><br />List of URBAC permissions equivalent for Security Administrator Entra ID role are listed on this link:<br />/defender-xdr/compare-rbac-roles#microsoft-entra-global-roles-access |\n+| Security Architect | Microsoft Sentinel Contributor | Microsoft Sentinel's Resource Group | View data, incidents, workbooks, and other Microsoft Sentinel resources. Manage incidents (assign, dismiss, etc.). Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources. |\n+| Security Architect | User Access Administrator | Microsoft Sentinel's Resource Group | This is privileged role! This permission is needed to onboard Microsoft Sentinel SIEM to Microsoft Defender portal. |\n+| Security Architect | Security Administrator | Entara ID Tenant level | This is a privileged role! Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Microsoft Entra ID Protection, Microsoft Entra Authentication, Azure Information Protection, and Microsoft Purview compliance portal.<br /><br />This permission is needed to onboard Microsoft Sentinel SIEM to Microsoft Defender portal, offboard the workspace, or change primary/secondary workspace. |\n \n <a name='azure-active-directory-global-roles-access'></a>\n \n@@ -222,27 +242,6 @@ Use this table to learn about the permissions assigned by default for each workl\n > [!NOTE]\n > By activating the Microsoft Defender unified RBAC model, users with the Security Reader and Global Reader roles are granted read-only access to resources from workloads integrated into the model. However, accessing Microsoft Defender for Endpoint device data requires more configuration before Security Reader permissions take effect. For details, see the [Before you begin section](/defender-endpoint/rbac).\n \n-### Sample permission mappings of Microsoft Sentinel built-in roles to Microsoft Defender unified RBAC roles\n-\n-These are examples of the permissions that can be assigned to the users based on their roles in Microsoft Sentinel. As Unified RBAC provides the option to have more granular permissions on Microsoft Defender XDR, you can utilize that granularity to separate certain Microsoft Defender XDR permissions on Tier level as well. For example, you can apply Live Response Basic to Tier 1, but Live Response Advanced permission to Tier 2.\n-\n-If some users need only read access to Microsoft Sentinel SIEM raw data, they can also utilize Log Analytics [Granular RBAC](/azure/azure-monitor/logs/granular-rbac-log-analytics) functionality to scope access to only specific data saved in Log Analytics workspace. Please note that Granular RBAC will not scope access to Microsoft Sentinel incidents, alerts, watchlists, UEBA, TI, or any other Microsoft Sentinel SIEM features.\n-\n-| Group | Role | Scope | Notes |\n-|---|---|---|---|\n-| Security Analysts | Microsoft Sentinel Responder | Microsoft Sentinel's Resource Group | View data, incidents, workbooks, and other Microsoft Sentinel resources. Manage incidents (assign, dismiss, etc.) |\n-| Security Analysts | Microsoft Sentinel Playbook Operator | Microsoft Sentinel's Resource Group (or the Resource Group where Playbooks are stored) | List, view and run playbooks. To attach playbooks to analytics rules, Microsoft Sentinel Contributor role is needed |\n-| Security Analysts | Security Operator Unified RBAC role | Microsoft Defender portal | View, investigate, and respond to security threats alerts<br />Manage Microsoft Defender XDR security settings<br />List of URBAC permissions equivalent for Security Operator Entra ID role are listed on this link:<br />/defender-xdr/compare-rbac-roles#microsoft-entra-global-roles-access |\n-| Security Engineer | Microsoft Sentinel Contributor | Microsoft Sentinel's Resource Group | View data, incidents, workbooks, and other Microsoft Sentinel resources. Manage incidents (assign, dismiss, etc.). Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources. |\n-| Security Engineer | Logic Apps Contributor | Microsoft Sentinel's Resource Group (or the Resource Group where Playbooks are stored) | Run and modify playbooks.<br />Attach playbooks to analytics rules and automation rules. |\n-| Security Engineer | Monitoring Contributor | Subscription and/or Resource group and/or An existing data collection rule | Create or edit data collection rules |\n-| Security Engineer | Log Analytics Contributor | Microsoft Sentinel's Resource Group | Use the Search feature |\n-| Security Engineer | Virtual Machine Contributor Azure Connected Machine Resource Administrator | Virtual machines, virtual machine scale sets Arc-enabled servers | Deploy DCR associations (i.e. to assign rules to the machine) |\n-| Security Engineer | Template Spec Contributor | Microsoft Sentinel's Resource Group | Deploy v2.0 solutions from Content hub. |\n-| Security Engineer | Security Administrator Unified RBAC role | Microsoft Defender portal | Monitor security-related policies across Microsoft Defender XDR services<br />Manage security threats and alerts<br />View reports<br /><br />List of URBAC permissions equivalent for Security Administrator Entra ID role are listed on this link:<br />/defender-xdr/compare-rbac-roles#microsoft-entra-global-roles-access |\n-| Security Architect | Microsoft Sentinel Contributor | Microsoft Sentinel's Resource Group | View data, incidents, workbooks, and other Microsoft Sentinel resources. Manage incidents (assign, dismiss, etc.). Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources. |\n-| Security Architect | User Access Administrator | Microsoft Sentinel's Resource Group | This is privileged role! This permission is needed to onboard Microsoft Sentinel SIEM to Microsoft Defender portal. |\n-| Security Architect | Security Administrator | Entara ID Tenant level | This is a privileged role! Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Microsoft Entra ID Protection, Microsoft Entra Authentication, Azure Information Protection, and Microsoft Purview compliance portal.<br /><br />This permission is needed to onboard Microsoft Sentinel SIEM to Microsoft Defender portal, offboard the workspace, or change primary/secondary workspace. |\n \n ## Next steps\n \n",
+      "baseCommitSha": "e71880e3abfd869d8bca529ec30d08677b312996",
+      "commitSha": "b9c2ac19bd57e39f2e5368ddd47ae1882dd677bd",
+      "commitMessage": "compare-rbac-roles: put Sentinel sections together",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-12T11:01:52+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/compare-rbac-roles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/compare-rbac-roles",
+      "firstSeenAt": "2026-03-12T09:01:52.000Z",
+      "eventId": "defender-docs:b9c2ac19bd57e39f2e5368ddd47ae1882dd677bd:modified:defender-xdr/compare-rbac-roles.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "compare-rbac-roles: put Sentinel sections together",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/compare-rbac-roles.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/compare-rbac-roles.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/compare-rbac-roles.md b/defender-xdr/compare-rbac-roles.md\nindex ac52ae571..6b2fbf0a5 100644\n--- a/defender-xdr/compare-rbac-roles.md\n+++ b/defender-xdr/compare-rbac-roles.md\n@@ -12,7 +12,7 @@ ms.collection:\n - tier3\n ms.custom:\n ms.topic: concept-article\n-ms.date: 12/15/2025\n+ms.date: 03/12/2026\n ms.reviewer:\n search.appverid: met150\n appliesto:\n",
+      "baseCommitSha": "b9c2ac19bd57e39f2e5368ddd47ae1882dd677bd",
+      "commitSha": "d56d9cc5fc17b86927669f13cdd0151d7ee16064",
+      "commitMessage": "Update compare-rbac-roles.md",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-03-12T11:03:50+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/compare-rbac-roles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/compare-rbac-roles",
+      "firstSeenAt": "2026-03-12T09:03:50.000Z",
+      "eventId": "defender-docs:d56d9cc5fc17b86927669f13cdd0151d7ee16064:modified:defender-xdr/compare-rbac-roles.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update compare-rbac-roles.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/compare-rbac-roles.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/release-notes.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/defender-for-cloud-apps/release-notes.md b/defender-for-cloud-apps/release-notes.md\nindex 9e8a757ed..cca143c41 100644\n--- a/defender-for-cloud-apps/release-notes.md\n+++ b/defender-for-cloud-apps/release-notes.md\n@@ -7,8 +7,7 @@ ms.topic: overview\n \n # What's new in Microsoft Defender for Cloud Apps\n \n->\n-*Applies to: Microsoft Defender for Cloud Apps*\n+> *Applies to: Microsoft Defender for Cloud Apps*\n \n This article is updated frequently to let you know what's new in the latest release of Microsoft Defender for Cloud Apps.\n \n@@ -20,6 +19,12 @@ For more information on what's new with other Microsoft Defender security produc\n \n For news about earlier releases, see [Archive of past updates for Microsoft Defender for Cloud Apps](release-note-archive.md).\n \n+## March 2026\n+\n+### Updates to Secure Score category calculations for increased accuracy\n+\n+To improve accuracy and better protect organizational identities, some security recommendations categorized as **Cloud apps** recommendations are now considered identity‑related and grouped under the **Identity** category. While the total Secure Score remains unchanged, individual identity and app scores may change.\n+\n ## January 2026\n \n ### Workday connector updated to least-privilege permission model\n",
+      "baseCommitSha": "83c980dae8cc0f5403f17ab6dcae4a2a417a9700",
+      "commitSha": "d2fe7b17ee7389766bbc7dda39286d55679c503c",
+      "commitMessage": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-03-12T12:18:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/release-notes",
+      "firstSeenAt": "2026-03-12T10:18:44.000Z",
+      "eventId": "defender-docs:d2fe7b17ee7389766bbc7dda39286d55679c503c:modified:defender-for-cloud-apps/release-notes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 37c38ff0f..f47ae9db6 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -1,7 +1,7 @@\n ﻿---\n title: What's new | Microsoft Defender for Identity\n description: This article is updated frequently to let you know what's new in the latest release of Microsoft Defender for Identity.\n-ms.date: 02/25/2026\n+ms.date: 03/12/2026\n ms.topic: overview\n #CustomerIntent: As a Defender for Identity customer, I want to know what's new in the latest release of Defender for Identity, so that I can take advantage of new features and functionality.\n ms.reviewer: AbbyMSFT\n@@ -24,7 +24,12 @@ For more information, see also:\n For updates about versions and features released six months ago or earlier, see the [What's new archive for Microsoft Defender for Identity](whats-new-archive.md).\n ## March 2026\n \n-### Continued rollout of new health alert: Sensor v3.x RPC Audit Misconfigured \n+### Updates to Secure Score category calculations for increased accuracy\n+\n+To improve accuracy and better protect organizational identities, some security recommendations categorized as **Cloud apps** recommendations are now considered identity‑related and grouped under the **Identity** category. While the total Secure Score remains unchanged, individual identity and app scores may change.\n+\n+### Continued rollout of new health alert: Sensor v3.x RPC Audit Misconfigured\n+\n The **Sensor v3.x RPC Audit Misconfigured** health alert is continuing to be rolled out gradually to customers.  The new health alert helps identify v3.x sensors where Enhanced RPC auditing configuration is either missing or incorrectly applied. Enhanced RPC auditing is required for some Microsoft Defender for Identity advanced identity detections.  For more information, see [Configure RPC on sensors v3.x](deploy/prerequisites-sensor-version-3.md#configure-rpc-auditing).\n \n ## February 2026\n",
+      "baseCommitSha": "83c980dae8cc0f5403f17ab6dcae4a2a417a9700",
+      "commitSha": "d2fe7b17ee7389766bbc7dda39286d55679c503c",
+      "commitMessage": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-03-12T12:18:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "firstSeenAt": "2026-03-12T10:18:44.000Z",
+      "eventId": "defender-docs:d2fe7b17ee7389766bbc7dda39286d55679c503c:modified:defender-for-identity/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-xdr/whats-new.md b/defender-xdr/whats-new.md\nindex 3bd541268..2fc059bb6 100644\n--- a/defender-xdr/whats-new.md\n+++ b/defender-xdr/whats-new.md\n@@ -34,6 +34,7 @@ You can also get product updates and important notifications through the [messag\n \n ## March 2026\n \n+- To improve accuracy and better protect organizational identities, we've made updates to the Secure Score category calculations. Some security recommendations categorized as **Cloud apps** recommendations are now considered identity‑related and grouped under the **Identity** category. While the total Secure Score remains unchanged, individual identity and app scores may change.\n - (Preview) Customers can now use filters on very large incidents with many alerts and entities or hide specific entities to simplify complex incident graphs. By simplifying the graphs, they can focus their investigations on what matters most. [Learn more](investigate-incidents.md#filter-and-focus-the-incident-graph-preview)\n - The [proactive user containment (contain user)](/defender-endpoint/respond-machine-alerts#contain-user-from-the-network) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.\n \n",
+      "baseCommitSha": "83c980dae8cc0f5403f17ab6dcae4a2a417a9700",
+      "commitSha": "d2fe7b17ee7389766bbc7dda39286d55679c503c",
+      "commitMessage": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-03-12T12:18:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new",
+      "firstSeenAt": "2026-03-12T10:18:44.000Z",
+      "eventId": "defender-docs:d2fe7b17ee7389766bbc7dda39286d55679c503c:modified:defender-xdr/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "exposure-management/whats-new.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "patch": "diff --git a/exposure-management/whats-new.md b/exposure-management/whats-new.md\nindex 392ffeb9b..db3097ac0 100644\n--- a/exposure-management/whats-new.md\n+++ b/exposure-management/whats-new.md\n@@ -24,6 +24,12 @@ Learn more about MSEM by reading the [Microsoft Security and Compliance blog](ht\n >\n > `https://aka.ms/msem/rss`\n \n+## March 2026\n+\n+### Updates to Secure Score category calculations for increased accuracy\n+\n+To improve accuracy and better protect organizational identities, some security recommendations categorized as **Cloud apps** recommendations are now considered identity‑related and grouped under the **Identity** category. While the total Secure Score remains unchanged, individual identity and app scores may change.\n+\n ## January 2026\n \n ### New predefined classifications\n",
+      "baseCommitSha": "83c980dae8cc0f5403f17ab6dcae4a2a417a9700",
+      "commitSha": "d2fe7b17ee7389766bbc7dda39286d55679c503c",
+      "commitMessage": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-03-12T12:18:44+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/exposure-management/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/whats-new",
+      "firstSeenAt": "2026-03-12T10:18:44.000Z",
+      "eventId": "defender-docs:d2fe7b17ee7389766bbc7dda39286d55679c503c:modified:exposure-management/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated whats New for MDI, MDA, MSEM, and XDR for secure score calculation change",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/standard-device-connectivity-urls-gov.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "patch": "diff --git a/defender-endpoint/standard-device-connectivity-urls-gov.md b/defender-endpoint/standard-device-connectivity-urls-gov.md\nindex 0a539b5a7..ac92bf010 100644\n--- a/defender-endpoint/standard-device-connectivity-urls-gov.md\n+++ b/defender-endpoint/standard-device-connectivity-urls-gov.md\n@@ -180,3 +180,13 @@ While this list continues to be updated, Microsoft can't provide any guarantees\n |C:\\Program Files\\Microsoft Security Client|Microsoft Defender Antivirus Network Realtime Inspection (SCEP)|\n \n \n+## Change Log\n+\n+|Date|Change log|\n+|---|---|\n+|15/08/2023|Removed URL:<br>Removed: <https://msdl.microsoft.com/download/symbols>|\n+|05/12/2022|URL details updated:<br>Updated line 58: Updated from required to optional.<br>Updated line 62: Changed from optional to required. Guidance text updated. Added Mac and Linux.<br>Updated line 63: Changed from optional to required. Guidance text updated. Added Mac and Linux.<br>Updated line 64: Changed from optional to required. Guidance text updated. Added Mac and Linux.|\n+|27/05/2022|Removed preview status from Server 2012 R2 and Server 2016 Unified Agent references.<br>Updated line 4: URL required for Mac and Linux platforms.<br>Updated line 5: URL required for Mac and Linux platforms.|\n+|25/01/2022|Duplicate URLs consolidated.<br>Optional field added.<br>US Gov, GCC, and GCC High guidance moved to separate spreadsheet.<br>URLs removed:<br>eu-cdn.x.cp.wd.microsoft.com; wu-cdn.x.cp.wd.microsoft.com; *.azure-automation.net; *.notify.windows.com|\n+\n+\n",
+      "baseCommitSha": "fa8a9c46d208464ecb440d6268797cecf5a76cb5",
+      "commitSha": "18c45d99de1df23a294a94d60e278243b24bdb82",
+      "commitMessage": "add change log",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-03-12T13:24:23+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/standard-device-connectivity-urls-gov.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/standard-device-connectivity-urls-gov",
+      "firstSeenAt": "2026-03-12T11:24:23.000Z",
+      "eventId": "defender-docs:18c45d99de1df23a294a94d60e278243b24bdb82:modified:defender-endpoint/standard-device-connectivity-urls-gov.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "add change log",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/standard-device-connectivity-urls-gov.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 13,
+      "changes": 26,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex a93974696..a94f3bdc3 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -69,6 +69,13 @@ Linux server endpoints should be able to access the endpoints documented in:\n \n If necessary, [configure static proxy discovery](./linux-static-proxy-configuration.md).\n \n+> [!WARNING]\n+> PAC, WPAD, and authenticated proxies aren't supported.\n+> Use only static or transparent proxies.\n+> SSL inspection and intercepting proxies aren't supported for security reasons.\n+> Configure an exception for SSL inspection and your proxy server to allow direct data pass-through from Defender for Endpoint on Linux to the relevant URLs without interception.\n+> Adding your interception certificate to the global store doesn't enable interception.\n+\n ### Verify if devices can connect to Defender for Endpoint cloud services\n \n 1. Prepare your environment, as described in Step 1 of the following article [Configure your network environment to ensure connectivity with Defender for Endpoint service](/defender-endpoint/configure-environment).\n@@ -83,23 +90,16 @@ If necessary, [configure static proxy discovery](./linux-static-proxy-configurat\n > [!NOTE]\n > Configuration for transparent proxies isn't needed for Defender for Endpoint. See [Manual Static Proxy Configuration.](/defender-endpoint/linux-static-proxy-configuration)\n \n-> [!WARNING]\n-> PAC, WPAD, and authenticated proxies aren't supported.\n-> Use only static or transparent proxies.\n-> SSL inspection and intercepting proxies aren't supported for security reasons.\n-> Configure an exception for SSL inspection and your proxy server to allow direct data pass-through from Defender for Endpoint on Linux to the relevant URLs without interception.\n-> Adding your interception certificate to the global store doesn't enable interception.\n-\n For troubleshooting steps, see [Troubleshoot cloud connectivity issues for Microsoft Defender for Endpoint on Linux](/defender-endpoint/linux-support-connectivity).\n \n ## Supported Linux distributions\n \n The following Linux server distributions are supported:\n \n-| Distribution | x64 (AMD64/EM64T) | ARM64 (GA) |\n+| Distribution | x64 (AMD64/EM64T) | ARM64 |\n |---|---|---|\n | Red Hat Enterprise Linux | 7.2+, 8.x, 9.x, 10.x | 8.x, 9.x, 10.x |\n-| CentOS | 7.2+, 8.x | — |\n+| CentOS | 7.2+, 8.x | Not supported |\n | CentOS Stream | 8.x, 9.x, 10.x | 8.x, 9.x, 10.x |\n | Ubuntu LTS | 16.04–24.04 | 20.04, 22.04, 24.04 |\n | Ubuntu Pro | 22.04, 24.04 | 22.04, 24.04 |\n@@ -107,10 +107,10 @@ The following Linux server distributions are supported:\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n | Oracle Linux | 7.2+, 8.x, 9.x | 8.x, 9.x |\n | Amazon Linux | 2, 2023 | 2, 2023 |\n-| Fedora | 33–42 | — |\n-| Rocky Linux | 8.7+, 9.2+ | — |\n-| AlmaLinux | 8.4+, 9.2+ | — |\n-| Mariner | 2 | — |\n+| Fedora | 33–42 | Not supported |\n+| Rocky Linux | 8.7+, 9.2+ | Not supported |\n+| AlmaLinux | 8.4+, 9.2+ | Not supported |\n+| Mariner | 2 | Not supported |\n \n > [!NOTE]\n > Distributions and versions that aren't explicitly listed above, and custom operating systems, are unsupported (even if they're derived from the officially supported distributions).\n",
+      "baseCommitSha": "790a68a5150d2ac7055cb923c0a307b11a45dd42",
+      "commitSha": "62e3098417f01c93789cfce87c282900c820c97e",
+      "commitMessage": "Moved warning to relevant section",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-12T15:05:07+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-03-12T13:05:07.000Z",
+      "eventId": "defender-docs:62e3098417f01c93789cfce87c282900c820c97e:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Moved warning to relevant section",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mde-linux-prerequisites.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/mde-linux-prerequisites.md b/defender-endpoint/mde-linux-prerequisites.md\nindex a94f3bdc3..7de03c733 100644\n--- a/defender-endpoint/mde-linux-prerequisites.md\n+++ b/defender-endpoint/mde-linux-prerequisites.md\n@@ -15,7 +15,7 @@ ms.collection:\n ms.topic: article\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 03/08/2026\n+ms.date: 03/12/2026\n ---\n \n # Prerequisites for Microsoft Defender for Endpoint on Linux\n@@ -101,7 +101,7 @@ The following Linux server distributions are supported:\n | Red Hat Enterprise Linux | 7.2+, 8.x, 9.x, 10.x | 8.x, 9.x, 10.x |\n | CentOS | 7.2+, 8.x | Not supported |\n | CentOS Stream | 8.x, 9.x, 10.x | 8.x, 9.x, 10.x |\n-| Ubuntu LTS | 16.04–24.04 | 20.04, 22.04, 24.04 |\n+| Ubuntu LTS | 16.04, 18.04, 20.04, 22.04,24.04 | 20.04, 22.04, 24.04 |\n | Ubuntu Pro | 22.04, 24.04 | 22.04, 24.04 |\n | Debian | 9–13 | 11, 12 |\n | SUSE Linux Enterprise Server | 12.x, 15.x | 15 (SP5, SP6) |\n@@ -109,7 +109,7 @@ The following Linux server distributions are supported:\n | Amazon Linux | 2, 2023 | 2, 2023 |\n | Fedora | 33–42 | Not supported |\n | Rocky Linux | 8.7+, 9.2+ | Not supported |\n-| AlmaLinux | 8.4+, 9.2+ | Not supported |\n+| Alma Linux | 8.4+, 9.2+ | Not supported |\n | Mariner | 2 | Not supported |\n \n > [!NOTE]\n",
+      "baseCommitSha": "62e3098417f01c93789cfce87c282900c820c97e",
+      "commitSha": "ec9be825f185d25659775fb67a7108c4bc383646",
+      "commitMessage": "Synced supported distros with current online doc",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-12T15:23:26+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mde-linux-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-prerequisites",
+      "firstSeenAt": "2026-03-12T13:23:26.000Z",
+      "eventId": "defender-docs:ec9be825f185d25659775fb67a7108c4bc383646:modified:defender-endpoint/mde-linux-prerequisites.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Synced supported distros with current online doc",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/attack-simulation-training-payloads.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 5,
+      "changes": 6,
+      "patch": "diff --git a/defender-office-365/attack-simulation-training-payloads.md b/defender-office-365/attack-simulation-training-payloads.md\nindex 1e005bb92..68a443e63 100644\n--- a/defender-office-365/attack-simulation-training-payloads.md\n+++ b/defender-office-365/attack-simulation-training-payloads.md\n@@ -165,11 +165,7 @@ You can also create custom payloads that use QR codes as phishing links as descr\n    >\n    > You can also create payloads during the creation of simulations. For more information, see [Create a simulation: Select a payload and login page](attack-simulation-training-simulations.md#select-a-payload-and-login-page).\n \n-2. On the **Select type** page, select one of the following values:\n-   - **Email**\n-   - **Teams**: Currently, this value is available only in Private Preview. For more information, see [Microsoft Teams in Attack simulation training](attack-simulation-training-teams.md).\n-\n-   When you're finished on the **Select type** page, select **Next**.\n+2. On the **Select type** page, select **Email**, and then select **Next**.\n \n 3. On the **Select technique** page, the available options are the same as on the **Select technique** page in the new simulation wizard:\n    - **Credential Harvest**<sup>\\*</sup>\n",
+      "baseCommitSha": "9910407edd93ce21ccbae0806f006e85879f3a73",
+      "commitSha": "e0c6cc7c0fd359c52d3adaf145a1a8ccc13b2b21",
+      "commitMessage": "AST updates",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T10:09:06-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/attack-simulation-training-payloads.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-payloads",
+      "firstSeenAt": "2026-03-12T17:09:06.000Z",
+      "eventId": "defender-docs:e0c6cc7c0fd359c52d3adaf145a1a8ccc13b2b21:modified:defender-office-365/attack-simulation-training-payloads.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AST updates",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-payloads.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/api/run-advanced-query-api.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/api/run-advanced-query-api.md b/defender-endpoint/api/run-advanced-query-api.md\nindex 5737912d2..555b55081 100644\n--- a/defender-endpoint/api/run-advanced-query-api.md\n+++ b/defender-endpoint/api/run-advanced-query-api.md\n@@ -16,7 +16,7 @@ ms.topic: reference\n ms.subservice: reference\n ms.custom: api\n search.appverid: met150\n-ms.date: 08/18/2025\n+ms.date: 03/12/2026\n appliesto:\n   - Microsoft Defender for Endpoint\n ---\n@@ -46,7 +46,7 @@ appliesto:\n \n - `429` response represents reaching quota limit either by number of requests or by CPU. Read response body to understand what limit was reached.\n \n-- The maximum query result size of a single request can't exceed 124 MB. If exceeded, an HTTP 400 Bad Request with the message \"Query execution has exceeded the allowed result size. Optimize your query by limiting the number of results and try again\" occurs.\n+- The maximum query result size of a single request can't exceed 50 MB. If exceeded, an HTTP 400 Bad Request with the message \"Query execution has exceeded the allowed result size. Optimize your query by limiting the number of results and try again\" occurs.\n \n ## Permissions\n \n",
+      "baseCommitSha": "9910407edd93ce21ccbae0806f006e85879f3a73",
+      "commitSha": "4c78a770ec996d3df7c88559d7f9622bcb45f575",
+      "commitMessage": "Updated  query result size limitation 124->50",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-03-12T19:12:24+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/api/run-advanced-query-api.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/api/run-advanced-query-api",
+      "firstSeenAt": "2026-03-12T17:12:24.000Z",
+      "eventId": "defender-docs:4c78a770ec996d3df7c88559d7f9622bcb45f575:modified:defender-endpoint/api/run-advanced-query-api.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated  query result size limitation 124->50",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/api/run-advanced-query-api.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\nindex 40490400f..90ad66b38 100644\n--- a/defender-office-365/mdo-support-teams-about.md\n+++ b/defender-office-365/mdo-support-teams-about.md\n@@ -16,7 +16,7 @@ ms.collection:\n   - tier1\n description: Admins can learn about Microsoft Teams features in Microsoft Defender for Office 365.\n ms.service: defender-office-365\n-ms.date: 03/11/2026\n+ms.date: 03/12/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n@@ -33,6 +33,7 @@ With the increased use of collaboration tools like Microsoft Teams, the possibil\n All licenses of Microsoft Teams in Microsoft 365 include the following built-in protections:\n \n - [Built-in virus protection in SharePoint, SharePoint Embedded, OneDrive, and Microsoft Teams](anti-malware-protection-for-spo-odfb-teams-about.md)\n+- [Microsoft Teams external domain anomalies report](/microsoftteams/teams-analytics-and-reports/external-domain-anomalies-report).\n - **Near real-time URL protection in Teams messages (currently in Preview)**: Known, malicious URLs in Teams messages are delivered with a warning. Messages found to contain malicious URLs up to 48 hours after delivery also receive a warning. The warning is added to messages in internal and external chats and channels for all URL verdicts (not just malware or high confidence phishing).\n \n   :::image type=\"content\" source=\"media/teams-message-url-warning.png\" alt-text=\"Screenshot showing a Microsoft Teams message with a URL warning.\" lightbox=\"media/teams-message-url-warning.png\":::\n@@ -68,6 +69,7 @@ These features are summarized in the following table:\n |Feature|All Teams<br/>licenses|Defender for Office 365<br/>Plan 1|Defender for Office 365<br/>Plan 2|\n |---|:---:|:---:|:---:|\n |Built-in virus protection (SharePoint, OneDrive, Teams)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n+|Microsoft Teams external domain anomalies report|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n |Near real-time URL warnings (up to 48 hours post-delivery)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n |Safe Links (time-of-click URL protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n |Safe Attachments (time-of-click file protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n",
+      "baseCommitSha": "d143539632930d6d9e400fcc295440be92c8cb8f",
+      "commitSha": "186d9a3f217381f42a09d248569fc7e71eb2f89f",
+      "commitMessage": "Add Teams external domain anomalies report links",
+      "commitAuthor": "Dhairyya Agarwal",
+      "commitDate": "2026-03-12T11:15:36-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "firstSeenAt": "2026-03-12T18:15:36.000Z",
+      "eventId": "defender-docs:186d9a3f217381f42a09d248569fc7e71eb2f89f:modified:defender-office-365/mdo-support-teams-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add Teams external domain anomalies report links",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/tenant-allow-block-list-teams-domains-configure.md b/defender-office-365/tenant-allow-block-list-teams-domains-configure.md\nindex 5c8120760..6284e5171 100644\n--- a/defender-office-365/tenant-allow-block-list-teams-domains-configure.md\n+++ b/defender-office-365/tenant-allow-block-list-teams-domains-configure.md\n@@ -15,7 +15,7 @@ ms.collection:\n   - tier1\n description: Admins can learn how to block domains and addresses in Microsoft Teams using the Tenant Allow/Block List.\n ms.service: defender-office-365\n-ms.date: 01/08/2025\n+ms.date: 03/12/2026\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/eop-about\" target=\"_blank\">Built-in security features for all cloud mailboxes</a>\n   - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n@@ -46,6 +46,8 @@ This article describes how security admins can manage entries for blocked domain\n \n - You open the Microsoft Defender portal at <https://security.microsoft.com>. To go directly to the **Tenant Allow/Block Lists** page, use <https://security.microsoft.com/tenantAllowBlockList>. Then, go to the **Teams senders** tab.\n \n+- Check the [Microsoft Teams external domain anomalies report](/microsoftteams/teams-analytics-and-reports/external-domain-anomalies-report).\n+\n - After you add the block entry for the domain or sender address in Teams, all new Teams communication from that organization is blocked. Block communication includes new Teams meetings, chats, channels, and calls. Existing Teams meetings, chats, channels, and calls are deleted.\n \n - On the **Organization settings** tab of the **External access** page in the Microsoft Teams admin center at <https://admin.teams.microsoft.com/company-wide-settings/external-communications>, the following settings are required to create and manage block entries for domains and senders in Teams using the Tenant Allow/Block List:\n",
+      "baseCommitSha": "d143539632930d6d9e400fcc295440be92c8cb8f",
+      "commitSha": "186d9a3f217381f42a09d248569fc7e71eb2f89f",
+      "commitMessage": "Add Teams external domain anomalies report links",
+      "commitAuthor": "Dhairyya Agarwal",
+      "commitDate": "2026-03-12T11:15:36-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-teams-domains-configure",
+      "firstSeenAt": "2026-03-12T18:15:36.000Z",
+      "eventId": "defender-docs:186d9a3f217381f42a09d248569fc7e71eb2f89f:modified:defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add Teams external domain anomalies report links",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 2,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\nindex 40490400f..1af615e4c 100644\n--- a/defender-office-365/mdo-support-teams-about.md\n+++ b/defender-office-365/mdo-support-teams-about.md\n@@ -59,8 +59,6 @@ Microsoft 365 E5 and Defender for Office 365 Plan 2 extend Teams protection with\n \n - **Remove users from Teams chat**: To remediate malicious attacks, you can remove users from teams chats directly from the [Teams message entity panel](teams-message-entity-panel.md#remove-users-from-teams-chats-in-the-teams-message-entity-panel).\n \n-- **Attack simulation training using Teams messages**: To ensure users are resilient to phishing attacks in Microsoft Teams, admins can configure phishing simulations using Teams messages instead of email messages. For more information, see [Microsoft Teams in Attack simulation training](attack-simulation-training-teams.md).\n-\n - **Hunting on Teams messages with URLs**: You can hunt for Teams messages containing URL across three new advanced hunting tables: [MessageEvents](/defender-xdr/advanced-hunting-messageevents-table), [MessagePostDeliveryEvents](/defender-xdr/advanced-hunting-messagepostdeliveryevents-table), and [MessageURLInfo](/defender-xdr/advanced-hunting-messageurlinfo-table).\n \n These features are summarized in the following table:\n",
+      "baseCommitSha": "d143539632930d6d9e400fcc295440be92c8cb8f",
+      "commitSha": "0a3dabc1780be4855af2a451f806ad43d197ebad",
+      "commitMessage": "Update mdo-support-teams-about.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T11:33:17-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "firstSeenAt": "2026-03-12T18:33:17.000Z",
+      "eventId": "defender-docs:0a3dabc1780be4855af2a451f806ad43d197ebad:modified:defender-office-365/mdo-support-teams-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update mdo-support-teams-about.md",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 199,
+      "changes": 199,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\ndeleted file mode 100644\nindex 40490400f..000000000\n--- a/defender-office-365/mdo-support-teams-about.md\n+++ /dev/null\n@@ -1,201 +0,0 @@\n----\n-title: Microsoft Defender for Office 365 support for Microsoft Teams\n-f1.keywords: \n-  - NOCSH\n-author: chrisda\n-ms.author: chrisda\n-manager: bagol\n-audience: Admin\n-ms.topic: overview\n-ms.localizationpriority: medium\n-search.appverid: \n-  - MET150\n-  - MOE150\n-ms.collection: \n-  - m365-security\n-  - tier1\n-description: Admins can learn about Microsoft Teams features in Microsoft Defender for Office 365.\n-ms.service: defender-office-365\n-ms.date: 03/11/2026\n-appliesto:\n-  - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 1 and Plan 2</a>\n-  - ✅ <a href=\"https://learn.microsoft.com/defender-xdr/microsoft-365-defender\" target=\"_blank\">Microsoft Defender XDR</a>\n----\n-\n-# Microsoft Defender for Office 365 support for Microsoft Teams\n-\n-[!INCLUDE [Prerelease information](../includes/prerelease.md)]\n-\n-[!INCLUDE [MDO Trial banner](../includes/mdo-trial-banner.md)]\n-\n-With the increased use of collaboration tools like Microsoft Teams, the possibility of malicious attacks using chat messages has also increased. This article describes the Microsoft 365 and Microsoft Defender for Office 365 protection features for Microsoft Teams.\n-\n-All licenses of Microsoft Teams in Microsoft 365 include the following built-in protections:\n-\n-- [Built-in virus protection in SharePoint, SharePoint Embedded, OneDrive, and Microsoft Teams](anti-malware-protection-for-spo-odfb-teams-about.md)\n-- **Near real-time URL protection in Teams messages (currently in Preview)**: Known, malicious URLs in Teams messages are delivered with a warning. Messages found to contain malicious URLs up to 48 hours after delivery also receive a warning. The warning is added to messages in internal and external chats and channels for all URL verdicts (not just malware or high confidence phishing).\n-\n-  :::image type=\"content\" source=\"media/teams-message-url-warning.png\" alt-text=\"Screenshot showing a Microsoft Teams message with a URL warning.\" lightbox=\"media/teams-message-url-warning.png\":::\n-\n-  To turn this feature off or on, see [Verify warnings for unsafe links are shown in Microsoft Teams messages](mdo-support-teams-quick-configure.md#step-3-verify-warnings-for-unsafe-links-are-shown-in-microsoft-teams-messages).\n-\n-Microsoft Defender for Office 365 Plan 1 provides the following extra Teams protection features:\n-\n-- Time of click protection for URLs and files in Teams messages through [Safe Links for Microsoft Teams](safe-links-about.md#safe-links-settings-for-microsoft-teams) and [Safe Attachments for SharePoint, OneDrive, and Microsoft Teams](safe-attachments-for-spo-odfb-teams-about.md).\n-- Allow/block [domains and addresses](tenant-allow-block-list-teams-domains-configure.md), [URLs](tenant-allow-block-list-urls-configure.md) and [files](tenant-allow-block-list-files-configure.md) inside Teams using the Tenant Allow Block List.\n-- **Zero-hour auto protection (ZAP) for Teams**: ZAP is an existing email protection feature that detects and neutralizes spam, phishing, and malware messages after delivery by moving the messages to the Junk Email folder or quarantine.\n-\n-  ZAP for Teams quarantines messages in internal Teams chats or channels that are found to be malware or high confidence phishing. For more information, see [Zero-hour auto purge (ZAP) in Microsoft Teams](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams).\n-\n-  Instructions to configure ZAP for Teams protection are in the next section.\n-\n-- **Teams messages in quarantine**: By default, only admins are allowed to manage Teams messages quarantined by ZAP for Teams. This is the same default limitation for email messages identified as malware or high confidence phishing. For more information, see [Manage quarantined Teams messages](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages).\n-\n-- **Teams message entity panel**: A single place to store all Teams message metadata for immediate SecOps review. Any threats coming from Teams chats, group chats, meeting chats, and other channels can be found in one place as soon as they're assessed. For more information, see [the Teams message entity panel](teams-message-entity-panel.md).\n-\n-- **Report Teams messages**: Users can report Teams messages as malicious or not malicious. Depending on the reported message settings in the organization, reported messages go to the specified reporting mailbox, to Microsoft, or both. For more information, see [User reported settings in Teams](submissions-teams.md).\n-\n-Microsoft 365 E5 and Defender for Office 365 Plan 2 extend Teams protection with a set of extra capabilities designed to disrupt the attack chain:\n-\n-- **Remove users from Teams chat**: To remediate malicious attacks, you can remove users from teams chats directly from the [Teams message entity panel](teams-message-entity-panel.md#remove-users-from-teams-chats-in-the-teams-message-entity-panel).\n-\n-- **Attack simulation training using Teams messages**: To ensure users are resilient to phishing attacks in Microsoft Teams, admins can configure phishing simulations using Teams messages instead of email messages. For more information, see [Microsoft Teams in Attack simulation training](attack-simulation-training-teams.md).\n-\n-- **Hunting on Teams messages with URLs**: You can hunt for Teams messages containing URL across three new advanced hunting tables: [MessageEvents](/defender-xdr/advanced-hunting-messageevents-table), [MessagePostDeliveryEvents](/defender-xdr/advanced-hunting-messagepostdeliveryevents-table), and [MessageURLInfo](/defender-xdr/advanced-hunting-messageurlinfo-table).\n-\n-These features are summarized in the following table:\n-\n-|Feature|All Teams<br/>licenses|Defender for Office 365<br/>Plan 1|Defender for Office 365<br/>Plan 2|\n-|---|:---:|:---:|:---:|\n-|Built-in virus protection (SharePoint, OneDrive, Teams)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Near real-time URL warnings (up to 48 hours post-delivery)|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Safe Links (time-of-click URL protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Safe Attachments (time-of-click file protection)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Tenant Allow/Block List (domains, URLs, files)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Zero-hour auto purge (ZAP) for Teams||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Teams messages in quarantine (admin-managed)||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Teams message entity panel||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|User-reported Teams messages||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Remove users from Teams chats (admin remediation)|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Attack simulation training with Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-|Advanced hunting on Teams messages|||:::image type=\"icon\" source=\"media/feature_present_icon.png\":::|\n-\n-<a name='configure-zap-for-teams-protection-in-defender-for-office-365-plan-2'></a>\n-\n-## Configure ZAP for Teams protection in Defender for Office 365\n-\n-1. In the Microsoft Defender portal at <https://security.microsoft.com>, go to **Settings** \\> **Email & collaboration** \\> **Microsoft Teams protection**. Or, to go directly to the **Microsoft Teams protection** page, use <https://security.microsoft.com/securitysettings/teamsProtectionPolicy>.\n-\n-2. On the **Microsoft Teams protection** page, verify the toggle in the **Zero-hour auto purge (ZAP)** section:\n-   - **Turn on ZAP for Teams**: Verify the toggle is **On** :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\":::.\n-   - **Turn off ZAP for Teams**: Slide the toggle to **Off** :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\":::.\n-\n-3. When the toggle is **On** :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\":::, use the remaining settings on the page to customize ZAP for Teams protection:\n-\n-   - **Quarantine policies** section: You can select the existing quarantine policy to use for messages that are quarantined by ZAP for Teams protection as **Malware** or **High confidence phishing**. Quarantine policies define what users are able to do to quarantined messages, and whether users receive quarantine notifications. For more information, see [Anatomy of a quarantine policy](quarantine-policies.md#anatomy-of-a-quarantine-policy).\n-\n-     > [!NOTE]\n-     > Currently, quarantined Teams messages are available only to admins, and users don't receive quarantine notifications (the AdminOnlyAccess quarantine policy is used).\n-\n-   - **Exclude these participants** section: Specify the **Users**, **Groups**, or **Domains** to exclude from ZAP for Teams protection. Exclusions matter for message _recipients_, not message _senders_. For more information, see [Zero-hour auto purge (ZAP) in Microsoft Teams](zero-hour-auto-purge.md#zero-hour-auto-purge-zap-in-microsoft-teams).\n-\n-     You can use an exception only once, but the exception can contain multiple values:\n-\n-     - Multiple **values** of the **same exception** use OR logic (for example, _\\<recipient1\\>_ or _\\<recipient2\\>_). If the recipient matches **any** of the specified values, ZAP for Teams protection isn't applied to them.\n-     - Different **types of exceptions** use OR logic (for example, _\\<recipient1\\>_ or _\\<member of group1\\>_ or _\\<member of domain1\\>_). If the recipient matches **any** of the specified exception values, ZAP for Teams protection isn't applied to them.\n-\n-4. When you're finished on the **Microsoft Teams protection** page, select **Save**.\n-\n-:::image type=\"content\" source=\"media/zap-teams-policy-mdo.png\" alt-text=\"Image showing policy settings for Microsoft Teams.\" lightbox=\"media/zap-teams-policy-mdo.png\":::\n-\n-### Use Exchange Online PowerShell to configure ZAP for Teams protection\n-\n-If you'd rather use [Exchange Online PowerShell](/powershell/exchange/connect-to-exchange-online-powershell) to configure ZAP for Microsoft Teams, the following cmdlets are involved:\n-\n-- The Teams protection policy (**\\*-TeamsProtectionPolicy** cmdlets) turns ZAP for Teams on and off and specifies the quarantine policies to use for malware and high confidence phishing detections.\n-- The Teams protection policy rule (**\\*-TeamsProtectionPolicyRule** cmdlets) identifies the Teams protection policy and specifies any exceptions for ZAP for Teams protection (users, groups, or domains).\n-\n-**Notes**:\n-\n-- There's only one Teams protection policy in an organization. By default, that policy is named Teams Protection Policy.\n-- Using the **New-TeamsProtectionPolicy** cmdlet is meaningful only if there's no Teams protection policy in the organization (the **Get-TeamsProtectionPolicy** cmdlet returns nothing). You can run the cmdlet without error, but no new Teams protection policies are created if one already exists.\n-- You can't remove an existing Teams protection policy or Teams protection policy rule (there's no **Remove-TeamsProtectionPolicy** or **Remove-TeamsProtectionPolicyRule** cmdlet).\n-- By default, there's a Teams protection policy rule named Teams Protection Policy Rule in an organization as returned by the **Get-TeamsProtectionPolicyRule** cmdlet. You can use the Defender portal or the **Set-TeamsProtectionPolicyRule** cmdlet to modify the quarantine policies or exceptions for ZAP for Teams.\n-\n-#### Use PowerShell to view the Teams protection policy and Teams protection policy rule\n-\n-To view the important values in Teams protection policy and Teams protection policy rule, run the following commands:\n-\n-```powershell\n-Get-TeamsProtectionPolicy | Format-List Name,ZapEnabled,HighConfidencePhishQuarantineTag,MalwareQuarantineTag\n-\n-Get-TeamsProtectionPolicyRule | Format-List Name,TeamsProtectionPolicy,ExceptIfSentTo,ExceptIfSentToMemberOf,ExceptIfRecipientDomainIs\n-```\n-\n-For detailed syntax and parameter information, see [Get-TeamsProtectionPolicy](/powershell/module/exchangepowershell/get-teamsprotectionpolicy) and [Get-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/get-teamsprotectionpolicyrule).\n-\n-#### Use PowerShell to modify the Teams protection policy\n-\n-To modify the Teams protection policy, use the following syntax:\n-\n-```powershell\n-Set-TeamsProtectionPolicy -Identity \"Teams Protection Policy\" [-ZapEnabled <$true | $false>] [-HighConfidencePhishQuarantineTag \"<QuarantinePolicyName>\"] [-MalwareQuarantineTag \"<QuarantinePolicyName>\"]\n-```\n-\n-This example enables ZAP for Teams and changes the quarantine policy that's used for high confidence phishing detections:\n-\n-```powershell\n-Set-TeamsProtectionPolicy -Identity \"Teams Protection Policy\" -ZapEnabled $true -HighConfidencePhishQuarantineTag AdminOnlyWithNotifications\n-```\n-\n-For detailed syntax and parameter information, see [Set-TeamsProtectionPolicy](/powershell/module/exchangepowershell/set-teamsprotectionpolicy).\n-\n-#### Use PowerShell to create the Teams protection policy rule\n-\n-By default, there's no Teams protection policy rule, because there are no default exceptions for ZAP for Teams.\n-\n-To create a new Teams protection policy rule, use the following syntax:\n-\n-```powershell\n-New-TeamsProtectionPolicyRule -Name \"Teams Protection Policy Rule\" -TeamsProtectionPolicy \"Teams Protection Policy\" [-ExceptIfSentTo <UserEmail1,UserEmail2,...UserEmailN>] [-ExceptIfSentToMemberOf <GroupEmail1,GroupEmail2,...GroupEmailN>] [-ExceptIfRecipientDomainIs <Domain1,Domain2,...DomainN>]\n-```\n-\n-> [!IMPORTANT]\n-> As explained previously in this article, multiple exception types (users, groups, and domains) use OR logic, not AND.\n-\n-This example creates the Teams protection policy rule with members of the group named Research excluded from ZAP for Teams protection.\n-\n-```powershell\n-New-TeamsProtectionPolicyRule -Name \"Teams Protection Policy Rule\" -TeamsProtectionPolicy \"Teams Protection Policy\" -ExceptIfSentToMemberOf research@contoso.onmicrosoft.com\n-```\n-\n-For detailed syntax and parameter information, see [New-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/new-teamsprotectionpolicyrule).\n-\n-#### Use PowerShell to modify the Teams protection policy rule\n-\n-If the Teams protection policy rule already exists (the **Get-TeamsProtectionPolicyRule** cmdlet returns output), use the following syntax to modify the rule:\n-\n-```powershell\n-Set-TeamsProtectionPolicyRule -Identity \"Teams Protection Policy Rule\" [-ExceptIfSentTo <UserEmailAddresses | $null>] [-ExceptIfSentToMemberOf <GroupEmailAddresses | $null>] [-ExceptIfRecipientDomainIs <Domains | $null>]\n-```\n-\n-**Notes**:\n-\n-- For information about the syntax for adding, removing, and replacing all values for the _ExceptIfSentTo_, _ExceptIfSentToMemberOf_, and _ExceptIfRecipientDomainIs_ parameters, see the parameter descriptions in [Set-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/set-teamsprotectionpolicyrule).\n-- To empty the _ExceptIfSentTo_, _ExceptIfSentToMemberOf_, or _ExceptIfRecipientDomainIs_ parameters, use the value `$null`.\n-\n-This example modifies the existing Teams protection policy rule by excluding recipients in the domains research.contoso.com and research.contoso.net from ZAP for Teams protection.\n-\n-```powershell\n-Set-TeamsProtectionPolicyRule -Identity \"Teams Protection Policy Rule\" -ExceptIfRecipientDomainIs research.contoso.com,research.contoso.net\n-```\n-\n-For detailed syntax and parameter information, see [Set-TeamsProtectionPolicyRule](/powershell/module/exchangepowershell/set-teamsprotectionpolicyrule).\n-\n-## See also\n-\n-- [Microsoft Teams](/microsoftteams/teams-overview)\n-- [Managing Teams quarantined messages](quarantine-admin-manage-messages-files.md#use-the-microsoft-defender-portal-to-manage-microsoft-teams-quarantined-messages)\n-- [Get started using Attack simulation training in Defender for Office 365](attack-simulation-training-get-started.md)\n-- [Get started with Defender for Cloud Apps for Microsoft Teams](/defender-cloud-apps/what-is-defender-for-cloud-apps)\n-- [Get started with Compliance and DLP protection for Microsoft Teams](/microsoftteams/security-compliance-overview)\n",
+      "baseCommitSha": "9910407edd93ce21ccbae0806f006e85879f3a73",
+      "commitSha": "e0c6cc7c0fd359c52d3adaf145a1a8ccc13b2b21",
+      "commitMessage": "AST updates",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T10:09:06-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "firstSeenAt": "2026-03-12T17:09:06.000Z",
+      "eventId": "defender-docs:e0c6cc7c0fd359c52d3adaf145a1a8ccc13b2b21:removed:defender-office-365/mdo-support-teams-about.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AST updates",
+        "summary": "Removed Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/attack-simulation-training-teams.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 128,
+      "changes": 128,
+      "patch": "diff --git a/defender-office-365/attack-simulation-training-teams.md b/defender-office-365/attack-simulation-training-teams.md\ndeleted file mode 100644\nindex b0c42b748..000000000\n--- a/defender-office-365/attack-simulation-training-teams.md\n+++ /dev/null\n@@ -1,130 +0,0 @@\n----\n-title: Microsoft Teams in Attack simulation training\n-author: chrisda\n-ms.author: chrisda\n-manager: bagol\n-audience: ITPro\n-ms.topic: how-to\n-ms.service: defender-office-365\n-ms.localizationpriority: medium\n-ms.collection:\n-  - m365-security\n-  - tier2\n-description: Admins can learn about the addition in Microsoft Defender for Office 365 Plan 2 of delivering simulated phishing attacks in Attack simulation training to Microsoft Teams.\n-search.appverid: met150\n-ms.date: 3/13/2025\n-appliesto:\n-  - ✅ <a href=\"https://learn.microsoft.com/defender-office-365/mdo-about#defender-for-office-365-plan-1-vs-plan-2-cheat-sheet\" target=\"_blank\">Microsoft Defender for Office 365 Plan 2</a>\n----\n-\n-# Microsoft Teams in Attack simulation training\n-\n-> [!IMPORTANT]\n-> Microsoft Teams' Attack simulation training is currently in Private Preview and the intake for this preview is now closed. The information in this article is subject to change.\n-\n-In organizations with Microsoft Defender for Office 365 Plan 2 or Microsoft Defender XDR, admins can now use Attack simulation training to deliver simulated phishing messages in Microsoft Teams. For more information about attack simulation training, see [Get started using Attack simulation training in Defender for Office 365](attack-simulation-training-get-started.md).\n-\n-The addition of Teams in Attack simulation training affects the following features:\n-\n-- [Simulations](attack-simulation-training-simulations.md)\n-- [Payloads](attack-simulation-training-payloads.md)\n-- [Simulation automations](attack-simulation-training-simulation-automations.md)\n-\n-[Payload automations](attack-simulation-training-payload-automations.md), [end-user notifications](attack-simulation-training-end-user-notifications.md), [login pages](attack-simulation-training-login-pages.md), and [landing pages](attack-simulation-training-landing-pages.md) aren't affected by Teams in Attack simulation training.\n-\n-[!INCLUDE [MDO Trial banner](../includes/mdo-trial-banner.md)]\n-\n-## Teams simulation configuration\n-\n-> [!NOTE]\n-> Currently, the steps in this section apply only if your organization is enrolled in the Private Preview of **Attack simulation training for Teams**.\n-\n-In addition to having user reporting for Teams messages turned on as described in [User reported message settings in Microsoft Teams](submissions-teams.md), you also need to configure the Teams accounts that can be used as sources for simulation messages in Attack simulation training. To configure the accounts, do the following steps:\n-\n-1. Identify or create a user who's a member of the [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator), [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator), or [Attack Simulation Administrator](/entra/identity/role-based-access-control/permissions-reference#attack-simulation-administrator) roles in Microsoft Entra ID. Assign a Microsoft 365, Office 365, Microsoft Teams Essentials, Microsoft 365 Business Basic, or a Microsoft 365 Business Standard license for [Microsoft Teams](/office365/servicedescriptions/teams-service-description). You need to know the password.\n-\n-    > [!IMPORTANT]\n-    > Microsoft strongly advocates for the principle of least privilege. Assigning accounts only the minimum permissions necessary to perform their tasks helps reduce security risks and strengthens your organization's overall protection. Global Administrator is a highly privileged role that you should limit to emergency scenarios or when you can't use a different role.\n-\n-2. Using the account from Step 1, open the Microsoft Defender portal at <https://security.microsoft.com> and go to **Email & collaboration** \\> **Attack simulation training** \\> **Settings** tab. Or, to go directly to the **Settings** tab, use <https://security.microsoft.com/attacksimulator?viewid=setting>.\n-3. On the **Settings** tab, select **Manager user accounts** in the **Teams simulation configuration** section.\n-4. In the **Teams simulation configuration** flyout that opens, select **Generate token**. Read the information in the confirmation dialog, and then select **I agree**.\n-5. Back on the **Settings** tab, select **Manager user accounts** in the **Teams simulation configuration** section again to reopen the **Teams simulation configuration** flyout. The user account that you were logged in as now appears in the **User accounts available for Teams phishing** section.\n-\n-To remove a user from the list, select the check box next to the display name value without clicking anywhere else in the row. Select the :::image type=\"icon\" source=\"media/m365-cc-sc-delete-icon.png\" border=\"false\"::: **Delete** action that appears, and then select **Delete** in the confirmation dialog.\n-\n-To prevent the account from being used in Teams simulations but keep the linked simulations history for the account, select the check box next to the display name value without clicking anywhere else in the row. Select the :::image type=\"icon\" source=\"media/m365-cc-sc-block-sender-icon.png\" border=\"false\"::: **Deactivate** action that appears.\n-\n-## Changes in simulations for Microsoft Teams\n-\n-Teams introduces the following changes to viewing and creating simulations as described in [Simulate a phishing attack with Attack simulation training in Defender for Office 365](attack-simulation-training-simulations.md):\n-\n-- On the **Simulations** tab at <https://security.microsoft.com/attacksimulator?viewid=simulations>, the **Platform** column shows the value **Teams** for simulations that use Teams messages.\n-\n-- If you select :::image type=\"icon\" source=\"media/m365-cc-sc-create-icon.png\" border=\"false\"::: **Launch a simulation** on the **Simulations** tab to create a simulation, the first page of the new simulation wizard is **Select delivery platform** where you can select **Microsoft Teams**. Selecting **Microsoft Teams** introduces the following changes to the rest of the new simulation wizard:\n-\n-  - On the **[Select technique](attack-simulation-training-simulations.md#select-a-social-engineering-technique)** page, the following social engineering techniques aren't available:\n-    - **Malware Attachment**\n-    - **Link in Attachment**\n-    - **How-to Guide**\n-\n-  - On the **[Name simulation](attack-simulation-training-simulations.md#name-and-describe-the-simulation)** page, a **Select sender's Microsoft Teams account** section and **Select user account** link are present. Select **Select user account** to find and select the account to use as the source for the Teams message.\n-\n-    The list of users comes from the **Teams simulation configuration** section on the **Settings** tab of Attack simulation training at <https://security.microsoft.com/attacksimulator?viewid=setting>. Configuring accounts is described in the [Teams simulation configuration](#teams-simulation-configuration) section earlier in this article.\n-\n-  - On the **[Select payload and login page](attack-simulation-training-simulations.md#select-a-payload-and-login-page)**, no payloads are listed by default because there are no built-in payloads for Teams. You need to create a payload for the combination of Teams and the social engineering technique that you selected.\n-\n-    The differences in creating payloads for Teams are described in the [Changes in payloads for Microsoft Teams](#changes-in-payloads-for-microsoft-teams) section in this article.\n-\n-  - On the **[Target users](attack-simulation-training-simulations.md#target-users)** page, the following settings are different for Teams:\n-    - As noted on the page, guest users in Teams are excluded from simulations.\n-\n-Other settings related to simulations are the same for Teams messages as described in the existing content for email messages.\n-\n-## Changes in payloads for Microsoft Teams\n-\n-Whether you create a payload on the **Payloads** page of the **Content library** tab or on the **[Select payload and login page](attack-simulation-training-simulations.md#select-a-payload-and-login-page)** page in the new simulation wizard, Teams introduces the following changes to viewing and creating payloads as described in [Payloads in Attack simulation training in Defender for Office 365](attack-simulation-training-payloads.md):\n-\n-- On the **Global payloads** and **Tenant payloads** tabs on **Payloads** page of the **Content library** tab at <https://security.microsoft.com/attacksimulator?viewid=contentlibrary>, the **Platform** column shows the value **Teams** for payloads that use Teams messages.\n-\n-  If you select :::image type=\"icon\" source=\"media/m365-cc-sc-filter-icon.png\" border=\"false\"::: **Filter** to filter the list of existing payloads, a **Platform** section is available where you can select **Email** and **Teams**.\n-\n-  As previously described, there are no built-in payloads for Teams, so if you filter by **Status** \\> **Teams** on the **Global payloads** tab, the list will be empty.\n-\n-- If you select :::image type=\"icon\" source=\"media/m365-cc-sc-create-icon.png\" border=\"false\"::: **Create a payload** on the **Tenant payload** tab to create a payload, the first page of the new payload wizard is **Select type** where you can select **Teams**. Selecting **Teams** introduces the following changes to the rest of the new payload wizard:\n-\n-  - On the **[Select technique](attack-simulation-training-payloads.md#create-payloads)** page, the **Malware Attachment**, **Link in Attachment**, and **How-to Guide** techniques aren't available for Teams.\n-\n-  - The **Configure payload** page has the following changes for Teams:\n-    - **Sender details** section: The only available setting for Teams is **Chat topic** where you enter a tile for the Teams message.\n-    - The last section isn't named **Email message**, but it functions the same way for Teams messages as it does for email messages:\n-      - There's an **Import Teams message** button to import an existing plain text message file to use as a starting point.\n-      - The **Dynamic tag** and **Phishing link** controls are available on the **Text** tab, and **Code** tab is available as with email messages.\n-\n-Other settings related to payloads are the same for Teams messages as described in the existing content for email messages.\n-\n-## Changes in simulation automations for Microsoft Teams\n-\n-Teams introduces the following changes to viewing and creating simulation automations as described in [Simulation automations for Attack simulation training](attack-simulation-training-simulation-automations.md):\n-\n-- On the **Simulation automations** page of the **Automations** tab at <https://security.microsoft.com/attacksimulator?viewid=automations>, the following columns are also available:\n-  - **Type**: Currently, this value is always **Social engineering**.\n-  - **Platform**: Shows the value **Teams** for payload automations that use Teams messages or **Email** for payload automations that use email messages.\n-\n-- If you select :::image type=\"icon\" source=\"media/m365-cc-sc-create-icon.png\" border=\"false\"::: **Create automation** on the **Simulation automations** page to create a simulation automation, the first page of the new simulation automation wizard is **Select delivery platform** where you can select **Teams**. Selecting **Teams** introduces the following changes to the rest of the new simulation automation wizard:\n-\n-  - On the [Automation name](attack-simulation-training-simulation-automations.md#name-and-describe-the-simulation-automation) page, the following settings are available for Teams in the **Select method for choosing sender accounts** section:\n-    - **Manually select**: This value is selected by default. In the **Select sender's Microsoft Teams account** section, select the **Select user account** to find and select the account to use as the source for the Teams message.\n-    - **Randomize**: Randomly select from the available accounts to use as the source for the Teams message.\n-\n-  - On the **[Select social engineering techniques](attack-simulation-training-simulation-automations.md#select-one-or-more-social-engineering-techniques)** page, the **Malware Attachment** and **Link in Attachment** social engineering techniques aren't available for Teams.\n-\n-  - On the **[Select payloads and login page](attack-simulation-training-simulation-automations.md#select-payloads-and-login-pages)** page, no payloads are listed by default because there are no built-in payloads for Teams. You might need to create a payload for the combination of Teams and the social engineering techniques that you selected.\n-\n-    The differences in creating payloads for Teams are described in the [Changes in payloads for Microsoft Teams](#changes-in-payloads-for-microsoft-teams) section in this article.\n-\n-  - On the **[Target users](attack-simulation-training-simulation-automations.md#target-users)** page, the following settings are different for Teams:\n-    - As noted on the page, simulation automations that use Teams can target a maximum of 1000 users.\n-    - if you select **Include only specific users and groups**, **City** isn't an available filter in the **Filter users by category** section.\n-\n-Other settings related to simulation automations are the same for Teams messages as described in the existing content for email messages.\n",
+      "baseCommitSha": "e0c6cc7c0fd359c52d3adaf145a1a8ccc13b2b21",
+      "commitSha": "39b67812961237e28cc2a55ade4e9659fe1c3dd4",
+      "commitMessage": "Corrections",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-12T10:21:18-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/attack-simulation-training-teams.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/attack-simulation-training-teams",
+      "firstSeenAt": "2026-03-12T17:21:18.000Z",
+      "eventId": "defender-docs:39b67812961237e28cc2a55ade4e9659fe1c3dd4:removed:defender-office-365/attack-simulation-training-teams.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrections",
+        "summary": "Removed Microsoft Defender documentation in defender-office-365/attack-simulation-training-teams.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 14,
+    "totalFiles": 22,
+    "authors": [
+      "AbbyMSFT",
+      "Chris Davis",
+      "Devorah Cohen",
+      "Dhairyya Agarwal",
+      "Paul Inbar",
+      "harshitabijlani",
+      "sbreingold-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 19 updated, and 2 removed Microsoft Defender documentation files across 7 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Added Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-payloads.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Removed Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Removed Microsoft Defender documentation in defender-office-365/attack-simulation-training-teams.md.",
+        "sourceFiles": [
+          "defender-office-365/mdo-support-teams-about.md",
+          "defender-office-365/attack-simulation-training-payloads.md",
+          "defender-office-365/mdo-support-teams-about.md",
+          "defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
+          "defender-office-365/mdo-support-teams-about.md",
+          "defender-office-365/mdo-support-teams-about.md",
+          "defender-office-365/attack-simulation-training-teams.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md.",
+        "sourceFiles": [
+          "defender-vulnerability-management/fixed-reported-inaccuracies.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/create-custom-rbac-roles.md. Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/compare-rbac-roles.md. Updated Microsoft Defender documentation in defender-xdr/compare-rbac-roles.md. Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "sourceFiles": [
+          "defender-xdr/create-custom-rbac-roles.md",
+          "defender-xdr/manage-rbac.md",
+          "defender-xdr/activate-defender-rbac.md",
+          "defender-xdr/manage-rbac.md",
+          "defender-xdr/compare-rbac-roles.md",
+          "defender-xdr/compare-rbac-roles.md",
+          "defender-xdr/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/release-notes.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "sourceFiles": [
+          "defender-for-identity/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "Updated Microsoft Defender documentation in exposure-management/whats-new.md.",
+        "sourceFiles": [
+          "exposure-management/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/standard-device-connectivity-urls-gov.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/api/run-advanced-query-api.md.",
+        "sourceFiles": [
+          "defender-endpoint/standard-device-connectivity-urls-gov.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/mde-linux-prerequisites.md",
+          "defender-endpoint/api/run-advanced-query-api.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Added Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-payloads.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Removed Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Removed Microsoft Defender documentation in defender-office-365/attack-simulation-training-teams.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/create-custom-rbac-roles.md. Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/compare-rbac-roles.md. Updated Microsoft Defender documentation in defender-xdr/compare-rbac-roles.md. Updated Microsoft Defender documentation in defender-xdr/whats-new.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "Updated Microsoft Defender documentation in exposure-management/whats-new.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/standard-device-connectivity-urls-gov.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/api/run-advanced-query-api.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

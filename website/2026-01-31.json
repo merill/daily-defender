@@ -1,0 +1,385 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/email-authentication-dkim-configure.md",
+      "status": "modified",
+      "additions": 75,
+      "deletions": 111,
+      "changes": 186,
+      "patch": "diff --git a/defender-office-365/email-authentication-dkim-configure.md b/defender-office-365/email-authentication-dkim-configure.md\nindex 95bb486e4..a9c4604ce 100644\n--- a/defender-office-365/email-authentication-dkim-configure.md\n+++ b/defender-office-365/email-authentication-dkim-configure.md\n@@ -5,7 +5,7 @@ f1.keywords:\n author: chrisda\n ms.author: chrisda\n manager: bagol\n-ms.date: 10/22/2025\n+ms.date: 01/30/2026\n audience: ITPro\n ms.topic: how-to\n \n@@ -65,7 +65,7 @@ Before we get started, here's what you need to know about DKIM in Microsoft 365\n \n   - **Subdomain considerations**:\n     - For email services that aren't under your direct control (for example, bulk email services), we recommend using a subdomain (for example, marketing.contoso.com) instead of your main email domain (for example, contoso.com). You don't want issues with mail sent from those email services to affect the reputation of mail sent by users in your main email domain. For more information about adding subdomains, see [Can I add custom subdomains or multiple domains to Microsoft 365?](/microsoft-365/admin/setup/domains-faq#can-i-add-custom-subdomains-or-multiple-domains-to-microsoft-365).\n-    - Each subdomain that you use to send email from Microsoft 365 requires its own DKIM configuration.\n+    - Each subdomain you use to send email from Microsoft 365 requires its own DKIM configuration.\n \n       > [!TIP]\n       > Email authentication protection for _undefined_ subdomains is covered by DMARC. Any subdomains (defined or not) inherit the DMARC settings of the parent domain (which can be overridden per subdomain). For more information, see [Set up DMARC to validate the From address domain for cloud senders](email-authentication-dmarc-configure.md).\n@@ -74,7 +74,7 @@ Before we get started, here's what you need to know about DKIM in Microsoft 365\n \n - **DKIM alone is not enough**. For the best level of email protection for your custom domains, you also need to configure SPF and DMARC as part of your overall [email authentication](email-authentication-about.md) strategy. For more information, see the [Next Steps](#next-steps) section at the end of this article.\n \n-The rest of this article describes the DKIM CNAME records that you need to create for custom domains in Microsoft 365, and configuration procedures for DKIM using custom domains.\n+The rest of this article describes the DKIM CNAME records you need to create for custom domains in Microsoft 365, and configuration procedures for DKIM using custom domains.\n \n > [!TIP]\n > Configuring DKIM signing using a custom domain is a mixture of procedures in Microsoft 365 and procedures at the domain registrar of the custom domain.\n@@ -92,10 +92,10 @@ In Microsoft 365, two public-private key pairs are generated when DKIM signing u\n - Only one selector is active and used when DKIM signing using a custom domain is enabled.\n - The other selector is inactive. It's activated and used only after any future [DKIM key rotation](#rotate-dkim-keys), and then only after the original selector is deactivated.\n \n-The selector that's used to verify the DKIM signature (which infers the private key that was used to sign the message) is stored in the **s=** value in the **DKIM-Signature** header field (for example, `s=selector1-contoso-com`).\n+The selector used to verify the DKIM signature (which infers the private key used to sign the message) is stored in the **s=** value in the **DKIM-Signature** header field (for example, `s=selector1-contoso-com`).\n \n > [!IMPORTANT]\n-> Use the Defender portal or Exchange Online PowerShell to view the required CNAME values for DKIM signing of outbound messages using a custom domain. **The values presented here are for illustration only**. To get the required values for your custom domains or subdomains, use the procedures later in this article.\n+> Use the Defender portal or Exchange Online PowerShell to view the required CNAME values for DKIM signing of outbound messages using a custom domain. **The values presented in this article are for illustration only**. To get the required values for your custom domains or subdomains, use the procedures later in this article.\n \n The basic syntax of the DKIM CNAME records for custom domains that send mail from Microsoft 365 is:\n \n@@ -162,126 +162,89 @@ You need to create two CNAME records in DNS in each custom domain, for a total o\n >\n > The main factor that determines when a custom domain starts DKIM signing outbound mail is the CNAME record detection in DNS.\n \n-To use the procedures in this section, the custom domain or subdomain must appear on the **DKIM** tab of the **Email authentication settings** page at <https://security.microsoft.com/authentication?viewid=DKIM>. The properties of the domain in the details flyout must contain the following values:\n+To use the procedures in this section, the custom domain or subdomain must exist on the **DKIM** tab of the **Email authentication settings** page at <https://security.microsoft.com/authentication?viewid=DKIM>. The properties of the domain on the **DKIM** tab must contain the following values:\n \n-:::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-create-dkim-unavailable.png\" alt-text=\"The domain details tab showing DKIM signing disabled and no DKIM signatures configured for the domain.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim-unavailable.png\":::\n+- The **Toggle** value is :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled**.\n+- The **Status** value is **NoDKIMKeys**.\n \n-- The **Sign messages for this domain with DKIM signatures** toggle is set to **Disabled** :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\":::.\n-- The **Status** value is **Not signing DKIM signatures for the domain**.\n-- **Create DKIM keys** isn't present. **Rotate DKIM keys** is visible, but is grayed out.\n+:::image type=\"content\" source=\"media/email-auth-dkim-domain-list-disabled-no-keys.png\" alt-text=\"Screenshot of the the DKIM tab of the Email authentication page in the Defender portal with the Status value NoDKIMKeys and the Toggle value Disable highlighted.\" lightbox=\"media/email-auth-dkim-domain-list-disabled-no-keys.png\":::\n \n-Proceed if the domain satisfies these requirements.\n+> [!TIP]\n+> In the details flyout of the domain, these same values are indicated by the following settings:\n+>\n+> - The **Status** value is **No DKIM keys saved for this domain**.\n+> - **Create DKIM keys** is present at the bottom of the flyout.\n+>\n+> :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-create-dkim-custom.png\" alt-text=\"Screenshot of the domain details flyout of a custom domain showing the Status value No DKIM keys saved for this domain and the Create DKIM keys button.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim-custom.png\":::\n+\n+Proceed if the domain meets these requirements.\n \n 1. In the Defender portal at <https://security.microsoft.com>, go to **Email & collaboration** \\> **Policies & rules** \\> **Threat policies** \\> **Email authentication settings** page. Or, to go directly to the **Email authentication settings** page, use <https://security.microsoft.com/authentication>.\n \n 2. On the **Email authentication settings** page, select the **DKIM** tab.\n \n-3. On the **DKIM** tab, select the custom domain to configure by clicking anywhere in the row other than the check box next to the name.\n-\n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-list.png\" alt-text=\"The DKIM tab of the Email authentication page in the Defender portal.\" lightbox=\"media/email-auth-dkim-domain-list.png\":::\n-\n-4. In the domain details flyout that opens, select the **Sign messages for this domain with DKIM signatures** toggle that's currently set to **Disabled** :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\":::.\n-\n-   Note the **Last checked date** value.\n-\n-5. A **Client error** dialog opens. The error contains the values to use in the two CNAME records that you create at the domain registrar for the domain.\n+3. On the **DKIM** tab, in the row for the custom domain or subdomain entry, try to slide the **Toggle** value from :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled** to **Enabled**.\n \n-   In this example, the custom domain is contoso.com and the initial domain for the Microsoft 365 organization is contoso.onmicrosoft.com. The error message looks like this:\n+4. A **Client error** dialog opens. The error contains the required values to use in the two CNAME records you create at the domain registrar for the domain along with a lot of other text. Although you can select the text and press CTRL+C to save the information, the same information is available in a much better format in a later step.\n \n-   ```text\n-   |Microsoft.Exchange.ManagementTasks.ValidationException|CNAME record does not\n-   exist for this config. Please publish the following two CNAME records first. Domain Name\n-   : contoso.com Host Name : selector1._domainkey Points to address or value: selector1-\n-   contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft Host Name : selector2._domainkey\n-   Points to address or value: selector2-contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft .\n-   If you have already published the CNAME records, sync will take a few minutes to as\n-   many as 4 days based on your specific DNS. Return and retry this step later.\n-   ```\n+   Select **OK** in the dialog to proceed.\n \n-   Therefore, the CNAME records that you need to create in DNS for the contoso.com domain are:\n+5. Back on the **DKIM** tab, the **Status** value of the domain is now **CnameMissing** and the **Toggle** value is still :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled**.\n \n-   **Hostname**: `selector1._domainkey`<br>\n-   **Points to address or value**: `selector1-contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft`\n-\n-   **Hostname**: `selector2._domainkey`<br>\n-   **Points to address or value**: `selector2-contoso-com._domainkey.contoso.n-v1.dkim.mail.microsoft`\n-\n-   > [!TIP]\n-   > As previously described in the [Syntax for DKIM CNAME records](#syntax-for-dkim-cname-records), your domain might require the old record syntax:\n-   >\n-   > Hostname: `selector1._domainkey`\n-   > Points to address or value: `selector1-contoso-com._domainkey.contoso.onmicrosoft.com`\n-   >\n-   > Hostname: `selector2._domainkey`\n-   > Points to address or value: `selector2-contoso-com._domainkey.contoso.onmicrosoft.com`\n+   Click anywhere in the row other than the check box next to the **Name** value or on the **Toggle** value to open the details flyout for the domain.\n \n-   Copy the information from the error dialog (select the text and press CTRL+C), and then select **OK**.\n+6. In the domain details flyout that opens, do the following steps:\n+   - Note the **Last checked date** value.\n+   - Note the required CNAME record values in the **Publish CNAMEs** section and/or select **Copy**. You use these values in the next step.\n \n    Leave the domain details flyout open.\n \n-6. In another browser tab or window, go to the domain registrar for the domain, and then create the two CNAME records using the information from the previous step.\n+   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-dkim-unavailable-custom.png\" alt-text=\"Screenshot of the domain details flyout for a custom domain with DKIM signing disabled, the Publish CNAMEs section populated, and Rotate DKIM keys visible but grayed out.\" lightbox=\"media/email-auth-dkim-domain-properties-rotate-dkim-unavailable-custom.png\":::\n+\n+7. In another browser tab or window, go to the domain registrar for the domain, and then create the two CNAME records using the information from the previous step.\n \n    We provide instructions to create CNAME records for different Microsoft 365 services at many domain registrars. You can use these instructions as a starting point to create the DKIM CNAME records. For more information, see [Add DNS records to connect your domain](/Microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).\n \n-   It takes a few minutes (or possibly longer) for Microsoft 365 to detect the new CNAME records that you created.\n+   It takes a few minutes (or possibly longer) for Microsoft 365 to detect the new CNAME records you created.\n \n-7. After a while, return to the domain properties flyout that you left open in Step 5, and select the **Sign messages for this domain with DKIM signatures** toggle.\n+8. After a while, return to the domain details flyout you left open in Step 6, and then select the **Sign messages for this domain with DKIM signatures** toggle.\n \n-   After a few seconds, the following dialog opens:\n+   After a few seconds, a **security** dialog with the following text opens:\n \n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-cname-detected.png\" alt-text=\"The dialog that opens when you try to enable DKIM signing for the domain.\" lightbox=\"media/email-auth-dkim-domain-properties-cname-detected.png\":::\n+   > It may take several minutes to synchronize the status change.\n \n-   After you select **OK** to close the dialog, verify the following settings on the details flyout:\n+   After you select **OK** to close the dialog, the following settings are shown on the domain details flyout **if** the CNAME records are detected at your domain registrar:\n \n-   - The **Sign messages for this domain with DKIM signatures** toggle is set to **Enabled** :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\":::.\n+   - The **Sign messages for this domain with DKIM signatures** toggle is :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Enabled**.\n    - The **Status** value is **Signing DKIM signatures for this domain**.\n    - **Rotate DKIM keys** is available.\n    - **Last checked date**: The date and time should be more recent than the original value in Step 4.\n \n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-keys.png\" alt-text=\"The domain details flyout after DKIM is enabled for the domain.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim.png\":::\n+   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-dkim-available-custom.png\" alt-text=\"Screenshot of the domain details flyout for a custom domain after DKIM is enabled for the domain.\" lightbox=\"media/email-auth-dkim-domain-properties-rotate-dkim-available-custom.png\":::\n \n ### Use the Defender portal to customize DKIM signing of outbound messages using the \\*.onmicrosoft.com domain\n \n As described earlier in this article, outbound mail from senders in the initial \\*.onmicrosoft.com domain is automatically DKIM signed by the initial \\*.onmicrosoft.com domain. But, you can use the procedures in this section to affect DKIM signing using the \\*.onmicrosoft.com domain:\n \n - Generate new keys. The new keys are automatically added and used in the Microsoft 365 datacenters.\n-- Have the properties of the \\*.onmicrosoft.com domain appear correctly in the details flyout of the domain on the **DKIM** tab of the **Email authentication settings** page at <https://security.microsoft.com/authentication?viewid=DKIM> or in PowerShell. This result allows for future operations on the DKIM configuration for the domain (for example, [manual key rotation](#rotate-dkim-keys)).\n-\n-To use the procedures in this section, the \\*.onmicrosoft.com domain must appear on the **DKIM** tab of the **Email authentication settings** page at <https://security.microsoft.com/authentication?viewid=DKIM>. The properties of the \\*.onmicrosoft.com domain in the details flyout must contain the following values:\n+- Have the properties of the \\*.onmicrosoft.com domain appear correctly in the details flyout of the domain on the **DKIM** tab of the **Email authentication settings** page at <https://security.microsoft.com/authentication?viewid=DKIM> or in PowerShell. This result allows future operations on the DKIM configuration for the domain (for example, [manual key rotation](#rotate-dkim-keys)).\n \n-:::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-create-dkim.png\" alt-text=\"The domain details flyout with the Create DKIM keys button.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim.png\":::\n+To use the procedures in this section, the \\*.onmicrosoft.com must appear on the **DKIM** tab of the **Email authentication settings** page at <https://security.microsoft.com/authentication?viewid=DKIM>. The properties of the domain on the **DKIM** tab must contain the following values:\n \n-- The **Sign messages for this domain with DKIM signatures** toggle isn't available.\n-- The **Status** value is **No DKIM keys saved for this domain**.\n-- **Create DKIM keys** is present.\n+- The **Toggle** value is :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled**.\n+- The **Status** value is **NoDKIMKeys**.\n \n-Proceed if the domain satisfies these requirements.\n+Proceed if the domain meets these requirements.\n \n 1. In the Defender portal at <https://security.microsoft.com>, go to **Email & collaboration** \\> **Policies & rules** \\> **Threat policies** \\> **Email authentication settings** page. Or, to go directly to the **Email authentication settings** page, use <https://security.microsoft.com/authentication>.\n \n 2. On the **Email authentication settings** page, select the **DKIM** tab.\n \n-3. On the **DKIM** tab, select the \\*.onmicrosoft.com domain to configure by clicking anywhere in the row other than the check box next to the name.\n-\n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-list.png\" alt-text=\"The DKIM tab of the Email authentication page in the Defender portal.\" lightbox=\"media/email-auth-dkim-domain-list.png\":::\n-\n-4. In the domain details flyout that opens, select **Create DKIM keys**.\n-\n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-create-dkim.png\" alt-text=\"The domain details flyout with the Create DKIM keys button.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim.png\":::\n-\n-5. When DKIM key creation is finished, the **Publish CNAMEs dialog** opens. Select **Close**.\n-\n-   You can't create the CNAME records for the \\*.onmicrosoft.com domain, so you don't need to copy the values. Microsoft takes care of the required DNS configuration for you.\n-\n-6. After you select **Close**, you're back on the domain details flyout where the **Sign messages for this domain with DKIM signatures** toggle is **Disabled** :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\":::.\n+3. On the **DKIM** tab, in the row for the \\*.onmicrosoft.com domain entry, slide the **Toggle** value :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled** to **Enabled**.\n \n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-create-dkim-unavailable.png\" alt-text=\"The domain details tab with DKIM signing disabled.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim-unavailable.png\":::\n+   After a moment, the **Status** value of the \\*.onmicrosoft.com domain domain changes to **Valid**, but the **Toggle** value is still :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled**.\n \n-   Slide the **Sign messages for this domain with DKIM signatures** toggle to **Enabled** :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\":::, and then select **OK** in the confirmation dialog that opens.\n-\n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-keys.png\" alt-text=\"The domain details tab with DKIM signing enabled and DKIM signatures configured for the domain.\" lightbox=\"media/email-auth-dkim-domain-properties-rotate-keys.png\":::\n-\n-   When you're finished in the domain details flyout, select **Close**.\n+   Select **Refresh** :::image type=\"icon\" source=\"media/m365-cc-sc-refresh-icon.png\" border=\"false\"::: and the **Toggle** value updates to :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Enabled**.\n \n ### Use Exchange Online PowerShell to configure DKIM signing of outbound messages\n \n@@ -298,17 +261,17 @@ If you'd rather use PowerShell to enable DKIM signing of outbound messages using\n    Get-DkimSigningConfig | Format-List Name,Enabled,Status,Selector1CNAME,Selector2CNAME\n    ```\n \n-2. For the domain that you want to configure DKIM signing for, the output of the command in Step 1 determines what you need to do next:\n+2. For the domain you want to configure DKIM signing for, the output of the command in Step 1 determines what you need to do next:\n \n    - The domain is listed with the following values:\n      - **Enabled**: False\n-     - **Status**: `CnameMissing`\n+     - **Status**: `NoDKIMKeys` or `CnameMissing`\n \n      Go to Step 3 to copy the selector values.\n \n    Or\n \n-   - The domain isn't listed:\n+   - The domain isn't listed. Do the following steps:\n \n      1. Replace \\<Domain\\> with the domain value, and then run the following command:\n \n@@ -340,7 +303,7 @@ If you'd rather use PowerShell to enable DKIM signing of outbound messages using\n \n 3. Copy the **Selector1CNAME** and **Selector2CNAME** values for the domain from the output of the command from Step 1.\n \n-   The CNAME records that you need to create at the domain registrar for the domain look like this:\n+   The CNAME records you need to create at the domain registrar for the domain look like this:\n \n    **Hostname**: `selector1._domainkey`<br>\n    **Points to address or value**: `<Selector1CNAME value>`\n@@ -362,11 +325,11 @@ If you'd rather use PowerShell to enable DKIM signing of outbound messages using\n \n      We provide instructions to create CNAME records for different Microsoft 365 services at many domain registrars. You can use these instructions as a starting point to create the DKIM CNAME records. For more information, see [Add DNS records to connect your domain](/Microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).\n \n-     It takes a few minutes (or possibly longer) for Microsoft 365 to detect the new CNAME records that you created.\n+     It takes a few minutes (or possibly longer) for Microsoft 365 to detect the new CNAME records you created.\n \n    - **\\*.onmicrosoft.com domain**: Go to the next step.\n \n-5. After a while, return to Exchange Online PowerShell, replace \\<Domain\\> with the domain that you configured, and run the following command:\n+5. After a while, return to Exchange Online PowerShell, replace \\<Domain\\> with the domain you configured, and run the following command:\n \n    ```powerShell\n    Set-DkimSigningConfig -Identity \\<Domain\\> -Enabled $true [-BodyCanonicalization <Relaxed | Simple>] [-HeaderCanonicalization <Relaxed | Simple>]\n@@ -412,7 +375,7 @@ For detailed syntax and parameter information, see the following articles:\n \n ## Rotate DKIM keys\n \n-For the same reasons that you should periodically change passwords, you should periodically change the DKIM key that's used for DKIM signing. Replacing the DKIM key for a domain is known as _DKIM key rotation_.\n+For the same reasons you should periodically change passwords, you should periodically change the DKIM key that's used for DKIM signing. Replacing the DKIM key for a domain is known as _DKIM key rotation_.\n \n The relevant information about DKIM key rotation for a domain Microsoft 365 is shown in the output of the following command in [Exchange Online PowerShell](/powershell/exchange/connect-to-exchange-online-powershell):\n \n@@ -427,15 +390,15 @@ Get-DkimSigningConfig -Identity <CustomDomain> | Format-List\n \n When you do a DKIM key rotation on a domain as described in this section, the change isn't immediate. It takes four days (96 hours) for the new private key to start signing messages (the **RotateOnDate** date/time and the corresponding **SelectorAfterRotateOnDate** value). Until then, the existing private key is used (the corresponding **SelectorBeforeRotateOnDate** value).\n \n-> [!TIP]\n-> The main factor that determines when a custom domain starts DKIM signing outbound mail is the CNAME record detection in DNS.\n-\n To confirm the corresponding public key that's used to verify the DKIM signature (which infers the private key that was used to sign the message), check the **s=** value in the **DKIM-Signature** header field (the selector; for example, `s=selector1-contoso-com`).\n \n > [!TIP]\n-> For custom domains, you can rotate DKIM keys only on domains that are enabled for DKIM signing (the **Status** value is Enabled).\n >\n-> Currently, there's no automatic DKIM key rotation for the \\*.onmicrosoft.com domain. You can manually rotate the DKIM keys as described in this section. If **Rotate DKIM keys** isn't available in the properties of the \\*.onmicrosoft.com domain, use the procedures in the [Use the Defender portal to customize DKIM signing of outbound messages using the \\*.onmicrosoft.com domain](#use-the-defender-portal-to-customize-dkim-signing-of-outbound-messages-using-the-onmicrosoftcom-domain) section earlier in this article.\n+> - The main factor that determines when a custom domain starts DKIM signing outbound mail is the CNAME record detection in DNS.\n+> - You can rotate DKIM keys only on domains with both of the following property values on the **DKIM** tab of the **Email authentication settings** page:\n+>   - **Toggle**: :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Enabled**\n+>   - **Status**: **Valid** or **CnameMissing**\n+> - Currently, there's no automatic DKIM key rotation for the \\*.onmicrosoft.com domain.\n \n ### Use the Defender portal to rotate DKIM keys for a custom domain\n \n@@ -443,23 +406,26 @@ To confirm the corresponding public key that's used to verify the DKIM signature\n \n 2. On the **Email authentication settings** page, select the **DKIM** tab.\n \n-3. On the **DKIM** tab, select the domain to configure by clicking anywhere in the row other than the check box next to the name.\n+3. On the **DKIM** tab, select the domain to configure by clicking anywhere in the row other than the check box next to the **Name** value or on the **Toggle** value.\n \n    :::image type=\"content\" source=\"media/email-auth-dkim-domain-list.png\" alt-text=\"The DKIM tab of the Email authentication page in the Defender portal.\" lightbox=\"media/email-auth-dkim-domain-list.png\":::\n \n-4. In the domain details flyout that opens, select **Rotate DKIM keys**.\n+4. In the domain details flyout that opens, select **Rotate DKIM keys** at the bottom of the flyout.\n \n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-keys.png\" alt-text=\"The domain details flyout with the Rotate DKIM keys button.\" lightbox=\"media/email-auth-dkim-domain-properties-rotate-keys.png\":::\n+   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-dkim-available-custom.png\" alt-text=\"Screenshot of the domain details flyout for a custom domain where the Rotate DKIM keys button is available at the bottom of the flyout.\" lightbox=\"media/email-auth-dkim-domain-properties-rotate-dkim-available-custom.png\":::\n \n 5. The settings in the details flyout change to the following values:\n    - **Status**: Rotating keys for this domain and signing DKIM signatures.\n+   - **Publish CNAMES**: The **Points to address or value** values is blank for both selectors.\n    - **Rotate DKIM keys** is grayed out.\n \n-6. After four days (96 hours), the new DKIM key begins to sign outbound messages for the custom domain. Until then, the current DKIM key is used.\n+   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotating-keys.png\" alt-text=\"Screenshot of the domain details flyout for a custom domain while key rotation is in progress.\" lightbox=\"media/email-auth-dkim-domain-properties-rotating-keys.png\":::\n+\n+6. After four days (96 hours), the new DKIM key signs outbound messages for the custom domain. Until then, the current DKIM key is used.\n \n-   The new DKIM key is being used to sign message when the **Status** value changes from **Rotating keys for this domain and signing DKIM signatures** to **Signing DKIM signatures for this domain**.\n+   The new DKIM key signs message when the **Status** value changes to **Signing DKIM signatures for this domain**.\n \n-  To confirm the corresponding public key that's used to verify the DKIM signature (which infers the private key that was used to sign the message), check the **s=** value in the **DKIM-Signature** header field (the selector; for example, `s=selector1-contoso-com`).\n+  To confirm the corresponding public key used to verify the DKIM signature (which infers the private key used to sign the message), check the **s=** value in the **DKIM-Signature** header field (the selector; for example, `s=selector1-contoso-com`).\n \n #### Use Exchange Online PowerShell to rotate the DKIM keys for a domain and change the bit depth\n \n@@ -471,7 +437,7 @@ If you'd rather use PowerShell to rotate DKIM keys for a domain, connect to [Exc\n    Get-DkimSigningConfig | Format-List Name,Enabled,Status,Selector1CNAME,Selector1KeySize,Selector2CNAME,Selector2KeySize,KeyCreationTime,RotateOnDate,SelectorBeforeRotateOnDate,SelectorAfterRotateOnDate\n    ```\n \n-2. For the domain that you want to rotate DKIM keys for, use the following syntax:\n+2. For the domain you want to rotate DKIM keys for, use the following syntax:\n \n    ```powershell\n    Rotate-DkimSigningConfig -Identity <CustomDomain> [-KeySize <1024 | 2048>]\n@@ -498,11 +464,11 @@ If you'd rather use PowerShell to rotate DKIM keys for a domain, connect to [Exc\n    - **SelectorBeforeRotateOnDate**\n    - **SelectorAfterRotateOnDate**:\n \n-   Destination email systems use the public key in the CNAME record that's identified by the **SelectorBeforeRotateOnDate** property to verify the DKIM signature in messages (which infers the private key that was used to DKIM sign the message).\n+   Destination email systems use the public key in the CNAME record identified by the **SelectorBeforeRotateOnDate** property to verify the DKIM signature in messages (which infers the private key used to DKIM sign the message).\n \n-   After the **RotateOnDate** date/time, DKIM uses the new private key to sign messages, and destination email systems use the corresponding public key in the CNAME record that's identified by the **SelectorAfterRotateOnDate** property to verify the DKIM signature in messages.\n+   After the **RotateOnDate** date/time, DKIM uses the new private key to sign messages, and destination email systems use the corresponding public key in the CNAME record identified by the **SelectorAfterRotateOnDate** property to verify the DKIM signature in messages.\n \n-   To confirm the corresponding public key that's used to verify the DKIM signature (which infers the private key that was used to sign the message), check the **s=** value in the **DKIM-Signature** header field (the selector; for example, `s=selector1-contoso-com`).\n+   To confirm the corresponding public key used to verify the DKIM signature (which infers the private key that was used to sign the message), check the **s=** value in the **DKIM-Signature** header field (the selector; for example, `s=selector1-contoso-com`).\n \n    > [!IMPORTANT]\n    > If you change the bit depth of DKIM keys from 1024 to 2048 using the _KeySize_ parameter, the update applies only to the next active selector during the first key rotation. When you rotate keys again, the previously inactive selector becomes active, and the bit depth is also updated to 2048.\n@@ -522,11 +488,9 @@ For detailed syntax and parameter information, see the following articles:\n \n 2. On the **Email authentication settings** page, select the **DKIM** tab.\n \n-3. On the **DKIM** tab, select the domain to configure by clicking anywhere in the row other than the check box next to the name.\n-\n-4. In the domain details flyout that opens, slide the **Sign messages for this domain with DKIM signatures** toggle to **Disabled** :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\":::.\n-\n-   :::image type=\"content\" source=\"media/email-auth-dkim-domain-properties-rotate-keys.png\" alt-text=\"The domain details flyout with the Rotate DKIM keys button.\" lightbox=\"media/email-auth-dkim-domain-properties-create-dkim.png\":::\n+3. On the **DKIM** tab, do either of the following steps:\n+   - In the entry for the domain, slide the **Toggle** value from :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Enabled** to :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled**.\n+   - Select the domain to configure by clicking anywhere in the row other than the check box next to the **Name** value or on the **Toggle** value. In the domain details flyout that opens, slide the **Sign messages for this domain with DKIM signatures** toggle from :::image type=\"icon\" source=\"media/scc-toggle-on.png\" border=\"false\"::: **Enabled** to :::image type=\"icon\" source=\"media/scc-toggle-off.png\" border=\"false\"::: **Disabled**.\n \n #### Use Exchange Online PowerShell to disable DKIM signing of outbound messages using a custom domain\n \n@@ -538,12 +502,12 @@ If you'd rather use PowerShell to disable DKIM signing of outbound messages usin\n    Get-DkimSigningConfig | Format-List Name,Enabled,Status\n    ```\n \n-   Any custom domain that you can disable DKIM signing for has the following property values:\n+   Any custom domain you can disable DKIM signing for has the following property values:\n \n    - **Enabled**: True\n    - **Status**: `Valid`\n \n-2. For the domain that you want to disable DKIM signing for, use the following syntax:\n+2. For the domain you want to disable DKIM signing for, use the following syntax:\n \n    ```powershell\n    Set-DkimSigningConfig -Identity <CustomDomain> -Enabled $false\n@@ -623,7 +587,7 @@ Use any of the following methods to verify DKIM signing of outbound email from M\n Some email service providers or software-as-a-service providers let you enable DKIM signing for your mail that originates from the service. But, the methods depend entirely on the email service.\n \n > [!TIP]\n-> As mentioned earlier in this article, we recommend using subdomains for email systems or services that you don't directly control.\n+> As mentioned earlier in this article, we recommend using subdomains for email systems or services you don't directly control.\n \n For example, your email domain in Microsoft 365 is contoso.com, and you use the Adatum bulk mailing service for marketing email. If Adatum supports DKIM signing of messages from senders in your domain at their service, the messages might contain the following elements:\n \n",
+      "baseCommitSha": "c942e15abe4f17b1ea8399711774dabb67d98521",
+      "commitSha": "79db7413d59d83a1bc07e55f70803a2bd42b6407",
+      "commitMessage": "Updated DKIM instructions",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-30T20:18:27-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/email-authentication-dkim-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+      "firstSeenAt": "2026-01-31T04:18:27.000Z",
+      "eventId": "defender-docs:79db7413d59d83a1bc07e55f70803a2bd42b6407:modified:defender-office-365/email-authentication-dkim-configure.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated DKIM instructions",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/email-authentication-dkim-configure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 8,
+      "changes": 29,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex 9751cb8c7..aac4c8cd3 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -24,7 +24,7 @@ Microsoft Defender for Endpoint on Linux offers robust antivirus scanning capabi\n \n - [Command line interface (CLI) (on-demand scans)](#run-scans-via-command-line-interface-on-demand-scans)\n - [crontab / anacron (scheduled scans)](#run-scans-via-crontab--anacron-scheduled-scans)\n-- [Through the Microsoft Defender portal](#run-scans-via-the-defender-portal)\n+- [Through the Microsoft Defender portal (on-demand scans)](#run-scans-via-the-defender-portal)\n \n ## Prerequisites\n \n@@ -51,7 +51,7 @@ The following table describes each type of scan:\n >\n > If multiple scans are initiated, they get queued one after the other.\n \n-## Run scans via command line interface (on-demand scans)\n+## Run on-demand scans via CLI\n \n The following commands can be used to run quick, full, or custom scans:\n \n@@ -63,20 +63,30 @@ The following commands can be used to run quick, full, or custom scans:\n | Cancel an ongoing on-demand scan | `mdatp scan cancel` |\n | List the completed / canceled on-demand scans | `mdatp scan list` |\n \n-## Run scans via crontab / anacron (scheduled scans)\n+## Run scheduledscans via crontab/anacron\n \n The following articles describe how to schedule antivirus scans using crontab or anacron:\n \n - [Schedule an antivirus scan using crontab with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-crontab.md)\n - [Schedule an antivirus scan using Anacron with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-anacron.md)\n \n-## Run scans via the Defender portal\n+## Run on-demand scans via the Defender portal\n \n-The following screenshots show how to trigger an antivirus scan on a device from the Defender portal:\n+To trigger an antivirus scan on a device from the Defender portal:\n \n-:::image type=\"content\" source=\"./media/schedule-anti-virus-scans-linux/run-anti-virus-scan.png\" alt-text=\"Screenshot showing where to access the run antivirus scan option.\" lightbox=\"./media/schedule-anti-virus-scans-linux/run-anti-virus-scan.png\":::\n+1. Go to the Microsoft Defender portal (https://security.microsoft.com) and sign-in.\n \n-:::image type=\"content\" source=\"./media/schedule-anti-virus-scans-linux/choose-anti-virus-scan-type.png\" alt-text=\"Screenshot how to choose type of antivirus scan to run.\":::\n+1. Navigate to **Assets** > **Devices**, and select the device you want to scan.\n+\n+1. On the device's page, select More options (**...**), and then select **Run Antivirus Scan**.\n+\n+   :::image type=\"content\" source=\"./media/schedule-anti-virus-scans-linux/run-anti-virus-scan.png\" alt-text=\"Screenshot showing where to access the run antivirus scan option.\" lightbox=\"./media/schedule-anti-virus-scans-linux/run-anti-virus-scan.png\":::\n+\n+1. Under **Select scan type**, select the radio button for the desired scan type: **Quick Scan** or **Full Scan**.\n+\n+1. Add a comment.\n+\n+1. Select **Confirm**.\n \n ## Performance optimizations\n \n@@ -102,4 +112,7 @@ For continuous protection, incorporate quick scans into your regular scheduled s\n \n ## Related content\n \n-- \n\\ No newline at end of file\n+- [About scheduled quick or full Microsoft Defender Antivirus scans](./schedule-antivirus-scans.md)\n+- [Configure and run on-demand Microsoft Defender Antivirus scans](./run-scan-defender-antiviruis.md)\n+- [Schedule an antivirus scan using crontab with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-crontab.md)\n+- [Schedule an antivirus scan using Anacron with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-anacron.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "34a8035f7cb851fb926b1286fc8e1224eefe156a",
+      "commitSha": "00d015d783baa0ee323957d46c4eeb736b86a52a",
+      "commitMessage": "Misc changes",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T12:57:47+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T10:57:47.000Z",
+      "eventId": "defender-docs:00d015d783baa0ee323957d46c4eeb736b86a52a:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Misc changes",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex aac4c8cd3..7851f8b71 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -22,9 +22,9 @@ ms.date: 01/29/2025\n \n Microsoft Defender for Endpoint on Linux offers robust antivirus scanning capabilities to help identify and mitigate malicious files on your system. You can run these scans on-demand or schedule them at regular intervals, ensuring continuous protection and peace of mind. Three ways of running the scans are supported:\n \n-- [Command line interface (CLI) (on-demand scans)](#run-scans-via-command-line-interface-on-demand-scans)\n-- [crontab / anacron (scheduled scans)](#run-scans-via-crontab--anacron-scheduled-scans)\n-- [Through the Microsoft Defender portal (on-demand scans)](#run-scans-via-the-defender-portal)\n+- [Command line interface (CLI) (on-demand scans)](#run-on-demand-scans-via-cli)\n+- [crontab / anacron (scheduled scans)](#run-scheduled-scans-via-crontabanacron)\n+- [Through the Microsoft Defender portal (on-demand scans)](#run-on-demand-scans-via-the-defender-portal)\n \n ## Prerequisites\n \n@@ -63,7 +63,7 @@ The following commands can be used to run quick, full, or custom scans:\n | Cancel an ongoing on-demand scan | `mdatp scan cancel` |\n | List the completed / canceled on-demand scans | `mdatp scan list` |\n \n-## Run scheduledscans via crontab/anacron\n+## Run scheduled scans via crontab/anacron\n \n The following articles describe how to schedule antivirus scans using crontab or anacron:\n \n",
+      "baseCommitSha": "0b696d21a8ae5ef90ece0537ee166b29736d29e3",
+      "commitSha": "9566040e61bdaf9518cf371579aee05d51b55459",
+      "commitMessage": "Corrected links",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:03:25+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T11:03:25.000Z",
+      "eventId": "defender-docs:9566040e61bdaf9518cf371579aee05d51b55459:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected links",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex 7851f8b71..6fb6c6d03 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -113,6 +113,6 @@ For continuous protection, incorporate quick scans into your regular scheduled s\n ## Related content\n \n - [About scheduled quick or full Microsoft Defender Antivirus scans](./schedule-antivirus-scans.md)\n-- [Configure and run on-demand Microsoft Defender Antivirus scans](./run-scan-defender-antiviruis.md)\n+- [Configure and run on-demand Microsoft Defender Antivirus scans](./run-scan-defender-antivirus.md)\n - [Schedule an antivirus scan using crontab with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-crontab.md)\n - [Schedule an antivirus scan using Anacron with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-anacron.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "9566040e61bdaf9518cf371579aee05d51b55459",
+      "commitSha": "cc76a91fd73fed4d57ecbcfb471af1cc423a7d15",
+      "commitMessage": "fixed link",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:04:23+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T11:04:23.000Z",
+      "eventId": "defender-docs:cc76a91fd73fed4d57ecbcfb471af1cc423a7d15:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fixed link",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex 6fb6c6d03..2b78ae642 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -113,6 +113,6 @@ For continuous protection, incorporate quick scans into your regular scheduled s\n ## Related content\n \n - [About scheduled quick or full Microsoft Defender Antivirus scans](./schedule-antivirus-scans.md)\n-- [Configure and run on-demand Microsoft Defender Antivirus scans](./run-scan-defender-antivirus.md)\n+- [Configure and run on-demand Microsoft Defender Antivirus scans](./run-scan-microsoft-defender-antivirus.md)\n - [Schedule an antivirus scan using crontab with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-crontab.md)\n - [Schedule an antivirus scan using Anacron with Microsoft Defender for Endpoint on Linux](./schedule-antivirus-scan-anacron.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "cc76a91fd73fed4d57ecbcfb471af1cc423a7d15",
+      "commitSha": "ce80ae2422845b6a2dd4eb448dbbf5eb589bf202",
+      "commitMessage": "Fixed link",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:10:51+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T11:10:51.000Z",
+      "eventId": "defender-docs:ce80ae2422845b6a2dd4eb448dbbf5eb589bf202:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fixed link",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex 2b78ae642..506d468a1 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -84,6 +84,8 @@ To trigger an antivirus scan on a device from the Defender portal:\n \n 1. Under **Select scan type**, select the radio button for the desired scan type: **Quick Scan** or **Full Scan**.\n \n+   :::image type=\"content\" source=\"./media/schedule-anti-virus-scans-linux/choose-anti-virus-scan-type.png\" alt-text=\"Screenshot how to choose type of antivirus scan to run.\":::\n+\n 1. Add a comment.\n \n 1. Select **Confirm**.\n",
+      "baseCommitSha": "f3a2bba5270d6d259ae4eab92fa71da69e380f18",
+      "commitSha": "82ce8b501b1bb66b8ac3c6d25e97f3e6907a13ff",
+      "commitMessage": "Added image back",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:20:05+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T11:20:05.000Z",
+      "eventId": "defender-docs:82ce8b501b1bb66b8ac3c6d25e97f3e6907a13ff:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added image back",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 5,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex 506d468a1..474091476 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -82,14 +82,10 @@ To trigger an antivirus scan on a device from the Defender portal:\n \n    :::image type=\"content\" source=\"./media/schedule-anti-virus-scans-linux/run-anti-virus-scan.png\" alt-text=\"Screenshot showing where to access the run antivirus scan option.\" lightbox=\"./media/schedule-anti-virus-scans-linux/run-anti-virus-scan.png\":::\n \n-1. Under **Select scan type**, select the radio button for the desired scan type: **Quick Scan** or **Full Scan**.\n+1. Under **Select scan type**, select either the **Quick Scan** or **Full Scan** radio button, add a comment, and then select **Confirm**.\n \n    :::image type=\"content\" source=\"./media/schedule-anti-virus-scans-linux/choose-anti-virus-scan-type.png\" alt-text=\"Screenshot how to choose type of antivirus scan to run.\":::\n \n-1. Add a comment.\n-\n-1. Select **Confirm**.\n-\n ## Performance optimizations\n \n Running antivirus scans on your device is crucial for maintaining security, but it's important to balance this with the impact on device performance. Naturally, running a full scan on a device with extensive and complex content results in higher system resource usage and longer completion times.\n",
+      "baseCommitSha": "d17c9f4023e3ba13486b0d19623860c8fa6cd3ae",
+      "commitSha": "8a79d0c1f4951a33406f54c0f1c4910ee2b1b501",
+      "commitMessage": "Adjusted text",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:31:02+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T11:31:02.000Z",
+      "eventId": "defender-docs:8a79d0c1f4951a33406f54c0f1c4910ee2b1b501:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Adjusted text",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/schedule-anti-virus-scans-linux.md b/defender-endpoint/schedule-anti-virus-scans-linux.md\nindex 474091476..edfc12f6d 100644\n--- a/defender-endpoint/schedule-anti-virus-scans-linux.md\n+++ b/defender-endpoint/schedule-anti-virus-scans-linux.md\n@@ -15,7 +15,7 @@ ms.collection:\n ms.topic: how-to\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 01/29/2025\n+ms.date: 01/31/2025\n ---\n \n # Configure and run antivirus scans with Microsoft Defender for Endpoint on Linux\n@@ -30,6 +30,8 @@ Microsoft Defender for Endpoint on Linux offers robust antivirus scanning capabi\n \n To use antivirus scanning features, your Linux devices must meet the [prerequisites for Defender for Endpoint on Linux](./mde-linux-prerequisites.md).\n \n+The principal running the scan must have at least a Security Operator or Security Administrator role.\n+\n ## Supported scan types\n \n With Defender for Endpoint on Linux, you can perform three types of on-demand scans on individual devices: *quick scan*, *full scan*, and *custom scan*.\n",
+      "baseCommitSha": "8a79d0c1f4951a33406f54c0f1c4910ee2b1b501",
+      "commitSha": "59c3b1c143d210fd1503be5eb47b0942df62685f",
+      "commitMessage": "Updated prerequistes",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:39:07+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/schedule-anti-virus-scans-linux",
+      "firstSeenAt": "2026-01-31T11:39:07.000Z",
+      "eventId": "defender-docs:59c3b1c143d210fd1503be5eb47b0942df62685f:modified:defender-endpoint/schedule-anti-virus-scans-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated prerequistes",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/quarantine-end-user.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/quarantine-end-user.md b/defender-office-365/quarantine-end-user.md\nindex 4e52ea52c..329adefa8 100644\n--- a/defender-office-365/quarantine-end-user.md\n+++ b/defender-office-365/quarantine-end-user.md\n@@ -250,7 +250,7 @@ After you select the quarantined message, the available actions are described in\n >\n > A quarantine policy can allow you to release a message or request the release of a message, but both options aren't available for the same message. A quarantine policy can also prevent you from releasing or requesting the release of quarantined messages.\n >\n-> If the Release button is greyed out, this is expected behavior. Some quarantined messages can’t be released by users based on the quarantine reason or assigned quarantine policy. In these cases, you can only request release or an admin must release the message.\n+> If the Release button is greyed out, this is an expected behavior. Some quarantined messages can't be released by users, based on the quarantine reason or assigned quarantine policy. In such cases, you can only request release, or an admin must release the message.\n \n This action isn't available for released email messages (the **Release status** value is **Released**).\n \n",
+      "baseCommitSha": "a87929deeae5f9d86a598c94476b5dcf878ef12a",
+      "commitSha": "1af4e8cd0b94709dd0d33ad797af2b394e088629",
+      "commitMessage": "Fix wording for expected behavior of Release button",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T13:43:40+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/quarantine-end-user.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-end-user",
+      "firstSeenAt": "2026-01-31T11:43:40.000Z",
+      "eventId": "defender-docs:1af4e8cd0b94709dd0d33ad797af2b394e088629:modified:defender-office-365/quarantine-end-user.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix wording for expected behavior of Release button",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-ios.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-ios.md b/defender-endpoint/microsoft-defender-endpoint-ios.md\nindex ab2a48cf1..bcfa1d751 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-ios.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-ios.md\n@@ -53,7 +53,7 @@ appliesto:\n >\n > - Defender for Endpoint on iOS requires configuring its VPN to activate the Web Protection feature and to send periodic status signals while the app operates in the background. This VPN is local and pass-through, meaning it doesn't route traffic through a remote VPN server.\n > \n-> Customers who opt not to set up a Defender for Endpoint VPN can disable Web Protection and still deploy Defender for Endpoint. In such cases, Defender for Endpoint will send status signals to the Microsoft Defender portal leveraging push notifications.\n+> Customers who opt not to set up a Defender for Endpoint VPN can disable Web Protection and still deploy Defender for Endpoint. In such cases, Defender for Endpoint will send status signals to the Microsoft Defender portal via push notifications.\n \n ### For Administrators\n \n",
+      "baseCommitSha": "bb65f60c57547fecad2ff386ad1f2cce133887b5",
+      "commitSha": "171672221f3c3367b743233f998901757d2b5d69",
+      "commitMessage": "Update microsoft-defender-endpoint-ios.md",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T15:31:22+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-ios",
+      "firstSeenAt": "2026-01-31T13:31:22.000Z",
+      "eventId": "defender-docs:171672221f3c3367b743233f998901757d2b5d69:modified:defender-endpoint/microsoft-defender-endpoint-ios.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update microsoft-defender-endpoint-ios.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-ios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-android.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-android.md b/defender-endpoint/microsoft-defender-endpoint-android.md\nindex c67650246..a922811bb 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-android.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-android.md\n@@ -14,7 +14,7 @@ ms.collection:\n ms.topic: install-set-up-deploy\n ms.subservice: android\n search.appverid: met150\n-ms.date: 06/10/2025\n+ms.date: 01/31/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n@@ -55,7 +55,7 @@ This article describes how to install, configure, update, and use Defender for E\n ### System requirements\n \n > [!NOTE]\n-> - Support for Android 10 devices to be deprecated by end of March 2026\n+> - Support for Android 10 devices is being deprecated by the end of March 2026.\n \n - Intune Company Portal app should be downloaded from [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) and installed for seamless onboarding. Device enrollment is required for Intune device compliance policies to be enforced.\n \n",
+      "baseCommitSha": "d8b8e647d08a5a2f44dda165e64032493d28b209",
+      "commitSha": "83f72a53108d972fcacd312db9167de8ad5f3319",
+      "commitMessage": "Revise Android 10 deprecation notice and date",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T15:35:29+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-android",
+      "firstSeenAt": "2026-01-31T13:35:29.000Z",
+      "eventId": "defender-docs:83f72a53108d972fcacd312db9167de8ad5f3319:modified:defender-endpoint/microsoft-defender-endpoint-android.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Revise Android 10 deprecation notice and date",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-android.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-android.md b/defender-endpoint/microsoft-defender-endpoint-android.md\nindex a922811bb..9bbc95877 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-android.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-android.md\n@@ -55,7 +55,7 @@ This article describes how to install, configure, update, and use Defender for E\n ### System requirements\n \n > [!NOTE]\n-> - Support for Android 10 devices is being deprecated by the end of March 2026.\n+> - Support for Android 10 devices will be deprecated at the end of March 2026.\n \n - Intune Company Portal app should be downloaded from [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) and installed for seamless onboarding. Device enrollment is required for Intune device compliance policies to be enforced.\n \n",
+      "baseCommitSha": "83f72a53108d972fcacd312db9167de8ad5f3319",
+      "commitSha": "b90d862992c8a1270967a454d024cf9bf8b9316e",
+      "commitMessage": "Update note on Android 10 support deprecation",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T15:37:12+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-android",
+      "firstSeenAt": "2026-01-31T13:37:12.000Z",
+      "eventId": "defender-docs:b90d862992c8a1270967a454d024cf9bf8b9316e:modified:defender-endpoint/microsoft-defender-endpoint-android.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update note on Android 10 support deprecation",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/android-configure-mam.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/defender-endpoint/android-configure-mam.md b/defender-endpoint/android-configure-mam.md\nindex 4add150cd..3eb457640 100644\n--- a/defender-endpoint/android-configure-mam.md\n+++ b/defender-endpoint/android-configure-mam.md\n@@ -14,7 +14,7 @@ ms.collection:\n - mde-android\n ms.topic: how-to\n ms.subservice: android\n-ms.date: 12/17/2025\n+ms.date: 01/31/2026\n appliesto:\n - Microsoft Defender for Endpoint Plan 1\n - Microsoft Defender for Endpoint Plan 2\n@@ -119,7 +119,7 @@ End users also need to take steps to install Microsoft Defender for Endpoint on\n \n ### End-user onboarding\n > [!NOTE]\n-> End-user onboarding can be done directly by downloading or launching the Defender app. Onboarding is enabled by Default when no policies are set explicitly.\n+> End-user onboarding can be done directly by downloading or launching the Defender app. Onboarding is enabled by default when no policies are set explicitly.\n \n 1. Sign in to a managed application, for example, Outlook. The device is registered and the application protection policy is synchronized to the device. The application protection policy recognizes the device's health state.\n \n@@ -282,15 +282,15 @@ Use the following steps to configure the Device tags:\n > [!NOTE]\n > The Defender app needs to be opened for tags to be synced with Intune and passed to Security Portal. It may take up to 18 hours for tags to reflect in the portal.\n \n-## Disable End-User Onboarding \n+## Disable end-user onboarding \n \n-Defender for Endpoint on Android is enabled by default in MAM mode. In order to prevent end users from downloading & setting up Defender on unenrolled devices, DefenderMAMConfigs key can be set to 0 to block onboarding. Use the following steps to configure the Disable onboarding:\n+Defender for Endpoint on Android is enabled by default in MAM mode. To prevent end users from downloading and setting up Defender on unenrolled devices, the DefenderMAMConfigs key can be set to 0 to block onboarding. Use the following steps to disable onboarding:\n \n-1. In Microsoft Intune admin center, go to **Apps > App configuration policies > Add > Managed apps**.\n+1. In the Microsoft Intune admin center, go to **Apps** > **App configuration policies** > **Add** > **Managed apps**.\n 1. Give the policy a **name**.\n 1. Select **Microsoft Defender for Endpoint** in public apps.\n-1. On the Settings page, select **Use configuration designer** and add **DefenderMAMConfigs** key and set the value as 0.\n-2. Click Next and assign this policy to targeted devices and users.\n+1. On the Settings page, select **Use configuration designer** and add the **DefenderMAMConfigs** key and set the value as 0.\n+2. Click **Next** and assign this policy to targeted devices and users.\n \n ## Related topics\n \n",
+      "baseCommitSha": "8e711f399b87070b648db0969e6532789fa9b946",
+      "commitSha": "e82eae0b1a94d4cedb7e745f085c1350c5604638",
+      "commitMessage": "Fix date and enhance clarity in onboarding instructions",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-01-31T15:42:26+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/android-configure-mam.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/android-configure-mam",
+      "firstSeenAt": "2026-01-31T13:42:26.000Z",
+      "eventId": "defender-docs:e82eae0b1a94d4cedb7e745f085c1350c5604638:modified:defender-endpoint/android-configure-mam.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix date and enhance clarity in onboarding instructions",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/android-configure-mam.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 13,
+    "totalFiles": 13,
+    "authors": [
+      "Chris Davis",
+      "Paul Inbar"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 13 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/email-authentication-dkim-configure.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md.",
+        "sourceFiles": [
+          "defender-office-365/email-authentication-dkim-configure.md",
+          "defender-office-365/quarantine-end-user.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Micros",
+        "sourceFiles": [
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/schedule-anti-virus-scans-linux.md",
+          "defender-endpoint/microsoft-defender-endpoint-ios.md",
+          "defender-endpoint/microsoft-defender-endpoint-android.md",
+          "defender-endpoint/microsoft-defender-endpoint-android.md",
+          "defender-endpoint/android-configure-mam.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/email-authentication-dkim-configure.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-end-user.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Microsoft Defender documentation in defender-endpoint/schedule-anti-virus-scans-linux.md. Updated Micros"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

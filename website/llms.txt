@@ -1,0 +1,13 @@
+# Defender Daily
+
+A readable record of what changed across Microsoft Defender documentation.
+
+- [Latest day](https://daily.defender.admin.news/)
+- [Current week](https://daily.defender.admin.news/week/)
+- [Products](https://daily.defender.admin.news/products/)
+- [Topics](https://daily.defender.admin.news/topics/)
+- [Message Center](https://daily.defender.admin.news/message-center/)
+- [Search the archive](https://daily.defender.admin.news/search/)
+- [Compare a Learn page](https://mx.merill.net/)
+- [About](https://daily.defender.admin.news/about/)
+- [RSS](https://daily.defender.admin.news/rss.xml)

@@ -1,0 +1,465 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/communicate-defender-experts-xdr.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/communicate-defender-experts-xdr.md b/defender-xdr/communicate-defender-experts-xdr.md\nindex 9e9d20de6..f67c019fb 100644\n--- a/defender-xdr/communicate-defender-experts-xdr.md\n+++ b/defender-xdr/communicate-defender-experts-xdr.md\n@@ -17,7 +17,7 @@ ms.custom:\n - cx-ti\n - cx-dex\n search.appverid: met150\n-ms.date: 03/03/2026\n+ms.date: 03/16/2026\n ---\n \n # Communicating with experts in the Microsoft Defender Experts for XDR service\n",
+      "baseCommitSha": "2fd510c741a31be10c1c6841a6c25e078e4ca140",
+      "commitSha": "3ae30df79cb276474d12ca4ee48f19909902e14c",
+      "commitMessage": "Update communicate-defender-experts-xdr.md",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T11:09:02+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/communicate-defender-experts-xdr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/communicate-defender-experts-xdr",
+      "firstSeenAt": "2026-03-16T05:39:02.000Z",
+      "eventId": "defender-docs:3ae30df79cb276474d12ca4ee48f19909902e14c:modified:defender-xdr/communicate-defender-experts-xdr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update communicate-defender-experts-xdr.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/communicate-defender-experts-xdr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/managed-detection-and-response-xdr.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/managed-detection-and-response-xdr.md b/defender-xdr/managed-detection-and-response-xdr.md\nindex d69491a2f..6d1b9d8c0 100644\n--- a/defender-xdr/managed-detection-and-response-xdr.md\n+++ b/defender-xdr/managed-detection-and-response-xdr.md\n@@ -17,7 +17,7 @@ ms.custom:\n - cx-ti\n - cx-dex\n search.appverid: met150\n-ms.date: 03/06/2026\n+ms.date: 03/01/2026\n ---\n \n # Managed detection and response\n",
+      "baseCommitSha": "c6462a11d9787500224803155a717a9bba4577f9",
+      "commitSha": "6b6cce29916f934d15c4038d504faa6f7035bf9e",
+      "commitMessage": "Update ms.date in managed-detection-and-response-xdr.md",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T11:11:00+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/managed-detection-and-response-xdr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/managed-detection-and-response-xdr",
+      "firstSeenAt": "2026-03-16T05:41:00.000Z",
+      "eventId": "defender-docs:6b6cce29916f934d15c4038d504faa6f7035bf9e:modified:defender-xdr/managed-detection-and-response-xdr.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update ms.date in managed-detection-and-response-xdr.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/managed-detection-and-response-xdr.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 7,
+      "changes": 25,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-aiagentsinfo-table.md b/defender-xdr/advanced-hunting-aiagentsinfo-table.md\nindex b01daccf7..97c3b6832 100644\n--- a/defender-xdr/advanced-hunting-aiagentsinfo-table.md\n+++ b/defender-xdr/advanced-hunting-aiagentsinfo-table.md\n@@ -21,7 +21,7 @@ appliesto:\n     - Microsoft Defender XDR\n     - Microsoft Defender for Cloud Apps\n ms.topic: reference\n-ms.date: 11/06/2025\n+ms.date: 03/23/2026\n ---\n \n # AIAgentsInfo (Preview)\n@@ -63,17 +63,28 @@ For information on other tables in the advanced hunting schema, [see the advance\n | `AgentToolsDetails` | `dynamic` |Specifications of the tools that the agent can access and perform actions on |\n | `EnvironmentId` | `string` |The identifier of the Microsoft Power Platform environment the agent resides in |\n | `Platform` | `string` |The platform that provided the information about the agents; possible values: Copilot Studio |\n-| `IsGenerativeOrchestrationEnabled` | `boolean` |ndicates whether the agent uses generative orchestration (that is, dynamically chooses tools, knowledge, and actions based on context) to operate|\n+| `IsGenerativeOrchestrationEnabled` | `boolean` |Indicates whether the agent uses generative orchestration (that is, dynamically chooses tools, knowledge, and actions based on context) to operate|\n | `AgentAppId` | `string` |The unique app identifier registered for the agent in Microsoft Entra |\n | `ConnectedAgentsSchemaNames` | `dynamic` |Lists the schema names of connected agents, which are independently managed agents that are linked to the main one for orchestration |\n | `ChildAgentsSchemaNames` | `dynamic` |Lists the schema names of the child agents that exist within the main agent |\n+| `RegistrySource` | `string` |Registry that provided the agent's metadata |\n+| `Version` | `string` | Version of the agent|\n+| `IsBlocked` | `boolean` |Indicates whether the agent has been blocked by an administrator |\n+| `Instructions` | `string` |The agent's system prompt that defines its default behavior, persona, and operating boundaries |\n+| `EntraObjectId` | `string` |The agent's unique enterprise application object identifier by Microsoft Entra ID  |\n+| `EntraBlueprintId` | `string` | The agent's identity blueprint principal identifier by Microsoft Entra Agent ID |\n+| `AIModel` | `string` |The AI model powering the agent |\n+| `AccessCapabilities` | `dynamic` |Data access capabilities granted to the agent |\n+| `ElementTypes` | `dynamic` |Technical component types that make up the agent |\n+| `SourceAgentId` | `string` | Azure Resource Manager (ARM) identifier for a published Microsoft Foundry agent|\n+\n \n ## Sample queries\n \n \n ### Agent with no authentication\n \n-It's critical to identify agents that lack authentication mechanisms, as these agents might pose significant risks to the organization due to their public availability. Organizations should know about these agents so they can address any issues.\n+It's important to identify agents that don't use authentication mechanisms. These agents might pose significant risks to the organization because they're publicly available. Organizations need to know about these agents so they can address any problems.\n \n **Recommendations:**\n - Confirm the agent's use case with the owner to determine if it's intended for public access.\n@@ -135,9 +146,9 @@ AIAgentsInfo\n | project-reorder AgentCreationTime ,AIAgentId, AIAgentName, ParsedUrl ,Url, Host, AgentStatus, CreatorAccountUpn, OwnerAccountUpns, Topic\n ```\n \n-### Sending email to AI controlled input values \n+### Sending email to AI-controlled input values \n   \n-Identify agents that use generative orchestration that involves sending email tools through Outlook, and the input values of the actions are populated by the generative orchestrator. This setup is risky, since with a successful XPIA attack, the agent can be used to leak data to arbitrary recipients.  \n+Identify agents that use generative orchestration that involves sending email tools through Outlook, and the input values of the actions populated by the generative orchestrator. This setup is risky, since with a successful XPIA attack, the agent can be used to leak data to arbitrary recipients.  \n  \n **Recommendations:** \n - Confirm with the agent owner whether it's required and inquire about the business use case. If feasible, hard code the recipient of the email into the action.\n@@ -161,8 +172,8 @@ AIAgentsInfo\n Agents with hard-coded credentials in Topics or Actions can expose clear-text credentials to unintended entities.\n \n **Recommendations:**\n-- Consider keeping the credentials in Azure Key Vault and retrieve in runtime using Environment Variables (Use environment variables for Azure Key Vault secrets - Power Apps | Microsoft Learn) \n-- If not possible, make sure secured input option are enabled (Manage sensitive input like passwords in Power Automate - Power Automate | Microsoft Learn).\n+- Consider keeping the credentials in Azure Key Vault and retrieving them at runtime by using environment variables (see [Use environment variables for Azure Key Vault secrets - Power Apps](https://learn.microsoft.com/powerapps/developer/data-platform/environment-variables-azure-key-vault-secrets)). \n+- If you can't use Azure Key Vault, make sure you enable the secured input option (see [Manage sensitive input like passwords in Power Automate](https://learn.microsoft.com/power-automate/manage-sensitive-input)).\n \n ```kusto  \n //Find Agents with hard-coded credentials in Topics or Actions can expose clear-text credentials to unintended entities. \n",
+      "baseCommitSha": "7820741d56188605cafa307c0781916a310a5a98",
+      "commitSha": "99863192b1368b8c68885443af8e04431ccf4522",
+      "commitMessage": "Update AIAgentsInfo schema and docs",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T11:35:57+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-aiagentsinfo-table",
+      "firstSeenAt": "2026-03-16T06:05:57.000Z",
+      "eventId": "defender-docs:99863192b1368b8c68885443af8e04431ccf4522:modified:defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update AIAgentsInfo schema and docs",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/whats-new.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 13,
+      "changes": 27,
+      "patch": "diff --git a/defender-xdr/whats-new.md b/defender-xdr/whats-new.md\nindex 3bd541268..9b8b9be54 100644\n--- a/defender-xdr/whats-new.md\n+++ b/defender-xdr/whats-new.md\n@@ -6,7 +6,7 @@ ms.service: defender-xdr\n ms.author: guywild\n author: guywi-ms\n ms.localizationpriority: medium\n-ms.date: 03/03/2026\n+ms.date: 03/23/2026\n manager: orspodek\n audience: ITPro\n ms.collection:\n@@ -34,7 +34,8 @@ You can also get product updates and important notifications through the [messag\n \n ## March 2026\n \n-- (Preview) Customers can now use filters on very large incidents with many alerts and entities or hide specific entities to simplify complex incident graphs. By simplifying the graphs, they can focus their investigations on what matters most. [Learn more](investigate-incidents.md#filter-and-focus-the-incident-graph-preview)\n+- (Preview) The [`AIAgentsInfo`](advanced-hunting-aiagentsinfo-table.md) table in advanced hunting now includes additional columns that provide deeper visibility into AI agents operating in your Microsoft 365 environment. These fields expand coverage beyond Microsoft Copilot Studio to all agent types, including Microsoft Foundry, third-party marketplace, and custom line-of-business agents.\n+- (Preview) You can now use filters on very large incidents with many alerts and entities or hide specific entities to simplify complex incident graphs. By simplifying the graphs, you can focus your investigations on what matters most. [Learn more](investigate-incidents.md#filter-and-focus-the-incident-graph-preview).\n - The [proactive user containment (contain user)](/defender-endpoint/respond-machine-alerts#contain-user-from-the-network) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.\n \n ## February 2026\n@@ -48,7 +49,7 @@ You can also get product updates and important notifications through the [messag\n \n ## January 2026\n \n-- (Preview) Custom detections rules in Microsoft Defender now support Near Real-Time (NRT) configuration on [Microsoft Sentinel data](custom-detection-rules.md#tables-that-support-continuous-nrt-frequency).\n+- (Preview) Custom detection rules in Microsoft Defender now support Near Real-Time (NRT) configuration on [Microsoft Sentinel data](custom-detection-rules.md#tables-that-support-continuous-nrt-frequency).\n - (Preview) In advanced hunting, if the query result exceeds the 64-MB size limit, the portal now returns the maximum number of records it can within this limit and displays a message indicating that the displayed results are partial due to size constraints. [Learn more](advanced-hunting-overview.md#quotas-and-usage-parameters)\n - (Preview) The [`BehaviorInfo`](advanced-hunting-behaviorinfo-table.md) and [`BehaviorEntities`](advanced-hunting-behaviorentities-table.md) tables in advanced hunting now include additional columns and information about behavior data types and alerts from User and Entity Behavior Analytics (UEBA), providing more insights on the relationships between identified behaviors and entities. [Learn more about UEBA behaviors](/azure/sentinel/entity-behaviors-layer)\n \n@@ -56,16 +57,16 @@ You can also get product updates and important notifications through the [messag\n \n - (Preview) Microsoft Security Copilot in Microsoft Defender now includes the Dynamic Threat Detection Agent, an always-on, adaptive backend service that uncovers hidden threats across Defender and Microsoft Sentinel environments. [Learn more](dynamic-threat-detection-agent.md)\n - (GA) The [Microsoft Security Copilot Threat Intelligence Briefing Agent in Microsoft Defender](threat-intel-briefing-agent-defender.md) is now generally available. It generates threat intelligence briefings based on the latest threat actor activity and both internal and external vulnerability information in a matter of minutes, helping security teams save time by creating customized, relevant reports.\n-- (Preview) Microsoft Security Copilot in Microsoft Defender now lets you to hunt for threats using natural language with the [Threat Hunting Agent](advanced-hunting-security-copilot-threat-hunting-agent.md). This agent delivers a complete, conversational threat hunting experience by not only generates queries but also interpreting results, surfacing insights, and guiding you through full hunting sessions.\n+- (Preview) Microsoft Security Copilot in Microsoft Defender now lets you hunt for threats by using natural language with the [Threat Hunting Agent](advanced-hunting-security-copilot-threat-hunting-agent.md). This agent delivers a complete, conversational threat hunting experience by not only generating queries but also interpreting results, surfacing insights, and guiding you through full hunting sessions.\n - (Preview) The following advanced hunting schema tables are now available for preview:\n-    - The [`CampaignInfo`](advanced-hunting-campaigninfo-table.md) table contains contains information about email campaigns identified by Microsoft Defender for Office 365.\n-    - The [`FileMaliciousContentInfo`](advanced-hunting-filemaliciouscontentinfo-table.md) table contains information about files that were processed by Microsoft Defender for Office 365 in SharePoint Online, OneDrive, and Microsoft Teams.\n+    - The [`CampaignInfo`](advanced-hunting-campaigninfo-table.md) table contains information about email campaigns identified by Microsoft Defender for Office 365.\n+    - The [`FileMaliciousContentInfo`](advanced-hunting-filemaliciouscontentinfo-table.md) table contains information about files that Microsoft Defender for Office 365 processed in SharePoint Online, OneDrive, and Microsoft Teams.\n - (GA) The [hunting graph](advanced-hunting-graph.md) in advanced hunting is now generally available. It also now has two new predefined threat scenarios that you can use to render your hunts as interactive graphs.\n-- (GA) Advanced hunting now supports custom functions that use tabular parameters. With tabular parameters, you can pass entire tables as inputs. This approach lets you build more modular, reusable, and expressive logic across your hunting queries. [Learn more](advanced-hunting-custom-functions.md#create-custom-functions-with-tabular-parameters) \n+- (GA) Advanced hunting now supports custom functions that use tabular parameters. By using tabular parameters, you can pass entire tables as inputs. This approach lets you build more modular, reusable, and expressive logic across your hunting queries. [Learn more](advanced-hunting-custom-functions.md#create-custom-functions-with-tabular-parameters) \n \n ## November 2025\n \n-- Microsoft Sentinel customers using the Defender portal, or the Azure portal with the Microsoft Sentinel Defender XDR data connector, now also benefit from Microsoft Threat Intelligence alerts that highlight activity from nation-state actors, major ransomware campaigns, and fraudulent operations. To view these alert types, you must have the **Security Administrator** or **Global Administrator** role. The **Service Source**, **Detection Source**, and **Product Name** values for these alerts are listed as *Microsoft Threat Intelligence*.   For more information, see [Incidents and alerts in the Microsoft Defender portal](incidents-overview.md).\n+- Microsoft Sentinel customers who use the Defender portal, or the Azure portal with the Microsoft Sentinel Defender XDR data connector, now also benefit from Microsoft Threat Intelligence alerts that highlight activity from nation-state actors, major ransomware campaigns, and fraudulent operations. To view these alert types, you must have the **Security Administrator** or **Global Administrator** role. The **Service Source**, **Detection Source**, and **Product Name** values for these alerts are listed as *Microsoft Threat Intelligence*. For more information, see [Incidents and alerts in the Microsoft Defender portal](incidents-overview.md).\n - (Preview) Defender XDR now includes the **predictive shielding** capability, which uses predictive analytics and real-time insights to dynamically infer risk, anticipate attacker progression, and harden your environment before threats materialize. [Learn more](shield-predict-threats.md)\n - (Preview) A new **Restrict pod access** response action is now available when [investigating container threats](investigate-respond-container-threats.md) in the Defender portal. This response action blocks sensitive interfaces that allow lateral movement and privilege escalation. \n - (Preview) The [`IdentityAccountInfo`](advanced-hunting-identityaccountinfo-table.md) table in advanced hunting is now available for preview. This table contains information about account information from various sources, including Microsoft Entra ID. It also includes information and link to the identity that owns the account.\n@@ -81,7 +82,7 @@ You can also get product updates and important notifications through the [messag\n \n - (Preview) Use tasks in the Microsoft Defender portal to break down incident investigations into actionable steps and assign them across your operations teams. Tasks are displayed alongside Security Copilot insights, guided responses, and reports - giving your team a unified view of progress and next steps. When you onboard Microsoft Sentinel to the Defender portal, tasks you create in Microsoft Sentinel through the Azure portal are automatically synchronized to the Defender portal. For more information, see [Streamline incident response using tasks in the Microsoft Defender portal (Preview)](./split-incidents-into-tasks.md)\n - (Preview) Investigate incidents by using [Blast radius analysis](investigate-incidents.md#blast-radius-analysis), which is an advanced graph visualization built on the Microsoft Sentinel data lake and graph infrastructure. This feature generates an interactive graph showing possible propagation paths from the selected node to predefined critical targets scoped to the user’s permissions.\n-- (Preview) In advanced hunting, you can now hunt by using the [hunting graph](advanced-hunting-graph.md), which renders rendering predefined threat scenarios as interactive graphs.\n+- (Preview) In advanced hunting, you can now hunt by using the [hunting graph](advanced-hunting-graph.md), which renders predefined threat scenarios as interactive graphs.\n \n ## August 2025\n \n@@ -95,7 +96,7 @@ You can also get product updates and important notifications through the [messag\n - (GA) Defender Experts for XDR customers can now [incorporate third-party network signals](third-party-enrichment-defender-experts.md) for enrichment. This feature allows our security analysts to gain a more comprehensive view of an attack's path that allows for faster and more thorough detection and response. It also provides customers with a more holistic view of the threat in their environments.\n - (GA) In advanced hunting, you can now [view all your user-defined rules](custom-detection-manage.md)—both custom detection rules and analytics rules—in the **Detection rules** page. This feature also brings the following improvements:\n     - You can now filter for *every* column (in addition to **Frequency** and **Organizational scope**).\n-    - For multiworkspace organizations that have onboarded multiple workspaces to Microsoft Defender, you can now view the **Workspace ID** column and filter by workspace. \n+    - For multiworkspace organizations that onboard multiple workspaces to Microsoft Defender, you can now view the **Workspace ID** column and filter by workspace. \n     - You can now view the details pane even for analytics rules.\n     - You can now perform the following actions on analytics rules: Turn on/off, Delete, Edit.\n  - (GA) The **Sensitivity label** filter is now available in the **Incidents** and **Alerts** queues in the Microsoft Defender portal. This filter lets you filter incidents and alerts based on the sensitivity label assigned to the affected resources. For more information, see [Filters in the incident queue](incident-queue.md#filters-) and [Investigate alerts](investigate-alerts.md).\n@@ -115,13 +116,13 @@ You can also get product updates and important notifications through the [messag\n \n - (Preview) In advanced hunting, you can now [view all your user-defined rules](custom-detection-manage.md)—both custom detection rules and analytics rules—in the **Detection rules** page. This feature also brings the following improvements:\n     - You can now filter for *every* column (in addition to **Frequency** and **Organizational scope**).\n-    - For multiworkspace organizations that have onboarded multiple workspaces to Microsoft Defender, you can now view the **Workspace ID** column and filter by workspace. \n+    - For multiworkspace organizations that onboard multiple workspaces to Microsoft Defender, you can now view the **Workspace ID** column and filter by workspace. \n     - You can now view the details pane even for analytics rules.\n     - You can now perform the following actions on analytics rules: Turn on/off, Delete, Edit.\n \n \n-- (Preview) You can now highlight your security operations achievements and the impact of Microsoft Defender using the **unified security summary**. The unified security summary is available in the Microsoft Defender portal and streamlines the process for SOC teams to generate security reports, saving time usually spent on collecting data from various sources and creating reports. For more information, see [Visualize security impact with the unified security summary](security-summary-report.md).\n-- Defender portal users who have onboarded Microsoft Sentinel and have enabled the [User and Entity Behavior Analytics (UEBA)](/azure/sentinel/ueba-reference) can now take advantage of the new unified [`IdentityInfo` table](advanced-hunting-identityinfo-table.md) in advanced hunting. This latest version now includes the largest possible set of fields common to both Defender and Azure portals. \n+- (Preview) You can now highlight your security operations achievements and the impact of Microsoft Defender by using the **unified security summary**. The unified security summary is available in the Microsoft Defender portal and streamlines the process for SOC teams to generate security reports, saving time usually spent on collecting data from various sources and creating reports. For more information, see [Visualize security impact with the unified security summary](security-summary-report.md).\n+- Defender portal users who onboard Microsoft Sentinel and enable the [User and Entity Behavior Analytics (UEBA)](/azure/sentinel/ueba-reference) can now take advantage of the new unified [`IdentityInfo` table](advanced-hunting-identityinfo-table.md) in advanced hunting. This latest version now includes the largest possible set of fields common to both Defender and Azure portals. \n - (Preview) The following advanced hunting schema tables are now available for preview to help you look through Microsoft Teams events and related information:\n     - The [MessageEvents](advanced-hunting-messageevents-table.md) table contains details about messages sent and received within your organization at the time of delivery\n     - The [MessagePostDeliveryEvents](advanced-hunting-messagepostdeliveryevents-table.md) table contains information about security events that occurred after the delivery of a Microsoft Teams message in your organization\n",
+      "baseCommitSha": "99863192b1368b8c68885443af8e04431ccf4522",
+      "commitSha": "528ba11b96a9ae0e0e17ea92f4f0fd95ea066e15",
+      "commitMessage": "Update Defender XDR whats-new (Mar 2026)",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T11:46:52+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new",
+      "firstSeenAt": "2026-03-16T06:16:52.000Z",
+      "eventId": "defender-docs:528ba11b96a9ae0e0e17ea92f4f0fd95ea066e15:modified:defender-xdr/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update Defender XDR whats-new (Mar 2026)",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-aiagentsinfo-table.md b/defender-xdr/advanced-hunting-aiagentsinfo-table.md\nindex 97c3b6832..b5669b244 100644\n--- a/defender-xdr/advanced-hunting-aiagentsinfo-table.md\n+++ b/defender-xdr/advanced-hunting-aiagentsinfo-table.md\n@@ -172,8 +172,8 @@ AIAgentsInfo\n Agents with hard-coded credentials in Topics or Actions can expose clear-text credentials to unintended entities.\n \n **Recommendations:**\n-- Consider keeping the credentials in Azure Key Vault and retrieving them at runtime by using environment variables (see [Use environment variables for Azure Key Vault secrets - Power Apps](https://learn.microsoft.com/powerapps/developer/data-platform/environment-variables-azure-key-vault-secrets)). \n-- If you can't use Azure Key Vault, make sure you enable the secured input option (see [Manage sensitive input like passwords in Power Automate](https://learn.microsoft.com/power-automate/manage-sensitive-input)).\n+- Consider keeping the credentials in Azure Key Vault and retrieving them at runtime by using environment variables (see [Use environment variables for Azure Key Vault secrets](/power-apps/maker/data-platform/environmentvariables-azure-key-vault-secrets)). \n+- If you can't use Azure Key Vault, make sure you enable the secured input option (see [Manage sensitive input like passwords](/power-automate/how-tos-use-sensitive-input)).\n \n ```kusto  \n //Find Agents with hard-coded credentials in Topics or Actions can expose clear-text credentials to unintended entities. \n",
+      "baseCommitSha": "528ba11b96a9ae0e0e17ea92f4f0fd95ea066e15",
+      "commitSha": "1bb1ab7a81f99ac2fcc33f292f1ecb369c729a48",
+      "commitMessage": "Use relative docs links in AIAgentsInfo",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T11:58:13+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-aiagentsinfo-table",
+      "firstSeenAt": "2026-03-16T06:28:13.000Z",
+      "eventId": "defender-docs:1bb1ab7a81f99ac2fcc33f292f1ecb369c729a48:modified:defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Use relative docs links in AIAgentsInfo",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 2,
+      "changes": 16,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex dba7f816a..b772b69c8 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -23,7 +23,7 @@ appliesto:\n     - Microsoft Defender XDR\n     - Microsoft Sentinel in the Microsoft Defender portal\n ms.topic: how-to\n-ms.date: 03/11/2026\n+ms.date: 03/16/2026\n ---\n \n # Create custom detection rules\n@@ -58,7 +58,7 @@ To manage custom detections on Microsoft Sentinel data, you need to be assigned\n ### Manage required permissions\n \n > [!IMPORTANT]\n-> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.\n+> Use roles with the fewest permissions to help improve security for your organization. Global Administrator is a highly privileged role. Limit its use to emergency scenarios when you can't use an existing role.\n \n To manage required permissions, a Global Administrator can:\n \n@@ -144,6 +144,7 @@ In the query editor, select **Create detection rule** and specify the following\n \n - **Detection name** - Name of the detection rule; make it unique.\n - **Frequency** - Interval for running the query and taking action. [See more guidance in the rule frequency section](#rule-frequency).\n+- **Lookback** - The time period covered by the query when the custom detection targets data from Microsoft Sentinel only. [See more guidance in the lookback section](#lookback). \n - **Alert title** - Title displayed with alerts triggered by the rule; make it unique and use plaintext. Strings are sanitized for security purposes, so HTML, Markdown, and other code don't work. Any URLs included in the title should follow the [percent-encoding format](https://en.m.wikipedia.org/wiki/Percent-encoding) for them to display properly.\n - **Severity** - Potential risk of the component or activity identified by the rule.\n - **Category** - Threat component or activity identified by the rule.\n@@ -224,6 +225,17 @@ When you select this frequency option, the **Run query every input** component a\n >1.\tYou must have data available in Microsoft Sentinel.\n >1.\tDefender XDR data doesn't support scoping, since Microsoft Sentinel doesn't support scoping.\n \n+#### Lookback\n+\n+The lookback period of your custom detections can range from five minutes to 30 days, depending on the frequency of your query.\n+\n+> [!NOTE]\n+> Lookback only applies to custom detection queries that target data from Microsoft Sentinel only.\n+\n+- For detection frequencies **higher (more frequent) than one hour**, the lookback is limited to **less than 48 hours**. \n+- For frequencies **higher than one day**, the lookback can be set **up to 14 days**. \n+- For frequencies of **one day or less**, the lookback can be set **up to 30 days**.  \n+\n ### 3. Define alert enrichment details \n You can enrich alerts by providing and defining more details. When you enrich alerts, you can:\n -\t[Create a dynamic alert title and description](#create-a-dynamic-alert-title-and-description)\n",
+      "baseCommitSha": "ebfae9ec9eb5551a23097de43a63d03969b36fb0",
+      "commitSha": "b98dd344ace9745920c96700b3bcece315038e84",
+      "commitMessage": "Update custom-detection-rules.md",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T12:37:41+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "firstSeenAt": "2026-03-16T07:07:41.000Z",
+      "eventId": "defender-docs:b98dd344ace9745920c96700b3bcece315038e84:modified:defender-xdr/custom-detection-rules.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update custom-detection-rules.md",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-aiagentsinfo-table.md b/defender-xdr/advanced-hunting-aiagentsinfo-table.md\nindex b5669b244..ab874185d 100644\n--- a/defender-xdr/advanced-hunting-aiagentsinfo-table.md\n+++ b/defender-xdr/advanced-hunting-aiagentsinfo-table.md\n@@ -76,7 +76,7 @@ For information on other tables in the advanced hunting schema, [see the advance\n | `AIModel` | `string` |The AI model powering the agent |\n | `AccessCapabilities` | `dynamic` |Data access capabilities granted to the agent |\n | `ElementTypes` | `dynamic` |Technical component types that make up the agent |\n-| `SourceAgentId` | `string` | Azure Resource Manager (ARM) identifier for a published Microsoft Foundry agent|\n+| `SourceAgentId` | `string` | The platform-native identifier of the agent, such as the Azure Resource Manager (ARM) identifier for Microsoft Foundry agents or the environment-scoped agent identifier for Copilot Studio agents|\n \n \n ## Sample queries\n",
+      "baseCommitSha": "d08fedc6263a0dd49c39a9767656d678ebb9021c",
+      "commitSha": "96254ecdb6d59cc958e4743c2905eb50735a1452",
+      "commitMessage": "Clarify AIAgentsInfo identifier and wording",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T14:46:31+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-aiagentsinfo-table",
+      "firstSeenAt": "2026-03-16T09:16:31.000Z",
+      "eventId": "defender-docs:96254ecdb6d59cc958e4743c2905eb50735a1452:modified:defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify AIAgentsInfo identifier and wording",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/whats-new.md b/defender-xdr/whats-new.md\nindex 9b8b9be54..256188fd1 100644\n--- a/defender-xdr/whats-new.md\n+++ b/defender-xdr/whats-new.md\n@@ -34,7 +34,7 @@ You can also get product updates and important notifications through the [messag\n \n ## March 2026\n \n-- (Preview) The [`AIAgentsInfo`](advanced-hunting-aiagentsinfo-table.md) table in advanced hunting now includes additional columns that provide deeper visibility into AI agents operating in your Microsoft 365 environment. These fields expand coverage beyond Microsoft Copilot Studio to all agent types, including Microsoft Foundry, third-party marketplace, and custom line-of-business agents.\n+- (Preview) The [`AIAgentsInfo`](advanced-hunting-aiagentsinfo-table.md) table in advanced hunting now includes additional columns that provide deeper visibility into AI agents operating in your Microsoft 365 environment. These fields expand coverage beyond Copilot Studio to all agent types, including Microsoft Foundry, third-party marketplace, and custom line-of-business agents.\n - (Preview) You can now use filters on very large incidents with many alerts and entities or hide specific entities to simplify complex incident graphs. By simplifying the graphs, you can focus your investigations on what matters most. [Learn more](investigate-incidents.md#filter-and-focus-the-incident-graph-preview).\n - The [proactive user containment (contain user)](/defender-endpoint/respond-machine-alerts#contain-user-from-the-network) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.\n \n",
+      "baseCommitSha": "d08fedc6263a0dd49c39a9767656d678ebb9021c",
+      "commitSha": "96254ecdb6d59cc958e4743c2905eb50735a1452",
+      "commitMessage": "Clarify AIAgentsInfo identifier and wording",
+      "commitAuthor": "Paul Oliveria",
+      "commitDate": "2026-03-16T14:46:31+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new",
+      "firstSeenAt": "2026-03-16T09:16:31.000Z",
+      "eventId": "defender-docs:96254ecdb6d59cc958e4743c2905eb50735a1452:modified:defender-xdr/whats-new.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarify AIAgentsInfo identifier and wording",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/protect-atlassian.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 4,
+      "changes": 9,
+      "patch": "diff --git a/defender-for-cloud-apps/protect-atlassian.md b/defender-for-cloud-apps/protect-atlassian.md\nindex 468789f6d..1998d82eb 100644\n--- a/defender-for-cloud-apps/protect-atlassian.md\n+++ b/defender-for-cloud-apps/protect-atlassian.md\n@@ -70,11 +70,12 @@ This section provides instructions for connecting Microsoft Defender for Cloud A\n > [!NOTE]\n > The connector covers all users in your organization that use the Atlassian platform, and shows activities from Confluence, Jira, and specific Bitbucket activities. For more information about Atlassian activities, see [Atlassian audit log activities](https://support.atlassian.com/security-and-access-policies/docs/track-organization-activities-from-the-audit-log/#Auditlogging-Accessauditlogactivities).\n \n-### API key scopes \n+### API key scopes\n+When creating the Atlassian API key for Microsoft Defender for Cloud Apps, **do not select any scopes**.\n \n-- read:jira-work – to read Jira issues and projects\n-- read:confluence-content.all – to read Confluence content\n-- read:confluence-space.summary – to access Confluence space metadata\n+> [!NOTE]\n+> The Atlassian App Connector currently supports API keys without scopes only. \n+> API keys created with scopes (including read‑only scopes) may fail to authenticate.\n \n ### Prerequisites\n \n",
+      "baseCommitSha": "09be57714c0d57811dbded0d1fa0c24666ed0ed5",
+      "commitSha": "ee9e99c69a1c6e02336cdc553e4c4a2642dd75ca",
+      "commitMessage": "Update protect-atlassian.md",
+      "commitAuthor": "AmitMishaeli",
+      "commitDate": "2026-03-16T14:01:34+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/protect-atlassian.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-atlassian",
+      "firstSeenAt": "2026-03-16T12:01:34.000Z",
+      "eventId": "defender-docs:ee9e99c69a1c6e02336cdc553e4c4a2642dd75ca:modified:defender-for-cloud-apps/protect-atlassian.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update protect-atlassian.md",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-atlassian.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/respond-machine-alerts.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 7,
+      "changes": 16,
+      "patch": "diff --git a/defender-endpoint/respond-machine-alerts.md b/defender-endpoint/respond-machine-alerts.md\nindex 9a61d39bb..1317e590b 100644\n--- a/defender-endpoint/respond-machine-alerts.md\n+++ b/defender-endpoint/respond-machine-alerts.md\n@@ -271,6 +271,14 @@ When a device is being isolated, the following notification is displayed to info\n > [!NOTE]\n > The notification is not available on non-Windows platforms.\n \n+## Containing critical assets\n+\n+When a critical asset is compromised and used to spread threats within an organization, stopping the spread can be challenging because these assets must continue to function to avoid productivity loss. Defender for Endpoint addresses this by granularly containing the critical asset, preventing the spread of the attack while ensuring the asset remains operational for business continuity.\n+\n+Through automatic attack disruption, Defender for Endpoint incriminates a malicious device, identifies the role of the device to apply a matching policy to automatically contain a critical asset. The granular containment is done by blocking only specific ports and communication directions.\n+\n+You can identify critical assets by the **critical asset** tag on the device or IP page. Device containment supports critical asset types like domain controllers, DNS servers, and DHCP servers.\n+\n ## Contain devices from the network\n \n When you have identified an unmanaged device that is compromised or potentially compromised, you might want to contain that device from the network to prevent the potential attack from moving laterally across the network. When you contain a device any Microsoft Defender for Endpoint onboarded device blocks incoming and outgoing communication with that device. This action can help prevent neighboring devices from becoming compromised while the security operations analyst locates, identifies, and remediates the threat on the compromised device.\n@@ -320,7 +328,7 @@ You can stop containing a device at any time.\n \n 1. Select **Release from containment** from the action menu. This action restores the device's connection to the network.\n \n-### Contain IP addresses of undiscovered devices\n+## Contain IP addresses of undiscovered devices\n \n > [!IMPORTANT]\n > Some information in this article relates to prereleased product which may be substantially modified before it's commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.\n@@ -346,13 +354,7 @@ If a contained IP address is part of an incident, an indicator is present on the\n \n You can stop an IP address' containment at any time. To stop containment, select the **Contain IP** action in the **Action Center**. In the flyout, select **Undo**. This action restores the IP address’ connection to the network.\n \n-### Containing critical assets\n-\n-When a critical asset is compromised and used to spread threats within an organization, stopping the spread can be challenging because these assets must continue to function to avoid productivity loss. Defender for Endpoint addresses this by granularly containing the critical asset, preventing the spread of the attack while ensuring the asset remains operational for business continuity.\n-\n-Through automatic attack disruption, Defender for Endpoint incriminates a malicious device, identifies the role of the device to apply a matching policy to automatically contain a critical asset. The granular containment is done by blocking only specific ports and communication directions.\n \n-You can identify critical assets by the **critical asset** tag on the device or IP page. Device containment supports critical asset types like domain controllers, DNS servers, and DHCP servers.\n \n ## Contain user from the network\n \n",
+      "baseCommitSha": "0ba64b176022758f93c45cc16fbab13964b175fe",
+      "commitSha": "510e6f966e8c35291bf368400a1d00611251e967",
+      "commitMessage": "fixed headers",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-03-16T16:48:56+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/respond-machine-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts",
+      "firstSeenAt": "2026-03-16T14:48:56.000Z",
+      "eventId": "defender-docs:510e6f966e8c35291bf368400a1d00611251e967:modified:defender-endpoint/respond-machine-alerts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fixed headers",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/respond-machine-alerts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex 0db56cdbb..da5ccdfbc 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -202,8 +202,8 @@ Roles that aren't assigned to the Organization Management role group by default\n |<sup>\\*</sup>**Insider Risk Management Graph Reader**|Allow viewing to data risk graphs for alerts.|Insider Risk Management <br/><br/> Insider Risk Management Analysts <br/><br/> Insider Risk Management Investigators|\n |<sup>\\*</sup>**Insider Risk Management Investigation**|Access all insider risk management alerts, cases, notices templates, and the Content Explorer for all cases.|Insider Risk Management <br/><br/> Insider Risk Management Investigators|\n |<sup>\\*</sup>**Insider Risk Management Permanent contribution**|This role group is visible, but is used by background services only.|IRM Contributors|\n-|<sup>\\*</sup>**Insider Risk Management Reports Administrator**||Insider Risk Management|\n-|<sup>\\*</sup>**Insider Risk Management Sessions**|Perform investigation and remediation of message violations in Privacy Management solution. Can view only message metadata.|Insider Risk Management <br/><br/> Insider Risk Management Session Approvers|\n+|<sup>\\*</sup>**Insider Risk Management Reports Administrator**|This role is designed for users who need administrative oversight of insider risk reporting without participating in day-to-day investigations or case management.|Insider Risk Management|\n+|<sup>\\*</sup>**Insider Risk Management Sessions**|Provides controlled approval and oversight of user session based activities within Microsoft Purview Insider Risk Management, without granting access to investigations, alerts, or sensitive content.|Insider Risk Management <br/><br/> Insider Risk Management Session Approvers|\n |<sup>\\*</sup>**Insider Risk Management Temporary contribution**|This role group is visible, but is used by background services only.|IRM Contributors|\n |<sup>\\*</sup>**Insights Reader**|Provides read-only access to all Insights reports in the Data Estate Insights app. Insights readers need to have at least data reader role access to a collection to view reports about that specific collection.|Compliance Administrator <br/><br/> Data Estate Insights Admins <br/><br/> Data Estate Insights Readers <br/><br/> Information Protection <br/><br/> Information Protection Admins <br/><br/> Information Protection Analysts <br/><br/> Information Protection Investigators <br/><br/> Privacy Management <br/><br/> Privacy Management Administrators <br/><br/> Privacy Management Analysts <br/><br/> Privacy Management Investigators <br/><br/> Privacy Management Viewers|\n |<sup>\\*</sup>**Insights Writer**||Data Estate Insights Admins|\n",
+      "baseCommitSha": "790228840c18d2d6745d05107b94c867aec6b044",
+      "commitSha": "a6d89f8d81e10cca8a1bed5b40c162da3c4436b8",
+      "commitMessage": "Add descriptions for Insider Risk roles",
+      "commitAuthor": "Kristin Reagle",
+      "commitDate": "2026-03-16T15:57:05-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "firstSeenAt": "2026-03-16T19:57:05.000Z",
+      "eventId": "defender-docs:a6d89f8d81e10cca8a1bed5b40c162da3c4436b8:modified:defender-office-365/scc-permissions.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Add descriptions for Insider Risk roles",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 0,
+      "changes": 15,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex d0e53c6d7..74f8728ff 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -31,6 +31,7 @@ This table includes supported releases for all supported platforms in the past s\n \n |OS  |Build |Month released|Details  |Learn more  |\n |---------|---------|---------|---------|---------|\n+|macOS |101.26012.0015  |March 2026 |- Release version: 20.126012.15.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--march-2026--101260120015) |\n |macOS |101.26012.0012  |February 2026 |- Release version: 20.126012.12.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101260120012) |\n |macOS |101.25122.0008  |February 2026 |- Release version: 20.125122.8.0<br>- Engine version: 1.1.25100.4000<br>- Signature version: 1.439.74.0 |[Release details and updates](#macos--february-2026--101251220008) |\n |Linux  |101.25122.0004  |February 2026 |- Release version: 30.125122.0004.0<br>- Engine version: 1.1.25110.3002<br>- Signature version: 1.443.508.0 |[Release details and updates](#linux--february-2026--101251220004) |\n@@ -129,6 +130,20 @@ To get latest features, configure your device for the Beta channel (formerly Ins\n \n For known issues, see [macOS known issues](#macos-known-issues).\n \n+### macOS | March-2026 | 101.26012.0015\n+\n+#### Versions\n+\n+| Release version | Engine version | Signature version |\n+|-----------------|----------------|-------------------|\n+| 20.126012.15.0  | 1.1.25100.4000 | 1.439.74.0        |\n+\n+#### Enhancements and features\n+\n+| Feature area | Update summary |\n+|--------------|----------------|\n+| General      | Fixed an epsext crash that could cause a black screen on some Macs. |\n+\n ### macOS | February-2026 | 101.26012.0012\n \n #### Versions\n",
+      "baseCommitSha": "790228840c18d2d6745d05107b94c867aec6b044",
+      "commitSha": "ef02be214c4dfdf69025371422ff870e9aebffc4",
+      "commitMessage": "[mac] Whatsnew 101.26012.0015",
+      "commitAuthor": "Max Velitchko",
+      "commitDate": "2026-03-16T14:16:26-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-03-16T21:16:26.000Z",
+      "eventId": "defender-docs:ef02be214c4dfdf69025371422ff870e9aebffc4:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "[mac] Whatsnew 101.26012.0015",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex fbb66a3f2..389fe0bb6 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -31,6 +31,7 @@ Learn more about [Preview features](/defender-xdr/preview).\n \n |Type  |Feature  |Preview/GA  |Description  |\n |---------|------------|-------------|-------------|\n+|Release - macOS |Build 101.26012.0015 |GA |Release version 20.126012.15.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases.md#macos--march-2026--101260120015).|\n |Feature |[Proactive user containment (contain user)](/defender-endpoint/respond-machine-alerts#contain-user-from-the-network) |GA |The proactive user containment (contain user) action as part of the predictive shielding feature is now generally available. This action infuses activity data with exposure data to identify exposed credentials at risk of being compromised and reused to conduct malicious activity.|\n \n ## February 2026\n",
+      "baseCommitSha": "790228840c18d2d6745d05107b94c867aec6b044",
+      "commitSha": "ef02be214c4dfdf69025371422ff870e9aebffc4",
+      "commitMessage": "[mac] Whatsnew 101.26012.0015",
+      "commitAuthor": "Max Velitchko",
+      "commitDate": "2026-03-16T14:16:26-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "firstSeenAt": "2026-03-16T21:16:26.000Z",
+      "eventId": "defender-docs:ef02be214c4dfdf69025371422ff870e9aebffc4:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "[mac] Whatsnew 101.26012.0015",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-linux.md",
+      "status": "modified",
+      "additions": 49,
+      "deletions": 36,
+      "changes": 85,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-linux.md b/defender-endpoint/microsoft-defender-endpoint-linux.md\nindex e1903cd23..0f89c54e9 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-linux.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-linux.md\n@@ -15,35 +15,39 @@ ms.collection:\n ms.topic: article\n ms.subservice: linux\n search.appverid: met150\n-ms.date: 03/31/2025\n+ms.date: 03/16/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n-\n ---\n \n # Microsoft Defender for Endpoint on Linux\n \n-Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial.](https://go.microsoft.com/fwlink/p/?linkid=2225630)\n-\n-> [!NOTE]\n-> Defender for Endpoint supports ARM64-based Linux servers on Ubuntu, RHEL, Debian, SUSE Linux, Amazon Linux, and Oracle Linux. All product capabilities that are supported on AMD64 devices are now supported on ARM64-based Linux servers.\n-\n-## What is Microsoft Defender for Endpoint on Linux?\n+> [!TIP]\n+> Want to experience Microsoft Defender for Endpoint? [Sign up for a free trial](https://go.microsoft.com/fwlink/p/?linkid=2225630).\n \n-Microsoft Defender for Endpoint is a comprehensive enterprise endpoint security platform designed to help organizations prevent, detect, investigate, and respond to advanced threats. It safeguards a wide range of devices, including Windows and Mac client computers, Windows and Linux servers, as well as iOS and Android mobile devices.\n-\n-The following table describes capabilities in Defender for Endpoint on Linux:\n+Microsoft Defender for Endpoint on Linux is a comprehensive enterprise endpoint security platform designed to help organizations prevent, detect, investigate, and respond to advanced threats. The following table describes capabilities in Defender for Endpoint on Linux:\n \n |Category|Description|\n |---|---|\n-|Posture management| Defender for Endpoint on Linux combines monitoring and risk-based vulnerability management with intelligent prioritization, remediation, and tracking to help effectively manage and secure your Linux servers. <br><br>With a single pane-of-glass experience, your security team gains a comprehensive view of your organization's exposure score, recommendations, remediation, inventories, and more.|\n-|Threat protection| Defender for Endpoint on Linux includes next-generation antivirus protection using local & cloud-based machine learning models, behavior analysis, and heuristics. <br><br>Cloud protection provides near-instant detection and blocking of new/emerging threats.<br><br>You get dedicated, continuous protection with regular security intelligence and product updates. <br><br>You can also investigate and define policies for customer IP- and URL-based indicators of compromise.|\n-|Endpoint detection and response| Defender for Endpoint on Linux uses AI and advanced analytics to detect and respond to threats close to real time. <br><br> In the Microsoft Defender portal, you have a central location to view detections across the Microsoft Defender suite and your organization's devices. <br><br>You can use advanced hunting to view raw data and get more insight into your network events. <br><br>Response actions are available to act swiftly and nimbly on security alerts.|\n-|Streamlined management and operations| Defender for Endpoint on Linux offers broad coverage across a breadth of Linux distributions while making operations easier for your security team. <br><br>You can manage your security settings in the Microsoft Defender portal and plan your update cycles in advance, while supporting your Linux servers where they are, with offline and multicloud options.|\n-|Enterprise-grade scale, performance, and reliability| Microsoft Defender for Endpoint on Linux ensures stable and durable performance with a rich sensor framework that operates without kernel modules and integrates eBPF for operational stability. <br><br>Defender for Endpoint seamlessly integrates with the larger Microsoft Defender suite, offering extensibility through API integration, SIEM connectors, Power BI support, role-based access control (RBAC), and MSPP support.|\n-\n-## Server licenses \n+|Posture management|Defender for Endpoint on Linux combines monitoring and risk-based [vulnerability management](/defender-vulnerability-management/defender-vulnerability-management) with intelligent prioritization, remediation, and tracking. These features enable you to manage and secure your Linux servers. <br/><br/> Your security team gains a singular, comprehensive view of your organization's [exposure score](/defender-vulnerability-management/tvm-exposure-score), [security recommendations](/defender-vulnerability-management/tvm-security-recommendation), [remediation activities](/defender-vulnerability-management/tvm-remediation), [software inventory](/defender-vulnerability-management/tvm-software-inventory), and more.|\n+|Threat protection|Defender for Endpoint on Linux includes [next-generation antivirus protection](next-generation-protection.md) using local and cloud-based machine learning models, behavior analysis, and heuristics. <br/><br/> Cloud protection provides near-instant detection and blocking of new/emerging threats. <br/><br/> You get dedicated, continuous protection with regular security intelligence and product updates. You can [configure security settings](linux-preferences.md) including antivirus, cloud protection, and scan options. You can [schedule antivirus scans](schedule-anti-virus-scans-linux.md) and [detect and block potentially unwanted applications](linux-pua.md). <br/><br/> You can also investigate and define policies for customer IP-based and URL-based indicators of compromise.|\n+|Endpoint detection and response|Defender for Endpoint on Linux uses AI and advanced analytics to [detect and respond to threats](overview-endpoint-detection-response.md) close to real time. <br/><br/> The Microsoft Defender portal at <https://security.microsoft.com> provides a central location to view detections across the Microsoft Defender suite and your organization's devices. <br/><br/> You can use [advanced hunting](/defender-xdr/advanced-hunting-overview) to view raw data and get more insight into your network events. <br/><br/> [Response actions](respond-machine-alerts.md) are available to act swiftly and nimbly on security alerts, including running antivirus scans, isolating devices, and collecting investigation packages. You can also use [live response](live-response.md) for remote shell connections to perform in-depth investigations.|\n+|Streamlined management and operations|Defender for Endpoint on Linux offers broad coverage across a breadth of Linux distributions while making operations easier for your security team. <br/><br/> The Microsoft Defender portal allows you to manage your [security settings](linux-preferences.md) and plan your [update cycles](linux-updates.md) in advance. You can support your Linux servers with offline and multicloud options. <br/><br/> Defender for Endpoint provides a comprehensive set of [management APIs](api/management-apis.md) for programmatic access to device management, vulnerability management, and threat intelligence. For a full list of available APIs, see [Supported APIs](api/exposed-apis-list.md).|\n+|Enterprise-grade scale, performance, and reliability|Microsoft Defender for Endpoint on Linux ensures stable and durable performance with a rich sensor framework that operates without kernel modules and integrates [eBPF](linux-support-ebpf.md) for operational stability. <br/><br/> Defender for Endpoint seamlessly integrates with the larger Microsoft Defender suite, offering extensibility through [API integration](api/apis-intro.md), SIEM connectors, [Power BI support](api/api-power-bi.md), role-based access control (RBAC), and MSPP support.|\n+\n+> [!TIP]\n+>\n+> - All supported capabilities in Defender for Endpoint on Linux on AMD64 devices are also supported on the following Linus distributions on ARM64-based servers:\n+>   - Ubuntu\n+>   - RHEL\n+>   - Debian\n+>   - SUSE Linux\n+>   - Amazon Linux\n+>   - Oracle Linux\n+> - For a detailed comparison of supported features across all Defender for Endpoint platforms (Windows, macOS, and Linux), see [Supported Microsoft Defender for Endpoint capabilities by platform](supported-capabilities-by-platform.md).\n+\n+## Server licenses\n \n To onboard servers to Defender for Endpoint, server licenses are required. You can choose from the following options:\n \n@@ -51,18 +55,18 @@ To onboard servers to Defender for Endpoint, server licenses are required. You c\n - Microsoft Defender for Endpoint for servers\n - [Microsoft Defender for Business servers](/defender-business/get-defender-business?tabs=findpartner#how-to-get-microsoft-defender-for-business-servers) (for small and medium-sized businesses only)\n \n-For more detailed information about licensing requirements for Microsoft Defender for Endpoint, see [Microsoft Defender for Endpoint licensing information](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#microsoft-defender-for-endpoint).\n+For more information about licensing requirements for Microsoft Defender for Endpoint, see [Microsoft Defender for Endpoint licensing information](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#microsoft-defender-for-endpoint).\n \n For detailed licensing information, see [Product Terms: Microsoft Defender for Endpoint]( https://www.microsoft.com/licensing/terms/productoffering/MicrosoftDefenderforEndpoint/EAEAS) and work with your account team to learn more about the terms and conditions.\n \n <!---If/when we add a page about server licensing, let's add that link here.--->\n-  \n-## Deploy and configure policies for Defender for Endpoint on Linux \n+\n+## Deploy and configure policies for Defender for Endpoint on Linux\n \n There are several methods and tools that you can use to deploy Microsoft Defender for Endpoint on Linux. Make sure to meet the [prerequisites for Defender for Endpoint on Linux](mde-linux-prerequisites.md).\n \n- > [!NOTE] \n- > It is recommended to use [Deployment Tool based deployment](/defender-endpoint/linux-install-with-defender-deployment-tool), as it simplifies the onboarding process, reduces manual tasks, and supports a wide range of deployment scenarios, including new installations, upgrades, and uninstalls. Please refer to the [documentation](/defender-endpoint/linux-install-with-defender-deployment-tool) for details.\n+ > [!NOTE]\n+ > We recommend using [Deployment Tool based deployment](/defender-endpoint/linux-install-with-defender-deployment-tool). Deployment Tool based deployment simplifies the onboarding process, reduces manual tasks, and supports new installations, upgrades, and uninstalls.\n \n - [Deployment tool based deployment (Recommended)](./linux-install-with-defender-deployment-tool.md)\n - [Installer script based deployment](/defender-endpoint/linux-installer-script)\n@@ -83,12 +87,12 @@ If you experience any installation issues, self-troubleshooting resources are av\n \n ### Configure policies for Defender for Endpoint on Linux\n \n-To configure Defender for Endpoint on Linux, you can choose from two options to configure policies:\n+To configure Defender for Endpoint on Linux, you can choose from the following options to configure policies:\n \n - <a href=\"/intune/intune-service/protect/mde-security-integration\" target=\"_blank\" rel=\"noopener noreferrer\">Enroll in Defender for Endpoint security settings management</a> and use the Microsoft Defender portal to configure and manage your policies.\n - [Set up a configuration profile that uses a json file](/defender-endpoint/linux-preferences).\n \n-For more information, see [Configure security settings and policies for Defender for Endpoint on Linux](/defender-endpoint/linux-preferences).\n+For more information, see [Configure security settings and policies for Defender for Endpoint on Linux](/defender-endpoint/linux-preferences).\n \n ## Software updates\n \n@@ -98,16 +102,26 @@ Each version of Defender for Endpoint on Linux is set to expire automatically af\n \n ## Device health reporting\n \n-The Device Health report provides information about the antivirus status of Linux servers, including details such as antivirus mode, scan results, platform version, antivirus engine version, and security intelligence version. \n+The Device Health report provides information about the antivirus status of Linux servers. For example:\n+\n+- Antivirus mode.\n+- scan results.\n+- Platform version.\n+- Antivirus engine version.\n+- Security intelligence version.\n \n-You can access this information either through the portal or via API. For more information, see the following articles:\n+You can access this information through the portal or via API. For more information, see the following articles:\n \n - [Device health reporting in Microsoft Defender for Endpoint](/defender-endpoint/device-health-microsoft-defender-antivirus-health)\n - [Microsoft Defender Antivirus export device antivirus health details API methods and properties](/defender-endpoint/device-health-microsoft-defender-antivirus-health)\n \n-## Response actions and live response \n+## Response actions and live response\n \n-The security operations team can remotely connect to a device and execute various response actions such as running an antivirus scan, isolating the device, and collecting investigation packages.\n+Your security operations team can remotely connect to a device and execute various response actions. For example:\n+\n+- Run an antivirus scan.\n+- Isolate the device.\n+- Collect investigation packages.\n \n Additionally, they can use live response for a remote shell connection to perform in-depth investigative work. For more information, see the following articles:\n \n@@ -116,23 +130,22 @@ Additionally, they can use live response for a remote shell connection to perfor\n \n ## Privacy\n \n-Microsoft is committed to providing you with the information and controls you need to make choices about how your data is collected and used when you're using Defender for Endpoint on Linux.\n-  \n-For more information, see [Privacy for Microsoft Defender for Endpoint on Linux](/defender-endpoint/linux-privacy).\n+Microsoft is committed to providing you with the information and controls you need to choose how your data is collected and used in Defender for Endpoint on Linux. For more information, see [Privacy for Microsoft Defender for Endpoint on Linux](/defender-endpoint/linux-privacy).\n \n-## Common applications that Defender for Endpoint impacts \n+## Common applications that Defender for Endpoint impacts\n \n-High I/O workloads from certain applications can experience performance issues when Defender for Endpoint is installed. Such applications for developer scenarios include Jenkins and Jira, and database workloads like OracleDB and Postgres. \n+High I/O workloads from certain applications can experience performance issues when Defender for Endpoint is installed. Such applications for developer scenarios include Jenkins and Jira, and database workloads like OracleDB and Postgres.\n \n-If you see performance degradation, consider setting exclusions for trusted applications. See the following articles:\n+If you see performance degradation, consider setting exclusions for trusted applications. For more information, see the following articles:\n \n - [Configure and validate exclusions for Defender for Endpoint on Linux](/defender-endpoint/linux-exclusions)\n - [Review common Exclusion Mistakes for Microsoft Defender Antivirus](/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)\n-  \n+\n If you're using non-Microsoft applications, also see their documentation regarding antivirus exclusions.\n \n ## Next steps\n \n+- [Supported Microsoft Defender for Endpoint capabilities by platform](supported-capabilities-by-platform.md)\n - [Review the prerequisites for Defender for Endpoint on Linux](/defender-endpoint/mde-linux-prerequisites)\n - [Deploy Defender for Endpoint on Linux](/defender-endpoint/linux-installer-script)\n - [Configure Defender for Endpoint on Linux](/defender-endpoint/linux-preferences)\n",
+      "baseCommitSha": "790228840c18d2d6745d05107b94c867aec6b044",
+      "commitSha": "0615760d12635f124a8a955af1df70b4dc68da4c",
+      "commitMessage": "Update microsoft-defender-endpoint-linux.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-16T16:19:29-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-linux",
+      "firstSeenAt": "2026-03-16T23:19:29.000Z",
+      "eventId": "defender-docs:0615760d12635f124a8a955af1df70b4dc68da4c:modified:defender-endpoint/microsoft-defender-endpoint-linux.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update microsoft-defender-endpoint-linux.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/supported-capabilities-by-platform.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 13,
+      "changes": 27,
+      "patch": "diff --git a/defender-endpoint/supported-capabilities-by-platform.md b/defender-endpoint/supported-capabilities-by-platform.md\nindex adce8d4d0..b210705f4 100644\n--- a/defender-endpoint/supported-capabilities-by-platform.md\n+++ b/defender-endpoint/supported-capabilities-by-platform.md\n@@ -18,8 +18,8 @@ ms.date: 11/17/2025\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n-\n ---\n+\n # Supported Microsoft Defender for Endpoint capabilities by platform\n \n Learn how to [Onboard devices and configure Microsoft Defender for Endpoint capabilities](onboard-configure.md).\n@@ -28,7 +28,7 @@ Learn how to [Onboard devices and configure Microsoft Defender for Endpoint capa\n \n The following table gives information about the supported Microsoft Defender for Endpoint capabilities by platform.\n \n-|Operating System|Windows 10 & 11|Windows Server |macOS|Linux|\n+|Operating System|Windows 10 & 11|Windows Server|macOS|Linux|\n |---|:---:|:---:|:---:|:---:|\n |**Prevention**|||||\n |[Attack Surface Reduction](attack-surface-reduction.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![No](media/svg/check-no.svg)|![No](media/svg/check-no.svg)|\n@@ -45,21 +45,22 @@ The following table gives information about the supported Microsoft Defender for\n |[EDR Block](edr-in-block-mode.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![No](media/svg/check-no.svg)|![No](media/svg/check-no.svg)|\n |[Passive Mode](microsoft-defender-antivirus-compatibility.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n |Sense detection sensor|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n-|[Endpoint & network device discovery](device-discovery.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg) <br/>(See note below) |![No](media/svg/check-no.svg)|![No](media/svg/check-no.svg)|\n+|[Endpoint & network device discovery](device-discovery.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg) <br/> (See note below)|![No](media/svg/check-no.svg)|![No](media/svg/check-no.svg)|\n |[Vulnerability management](/defender-vulnerability-management/defender-vulnerability-management)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg) <br/>|\n-|**Response**     |         |         |         ||\n-|[Automated Investigation & Response (AIR)](automated-investigations.md)        | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg)  |  ![No](media/svg/check-no.svg)       |  ![No](media/svg/check-no.svg)        |\n-|[Device response capabilities: collect investigation package ](respond-machine-alerts.md)        | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg)   |  ![Yes.](media/svg/check-yes.svg)  |  ![Yes.](media/svg/check-yes.svg)  |\n-|[Device response capabilities: run antivirus scan](respond-machine-alerts.md)        | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg)   |  ![Yes.](media/svg/check-yes.svg)        |  ![Yes.](media/svg/check-yes.svg)         |\n-|[Device isolation](respond-machine-alerts.md)        | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg)   |  ![Yes.](media/svg/check-yes.svg)       |  ![Yes.](media/svg/check-yes.svg)    |\n-|[File response capabilities: collect file, deep analysis](respond-file-alerts.md)  | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg)   |  ![Yes.](media/svg/check-yes.svg) |  ![Yes.](media/svg/check-yes.svg) |\n-|[File response capabilities: block file, stop, and quarantine processes](respond-file-alerts.md)  | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg)   |  ![No](media/svg/check-no.svg) |  ![No](media/svg/check-no.svg) |\n-|[Live Response](live-response.md)       | ![Yes.](media/svg/check-yes.svg)        | ![Yes.](media/svg/check-yes.svg) |  ![Yes.](media/svg/check-yes.svg)       |  ![Yes.](media/svg/check-yes.svg)      |\n+|**Response**|||||\n+|[Automated Investigation & Response (AIR)](automated-investigations.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![No](media/svg/check-no.svg)|![No](media/svg/check-no.svg)|\n+|[Device response capabilities: collect investigation package ](respond-machine-alerts.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n+|[Device response capabilities: run antivirus scan](respond-machine-alerts.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n+|[Device isolation](respond-machine-alerts.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n+|[File response capabilities: collect file, deep analysis](respond-file-alerts.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n+|[File response capabilities: block file, stop, and quarantine processes](respond-file-alerts.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![No](media/svg/check-no.svg)|![No](media/svg/check-no.svg)|\n+|[Live Response](live-response.md)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|![Yes.](media/svg/check-yes.svg)|\n \n > [!NOTE]\n+>\n > - For Windows Server 2012 R2 and Windows Server 2016, use the modern, unified solution. See [Onboard Windows Servers to the Defender for Endpoint service](onboard-server.md#functionality-in-the-modern-unified-solution-for-windows-server-2016-and-windows-server-2012-r2).\n > - On Linux Server, network protection, web protection, and custom network indicators are currently in preview.\n > - On Linux, network protection, web protection, and custom network indicators are currently in preview.\n->   - Endpoint & network device discovery is supported on Windows Server 2019 or later, and on Windows 10 and Windows 11.\n+> - Endpoint & network device discovery is supported on Windows Server 2019 or later, and on Windows 10 and Windows 11.\n > - For Windows 7, Windows 8.1, and Windows Server 2008 R2, use [MMA](/defender-endpoint/onboard-downlevel#install-and-configure-microsoft-monitoring-agent-mma) for the EDR sensor and [System Center Endpoint Protection](/defender-endpoint/onboard-downlevel#configure-and-update-system-center-endpoint-protection-clients) (SCEP) for antivirus protection.\n-> - For Windows 7 SP1 and Windows Server 2008 R2 SP1, you can also use [Microsoft Defender endpoint security solution (preview)](./onboard-downlevel.md#use-the-defender-deployment-tool-to-deploy-defender-endpoint-security) supplied by the [Defender deployment tool (preview)](./defender-deployment-tool-windows.md). \n\\ No newline at end of file\n+> - For Windows 7 SP1 and Windows Server 2008 R2 SP1, you can also use [Microsoft Defender endpoint security solution (preview)](./onboard-downlevel.md#use-the-defender-deployment-tool-to-deploy-defender-endpoint-security) supplied by the [Defender deployment tool (preview)](./defender-deployment-tool-windows.md).\n",
+      "baseCommitSha": "790228840c18d2d6745d05107b94c867aec6b044",
+      "commitSha": "f56f8b9766cb9c113970b754b7db1ec099c90f82",
+      "commitMessage": "Update supported-capabilities-by-platform.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-03-16T16:39:50-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/supported-capabilities-by-platform.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/supported-capabilities-by-platform",
+      "firstSeenAt": "2026-03-16T23:39:50.000Z",
+      "eventId": "defender-docs:f56f8b9766cb9c113970b754b7db1ec099c90f82:modified:defender-endpoint/supported-capabilities-by-platform.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update supported-capabilities-by-platform.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/supported-capabilities-by-platform.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 13,
+    "totalFiles": 15,
+    "authors": [
+      "AmitMishaeli",
+      "Chris Davis",
+      "Devorah Cohen",
+      "Kristin Reagle",
+      "Max Velitchko",
+      "Paul Oliveria"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 15 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/communicate-defender-experts-xdr.md. Updated Microsoft Defender documentation in defender-xdr/managed-detection-and-response-xdr.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/whats-new.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/whats-n",
+        "sourceFiles": [
+          "defender-xdr/communicate-defender-experts-xdr.md",
+          "defender-xdr/managed-detection-and-response-xdr.md",
+          "defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+          "defender-xdr/whats-new.md",
+          "defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+          "defender-xdr/custom-detection-rules.md",
+          "defender-xdr/advanced-hunting-aiagentsinfo-table.md",
+          "defender-xdr/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-atlassian.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/protect-atlassian.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/respond-machine-alerts.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-linux.md. Updated Microsoft Defender documentation in defender-endpoint/supported-capabilities-by-platform.md.",
+        "sourceFiles": [
+          "defender-endpoint/respond-machine-alerts.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/microsoft-defender-endpoint-linux.md",
+          "defender-endpoint/supported-capabilities-by-platform.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md.",
+        "sourceFiles": [
+          "defender-office-365/scc-permissions.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/communicate-defender-experts-xdr.md. Updated Microsoft Defender documentation in defender-xdr/managed-detection-and-response-xdr.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/whats-new.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-aiagentsinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/whats-n"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-atlassian.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/respond-machine-alerts.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md. Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-linux.md. Updated Microsoft Defender documentation in defender-endpoint/supported-capabilities-by-platform.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated Microsoft Defender documentation in defender-office-365/scc-permissions.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

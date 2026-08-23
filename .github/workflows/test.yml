@@ -1,0 +1,31 @@
+name: Tests
+
+# The suite has never run in CI. It is this product's conformance check against
+# the shared engine — the golden assertions about its own rendered output, the
+# Kit marker literal, and the shape of its configuration — so it needs to gate a
+# merge rather than only ever run on a laptop.
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      # The suite exercises the engine, so it needs the engine linked in — the
+      # same way the site build gets it. This repository has no dependencies of
+      # its own left to install.
+      - uses: merill/dailynews-engine/.github/actions/setup@v1.1.0
+      - run: npm test

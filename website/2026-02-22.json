@@ -1,0 +1,256 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/phishing-triage-agent.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/phishing-triage-agent.md b/defender-xdr/phishing-triage-agent.md\nindex 4b8e3c2e0..e022fca34 100644\n--- a/defender-xdr/phishing-triage-agent.md\n+++ b/defender-xdr/phishing-triage-agent.md\n@@ -17,7 +17,7 @@ ms.topic: how-to\n search.appverid:\n - MOE150\n - MET150\n-ms.date: 08/07/2025\n+ms.date: 02/22/2026\n ms.update-cycle: 180-days\n appliesto:\n - Microsoft Defender XDR\n@@ -37,6 +37,10 @@ The Phishing Triage Agent uses large language model (LLM)–based analysis to as\n \n By filtering out false alarms, the agent enables analysts to focus on confirmed threats and higher‑impact investigations - improving efficiency, accelerating detection, and strengthening the organization’s overall security posture.\n \n+Watch this video for a demonstration of the Phishing Triage Agent:\n+\n+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=eefb1eeb-473d-4d02-a0c7-c9c5363d51c2]\n+\n ## How the agent works\n \n The Phishing Triage Agent is a [Security Copilot agent](/copilot/security/agents-overview) in Microsoft Defender that enhances the efficiency of security operations teams by classifying and triaging user-submitted phishing incidents. The agent’s key capabilities include:\n",
+      "baseCommitSha": "7886c1f03a8aff43d5ae0ecc43bfe50e7fab234a",
+      "commitSha": "cae9e2d9a94eb8dfb392a35733e649194ea53b85",
+      "commitMessage": "wi-553053-video-embed-demo-phishing-triage-agent",
+      "commitAuthor": "sbreingold-ms",
+      "commitDate": "2026-02-22T13:06:58+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/phishing-triage-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/phishing-triage-agent",
+      "firstSeenAt": "2026-02-22T11:06:58.000Z",
+      "eventId": "defender-docs:cae9e2d9a94eb8dfb392a35733e649194ea53b85:modified:defender-xdr/phishing-triage-agent.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "wi-553053-video-embed-demo-phishing-triage-agent",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/phishing-triage-agent.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/dynamic-threat-detection-agent.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 13,
+      "changes": 24,
+      "patch": "diff --git a/defender-xdr/dynamic-threat-detection-agent.md b/defender-xdr/dynamic-threat-detection-agent.md\nindex 66c787c49..ea099a9a1 100644\n--- a/defender-xdr/dynamic-threat-detection-agent.md\n+++ b/defender-xdr/dynamic-threat-detection-agent.md\n@@ -22,17 +22,14 @@ appliesto:\n - Microsoft Sentinel in the Microsoft Defender portal\n ---\n \n-# Microsoft Security Copilot Dynamic Threat Detection Agent (preview)\n+# Microsoft Security Copilot Dynamic Threat Detection Agent\n \n [!INCLUDE [Microsoft Defender XDR rebranding](../includes/microsoft-defender.md)]\n \n-> [!IMPORTANT]\n-> Microsoft Security Copilot Dynamic Threat Detection Agent is currently in preview.\n-> This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.\n-\n [Microsoft Security Copilot in Microsoft Defender](security-copilot-in-microsoft-365-defender.md) includes the Dynamic Threat Detection Agent, an always-on, adaptive backend service that uncovers hidden threats across Defender and Microsoft Sentinel environments. This article provides an overview of the agent, including steps to use it when investigating incidents and alerts.\n \n ## Overview\n+\n Security teams often face the risk of false negatives—threats that go undetected by traditional, rule-based detection systems. The Dynamic Threat Detection Agent uses AI to identify gaps and uncover false negatives by correlating alerts, events, anomalies, and threat intelligence. When the agent identifies a gap, it generates a dynamic alert with the full context in the alert details, including natural language explanations, mapped [MITRE ATT&CK techniques](https://attack.mitre.org/), and tailored remediation steps.\n \n The Dynamic Threat Detection Agent is always on, operates seamlessly in the Defender backend, and requires no setup or onboarding. These features and capabilities empower organizations to detect and respond to threats with greater speed, accuracy, and confidence. \n@@ -40,34 +37,35 @@ The Dynamic Threat Detection Agent is always on, operates seamlessly in the Defe\n ### Key benefits\n \n - **Find what traditional detection rules miss** - The agent's adaptive AI-driven detection continuously investigates across Defender and Microsoft Sentinel signals to uncover false negatives and blind spots.\n--\t**Reduce noise and increase confidence** - The agent minimizes security operations center (SOC) noise and boosts analyst confidence with its customer-validated precision and by providing clear risk context and concrete next steps in the alert details.\n--\t**Always on and zero-touch** - Because the agent runs in the Defender backend, it automatically generates alerts into your existing Defender workflows with no tuning or onboarding required.\n--\t**Deep integration across the Microsoft security ecosystem** - The agent works with Security Copilot, Defender, and Microsoft Sentinel, correlating native and third-party signals to surface missed behaviors and deliver richer context across your SOC workflows.\n-\n+- **Reduce noise and increase confidence** - The agent minimizes security operations center (SOC) noise and boosts analyst confidence with its customer-validated precision and by providing clear risk context and concrete next steps in the alert details.\n+- **Always on and zero-touch** - Because the agent runs in the Defender backend, it automatically generates alerts into your existing Defender workflows with no tuning or onboarding required.\n+- **Deep integration across the Microsoft security ecosystem** - The agent works with Security Copilot, Defender, and Microsoft Sentinel, correlating native and third-party signals to surface missed behaviors and deliver richer context across your SOC workflows.\n \n ## Get access\n+\n Users with access to Security Copilot can use the Dynamic Threat Detection Agent.\n \n ## Start using the Dynamic Threat Detection Agent\n+\n Like the other [available tools and methods](incidents-overview.md#tools-and-methods-for-investigation-and-response) in the Defender portal for investigation and response, the Threat Detection Agent helps with triage, investigation, and resolution of incidents. \n \n The Dynamic Threat Detection Agent runs automatically in the background. When it generates an alert, the alert shows up in your incidents and alerts queues with **Security Copilot** as the **Detection source**.\n \n :::image type=\"content\" source=\"/defender-xdr/media/dynamic-threat-detection-agent/threat-detection-agent-source.png\" alt-text=\"Screenshot of an alert generated by the dynamic threat detection agent in the Defender portal.\" lightbox=\"/defender-xdr/media/dynamic-threat-detection-agent/threat-detection-agent-source.png\":::\n- \n+\n To view more details about the alert, select the alert title. The Dynamic Threat Detection Agent provides a summary and recommended actions in the alert page.\n \n :::image type=\"content\" source=\"/defender-xdr/media/dynamic-threat-detection-agent/threat-detection-agent-details.png\" alt-text=\"Screenshot of the alert details generated by the dynamic threat detection agent.\" lightbox=\"/defender-xdr/media/dynamic-threat-detection-agent/threat-detection-agent-details.png\":::\n- \n+\n >[!IMPORTANT]\n->- The Dynamic Threat Detection Agent is free to use during public preview. It starts to consume [Security Compute Units (SCUs)](/copilot/security/get-started-security-copilot#security-compute-units) when it becomes generally available.\n->- The summary and recommended actions are AI-generated, so review and verify them for accuracy.\n+> The summary and recommended actions are AI-generated, so review and verify them for accuracy.\n \n ## Next steps\n \n As needed for in-process incidents, continue your [investigation](investigate-incidents.md).\n \n ## See also\n+\n - [Investigate alerts in Microsoft Defender XDR](investigate-alerts.md)\n - [Incidents overview](incidents-overview.md)\n - [Manage incidents](manage-incidents.md)\n",
+      "baseCommitSha": "a06f3df789ba3541812aa44b87d98e282ca1d0da",
+      "commitSha": "23437af82b8e13ad62eef248451e668e02c091e3",
+      "commitMessage": "note preview - Amit",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-02-22T13:15:13+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/dynamic-threat-detection-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/dynamic-threat-detection-agent",
+      "firstSeenAt": "2026-02-22T11:15:13.000Z",
+      "eventId": "defender-docs:23437af82b8e13ad62eef248451e668e02c091e3:modified:defender-xdr/dynamic-threat-detection-agent.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "note preview - Amit",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/dynamic-threat-detection-agent.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/dynamic-threat-detection-agent.md b/defender-xdr/dynamic-threat-detection-agent.md\nindex ea099a9a1..4af3ca349 100644\n--- a/defender-xdr/dynamic-threat-detection-agent.md\n+++ b/defender-xdr/dynamic-threat-detection-agent.md\n@@ -32,7 +32,7 @@ appliesto:\n \n Security teams often face the risk of false negatives—threats that go undetected by traditional, rule-based detection systems. The Dynamic Threat Detection Agent uses AI to identify gaps and uncover false negatives by correlating alerts, events, anomalies, and threat intelligence. When the agent identifies a gap, it generates a dynamic alert with the full context in the alert details, including natural language explanations, mapped [MITRE ATT&CK techniques](https://attack.mitre.org/), and tailored remediation steps.\n \n-The Dynamic Threat Detection Agent is always on, operates seamlessly in the Defender backend, and requires no setup or onboarding. These features and capabilities empower organizations to detect and respond to threats with greater speed, accuracy, and confidence. \n+The Dynamic Threat Detection Agent is always on, operates seamlessly in the Defender backend, and requires no setup or onboarding. These features and capabilities empower organizations to detect and respond to threats with greater speed, accuracy, and confidence.\n \n ### Key benefits\n \n@@ -47,7 +47,7 @@ Users with access to Security Copilot can use the Dynamic Threat Detection Agent\n \n ## Start using the Dynamic Threat Detection Agent\n \n-Like the other [available tools and methods](incidents-overview.md#tools-and-methods-for-investigation-and-response) in the Defender portal for investigation and response, the Threat Detection Agent helps with triage, investigation, and resolution of incidents. \n+Like the other [available tools and methods](incidents-overview.md#tools-and-methods-for-investigation-and-response) in the Defender portal for investigation and response, the Threat Detection Agent helps with triage, investigation, and resolution of incidents.\n \n The Dynamic Threat Detection Agent runs automatically in the background. When it generates an alert, the alert shows up in your incidents and alerts queues with **Security Copilot** as the **Detection source**.\n \n",
+      "baseCommitSha": "23437af82b8e13ad62eef248451e668e02c091e3",
+      "commitSha": "31b14aac6cc40edd862dd65b7fb18b3e58b42fa3",
+      "commitMessage": "note preview - Amit",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-02-22T13:17:02+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/dynamic-threat-detection-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/dynamic-threat-detection-agent",
+      "firstSeenAt": "2026-02-22T11:17:02.000Z",
+      "eventId": "defender-docs:31b14aac6cc40edd862dd65b7fb18b3e58b42fa3:modified:defender-xdr/dynamic-threat-detection-agent.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "note preview - Amit",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-alerts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/investigate-alerts.md b/defender-xdr/investigate-alerts.md\nindex 076c439be..1c45b2da7 100644\n--- a/defender-xdr/investigate-alerts.md\n+++ b/defender-xdr/investigate-alerts.md\n@@ -240,7 +240,7 @@ Alert tuning rules support conditions based on *evidence types* such as files, p\n > [!NOTE]\n > Alert tuning is generally available for Defender for Endpoint. In preview, it extends to other Microsoft Defender XDR services, including Defender for Office 365, Defender for Identity, Defender for Cloud Apps, and Microsoft Entra ID Protection.\n \n-Alert tuning captures alerts from Defender for Endpoint and other Microsoft Defender XDR services, including Defender for Office 365, Defender for Identity, Defender for Cloud Apps, Microsoft Entra ID Protection (Microsoft Entra IP), and others that are available on your platform and plan.\n+Microsoft Defender XDR also includes built-in alert tuning rules (currently in Preview) that suppress alerts from common benign activity without affecting Automated Investigation and Response (AIR) investigations and email notifications.\n \n > [!CAUTION]\n > Use alert tuning with caution, for scenarios where known, internal business applications or security tests trigger expected activity.\n",
+      "baseCommitSha": "31b14aac6cc40edd862dd65b7fb18b3e58b42fa3",
+      "commitSha": "d9de93872e43d2b89f08ed69f5f903e64a27278e",
+      "commitMessage": "note preview - Amit",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-02-22T13:26:17+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/investigate-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-alerts",
+      "firstSeenAt": "2026-02-22T11:26:17.000Z",
+      "eventId": "defender-docs:d9de93872e43d2b89f08ed69f5f903e64a27278e:modified:defender-xdr/investigate-alerts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "note preview - Amit",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-alerts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/investigate-alerts.md b/defender-xdr/investigate-alerts.md\nindex 1c45b2da7..bcfc49d65 100644\n--- a/defender-xdr/investigate-alerts.md\n+++ b/defender-xdr/investigate-alerts.md\n@@ -209,7 +209,7 @@ The **Manage alert** pane allows you to view or specify:\n > [!NOTE]\n > - In August 2022, previously supported alert determination values (`Apt` and `SecurityPersonnel`) were deprecated and are no longer available via the API.\n >\n-> - One way of managing alerts it through the use of [tags](../defender-office-365/user-tags-about.md).\n+> - One way of managing alerts it through the use of tags. The tagging capability for Microsoft Defender for Office 365 is currently in preview, rolling out incrementally.\n >\n > Currently, modified tag names are only applied to alerts created *after* the update. Alerts that were generated before the modification will not reflect the updated tag name.\n \n",
+      "baseCommitSha": "d9de93872e43d2b89f08ed69f5f903e64a27278e",
+      "commitSha": "0f5ce0a39a448d562ba6fbc86a2172ecf1575ae5",
+      "commitMessage": "note preview - Amit",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-02-22T13:28:18+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/investigate-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-alerts",
+      "firstSeenAt": "2026-02-22T11:28:18.000Z",
+      "eventId": "defender-docs:0f5ce0a39a448d562ba6fbc86a2172ecf1575ae5:modified:defender-xdr/investigate-alerts.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "note preview - Amit",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/dynamic-threat-detection-agent.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/dynamic-threat-detection-agent.md b/defender-xdr/dynamic-threat-detection-agent.md\nindex 4af3ca349..d70b2d0bb 100644\n--- a/defender-xdr/dynamic-threat-detection-agent.md\n+++ b/defender-xdr/dynamic-threat-detection-agent.md\n@@ -58,7 +58,9 @@ To view more details about the alert, select the alert title. The Dynamic Threat\n :::image type=\"content\" source=\"/defender-xdr/media/dynamic-threat-detection-agent/threat-detection-agent-details.png\" alt-text=\"Screenshot of the alert details generated by the dynamic threat detection agent.\" lightbox=\"/defender-xdr/media/dynamic-threat-detection-agent/threat-detection-agent-details.png\":::\n \n >[!IMPORTANT]\n-> The summary and recommended actions are AI-generated, so review and verify them for accuracy.\n+>\n+> - The Dynamic Threat Detection agent consumes Security Compute Units (SCUs) and needs to be [configured accordingly](/copilot/security/get-started-security-copilot#security-compute-units).\n+> - The summary and recommended actions are AI-generated, so review and verify them for accuracy.\n \n ## Next steps\n \n",
+      "baseCommitSha": "0f5ce0a39a448d562ba6fbc86a2172ecf1575ae5",
+      "commitSha": "10f58bd6df95274a0b5dbc0521b80a30c6900dea",
+      "commitMessage": "note preview - Amit",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-02-22T14:59:57+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/dynamic-threat-detection-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/dynamic-threat-detection-agent",
+      "firstSeenAt": "2026-02-22T12:59:57.000Z",
+      "eventId": "defender-docs:10f58bd6df95274a0b5dbc0521b80a30c6900dea:modified:defender-xdr/dynamic-threat-detection-agent.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "note preview - Amit",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-xdr/dynamic-threat-detection-agent.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 4,
+      "changes": 11,
+      "patch": "diff --git a/defender-xdr/dynamic-threat-detection-agent.md b/defender-xdr/dynamic-threat-detection-agent.md\nindex d70b2d0bb..ce0c63046 100644\n--- a/defender-xdr/dynamic-threat-detection-agent.md\n+++ b/defender-xdr/dynamic-threat-detection-agent.md\n@@ -26,13 +26,16 @@ appliesto:\n \n [!INCLUDE [Microsoft Defender XDR rebranding](../includes/microsoft-defender.md)]\n \n+> [!Note]\n+> Microsoft Security Copilot Dynamic Threat Detection Agent is currently in public preview. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.\n+\n [Microsoft Security Copilot in Microsoft Defender](security-copilot-in-microsoft-365-defender.md) includes the Dynamic Threat Detection Agent, an always-on, adaptive backend service that uncovers hidden threats across Defender and Microsoft Sentinel environments. This article provides an overview of the agent, including steps to use it when investigating incidents and alerts.\n \n ## Overview\n \n Security teams often face the risk of false negatives—threats that go undetected by traditional, rule-based detection systems. The Dynamic Threat Detection Agent uses AI to identify gaps and uncover false negatives by correlating alerts, events, anomalies, and threat intelligence. When the agent identifies a gap, it generates a dynamic alert with the full context in the alert details, including natural language explanations, mapped [MITRE ATT&CK techniques](https://attack.mitre.org/), and tailored remediation steps.\n \n-The Dynamic Threat Detection Agent is always on, operates seamlessly in the Defender backend, and requires no setup or onboarding. These features and capabilities empower organizations to detect and respond to threats with greater speed, accuracy, and confidence.\n+The Dynamic Threat Detection Agent is always on, operates seamlessly in the Defender backend, and requires no setup or onboarding. These features and capabilities empower organizations to detect and respond to threats with greater speed, accuracy, and confidence. \n \n ### Key benefits\n \n@@ -47,7 +50,7 @@ Users with access to Security Copilot can use the Dynamic Threat Detection Agent\n \n ## Start using the Dynamic Threat Detection Agent\n \n-Like the other [available tools and methods](incidents-overview.md#tools-and-methods-for-investigation-and-response) in the Defender portal for investigation and response, the Threat Detection Agent helps with triage, investigation, and resolution of incidents.\n+Like the other [available tools and methods](incidents-overview.md#tools-and-methods-for-investigation-and-response) in the Defender portal for investigation and response, the Threat Detection Agent helps with triage, investigation, and resolution of incidents. \n \n The Dynamic Threat Detection Agent runs automatically in the background. When it generates an alert, the alert shows up in your incidents and alerts queues with **Security Copilot** as the **Detection source**.\n \n@@ -59,8 +62,8 @@ To view more details about the alert, select the alert title. The Dynamic Threat\n \n >[!IMPORTANT]\n >\n-> - The Dynamic Threat Detection agent consumes Security Compute Units (SCUs) and needs to be [configured accordingly](/copilot/security/get-started-security-copilot#security-compute-units).\n-> - The summary and recommended actions are AI-generated, so review and verify them for accuracy.\n+>- The Dynamic Threat Detection Agent is free to use during public preview. It starts to consume [Security Compute Units (SCUs)](/copilot/security/get-started-security-copilot#security-compute-units) when it becomes generally available.\n+>- The summary and recommended actions are AI-generated, so review and verify them for accuracy.\n \n ## Next steps\n \n",
+      "baseCommitSha": "10f58bd6df95274a0b5dbc0521b80a30c6900dea",
+      "commitSha": "c9aff2f81f80f22e1cbef839b0aa143521633056",
+      "commitMessage": "note preview - Amit",
+      "commitAuthor": "Mona Berdugo",
+      "commitDate": "2026-02-22T15:20:41+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/dynamic-threat-detection-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/dynamic-threat-detection-agent",
+      "firstSeenAt": "2026-02-22T13:20:41.000Z",
+      "eventId": "defender-docs:c9aff2f81f80f22e1cbef839b0aa143521633056:modified:defender-xdr/dynamic-threat-detection-agent.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "note preview - Amit",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex adbbd9e22..28ae23857 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -137,6 +137,8 @@ For known issues, see [macOS known issues](#macos-known-issues).\n \n #### Enhancements and features\n \n+Bug and performance fixes\n+\n ### macOS | January 2026 | 101.25122.0007\n \n #### Release details\n",
+      "baseCommitSha": "1f928fb4c712330b6c8ca325628639aa46a14553",
+      "commitSha": "4bb3ae4271694c0b25527bc25f04fdb69fd132b7",
+      "commitMessage": "Small fix for macOS release",
+      "commitAuthor": "Limor Wainstein",
+      "commitDate": "2026-02-22T17:16:56+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "firstSeenAt": "2026-02-22T15:16:56.000Z",
+      "eventId": "defender-docs:4bb3ae4271694c0b25527bc25f04fdb69fd132b7:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Small fix for macOS release",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 8,
+    "totalFiles": 8,
+    "authors": [
+      "Limor Wainstein",
+      "Mona Berdugo",
+      "sbreingold-ms"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/phishing-triage-agent.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md. Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md. Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md.",
+        "sourceFiles": [
+          "defender-xdr/phishing-triage-agent.md",
+          "defender-xdr/dynamic-threat-detection-agent.md",
+          "defender-xdr/dynamic-threat-detection-agent.md",
+          "defender-xdr/investigate-alerts.md",
+          "defender-xdr/investigate-alerts.md",
+          "defender-xdr/dynamic-threat-detection-agent.md",
+          "defender-xdr/dynamic-threat-detection-agent.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/phishing-triage-agent.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md. Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md. Updated Microsoft Defender documentation in defender-xdr/investigate-alerts.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md. Updated Microsoft Defender documentation in defender-xdr/dynamic-threat-detection-agent.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-releases.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

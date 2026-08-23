@@ -1,0 +1,374 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/manage-rbac.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/manage-rbac.md b/defender-xdr/manage-rbac.md\nindex 92592bd34..9b764eb8f 100644\n--- a/defender-xdr/manage-rbac.md\n+++ b/defender-xdr/manage-rbac.md\n@@ -54,7 +54,7 @@ Centralized permissions management is supported for the following services:\n |**Microsoft Defender XDR**|Centralized permissions management for Microsoft Defender XDR experiences.|\n |**Microsoft Defender for Endpoint**|Full support for all endpoint data and actions. All roles are compatible with the device group's scope as defined on the device groups page. Limiting permissions to different device groups is accomplished in the Devices Groups page.|\n |**Microsoft Defender Vulnerability Management**|Centralized permissions management for all  Defender Vulnerability Management capabilities.|\n-|**Microsoft Defender for Office 365**|Full support for all data and actions. </br></br> **Note**: <ul><li>Initially, the Microsoft Defender XDR RBAC model is available only for organizations with Microsoft Defender for Office 365 Plan 2 licenses (trial licenses aren't supported).</li><li>Granular delegated admin privileges (GDAP) aren't supported.</li><li>Exchange Online PowerShell and Security & Compliance PowerShell continue to use [Exchange Online roles](/exchange/permissions-exo/permissions-exo) and [Email & Collaboration roles](/defender-office-365/mdo-portal-permissions). Microsoft Defender XDR Unified RBAC doesn't affect Exchange Online PowerShell or Security & Compliance PowerShell.</li></ul>|\n+|**Microsoft Defender for Office 365**|Full support for all data and actions. </br></br> **Note**: <ul><li>Initially, the Microsoft Defender XDR RBAC model is available only for organizations with Microsoft Defender for Office 365 Plan 2 licenses (trial licenses aren't supported).</li><li>Exchange Online PowerShell and Security & Compliance PowerShell continue to use [Exchange Online roles](/exchange/permissions-exo/permissions-exo) and [Email & Collaboration roles](/defender-office-365/mdo-portal-permissions). Microsoft Defender XDR Unified RBAC doesn't affect Exchange Online PowerShell or Security & Compliance PowerShell.</li></ul>|\n |**Microsoft Defender for Identity**|Full support for all identity data and actions. All roles are compatible with [Microsoft Defender for Identity scoped access](/defender-for-identity/configure-scoped-access).</br></br> **Note:** Defender for Identity experiences also adhere to permissions granted from [Microsoft Defender for Cloud Apps](https://security.microsoft.com/cloudapps/permissions/roles). For more information, see [Microsoft Defender for Identity role groups](https://go.microsoft.com/fwlink/?linkid=2202729).|\n |**Microsoft Defender for Cloud**|Support access management for all Defender for Cloud data that is available in Microsoft Defender portal.|\n |**Microsoft Security Exposure Management**|Full support for all Exposure Management data and actions, including Microsoft Secure Score data.|\n",
+      "baseCommitSha": "0f606cac78a81cbf4a3341a91bce0a51540e896f",
+      "commitSha": "9baf3f7b366b53e1e9090df6995fb35232d593a5",
+      "commitMessage": "Update RBAC details for Microsoft Defender for Office 365",
+      "commitAuthor": "Vipul",
+      "commitDate": "2026-01-05T10:19:49+05:30",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-xdr/manage-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-rbac",
+      "firstSeenAt": "2026-01-05T04:49:49.000Z",
+      "eventId": "defender-docs:9baf3f7b366b53e1e9090df6995fb35232d593a5:modified:defender-xdr/manage-rbac.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update RBAC details for Microsoft Defender for Office 365",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/protect-salesforce.md",
+      "status": "modified",
+      "additions": 28,
+      "deletions": 66,
+      "changes": 94,
+      "patch": "diff --git a/defender-for-cloud-apps/protect-salesforce.md b/defender-for-cloud-apps/protect-salesforce.md\nindex f6dd38601..466530ced 100644\n--- a/defender-for-cloud-apps/protect-salesforce.md\n+++ b/defender-for-cloud-apps/protect-salesforce.md\n@@ -1,18 +1,16 @@\n ---\n title: Protect your Salesforce environment | Microsoft Defender for Cloud Apps\n description: Learn how about connecting your Salesforce app to Defender for Cloud Apps using the API connector.\n-ms.date: 12/26/2023\n+ms.date: 01/05/2025\n ms.topic: how-to\n ms.reviewer: AmitMishaeli\n ---\n \n # How Defender for Cloud Apps helps protect your Salesforce environment\n \n+As a major CRM cloud provider, Salesforce incorporates large amounts of sensitive information about customers, pricing playbooks, and major deals inside your organization. Being a business-critical app, Salesforce is accessed and used by people inside your organization and by others outside of it (such as partners and contractors) for various purposes. In many cases, a large proportion of your users accessing Salesforce have low awareness of security and might put your sensitive information at risk by unintentionally sharing it. In other instances, malicious actors might gain access to your most sensitive customer-related assets.\n \n-\n-As a major CRM cloud provider, Salesforce incorporates large amounts of sensitive information about customers, pricing playbooks, and major deals inside your organization. Being a business-critical app, Salesforce is accessed and used by people inside your organization and by others outside of it (such as partners and contractors) for various purposes. In many cases, a large proportion of your users accessing Salesforce have low awareness of security and might put your sensitive information at risk by unintentionally sharing it. In other instances, malicious actors may gain access to your most sensitive customer-related assets.\n-\n-Connecting Salesforce to Defender for Cloud Apps gives you improved insights into your users' activities, provides threat detection using machine learning based anomaly detections and information protection detections (such as detecting external information sharing), enables automated remediation controls, and detects threats from enabled third-party apps in your organization.\n+Connecting Salesforce to Defender for Cloud Apps gives you improved insights into your users' activities, provides threat detection using machine learning based anomaly detections and information protection detections (such as detecting external information sharing). It also enables automated remediation controls, and detects threats from enabled third-party apps in your organization.\n \n [!INCLUDE [security-posture-management-connector](includes/security-posture-management-connector.md)]\n \n@@ -96,63 +94,27 @@ This section provides instructions for connecting Microsoft  Defender for Cloud\n > [!NOTE]\n > Salesforce Shield should be available for your Salesforce instance as a prerequisite for this integration in all supported abilities except SSPM\n \n-1. It's recommended to have a dedicated service admin account for Defender for Cloud Apps.\n-\n-1. Validate that REST API is enabled in Salesforce.\n-\n-    Your Salesforce account must be one of the following editions that include REST API support:\n-\n-    **Performance**, **Enterprise**, **Unlimited**, or **Developer**.\n-\n-    The **Professional** edition doesn't have REST API by default, but it can be added on demand.\n-\n-    Check to see that your edition has REST API available and enabled as follows:\n-\n-    * Sign in to your Salesforce account and go to the **Setup Home** page.\n-\n-    * Under **Administration** -> **Users**, go to the **Profiles** page.\n-\n-        ![Salesforce manage users profiles.](media/salesforce-profiles.png)\n-\n-    * Create a new profile by selecting **New Profile**.\n-    * Choose the profile you just created to deploy Defender for Cloud Apps and select **Edit**. This profile will be used for the Defender for Cloud Apps service account to set up the App connector.\n+1. Create a dedicated service admin account for Defender for Cloud Apps.\n \n-         ![Salesforce edit profile.](media/salesforce-edit-profile.png)\n+1. Check that the Salesforce account is assigned to an edition that supports REST API access: **Performance**, **Enterprise**, **Unlimited**, or **Developer**.\n \n-    * Make sure you have the following checkboxes enabled:\n-      * **API Enabled**\n-      * **View All Data**\n-      * **Manage Salesforce CRM Content**\n-      * **Manage Users**\n-      * **[Query All Files](https://go.microsoft.com/fwlink/?linkid=2106480)**\n-      * **Modify Metadata Through Metadata API Functions**\n-      * **View Setup And Configuration**\n+The **Professional** edition requires REST API access to be added separately.\n \n-      If these checkboxes aren't selected, you may need to contact Salesforce to add them to your account.\n+1. Create a new profile. This profile will be used for the Defender for Cloud Apps service account to set up the App connector.\n+1. Verify that the service account profile includes the following permissions:\n \n-1. If your organization has **Salesforce CRM Content** enabled, make sure that the current administrative account has it enabled as well.\n-    1. Go to the Salesforce **Setup Home** page.\n+    - **API Enabled**\n+    - **View All Data**\n+    - **Manage Salesforce CRM Content**\n+    - **Manage Users**\n+    - **[Query All Files](https://go.microsoft.com/fwlink/?linkid=2106480)**\n+    - **Modify Metadata Through Metadata API Functions**\n+    - **View Setup And Configuration**\n \n-    1. Under **Administration** -> **Users**, go to the **Users** page.\n-\n-        ![Salesforce menu users.](media/salesforce-menu-users.png)\n-\n-    1. Select the current administrative user to your dedicated Defender for Cloud Apps user.\n-\n-    1. Make sure that the **Salesforce CRM Content User** check box is selected.\n-\n-        ![Salesforce crm content user.](media/salesforce-crm-content-user.png)\n-\n-    1. Go to **Setup Home** -> **Security** -> **Session Settings**. Under **Session Settings**, make sure that  **Lock sessions to the IP address from which they originated** check box is **not** selected.\n-\n-        ![Salesforce session settings.](media/salesforce-setup-session-settings.png)\n-\n-    1. Select **Save**.\n-\n-   1. Go to **Apps** -> **Feature Settings** -> **Salesforce Files** ->  **Content Deliveries and Public Links**.\n-    1. Select **Edit** and then select **Checked Content Deliveries feature can be enabled for users**\n-\n-    1. Select **Save**.\n+1. If **Salesforce CRM Content** is active in your organization:\n+ - Grant Salesforce CRM Content access to the Defender for Cloud Apps service admin account.\n+ - Turn off **Lock sessions to the IP address from which they originated** for the service account profile.\n+ -  Turn on **Content Deliveries and Public Links**. \n \n > [!NOTE]\n > The Content Deliveries feature needs to be enabled for Defender for Cloud Apps to query file sharing data. For more information, see [ContentDistribution](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contentdistribution.htm).\n@@ -163,7 +125,7 @@ This section provides instructions for connecting Microsoft  Defender for Cloud\n \n 1. In the **App connectors** page, select **+Connect an app** followed by **Salesforce**.\n \n-    ![Connect Salesforce.](media/connect-salesforce.png)\n+    :::image type=\"content\" source=\"media/connect-salesforce.png\" alt-text=\"Screenshot that shows how to add the Salesforce app connector in the Defender portal.\" lightbox=\"media/connect-salesforce.png\":::\n \n 1. In the next window, give the connection a name and select **Next**.\n \n@@ -171,7 +133,7 @@ This section provides instructions for connecting Microsoft  Defender for Cloud\n \n 1. This opens the Salesforce sign in page. Enter your credentials to allow Defender for Cloud Apps access to your team's Salesforce app.\n \n-    ![Salesforce sign-in.](media/salesforce-logon.png)\n+    :::image type=\"content\" source=\"media/salesforce-logon.png\" alt-text=\"Screenshot that shows a pop up and how to enter your Salesforce credentials.\" lightbox=\"media/salesforce-logon.png\":::\n \n 1. Salesforce will ask you if you want to allow Defender for Cloud Apps access to your team information and activity log and perform any activity as any team member. To continue, select **Allow**.\n \n@@ -185,24 +147,24 @@ After connecting Salesforce, you'll receive Events as follows: Log in events and\n \n > [!NOTE]\n > Defender for Cloud Apps throttling is calculated solely on its own API calls with Salesforce, not with those of any other applications making API calls with Salesforce.\n-> Limiting API calls due to the limitation may slow down the rate at which data is ingested in Defender for Cloud Apps, but usually catches up over night.\n+> Limiting API calls due to the limitation might slow down the rate at which data is ingested in Defender for Cloud Apps, but usually catches up over night.\n \n > [!NOTE]\n-> If your Salesforce instance is not in English, make sure to select the appropriate **language** attribute value for the integration service admin account.\n+> If your Salesforce instance isn't in English, make sure to select the appropriate **language** attribute value for the integration service admin account.\n >\n > To change the language attribute, navigate to **Administration** -> **Users** -> **User** and open the integration system admin account. Now navigate to **Locale Settings** -> **Language** and select the desired language.\n \n-Salesforce events are processed by Defender for Cloud Apps as follows:\n+Defender for Cloud Apps processeS Salesforce events as follows:\n \n * Sign-in events every 15 minutes\n * Setup audit trails every 15 minutes\n * Event logs every 1 hour. For more information about Salesforce events, see [Using event monitoring](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/using_resources_event_log_files.htm).\n \n-If you have any problems connecting the app, see [Troubleshooting App Connectors](troubleshooting-api-connectors-using-error-messages.md).\n \n ## Next steps\n \n-> [!div class=\"nextstepaction\"]\n-> [Control cloud apps with policies](control-cloud-apps-with-policies.md)\n+- If you have any problems connecting the app, see [Troubleshooting App Connectors](troubleshooting-api-connectors-using-error-messages.md).\n+\n+- [Control cloud apps with policies](control-cloud-apps-with-policies.md)\n+\n \n-[!INCLUDE [Open support ticket](includes/support.md)]\n",
+      "baseCommitSha": "0f606cac78a81cbf4a3341a91bce0a51540e896f",
+      "commitSha": "339e905c42875f5e85388fa6b2bec5d54f96b148",
+      "commitMessage": "Fix third party instructions",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-01-05T13:41:28+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/protect-salesforce.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-salesforce",
+      "firstSeenAt": "2026-01-05T11:41:28.000Z",
+      "eventId": "defender-docs:339e905c42875f5e85388fa6b2bec5d54f96b148:modified:defender-for-cloud-apps/protect-salesforce.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fix third party instructions",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/protect-salesforce.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/protect-salesforce.md b/defender-for-cloud-apps/protect-salesforce.md\nindex 466530ced..7555c30aa 100644\n--- a/defender-for-cloud-apps/protect-salesforce.md\n+++ b/defender-for-cloud-apps/protect-salesforce.md\n@@ -98,7 +98,7 @@ This section provides instructions for connecting Microsoft  Defender for Cloud\n \n 1. Check that the Salesforce account is assigned to an edition that supports REST API access: **Performance**, **Enterprise**, **Unlimited**, or **Developer**.\n \n-The **Professional** edition requires REST API access to be added separately.\n+    The **Professional** edition requires REST API access to be added separately.\n \n 1. Create a new profile. This profile will be used for the Defender for Cloud Apps service account to set up the App connector.\n 1. Verify that the service account profile includes the following permissions:\n",
+      "baseCommitSha": "339e905c42875f5e85388fa6b2bec5d54f96b148",
+      "commitSha": "8c789807d27285e36a7c676d4498c11441867387",
+      "commitMessage": "fix numbering",
+      "commitAuthor": "Devorah Cohen",
+      "commitDate": "2026-01-05T13:53:38+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/protect-salesforce.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-salesforce",
+      "firstSeenAt": "2026-01-05T11:53:38.000Z",
+      "eventId": "defender-docs:8c789807d27285e36a7c676d4498c11441867387:modified:defender-for-cloud-apps/protect-salesforce.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "fix numbering",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/release-notes.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-cloud-apps/release-notes.md b/defender-for-cloud-apps/release-notes.md\nindex f4ebe76ae..7372d8356 100644\n--- a/defender-for-cloud-apps/release-notes.md\n+++ b/defender-for-cloud-apps/release-notes.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new | Microsoft Defender for Cloud Apps\n description: This article is updated frequently to let you know what's new in the latest release of Microsoft Defender for Cloud Apps.\n-ms.date: 11/25/2025\n+ms.date: 01/05/2026\n ms.topic: overview\n ---\n \n@@ -24,7 +24,7 @@ For news about earlier releases, see [Archive of past updates for Microsoft Defe\n \n ### Microsoft Defender for Cloud Apps permissions are now integrated with Microsoft Defender XDR Unified RBAC\n [Integration of Microsoft Defender for Cloud Apps permissions with Microsoft Defender XDR Unified RBAC](https://learn.microsoft.com/defender-xdr/whats-new-in-microsoft-defender-urbac#microsoft-defender-for-cloud-apps-permissions-are-now-integrated-with-microsoft-defender-xdr-unified-rbac) is now available worldwide. \n-For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender XDR Unified RBAC permissions](https://github.com/MicrosoftDocs/defender-docs-pr/blob/main/defender-xdr/compare-rbac-roles.md#map-microsoft-defender-for-cloud-apps-permissions-to-the-microsoft-defender-xdr-unified-rbac-permissions). To activate the Defender for Cloud Apps workload, see [Activate Microsoft Defender XDR Unified RBAC](https://github.com/MicrosoftDocs/defender-docs-pr/blob/main/defender-xdr/activate-defender-rbac.md).\n+For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender XDR Unified RBAC permissions](https://learn.microsoft.com/defender-xdr/compare-rbac-roles.md#map-microsoft-defender-for-cloud-apps-permissions-to-the-microsoft-defender-xdr-unified-rbac-permissions). To activate the Defender for Cloud Apps workload, see [Activate Microsoft Defender XDR Unified RBAC](https://learn.microsoft.com/defender-xdr/activate-defender-rbac.md).\n \n \n ### Increased availability of App governance unused app insights feature (Preview)\n",
+      "baseCommitSha": "25d9360b1b20fddd5ae2f3c1e70a4d2dac7ec3e5",
+      "commitSha": "148f4b4fa7be0efad51325972e83497733e4b9f4",
+      "commitMessage": "Update incorrect links in December 2025 Whats New",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-01-05T15:43:37+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/release-notes",
+      "firstSeenAt": "2026-01-05T13:43:37.000Z",
+      "eventId": "defender-docs:148f4b4fa7be0efad51325972e83497733e4b9f4:modified:defender-for-cloud-apps/release-notes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update incorrect links in December 2025 Whats New",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/release-notes.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud-apps/release-notes.md b/defender-for-cloud-apps/release-notes.md\nindex 7372d8356..e828e189d 100644\n--- a/defender-for-cloud-apps/release-notes.md\n+++ b/defender-for-cloud-apps/release-notes.md\n@@ -24,7 +24,7 @@ For news about earlier releases, see [Archive of past updates for Microsoft Defe\n \n ### Microsoft Defender for Cloud Apps permissions are now integrated with Microsoft Defender XDR Unified RBAC\n [Integration of Microsoft Defender for Cloud Apps permissions with Microsoft Defender XDR Unified RBAC](https://learn.microsoft.com/defender-xdr/whats-new-in-microsoft-defender-urbac#microsoft-defender-for-cloud-apps-permissions-are-now-integrated-with-microsoft-defender-xdr-unified-rbac) is now available worldwide. \n-For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender XDR Unified RBAC permissions](https://learn.microsoft.com/defender-xdr/compare-rbac-roles.md#map-microsoft-defender-for-cloud-apps-permissions-to-the-microsoft-defender-xdr-unified-rbac-permissions). To activate the Defender for Cloud Apps workload, see [Activate Microsoft Defender XDR Unified RBAC](https://learn.microsoft.com/defender-xdr/activate-defender-rbac.md).\n+For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender XDR Unified RBAC permissions](https://learn.microsoft.com/en-us/defender-xdr/compare-rbac-roles#map-microsoft-defender-xdr-unified-rbac-permissions-to-existing-rbac-permissions). To activate the Defender for Cloud Apps workload, see [Activate Microsoft Defender XDR Unified RBAC](https://learn.microsoft.com/defender-xdr/activate-defender-rbac).\n \n \n ### Increased availability of App governance unused app insights feature (Preview)\n",
+      "baseCommitSha": "148f4b4fa7be0efad51325972e83497733e4b9f4",
+      "commitSha": "39cd98f18e9f5c37fa46414fc37219beb90bb0d4",
+      "commitMessage": "update links",
+      "commitAuthor": "AbbyMSFT",
+      "commitDate": "2026-01-05T15:59:42+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-for-cloud-apps/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/release-notes",
+      "firstSeenAt": "2026-01-05T13:59:42.000Z",
+      "eventId": "defender-docs:39cd98f18e9f5c37fa46414fc37219beb90bb0d4:modified:defender-for-cloud-apps/release-notes.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "update links",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mac-resources.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/mac-resources.md b/defender-endpoint/mac-resources.md\nindex ab702d066..2af08f382 100644\n--- a/defender-endpoint/mac-resources.md\n+++ b/defender-endpoint/mac-resources.md\n@@ -127,7 +127,6 @@ Important tasks, such as controlling product settings and triggering on-demand s\n |Diagnostics|Generate diagnostic logs|`mdatp diagnostic create --path [directory]`|\n |Health|Check the product's health|`mdatp health`|\n |Health|Check for a specific product attribute|`mdatp health --field [attribute: healthy/licensed/engine_version...]`|\n-|EDR|EDR list exclusions (root)| `mdatp edr exclusion list [processes|paths|extensions|all]` |\n |EDR|Set/Remove tag, only GROUP supported|`mdatp edr tag set --name GROUP --value [name]`|\n |EDR|Remove group tag from device|`mdatp edr tag remove --tag-name [name]`|\n |EDR|Add Group ID|`mdatp edr group-ids --group-id [group]`|\n",
+      "baseCommitSha": "78527df89c502fa6180e5610357220bbde243abe",
+      "commitSha": "ffee767d5f028d53e29b4816aaa3519e77e0848c",
+      "commitMessage": "Learn Editor: Update mac-resources.md",
+      "commitAuthor": "Josh Bregman",
+      "commitDate": "2026-01-05T12:45:32-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/mac-resources.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-resources",
+      "firstSeenAt": "2026-01-05T16:45:32.000Z",
+      "eventId": "defender-docs:ffee767d5f028d53e29b4816aaa3519e77e0848c:modified:defender-endpoint/mac-resources.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Learn Editor: Update mac-resources.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-resources.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/enable-controlled-folders.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 5,
+      "changes": 12,
+      "patch": "diff --git a/defender-endpoint/enable-controlled-folders.md b/defender-endpoint/enable-controlled-folders.md\nindex 973588328..5c97c3371 100644\n--- a/defender-endpoint/enable-controlled-folders.md\n+++ b/defender-endpoint/enable-controlled-folders.md\n@@ -15,21 +15,23 @@ ms.collection:\n - tier3\n - mde-asr\n search.appverid: met150\n-ms.date: 12/29/2025\n+ms.date: 01/05/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 1\n   - Microsoft Defender for Endpoint Plan 2\n   - Microsoft Defender Antivirus\n-\n ---\n \n # Enable controlled folder access\n \n-[Controlled folder access](controlled-folders.md) helps you protect valuable data from malicious apps and threats, such as ransomware. Controlled folder access is included with Windows 10, Windows 11, and Windows Server 2019. Controlled folder access is also included as part of the [modern, unified solution for Windows Server 2012R2 and 2016](onboard-server.md#functionality-in-the-modern-unified-solution-for-windows-server-2016-and-windows-server-2012-r2).\n+[Controlled folder access](controlled-folders.md) helps you protect valuable data from malicious apps and threats, such as ransomware. Controlled folder access is available in the following operating systems:\n \n-You can enable controlled folder access by using any of these methods:\n+- Included in Windows 10 or later.\n+- Included in Windows Server 2019 or later.\n+- Available in Windows Server 2016 and Windows Server 2012 R2 as part of the [modern, unified Microsoft Defender for Endpoint solution](onboard-server.md#functionality-in-the-modern-unified-solution-for-windows-server-2016-and-windows-server-2012-r2).\n+\n+You can enable controlled folder access by using any of the following methods described in this article:\n \n-- [Enable controlled folder access](#enable-controlled-folder-access)\n - [Enable controlled folder access](#enable-controlled-folder-access)\n   - [Mobile Device Management (MDM)](#mobile-device-management-mdm)\n   - [Microsoft Configuration Manager](#microsoft-configuration-manager)\n",
+      "baseCommitSha": "67fd2ded0c26e9ed06ca961e19b8020260fef668",
+      "commitSha": "ecb66f10a28165454520a0cd1c277bb9d862c788",
+      "commitMessage": "Update enable-controlled-folders.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-05T10:11:29-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/enable-controlled-folders.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/enable-controlled-folders",
+      "firstSeenAt": "2026-01-05T18:11:29.000Z",
+      "eventId": "defender-docs:ecb66f10a28165454520a0cd1c277bb9d862c788:modified:defender-endpoint/enable-controlled-folders.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update enable-controlled-folders.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/enable-controlled-folders.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/enable-controlled-folders.md b/defender-endpoint/enable-controlled-folders.md\nindex 5c97c3371..ee024f7d5 100644\n--- a/defender-endpoint/enable-controlled-folders.md\n+++ b/defender-endpoint/enable-controlled-folders.md\n@@ -32,7 +32,7 @@ appliesto:\n \n You can enable controlled folder access by using any of the following methods described in this article:\n \n-- [Enable controlled folder access](#enable-controlled-folder-access)\n+- [Enable controlled folder access in the Microsoft Intune admin center](#enable-controlled-folder-access-in-the-microsoft-intune-admin-center)\n   - [Mobile Device Management (MDM)](#mobile-device-management-mdm)\n   - [Microsoft Configuration Manager](#microsoft-configuration-manager)\n   - [Group Policy](#group-policy)\n@@ -49,7 +49,9 @@ You can enable controlled folder access by using any of the following methods de\n \n ### Supported operating systems\n \n-**Windows**:\n+- Windows\n+\n+## Enable controlled folder access in the Microsoft Intune admin center\n \n 1. In the Microsoft Intune admin center at <https://intune.microsoft.com>, go to **Endpoint security** \\> **Manage** \\> **Attack surface reduction**. Or, to go directly to the **Endpoint security \\| Attack surface reduction** page, use <https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/~/asr>.\n \n",
+      "baseCommitSha": "ecb66f10a28165454520a0cd1c277bb9d862c788",
+      "commitSha": "2fa0bc47b27e931bab13dd8cdd670420197a1197",
+      "commitMessage": "Update enable-controlled-folders.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-05T10:29:38-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/enable-controlled-folders.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/enable-controlled-folders",
+      "firstSeenAt": "2026-01-05T18:29:38.000Z",
+      "eventId": "defender-docs:2fa0bc47b27e931bab13dd8cdd670420197a1197:modified:defender-endpoint/enable-controlled-folders.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update enable-controlled-folders.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/device-control-faq.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 21,
+      "changes": 44,
+      "patch": "diff --git a/defender-endpoint/device-control-faq.md b/defender-endpoint/device-control-faq.md\nindex 56196656f..cb38df274 100644\n--- a/defender-endpoint/device-control-faq.md\n+++ b/defender-endpoint/device-control-faq.md\n@@ -23,9 +23,8 @@ appliesto:\n   - Microsoft Defender for Business\n \n ---\n-# Microsoft Defender for Endpoint Device Control frequently asked questions\n-\n \n+# Microsoft Defender for Endpoint Device Control frequently asked questions\n \n This article provides answers to frequently asked questions about device control removable storage capabilities in Microsoft Defender for Endpoint.\n \n@@ -47,15 +46,19 @@ Another reason could be that the XML file isn't correctly formatted. For example\n \n If you're deploying and managing the policy by using Group Policy, make sure to combine all policy rules into one XML file within a parent node called `PolicyRules`. Also, combine all groups into one XML file within a parent node called `PolicyGroups`. If you're managing devices with Intune, keep separate XML files for each group and policy when deploying as `Custom OMA-URI`.\n \n-The device (machine) should have a valid certificate. Run the following command on the machine to check:\n+The device (machine) should have a valid certificate. Run the following PowerShell command on the machine to check:\n \n-`Get-AuthenticodeSignature C:\\Windows\\System32\\wbem\\WmiPrvSE.exe`\n+```powershell\n+Get-AuthenticodeSignature C:\\Windows\\System32\\wbem\\WmiPrvSE.exe\n+```\n \n ![Screenshot showing results of Get-AuthenticodeSignature cmdlet.](https://user-images.githubusercontent.com/81826151/202582101-5470dd54-ef32-4448-80c9-ba23a721dc70.png)\n \n-If the policy still isn't working, contact support, and share your support cab. To get that file, open Command Prompt as an administrator, and then use the following command: \n+If the policy still isn't working, contact support, and share your support cab. To get that file, open Command Prompt as an administrator, and then use the following command:\n \n-`\"%programfiles%\\Windows Defender\\MpCmdRun.exe\" -GetFiles`\n+```dos\n+\"%programfiles%\\Windows Defender\\MpCmdRun.exe\" -GetFiles\n+```\n \n ## Why is there no configuration UX for some policy groups? \n \n@@ -84,41 +87,40 @@ DeviceFileEvents\n \n ## How do I find the media property in the Device Manager?\n \n-1. Plug in the media.\n+1. After you insert the media, open Device Manager (for example, run the command `devmgmt.msc`).\n \n-1. Open Device Manager. \n+1. Locate the media in Device Manager (for example, under Disk drives), right-click on the media, and then select **Properties**\n \n-   ![Screenshot of Device Manager.](https://user-images.githubusercontent.com/81826151/181859412-affd6aa1-09ad-44bf-9541-330499cc2c87.png)\n+   :::image type=\"content\" source=\"media/device-manager-select-media.png\" alt-text=\"Screenshot of right-clicking on the media in Device Manager and then selecting Properties.\" lightbox=\"media/device-manager-select-media.png\":::\n \n-1. Locate the media in the Device Manager, right-click, and then select **Properties**.\n+1. In the properties of the media, select the **Details** tab, and then select the **Device instance path** property.\n \n-   :::image type=\"content\" alt-text=\"Screenshot of media in the Device Manager.\" source=\"https://user-images.githubusercontent.com/81826151/181859700-62a6f704-b12e-41e3-a048-7d63432654a4.png\":::\n+   :::image type=\"content\" source=\"media/device-manager-media-properties.png\" alt-text=\"Screenshot of the Device instance path property of the Details tab of the media properties in Device Manager.\" lightbox=\"media/device-manager-media-properties.png\":::\n \n-1. Open **Details**, and then select **Properties**.\n+Another way to find the media property is to deploy an Audit policy to the organization, and then see the events in advanced hunting or the device control report.\n \n-   :::image type=\"content\" alt-text=\"Screenshot of right-click menu for disk drives in Device Manager.\" source=\"https://user-images.githubusercontent.com/81826151/181859852-00bc8b11-8ee5-4d46-9770-fa29f894d13f.png\":::\n- \n-Another way is to deploy an Audit policy to the organization, and see the events in advanced hunting or the device control report.\n- \n <a name='how-do-i-find-sid-for-azure-ad-group'></a>\n \n ## How do I find Sid for Microsoft Entra group?\n \n-Different from Microsoft Entra groups, the Sid is using Object Id for Microsoft Entra group. You can find the Object Id from Azure portal.\n+The Sid is uses the **Object ID** value for Microsoft Entra groups. You can find the **Object Id** value from the group properties in the Microsoft Entra portal.\n \n-![image](https://user-images.githubusercontent.com/81826151/200895994-cc395452-472f-472e-8d56-351165d341a7.png)\n+:::image type=\"content\" source=\"media/microsoft-entra-group-sid.png\" alt-text=\"Screenshot of the Object ID value in the group properties in the Microsoft Entra admin center.\" lightbox=\"media/microsoft-entra-group-sid.png\":::\n \n ## Why is my printer blocked in my organization?\n \n The **Default Enforcement** setting is for all device control components, which means if you set it to `Deny`, it will block all printers as well. You can either create custom policy to explicitly allow printers or you can replace the Default Enforcement policy with a custom policy.\n \n ## Why is creating a folder not blocked by File system level access?\n+\n Creating an empty folder will not be blocked even if **File system level access** Write access Deny is configured. Any non-empty file will be blocked.\n \n ## Why is my USB still blocked with an allow-ready policy?\n+\n Some specific USB devices require more than Read access, the following list shows some examples:\n-1. To Read access some Kingston encrypted USBs requires Execute access for its CDROM.\n-1. To Read access some WD My Passport USBs requires Disk level Write access. For this case, if you want to deny Write access, you should use the **File system level access**\n+\n+1. Read access to some Kingston encrypted USBs requires Execute access for its CDROM.\n+1. Read access to some WD My Passport USBs requires Disk level Write access. To deny Write access, you use the **File system level access**.\n \n The best way to understand this is to check the event on the Advanced hunting which will clearly show what accessMask is required.\n \n@@ -133,5 +135,5 @@ Yes, for Windows and Mac.\n To set up device control on Windows, use [attack surface reduction rules in Defender for Business](/defender-business/mdb-asr). You'll need [Microsoft Intune](/mem/intune/fundamentals/what-is-intune). The standalone version of Defender for Business does not include Intune, but it can be added on. [Microsoft 365 Business Premium](/microsoft-365/business-premium) does include Intune. See [Microsoft Defender for Endpoint Device Control Removable Storage Access Control](device-control-overview.md).\n \n To set up device control on Mac, use Intune or Jamf. See [Device Control for macOS](mac-device-control-overview.md).\n-[!INCLUDE [Microsoft Defender for Endpoint Tech Community](../includes/defender-mde-techcommunity.md)]\n \n+[!INCLUDE [Microsoft Defender for Endpoint Tech Community](../includes/defender-mde-techcommunity.md)]\n",
+      "baseCommitSha": "2fa0bc47b27e931bab13dd8cdd670420197a1197",
+      "commitSha": "e6e96569c6d25a88b68108549889bb6c541bb581",
+      "commitMessage": "UUF 426109",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-05T11:38:21-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-control-faq.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-control-faq",
+      "firstSeenAt": "2026-01-05T19:38:21.000Z",
+      "eventId": "defender-docs:e6e96569c6d25a88b68108549889bb6c541bb581:modified:defender-endpoint/device-control-faq.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "UUF 426109",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/device-control-faq.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/device-control-faq.md b/defender-endpoint/device-control-faq.md\nindex cb38df274..a0e539be8 100644\n--- a/defender-endpoint/device-control-faq.md\n+++ b/defender-endpoint/device-control-faq.md\n@@ -14,7 +14,7 @@ ms.collection:\n - mde-asr\n ms.custom: admindeeplinkDEFENDER\n ms.topic: faq\n-ms.date: 03/10/2025\n+ms.date: 01/05/2026\n ms.reviewer: tewchen, joshbregman\n search.appverid: met150\n appliesto:\n@@ -60,9 +60,9 @@ If the policy still isn't working, contact support, and share your support cab.\n \"%programfiles%\\Windows Defender\\MpCmdRun.exe\" -GetFiles\n ```\n \n-## Why is there no configuration UX for some policy groups? \n+## Why is there no configuration UX for some policy groups?\n \n-There is no configuration UX for **Define device control policy groups** and **Define device control policy rules** on your Group Policy. But, you can still get the related `.adml` and `.admx` files by selecting **Raw** and **Save as** at the [WindowsDefender.adml](https://github.com/microsoft/mdatp-devicecontrol/blob/main/WindowsDefender.adml) and [WindowsDefender.admx](https://github.com/microsoft/mdatp-devicecontrol/blob/main/WindowsDefender.admx) files.\n+There's no configuration UX for **Define device control policy groups** and **Define device control policy rules** on your Group Policy. But, you can still get the related `.adml` and `.admx` files from [Administrative Templates (.admx) for Windows 10 2022 Update (22H2)](https://www.microsoft.com/download/details.aspx?id=104677).\n \n ## How do I confirm that the latest policy has been deployed to the target machine?\n \n",
+      "baseCommitSha": "e6e96569c6d25a88b68108549889bb6c541bb581",
+      "commitSha": "6b4798d7b2c3eb50ad1b69f256c8ab16a254bb5a",
+      "commitMessage": "Update device-control-faq.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-05T12:00:56-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/device-control-faq.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/device-control-faq",
+      "firstSeenAt": "2026-01-05T20:00:56.000Z",
+      "eventId": "defender-docs:6b4798d7b2c3eb50ad1b69f256c8ab16a254bb5a:modified:defender-endpoint/device-control-faq.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update device-control-faq.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/live-response.md",
+      "status": "modified",
+      "additions": 62,
+      "deletions": 72,
+      "changes": 134,
+      "patch": "diff --git a/defender-endpoint/live-response.md b/defender-endpoint/live-response.md\nindex a68c68b5e..45ba1fab1 100644\n--- a/defender-endpoint/live-response.md\n+++ b/defender-endpoint/live-response.md\n@@ -14,13 +14,12 @@ ms.collection:\n ms.topic: how-to\n ms.subservice: edr\n search.appverid: met150\n-ms.date: 03/04/2025\n+ms.date: 01/05/2026\n appliesto:\n   - Microsoft Defender for Endpoint Plan 2\n-\n ---\n-# Investigate entities on devices using live response\n \n+# Investigate entities on devices using live response\n \n Live response gives security operations teams instantaneous access to a device (also referred to as a machine) using a remote shell connection. Live response gives you the power to do in-depth investigative work and take immediate response actions to promptly contain identified threats in real time.\n \n@@ -42,36 +41,35 @@ Devices must be running one of the following versions of Windows\n \n ### Supported operating systems\n \n-  - Windows 10 & 11\n-    - [Version 1909](/windows/whats-new/whats-new-windows-10-version-1909) or later\n-    - [Version 1903](/windows/whats-new/whats-new-windows-10-version-1903) with [KB4515384](https://support.microsoft.com/help/4515384/windows-10-update-kb4515384)\n-    - [Version 1809 (RS 5)](/windows/whats-new/whats-new-windows-10-version-1809) with [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818)\n-    - [Version 1803 (RS 4)](/windows/whats-new/whats-new-windows-10-version-1803) with [KB4537795](https://support.microsoft.com/help/4537795/windows-10-update-kb4537795)\n-    - [Version 1709 (RS 3)](/windows/whats-new/whats-new-windows-10-version-1709) with [KB4537816](https://support.microsoft.com/help/4537816/windows-10-update-kb4537816)\n-\n-  - macOS- Minimum required version: `101.43.84`. Supported for Intel-based and ARM-based macOS devices.\n+- **Windows 11**\n \n-  - Linux - Minimum required version: `101.45.13`\n+- **Windows 10**:\n+  - [Version 1909](/windows/whats-new/whats-new-windows-10-version-1909) or later.\n+  - [Version 1903](/windows/whats-new/whats-new-windows-10-version-1903) with [KB4515384](https://support.microsoft.com/help/4515384/windows-10-update-kb4515384).\n+  - [Version 1809 (RS 5)](/windows/whats-new/whats-new-windows-10-version-1809) with [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818).\n+  - [Version 1803 (RS 4)](/windows/whats-new/whats-new-windows-10-version-1803) with [KB4537795](https://support.microsoft.com/help/4537795/windows-10-update-kb4537795).\n+  - [Version 1709 (RS 3)](/windows/whats-new/whats-new-windows-10-version-1709) with [KB4537816](https://support.microsoft.com/help/4537816/windows-10-update-kb4537816).\n \n-  - Windows Server 2012 R2 - with [KB5005292](https://support.microsoft.com/topic/microsoft-defender-for-endpoint-update-for-edr-sensor-f8f69773-f17f-420f-91f4-a8e5167284ac)\n+- **macOS**: Version `101.43.84` or later. Supported on Intel-based and ARM-based macOS devices.\n \n-  - Windows Server 2016 - with [KB5005292](https://support.microsoft.com/topic/microsoft-defender-for-endpoint-update-for-edr-sensor-f8f69773-f17f-420f-91f4-a8e5167284ac)\n-  \n+- **Linux**: Version `101.45.13` or later.\n \n-    > [!NOTE]\n-    > For Windows Server 2012 R2 or Windows Server 2016, you must have the [Unified Agent](update-agent-mma-windows.md#update-mma-on-your-devices) installed, and it is recommended to patch to latest sensor version with KB5005292. Live response doesn't work as expected for offline down-level servers onboarded using the streamlined method, because of the static proxy. Consider using a system proxy instead.\n+- **Windows Server 2022** or later.\n \n-  - Windows Server 2019\n-    - Version 1903 or (with [KB4515384](https://support.microsoft.com/help/4515384/windows-10-update-kb4515384)) later\n-    - Version 1809 (with [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818))\n+- **Windows Server 2019**:\n+  - Version 1903 (with [KB4515384](https://support.microsoft.com/help/4515384/windows-10-update-kb4515384)) or later.\n+  - Version 1809 (with [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818)).\n \n-  - Windows Server 2022 and later\n+- **Windows Server 2016 and Windows Server 2012 R2**:\n+  - Requires the [Unified Agent](update-agent-mma-windows.md#update-mma-on-your-devices).\n+  - We also recommend the patch for the latest sensor version: [KB5005292](https://support.microsoft.com/topic/microsoft-defender-for-endpoint-update-for-edr-sensor-f8f69773-f17f-420f-91f4-a8e5167284ac).\n+  - If you use a static proxy, live response doesn't work as expected for offline down-level servers onboarded using the streamlined method. Consider using a system proxy instead.\n \n-  - Azure Stack HCI OS, version 23H2 and later\n+- **Azure Stack HCI OS**: Version 23H2 or later.\n \n-- **Enable live response from the advanced settings page**.\n+### Other requirements\n \n-  You need to enable the live response capability in the [Advanced features settings](advanced-features.md) page.\n+- **Enable live response from the advanced settings page**: You need to enable the live response capability in the [Advanced features settings](advanced-features.md) page.\n \n   > [!NOTE]\n   > Only admins and users who have \"Manage Portal Settings\" permissions can enable live response.\n@@ -87,29 +85,24 @@ Devices must be running one of the following versions of Windows\n   > Signature verification only applies for PowerShell scripts.\n \n   > [!WARNING]\n-  > Allowing the use of unsigned scripts may increase your exposure to threats.\n+  > Allowing the use of unsigned scripts may increase your exposure to threats. If you must use them, you need to enable the setting in the [Advanced features settings](advanced-features.md) page.\n \n-  Running unsigned scripts isn't recommended as it can increase your exposure to threats. If you must use them however, you need to enable the setting in the [Advanced features settings](advanced-features.md) page.\n-\n-- **Ensure that you have the appropriate permissions**.\n-\n-  Only users who are provisioned with the appropriate permissions can initiate a session. For more information on role assignments, see [Create and manage roles](user-roles.md).\n+- **Ensure that you have the appropriate permissions**:   Only users who are provisioned with the appropriate permissions can initiate a session. For more information on role assignments, see [Create and manage roles](user-roles.md).\n \n   > [!IMPORTANT]\n-  > The option to upload a file to the library is only available to users with \"Manage Security Settings\" permission.\n-  > The button is greyed out for users with only delegated permissions.\n+  > The option to upload a file to the library is only available to users with \"Manage Security Settings\" permission. The button is greyed out for users with only delegated permissions.\n \n   Depending on the role that's been granted to you, you can run basic or advanced live response commands. Users permissions are controlled by RBAC custom role.\n \n ## Live response dashboard overview\n \n-When you initiate a live response session on a device, a dashboard opens. The dashboard provides information about the session such as the following:\n+When you initiate a live response session on a device, a dashboard opens. The dashboard provides information about the session. For example:\n \n - Who created the session\n - When the session started\n - The duration of the session\n \n-The dashboard also gives you access to:\n+The dashboard also gives you access to actions for the session. For example:\n \n - Disconnect session\n - Upload files to the library\n@@ -142,45 +135,45 @@ Depending on the role that's been granted to you, you can run basic or advanced\n \n The following commands are available for user roles that are granted the ability to run **basic** live response commands. For more information on role assignments, see [Create and manage roles](user-roles.md).\n \n-| Command  | Description  | Windows and Windows Server  | macOS  | Linux  |\n-|---|---|---|---|---|\n-| `cd`  | Changes the current directory.  | Y  | Y  | Y  |\n-| `cls`  | Clears the console screen.  | Y  | Y  | Y  |\n-| `connect`  | Initiates a live response session to the device.  | Y  | Y  | Y  |\n-| `connections`  | Shows all the active connections.  | Y  | N  | N  |\n-| `dir`  | Shows a list of files and subdirectories in a directory.  | Y  | Y  | Y  |\n-| `drivers`  | Shows all drivers installed on the device.  | Y  | N  | N  |\n-| `fg <command ID>`  | Place the specified job in the foreground, making it the current job.  Note that `fg` takes a `command ID` available from jobs, not a PID.  | Y  | Y  | Y  |\n-| `fileinfo`  | Get information about a file.  | Y  | Y  | Y  |\n-| `findfile`  | Locates files by a given name on the device.  | Y  | Y  | Y  |\n-| `getfile <file_path>`  | Downloads a file.  | Y  | Y  | Y  |\n-| `help`  | Provides help information for live response commands.  | Y  | Y  | Y  |\n-| `jobs`  | Shows currently running jobs, their ID and status.  | Y  | Y  | Y  |\n-| `persistence`  | Shows all known persistence methods on the device.  | Y  | N  | N  |\n-| `processes`  | Shows all processes running on the device.  | Y  | Y  | Y  |\n-| `registry`  | Shows registry values.  | Y  | N  | N  |\n-| `scheduledtasks`  | Shows all scheduled tasks on the device.  | Y  | N  | N  |\n-| `services`  | Shows all services on the device.  | Y  | N  | N  |\n-| `startupfolders`  | Shows all known files in startup folders on the device.  | Y  | N  | N  |\n-| `status`  | Shows the status and output of specific command.  | Y  | Y  | Y  |\n-| `trace`  | Sets the terminal's logging mode to debug.  | Y  | Y  | Y  |\n+|Command|Description|Windows and Windows Server|macOS|Linux|\n+|---|---|:---:|:---:|:---:|\n+|`cd`|Changes the current directory.|Y|Y|Y|\n+|`cls`|Clears the console screen.|Y|Y|Y|\n+|`connect`|Initiates a live response session to the device.|Y|Y|Y|\n+|`connections`|Shows all the active connections.|Y|N|N|\n+|`dir`|Shows a list of files and subdirectories in a directory.|Y|Y|Y|\n+|`drivers`|Shows all drivers installed on the device.|Y|N|N|\n+|`fg <command ID>`|Place the specified job in the foreground, making it the current job. `fg` takes a `command ID` available from jobs, not a PID.|Y|Y|Y|\n+|`fileinfo`|Get information about a file.|Y|Y|Y|\n+|`findfile`|Locates files by a given name on the device.|Y|Y|Y|\n+|`getfile <file_path>`|Downloads a file.|Y|Y|Y|\n+|`help`|Provides help information for live response commands.|Y|Y|Y|\n+|`jobs`|Shows currently running jobs, their ID and status.|Y|Y|Y|\n+|`persistence`|Shows all known persistence methods on the device.|Y|N|N|\n+|`processes`|Shows all processes running on the device.|Y|Y|Y|\n+|`registry`|Shows registry values.|Y|N|N|\n+|`scheduledtasks`|Shows all scheduled tasks on the device.|Y|N|N|\n+|`services`|Shows all services on the device.|Y|N|N|\n+|`startupfolders`|Shows all known files in startup folders on the device.|Y|N|N|\n+|`status`|Shows the status and output of specific command.|Y|Y|Y|\n+|`trace`|Sets the terminal's logging mode to debug.|Y|Y|Y|\n \n ### Advanced commands\n \n The following commands are available for user roles that are granted the ability to run **advanced** live response commands. For more information on role assignments, see [Create and manage roles](user-roles.md).\n \n-| Command  | Description  | Windows and Windows Server  | macOS  | Linux  |\n-|---|---|---|---|---|\n-| `analyze`  | Analyses the entity with various incrimination engines to reach a verdict.  | Y  | N  | N  |\n-| `collect`  | Collects forensics package from device.  | N  | Y  | Y  |\n-| `isolate`  | Disconnects the device from the network while retaining connectivity to the Defender for Endpoint service.  | N  | Y  | N  |\n-| `release`  | Releases a device from network isolation.  | N  | Y  | N  |\n-| `run`  | Runs a PowerShell script from the library on the device.  | Y  | Y  | Y  |\n-| `library`  | Lists files that were uploaded to the live response library.  | Y  | Y  | Y  |\n-| `putfile`  | Puts a file from the library to the device. Files are saved in a working folder and are deleted when the device restarts by default.  | Y  | Y  | Y  |\n-| `remediate`  | Remediates an entity on the device. The remediation action varies, depending on the entity type: <br/>- File: delete<br/>- Process: stop, delete image file<br/>- Service: stop, delete image file<br/>- Registry entry: delete<br/>- Scheduled task: remove<br/>- Startup folder item: delete file<br/><br/>This command has a prerequisite command. You can use the `-auto` command in conjunction with remediate to automatically run the prerequisite command.  | Y  | Y  | Y  |\n-| `scan` | Runs a quick antivirus scan to help identify and remediate malware. | N | Y | Y |\n-| `undo`  | Restores an entity that was remediated.  | Y  | N  | N  |\n+|Command|Description|Windows and Windows Server|macOS|Linux|\n+|---|---|:---:|:---:|:---:|\n+|`analyze`|Analyses the entity with various incrimination engines to reach a verdict.|Y|N|N|\n+|`collect`|Collects forensics package from device.|N|Y|Y|\n+|`isolate`|Disconnects the device from the network while retaining connectivity to the Defender for Endpoint service.|N|Y|N|\n+|`release`|Releases a device from network isolation.|N|Y|N|\n+|`run`|Runs a PowerShell script from the library on the device.|Y|Y|Y|\n+|`library`|Lists files that were uploaded to the live response library.|Y|Y|Y|\n+|`putfile`|Puts a file from the library to the device. Files are saved in a working folder and are deleted when the device restarts by default.|Y|Y|Y|\n+|`remediate`|Remediates an entity on the device. The remediation action varies, depending on the entity type: <ul><li>**File**: delete</li><li>**Process**: stop, delete image file </li><li>**Service**: stop, delete image file</li><li>**Registry entry**: delete</li><li>**Scheduled task**: remove</li><li>**Startup folder item**: delete file</li></ul> <br/> This command has a prerequisite command. You can use the `-auto` command in conjunction with remediate to automatically run the prerequisite command.|Y|Y|Y|\n+|`scan`|Runs a quick antivirus scan to help identify and remediate malware.|N|Y|Y|\n+|`undo`|Restores an entity that was remediated.|Y|N|N|\n \n > [!NOTE]\n > The following file size limits apply for `putfile` live response command:\n@@ -188,7 +181,6 @@ The following commands are available for user roles that are granted the ability\n > - Windows: 300 MB\n > - Other platforms: 10 MB\n \n-\n ## Use live response commands\n \n The commands that you can use in the console follow similar principles as [Windows Commands](/windows-server/administration/windows-commands/windows-commands#BKMK_c).\n@@ -220,7 +212,6 @@ Here are some examples:\n |---|---|\n |`getfile \"C:\\windows\\some_file.exe\" &`|Starts downloading a file named *some_file.exe* in the background.|\n |`fg 1234`|Returns a download with command ID *1234* to the foreground.|\n-|\n \n ### Put a file in the library\n \n@@ -333,7 +324,7 @@ Select the **Command log** tab to see the commands used on the device during a s\n - Live response sessions are limited to 25 live response sessions at a time.\n - Live response session inactive timeout value is 30 minutes.\n - Individual live response commands have a time limit of 10 minutes, with the exception of `getfile`, `findfile`, and `run`, which have a limit of 30 minutes.\n-- A user can initiate up to 10 concurrent sessions.\n+- A user can initiate up to five concurrent sessions.\n - A device can only be in one session at a time.\n - The following file size limits apply:\n   - `getfile` limit: 3 GB\n@@ -345,4 +336,3 @@ Select the **Command log** tab to see the commands used on the device during a s\n - [Live response command examples](live-response-command-examples.md)\n \n [!INCLUDE [Microsoft Defender for Endpoint Tech Community](../includes/defender-mde-techcommunity.md)]\n-\n",
+      "baseCommitSha": "6b4798d7b2c3eb50ad1b69f256c8ab16a254bb5a",
+      "commitSha": "1d36401d31e9da9fc5be309d5733b045f0c31001",
+      "commitMessage": "Update live-response.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-05T12:10:47-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/live-response.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/live-response",
+      "firstSeenAt": "2026-01-05T20:10:47.000Z",
+      "eventId": "defender-docs:1d36401d31e9da9fc5be309d5733b045f0c31001:modified:defender-endpoint/live-response.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update live-response.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/live-response.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "defender-endpoint/gov.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 11,
+      "changes": 17,
+      "patch": "diff --git a/defender-endpoint/gov.md b/defender-endpoint/gov.md\nindex f51dc4769..4cb35c3a9 100644\n--- a/defender-endpoint/gov.md\n+++ b/defender-endpoint/gov.md\n@@ -7,7 +7,7 @@ ms.author: kesharab\n author: KesemSharabi\n ms.reviewer: jesquive\n ms.localizationpriority: medium\n-ms.date: 05/30/2025\n+ms.date: 01/05/2026\n manager: bagol\n audience: ITPro\n ms.collection: \n@@ -109,7 +109,6 @@ The following OS versions are supported:\n \n The following OS versions are supported when using [Microsoft Defender for servers](/azure/security-center/security-center-wdatp):\n \n-\n |OS version|GCC|GCC High|DoD|\n |:---|:---:|:---:|:---:|\n |Windows Server 2022 and later|:::image type=\"icon\" source=\"media/svg/check-yes.svg\" border=\"false\":::|:::image type=\"icon\" source=\"media/svg/check-yes.svg\" border=\"false\":::|:::image type=\"icon\" source=\"media/svg/check-yes.svg\" border=\"false\":::|\n@@ -127,11 +126,10 @@ If a proxy or firewall is blocking all traffic by default and allowing only spec\n \n The following downloadable spreadsheet lists the services and their associated URLs your network must be able to connect to. Verify there are no firewall or network-filtering rules that would deny access to these URLs, or create an *allow* rule specifically for them.\n \n-\n-| Spreadsheet of domains list  | Description  |\n-|---------|---------|\n-| Microsoft Defender for Endpoint Streamlined Connectivity URL list for Gov/GCC/DoD (Preview) | List of consolidated URLs for service locations, geographic locations, and OS for Gov/GCC/DoD customers. <br/><br/> [See the full list](streamlined-device-connectivity-urls-gov.md). |\n-| Microsoft Defender for Endpoint Standard Connectivity URL list for Gov/GCC/DoD | Spreadsheet of specific DNS records for service locations, geographic locations, and OS for Gov/GCC/DoD customers. <br/><br/> [Download the spreadsheet here.](https://aka.ms/MDE-gov-urls) |\n+|Spreadsheet of domains list|Description|\n+|---|---|\n+|Microsoft Defender for Endpoint Streamlined Connectivity URL list for Gov/GCC/DoD (Preview)|List of consolidated URLs for service locations, geographic locations, and OS for Gov/GCC/DoD customers. <br/><br/> [See the full list](streamlined-device-connectivity-urls-gov.md).|\n+|Microsoft Defender for Endpoint Standard Connectivity URL list for Gov/GCC/DoD|Spreadsheet of specific DNS records for service locations, geographic locations, and OS for Gov/GCC/DoD customers. <br/><br/> [Download the spreadsheet here.](https://aka.ms/MDE-gov-urls)|\n \n For more information, see [Configure device proxy and Internet connectivity settings](configure-proxy-internet.md).\n \n@@ -142,8 +140,7 @@ For more information, see [Configure device proxy and Internet connectivity sett\n \n ## API\n \n-Instead of the public URIs listed in our [API documentation](/defender-vulnerability-management/tvm-supported-os), you need to use the following URIs:\n-\n+Instead of the public URIs listed in our [API documentation](api/exposed-apis-list.md), you need to use the following URIs:\n \n |Endpoint type|GCC|GCC High & DoD|\n |---|---|---|\n@@ -163,7 +160,6 @@ These are the known gaps:\n |Microsoft Defender for Endpoint Security Configuration Management|:::image type=\"icon\" source=\"media/svg/check-yes.svg\" border=\"false\":::|:::image type=\"icon\" source=\"media/svg/check-yes.svg\" border=\"false\":::|:::image type=\"icon\" source=\"media/svg/check-yes.svg\" border=\"false\":::|\n |Microsoft Defender for IoT enterprise IoT security|:::image type=\"icon\" source=\"media/svg/check-no.svg\" border=\"false\":::|:::image type=\"icon\" source=\"media/svg/check-no.svg\" border=\"false\":::|:::image type=\"icon\" source=\"media/svg/check-no.svg\" border=\"false\":::|\n \n-\n > [!NOTE]\n > While Microsoft Secure Score is available for GCC, GCC High and DoD customers, there are some security recommendations that aren't available.\n \n@@ -189,4 +185,3 @@ These are the features and known gaps for [Mobile Threat Defense (Microsoft Defe\n > - Request CVE support\n \n [!INCLUDE [Microsoft Defender for Endpoint Tech Community](../includes/defender-mde-techcommunity.md)]\n-\n",
+      "baseCommitSha": "1d36401d31e9da9fc5be309d5733b045f0c31001",
+      "commitSha": "a23a039bdad399d3d52913662c7bf83a85bfb8e7",
+      "commitMessage": "Update gov.md",
+      "commitAuthor": "Chris Davis",
+      "commitDate": "2026-01-05T13:42:37-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/public/defender-endpoint/gov.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/gov",
+      "firstSeenAt": "2026-01-05T21:42:37.000Z",
+      "eventId": "defender-docs:a23a039bdad399d3d52913662c7bf83a85bfb8e7:modified:defender-endpoint/gov.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Update gov.md",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/gov.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 12,
+    "totalFiles": 12,
+    "authors": [
+      "AbbyMSFT",
+      "Chris Davis",
+      "Devorah Cohen",
+      "Josh Bregman",
+      "Vipul"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
+        "sourceFiles": [
+          "defender-xdr/manage-rbac.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/protect-salesforce.md",
+          "defender-for-cloud-apps/protect-salesforce.md",
+          "defender-for-cloud-apps/release-notes.md",
+          "defender-for-cloud-apps/release-notes.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-resources.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/live-response.md. Updated Microsoft Defender documentation in defender-endpoint/gov.md.",
+        "sourceFiles": [
+          "defender-endpoint/mac-resources.md",
+          "defender-endpoint/enable-controlled-folders.md",
+          "defender-endpoint/enable-controlled-folders.md",
+          "defender-endpoint/device-control-faq.md",
+          "defender-endpoint/device-control-faq.md",
+          "defender-endpoint/live-response.md",
+          "defender-endpoint/gov.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-resources.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/live-response.md. Updated Microsoft Defender documentation in defender-endpoint/gov.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
