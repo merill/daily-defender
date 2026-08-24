@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/attack-surface-reduction-rules-configure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/attack-surface-reduction-rules-configure.md b/defender-endpoint/attack-surface-reduction-rules-configure.md\nindex 149995c812..9c58636403 100644\n--- a/defender-endpoint/attack-surface-reduction-rules-configure.md\n+++ b/defender-endpoint/attack-surface-reduction-rules-configure.md\n@@ -432,7 +432,7 @@ On the target device, use the following PowerShell command syntax in an elevated\n The following example uses `Set-MpPreference` to configure four ASR rules in a single command, setting each rule to a different mode (**Enabled**, **Disabled**, or **AuditMode**):\n \n ```powershell\n-Set-MpPreference -AttackSurfaceReductionRules_Ids 26190899-1602-49e8-8b27-eb1d0a1ce869,3b576869-a4ec-4529-8536-b80a7769e899,e6db77e5-3df2-4cf1-b95a-636979351e5,01443614-cd74-433a-b99e-2ecdc07bfc25 -AttackSurfaceReductionRules_Actions Enabled,Enabled,Disabled,AuditMode\n+Set-MpPreference -AttackSurfaceReductionRules_Ids 26190899-1602-49e8-8b27-eb1d0a1ce869,3b576869-a4ec-4529-8536-b80a7769e899,e6db77e5-3df2-4cf1-b95a-636979351e5b,01443614-cd74-433a-b99e-2ecdc07bfc25 -AttackSurfaceReductionRules_Actions Enabled,Enabled,Disabled,AuditMode\n ```\n \n ### Configure global ASR rule exclusions in PowerShell\n",
+      "baseCommitSha": "fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d",
+      "commitSha": "006010059c9f3a88751d78210558621999d85846",
+      "commitMessage": "Update attack-surface-reduction-rules-configure.md (#584)",
+      "commitAuthor": "Anas",
+      "commitDate": "2026-08-24 06:01:47 +0100",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/attack-surface-reduction-rules-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-configure",
+      "eventId": "defender-docs:006010059c9f3a88751d78210558621999d85846:modified:defender-endpoint/attack-surface-reduction-rules-configure.md",
+      "firstSeenAt": "2026-08-24T09:03:42.236Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "PowerShell example updates an ASR rule identifier",
+        "summary": "The command example changes one Attack Surface Reduction rule ID from ending in `...e5` to `...e5b`.",
+        "adminImpact": "No required action is stated; use the updated identifier when copying the example.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Anas"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The command example changes one Attack Surface Reduction rule ID from ending in `...e5` to `...e5b`.",
+        "sourceFiles": [
+          "defender-endpoint/attack-surface-reduction-rules-configure.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The command example changes one Attack Surface Reduction rule ID from ending in `...e5` to `...e5b`."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
