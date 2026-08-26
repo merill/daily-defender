@@ -6687,6 +6687,34 @@
         "outputTokens": 626,
         "costUsd": 0.000954
       }
+    },
+    "2026-08-25": {
+      "headline": "Defender XDR adds unified identity actions and a consolidated timeline this fall",
+      "overview": "Two Defender XDR identity-protection announcements set out a fall 2026 rollout: centralized response actions across linked identities, followed by a richer Identity-page timeline that combines activity and alerts from Microsoft security sources.",
+      "adminImpact": "The unified timeline requires no enablement action and does not change existing policies. It will roll out from mid-September through mid-October 2026. Unified response actions are scheduled to begin rolling out worldwide in mid-October, giving teams one workflow for supported identity response operations.",
+      "keyChanges": [
+        {
+          "title": "Unified response actions across identity accounts",
+          "detail": "Defender XDR will let security teams manage actions such as disabling accounts and forcing password changes across linked accounts from one workflow. The capability supports multiple identity systems and SaaS apps, with worldwide rollout beginning in mid-October 2026.",
+          "product": "Defender XDR",
+          "sourceId": "MC1461704"
+        },
+        {
+          "title": "Identity page receives a unified Timeline",
+          "detail": "The Identity page’s Timeline tab will show a chronological view of identity-related activities and alerts from multiple Microsoft security sources, with improved context, filtering, and automatic updates. Rollout is planned from mid-September through mid-October 2026; no action is required to enable it, and existing policies are unchanged.",
+          "product": "Defender XDR",
+          "sourceId": "MC1461705"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-26T03:19:06.674Z",
+      "usage": {
+        "inputTokens": 1173,
+        "outputTokens": 816,
+        "costUsd": 0.001214
+      }
     }
   },
   "weeks": {
@@ -7999,13 +8027,25 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08-24": {
-      "headline": "Attack Surface Reduction example corrects a rule identifier ending in e5b",
-      "overview": "The Endpoint Attack Surface Reduction Rules configuration example now uses a rule ID ending in `...e5b` instead of `...e5`. The supplied update describes a corrected command example; no product-behavior change or required administrator action is stated.",
-      "adminImpact": "Administrators copying the command should use the updated rule identifier ending in `...e5b`.",
+      "headline": "Defender XDR unifies identity timelines and response actions across accounts",
+      "overview": "Microsoft announced two Defender XDR identity-protection changes: a unified Identity-page timeline rolling out from mid-September through mid-October 2026, followed by unified response actions beginning worldwide in mid-October. An Endpoint documentation update also corrects an Attack Surface Reduction Rules command example’s rule identifier.",
+      "adminImpact": "The unified timeline will update automatically without changing existing policies or requiring enablement. The response-action rollout will let teams disable accounts or force password changes across linked accounts, identity systems, and SaaS apps from one workflow. For Endpoint command examples, use the corrected identifier ending in `...e5b`.",
       "keyChanges": [
         {
-          "title": "ASR command example updates one rule ID",
-          "detail": "The Attack Surface Reduction Rules Configure example changes one Attack Surface Reduction rule identifier from ending in `...e5` to ending in `...e5b`.",
+          "title": "Unified identity response actions begin mid-October",
+          "detail": "Defender XDR will let security teams manage actions such as disabling accounts and forcing password changes across linked identity accounts from one workflow. The capability supports multiple identity systems and SaaS apps, with worldwide rollout beginning in mid-October 2026.",
+          "product": "Defender XDR",
+          "sourceId": "MC1461704"
+        },
+        {
+          "title": "Identity Timeline gains a unified chronological view",
+          "detail": "The Identity page’s Timeline tab will combine identity-related activities and alerts from multiple Microsoft security sources, with improved context, filtering, and automatic updates. Rollout is scheduled from mid-September through mid-October 2026; existing policies do not change and no enablement action is required.",
+          "product": "Defender XDR",
+          "sourceId": "MC1461705"
+        },
+        {
+          "title": "Attack Surface Reduction command example corrects a rule identifier",
+          "detail": "An Endpoint command example changes one Attack Surface Reduction rule ID from an identifier ending in `...e5` to one ending in `...e5b`. Administrators copying the example should use the updated identifier.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-24-attack-surface-reduction-rules-configure-01"
         }
@@ -8013,11 +8053,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-24T09:03:51.166Z",
+      "generatedAt": "2026-08-26T03:19:06.674Z",
       "usage": {
-        "inputTokens": 821,
-        "outputTokens": 363,
-        "costUsd": 0.0006
+        "inputTokens": 1081,
+        "outputTokens": 923,
+        "costUsd": 0.001324
       }
     }
   },
@@ -8296,54 +8336,54 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08": {
-      "headline": "Defender admins face an Android update deadline, Unified RBAC auto-enablement, and Edge retirements",
-      "overview": "August’s main administrator work is time-bound: update the Microsoft Defender for Endpoint Android app to version 1.0.9107.0101 or later by mid-September; prepare for Defender Unified RBAC auto-enablement from late September through December; and migrate Windows 10 deployments before Edge retires WIP and MDAG by late September. Microsoft also detailed the Purview Data Security Triage Agent’s AI DLP summaries and clarified domain-versus-wildcard blocking in the Tenant Allow Block List.",
-      "adminImpact": "Prioritize verifying and updating the Defender for Endpoint Android app, including notifying users who manage their own updates; no other configuration changes are required. Use the 30-day Unified RBAC notification period to review roles that will be imported, with opt-out available after activation. Organizations using WIP or MDAG on Windows 10 should plan migration to Microsoft Purview solutions and Edge built-in security features; those capabilities are already removed in Windows 11 version 24H2. The DLP triage agent is deployed from Defender XDR and managed in Purview, while existing policies remain unchanged. For Tenant Allow Block List entries, blocking a domain and its subdomains requires separate entries for the apex domain and its wildcard, such as contoso.com and *.contoso.com.",
+      "headline": "Unified RBAC and Edge retirements set Defender’s key fall deadlines",
+      "overview": "August’s consequential Defender changes are a permissions transition and several endpoint deadlines: Unified RBAC auto-enablement begins in late September and finishes by December; Edge support for Windows Information Protection and Microsoft Defender Application Guard ends by late September; and the Defender for Endpoint Android app must reach version 1.0.9107.0101 or later by mid-September. Microsoft also scheduled AI-generated DLP triage summaries for Defender XDR and added more precise macOS NetExt troubleshooting guidance.",
+      "adminImpact": "Prioritize the Android version check and, for Windows 10 deployments using WIP or MDAG, begin migration to Microsoft Purview solutions and Edge built-in security features. Use the 30-day Unified RBAC notification period to review imported roles across Defender and Sentinel workloads; Microsoft says opt-out is available after activation. The DLP triage agent is deployed from Defender XDR and managed in Purview, while existing policies remain unchanged. For Mac incidents, determine whether NetExt or Network Protection is involved before disabling components and use the documented diagnostic workflow.",
       "keyChanges": [
         {
-          "title": "Android threat protection requires app version 1.0.9107.0101 by mid-September",
-          "detail": "Microsoft Defender for Endpoint Android must be updated to version 1.0.9107.0101 or later by mid-September 2026. Microsoft attributes the deadline to infrastructure changes and warns of disruption to mobile threat protection. Administrators should verify and update devices and inform users responsible for their own updates; no other configuration changes are needed.",
-          "product": "Microsoft Defender for Endpoint (Android)",
-          "sourceId": "MC1454382"
-        },
-        {
-          "title": "Unified RBAC will auto-enable tenants beginning in late September",
-          "detail": "Microsoft Defender Unified RBAC will auto-enable tenants beginning in late September 2026, with activation completing by December 2026. It unifies access management across Defender and Sentinel workloads, imports existing roles, and provides a 30-day notification period before activation. Tenants can opt out after activation; other Microsoft permissions remain unchanged.",
-          "product": "Microsoft Defender Unified RBAC",
+          "title": "Unified RBAC will auto-enable across Defender and Sentinel workloads",
+          "detail": "Tenant activation starts in late September 2026 and completes by December 2026. Existing roles are imported, with a 30-day notification period before activation; opt-out is available after activation, and other Microsoft permissions remain unchanged.",
+          "product": "Defender XDR",
           "sourceId": "MC1457836"
         },
         {
-          "title": "Edge retires WIP and MDAG support by late September",
-          "detail": "Microsoft Edge will retire support for Windows Information Protection and Microsoft Defender Application Guard by late September 2026. Organizations using these capabilities on Windows 10 must migrate to Microsoft Purview solutions and Edge’s built-in security features. Both capabilities are already removed in Windows 11 version 24H2.",
-          "product": "Microsoft Edge and Defender XDR endpoint protection",
+          "title": "Edge will retire WIP and MDAG support by late September",
+          "detail": "Microsoft Edge support for Windows Information Protection and Microsoft Defender Application Guard retires by late September 2026. Organizations using these capabilities on Windows 10 need to migrate to Microsoft Purview solutions and Edge built-in security features; both capabilities are already removed in Windows 11 version 24H2.",
+          "product": "Defender XDR / Microsoft Edge",
           "sourceId": "MC1459132"
         },
         {
-          "title": "AI-generated DLP triage summaries are coming through Defender XDR",
-          "detail": "Microsoft Purview’s Data Security Triage Agent introduces AI-generated summaries and categorizations for DLP alerts inside Microsoft Defender XDR. The agent can be deployed from Defender XDR and managed in Purview. The announcement schedules preview rollout from April 2026 and general availability for August 2027; existing DLP policies remain unchanged.",
-          "product": "Microsoft Defender XDR and Microsoft Purview",
+          "title": "Defender for Endpoint Android requires a new minimum app version",
+          "detail": "Update the Android app to version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption to mobile threat protection caused by infrastructure changes. Devices and users who manage their own updates should be checked; no other configuration change is required.",
+          "product": "Defender for Endpoint",
+          "sourceId": "MC1454382"
+        },
+        {
+          "title": "AI DLP triage summaries are coming to Defender XDR",
+          "detail": "The Data Security Triage Agent provides AI-generated summaries and categorizations for DLP alerts. It can be deployed from Defender XDR and managed in Microsoft Purview; the stated schedule is preview rollout from April 2026 and general availability in August 2027, with existing policies unchanged.",
+          "product": "Defender XDR / Microsoft Purview",
           "sourceId": "MC1255406"
         },
         {
-          "title": "Tenant Allow Block List now separates apex and wildcard domain scope",
-          "detail": "The updated Microsoft Defender for Office 365 guidance states that a block entry for contoso.com covers only that domain, while *.contoso.com covers subdomains but not contoso.com itself. To block both the specified domain and its subdomains, administrators must create separate entries for contoso.com and *.contoso.com.",
-          "product": "Microsoft Defender for Office 365",
-          "sourceId": "doc-2026-08-03-tenant-allow-block-list-email-spoof-configure-01"
+          "title": "Mac guidance separates NetExt visibility from Network Protection enforcement",
+          "detail": "The updated troubleshooting page explains that NetExt supplies network event data used by multiple Defender for Endpoint capabilities. Network Protection depends on NetExt, but disabling Network Protection enforcement is different from disabling NetExt. The procedure adds health checks for network protection and system extensions, state testing, diagnostic collection, and a warning that disabling NetExt reduces network visibility and disables dependent capabilities.",
+          "product": "Defender for Endpoint on macOS",
+          "sourceId": "doc-2026-08-11-troubleshoot-network-extension-netext-issues-in-defender-for-endpoint-on-mac-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-24T09:03:51.166Z",
+      "generatedAt": "2026-08-26T03:19:06.674Z",
       "usage": {
-        "inputTokens": 6154,
-        "outputTokens": 9113,
-        "costUsd": 0.012166
+        "inputTokens": 6453,
+        "outputTokens": 7208,
+        "costUsd": 0.00994
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-24T09:03:51.166Z",
+  "generatedAt": "2026-08-26T03:19:06.674Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8354,18 +8394,24 @@
       "outputTokens": 10102,
       "requests": 3,
       "costUsd": 0.013721
+    },
+    "2026-08-26": {
+      "inputTokens": 8707,
+      "outputTokens": 8947,
+      "requests": 3,
+      "costUsd": 0.012478
     }
   },
   "lastRun": {
-    "inputTokens": 7991,
-    "outputTokens": 10102,
+    "inputTokens": 8707,
+    "outputTokens": 8947,
     "requests": 3,
-    "costUsd": 0.013721
+    "costUsd": 0.012478
   },
   "totalUsage": {
-    "inputTokens": 7991,
-    "outputTokens": 10102,
-    "requests": 3,
-    "costUsd": 0.013721
+    "inputTokens": 16698,
+    "outputTokens": 19049,
+    "requests": 6,
+    "costUsd": 0.026199
   }
 }
