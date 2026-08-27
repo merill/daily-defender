@@ -6715,6 +6715,28 @@
         "outputTokens": 816,
         "costUsd": 0.001214
       }
+    },
+    "2026-08-26": {
+      "headline": "App Governance retires Cloud Application Administrator support on September 26",
+      "overview": "Microsoft Defender for Cloud Apps will retire App Governance support for the Cloud Application Administrator role on September 26, 2026. The change affects organizations using URBAC and requires role assignments to be reviewed before the cutoff.",
+      "adminImpact": "Review affected administrator assignments by September 25, 2026. Reassign administrators to supported roles, such as Security Administrator, to maintain App Governance access when URBAC is enabled.",
+      "keyChanges": [
+        {
+          "title": "Cloud Application Administrator support is being retired",
+          "detail": "App Governance in Microsoft Defender for Cloud Apps will no longer support the Cloud Application Administrator role after September 26, 2026. Organizations using URBAC should identify affected assignments and move administrators to supported roles before the September 25 review deadline.",
+          "product": "Microsoft Defender for Cloud Apps",
+          "sourceId": "MC1462464"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-27T12:47:22.230Z",
+      "usage": {
+        "inputTokens": 1046,
+        "outputTokens": 634,
+        "costUsd": 0.00097
+      }
     }
   },
   "weeks": {
@@ -8027,25 +8049,31 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08-24": {
-      "headline": "Defender XDR unifies identity timelines and response actions across accounts",
-      "overview": "Microsoft announced two Defender XDR identity-protection changes: a unified Identity-page timeline rolling out from mid-September through mid-October 2026, followed by unified response actions beginning worldwide in mid-October. An Endpoint documentation update also corrects an Attack Surface Reduction Rules command example’s rule identifier.",
-      "adminImpact": "The unified timeline will update automatically without changing existing policies or requiring enablement. The response-action rollout will let teams disable accounts or force password changes across linked accounts, identity systems, and SaaS apps from one workflow. For Endpoint command examples, use the corrected identifier ending in `...e5b`.",
+      "headline": "Cloud Application Administrator support in App Governance retires September 26",
+      "overview": "Microsoft Defender for Cloud Apps will retire App Governance support for the Cloud Application Administrator role on September 26, 2026. Organizations with URBAC enabled should review assignments by September 25 and move affected administrators to supported roles such as Security Administrator. Defender XDR also announced unified identity response actions, a consolidated identity timeline, and an updated Attack Surface Reduction Rules example.",
+      "adminImpact": "Prioritize the App Governance role review before September 25. The identity timeline update requires no action, while unified response actions are scheduled to begin rolling out worldwide in mid-October 2026. Administrators copying the updated Attack Surface Reduction Rules example should use the revised rule identifier.",
       "keyChanges": [
         {
-          "title": "Unified identity response actions begin mid-October",
-          "detail": "Defender XDR will let security teams manage actions such as disabling accounts and forcing password changes across linked identity accounts from one workflow. The capability supports multiple identity systems and SaaS apps, with worldwide rollout beginning in mid-October 2026.",
+          "title": "App Governance retires Cloud Application Administrator support",
+          "detail": "Support for the Cloud Application Administrator role in Microsoft Defender for Cloud Apps App Governance retires on September 26, 2026. Where URBAC is enabled, review affected assignments by September 25 and reassign administrators to supported roles such as Security Administrator to maintain access.",
+          "product": "Defender XDR",
+          "sourceId": "MC1462464"
+        },
+        {
+          "title": "Defender XDR will unify identity response actions",
+          "detail": "A single workflow will support identity response actions across linked accounts, including disabling accounts and forcing password changes. The capability supports multiple identity systems and SaaS apps, with worldwide rollout beginning in mid-October 2026.",
           "product": "Defender XDR",
           "sourceId": "MC1461704"
         },
         {
-          "title": "Identity Timeline gains a unified chronological view",
-          "detail": "The Identity page’s Timeline tab will combine identity-related activities and alerts from multiple Microsoft security sources, with improved context, filtering, and automatic updates. Rollout is scheduled from mid-September through mid-October 2026; existing policies do not change and no enablement action is required.",
+          "title": "Identity pages gain a unified chronological timeline",
+          "detail": "The Identity page’s Timeline tab will combine identity activity and alerts from multiple Microsoft security sources, with improved context, filtering, and automatic updates. Rollout is scheduled from mid-September through mid-October 2026, without changes to existing policies and with no enablement action required.",
           "product": "Defender XDR",
           "sourceId": "MC1461705"
         },
         {
-          "title": "Attack Surface Reduction command example corrects a rule identifier",
-          "detail": "An Endpoint command example changes one Attack Surface Reduction rule ID from an identifier ending in `...e5` to one ending in `...e5b`. Administrators copying the example should use the updated identifier.",
+          "title": "ASR configuration example uses a revised rule identifier",
+          "detail": "The command example changes one Attack Surface Reduction rule ID from ending in `...e5` to `...e5b`. Use the updated identifier when copying the example; no required administrator action is stated beyond that usage.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-24-attack-surface-reduction-rules-configure-01"
         }
@@ -8053,11 +8081,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-26T03:19:06.674Z",
+      "generatedAt": "2026-08-27T12:47:22.230Z",
       "usage": {
-        "inputTokens": 1081,
-        "outputTokens": 923,
-        "costUsd": 0.001324
+        "inputTokens": 1210,
+        "outputTokens": 1007,
+        "costUsd": 0.00145
       }
     }
   },
@@ -8336,54 +8364,54 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08": {
-      "headline": "Unified RBAC and Edge retirements set Defender’s key fall deadlines",
-      "overview": "August’s consequential Defender changes are a permissions transition and several endpoint deadlines: Unified RBAC auto-enablement begins in late September and finishes by December; Edge support for Windows Information Protection and Microsoft Defender Application Guard ends by late September; and the Defender for Endpoint Android app must reach version 1.0.9107.0101 or later by mid-September. Microsoft also scheduled AI-generated DLP triage summaries for Defender XDR and added more precise macOS NetExt troubleshooting guidance.",
-      "adminImpact": "Prioritize the Android version check and, for Windows 10 deployments using WIP or MDAG, begin migration to Microsoft Purview solutions and Edge built-in security features. Use the 30-day Unified RBAC notification period to review imported roles across Defender and Sentinel workloads; Microsoft says opt-out is available after activation. The DLP triage agent is deployed from Defender XDR and managed in Purview, while existing policies remain unchanged. For Mac incidents, determine whether NetExt or Network Protection is involved before disabling components and use the documented diagnostic workflow.",
+      "headline": "Unified RBAC auto-enrollment and September retirements drive Defender administrators' priorities",
+      "overview": "August's priority is access-control change and deadline management: Microsoft Defender Unified RBAC will auto-enable tenants from late September through December 2026, while Defender for Cloud Apps retires App Governance support for Cloud Application Administrator on September 26. Edge's WIP and MDAG retirement and a required Defender for Endpoint Android update create additional September work. The period also brought a planned AI triage capability for DLP alerts; macOS guidance was tightened to distinguish antivirus scanning from EDR and other Endpoint Security event processing, including a hot-event-source and Client Analyzer workflow instead of broadening exclusions.",
+      "adminImpact": "Use the 30-day notification period to review the Defender and Sentinel roles that Unified RBAC will import. Review App Governance assignments by September 25 and reassign affected Cloud Application Administrators to supported roles such as Security Administrator before support retires. Inventory Windows 10 devices using WIP or MDAG and plan migration to Microsoft Purview solutions and Edge built-in security features. Update Defender for Endpoint Android to version 1.0.9107.0101 or later by mid-September, including devices whose users manage updates. For macOS performance incidents involving `wdavdaemon` or `wdavdaemon_enterprise`, collect `sudo mdatp diagnostic hot-event-sources --time=360` while the issue occurs and gather Client Analyzer data; antivirus exclusions do not suppress EDR or",
       "keyChanges": [
         {
-          "title": "Unified RBAC will auto-enable across Defender and Sentinel workloads",
-          "detail": "Tenant activation starts in late September 2026 and completes by December 2026. Existing roles are imported, with a 30-day notification period before activation; opt-out is available after activation, and other Microsoft permissions remain unchanged.",
+          "title": "Unified RBAC will auto-enable tenants from late September through December",
+          "detail": "Microsoft Defender Unified RBAC will activate automatically across Defender and Sentinel workloads, importing existing roles and providing a 30-day notification period before activation. Administrators can opt out after activation; other Microsoft permissions remain unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1457836"
         },
         {
-          "title": "Edge will retire WIP and MDAG support by late September",
-          "detail": "Microsoft Edge support for Windows Information Protection and Microsoft Defender Application Guard retires by late September 2026. Organizations using these capabilities on Windows 10 need to migrate to Microsoft Purview solutions and Edge built-in security features; both capabilities are already removed in Windows 11 version 24H2.",
-          "product": "Defender XDR / Microsoft Edge",
+          "title": "App Governance drops Cloud Application Administrator support September 26",
+          "detail": "Support for the Cloud Application Administrator role in Microsoft Defender for Cloud Apps App Governance retires on September 26, 2026. Organizations using Unified RBAC should review assignments by September 25 and move affected administrators to supported roles such as Security Administrator.",
+          "product": "Defender XDR (Defender for Cloud Apps App Governance)",
+          "sourceId": "MC1462464"
+        },
+        {
+          "title": "Edge ends WIP and MDAG support by late September",
+          "detail": "Microsoft Edge will retire Windows Information Protection and Microsoft Defender Application Guard support by late September 2026. Organizations using these capabilities on Windows 10 must migrate to Microsoft Purview solutions and Edge's built-in security features; they are already removed in Windows 11 version 24H2.",
+          "product": "Defender XDR (Microsoft Edge)",
           "sourceId": "MC1459132"
         },
         {
-          "title": "Defender for Endpoint Android requires a new minimum app version",
-          "detail": "Update the Android app to version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption to mobile threat protection caused by infrastructure changes. Devices and users who manage their own updates should be checked; no other configuration change is required.",
-          "product": "Defender for Endpoint",
+          "title": "Defender for Endpoint Android requires version 1.0.9107.0101 or later",
+          "detail": "Administrators must update the Microsoft Defender for Endpoint Android app to version 1.0.9107.0101 or later by mid-September 2026 to avoid mobile threat-protection disruption caused by infrastructure changes. No configuration changes are required.",
+          "product": "Defender XDR (Defender for Endpoint Android)",
           "sourceId": "MC1454382"
         },
         {
-          "title": "AI DLP triage summaries are coming to Defender XDR",
-          "detail": "The Data Security Triage Agent provides AI-generated summaries and categorizations for DLP alerts. It can be deployed from Defender XDR and managed in Microsoft Purview; the stated schedule is preview rollout from April 2026 and general availability in August 2027, with existing policies unchanged.",
+          "title": "Data Security Triage Agent adds AI summaries to DLP alerts",
+          "detail": "Microsoft Purview's Data Security Triage Agent introduces AI-generated summaries and categorizations for DLP alerts in Microsoft Defender XDR. It can be deployed from Defender XDR and managed in Purview; the announced schedule lists preview rollout from April 2026 and general availability in August 2027, with existing policies unchanged.",
           "product": "Defender XDR / Microsoft Purview",
           "sourceId": "MC1255406"
-        },
-        {
-          "title": "Mac guidance separates NetExt visibility from Network Protection enforcement",
-          "detail": "The updated troubleshooting page explains that NetExt supplies network event data used by multiple Defender for Endpoint capabilities. Network Protection depends on NetExt, but disabling Network Protection enforcement is different from disabling NetExt. The procedure adds health checks for network protection and system extensions, state testing, diagnostic collection, and a warning that disabling NetExt reduces network visibility and disables dependent capabilities.",
-          "product": "Defender for Endpoint on macOS",
-          "sourceId": "doc-2026-08-11-troubleshoot-network-extension-netext-issues-in-defender-for-endpoint-on-mac-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-26T03:19:06.674Z",
+      "generatedAt": "2026-08-27T12:47:22.230Z",
       "usage": {
-        "inputTokens": 6453,
-        "outputTokens": 7208,
-        "costUsd": 0.00994
+        "inputTokens": 6589,
+        "outputTokens": 11751,
+        "costUsd": 0.015419
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-26T03:19:06.674Z",
+  "generatedAt": "2026-08-27T12:47:22.230Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8400,18 +8428,24 @@
       "outputTokens": 8947,
       "requests": 3,
       "costUsd": 0.012478
+    },
+    "2026-08-27": {
+      "inputTokens": 8845,
+      "outputTokens": 13392,
+      "requests": 3,
+      "costUsd": 0.017839
     }
   },
   "lastRun": {
-    "inputTokens": 8707,
-    "outputTokens": 8947,
+    "inputTokens": 8845,
+    "outputTokens": 13392,
     "requests": 3,
-    "costUsd": 0.012478
+    "costUsd": 0.017839
   },
   "totalUsage": {
-    "inputTokens": 16698,
-    "outputTokens": 19049,
-    "requests": 6,
-    "costUsd": 0.026199
+    "inputTokens": 25543,
+    "outputTokens": 32441,
+    "requests": 9,
+    "costUsd": 0.044038
   }
 }
