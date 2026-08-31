@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "sentinel/normalization-schema-alert.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/sentinel/normalization-schema-alert.md b/sentinel/normalization-schema-alert.md\nindex d92b4a9041..9d205815a3 100644\n--- a/sentinel/normalization-schema-alert.md\n+++ b/sentinel/normalization-schema-alert.md\n@@ -131,7 +131,7 @@ The following table covers fields that provide critical insights into the rules\n | **ThreatName** | Optional | string | The name of the threat or malware identified in the alert.<br><br> e.g. `Init.exe` |\n | **ThreatFirstReportedTime** | Optional | datetime | Date and time when the threat was first reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |\n | **ThreatLastReportedTime** | Optional | datetime | Date and time when the threat was last reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |\n-| **ThreatCategory** | Recommended | Enumerated | \tThe category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominor`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |\n+| **ThreatCategory** | Recommended | Enumerated | \tThe category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominer`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |\n | **ThreatOriginalCategory** | Optional | string | The category of the threat as reported by the originating system. |\n | **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |\n | **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |\n",
+      "baseCommitSha": "006010059c9f3a88751d78210558621999d85846",
+      "commitSha": "28206ade0d7e3a6654583e737f171ae33dd0eef2",
+      "commitMessage": "Fix misspelling of Cryptominer in docs (#590)",
+      "commitAuthor": "Manuel Hauch",
+      "commitDate": "2026-08-31 18:07:26 +0200",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/sentinel/normalization-schema-alert.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/normalization-schema-alert",
+      "eventId": "defender-docs:28206ade0d7e3a6654583e737f171ae33dd0eef2:modified:sentinel/normalization-schema-alert.md",
+      "firstSeenAt": "2026-08-31T16:09:21.518Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected the ThreatCategory value spelling",
+        "summary": "The documented supported value `Cryptominor` was corrected to `Cryptominer` in the alert normalization schema.",
+        "adminImpact": "No administrator action is required; update any documentation references or validation logic that use the misspelled value.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Manuel Hauch"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The documented supported value `Cryptominor` was corrected to `Cryptominer` in the alert normalization schema.",
+        "sourceFiles": [
+          "sentinel/normalization-schema-alert.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The documented supported value `Cryptominor` was corrected to `Cryptominer` in the alert normalization schema."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

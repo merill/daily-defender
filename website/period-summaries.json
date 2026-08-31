@@ -6759,6 +6759,28 @@
         "outputTokens": 617,
         "costUsd": 0.000949
       }
+    },
+    "2026-08-31": {
+      "headline": "`Cryptominer` replaces `Cryptominor` in Sentinel alert normalization schema",
+      "overview": "Microsoft corrected the documented supported schema value from `Cryptominor` to `Cryptominer` for Sentinel alert normalization. This was the only update in the period.",
+      "adminImpact": "No administrator action is required. Teams maintaining documentation or validation logic should replace the misspelled `Cryptominor` value with `Cryptominer`.",
+      "keyChanges": [
+        {
+          "title": "Supported normalization value corrected",
+          "detail": "The Sentinel alert normalization schema now documents `Cryptominer` as the supported value instead of the misspelled `Cryptominor`.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-08-31-normalization-schema-alert-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-31T16:09:26.771Z",
+      "usage": {
+        "inputTokens": 1019,
+        "outputTokens": 337,
+        "costUsd": 0.000608
+      }
     }
   },
   "weeks": {
@@ -8115,6 +8137,28 @@
         "outputTokens": 3217,
         "costUsd": 0.004128
       }
+    },
+    "2026-08-31": {
+      "headline": "Microsoft Sentinel corrects alert schema value from `Cryptominor` to `Cryptominer`",
+      "overview": "Microsoft Sentinel’s incident and response documentation now identifies `Cryptominer`—rather than the misspelled `Cryptominor`—as the supported value in the alert normalization schema.",
+      "adminImpact": "No administrator action is required. Update internal documentation or validation logic if it references `Cryptominor`.",
+      "keyChanges": [
+        {
+          "title": "Alert normalization schema terminology corrected",
+          "detail": "The documented supported value was corrected from `Cryptominor` to `Cryptominer` in the Sentinel alert normalization schema.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-08-31-normalization-schema-alert-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-31T16:09:26.771Z",
+      "usage": {
+        "inputTokens": 817,
+        "outputTokens": 436,
+        "costUsd": 0.000687
+      }
     }
   },
   "months": {
@@ -8392,54 +8436,54 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08": {
-      "headline": "Defender AIR moves into always-on antivirus before September 1 deadline",
-      "overview": "August's clearest administrator deadline is the Microsoft Defender for Endpoint AIR transition: manual triggering and the standalone AIR experience are being removed by early September, and playbooks or scripts that use AIR must be updated before September 1. Defender Unified RBAC will auto-enable tenants from late September through December, while Defender for Cloud Apps retires Cloud Application Administrator support in App Governance on September 26. Other near-term endpoint work includes the Android app update and Edge's WIP/MDAG retirement on Windows 10. Among the documentation updates, revised macOS guidance now distinguishes NetExt from Network Protection and directs administrators toward targeted diagnostics rather than broad antivirus exclusions.",
-      "adminImpact": "Prioritize the hard deadlines: update AIR playbooks and scripts before September 1; bring Defender for Endpoint Android devices to version 1.0.9107.0101 or later by mid-September; review App Governance assignments by September 25; and plan Windows 10 migration from WIP/MDAG to Microsoft Purview and Edge built-in security. For Unified RBAC, use the 30-day notification period to validate imported Defender and Sentinel roles; other Microsoft permissions are stated to remain unchanged. For Mac incidents, identify the affected Defender process and collect the documented diagnostics before changing exclusions, because antivirus exclusions do not suppress EDR or other Endpoint Security event processing.",
+      "headline": "Defender AIR moves into always-on protection ahead of September 1",
+      "overview": "August’s consequential Defender changes center on forced transitions: AIR’s manual and standalone workflow is being removed before September 1, Android clients need a minimum build by mid-September, and Unified RBAC plus Cloud Apps and Edge retirements follow through late September. Microsoft Learn updates were chiefly operational, with macOS guidance separating NetExt, antivirus, and EDR causes, adding health and hot-event diagnostics, and warning that antivirus exclusions do not suppress EDR event processing.",
+      "adminImpact": "Remediate AIR playbooks and scripts before September 1, 2026, and update Microsoft Defender for Endpoint Android devices to version 1.0.9107.0101 or later by mid-September. Track the Unified RBAC notification and activation window, review Cloud Application Administrator assignments by September 25, and migrate Windows 10 deployments using WIP or MDAG to Microsoft Purview solutions and Edge built-in security features. For macOS troubleshooting, use the revised process-specific diagnostics before broad exclusions or NetExt disablement.",
       "keyChanges": [
         {
-          "title": "AIR manual triggering ends as response moves into antivirus",
-          "detail": "Microsoft Defender for Endpoint will integrate automated investigation and response (AIR) into always-on antivirus protection and remove its manual-trigger and standalone experience by early September 2026. Organizations whose playbooks or scripts use AIR must update them before September 1.",
-          "product": "Defender XDR",
+          "title": "AIR’s standalone and manual-triggered workflow ends September 1",
+          "detail": "Microsoft Defender for Endpoint will integrate automated investigation and response into always-on antivirus protection and remove manual triggering and the standalone AIR experience by early September 2026. Organizations using AIR in playbooks or scripts must update them before September 1, 2026.",
+          "product": "Microsoft Defender for Endpoint",
           "sourceId": "MC1411577"
         },
         {
-          "title": "Unified RBAC auto-enablement starts in late September",
-          "detail": "Microsoft Defender Unified RBAC will automatically enable tenants from late September 2026 through December 2026. Existing Defender and Sentinel roles will be imported, with a 30-day notification period before activation; opt-out is available after activation, while other Microsoft permissions remain unchanged.",
-          "product": "Defender XDR",
+          "title": "Android app must reach version 1.0.9107.0101",
+          "detail": "Infrastructure changes require Microsoft Defender for Endpoint Android version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption in mobile threat protection. Administrators should verify and update devices and inform users who manage their own updates; no other configuration changes are required.",
+          "product": "Microsoft Defender for Endpoint Android",
+          "sourceId": "MC1454382"
+        },
+        {
+          "title": "Unified RBAC auto-enables tenants from late September through December",
+          "detail": "Microsoft Defender Unified RBAC will begin auto-enabling tenants in late September 2026 and complete activation by December 2026, importing existing roles after a 30-day notification period. It unifies access management across Defender and Sentinel workloads; an opt-out is available after activation, while other Microsoft permissions remain unchanged.",
+          "product": "Microsoft Defender Unified RBAC",
           "sourceId": "MC1457836"
         },
         {
-          "title": "Cloud Application Administrator support ends for App Governance",
-          "detail": "Defender for Cloud Apps will retire App Governance support for the Cloud Application Administrator role on September 26, 2026. Review assignments by September 25 and move affected administrators to supported roles such as Security Administrator to maintain access when Unified RBAC is enabled.",
-          "product": "Defender XDR",
+          "title": "Cloud Apps retires App Governance support for Cloud Application Administrator",
+          "detail": "Microsoft Defender for Cloud Apps App Governance support for the Cloud Application Administrator role retires on September 26, 2026. Review affected assignments by September 25 and reassign administrators to supported roles such as Security Administrator to maintain access when URBAC is enabled.",
+          "product": "Microsoft Defender for Cloud Apps",
           "sourceId": "MC1462464"
         },
         {
           "title": "Edge retires WIP and MDAG support by late September",
-          "detail": "Microsoft Edge will retire Windows Information Protection and Microsoft Defender Application Guard support by late September 2026. Organizations using these capabilities on Windows 10 must migrate to Microsoft Purview solutions and Edge's built-in security features; both capabilities are already removed in Windows 11 version 24H2.",
-          "product": "Defender XDR",
+          "detail": "Microsoft Edge will retire Windows Information Protection and Microsoft Defender Application Guard by late September 2026. Organizations still using these capabilities on Windows 10 must migrate to Microsoft Purview solutions and Edge built-in security features; both capabilities are already removed in Windows 11 version 24H2.",
+          "product": "Microsoft Edge, Windows Information Protection, and Microsoft Defender Application Guard",
           "sourceId": "MC1459132"
-        },
-        {
-          "title": "Defender for Endpoint Android requires a newer app build",
-          "detail": "Update the Microsoft Defender for Endpoint Android app to version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption to mobile threat protection caused by infrastructure changes. Administrators should verify managed devices and notify users who manage their own app updates.",
-          "product": "Defender XDR",
-          "sourceId": "MC1454382"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-29T13:50:52.693Z",
+      "generatedAt": "2026-08-31T16:09:26.771Z",
       "usage": {
-        "inputTokens": 6742,
-        "outputTokens": 9527,
-        "costUsd": 0.012781
+        "inputTokens": 6951,
+        "outputTokens": 5873,
+        "costUsd": 0.008438
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-29T13:50:52.693Z",
+  "generatedAt": "2026-08-31T16:09:26.771Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8468,18 +8512,24 @@
       "outputTokens": 13361,
       "requests": 3,
       "costUsd": 0.017858
+    },
+    "2026-08-31": {
+      "inputTokens": 8787,
+      "outputTokens": 6646,
+      "requests": 3,
+      "costUsd": 0.009733
     }
   },
   "lastRun": {
-    "inputTokens": 9123,
-    "outputTokens": 13361,
+    "inputTokens": 8787,
+    "outputTokens": 6646,
     "requests": 3,
-    "costUsd": 0.017858
+    "costUsd": 0.009733
   },
   "totalUsage": {
-    "inputTokens": 34666,
-    "outputTokens": 45802,
-    "requests": 12,
-    "costUsd": 0.061896
+    "inputTokens": 43453,
+    "outputTokens": 52448,
+    "requests": 15,
+    "costUsd": 0.071629
   }
 }
