@@ -6783,13 +6783,31 @@
       }
     },
     "2026-09-02": {
-      "headline": "`ProductAppDataPath` typo corrected in Windows Defender service startup guidance",
-      "overview": "The period brought one narrow Endpoint troubleshooting correction: the Windows Defender data path now spells the `ProductAppDataPath` registry value as `Microsoft` instead of `Microsft`.",
-      "adminImpact": "Administrators following the service-startup troubleshooting guidance now have the accurate registry path. No action is required.",
+      "headline": "Defender for Office 365 will quarantine AI-targeting prompt injections by default",
+      "overview": "Microsoft Defender for Office 365 is preparing prompt injection protection for email, with rollout scheduled from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5. The remaining updates are targeted guidance and documentation corrections: Defender XDR now specifies required device identifiers for Sentinel-mapped activity, Defender for Identity documents custom service-account classification, and Endpoint troubleshooting corrects a registry-path typo.",
+      "adminImpact": "No action is required for the email protection rollout. Administrators ingesting custom Sentinel activity should verify the required device-identifier combinations; Identity administrators can use custom classification rules to identify service accounts missed by automatic detection. The Endpoint change provides the accurate registry path for troubleshooting and requires no corrective action.",
       "keyChanges": [
         {
-          "title": "Windows Defender registry path corrected",
-          "detail": "The Troubleshoot Service Startup Problems page changes the `ProductAppDataPath` value in the Windows Defender data path from `Microsft` to `Microsoft`.",
+          "title": "Prompt injection protection planned for email",
+          "detail": "Microsoft Defender for Office 365 will detect and quarantine malicious email content targeting AI assistants. For organizations with Defender Plan 2 or Microsoft 365 E5, automatic high-confidence threat quarantine is enabled by default during the July–October 2026 rollout, with no required administrator action.",
+          "product": "Defender XDR",
+          "sourceId": "MC1422060"
+        },
+        {
+          "title": "Device Timeline mappings require specific identifiers",
+          "detail": "The Entity Page guidance now specifies that custom activity data mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain for correct Device Timeline visibility.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-02-entity-page-device-03"
+        },
+        {
+          "title": "Custom rules can identify missed service accounts",
+          "detail": "Defender for Identity guidance explains that custom classification rules can identify service accounts not detected automatically, including accounts using an `srv` prefix.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-02-service-account-discovery-02"
+        },
+        {
+          "title": "Endpoint troubleshooting path corrected",
+          "detail": "The troubleshooting guidance corrects the `ProductAppDataPath` registry value from `Microsft` to `Microsoft` in the Windows Defender data path, giving administrators the accurate registry path to use when following the procedure.",
           "product": "Endpoint",
           "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
         }
@@ -6797,11 +6815,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-02T07:06:33.073Z",
+      "generatedAt": "2026-09-02T22:39:30.369Z",
       "usage": {
-        "inputTokens": 1024,
-        "outputTokens": 607,
-        "costUsd": 0.000933
+        "inputTokens": 1384,
+        "outputTokens": 1511,
+        "costUsd": 0.00209
       }
     }
   },
@@ -8161,25 +8179,37 @@
       }
     },
     "2026-08-31": {
-      "headline": "Defender XDR will default Purview DLP alerts to behaviors on October 12",
-      "overview": "Microsoft Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default starting October 12, 2026. This is intended to reduce alert volume while keeping DLP data available in Advanced Hunting and Purview. Two documentation updates correct an Endpoint registry path and a Sentinel normalization-schema value.",
-      "adminImpact": "Administrators who need DLP alerts in the Defender XDR incident queue must disable the new rule; otherwise, DLP data remains accessible through Advanced Hunting and Purview. Endpoint administrators should use `Microsoft`, rather than `Microsft`, in the `ProductAppDataPath` registry path. Sentinel users should update references or validation logic that use the corrected `Cryptominer` value.",
+      "headline": "DLP alerts become Defender XDR behaviors by default on October 12",
+      "overview": "The most consequential change is a scheduled Microsoft Defender XDR behavior change: from October 12, 2026, Microsoft Purview DLP alerts will be treated as behaviors by default, reducing alert volume while preserving access to DLP data in Advanced Hunting and Purview. Administrators can disable the rule to keep those alerts in the Defender XDR incident queue. Defender for Office 365 is also rolling out prompt-injection protection for email through October 2026, with automatic quarantine for high-confidence threats targeting AI assistants.",
+      "adminImpact": "Decide whether the reduced Defender XDR alert volume is appropriate for the organization and disable the DLP rule if DLP alerts must remain in the incident queue. For custom Sentinel activity mapped to Defender XDR, use HostName plus either NTDomain or DnsDomain for Device Timeline visibility. Organizations using Defender for Identity can apply custom classification rules to identify otherwise-undetected service accounts. No administrator action is required for the email prompt-injection rollout; the documented Sentinel value correction matters only where the misspelled token is used in references or validation logic.",
       "keyChanges": [
         {
-          "title": "Purview DLP alerts will become behaviors by default",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while retaining DLP data in Advanced Hunting and Purview. Administrators can disable the rule to keep DLP alerts in the Defender XDR incident queue.",
+          "title": "DLP alerts shift to behavior records by default",
+          "detail": "Starting October 12, 2026, Microsoft Purview DLP alerts in Defender XDR will be set as behaviors by default. This is intended to reduce alert volume while keeping DLP data available in Advanced Hunting and Purview; administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Endpoint troubleshooting guidance fixes the Windows Defender data path",
-          "detail": "The `ProductAppDataPath` registry value is corrected from `Microsft` to `Microsoft` in the Windows Defender data path. The change provides the accurate path for administrators following the troubleshooting procedure.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
+          "title": "Email prompt-injection protection rolls out for Defender for Office 365",
+          "detail": "Defender for Office 365 is introducing protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic high-confidence threat quarantine enabled by default and no required action stated.",
+          "product": "Defender XDR",
+          "sourceId": "MC1422060"
         },
         {
-          "title": "Sentinel schema guidance corrects the Cryptominer value",
-          "detail": "The supported alert-normalization value is corrected from `Cryptominor` to `Cryptominer`. Administrators maintaining documentation references or validation logic should use the corrected spelling.",
+          "title": "Sentinel-to-XDR custom activity requires paired device identifiers",
+          "detail": "The Device entity guidance specifies that custom activity mapped from Sentinel to Microsoft Defender XDR must contain either HostName plus NTDomain or HostName plus DnsDomain for the data to appear correctly in Device Timeline.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-02-entity-page-device-03"
+        },
+        {
+          "title": "Custom classification rules document a route to finding service accounts",
+          "detail": "Defender for Identity guidance now explains that custom classification rules can identify service accounts the product does not detect automatically, including accounts using an `srv` prefix.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-02-service-account-discovery-02"
+        },
+        {
+          "title": "Alert normalization uses the corrected Cryptominer value",
+          "detail": "The Sentinel alert normalization schema now documents `Cryptominer` as the supported value instead of the misspelled `Cryptominor`. Update dependent references or validation logic if they use the previous spelling.",
           "product": "Sentinel",
           "sourceId": "doc-2026-08-31-normalization-schema-alert-01"
         }
@@ -8187,11 +8217,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-02T07:06:33.073Z",
+      "generatedAt": "2026-09-02T22:39:30.369Z",
       "usage": {
-        "inputTokens": 1077,
-        "outputTokens": 941,
-        "costUsd": 0.001345
+        "inputTokens": 1426,
+        "outputTokens": 2279,
+        "costUsd": 0.00302
       }
     }
   },
@@ -8516,19 +8546,37 @@
       }
     },
     "2026-09": {
-      "headline": "Defender XDR will default Purview DLP alerts to behaviors October 12",
-      "overview": "Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default starting October 12, 2026, reducing alert volume while preserving DLP data in Advanced Hunting and Purview. The period also included a correction to an Endpoint troubleshooting registry path.",
-      "adminImpact": "Administrators who need Purview DLP alerts to remain in the Defender XDR incident queue must disable the new rule. Otherwise, the DLP data remains available through Advanced Hunting and Purview. Endpoint administrators following the troubleshooting guidance should use the corrected `Microsoft` registry path; no further action is required.",
+      "headline": "Defender XDR shifts DLP alerts to behaviors while email prompt protection rolls out",
+      "overview": "Microsoft Defender XDR has a scheduled alert-handling change: starting October 12, 2026, Microsoft Purview DLP alerts will be set as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule if DLP alerts must remain in the Defender XDR incident queue. Defender for Office 365 is also rolling out prompt-injection protection for email through October, with automatic quarantine for high-confidence malicious content targeting AI assistants for organizations with Defender Plan 2 or Microsoft 365 E5. The remaining updates are targeted guidance changes covering Sentinel-mapped Device Timeline identifiers, service-account classification, and a corrected Windows Defender registry-path value.",
+      "adminImpact": "Decide whether DLP alerts should remain in the Defender XDR incident queue and disable the rule if required. No administrator action is required for the email prompt-injection rollout. For custom Sentinel activity mapped to Defender XDR, ensure the data includes HostName plus either NTDomain or DnsDomain. Administrators can review the service-account classification guidance to identify accounts Defender for Identity misses automatically; the corrected registry value provides an accurate troubleshooting path where that guidance is used.",
       "keyChanges": [
         {
-          "title": "Purview DLP alerts will default to behaviors",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default. This is intended to reduce alert volume while keeping DLP data accessible in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "title": "DLP alerts become Defender XDR behaviors on October 12",
+          "detail": "Microsoft Purview DLP alerts will be treated as behaviors by default starting October 12, 2026. This reduces alert volume while preserving DLP data in Advanced Hunting and Purview; disabling the rule keeps the alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Endpoint troubleshooting corrects the ProductAppDataPath value",
-          "detail": "The Windows Defender data path now correctly uses `Microsoft` instead of the misspelled `Microsft` in the `ProductAppDataPath` registry value. The corrected guidance requires no administrator action beyond using the accurate path when following the procedure.",
+          "title": "Email protection targets prompt injection against AI assistants",
+          "detail": "Defender for Office 365 is introducing prompt-injection protection for email, rolling out from July through October 2026. For organizations with Defender Plan 2 or Microsoft 365 E5, high-confidence threats are automatically quarantined by default, with no required administrator action.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1422060"
+        },
+        {
+          "title": "Device Timeline guidance requires a hostname and domain pairing",
+          "detail": "Custom activity mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain for the activity to appear correctly in Device Timeline.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-02-entity-page-device-03"
+        },
+        {
+          "title": "Service-account guidance adds custom classification coverage",
+          "detail": "Defender for Identity guidance now explains that custom classification rules can identify service accounts it does not detect automatically, including accounts that use an `srv` prefix.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-02-service-account-discovery-02"
+        },
+        {
+          "title": "Troubleshooting guidance corrects the ProductAppDataPath value",
+          "detail": "The Windows Defender data path now uses the correctly spelled `Microsoft` token instead of `Microsft` for the `ProductAppDataPath` registry value.",
           "product": "Endpoint",
           "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
         }
@@ -8536,16 +8584,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-02T07:06:33.073Z",
+      "generatedAt": "2026-09-02T22:39:30.369Z",
       "usage": {
-        "inputTokens": 1136,
-        "outputTokens": 789,
-        "costUsd": 0.001174
+        "inputTokens": 1558,
+        "outputTokens": 2463,
+        "costUsd": 0.003267
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-02T07:06:33.073Z",
+  "generatedAt": "2026-09-02T22:39:30.369Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8582,22 +8630,22 @@
       "costUsd": 0.009733
     },
     "2026-09-02": {
-      "inputTokens": 3237,
-      "outputTokens": 2337,
-      "requests": 3,
-      "costUsd": 0.003452
+      "inputTokens": 7605,
+      "outputTokens": 8590,
+      "requests": 6,
+      "costUsd": 0.011829
     }
   },
   "lastRun": {
-    "inputTokens": 3237,
-    "outputTokens": 2337,
+    "inputTokens": 4368,
+    "outputTokens": 6253,
     "requests": 3,
-    "costUsd": 0.003452
+    "costUsd": 0.008377
   },
   "totalUsage": {
-    "inputTokens": 46690,
-    "outputTokens": 54785,
-    "requests": 18,
-    "costUsd": 0.075081
+    "inputTokens": 51058,
+    "outputTokens": 61038,
+    "requests": 21,
+    "costUsd": 0.083458
   }
 }

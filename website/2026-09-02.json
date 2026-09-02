@@ -26,6 +26,58 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-identity/service-account-discovery.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/service-account-discovery.md b/defender-for-identity/service-account-discovery.md\nindex 8fc47a32ac..914998a86d 100644\n--- a/defender-for-identity/service-account-discovery.md\n+++ b/defender-for-identity/service-account-discovery.md\n@@ -99,7 +99,7 @@ Last seen   | The date and time of the most recent sign in event over this conne\n \n ### Define Service Account classification rules\n \n-Service account classification rules let you define your own criteria for identifying service accounts. These rules help you include service accounts that Defender for Identity doesn't identify automatically. For example, some organizations name all their service accounts with a prefix like `srv`. Defender for Identity doesn't automatically detect such naming conventions. By creating a classification rule based on that pattern, you can include those accounts in the Service accounts view.\n+Service account classification rules let you define your own criteria for identifying service accounts. These rules help you include service accounts that Defender for Identity doesn't identify automatically. For example, some organizations name all their service accounts with a prefix like `srv`. Defender for Identity doesn't automatically detect such naming conventions. By creating a classification rule based on that pattern, you can include those accounts in the Service accounts view. Classification rules are applied only to accounts that are not already automatically identified by Defender for Identity. Accounts detected automatically aren't evaluated by classification rules.\n \n Classification rules work alongside Defender for Identity’s automatic discovery and provide a more complete and customized view of service accounts in your environment.\n \n",
+      "baseCommitSha": "9b4ae349a44c5109142002716efd97b1859f1951",
+      "commitSha": "27c95d7d87f6fcda145a390f06275ec4d8e84902",
+      "commitMessage": "Update service-account-discovery.md (#487)",
+      "commitAuthor": "Effie A.",
+      "commitDate": "2026-09-03 01:01:44 +0300",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-for-identity/service-account-discovery.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/service-account-discovery",
+      "eventId": "defender-docs:27c95d7d87f6fcda145a390f06275ec4d8e84902:modified:defender-for-identity/service-account-discovery.md",
+      "firstSeenAt": "2026-09-02T22:39:21.836Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated service account classification guidance",
+        "summary": "The documentation explains that custom classification rules can identify service accounts Defender for Identity does not detect automatically, such as accounts using an `srv` prefix.",
+        "adminImpact": "Administrators can review the guidance to improve service account identification; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/entity-page-device.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 0,
+      "changes": 11,
+      "patch": "diff --git a/defender-xdr/entity-page-device.md b/defender-xdr/entity-page-device.md\nindex 5ca7c50df8..e59f7b5d5a 100644\n--- a/defender-xdr/entity-page-device.md\n+++ b/defender-xdr/entity-page-device.md\n@@ -146,6 +146,17 @@ You can elect not to show events from Microsoft Sentinel in the main timeline, a\n \n For more information about these activity events, see [Entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages?tabs=defender-portal#entity-pages).\n \n+#### Strong identifier requirements for unified timeline (Sentinel to XDR mapping)\n+\n+To ensure that custom activity data (for example, Sophos alerts) is correctly mapped and visible in **Microsoft Defender XDR** (`security.microsoft.com`) under the **Device Timeline**, the ingested data must include a strong identifier combination for the host.\n+\n+#### Required strong identifiers\n+\n+At a minimum, include one of the following strong identifier combinations:\n+\n+- `HostName` + `NTDomain`\n+- `HostName` + `DnsDomain`\n+\n > [!NOTE]\n >\n > For firewall events to be displayed, you'll need to enable the audit policy. For instructions, see [Audit Filtering Platform connection](/windows/security/threat-protection/auditing/audit-filtering-platform-connection).\n",
+      "baseCommitSha": "617af43b09bba84c36cc0a4e96d5a21439324b57",
+      "commitSha": "9b4ae349a44c5109142002716efd97b1859f1951",
+      "commitMessage": "Document strong identifier requirements for XDR mapping (#486)",
+      "commitAuthor": "Prem Kumar",
+      "commitDate": "2026-09-03 03:31:20 +0530",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-xdr/entity-page-device.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/entity-page-device",
+      "eventId": "defender-docs:9b4ae349a44c5109142002716efd97b1859f1951:modified:defender-xdr/entity-page-device.md",
+      "firstSeenAt": "2026-09-02T22:39:21.843Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Strong identifiers documented for Device Timeline mapping",
+        "summary": "The documentation now specifies that custom activity data mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain.",
+        "adminImpact": "Ensure ingested custom activity data includes one of these identifier combinations for correct Device Timeline visibility.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -68,17 +120,59 @@
       "version": "2026-09-01T22:23:32.917Z",
       "eventId": "message-center:MC1465771:2026-09-01T22:23:32.917Z",
       "firstSeenAt": "2026-09-02T07:06:32.851Z"
+    },
+    {
+      "id": "MC1422060",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-02",
+      "title": "Microsoft Defender for Office 365: Prompt injection protection for email",
+      "summary": "Microsoft Defender for Office 365 will introduce prompt injection protection for email, detecting and quarantining malicious content targeting AI assistants. Rolling out from July to October 2026, it affects organizations with Defender Plan 2 or Microsoft 365 E5, enabling automatic high-confidence threat quarantine by default with no required action.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "email",
+        "name": "Email and collaboration",
+        "icon": "/assets/topics/email.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1422060/",
+      "originalUrl": "https://mc.merill.net/message/MC1422060",
+      "body": "<p>Updated September 2, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and Why</b></b></p><p>We are introducing prompt injection protection for email in <i>Microsoft Defender for Office 365</i>. This capability detects and blocks malicious prompt injection content embedded in email messages that attempt to manipulate AI assistants and agents. It helps protect enterprise data by identifying attacks designed to exfiltrate information, discover tools, or expose system prompts. High confidence threats are automatically quarantined before they can be processed by AI powered workflows. This enhancement strengthens enterprise ready AI security and aligns with evolving threat patterns.</p><p><b><b>Rollout Schedule</b></b></p><ul><li><b>Public Preview:</b> Beginning <b>early July 2026</b> and expected to complete by <b>early September 2026</b></li><li><b>General Availability (Worldwide):</b> Beginning <b>early October 2026</b> (previously&nbsp;early September)&nbsp;and expected to complete by <b>early October 2026</b> (previously&nbsp;early September)</li></ul><p><b><b>Impact on Your Organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations with Microsoft Defender for Office 365 Plan 2 or Microsoft 365 E5</li></ul><p><i>Platforms and services</i></p><ul><li>&nbsp;Exchange Online, Microsoft Defender for Office 365, Microsoft Defender XDR services</li></ul><p><i>What will happen</i></p><ul><li>Emails identified as prompt injection will be classified as <b>High Confidence Phish</b>.</li><li>A new Detection Technology value called <b>Prompt Injection Protection</b> will be applied.</li><li>High confidence threats will be automatically quarantined.</li><li>The feature is <b>enabled by default</b> for eligible tenants.</li><li>Existing policies and workflows remain unchanged.</li><li>These detections will appear within existing threat investigation and reporting experiences in <i>Microsoft Defender</i>.</li></ul><p><b><b>Action Required / Recommendations</b></b></p><p>No action is required.</p><p>Recommended actions:</p><ul><li>Review your submission and quarantine workflows.</li><li>Use the Microsoft Defender submission process if false positives occur.</li><li>Use Tenant Allow Block List if needed to manage exceptions.</li><li>Inform your security and helpdesk teams about the new detection category.</li></ul><p><b>Learn more:</b>&nbsp;<a href=\"https://learn.microsoft.com/defender-office-365/step-by-step-guides/prompt-injection-protection-defender-for-office-365\" rel=\"noopener noreferrer\">Prompt injection protection in Microsoft Defender for Office 365 | Microsoft Defender for Office 365 | Microsoft Defender | Microsoft Learn</a></p><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified, review as appropriate for your organization.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-07-09T21:50:12Z",
+      "endDate": "2026-11-16T07:00:00Z",
+      "lastModifiedDateTime": "2026-09-02T17:03:17.767Z",
+      "version": "2026-09-02T17:03:17.767Z",
+      "eventId": "message-center:MC1422060:2026-09-02T17:03:17.767Z",
+      "firstSeenAt": "2026-09-02T22:39:30.164Z"
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 3,
+    "totalFiles": 3,
     "authors": [
+      "Effie A.",
+      "Prem Kumar",
       "Vertrauensstellung"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -87,6 +181,22 @@
         "sourceFiles": [
           "defender-endpoint/troubleshoot-service-startup-problems.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The documentation explains that custom classification rules can identify service accounts Defender for Identity does not detect automatically, such as accounts using an `srv` prefix.",
+        "sourceFiles": [
+          "defender-for-identity/service-account-discovery.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The documentation now specifies that custom activity data mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain.",
+        "sourceFiles": [
+          "defender-xdr/entity-page-device.md"
+        ]
       }
     ],
     "highlights": [
@@ -94,6 +204,16 @@
         "category": "Doc update",
         "headline": "Defender for Endpoint",
         "detail": "The troubleshooting page corrects the `ProductAppDataPath` registry value from `Microsft` to `Microsoft` in the Windows Defender data path."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The documentation explains that custom classification rules can identify service accounts Defender for Identity does not detect automatically, such as accounts using an `srv` prefix."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The documentation now specifies that custom activity data mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain."
       }
     ],
     "generatedBy": "fallback"
