@@ -6781,6 +6781,28 @@
         "outputTokens": 337,
         "costUsd": 0.000608
       }
+    },
+    "2026-09-02": {
+      "headline": "`ProductAppDataPath` typo corrected in Windows Defender service startup guidance",
+      "overview": "The period brought one narrow Endpoint troubleshooting correction: the Windows Defender data path now spells the `ProductAppDataPath` registry value as `Microsoft` instead of `Microsft`.",
+      "adminImpact": "Administrators following the service-startup troubleshooting guidance now have the accurate registry path. No action is required.",
+      "keyChanges": [
+        {
+          "title": "Windows Defender registry path corrected",
+          "detail": "The Troubleshoot Service Startup Problems page changes the `ProductAppDataPath` value in the Windows Defender data path from `Microsft` to `Microsoft`.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-02T07:06:33.073Z",
+      "usage": {
+        "inputTokens": 1024,
+        "outputTokens": 607,
+        "costUsd": 0.000933
+      }
     }
   },
   "weeks": {
@@ -8139,13 +8161,25 @@
       }
     },
     "2026-08-31": {
-      "headline": "Microsoft Sentinel corrects alert schema value from `Cryptominor` to `Cryptominer`",
-      "overview": "Microsoft Sentinel’s incident and response documentation now identifies `Cryptominer`—rather than the misspelled `Cryptominor`—as the supported value in the alert normalization schema.",
-      "adminImpact": "No administrator action is required. Update internal documentation or validation logic if it references `Cryptominor`.",
+      "headline": "Defender XDR will default Purview DLP alerts to behaviors on October 12",
+      "overview": "Microsoft Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default starting October 12, 2026. This is intended to reduce alert volume while keeping DLP data available in Advanced Hunting and Purview. Two documentation updates correct an Endpoint registry path and a Sentinel normalization-schema value.",
+      "adminImpact": "Administrators who need DLP alerts in the Defender XDR incident queue must disable the new rule; otherwise, DLP data remains accessible through Advanced Hunting and Purview. Endpoint administrators should use `Microsoft`, rather than `Microsft`, in the `ProductAppDataPath` registry path. Sentinel users should update references or validation logic that use the corrected `Cryptominer` value.",
       "keyChanges": [
         {
-          "title": "Alert normalization schema terminology corrected",
-          "detail": "The documented supported value was corrected from `Cryptominor` to `Cryptominer` in the Sentinel alert normalization schema.",
+          "title": "Purview DLP alerts will become behaviors by default",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while retaining DLP data in Advanced Hunting and Purview. Administrators can disable the rule to keep DLP alerts in the Defender XDR incident queue.",
+          "product": "Defender XDR",
+          "sourceId": "MC1465771"
+        },
+        {
+          "title": "Endpoint troubleshooting guidance fixes the Windows Defender data path",
+          "detail": "The `ProductAppDataPath` registry value is corrected from `Microsft` to `Microsoft` in the Windows Defender data path. The change provides the accurate path for administrators following the troubleshooting procedure.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
+        },
+        {
+          "title": "Sentinel schema guidance corrects the Cryptominer value",
+          "detail": "The supported alert-normalization value is corrected from `Cryptominor` to `Cryptominer`. Administrators maintaining documentation references or validation logic should use the corrected spelling.",
           "product": "Sentinel",
           "sourceId": "doc-2026-08-31-normalization-schema-alert-01"
         }
@@ -8153,11 +8187,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-31T16:09:26.771Z",
+      "generatedAt": "2026-09-02T07:06:33.073Z",
       "usage": {
-        "inputTokens": 817,
-        "outputTokens": 436,
-        "costUsd": 0.000687
+        "inputTokens": 1077,
+        "outputTokens": 941,
+        "costUsd": 0.001345
       }
     }
   },
@@ -8480,10 +8514,38 @@
         "outputTokens": 5873,
         "costUsd": 0.008438
       }
+    },
+    "2026-09": {
+      "headline": "Defender XDR will default Purview DLP alerts to behaviors October 12",
+      "overview": "Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default starting October 12, 2026, reducing alert volume while preserving DLP data in Advanced Hunting and Purview. The period also included a correction to an Endpoint troubleshooting registry path.",
+      "adminImpact": "Administrators who need Purview DLP alerts to remain in the Defender XDR incident queue must disable the new rule. Otherwise, the DLP data remains available through Advanced Hunting and Purview. Endpoint administrators following the troubleshooting guidance should use the corrected `Microsoft` registry path; no further action is required.",
+      "keyChanges": [
+        {
+          "title": "Purview DLP alerts will default to behaviors",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default. This is intended to reduce alert volume while keeping DLP data accessible in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "product": "Defender XDR",
+          "sourceId": "MC1465771"
+        },
+        {
+          "title": "Endpoint troubleshooting corrects the ProductAppDataPath value",
+          "detail": "The Windows Defender data path now correctly uses `Microsoft` instead of the misspelled `Microsft` in the `ProductAppDataPath` registry value. The corrected guidance requires no administrator action beyond using the accurate path when following the procedure.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-02T07:06:33.073Z",
+      "usage": {
+        "inputTokens": 1136,
+        "outputTokens": 789,
+        "costUsd": 0.001174
+      }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-31T16:09:26.771Z",
+  "generatedAt": "2026-09-02T07:06:33.073Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8518,18 +8580,24 @@
       "outputTokens": 6646,
       "requests": 3,
       "costUsd": 0.009733
+    },
+    "2026-09-02": {
+      "inputTokens": 3237,
+      "outputTokens": 2337,
+      "requests": 3,
+      "costUsd": 0.003452
     }
   },
   "lastRun": {
-    "inputTokens": 8787,
-    "outputTokens": 6646,
+    "inputTokens": 3237,
+    "outputTokens": 2337,
     "requests": 3,
-    "costUsd": 0.009733
+    "costUsd": 0.003452
   },
   "totalUsage": {
-    "inputTokens": 43453,
-    "outputTokens": 52448,
-    "requests": 15,
-    "costUsd": 0.071629
+    "inputTokens": 46690,
+    "outputTokens": 54785,
+    "requests": 18,
+    "costUsd": 0.075081
   }
 }

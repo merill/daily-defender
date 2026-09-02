@@ -1,0 +1,101 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/troubleshoot-service-startup-problems.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/troubleshoot-service-startup-problems.md b/defender-endpoint/troubleshoot-service-startup-problems.md\nindex c78ce177cb..ad63d07d2c 100644\n--- a/defender-endpoint/troubleshoot-service-startup-problems.md\n+++ b/defender-endpoint/troubleshoot-service-startup-problems.md\n@@ -52,7 +52,7 @@ The configuration of Microsoft Defender Antivirus changed. If you expected this\n |`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\Diagnostics\\RolledbackPlatformHealthData = <OVERALL>:<BAD>, <AGE>:<36>, <DIRTY_SHUTDOWNS>:<22>`|`Default\\Diagnostics\\RolledbackPlatformHealthData = 0`|\n |`Default\\ServiceStartStates = 0x0`|`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\ServiceStartStates = 0x1`|\n |`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\ServiceStartStates = 0x1`|`Default\\ServiceStartStates = 0x0`|\n-|`Default\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender`|`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\ProductAppDataPath = C:\\ProgramData\\Microsft\\Windows Defender`|\n+|`Default\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender`|`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender`|\n |`Default\\IsServiceRunning = 0x0`|`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\IsServiceRunning = 0x1`|\n |`Default\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender`|`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender`|\n |`Default\\IsServiceRunning = 0x0`|`HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\IsServiceRunning = 0x1`|\n",
+      "baseCommitSha": "28206ade0d7e3a6654583e737f171ae33dd0eef2",
+      "commitSha": "c8ac5b7c48a9f2c082affde17d282e4d23a83e9b",
+      "commitMessage": "Update troubleshoot-service-startup-problems.md (#593)",
+      "commitAuthor": "Vertrauensstellung",
+      "commitDate": "2026-09-02 00:46:03 +0200",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/troubleshoot-service-startup-problems.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-service-startup-problems",
+      "eventId": "defender-docs:c8ac5b7c48a9f2c082affde17d282e4d23a83e9b:modified:defender-endpoint/troubleshoot-service-startup-problems.md",
+      "firstSeenAt": "2026-09-02T07:06:25.752Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected Defender registry path",
+        "summary": "The troubleshooting page corrects the `ProductAppDataPath` registry value from `Microsft` to `Microsoft` in the Windows Defender data path.",
+        "adminImpact": "Administrators following the troubleshooting guidance now have the accurate registry path; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1465771",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-01",
+      "title": "Microsoft Defender XDR: DLP alerts will be set as behaviors by default",
+      "summary": "Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default starting October 12, 2026, reducing alert volume while keeping DLP data accessible in Advanced Hunting and Purview. Administrators can disable this rule to retain DLP alerts in the Defender XDR incident queue.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Major update",
+      "url": "/message-center/MC1465771/",
+      "originalUrl": "https://mc.merill.net/message/MC1465771",
+      "body": "<p><b><b>What and why:</b></b></p>\n\n<p>Microsoft Defender XDR is introducing a new built-in alert tuning rule that sets Microsoft Purview Data Loss Prevention (DLP) alerts as behaviors. This change is designed to reduce alert volume in Microsoft Defender XDR while preserving DLP investigation data in Advanced Hunting and the Microsoft Purview portal.</p>\n\n<p>Administrators can disable the rule if they prefer DLP events to continue generating standard alerts and appearing in the incident queues in Microsoft Defender XDR portal.</p>\n\n<p><b><b>Rollout Schedule:</b></b></p>\n\n<ul>\n<li>The alert tuning rule is available for review today in Microsoft Defender XDR.</li>\n<li>The rule will be enabled by default beginning October 12, 2026.</li>\n</ul>\n\n<p><b><b>Impact on Your Organization:</b></b></p>\n\n<p><b>Who is affected:</b> </p><ul><li>Security administrators and analysts who use Microsoft Defender XDR and Microsoft Purview DLP.</li></ul>\n\n<p><b>Services affected:</b> </p><ul><li>Microsoft Defender XDR, Microsoft Purview Data Loss Prevention (DLP), Advanced Hunting.</li></ul>\n\n<p>After the change takes effect:</p>\n\n<ul>\n<li>DLP alerts will no longer appear in the Microsoft Defender XDR incident queue by default.</li>\n<li>DLP signals will remain available for investigation through the <b>BehaviorInfo</b> and <b>BehaviorEntities</b> tables in Advanced Hunting.</li>\n<li>DLP alerts will continue to be available in the Microsoft Purview portal.</li>\n<li>This change is controlled by the built-in alert tuning rule: <b>Set-As-Behavior - Data Loss Prevention (DLP) Alerts</b>.</li>\n</ul>\n\n<p><b><b>Action Required / Recommendations:</b></b></p>\n\n<p>No action is required if you want to use the new default experience.</p>\n\n<p>If your organization relies on DLP alerts appearing in the Microsoft Defender XDR incident queue, disable the rule before October 12, 2026, to keep the current experience. The rule can also be disabled at any time after it takes effect.</p><p>To continue receiving DLP alerts in the Microsoft Defender XDR incident queue:</p>\n\n<ol>\n<li>Go to <b>Settings &gt;&nbsp;Microsoft Defender XDR &gt; Alert tuning</b>.</li>\n<li>Locate the rule <b>Set-As-Behavior - Data Loss Prevention (DLP) Alerts</b>.</li>\n<li>Disable the rule.</li></ol><p><b>Additional Considerations</b></p>\n\n<p>Organizations that use Microsoft Defender XDR incidents and alerts as part of their Security Operations Center (SOC) processes should evaluate any downstream integrations, automation, reporting, monitoring, and alert triage workflows that depend on DLP alerts being present in the Defender XDR incident queue.</p><p>If your organization accesses DLP alerts programmatically through Graph Alerts V2, note that once the rule takes effect, the data will instead be available through the Microsoft Graph security runHuntingQuery API.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR",
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-01T22:23:21Z",
+      "endDate": "2026-12-21T08:00:00Z",
+      "lastModifiedDateTime": "2026-09-01T22:23:32.917Z",
+      "version": "2026-09-01T22:23:32.917Z",
+      "eventId": "message-center:MC1465771:2026-09-01T22:23:32.917Z",
+      "firstSeenAt": "2026-09-02T07:06:32.851Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Vertrauensstellung"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The troubleshooting page corrects the `ProductAppDataPath` registry value from `Microsft` to `Microsoft` in the Windows Defender data path.",
+        "sourceFiles": [
+          "defender-endpoint/troubleshoot-service-startup-problems.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The troubleshooting page corrects the `ProductAppDataPath` registry value from `Microsft` to `Microsoft` in the Windows Defender data path."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
