@@ -130,39 +130,95 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/respond-machine-alerts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-endpoint/respond-machine-alerts.md b/defender-endpoint/respond-machine-alerts.md\nindex d5a69c5584..215251c337 100644\n--- a/defender-endpoint/respond-machine-alerts.md\n+++ b/defender-endpoint/respond-machine-alerts.md\n@@ -210,6 +210,7 @@ Depending on the severity of the attack and the sensitivity of the device, you m\n **Important points to keep in mind**:\n \n - In environments that use web proxies (including Proxy Auto Configuration (PAC), WPAD, or static/direct proxy configurations), devices might not be able to recover from network isolation. Use selective isolation in such cases. When using selective isolation, exclusion settings aren't required to avoid this scenario.\n+- This issue can also occur when device isolation is triggered as full isolation by automatic attack disruption. To have automatic attack disruption use selective isolation, define an [isolation exclusion rule](network-isolation-exclusions.md).\n - Isolating devices from the network is supported for macOS for client version 101.98.84 and above. You can also use live response to run the action. For more information on live response, see [Investigate entities on devices using live response](live-response.md)\n - Full isolation is available for devices running Windows 11, Windows 10, version 1703 or later, Windows Server 2012 R2 and later, and Azure Stack HCI OS, version 23H2 and later.\n - Isolating devices from the network is supported when Defender is running in passive mode on all supported Windows operating systems, macOS and Linux supported versions.\n",
+      "baseCommitSha": "3793c02333f4acfbedc24ee2e041e549e43f13cd",
+      "commitSha": "f2685dde563d0cbefdcaeca1e57ec468c84525ef",
+      "commitMessage": "Update respond-machine-alerts.md (#577)",
+      "commitAuthor": "2929kinniku",
+      "commitDate": "2026-09-04 05:19:16 +0900",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/respond-machine-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts",
+      "eventId": "defender-docs:f2685dde563d0cbefdcaeca1e57ec468c84525ef:modified:defender-endpoint/respond-machine-alerts.md",
+      "firstSeenAt": "2026-09-03T22:35:17.255Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarifies automatic attack disruption isolation behavior",
+        "summary": "The guidance now notes that the issue can occur when automatic attack disruption triggers full isolation. Administrators can define an isolation exclusion rule to use selective isolation instead.",
+        "adminImpact": "Review isolation behavior when investigating this issue and configure an exclusion rule if selective isolation is preferred.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/threat-analytics.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/threat-analytics.md b/defender-xdr/threat-analytics.md\nindex 40cee22411..14fbdfe5e1 100644\n--- a/defender-xdr/threat-analytics.md\n+++ b/defender-xdr/threat-analytics.md\n@@ -251,6 +251,7 @@ When you review the threat analytics data, consider the following factors:\n - Antivirus-related statistics are based on Microsoft Defender Antivirus settings. \n - The **Misconfigured devices** column in the main Threat analytics page shows the number of devices affected by a threat when the threat's related recommended actions aren't turned on. However, if Microsoft researchers don't link any recommended actions, the **Misconfigured devices** column shows the status *Not available*.  \n - The **Vulnerable devices** column in the main Threat analytics page shows the number of devices running software that are vulnerable to any of the vulnerabilities linked to the threat. However, if Microsoft researchers don't link any vulnerabilities, the **Vulnerable devices** column shows the status *Not available*.\n+- If you receive an email notification about a threat analytics report but can't find it in **Threat analytics**, check the **Threat intelligence** section of the portal for it.\n \n ## See also\n \n@@ -258,4 +259,4 @@ When you review the threat analytics data, consider the following factors:\n - [Understand the analyst report section](threat-analytics-analyst-reports.md)\n - [Assess and resolve security weaknesses and exposures](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt)\n \n-[!INCLUDE [Microsoft Defender XDR rebranding](../includes/defender-m3d-techcommunity.md)]\n\\ No newline at end of file\n+[!INCLUDE [Microsoft Defender XDR rebranding](../includes/defender-m3d-techcommunity.md)]\n",
+      "baseCommitSha": "d338efcaddeca86c6ff72fa0d9268cd3086325ff",
+      "commitSha": "cf5f2202a000e2c888e3182e1ea89b62376852dc",
+      "commitMessage": "Update threat-analytics.md - add info for missing reports (#483)",
+      "commitAuthor": "Ben Jenkins",
+      "commitDate": "2026-09-03 14:52:36 -0300",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-xdr/threat-analytics.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/threat-analytics",
+      "eventId": "defender-docs:cf5f2202a000e2c888e3182e1ea89b62376852dc:modified:defender-xdr/threat-analytics.md",
+      "firstSeenAt": "2026-09-03T22:35:17.268Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added guidance for locating missing threat analytics reports",
+        "summary": "The documentation now directs users to check the Threat intelligence section when an emailed threat analytics report is missing from Threat analytics.",
+        "adminImpact": "This helps administrators find reports that are not visible in the expected section.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 5,
-    "totalFiles": 5,
+    "totalCommits": 7,
+    "totalFiles": 7,
     "authors": [
+      "2929kinniku",
+      "Ben Jenkins",
       "Fabian Bader",
       "Vertrauensstellung",
       "mts-2021"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list. The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table. The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description. The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options.",
+        "summary": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list. The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table. The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description. The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options. The guidance now notes that the issue can occur when automatic attack disruption triggers full isolation.",
         "sourceFiles": [
           "defender-endpoint/standard-device-connectivity-urls-commercial.md",
           "defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
           "defender-endpoint/exploit-protection-reference.md",
-          "defender-endpoint/run-analyzer-linux.md"
+          "defender-endpoint/run-analyzer-linux.md",
+          "defender-endpoint/respond-machine-alerts.md"
         ]
       },
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.”",
+        "summary": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.” The documentation now directs users to check the Threat intelligence section when an emailed threat analytics report is missing from Threat analytics.",
         "sourceFiles": [
-          "defender-xdr/custom-detection-rules.md"
+          "defender-xdr/custom-detection-rules.md",
+          "defender-xdr/threat-analytics.md"
         ]
       }
     ],
@@ -170,12 +226,12 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list. The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table. The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description. The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options."
+        "detail": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list. The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table. The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description. The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options. The guidance now notes that the issue can occur when automatic attack disruption triggers full isolation."
       },
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.”"
+        "detail": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.” The documentation now directs users to check the Threat intelligence section when an emailed threat analytics report is missing from Threat analytics."
       }
     ],
     "generatedBy": "fallback"
