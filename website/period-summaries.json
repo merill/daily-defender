@@ -6821,6 +6821,46 @@
         "outputTokens": 1511,
         "costUsd": 0.00209
       }
+    },
+    "2026-09-03": {
+      "headline": "Commercial Defender connectivity guidance now flags Microsoft 365 Unified Domains",
+      "overview": "Today’s updates were mostly documentation maintenance, but the commercial device-connectivity guidance carries a concrete allowlist implication: the standard and streamlined pages now say environments may also need URLs from Microsoft 365 Unified Domains beyond their existing tables. The remaining changes correct the ABAP audit-log table name or clean up Endpoint wording and descriptions.",
+      "adminImpact": "Review the linked Microsoft 365 Unified Domains URLs when validating commercial Defender connectivity allowlists. Use `ABAPAuditLog_CL` in custom detection rules that reference ABAP audit-log data. No administrator action is indicated for the spelling and punctuation corrections.",
+      "keyChanges": [
+        {
+          "title": "Commercial connectivity pages add a unified-domain allowlist check",
+          "detail": "The Standard Device Connectivity URLs Commercial and Streamlined Device Connectivity URLs Commercial pages now note that, in addition to their listed URL tables, some environments may also need to allow URLs from the Microsoft 365 Unified Domains list.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-03-standard-device-connectivity-urls-commercial-01"
+        },
+        {
+          "title": "Custom detection rules correct the ABAP audit-log table name",
+          "detail": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing the missing final “L.” Administrators querying ABAP audit-log data should use the corrected table name when creating custom detection rules.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-03-custom-detection-rules-03"
+        },
+        {
+          "title": "Linux analyzer option descriptions fix requirement wording",
+          "detail": "Descriptions for the minimum-requirement and external-dependency options have spelling errors corrected. The documented option behavior is unchanged.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-03-run-analyzer-linux-05"
+        },
+        {
+          "title": "Exploit Protection reference corrects memory-manager terminology",
+          "detail": "The mitigation description now uses “memory manager” instead of “memory manger” and fixes spacing before an ellipsis, improving the explanation of how unsigned binaries are blocked and the associated error.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-03-exploit-protection-reference-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-03T17:52:29.659Z",
+      "usage": {
+        "inputTokens": 1444,
+        "outputTokens": 2543,
+        "costUsd": 0.00334
+      }
     }
   },
   "weeks": {
@@ -8179,49 +8219,49 @@
       }
     },
     "2026-08-31": {
-      "headline": "DLP alerts become Defender XDR behaviors by default on October 12",
-      "overview": "The most consequential change is a scheduled Microsoft Defender XDR behavior change: from October 12, 2026, Microsoft Purview DLP alerts will be treated as behaviors by default, reducing alert volume while preserving access to DLP data in Advanced Hunting and Purview. Administrators can disable the rule to keep those alerts in the Defender XDR incident queue. Defender for Office 365 is also rolling out prompt-injection protection for email through October 2026, with automatic quarantine for high-confidence threats targeting AI assistants.",
-      "adminImpact": "Decide whether the reduced Defender XDR alert volume is appropriate for the organization and disable the DLP rule if DLP alerts must remain in the incident queue. For custom Sentinel activity mapped to Defender XDR, use HostName plus either NTDomain or DnsDomain for Device Timeline visibility. Organizations using Defender for Identity can apply custom classification rules to identify otherwise-undetected service accounts. No administrator action is required for the email prompt-injection rollout; the documented Sentinel value correction matters only where the misspelled token is used in references or validation logic.",
+      "headline": "DLP alerts shift to behaviors October 12 as email prompt-injection protection rolls out",
+      "overview": "The week’s most consequential change is a Defender XDR default: Microsoft Purview DLP alerts will become behaviors on October 12, 2026, reducing incident-queue alert volume while preserving the data in Advanced Hunting and Purview. Separately, Defender for Office 365 is rolling out email prompt-injection protection for Defender Plan 2 and Microsoft 365 E5, with high-confidence malicious content quarantined automatically by default. Supporting documentation adds specific network, telemetry, and identity-classification requirements.",
+      "adminImpact": "Review whether the DLP rule should be disabled before October 12 if retaining DLP alerts in the Defender XDR incident queue is important. For email protection, no action is required according to the notice, but administrators should account for automatic high-confidence threat quarantine during the July–October 2026 rollout. Endpoint teams should review Microsoft 365 Unified Domains alongside existing connectivity allowlists, and ensure Sentinel-mapped custom activity includes the required device identifiers.",
       "keyChanges": [
         {
-          "title": "DLP alerts shift to behavior records by default",
-          "detail": "Starting October 12, 2026, Microsoft Purview DLP alerts in Defender XDR will be set as behaviors by default. This is intended to reduce alert volume while keeping DLP data available in Advanced Hunting and Purview; administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "title": "DLP alerts will default to behaviors in Defender XDR",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default. This is intended to reduce alert volume; DLP data remains available in Advanced Hunting and Purview, and administrators can disable the rule to keep DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Email prompt-injection protection rolls out for Defender for Office 365",
-          "detail": "Defender for Office 365 is introducing protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic high-confidence threat quarantine enabled by default and no required action stated.",
+          "title": "Defender for Office 365 adds email prompt-injection protection",
+          "detail": "The capability is rolling out from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5. It detects malicious content targeting AI assistants and enables automatic quarantine for high-confidence threats by default; the notice states that no administrator action is required.",
           "product": "Defender XDR",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Sentinel-to-XDR custom activity requires paired device identifiers",
-          "detail": "The Device entity guidance specifies that custom activity mapped from Sentinel to Microsoft Defender XDR must contain either HostName plus NTDomain or HostName plus DnsDomain for the data to appear correctly in Device Timeline.",
+          "title": "Endpoint connectivity guidance adds Microsoft 365 Unified Domains",
+          "detail": "The commercial device-connectivity guidance now says some environments may need to allow URLs from the Microsoft 365 Unified Domains list in addition to the URLs already listed. Administrators configuring or validating Defender network allowlists should review that linked list.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-03-standard-device-connectivity-urls-commercial-01"
+        },
+        {
+          "title": "Device Timeline mapping requires a recognized identifier pair",
+          "detail": "For custom activity mapped from Sentinel to Microsoft Defender XDR, the data must include either HostName plus NTDomain or HostName plus DnsDomain for the activity to appear correctly in Device Timeline.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-09-02-entity-page-device-03"
         },
         {
-          "title": "Custom classification rules document a route to finding service accounts",
-          "detail": "Defender for Identity guidance now explains that custom classification rules can identify service accounts the product does not detect automatically, including accounts using an `srv` prefix.",
+          "title": "Defender for Identity documents custom service-account classification",
+          "detail": "Custom classification rules can identify service accounts that Defender for Identity does not detect automatically, including accounts using an `srv` prefix. The update provides an option for improving identification without stating a mandatory administrator change.",
           "product": "Identity",
           "sourceId": "doc-2026-09-02-service-account-discovery-02"
-        },
-        {
-          "title": "Alert normalization uses the corrected Cryptominer value",
-          "detail": "The Sentinel alert normalization schema now documents `Cryptominer` as the supported value instead of the misspelled `Cryptominor`. Update dependent references or validation logic if they use the previous spelling.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-08-31-normalization-schema-alert-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-02T22:39:30.369Z",
+      "generatedAt": "2026-09-03T17:52:29.659Z",
       "usage": {
-        "inputTokens": 1426,
-        "outputTokens": 2279,
-        "costUsd": 0.00302
+        "inputTokens": 1946,
+        "outputTokens": 2205,
+        "costUsd": 0.003035
       }
     }
   },
@@ -8546,54 +8586,54 @@
       }
     },
     "2026-09": {
-      "headline": "Defender XDR shifts DLP alerts to behaviors while email prompt protection rolls out",
-      "overview": "Microsoft Defender XDR has a scheduled alert-handling change: starting October 12, 2026, Microsoft Purview DLP alerts will be set as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule if DLP alerts must remain in the Defender XDR incident queue. Defender for Office 365 is also rolling out prompt-injection protection for email through October, with automatic quarantine for high-confidence malicious content targeting AI assistants for organizations with Defender Plan 2 or Microsoft 365 E5. The remaining updates are targeted guidance changes covering Sentinel-mapped Device Timeline identifiers, service-account classification, and a corrected Windows Defender registry-path value.",
-      "adminImpact": "Decide whether DLP alerts should remain in the Defender XDR incident queue and disable the rule if required. No administrator action is required for the email prompt-injection rollout. For custom Sentinel activity mapped to Defender XDR, ensure the data includes HostName plus either NTDomain or DnsDomain. Administrators can review the service-account classification guidance to identify accounts Defender for Identity misses automatically; the corrected registry value provides an accurate troubleshooting path where that guidance is used.",
+      "headline": "DLP alerts shift to behaviors October 12 as email protection rolls out",
+      "overview": "September’s most consequential change is a Microsoft Defender XDR default: Microsoft Purview DLP alerts will be set as behaviors starting October 12, 2026, reducing incident-queue volume while keeping DLP data available in Advanced Hunting and Purview. Defender for Office 365 is also rolling out email prompt-injection protection through October for Defender Plan 2 and Microsoft 365 E5 organizations. Supporting guidance adds a specific Device Timeline identifier requirement, expands commercial connectivity allowlist guidance, and documents custom service-account classification. Other edits were mainly maintenance, including corrections to `ABAPAuditLog_CL`, `ProductAppDataPath`, option descriptions, and exploit-protection wording.",
+      "adminImpact": "Review the DLP rule before October 12 if retaining DLP alerts in the Defender XDR incident queue is important; disabling the rule preserves them there. Eligible Defender for Office 365 organizations have no required action according to the notice, but should account for automatic high-confidence quarantine during the rollout. Endpoint teams should check Microsoft 365 Unified Domains when validating connectivity allowlists, and ensure Sentinel-mapped custom activity includes one of the required device-identifier combinations.",
       "keyChanges": [
         {
-          "title": "DLP alerts become Defender XDR behaviors on October 12",
-          "detail": "Microsoft Purview DLP alerts will be treated as behaviors by default starting October 12, 2026. This reduces alert volume while preserving DLP data in Advanced Hunting and Purview; disabling the rule keeps the alerts in the Defender XDR incident queue.",
+          "title": "Purview DLP alerts receive new default handling",
+          "detail": "Starting October 12, 2026, Microsoft Purview DLP alerts will be set as behaviors by default in Microsoft Defender XDR. Alert volume will decrease while DLP data remains available in Advanced Hunting and Purview; administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Email protection targets prompt injection against AI assistants",
-          "detail": "Defender for Office 365 is introducing prompt-injection protection for email, rolling out from July through October 2026. For organizations with Defender Plan 2 or Microsoft 365 E5, high-confidence threats are automatically quarantined by default, with no required administrator action.",
-          "product": "Defender for Office 365",
+          "title": "Email prompt-injection protection rolls out for eligible tenants",
+          "detail": "Defender for Office 365 is introducing email prompt-injection protection for organizations with Defender Plan 2 or Microsoft 365 E5 during the July–October 2026 rollout. It detects and quarantines malicious content targeting AI assistants, with automatic high-confidence threat quarantine enabled by default.",
+          "product": "Defender XDR / Defender for Office 365",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Device Timeline guidance requires a hostname and domain pairing",
-          "detail": "Custom activity mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain for the activity to appear correctly in Device Timeline.",
+          "title": "Commercial connectivity guidance adds Microsoft 365 Unified Domains",
+          "detail": "The commercial device connectivity guidance now notes that some environments may need to allow URLs from the Microsoft 365 Unified Domains list in addition to the URLs already listed.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-03-standard-device-connectivity-urls-commercial-01"
+        },
+        {
+          "title": "Sentinel-mapped Device Timeline data gets an identifier prerequisite",
+          "detail": "The Entity Page Device guidance specifies that custom activity mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain for correct Device Timeline visibility.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-09-02-entity-page-device-03"
         },
         {
-          "title": "Service-account guidance adds custom classification coverage",
-          "detail": "Defender for Identity guidance now explains that custom classification rules can identify service accounts it does not detect automatically, including accounts that use an `srv` prefix.",
+          "title": "Custom classification guidance covers missed service accounts",
+          "detail": "Defender for Identity guidance now explains that custom classification rules can identify service accounts the service does not detect automatically, including accounts using an `srv` prefix.",
           "product": "Identity",
           "sourceId": "doc-2026-09-02-service-account-discovery-02"
-        },
-        {
-          "title": "Troubleshooting guidance corrects the ProductAppDataPath value",
-          "detail": "The Windows Defender data path now uses the correctly spelled `Microsoft` token instead of `Microsft` for the `ProductAppDataPath` registry value.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-09-02-troubleshoot-service-startup-problems-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-02T22:39:30.369Z",
+      "generatedAt": "2026-09-03T17:52:29.659Z",
       "usage": {
-        "inputTokens": 1558,
-        "outputTokens": 2463,
-        "costUsd": 0.003267
+        "inputTokens": 2057,
+        "outputTokens": 3253,
+        "costUsd": 0.004315
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-02T22:39:30.369Z",
+  "generatedAt": "2026-09-03T17:52:29.659Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8634,18 +8674,24 @@
       "outputTokens": 8590,
       "requests": 6,
       "costUsd": 0.011829
+    },
+    "2026-09-03": {
+      "inputTokens": 5447,
+      "outputTokens": 8001,
+      "requests": 3,
+      "costUsd": 0.010691
     }
   },
   "lastRun": {
-    "inputTokens": 4368,
-    "outputTokens": 6253,
+    "inputTokens": 5447,
+    "outputTokens": 8001,
     "requests": 3,
-    "costUsd": 0.008377
+    "costUsd": 0.010691
   },
   "totalUsage": {
-    "inputTokens": 51058,
-    "outputTokens": 61038,
-    "requests": 21,
-    "costUsd": 0.083458
+    "inputTokens": 56505,
+    "outputTokens": 69039,
+    "requests": 24,
+    "costUsd": 0.094149
   }
 }

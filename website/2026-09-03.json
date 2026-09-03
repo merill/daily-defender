@@ -1,0 +1,183 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/standard-device-connectivity-urls-commercial.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/standard-device-connectivity-urls-commercial.md b/defender-endpoint/standard-device-connectivity-urls-commercial.md\nindex 10abcbad22..0b93ca9c76 100644\n--- a/defender-endpoint/standard-device-connectivity-urls-commercial.md\n+++ b/defender-endpoint/standard-device-connectivity-urls-commercial.md\n@@ -138,6 +138,9 @@ The following table lists the URLs required to access the Microsoft Defender por\n > [!NOTE]\n > All URLs in this table are required to have access to the Microsoft Defender Security Center Portal URL.\n \n+> [!NOTE]\n+> In addition to the URLs listed in this table, you might also need to allow the URLs listed under [Microsoft 365 unified domains](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-unified-domains).\n+\n |Service|Geography|URL|\n |---|---|---|\n |Microsoft Defender for Endpoint|WW|`*.blob.core.windows.net`|\n",
+      "baseCommitSha": "b25c0ff349a8320387a0cb33142b58a088022f76",
+      "commitSha": "c67b323dceec4f51dc58fdc807da3cd24aa65bcb",
+      "commitMessage": "Update connectivity URLs with Microsoft 365 Unified Domains note (#585)",
+      "commitAuthor": "mts-2021",
+      "commitDate": "2026-09-04 02:12:54 +0900",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/standard-device-connectivity-urls-commercial.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/standard-device-connectivity-urls-commercial",
+      "eventId": "defender-docs:c67b323dceec4f51dc58fdc807da3cd24aa65bcb:modified:defender-endpoint/standard-device-connectivity-urls-commercial.md",
+      "firstSeenAt": "2026-09-03T17:52:17.618Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Connectivity guidance now links to Microsoft 365 unified domains",
+        "summary": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list.",
+        "adminImpact": "Review the linked unified-domain URLs when configuring or validating network allowlists.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/streamlined-device-connectivity-urls-commercial.md b/defender-endpoint/streamlined-device-connectivity-urls-commercial.md\nindex 9a008eb2dc..7a31df2568 100644\n--- a/defender-endpoint/streamlined-device-connectivity-urls-commercial.md\n+++ b/defender-endpoint/streamlined-device-connectivity-urls-commercial.md\n@@ -186,6 +186,9 @@ The following table lists the URL endpoint services required for devices using D\n \n The following table lists the URL endpoints required for administrative and security operations to access the Microsoft Defender security portals. These endpoints don't need to be accessible to all devices.\n \n+> [!NOTE]\n+> In addition to the URLs listed in this table, you might also need to allow access to the URLs listed under [Microsoft 365 Unified Domains](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-unified-domains).\n+\n |URL|Comment|\n |---|---|\n |*.blob.core.windows.net|Used for file downloads from the portal, such as onboarding packages - `https://onboardingpackagescusprd.blob.core.windows.net` and files retrieved from devices.|\n",
+      "baseCommitSha": "120018f7e298c79e451cf8eb1bea7cb175f36443",
+      "commitSha": "b25c0ff349a8320387a0cb33142b58a088022f76",
+      "commitMessage": "Update Defender portal URLs with additional note (#586)",
+      "commitAuthor": "mts-2021",
+      "commitDate": "2026-09-04 02:03:45 +0900",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/streamlined-device-connectivity-urls-commercial",
+      "eventId": "defender-docs:b25c0ff349a8320387a0cb33142b58a088022f76:modified:defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+      "firstSeenAt": "2026-09-03T17:52:17.625Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender connectivity URL guidance adds Microsoft 365 domains note",
+        "summary": "The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table.",
+        "adminImpact": "Review the linked Microsoft 365 Unified Domains list when configuring access for Defender connectivity.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex 4085be0f6b..ab90ad5ff0 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -213,7 +213,7 @@ Near real-time detections support the following tables:\n \n |Microsoft Defender XDR| Microsoft Sentinel|\n |----------------------|-------------------|\n-|<ul><li>`AlertEvidence`<li>`CloudAppEvents`<li>`DeviceEvents`<li>`DeviceFileCertificateInfo`<li>`DeviceFileEvents`<li>`DeviceImageLoadEvents`<li>`DeviceLogonEvents`<li>`DeviceNetworkEvents`<li>`DeviceNetworkInfo`<li>`DeviceInfo`<li>`DeviceProcessEvents`<li>`DeviceRegistryEvents`<li>`EmailAttachmentInfo`<li>`EmailEvents` (except `LatestDeliveryLocation` and `LatestDeliveryAction` columns)<li>`EmailPostDeliveryEvents`<li>`EmailUrlInfo`<li>`IdentityDirectoryEvents`<li>`IdentityLogonEvents`<li>`IdentityQueryEvents`<li>`UrlClickEvents`</ul>| <ul><li>`ABAPAuditLog_C`<li>`ABAPChangeDocsLog_CL`<li>`AuditLogs`<li>`AWSCloudTrail`<li>`AWSGuardDuty`<li>`AzureActivity`<li>`CommonSecurityLog`<li>`GCPAuditLogs`<li>`MicrosoftGraphActivityLogs`<li>`OfficeActivity`<li>`Okta_CL`<li>`OktaV2_CL`<li>`ProofpointPOD`<li>`ProofPointTAPClicksPermitted_CL`<li>`ProofPointTAPMessagesDelivered_CL`<li>`SecurityAlert`<li>`SecurityEvent`<li>`SigninLogs`</ul> \n+|<ul><li>`AlertEvidence`<li>`CloudAppEvents`<li>`DeviceEvents`<li>`DeviceFileCertificateInfo`<li>`DeviceFileEvents`<li>`DeviceImageLoadEvents`<li>`DeviceLogonEvents`<li>`DeviceNetworkEvents`<li>`DeviceNetworkInfo`<li>`DeviceInfo`<li>`DeviceProcessEvents`<li>`DeviceRegistryEvents`<li>`EmailAttachmentInfo`<li>`EmailEvents` (except `LatestDeliveryLocation` and `LatestDeliveryAction` columns)<li>`EmailPostDeliveryEvents`<li>`EmailUrlInfo`<li>`IdentityDirectoryEvents`<li>`IdentityLogonEvents`<li>`IdentityQueryEvents`<li>`UrlClickEvents`</ul>| <ul><li>`ABAPAuditLog_CL`<li>`ABAPChangeDocsLog_CL`<li>`AuditLogs`<li>`AWSCloudTrail`<li>`AWSGuardDuty`<li>`AzureActivity`<li>`CommonSecurityLog`<li>`GCPAuditLogs`<li>`MicrosoftGraphActivityLogs`<li>`OfficeActivity`<li>`Okta_CL`<li>`OktaV2_CL`<li>`ProofpointPOD`<li>`ProofPointTAPClicksPermitted_CL`<li>`ProofPointTAPMessagesDelivered_CL`<li>`SecurityAlert`<li>`SecurityEvent`<li>`SigninLogs`</ul> \n \n > [!NOTE]\n > Only generally available columns support **Continuous (NRT)** frequency.\n",
+      "baseCommitSha": "68baf1df260366feae194dd6f4c0b6442c1e6355",
+      "commitSha": "120018f7e298c79e451cf8eb1bea7cb175f36443",
+      "commitMessage": "Fix missing L for ABAPAuditLog_CL (#583)",
+      "commitAuthor": "Fabian Bader",
+      "commitDate": "2026-09-03 18:58:15 +0200",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "eventId": "defender-docs:120018f7e298c79e451cf8eb1bea7cb175f36443:modified:defender-xdr/custom-detection-rules.md",
+      "firstSeenAt": "2026-09-03T17:52:17.632Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected ABAPAuditLog_CL in custom detection rules documentation",
+        "summary": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.”",
+        "adminImpact": "Administrators referencing ABAP audit log data can use the corrected table name when creating custom detection rules.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/exploit-protection-reference.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/exploit-protection-reference.md b/defender-endpoint/exploit-protection-reference.md\nindex d21b8d7864..9bba929220 100644\n--- a/defender-endpoint/exploit-protection-reference.md\n+++ b/defender-endpoint/exploit-protection-reference.md\n@@ -261,7 +261,7 @@ The most common use of fonts outside of the system fonts directory is with [web\n \n Code integrity guard ensures that all binaries loaded into a process are digitally signed by Microsoft. Code integrity guard includes [WHQL](/windows-hardware/drivers/install/whql-release-signature) (Windows Hardware Quality Labs) signatures, which allows WHQL-approved drivers to run within the process.\n \n-This mitigation is implemented within the memory manager, which blocks the binary from being mapped into memory. If you attempt to load a binary that isn't signed by Microsoft, the memory manger returns the error STATUS_INVALID_IMAGE_HASH. By blocking at the memory manager level, this prevents both binaries loaded by the process and binaries injected into the process.\n+This mitigation is implemented within the memory manager, which blocks the binary from being mapped into memory. If you attempt to load a binary that isn't signed by Microsoft, the memory manager returns the error STATUS_INVALID_IMAGE_HASH. By blocking at the memory manager level, this prevents both binaries loaded by the process and binaries injected into the process.\n \n ### Compatibility considerations\n \n",
+      "baseCommitSha": "e17385008350b346f932f0b50ec2cf7fa922bcd9",
+      "commitSha": "68baf1df260366feae194dd6f4c0b6442c1e6355",
+      "commitMessage": "Update exploit-protection-reference.md (#592)",
+      "commitAuthor": "Vertrauensstellung",
+      "commitDate": "2026-09-03 16:27:33 +0200",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/exploit-protection-reference.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/exploit-protection-reference",
+      "eventId": "defender-docs:68baf1df260366feae194dd6f4c0b6442c1e6355:modified:defender-endpoint/exploit-protection-reference.md",
+      "firstSeenAt": "2026-09-03T17:52:17.649Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected exploit protection reference wording",
+        "summary": "The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description.",
+        "adminImpact": "Administrators get a more accurate description of how unsigned binaries are blocked and the associated error.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/run-analyzer-linux.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/run-analyzer-linux.md b/defender-endpoint/run-analyzer-linux.md\nindex 683519aafb..7ce434cdf4 100644\n--- a/defender-endpoint/run-analyzer-linux.md\n+++ b/defender-endpoint/run-analyzer-linux.md\n@@ -411,8 +411,8 @@ This mode collects installation related information like distro and system requi\n \n   -h, --help                show this help message and exit\n   -d, --distro              Check for distro support\n-  -m, --min-requirement     Check for the system info against offical minimum requirements\n-  -e, --external-dep        Check for externel package dependency\n+  -m, --min-requirement     Check for the system info against official minimum requirements\n+  -e, --external-dep        Check for external package dependency\n   -c, --connectivity        Check for connectivity for services used by MDE\n   -a, --all                 Run all checks\n   -o ONBOARDING_SCRIPT, --onboarding-script ONBOARDING_SCRIPT\n",
+      "baseCommitSha": "6b7bf0f6d52f2e64470417545e1deca8ea84f232",
+      "commitSha": "e17385008350b346f932f0b50ec2cf7fa922bcd9",
+      "commitMessage": "Update run-analyzer-linux.md (#591)",
+      "commitAuthor": "Vertrauensstellung",
+      "commitDate": "2026-09-03 16:23:02 +0200",
+      "githubUrl": "https://github.com/MicrosoftDocs/defender-docs/blob/main/defender-endpoint/run-analyzer-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/run-analyzer-linux",
+      "eventId": "defender-docs:e17385008350b346f932f0b50ec2cf7fa922bcd9:modified:defender-endpoint/run-analyzer-linux.md",
+      "firstSeenAt": "2026-09-03T17:52:17.659Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected Linux analyzer option descriptions",
+        "summary": "The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options.",
+        "adminImpact": "No administrator action is required; the option behavior is unchanged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 5,
+    "totalFiles": 5,
+    "authors": [
+      "Fabian Bader",
+      "Vertrauensstellung",
+      "mts-2021"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list. The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table. The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description. The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options.",
+        "sourceFiles": [
+          "defender-endpoint/standard-device-connectivity-urls-commercial.md",
+          "defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+          "defender-endpoint/exploit-protection-reference.md",
+          "defender-endpoint/run-analyzer-linux.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.”",
+        "sourceFiles": [
+          "defender-xdr/custom-detection-rules.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The commercial device connectivity documentation now notes that, beyond the listed URLs, some environments might also need to allow URLs from the Microsoft 365 unified domains list. The documentation now notes that access may also be needed for URLs listed under Microsoft 365 Unified Domains, in addition to the URLs in the existing table. The documentation corrects “memory manger” to “memory manager” and adjusts spacing before an ellipsis in the mitigation description. The documentation fixes spelling errors in the descriptions for the minimum-requirement and external-dependency options."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The supported table list now spells `ABAPAuditLog_CL` correctly, fixing a missing “L.”"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
