@@ -6867,6 +6867,52 @@
         "outputTokens": 2629,
         "costUsd": 0.003511
       }
+    },
+    "2026-09-04": {
+      "headline": "Sentinel table migration and Linux enforcement changes sharpen administrator action",
+      "overview": "The period was dominated by documentation maintenance, but several updates carry direct operational weight. Sentinel guidance now points administrators from the legacy ThreatIntelligenceIndicator table to ThreatIntelIndicators and ThreatIntelObjects, while Defender for Endpoint documents four Linux antivirus enforcement levels, a passive default, and Preview audit mode. Other consequential changes include SIEM-agent deprecation guidance for the Cloud Apps integration, manual Preview activation limits for Defender for Identity v3.x sensors on non-domain controllers, and material changes to the documented Defender XDR DataSecurityEvents schema.",
+      "adminImpact": "Prioritize any remaining Sentinel content that depends on the legacy threat-intelligence table, then review Linux enforcement profiles and version requirements. Administrators using SIEM agents with Defender for Cloud Apps should reassess the supported Sentinel integration path. Identity teams deploying v3.x sensors on AD FS, AD CS, or Microsoft Entra Connect servers must account for manual activation and the requirement for at least one domain-controller sensor. Hunting and integration owners should check DataSecurityEvents queries for documented column removals.",
+      "keyChanges": [
+        {
+          "title": "Sentinel threat-intelligence content must move off the legacy table",
+          "detail": "The STIX guidance directs content to the ThreatIntelIndicators and ThreatIntelObjects schemas and states that ingestion into the legacy ThreatIntelligenceIndicator table stops after July 31, 2025. Custom queries, analytics and detection rules, workbooks, and automation using the old table should be updated.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-04-work-with-stix-objects-and-indicators-to-enhance-threat-intelligence-and-threat-hunting-in-micro-1257"
+        },
+        {
+          "title": "Linux antivirus enforcement now has four documented levels",
+          "detail": "The Linux configuration article lists four antivirus enforcement levels, identifies passive as the default, and marks audit mode as Preview. It adds verification guidance for the active level; audit mode requires Defender for Endpoint version 101.26062.0007 or later.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
+        },
+        {
+          "title": "Cloud Apps integration guidance now deprecates SIEM agents",
+          "detail": "The Sentinel integration page states that SIEM agents are deprecated while the Microsoft Sentinel integration (Preview) remains supported, and adds a dedicated integration section. Organizations still using SIEM agents should review their integration strategy against the supported Sentinel option.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-09-04-integrate-microsoft-sentinel-with-microsoft-defender-for-cloud-apps-389"
+        },
+        {
+          "title": "Defender for Identity documents manual v3.x activation on additional servers",
+          "detail": "The v3.x sensor deployment guidance now covers non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers. Activation on those servers is in Preview and requires manual activation; automatic activation and migration are unsupported. Deployments limited to these servers should include at least one v3.x sensor on a domain controller.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-04-deploy-the-defender-for-identity-sensor-v3-x-635"
+        },
+        {
+          "title": "DataSecurityEvents reference adds and removes hunting columns",
+          "detail": "The Defender XDR table reference removes its Preview and prerelease notices, adds physical access, removable media, and risky AI usage fields, and removes several URL, email, file-path, workload, and Cloud App Alert fields. Query and integration owners should review dependencies on the removed columns.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-04-datasecurityevents-846"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-04T22:57:19.578Z",
+      "usage": {
+        "inputTokens": 6331,
+        "outputTokens": 4382,
+        "costUsd": 0.006525
+      }
     }
   },
   "weeks": {
@@ -8225,49 +8271,49 @@
       }
     },
     "2026-08-31": {
-      "headline": "Purview DLP alerts will become Defender XDR behaviors by default on October 12",
-      "overview": "Microsoft Defender XDR will change the default handling of Microsoft Purview DLP alerts on October 12, reducing incident-queue volume while preserving access to DLP data in Advanced Hunting and Purview. The period also highlights rolling protection against email prompt injection for eligible Defender for Office 365 tenants and four new Secure Score checks for endpoint AI readiness. Most remaining Learn updates were maintenance, with the main operational clarifications covering Sentinel-to-Defender device identifiers and Endpoint connectivity allowlists.",
-      "adminImpact": "Decide whether the DLP behavior default fits your incident workflow; disable the rule if DLP alerts must remain in the Defender XDR incident queue. For Endpoint network validation, review the Microsoft 365 Unified Domains list in addition to the existing URL tables. Ensure Sentinel custom activity mapped to Defender XDR includes a supported HostName and domain pairing. No action is required to receive the new Secure Score recommendations or email prompt-injection protection.",
+      "headline": "Sentinel SAP connector retirement sets a September 14 migration deadline",
+      "overview": "The clearest operational deadline is Sentinel’s permanent retirement of the containerized SAP connector agent on September 14, 2026. Defender XDR will also change Purview DLP alert handling on October 12, while Defender for Office 365 is rolling out email prompt-injection protection through October. Separate guidance materially clarifies Linux antivirus enforcement and preview sensor activation for non-domain-controller identity servers.",
+      "adminImpact": "Administrators running the containerized SAP connector should migrate to the agentless connector before September 14 and use the agentless option for new systems. Defender XDR teams should decide whether to keep the new DLP behavior default or disable it to preserve DLP alerts in the Defender XDR incident queue. Linux administrators should check the Defender version requirement before using audit mode, and identity teams deploying sensors only on non-domain-controller servers must install at least one v3.x sensor on a domain controller and use manual activation.",
       "keyChanges": [
         {
-          "title": "DLP alerts move to behavior handling by default",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default. This reduces alert volume while keeping DLP data available in Advanced Hunting and Purview; administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "title": "Sentinel will disable the containerized SAP connector on September 14",
+          "detail": "Microsoft says the containerized SAP connector agent will be permanently retired and disabled on September 14, 2026. New deployments should use the agentless connector, and existing deployments should migrate before SAP logs stop; existing analytics rules, workbooks, and playbooks remain functional with the agentless path.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-04-migrate-to-the-microsoft-sentinel-agentless-sap-data-connector-1219"
+        },
+        {
+          "title": "Defender XDR will default Purview DLP alerts to behaviors October 12",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain those alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Email protection targets malicious prompt injection against AI assistants",
-          "detail": "Defender for Office 365 is rolling out protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic quarantine enabled by default for high-confidence threats.",
+          "title": "Defender for Office 365 rolls out email prompt-injection protection",
+          "detail": "The protection detects and quarantines malicious email content aimed at AI assistants. It applies to organizations with Defender for Office 365 Plan 2 or Microsoft 365 E5, with automatic high-confidence threat quarantine enabled by default as rollout continues through October 2026.",
           "product": "Defender for Office 365",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Secure Score adds four device-security AI-readiness recommendations",
-          "detail": "Microsoft Secure Score will add recommendations covering TPM 2.0, virtualization-based security, hypervisor-protected code integrity, and LAPS. The recommendations roll out from early to late September 2026 and are intended to identify and remediate devices missing these protections.",
-          "product": "Microsoft Defender for Endpoint",
-          "sourceId": "MC1466750"
+          "title": "Linux guidance specifies four Defender antivirus enforcement levels",
+          "detail": "The updated Defender for Endpoint on Linux guidance documents four enforcement levels, identifies passive mode as the default, and adds audit mode as a preview capability. Audit mode requires Defender for Endpoint version 101.26062.0007 or later, and the article adds a command for checking the active enforcement level.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
         },
         {
-          "title": "Device Timeline custom activity requires a supported identifier pairing",
-          "detail": "Custom activity data mapped from Microsoft Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain for the data to appear correctly in Device Timeline.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-09-02-entity-page-device-03"
-        },
-        {
-          "title": "Endpoint connectivity guidance adds Microsoft 365 Unified Domains",
-          "detail": "The commercial device-connectivity guidance now notes that some environments may need to allow URLs from the Microsoft 365 Unified Domains list in addition to the URLs in the existing table. Administrators validating network allowlists should review that linked list.",
-          "product": "Microsoft Defender for Endpoint",
-          "sourceId": "doc-2026-09-03-standard-device-connectivity-urls-commercial-01"
+          "title": "Defender for Identity v3.x covers preview activation on non-domain controllers",
+          "detail": "Version 3.x sensor guidance now includes eligible AD FS, AD CS, and Microsoft Entra Connect servers that are not domain controllers. Activation on those servers is in preview, requires manual activation, and does not support automatic activation or migration; deployments limited to those servers also need at least one v3.x sensor on a domain controller.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-04-deploy-the-defender-for-identity-sensor-v3-x-635"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-04T07:14:36.399Z",
+      "generatedAt": "2026-09-04T22:57:19.578Z",
       "usage": {
-        "inputTokens": 2282,
-        "outputTokens": 4275,
-        "costUsd": 0.005586
+        "inputTokens": 11104,
+        "outputTokens": 3710,
+        "costUsd": 0.006673
       }
     }
   },
@@ -8592,54 +8638,54 @@
       }
     },
     "2026-09": {
-      "headline": "October 12 DLP alerts default to behaviors, reducing Defender XDR queue volume",
-      "overview": "September’s most consequential change is a scheduled Defender XDR handling change: Microsoft Purview DLP alerts will become behaviors by default on October 12, while remaining available in Advanced Hunting and Purview. The period also brings email prompt-injection protection for eligible Defender for Office 365 tenants and four new Secure Score recommendations covering endpoint AI readiness. The main administrator-facing Learn updates clarify Unified Domains allowlists and Sentinel-to-Defender device identifiers; other edits were largely maintenance and troubleshooting guidance.",
-      "adminImpact": "Decide whether DLP alerts must remain in the Defender XDR incident queue and disable the rule if necessary. For Endpoint connectivity, validate allowlists against the Microsoft 365 Unified Domains list. Ensure Sentinel custom activity mapped to Defender XDR uses a supported HostName and domain pairing. Eligible Defender for Office 365 tenants need no action to receive prompt-injection protection, and no action is required to receive the new Secure Score recommendations.",
+      "headline": "Defender XDR will default DLP alerts to behaviors on October 12",
+      "overview": "September was maintenance-heavy, with many representative edits limited to terminology, metadata, or procedural clarification. The consequential exceptions were a scheduled Defender XDR alert-behavior change, Defender for Office 365 prompt-injection protection, clearer Linux antivirus enforcement guidance, preview sensor deployment on additional identity servers, and Sentinel’s migration guidance for threat-intelligence tables.",
+      "adminImpact": "Prepare for the October 12 DLP behavior change and decide whether to disable the rule to keep DLP alerts in the Defender XDR incident queue. For Linux, verify supported versions before using audit mode. Identity teams deploying sensors only to non-domain-controller servers must account for manual activation and the requirement for at least one domain-controller sensor. Sentinel teams should move remaining queries, analytics, workbooks, and automation from the legacy threat-intelligence table. Eligible organizations receive the email protection rollout automatically.",
       "keyChanges": [
         {
-          "title": "Purview DLP alerts become Defender XDR behaviors on October 12",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default. This reduces incident-queue volume while keeping DLP data accessible in Advanced Hunting and Purview; administrators can disable the rule to retain alerts in the Defender XDR incident queue.",
+          "title": "DLP alerts will become behaviors by default",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default. This is intended to reduce alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Email prompt-injection protection rolls out for Defender for Office 365 Plan 2 and E5",
-          "detail": "Defender for Office 365 is introducing protection that detects and quarantines malicious content targeting AI assistants. For organizations with Defender Plan 2 or Microsoft 365 E5, automatic high-confidence threat quarantine is enabled by default as the capability rolls out from July through October 2026.",
+          "title": "Email prompt-injection protection is rolling out",
+          "detail": "Defender for Office 365 is introducing protection that detects and quarantines malicious email content targeting AI assistants. For organizations with Defender for Office 365 Plan 2 or Microsoft 365 E5, automatic high-confidence threat quarantine is enabled by default as the capability rolls out through October 2026.",
           "product": "Defender for Office 365",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Secure Score adds four endpoint AI-readiness recommendations",
-          "detail": "Microsoft Secure Score is adding device-security recommendations covering TPM 2.0, virtualization-based security, hypervisor-protected code integrity, and LAPS. The recommendations roll out from early to late September 2026 and are intended to identify devices missing these protections.",
-          "product": "Microsoft Defender for Endpoint and Secure Score",
-          "sourceId": "MC1466750"
+          "title": "Linux antivirus guidance defines four enforcement levels",
+          "detail": "The Defender for Endpoint on Linux guidance now documents four antivirus enforcement levels, identifies passive mode as the default, and adds audit mode as a Preview capability. Audit mode requires Defender for Endpoint version 101.26062.0007 or later; the page also adds a command and verification field for checking the active level.",
+          "product": "Defender for Endpoint",
+          "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
         },
         {
-          "title": "Endpoint connectivity guidance adds Microsoft 365 Unified Domains",
-          "detail": "Commercial device-connectivity guidance now notes that some environments may need to allow URLs from the Microsoft 365 Unified Domains list in addition to the URLs already shown in the connectivity tables.",
-          "product": "Microsoft Defender for Endpoint",
-          "sourceId": "doc-2026-09-03-standard-device-connectivity-urls-commercial-01"
+          "title": "Identity sensor v3.x adds preview coverage for additional servers",
+          "detail": "Defender for Identity v3.x deployment guidance now covers eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers. Activation on those servers is in Preview and must be performed manually; automatic activation and migration are unsupported. Deployments limited to those servers still require at least one v3.x sensor on a domain controller.",
+          "product": "Defender for Identity",
+          "sourceId": "doc-2026-09-04-deploy-the-defender-for-identity-sensor-v3-x-635"
         },
         {
-          "title": "Sentinel-to-Defender device mapping requires a HostName and domain pairing",
-          "detail": "The Entity Page guidance now specifies that custom activity mapped from Sentinel to Microsoft Defender XDR must include either HostName plus NTDomain or HostName plus DnsDomain for correct Device Timeline visibility.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-09-02-entity-page-device-03"
+          "title": "Sentinel threat intelligence moves to new STIX tables",
+          "detail": "The Sentinel guidance directs migrations to the ThreatIntelIndicators and ThreatIntelObjects schemas and records that ingestion into the legacy ThreatIntelligenceIndicator table stops after July 31, 2025. Remaining custom queries, analytics and detection rules, workbooks, and automation should use the replacement tables.",
+          "product": "Microsoft Sentinel",
+          "sourceId": "doc-2026-09-04-work-with-stix-objects-and-indicators-to-enhance-threat-intelligence-and-threat-hunting-in-micro-1257"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-04T07:14:36.399Z",
+      "generatedAt": "2026-09-04T22:57:19.578Z",
       "usage": {
-        "inputTokens": 2386,
-        "outputTokens": 3740,
-        "costUsd": 0.004965
+        "inputTokens": 6343,
+        "outputTokens": 3838,
+        "costUsd": 0.005874
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-04T07:14:36.399Z",
+  "generatedAt": "2026-09-04T22:57:19.578Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8688,22 +8734,22 @@
       "costUsd": 0.019769
     },
     "2026-09-04": {
-      "inputTokens": 6448,
-      "outputTokens": 10644,
-      "requests": 3,
-      "costUsd": 0.014062
+      "inputTokens": 30226,
+      "outputTokens": 22574,
+      "requests": 6,
+      "costUsd": 0.033134
     }
   },
   "lastRun": {
-    "inputTokens": 6448,
-    "outputTokens": 10644,
+    "inputTokens": 23778,
+    "outputTokens": 11930,
     "requests": 3,
-    "costUsd": 0.014062
+    "costUsd": 0.019072
   },
   "totalUsage": {
-    "inputTokens": 68990,
-    "outputTokens": 86242,
-    "requests": 30,
-    "costUsd": 0.117289
+    "inputTokens": 92768,
+    "outputTokens": 98172,
+    "requests": 33,
+    "costUsd": 0.136361
   }
 }

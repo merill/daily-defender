@@ -1,0 +1,282 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Advanced Hunting Emailevents Table — Daily Defender News</title><meta name="description" content="The Advanced Hunting EmailEvents page updated its ownership metadata and date, and changed the documented column reference for sender, recipient, delivery, threat, authentication, and policy fields."><link rel="canonical" href="https://daily.defender.admin.news/changes/2026-09-04/advanced-hunting-emailevents-table-854/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><script>try{const saved=localStorage.getItem('defender-news-theme');document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme='light'}</script><script defer data-site="" data-domain="daily.defender.admin.news" src="https://piqo.app/piqo.js"></script><link rel="stylesheet" href="/assets/site.css"><link rel="alternate" type="application/rss+xml" title="Daily Defender News" href="/rss.xml"><meta property="og:site_name" content="Daily Defender News"><meta property="og:title" content="Advanced Hunting Emailevents Table — Daily Defender News"><meta property="og:description" content="The Advanced Hunting EmailEvents page updated its ownership metadata and date, and changed the documented column reference for sender, recipient, delivery, threat, authentication, and policy fields."><meta property="og:url" content="https://daily.defender.admin.news/changes/2026-09-04/advanced-hunting-emailevents-table-854/"><meta property="og:type" content="article"><meta property="og:image" content="https://daily.defender.admin.news/og-image.png"><meta property="og:image:secure_url" content="https://daily.defender.admin.news/og-image.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Daily Defender News — Microsoft Defender change intelligence"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Advanced Hunting Emailevents Table — Daily Defender News"><meta name="twitter:description" content="The Advanced Hunting EmailEvents page updated its ownership metadata and date, and changed the documented column reference for sender, recipient, delivery, threat, authentication, and policy fields."><meta name="twitter:image" content="https://daily.defender.admin.news/og-image.png"><meta name="twitter:image:alt" content="Daily Defender News — Microsoft Defender change intelligence"></head><body><header class="site-header"><a class="brand" href="/"><img class="brand-logo" src="/assets/ui/defender-news-logo.png" alt=""><span>Daily Defender News</span></a><nav class="main-nav" aria-label="Primary"><a href="/" data-nav="day" aria-label="Day" title="Day"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Day</span></a><a href="/week/" data-nav="week" aria-label="Week" title="Week"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Week</span></a><a href="/month/" data-nav="month" aria-label="Month" title="Month"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Month</span></a><a href="/message-center/" data-nav="message-center" aria-label="Message Center" title="Message Center"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Message Center</span></a><a href="https://mx.merill.net/" data-nav="compare" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="View full page diff" title="View full page diff"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Diff</span></a><a href="/search/" data-nav="search" class="nav-icon" aria-label="Search" title="Search"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Search</span></a></nav><div class="utility"><a class="site-link" href="/about/">About</a><a class="site-link" href="https://merill.net" target="_blank" rel="noopener noreferrer">merill.net</a><a class="icon-link" href="/rss.xml" title="Subscribe to the daily RSS feed" aria-label="Subscribe to the Daily Defender News RSS feed"><img src="/assets/ui/rss.svg" alt=""></a><div class="theme-picker" role="group" aria-label="Color theme"><button class="theme-option" type="button" data-theme-option="light" aria-pressed="false" title="Use light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg><span>Light</span></button><button class="theme-option" type="button" data-theme-option="dark" aria-pressed="false" title="Use dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><span>Dark</span></button></div></div></header><div class="detail-layout"><main class="detail-main"><nav class="breadcrumbs"><a href="/week/2026-08-31/">Week of 31 August 2026</a> &nbsp;/&nbsp; <a href="/products/defender-xdr/">Defender XDR</a> &nbsp;/&nbsp; <a href="/topics/hunting/">Hunting and detection</a></nav><div class="detail-taxonomy-lockup"><div class="product-kicker"><img src="/assets/products/defender-xdr.svg" alt="">Microsoft Defender XDR</div><a class="topic-kicker" href="/topics/hunting/"><img src="/assets/topics/hunting.svg" alt="">Hunting and detection</a></div><h1>Advanced Hunting Emailevents Table</h1><div class="article-meta"><span>4 September 2026</span><span>Doc update</span><span>+63 / −59 lines</span></div><section class="summary-grid editorial-summary" aria-label="Change summary"><div class="editorial-panel brief"><h2 class="section-title">In brief</h2><p>The Advanced Hunting EmailEvents page updated its ownership metadata and date, and changed the documented column reference for sender, recipient, delivery, threat, authentication, and policy fields.</p></div><div class="editorial-panel admin"><h2 class="section-title">What Defender admins need to know</h2><p>Review the current schema when building or maintaining EmailEvents hunting queries.</p></div><p class="ai-disclosure">Summaries are generated from the documentation change itself.</p></section><section class="doc-change" data-diff><h2 class="section-title">Documentation change</h2><div class="doc-source-intro"><div class="doc-source-actions"><a class="learn-link diff-link doc-action-link" href="https://mx.merill.net/en-us/defender-xdr/advanced-hunting-emailevents-table?_mx_base=f2685dde563d0cbefdcaeca1e57ec468c84525ef&amp;_mx_head=2f51dff1970249bfc8974bf6873d8b933f5185ce" target="_blank" rel="noopener noreferrer"><span class="diff-link-icon" aria-hidden="true"></span>View full page diff</a><a class="learn-link doc-action-link" href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-emailevents-table" target="_blank" rel="noopener noreferrer"><img src="/assets/ui/microsoft.svg" alt="">View on Microsoft Learn</a></div><p>The comparison below shows only the changed extract. Use the full-page view for complete context.</p></div><div class="diff-tabs"><button class="active" data-diff-tab="formatted">Formatted</button><button data-diff-tab="markdown">Markdown</button></div><div class="diff-panel" data-diff-panel="formatted"><div class="rich-diff"><p>[!INCLUDE <a href="../includes/microsoft-defender.md">Microsoft Defender XDR rebranding</a>]</p>
+<p>The <code>EmailEvents</code> table in the <a href="advanced-hunting-overview.md">advanced hunting</a> schema contains information about events involving the processing of emails on Microsoft Defender for Office 365. Use this reference to construct queries that return information from this table.</p>
+<aside class="learn-alert learn-alert-tip"><div class="learn-alert-title"><span class="learn-alert-icon" aria-hidden="true">!</span><span>Tip</span></div><div class="learn-alert-body"><p>[!IMPORTANT]
+Some information relates to prereleased product which may be substantially modified before it&#39;s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.</p>
+</div></aside><table>
+<thead>
+<tr>
+<th>Column name</th>
+<th>Data type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Date and time when the event was recorded</td>
+</tr>
+<tr>
+<td><code>NetworkMessageId</code></td>
+<td><code>string</code></td>
+<td>Unique identifier for the email, generated by Microsoft 365</td>
+</tr>
+<tr>
+<td><code>InternetMessageId</code></td>
+<td><code>string</code></td>
+<td>Public-facing identifier for the email that is set by the sending email system</td>
+</tr>
+<tr>
+<td><code>SenderMailFromAddress</code></td>
+<td><code>string</code></td>
+<td>Sender email address in the MAIL FROM header, also known as the envelope sender or the Return-Path address</td>
+</tr>
+<tr>
+<td><code>SenderFromAddress</code></td>
+<td><code>string</code></td>
+<td>Sender email address in the FROM header, which is visible to email recipients on their email clients</td>
+</tr>
+<tr>
+<td><code>SenderDisplayName</code></td>
+<td><code>string</code></td>
+<td>Name of the sender displayed in the address book, typically a combination of a given or first name, a middle initial, and a last name or surname</td>
+</tr>
+<tr>
+<td><code>SenderObjectId</code></td>
+<td><code>string</code></td>
+<td>Unique identifier for the sender&#39;s account in Microsoft Entra ID</td>
+</tr>
+<tr>
+<td><code>SenderMailFromDomain</code></td>
+<td><code>string</code></td>
+<td>Sender domain in the MAIL FROM header, also known as the envelope sender or the Return-Path address</td>
+</tr>
+<tr>
+<td><code>SenderFromDomain</code></td>
+<td><code>string</code></td>
+<td>Sender domain in the FROM header, which is visible to email recipients on their email clients</td>
+</tr>
+<tr>
+<td><code>SenderIPv4</code></td>
+<td><code>string</code></td>
+<td>IPv4 address of the last detected mail server that relayed the message</td>
+</tr>
+<tr>
+<td><code>SenderIPv6</code></td>
+<td><code>string</code></td>
+<td>IPv6 address of the last detected mail server that relayed the message</td>
+</tr>
+<tr>
+<td><code>RecipientEmailAddress</code></td>
+<td><code>string</code></td>
+<td>Email address of the recipient, or email address of the recipient after distribution list expansion</td>
+</tr>
+<tr>
+<td><code>RecipientObjectId</code></td>
+<td><code>string</code></td>
+<td>Unique identifier for the email recipient in Microsoft Entra ID</td>
+</tr>
+<tr>
+<td><code>Subject</code></td>
+<td><code>string</code></td>
+<td>Subject of the email</td>
+</tr>
+<tr>
+<td><code>EmailClusterId</code></td>
+<td><code>long</code></td>
+<td>Identifier for the group of similar emails clustered based on heuristic analysis of their contents</td>
+</tr>
+<tr>
+<td><code>EmailDirection</code></td>
+<td><code>string</code></td>
+<td>Direction of the email relative to your network:  Inbound, Outbound, Intra-org</td>
+</tr>
+<tr>
+<td><code>DeliveryAction</code></td>
+<td><code>string</code></td>
+<td>Delivery action of the email: Delivered, Junked, Blocked, or Replaced</td>
+</tr>
+<tr>
+<td><code>DeliveryLocation</code></td>
+<td><code>string</code></td>
+<td>Location where the email was delivered: Inbox/Folder, On-premises/External, Junk, Quarantine, Failed, Dropped, Deleted items</td>
+</tr>
+<tr>
+<td><code>ThreatTypes</code></td>
+<td><code>string</code></td>
+<td>Verdict from the email filtering stack on whether the email contains malware, phishing, or other threats</td>
+</tr>
+<tr>
+<td><code>ThreatNames</code></td>
+<td><code>string</code></td>
+<td>Detection name for malware or other threats found</td>
+</tr>
+<tr>
+<td><code>DetectionMethods</code></td>
+<td><code>string</code></td>
+<td>Methods used to detect malware, phishing, or other threats found in the email</td>
+</tr>
+<tr>
+<td><code>ConfidenceLevel</code></td>
+<td><code>string</code></td>
+<td>List of confidence levels of any spam or phishing verdicts. For spam, this column shows the spam confidence level (SCL), indicating if the email was skipped (-1), found to be not spam (0,1), found to be spam with moderate confidence (5,6), or found to be spam with high confidence (9). For phishing, this column displays whether the confidence level is &quot;High&quot; or &quot;Low&quot;.</td>
+</tr>
+<tr>
+<td><code>BulkComplaintLevel</code></td>
+<td><code>int</code></td>
+<td>Threshold assigned to email from bulk mailers, a high bulk complaint level (BCL) means the email is more likely to generate complaints, and thus more likely to be spam</td>
+</tr>
+<tr>
+<td><code>EmailAction</code></td>
+<td><code>string</code></td>
+<td>Final action taken on the email based on filter verdict, policies, and user actions:  Move message to junk mail folder, Add X-header, Modify subject, Redirect message, Delete message, send to quarantine, No action taken, Bcc message</td>
+</tr>
+<tr>
+<td><code>EmailActionPolicy</code></td>
+<td><code>string</code></td>
+<td>Action policy that took effect: Antispam high-confidence, Antispam, Antispam bulk mail, Antispam phishing, Anti-phishing domain impersonation, Anti-phishing user impersonation, Anti-phishing spoof, Anti-phishing graph impersonation, Antimalware, Safe Attachments, Enterprise Transport Rules (ETR)</td>
+</tr>
+<tr>
+<td><code>EmailActionPolicyGuid</code></td>
+<td><code>string</code></td>
+<td>Unique identifier for the policy that determined the final mail action</td>
+</tr>
+<tr>
+<td><code>AuthenticationDetails</code></td>
+<td><code>string</code></td>
+<td>List of pass or fail verdicts by email authentication protocols like DMARC, DKIM, SPF or a combination of multiple authentication types (CompAuth)</td>
+</tr>
+<tr>
+<td><code>AttachmentCount</code></td>
+<td><code>int</code></td>
+<td>Number of attachments in the email</td>
+</tr>
+<tr>
+<td><code>UrlCount</code></td>
+<td><code>int</code></td>
+<td>Number of embedded URLs in the email</td>
+</tr>
+<tr>
+<td><code>EmailLanguage</code></td>
+<td><code>string</code></td>
+<td>Detected language of the email content</td>
+</tr>
+<tr>
+<td><code>Connectors</code></td>
+<td><code>string</code></td>
+<td>Custom instructions that define organizational mail flow and how the email was routed</td>
+</tr>
+<tr>
+<td><code>OrgLevelAction</code></td>
+<td><code>string</code></td>
+<td>Action taken on the email in response to matches to a policy defined at the organizational level</td>
+</tr>
+<tr>
+<td><code>OrgLevelPolicy</code></td>
+<td><code>string</code></td>
+<td>Organizational policy that triggered the action taken on the email</td>
+</tr>
+<tr>
+<td><code>UserLevelAction</code></td>
+<td><code>string</code></td>
+<td>Action taken on the email in response to matches to a mailbox policy defined by the recipient</td>
+</tr>
+<tr>
+<td><code>UserLevelPolicy</code></td>
+<td><code>string</code></td>
+<td>End-user mailbox policy that triggered the action taken on the email</td>
+</tr>
+<tr>
+<td><code>ReportId</code></td>
+<td><code>string</code></td>
+<td>Event identifier based on a repeating counter. To identify unique events, this column must be used in conjunction with the DeviceName and Timestamp columns.</td>
+</tr>
+<tr>
+<td><code>AdditionalFields</code></td>
+<td><code>string</code></td>
+<td>Additional information about the entity or event</td>
+</tr>
+<tr>
+<td><code>LatestDeliveryLocation</code>*</td>
+<td><code>string</code></td>
+<td>Last known location of the email</td>
+</tr>
+<tr>
+<td><code>LatestDeliveryAction</code>*</td>
+<td><code>string</code></td>
+<td>Last known action attempted on an email by the service or by an admin through manual remediation</td>
+</tr>
+<tr>
+<td><code>OriginalThreatTypes</code></td>
+<td><code>string</code></td>
+<td>Verdict from the email filtering stack on whether the email contains malware, phishing, or other threats at the time of delivery.</td>
+</tr>
+<tr>
+<td><code>OriginalDetectionMethods</code></td>
+<td><code>string</code></td>
+<td>Methods used to detect malware, phishing, or other threats found in the email at the time of delivery.</td>
+</tr>
+<tr>
+<td><code>OriginalConfidenceLevel</code></td>
+<td><code>string</code></td>
+<td>List of confidence levels of any spam or phishing verdicts at the time of delivery.</td>
+</tr>
+<tr>
+<td><code>DistributionList</code></td>
+<td><code>string</code></td>
+<td>Name of the distribution list (DL) to which the email was sent, if applicable; in cases of nested DLs, it shows the top-level list</td>
+</tr>
+<tr>
+<td><code>ExchangeTransportRule</code></td>
+<td><code>string</code></td>
+<td>Mail flow rules (also known as transport rules) that took action on the email while it was in transit; mail flow rules are similar to the Inbox rules available in Outlook and Outlook on the web</td>
+</tr>
+<tr>
+<td><code>ForwardingInformation</code></td>
+<td><code>string</code></td>
+<td>JSON array of forwarding details, including the forwarding user and the forwarding type</td>
+</tr>
+<tr>
+<td><code>Context</code></td>
+<td><code>string</code></td>
+<td>Protection context in which the detection ran, for example, Priority Account Protection</td>
+</tr>
+<tr>
+<td><code>To</code></td>
+<td><code>string</code></td>
+<td>Addresses listed in the To fields of the email</td>
+</tr>
+<tr>
+<td><code>Cc</code></td>
+<td><code>string</code></td>
+<td>Addresses listed in the Cc fields of the email</td>
+</tr>
+<tr>
+<td><code>ThreatClassification</code></td>
+<td><code>string</code></td>
+<td>Threat classification applied to the email</td>
+</tr>
+<tr>
+<td><code>RecipientDomain</code></td>
+<td><code>string</code></td>
+<td>Domain address of the recipient</td>
+</tr>
+<tr>
+<td><code>EmailSize</code></td>
+<td><code>long</code></td>
+<td>Size of the email message in bytes</td>
+</tr>
+<tr>
+<td><code>IsFirstContact</code></td>
+<td><code>int</code></td>
+<td>Whether the email was the first contact between the sender and recipient (1 if yes, 0 if no)</td>
+</tr>
+<tr>
+<td><code>Topics</code></td>
+<td><code>string</code></td>
+<td>Topics column provides granular, multi-label topic classifications that describe what an email is about.</td>
+</tr>
+</tbody></table>
+<aside class="learn-alert learn-alert-note"><div class="learn-alert-title"><span class="learn-alert-icon" aria-hidden="true">!</span><span>Note</span></div><div class="learn-alert-body"><p>* The <code>LatestDeliveryLocation</code> and <code>LatestDeliveryAction</code> columns are <strong>not</strong> available in the Streaming API.</p>
+<p>The Streaming API streams a new record whenever an email&#39;s verdict or delivery location changes. To return only the latest record for each email and recipient in a security information and event management (SIEM) solution, use <code>summarize arg_max(TimeGenerated, *) by NetworkMessageId, RecipientEmailAddress</code>.</p>
+</div></aside><h2>Related topics</h2>
+</div></div><div class="diff-panel" data-diff-panel="markdown" hidden><div class="markdown-diff" role="region" aria-label="Markdown Git diff"><pre><code><span class="markdown-diff-line hunk">@@ -3,20 +3,21 @@ title: EmailEvents table in the advanced hunting schema</span><span class="markdown-diff-line context"> description: Learn about events associated with Microsoft 365 emails in the EmailEvents table of the advanced hunting schema</span><span class="markdown-diff-line context"> ms.service: defender-xdr</span><span class="markdown-diff-line context"> ms.subservice: adv-hunting</span><span class="markdown-diff-line removed">-ms.author: pauloliveria</span><span class="markdown-diff-line removed">-author: poliveria</span><span class="markdown-diff-line added">+ms.author: ajajshaikh</span><span class="markdown-diff-line added">+author: ajaj-shaikh</span><span class="markdown-diff-line context"> ms.localizationpriority: medium</span><span class="markdown-diff-line removed">-ms.collection: </span><span class="markdown-diff-line added">+ms.collection:</span><span class="markdown-diff-line context"> - m365-security</span><span class="markdown-diff-line context"> - tier3</span><span class="markdown-diff-line context"> ms.custom:</span><span class="markdown-diff-line context"> - cx-ti</span><span class="markdown-diff-line context"> - cx-ah</span><span class="markdown-diff-line added">+- msecd-doc-authoring-1015</span><span class="markdown-diff-line context"> appliesto:</span><span class="markdown-diff-line context">     - Microsoft Defender XDR</span><span class="markdown-diff-line context">     - Microsoft Sentinel in the Microsoft Defender portal</span><span class="markdown-diff-line context"> ms.topic: reference</span><span class="markdown-diff-line removed">-ms.date: 07/03/2026</span><span class="markdown-diff-line added">+ms.date: 08/03/2026</span><span class="markdown-diff-line context"> ai-usage: ai-assisted</span><span class="markdown-diff-line context"> ---</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line hunk">@@ -24,9 +25,6 @@ ai-usage: ai-assisted</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line context"> [!INCLUDE [Microsoft Defender XDR rebranding](../includes/microsoft-defender.md)]</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line removed">-</span><span class="markdown-diff-line removed">-</span><span class="markdown-diff-line removed">-</span><span class="markdown-diff-line context"> The `EmailEvents` table in the [advanced hunting](advanced-hunting-overview.md) schema contains information about events involving the processing of emails on Microsoft Defender for Office 365. Use this reference to construct queries that return information from this table.</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line context"> &gt; [!TIP]</span><span class="markdown-diff-line hunk">@@ -39,60 +37,66 @@ For information on other tables in the advanced hunting schema, [see the advance</span><span class="markdown-diff-line context"> &gt; [!IMPORTANT]</span><span class="markdown-diff-line context"> &gt; Some information relates to prereleased product which may be substantially modified before it&#039;s commercially released. Microsoft makes no warranties, express or implied, with respect to the information provided here.</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line removed">-| Column name | Data type | Description |</span><span class="markdown-diff-line removed">-|-------------|-----------|-------------|</span><span class="markdown-diff-line removed">-| `Timestamp` | `datetime` | Date and time when the event was recorded |</span><span class="markdown-diff-line removed">-| `NetworkMessageId` | `string` | Unique identifier for the email, generated by Microsoft 365 |</span><span class="markdown-diff-line removed">-| `InternetMessageId` | `string` | Public-facing identifier for the email that is set by the sending email system |</span><span class="markdown-diff-line removed">-| `SenderMailFromAddress` | `string` | Sender email address in the MAIL FROM header, also known as the envelope sender or the Return-Path address |</span><span class="markdown-diff-line removed">-| `SenderFromAddress` | `string` | Sender email address in the FROM header, which is visible to email recipients on their email clients |</span><span class="markdown-diff-line removed">-| `SenderDisplayName` | `string` | Name of the sender displayed in the address book, typically a combination of a given or first name, a middle initial, and a last name or surname |</span><span class="markdown-diff-line removed">-| `SenderObjectId` | `string` |Unique identifier for the sender&#039;s account in Microsoft Entra ID |</span><span class="markdown-diff-line removed">-| `SenderMailFromDomain` | `string` | Sender domain in the MAIL FROM header, also known as the envelope sender or the Return-Path address |</span><span class="markdown-diff-line removed">-| `SenderFromDomain` | `string` | Sender domain in the FROM header, which is visible to email recipients on their email clients |</span><span class="markdown-diff-line removed">-| `SenderIPv4` | `string` | IPv4 address of the last detected mail server that relayed the message |</span><span class="markdown-diff-line removed">-| `SenderIPv6` | `string` | IPv6 address of the last detected mail server that relayed the message |</span><span class="markdown-diff-line removed">-| `RecipientEmailAddress` | `string` | Email address of the recipient, or email address of the recipient after distribution list expansion |</span><span class="markdown-diff-line removed">-| `RecipientObjectId` | `string` | Unique identifier for the email recipient in Microsoft Entra ID |</span><span class="markdown-diff-line removed">-| `Subject` | `string` | Subject of the email |</span><span class="markdown-diff-line removed">-| `EmailClusterId` | `long` | Identifier for the group of similar emails clustered based on heuristic analysis of their contents |</span><span class="markdown-diff-line removed">-| `EmailDirection` | `string` | Direction of the email relative to your network:  Inbound, Outbound, Intra-org |</span><span class="markdown-diff-line removed">-| `DeliveryAction` | `string` | Delivery action of the email: Delivered, Junked, Blocked, or Replaced |</span><span class="markdown-diff-line removed">-| `DeliveryLocation` | `string` | Location where the email was delivered: Inbox/Folder, On-premises/External, Junk, Quarantine, Failed, Dropped, Deleted items |</span><span class="markdown-diff-line removed">-| `ThreatTypes` | `string` | Verdict from the email filtering stack on whether the email contains malware, phishing, or other threats |</span><span class="markdown-diff-line removed">-| `ThreatNames` | `string` |Detection name for malware or other threats found |</span><span class="markdown-diff-line removed">-| `DetectionMethods` | `string` | Methods used to detect malware, phishing, or other threats found in the email |</span><span class="markdown-diff-line removed">-| `ConfidenceLevel` | `string` | List of confidence levels of any spam or phishing verdicts. For spam, this column shows the spam confidence level (SCL), indicating if the email was skipped (-1), found to be not spam (0,1), found to be spam with moderate confidence (5,6), or found to be spam with high confidence (9). For phishing, this column displays whether the confidence level is &quot;High&quot; or &quot;Low&quot;. |</span><span class="markdown-diff-line removed">-| `BulkComplaintLevel` | `int` | Threshold assigned to email from bulk mailers, a high bulk complaint level (BCL) means the email is more likely to generate complaints, and thus more likely to be spam |</span><span class="markdown-diff-line removed">-| `EmailAction` | `string` | Final action taken on the email based on filter verdict, policies, and user actions:  Move message to junk mail folder, Add X-header, Modify subject, Redirect message, Delete message, send to quarantine, No action taken, Bcc message |</span><span class="markdown-diff-line removed">-| `EmailActionPolicy` | `string` | Action policy that took effect: Antispam high-confidence, Antispam, Antispam bulk mail, Antispam phishing, Anti-phishing domain impersonation, Anti-phishing user impersonation, Anti-phishing spoof, Anti-phishing graph impersonation, Antimalware, Safe Attachments, Enterprise Transport Rules (ETR) |</span><span class="markdown-diff-line removed">-| `EmailActionPolicyGuid` | `string` | Unique identifier for the policy that determined the final mail action |</span><span class="markdown-diff-line removed">-| `AuthenticationDetails` | `string` | List of pass or fail verdicts by email authentication protocols like DMARC, DKIM, SPF or a combination of multiple authentication types (CompAuth) |</span><span class="markdown-diff-line removed">-| `AttachmentCount` | `int` | Number of attachments in the email |</span><span class="markdown-diff-line removed">-| `UrlCount` | `int` | Number of embedded URLs in the email |</span><span class="markdown-diff-line removed">-| `EmailLanguage` | `string` | Detected language of the email content |</span><span class="markdown-diff-line removed">-| `Connectors` | `string` | Custom instructions that define organizational mail flow and how the email was routed |</span><span class="markdown-diff-line removed">-| `OrgLevelAction` | `string` | Action taken on the email in response to matches to a policy defined at the organizational level |</span><span class="markdown-diff-line removed">-| `OrgLevelPolicy` | `string` | Organizational policy that triggered the action taken on the email |</span><span class="markdown-diff-line removed">-| `UserLevelAction` | `string` | Action taken on the email in response to matches to a mailbox policy defined by the recipient |</span><span class="markdown-diff-line removed">-| `UserLevelPolicy` | `string` | End-user mailbox policy that triggered the action taken on the email |</span><span class="markdown-diff-line removed">-| `ReportId` | `string` | Event identifier based on a repeating counter. To identify unique events, this column must be used in conjunction with the DeviceName and Timestamp columns. |</span><span class="markdown-diff-line removed">-| `AdditionalFields` | `string` | Additional information about the entity or event |</span><span class="markdown-diff-line removed">-| `LatestDeliveryLocation`* | `string` | Last known location of the email |</span><span class="markdown-diff-line removed">-|`LatestDeliveryAction`* | `string` | Last known action attempted on an email by the service or by an admin through manual remediation |</span><span class="markdown-diff-line removed">-|`DistributionList` | `string` | Name of the distribution list (DL) to which the email was sent, if applicable; in cases of nested DLs, it shows the top-level list |</span><span class="markdown-diff-line removed">-| `ExchangeTransportRule` | `string` | Mail flow rules (also known as transport rules) that took action on the email while it was in transit; mail flow rules are similar to the Inbox rules available in Outlook and Outlook on the web |</span><span class="markdown-diff-line removed">-| `ForwardingInformation` | `string` | JSON array of forwarding details, including the forwarding user and the forwarding type |</span><span class="markdown-diff-line removed">-| `Context` | `string` | Protection context in which the detection ran, for example, Priority Account Protection |</span><span class="markdown-diff-line removed">-| `To` | `string` | Addresses listed in the To fields of the email |</span><span class="markdown-diff-line removed">-| `Cc` | `string` | Addresses listed in the Cc fields of the email |</span><span class="markdown-diff-line removed">-| `ThreatClassification` | `string` | Threat classification applied to the email |</span><span class="markdown-diff-line removed">-| `RecipientDomain` | `string` | Domain address of the recipient |</span><span class="markdown-diff-line removed">-| `EmailSize` | `long` | Size of the email message in bytes |</span><span class="markdown-diff-line removed">-| `IsFirstContact` | `int` | Whether the email was the first contact between the sender and recipient (1 if yes, 0 if no) |</span><span class="markdown-diff-line added">+|Column name|Data type|Description|</span><span class="markdown-diff-line added">+|---|---|---|</span><span class="markdown-diff-line added">+|`Timestamp`|`datetime`|Date and time when the event was recorded|</span><span class="markdown-diff-line added">+|`NetworkMessageId`|`string`|Unique identifier for the email, generated by Microsoft 365|</span><span class="markdown-diff-line added">+|`InternetMessageId`|`string`|Public-facing identifier for the email that is set by the sending email system|</span><span class="markdown-diff-line added">+|`SenderMailFromAddress`|`string`|Sender email address in the MAIL FROM header, also known as the envelope sender or the Return-Path address|</span><span class="markdown-diff-line added">+|`SenderFromAddress`|`string`|Sender email address in the FROM header, which is visible to email recipients on their email clients|</span><span class="markdown-diff-line added">+|`SenderDisplayName`|`string`|Name of the sender displayed in the address book, typically a combination of a given or first name, a middle initial, and a last name or surname|</span><span class="markdown-diff-line added">+|`SenderObjectId`|`string`|Unique identifier for the sender&#039;s account in Microsoft Entra ID|</span><span class="markdown-diff-line added">+|`SenderMailFromDomain`|`string`|Sender domain in the MAIL FROM header, also known as the envelope sender or the Return-Path address|</span><span class="markdown-diff-line added">+|`SenderFromDomain`|`string`|Sender domain in the FROM header, which is visible to email recipients on their email clients|</span><span class="markdown-diff-line added">+|`SenderIPv4`|`string`|IPv4 address of the last detected mail server that relayed the message|</span><span class="markdown-diff-line added">+|`SenderIPv6`|`string`|IPv6 address of the last detected mail server that relayed the message|</span><span class="markdown-diff-line added">+|`RecipientEmailAddress`|`string`|Email address of the recipient, or email address of the recipient after distribution list expansion|</span><span class="markdown-diff-line added">+|`RecipientObjectId`|`string`|Unique identifier for the email recipient in Microsoft Entra ID|</span><span class="markdown-diff-line added">+|`Subject`|`string`|Subject of the email|</span><span class="markdown-diff-line added">+|`EmailClusterId`|`long`|Identifier for the group of similar emails clustered based on heuristic analysis of their contents|</span><span class="markdown-diff-line added">+|`EmailDirection`|`string`|Direction of the email relative to your network:  Inbound, Outbound, Intra-org|</span><span class="markdown-diff-line added">+|`DeliveryAction`|`string`|Delivery action of the email: Delivered, Junked, Blocked, or Replaced|</span><span class="markdown-diff-line added">+|`DeliveryLocation`|`string`|Location where the email was delivered: Inbox/Folder, On-premises/External, Junk, Quarantine, Failed, Dropped, Deleted items|</span><span class="markdown-diff-line added">+|`ThreatTypes`|`string`|Verdict from the email filtering stack on whether the email contains malware, phishing, or other threats|</span><span class="markdown-diff-line added">+|`ThreatNames`|`string`|Detection name for malware or other threats found|</span><span class="markdown-diff-line added">+|`DetectionMethods`|`string`|Methods used to detect malware, phishing, or other threats found in the email|</span><span class="markdown-diff-line added">+|`ConfidenceLevel`|`string`|List of confidence levels of any spam or phishing verdicts. For spam, this column shows the spam confidence level (SCL), indicating if the email was skipped (-1), found to be not spam (0,1), found to be spam with moderate confidence (5,6), or found to be spam with high confidence (9). For phishing, this column displays whether the confidence level is &quot;High&quot; or &quot;Low&quot;.|</span><span class="markdown-diff-line added">+|`BulkComplaintLevel`|`int`|Threshold assigned to email from bulk mailers, a high bulk complaint level (BCL) means the email is more likely to generate complaints, and thus more likely to be spam|</span><span class="markdown-diff-line added">+|`EmailAction`|`string`|Final action taken on the email based on filter verdict, policies, and user actions:  Move message to junk mail folder, Add X-header, Modify subject, Redirect message, Delete message, send to quarantine, No action taken, Bcc message|</span><span class="markdown-diff-line added">+|`EmailActionPolicy`|`string`|Action policy that took effect: Antispam high-confidence, Antispam, Antispam bulk mail, Antispam phishing, Anti-phishing domain impersonation, Anti-phishing user impersonation, Anti-phishing spoof, Anti-phishing graph impersonation, Antimalware, Safe Attachments, Enterprise Transport Rules (ETR)|</span><span class="markdown-diff-line added">+|`EmailActionPolicyGuid`|`string`|Unique identifier for the policy that determined the final mail action|</span><span class="markdown-diff-line added">+|`AuthenticationDetails`|`string`|List of pass or fail verdicts by email authentication protocols like DMARC, DKIM, SPF or a combination of multiple authentication types (CompAuth)|</span><span class="markdown-diff-line added">+|`AttachmentCount`|`int`|Number of attachments in the email|</span><span class="markdown-diff-line added">+|`UrlCount`|`int`|Number of embedded URLs in the email|</span><span class="markdown-diff-line added">+|`EmailLanguage`|`string`|Detected language of the email content|</span><span class="markdown-diff-line added">+|`Connectors`|`string`|Custom instructions that define organizational mail flow and how the email was routed|</span><span class="markdown-diff-line added">+|`OrgLevelAction`|`string`|Action taken on the email in response to matches to a policy defined at the organizational level|</span><span class="markdown-diff-line added">+|`OrgLevelPolicy`|`string`|Organizational policy that triggered the action taken on the email|</span><span class="markdown-diff-line added">+|`UserLevelAction`|`string`|Action taken on the email in response to matches to a mailbox policy defined by the recipient|</span><span class="markdown-diff-line added">+|`UserLevelPolicy`|`string`|End-user mailbox policy that triggered the action taken on the email|</span><span class="markdown-diff-line added">+|`ReportId`|`string`|Event identifier based on a repeating counter. To identify unique events, this column must be used in conjunction with the DeviceName and Timestamp columns.|</span><span class="markdown-diff-line added">+|`AdditionalFields`|`string`|Additional information about the entity or event|</span><span class="markdown-diff-line added">+|`LatestDeliveryLocation`*|`string`|Last known location of the email|</span><span class="markdown-diff-line added">+|`LatestDeliveryAction`*|`string`|Last known action attempted on an email by the service or by an admin through manual remediation|</span><span class="markdown-diff-line added">+|`OriginalThreatTypes`|`string`|Verdict from the email filtering stack on whether the email contains malware, phishing, or other threats at the time of delivery.|</span><span class="markdown-diff-line added">+|`OriginalDetectionMethods`|`string`|Methods used to detect malware, phishing, or other threats found in the email at the time of delivery.|</span><span class="markdown-diff-line added">+|`OriginalConfidenceLevel`|`string`|List of confidence levels of any spam or phishing verdicts at the time of delivery.|</span><span class="markdown-diff-line added">+|`DistributionList`|`string`|Name of the distribution list (DL) to which the email was sent, if applicable; in cases of nested DLs, it shows the top-level list|</span><span class="markdown-diff-line added">+|`ExchangeTransportRule`|`string`|Mail flow rules (also known as transport rules) that took action on the email while it was in transit; mail flow rules are similar to the Inbox rules available in Outlook and Outlook on the web|</span><span class="markdown-diff-line added">+|`ForwardingInformation`|`string`|JSON array of forwarding details, including the forwarding user and the forwarding type|</span><span class="markdown-diff-line added">+|`Context`|`string`|Protection context in which the detection ran, for example, Priority Account Protection|</span><span class="markdown-diff-line added">+|`To`|`string`|Addresses listed in the To fields of the email|</span><span class="markdown-diff-line added">+|`Cc`|`string`|Addresses listed in the Cc fields of the email|</span><span class="markdown-diff-line added">+|`ThreatClassification`|`string`|Threat classification applied to the email|</span><span class="markdown-diff-line added">+|`RecipientDomain`|`string`|Domain address of the recipient|</span><span class="markdown-diff-line added">+|`EmailSize`|`long`|Size of the email message in bytes|</span><span class="markdown-diff-line added">+|`IsFirstContact`|`int`|Whether the email was the first contact between the sender and recipient (1 if yes, 0 if no)|</span><span class="markdown-diff-line added">+|`Topics`|`string`|Topics column provides granular, multi-label topic classifications that describe what an email is about.|</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line context"> &gt; [!NOTE]</span><span class="markdown-diff-line removed">-&gt;\* The `LatestDeliveryLocation` and `LatestDeliveryAction` columns are **not** available in the Streaming API. </span><span class="markdown-diff-line added">+&gt; \* The `LatestDeliveryLocation` and `LatestDeliveryAction` columns are **not** available in the Streaming API.</span><span class="markdown-diff-line added">+&gt;</span><span class="markdown-diff-line added">+&gt; The Streaming API streams a new record whenever an email&#039;s verdict or delivery location changes. To return only the latest record for each email and recipient in a security information and event management (SIEM) solution, use `summarize arg_max(TimeGenerated, *) by NetworkMessageId, RecipientEmailAddress`.</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line context"> ## Related topics</span><span class="markdown-diff-line context"> </span><span class="markdown-diff-line context"> </span></code></pre></div></div></section></main><aside class="detail-aside"><a class="aside-link diff-link doc-action-link" href="https://mx.merill.net/en-us/defender-xdr/advanced-hunting-emailevents-table?_mx_base=f2685dde563d0cbefdcaeca1e57ec468c84525ef&amp;_mx_head=2f51dff1970249bfc8974bf6873d8b933f5185ce" target="_blank" rel="noopener noreferrer"><span class="diff-link-icon" aria-hidden="true"></span>View full page diff</a><a class="aside-link doc-action-link" href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-emailevents-table" target="_blank" rel="noopener noreferrer"><img src="/assets/ui/microsoft.svg" alt="">View on Microsoft Learn</a><hr class="rail-rule"><h2 class="section-title">Related changes</h2><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/aadsignineventsbeta-table-in-the-advanced-hunting-schema-deprecated-839/">AADSignInEventsBeta table in the advanced hunting schema (deprecated)</a></div><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/aadspnsignineventsbeta-table-in-the-advanced-hunting-schema-deprecated-840/">AADSpnSignInEventsBeta table in the advanced hunting schema (deprecated)</a></div><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/advanced-hunting-clouddnsevents-table-843/">Advanced Hunting Clouddnsevents Table</a></div><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/advanced-hunting-devicebaselinecomplianceassessment-table-849/">Advanced Hunting Devicebaselinecomplianceassessment Table</a></div><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/advanced-hunting-devicebaselinecomplianceassessmentkb-table-850/">Advanced Hunting Devicebaselinecomplianceassessmentkb Table</a></div><hr class="rail-rule"></aside></div><footer class="footer" id="site-footer"><div class="footer-inner"><section class="footer-feature"><div class="eyebrow">Featured project</div><div class="footer-feature-lockup"><img class="footer-feature-logo" src="/assets/ui/maester.png" alt=""><h2><a target="_blank" rel="noopener noreferrer" href="https://maester.cloud">Maester Cloud</a></h2></div><p>Maester Cloud continuously tests your Microsoft 365 and Defender security configuration.</p><a target="_blank" rel="noopener noreferrer" class="footer-cta" href="https://maester.cloud">Explore Maester Cloud →</a></section><section class="footer-projects"><h2 class="footer-section-title">More community projects</h2><ul class="footer-project-list"><li><a target="_blank" rel="noopener noreferrer" href="https://maester.dev">Maester</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://graphpermissions.merill.net">Graph Permissions Explorer</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://cmd.ms">cmd.ms</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://mc.merill.net">M365 Message Center Archive</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://getyako.com">Yako</a></li></ul></section><section class="footer-support"><h2 class="footer-section-title">Support free community tools</h2><p>Found these free tools useful? Shout me a cup of coffee—or more—on GitHub Sponsors. It helps keep the projects open, useful, and moving.</p><div class="footer-support-links"><a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/merill">Sponsor Merill on GitHub →</a></div></section></div><div class="footer-bottom"><div><div>Daily.Defender.Admin.News — an independent record of Microsoft Defender documentation changes.</div><div class="refresh-status"><span>Last refreshed <time data-refresh-last>checking…</time> <span class="refresh-relative" data-refresh-last-relative>recently</span></span><span>Next refresh <span class="refresh-relative" data-refresh-next>within six hours</span></span></div></div><nav aria-label="Footer"><a target="_blank" rel="noopener noreferrer" class="footer-rss-link" href="/rss.xml"><img src="/assets/ui/rss.svg" alt="">Daily RSS</a><a target="_blank" rel="noopener noreferrer" href="/about/">About</a><a target="_blank" rel="noopener noreferrer" href="https://merill.net">merill.net</a></nav></div></footer><script src="/assets/site.js"></script></body></html>
