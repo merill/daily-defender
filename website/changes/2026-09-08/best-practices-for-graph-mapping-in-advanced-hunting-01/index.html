@@ -1,0 +1,198 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Best practices for graph mapping in advanced hunting — Daily Defender News</title><meta name="description" content="A new page explains how to prepare query results, configure graph nodes and edges, apply relationship conditions, and use recognized entity types and identifiers for Defender enrichment."><link rel="canonical" href="https://daily.defender.admin.news/changes/2026-09-08/best-practices-for-graph-mapping-in-advanced-hunting-01/"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><script>try{const saved=localStorage.getItem('defender-news-theme');document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme='light'}</script><script defer data-site="" data-domain="daily.defender.admin.news" src="https://piqo.app/piqo.js"></script><link rel="stylesheet" href="/assets/site.css"><link rel="alternate" type="application/rss+xml" title="Daily Defender News" href="/rss.xml"><meta property="og:site_name" content="Daily Defender News"><meta property="og:title" content="Best practices for graph mapping in advanced hunting — Daily Defender News"><meta property="og:description" content="A new page explains how to prepare query results, configure graph nodes and edges, apply relationship conditions, and use recognized entity types and identifiers for Defender enrichment."><meta property="og:url" content="https://daily.defender.admin.news/changes/2026-09-08/best-practices-for-graph-mapping-in-advanced-hunting-01/"><meta property="og:type" content="article"><meta property="og:image" content="https://daily.defender.admin.news/og-image.png"><meta property="og:image:secure_url" content="https://daily.defender.admin.news/og-image.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Daily Defender News — Microsoft Defender change intelligence"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Best practices for graph mapping in advanced hunting — Daily Defender News"><meta name="twitter:description" content="A new page explains how to prepare query results, configure graph nodes and edges, apply relationship conditions, and use recognized entity types and identifiers for Defender enrichment."><meta name="twitter:image" content="https://daily.defender.admin.news/og-image.png"><meta name="twitter:image:alt" content="Daily Defender News — Microsoft Defender change intelligence"></head><body><header class="site-header"><a class="brand" href="/"><img class="brand-logo" src="/assets/ui/defender-news-logo.png" alt=""><span>Daily Defender News</span></a><nav class="main-nav" aria-label="Primary"><a href="/" data-nav="day" aria-label="Day" title="Day"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Day</span></a><a href="/week/" data-nav="week" aria-label="Week" title="Week"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Week</span></a><a href="/month/" data-nav="month" aria-label="Month" title="Month"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Month</span></a><a href="/message-center/" data-nav="message-center" aria-label="Message Center" title="Message Center"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Message Center</span></a><a href="https://mx.merill.net/" data-nav="compare" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="View full page diff" title="View full page diff"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Diff</span></a><a href="/search/" data-nav="search" class="nav-icon" aria-label="Search" title="Search"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">Search</span></a></nav><div class="utility"><a class="site-link" href="/about/">About</a><a class="site-link" href="https://merill.net" target="_blank" rel="noopener noreferrer">merill.net</a><a class="icon-link" href="/rss.xml" title="Subscribe to the daily RSS feed" aria-label="Subscribe to the Daily Defender News RSS feed"><img src="/assets/ui/rss.svg" alt=""></a><div class="theme-picker" role="group" aria-label="Color theme"><button class="theme-option" type="button" data-theme-option="light" aria-pressed="false" title="Use light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg><span>Light</span></button><button class="theme-option" type="button" data-theme-option="dark" aria-pressed="false" title="Use dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg><span>Dark</span></button></div></div></header><div class="detail-layout"><main class="detail-main"><nav class="breadcrumbs"><a href="/week/2026-09-07/">Week of 7 September 2026</a> &nbsp;/&nbsp; <a href="/products/defender-xdr/">Defender XDR</a> &nbsp;/&nbsp; <a href="/topics/hunting/">Hunting and detection</a></nav><div class="detail-taxonomy-lockup"><div class="product-kicker"><img src="/assets/products/defender-xdr.svg" alt="">Microsoft Defender XDR</div><a class="topic-kicker" href="/topics/hunting/"><img src="/assets/topics/hunting.svg" alt="">Hunting and detection</a></div><h1>Best practices for graph mapping in advanced hunting</h1><div class="article-meta"><span>8 September 2026</span><span>Doc update</span><span>+130 / −0 lines</span></div><section class="summary-grid editorial-summary" aria-label="Change summary"><div class="editorial-panel brief"><h2 class="section-title">In brief</h2><p>A new page explains how to prepare query results, configure graph nodes and edges, apply relationship conditions, and use recognized entity types and identifiers for Defender enrichment.</p></div><div class="editorial-panel admin"><h2 class="section-title">What Defender admins need to know</h2><p>Administrators can use the guidance to create clearer, better-enriched graphs from advanced hunting queries.</p></div><p class="ai-disclosure">Summaries are generated from the documentation change itself.</p></section><section class="doc-change" data-diff><h2 class="section-title">Documentation change</h2><div class="doc-source-intro"><div class="doc-source-actions"><a class="learn-link diff-link doc-action-link" href="https://mx.merill.net/en-us/defender-xdr/advanced-hunting-graph-mapping-best-practices?_mx_base=2f51dff1970249bfc8974bf6873d8b933f5185ce&amp;_mx_head=3d5608854e760090e1120514cb5774664690f7ec" target="_blank" rel="noopener noreferrer"><span class="diff-link-icon" aria-hidden="true"></span>View full page diff</a><a class="learn-link doc-action-link" href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-graph-mapping-best-practices" target="_blank" rel="noopener noreferrer"><img src="/assets/ui/microsoft.svg" alt="">View on Microsoft Learn</a></div><p>The comparison below shows only the changed extract. Use the full-page view for complete context.</p></div><div class="diff-tabs"><button class="active" data-diff-tab="formatted">Formatted</button><button data-diff-tab="markdown">Markdown</button></div><div class="diff-panel" data-diff-panel="formatted"><div class="rich-diff"></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><h2>new file mode 100644</h2><p><ins data-operation-index="2">title: Best practices for graph mapping in advanced hunting
+description: Learn how to prepare advanced hunting query results and map them to nodes and edges to build a readable, well-enriched graph in Microsoft Defender.
+ms.service: defender-xdr
+ms.subservice: adv-hunting
+ms.author: pauloliveria
+author: poliveria
+ms.localizationpriority: medium
+ms.collection:</ins>
+<ul data-diff-node="ins" data-operation-index="4"><li data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">m365-security</ins></li><li data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">tier2
+ms.custom:</ins></li><li data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">cx-ti</ins></li><li data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">cx-ah
+ms.topic: best-practice
+ms.date: 07/02/2026
+appliesto:</ins></li><li data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">Microsoft Defender XDR</ins></li><li data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">Microsoft Sentinel in the Microsoft Defender portal
+ai-usage: ai-assisted</ins></li></ul><hr><h1 data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">Best practices for graph mapping in advanced hunting</ins></h1><p data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">[!INCLUDE <a href="../includes/microsoft-defender.md">Microsoft Defender XDR rebranding</a>]</ins><p data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">[!INCLUDE <a href="../includes/prerelease.md">Prerelease information</a>]</ins><p data-diff-node="ins" data-operation-index="4"><ins data-operation-index="4">Learn how to turn advanced hunting query results into enriched nodes and meaningful relationships when you <a href="advanced-hunting-query-results.md#visualize-query-results-as-a-graph">visualize query results as a graph</a>.</ins><ins data-operation-index="4">
+<aside class="learn-alert learn-alert-tip"><div class="learn-alert-title"><span class="learn-alert-icon" aria-hidden="true">!</span><span>Tip</span></div><div class="learn-alert-body"><p><strong>Key idea</strong>: The visual builder generates the mapping automatically. Focus on selecting result columns that identify each entity, label it clearly, and explain its relationships.
+</div></aside><h2>Prepare the query results</h2>
+<p>Design the final query output before opening the mapping builder. It should provide the following information:
+<ul>
+<li>A strong, stable identifier for every entity, such as <code>DeviceId</code>, <code>SHA256</code>, <code>AlertId</code>, or <code>AccountObjectId</code>.</li>
+<li>An optional friendly label, such as <code>DeviceName</code>, that makes the graph easy to read.</li>
+<li>Any additional identifiers or context you want available when inspecting a node.</li>
+<li>Relationship-specific details, such as <code>RemotePort</code> or <code>InitiatingProcessFileName</code>.</li>
+</ul>
+<p>For every relationship, the source and target identifiers must appear in the same result row. Every column selected in the builder must exist in the final query output and contain the expected values.
+<h2>Create the nodes in the builder</h2>
+<p>Add a node for each entity represented in the query results, then configure these fields:
+<table>
+<thead>
+<tr>
+<th>Builder field</th>
+<th>What to select</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Type name</td>
+<td>A recognized entity name when you want Defender enrichment. Other names are allowed, but they render as generic nodes.</td>
+</tr>
+<tr>
+<td>Node identifier column</td>
+<td>The strongest column that uniquely identifies the entity. Defender also uses this value to look up enrichment data.</td>
+</tr>
+<tr>
+<td>Display name column</td>
+<td>An optional human-readable label. Use it for presentation only, not as a substitute for a strong identifier.</td>
+</tr>
+<tr>
+<td>Additional columns</td>
+<td>Other useful identifiers and entity context. These values are displayed when the node is inspected.</td>
+</tr>
+</tbody></table>
+<aside class="learn-alert learn-alert-note"><div class="learn-alert-title"><span class="learn-alert-icon" aria-hidden="true">!</span><span>Note</span></div><div class="learn-alert-body"><p><strong>Entity enrichment</strong>: When a node uses a supported type and a valid identifier, selecting it in the graph opens the corresponding Defender entity pane.
+</div></aside><h3>Recognized entity types and identifiers</h3>
+<table>
+<thead>
+<tr>
+<th>Type name(s)</th>
+<th>Preferred node identifier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Device, Machine</td>
+<td><code>DeviceId</code> (Sense device ID)</td>
+</tr>
+<tr>
+<td>IPAddress, IP, RemoteIP, LocalIP</td>
+<td>The corresponding IP address column</td>
+</tr>
+<tr>
+<td>File</td>
+<td><code>SHA256</code>; otherwise <code>SHA1</code></td>
+</tr>
+<tr>
+<td>Url</td>
+<td>URL</td>
+</tr>
+<tr>
+<td>Alert</td>
+<td><code>AlertId</code></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Hostname</td>
+</tr>
+<tr>
+<td>User, Account</td>
+<td><code>AccountObjectId</code>; otherwise <code>AccountSid</code>, then <code>AccountUpn</code></td>
+</tr>
+</tbody></table>
+<aside class="learn-alert learn-alert-tip"><div class="learn-alert-title"><span class="learn-alert-icon" aria-hidden="true">!</span><span>Tip</span></div><div class="learn-alert-body"><p>When multiple identifiers are available, use the preferred one as the node identifier and include the others under <strong>Additional columns</strong>.
+</div></aside><h2>Connect the nodes with edges</h2>
+<p>After creating the nodes, add an edge for each relationship and configure these fields:
+<table>
+<thead>
+<tr>
+<th>Builder field</th>
+<th>What to select</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Relationship label</td>
+<td>A short, meaningful description such as <code>ConnectedTo</code>, <code>Downloaded</code>, or <code>Triggered</code>.</td>
+</tr>
+<tr>
+<td>Source node</td>
+<td>The entity where the relationship starts.</td>
+</tr>
+<tr>
+<td>Target node</td>
+<td>The entity where the relationship ends.</td>
+</tr>
+<tr>
+<td>Additional columns</td>
+<td>Context that describes the relationship rather than either entity.</td>
+</tr>
+<tr>
+<td>Condition</td>
+<td>An optional rule that determines whether the edge is created for each result row.</td>
+</tr>
+</tbody></table>
+<p>The source and target must reference nodes already created in the builder. Choose the direction deliberately so the graph reads naturally, and keep relationship details on the edge instead of duplicating them on both nodes.
+<h3>Add a condition when the relationship is conditional</h3>
+<p>Each edge supports one optional condition. For every result row, the edge is created only when that condition is true.
+<ol>
+<li><strong>Column</strong>—select the query-result column to evaluate.</li>
+<li><strong>Operator</strong>—choose <code>equals</code>, <code>not equals</code>, <code>contains</code>, <code>not empty</code>, or <code>is empty</code>.</li>
+<li><strong>Value</strong>—enter the comparison value for <code>equals</code>, <code>not equals</code>, and <code>contains</code>. No value is used with <code>not empty</code> or <code>is empty</code>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Value required?</th>
+<th>Use it when...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>equals</code></td>
+<td>Yes</td>
+<td>The column must match the supplied value.</td>
+</tr>
+<tr>
+<td><code>not equals</code></td>
+<td>Yes</td>
+<td>The column must differ from the supplied value.</td>
+</tr>
+<tr>
+<td><code>contains</code></td>
+<td>Yes</td>
+<td>The column must contain the supplied value.</td>
+</tr>
+<tr>
+<td><code>not empty</code></td>
+<td>No</td>
+<td>The column must contain a value.</td>
+</tr>
+<tr>
+<td><code>is empty</code></td>
+<td>No</td>
+<td>The column must not contain a value.</td>
+</tr>
+</tbody></table>
+<aside class="learn-alert learn-alert-tip"><div class="learn-alert-title"><span class="learn-alert-icon" aria-hidden="true">!</span><span>Tip</span></div><div class="learn-alert-body"><p><strong>Example</strong>: Set the condition to <code>RemoteIP</code> <strong>not empty</strong> to create <code>ConnectedTo</code> edges only for rows that contain a remote IP address.
+</div></aside><p>If the decision requires several checks, create one derived column in the query and apply the edge condition to that column.
+<h2>Worked example: device communicating with an IP address</h2>
+<p>Assume the query returns <code>DeviceId</code>, <code>DeviceName</code>, <code>RemoteIP</code>, <code>RemotePort</code>, and <code>InitiatingProcessFileName</code>.
+<table>
+<thead>
+<tr>
+<th>Builder item</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Machine node</td>
+<td>Type: <code>Machine</code>; Identifier: <code>DeviceId</code>; Display name: <code>DeviceName</code></td>
+</tr>
+<tr>
+<td>IP node</td>
+<td>Type: <code>IP</code>; Identifier: <code>RemoteIP</code>; Display name: <code>RemoteIP</code></td>
+</tr>
+<tr>
+<td>ConnectedTo edge</td>
+<td>Source: <code>Machine</code>; Target: <code>IP</code>; Additional columns: <code>RemotePort</code>, <code>InitiatingProcessFileName</code>; Condition: <code>RemoteIP</code> not empty</td>
+</tr>
+</tbody></table>
+<p>This mapping produces readable device-to-IP connections, enables entity enrichment, and keeps the connection details attached to the relationship.
+<h2>Final checklist</h2>
+<ul>
+<li>Use a recognized type name when an enriched entity pane is expected.</li>
+<li>Select the strongest available identifier and follow the documented precedence.</li>
+<li>Keep the display name readable, but do not rely on it for identity.</li>
+<li>Confirm every selected column is returned and populated by the query.</li>
+<li>Keep node columns entity-specific and edge columns relationship-specific.</li>
+<li>Make sure every edge points between existing nodes in the intended direction.</li>
+<li>For a conditional edge, verify that its column, operator, and required value describe exactly when the relationship should exist.</li>
+<li>Render the graph and select each supported node to confirm that the expected Defender entity pane opens.</li>
+</ul>
+</ins></div></div><div class="diff-panel" data-diff-panel="markdown" hidden><div class="markdown-diff" role="region" aria-label="Markdown Git diff"><pre><code><span class="markdown-diff-line hunk">@@ -0,0 +1,130 @@</span><span class="markdown-diff-line added">+---</span><span class="markdown-diff-line added">+title: Best practices for graph mapping in advanced hunting</span><span class="markdown-diff-line added">+description: Learn how to prepare advanced hunting query results and map them to nodes and edges to build a readable, well-enriched graph in Microsoft Defender.</span><span class="markdown-diff-line added">+ms.service: defender-xdr</span><span class="markdown-diff-line added">+ms.subservice: adv-hunting</span><span class="markdown-diff-line added">+ms.author: pauloliveria</span><span class="markdown-diff-line added">+author: poliveria</span><span class="markdown-diff-line added">+ms.localizationpriority: medium</span><span class="markdown-diff-line added">+ms.collection:</span><span class="markdown-diff-line added">+  - m365-security</span><span class="markdown-diff-line added">+  - tier2</span><span class="markdown-diff-line added">+ms.custom:</span><span class="markdown-diff-line added">+  - cx-ti</span><span class="markdown-diff-line added">+  - cx-ah</span><span class="markdown-diff-line added">+ms.topic: best-practice</span><span class="markdown-diff-line added">+ms.date: 07/02/2026</span><span class="markdown-diff-line added">+appliesto:</span><span class="markdown-diff-line added">+- Microsoft Defender XDR</span><span class="markdown-diff-line added">+- Microsoft Sentinel in the Microsoft Defender portal</span><span class="markdown-diff-line added">+ai-usage: ai-assisted</span><span class="markdown-diff-line added">+---</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+# Best practices for graph mapping in advanced hunting</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+[!INCLUDE [Microsoft Defender XDR rebranding](../includes/microsoft-defender.md)]</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+[!INCLUDE [Prerelease information](../includes/prerelease.md)]</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+Learn how to turn advanced hunting query results into enriched nodes and meaningful relationships when you [visualize query results as a graph](advanced-hunting-query-results.md#visualize-query-results-as-a-graph).</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+&gt; [!TIP]</span><span class="markdown-diff-line added">+&gt; **Key idea**: The visual builder generates the mapping automatically. Focus on selecting result columns that identify each entity, label it clearly, and explain its relationships.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+## Prepare the query results</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+Design the final query output before opening the mapping builder. It should provide the following information:</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+- A strong, stable identifier for every entity, such as `DeviceId`, `SHA256`, `AlertId`, or `AccountObjectId`.</span><span class="markdown-diff-line added">+- An optional friendly label, such as `DeviceName`, that makes the graph easy to read.</span><span class="markdown-diff-line added">+- Any additional identifiers or context you want available when inspecting a node.</span><span class="markdown-diff-line added">+- Relationship-specific details, such as `RemotePort` or `InitiatingProcessFileName`.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+For every relationship, the source and target identifiers must appear in the same result row. Every column selected in the builder must exist in the final query output and contain the expected values.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+## Create the nodes in the builder</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+Add a node for each entity represented in the query results, then configure these fields:</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+| Builder field | What to select |</span><span class="markdown-diff-line added">+|--|--|</span><span class="markdown-diff-line added">+| Type name | A recognized entity name when you want Defender enrichment. Other names are allowed, but they render as generic nodes. |</span><span class="markdown-diff-line added">+| Node identifier column | The strongest column that uniquely identifies the entity. Defender also uses this value to look up enrichment data. |</span><span class="markdown-diff-line added">+| Display name column | An optional human-readable label. Use it for presentation only, not as a substitute for a strong identifier. |</span><span class="markdown-diff-line added">+| Additional columns | Other useful identifiers and entity context. These values are displayed when the node is inspected. |</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+&gt; [!NOTE]</span><span class="markdown-diff-line added">+&gt; **Entity enrichment**: When a node uses a supported type and a valid identifier, selecting it in the graph opens the corresponding Defender entity pane.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+### Recognized entity types and identifiers</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+| Type name(s) | Preferred node identifier |</span><span class="markdown-diff-line added">+|--|--|</span><span class="markdown-diff-line added">+| Device, Machine | `DeviceId` (Sense device ID) |</span><span class="markdown-diff-line added">+| IPAddress, IP, RemoteIP, LocalIP | The corresponding IP address column |</span><span class="markdown-diff-line added">+| File | `SHA256`; otherwise `SHA1` |</span><span class="markdown-diff-line added">+| Url | URL |</span><span class="markdown-diff-line added">+| Alert | `AlertId` |</span><span class="markdown-diff-line added">+| Host | Hostname |</span><span class="markdown-diff-line added">+| User, Account | `AccountObjectId`; otherwise `AccountSid`, then `AccountUpn` |</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+&gt; [!TIP]</span><span class="markdown-diff-line added">+&gt; When multiple identifiers are available, use the preferred one as the node identifier and include the others under **Additional columns**.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+## Connect the nodes with edges</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+After creating the nodes, add an edge for each relationship and configure these fields:</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+| Builder field | What to select |</span><span class="markdown-diff-line added">+|--|--|</span><span class="markdown-diff-line added">+| Relationship label | A short, meaningful description such as `ConnectedTo`, `Downloaded`, or `Triggered`. |</span><span class="markdown-diff-line added">+| Source node | The entity where the relationship starts. |</span><span class="markdown-diff-line added">+| Target node | The entity where the relationship ends. |</span><span class="markdown-diff-line added">+| Additional columns | Context that describes the relationship rather than either entity. |</span><span class="markdown-diff-line added">+| Condition | An optional rule that determines whether the edge is created for each result row. |</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+The source and target must reference nodes already created in the builder. Choose the direction deliberately so the graph reads naturally, and keep relationship details on the edge instead of duplicating them on both nodes.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+### Add a condition when the relationship is conditional</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+Each edge supports one optional condition. For every result row, the edge is created only when that condition is true.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+1. **Column**—select the query-result column to evaluate.</span><span class="markdown-diff-line added">+1. **Operator**—choose `equals`, `not equals`, `contains`, `not empty`, or `is empty`.</span><span class="markdown-diff-line added">+1. **Value**—enter the comparison value for `equals`, `not equals`, and `contains`. No value is used with `not empty` or `is empty`.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+| Operator | Value required? | Use it when... |</span><span class="markdown-diff-line added">+|--|--|--|</span><span class="markdown-diff-line added">+| `equals` | Yes | The column must match the supplied value. |</span><span class="markdown-diff-line added">+| `not equals` | Yes | The column must differ from the supplied value. |</span><span class="markdown-diff-line added">+| `contains` | Yes | The column must contain the supplied value. |</span><span class="markdown-diff-line added">+| `not empty` | No | The column must contain a value. |</span><span class="markdown-diff-line added">+| `is empty` | No | The column must not contain a value. |</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+&gt; [!TIP]</span><span class="markdown-diff-line added">+&gt; **Example**: Set the condition to `RemoteIP` **not empty** to create `ConnectedTo` edges only for rows that contain a remote IP address.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+If the decision requires several checks, create one derived column in the query and apply the edge condition to that column.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+## Worked example: device communicating with an IP address</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+Assume the query returns `DeviceId`, `DeviceName`, `RemoteIP`, `RemotePort`, and `InitiatingProcessFileName`.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+| Builder item | Configuration |</span><span class="markdown-diff-line added">+|--|--|</span><span class="markdown-diff-line added">+| Machine node | Type: `Machine`; Identifier: `DeviceId`; Display name: `DeviceName` |</span><span class="markdown-diff-line added">+| IP node | Type: `IP`; Identifier: `RemoteIP`; Display name: `RemoteIP` |</span><span class="markdown-diff-line added">+| ConnectedTo edge | Source: `Machine`; Target: `IP`; Additional columns: `RemotePort`, `InitiatingProcessFileName`; Condition: `RemoteIP` not empty |</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+This mapping produces readable device-to-IP connections, enables entity enrichment, and keeps the connection details attached to the relationship.</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+## Final checklist</span><span class="markdown-diff-line added">+</span><span class="markdown-diff-line added">+- Use a recognized type name when an enriched entity pane is expected.</span><span class="markdown-diff-line added">+- Select the strongest available identifier and follow the documented precedence.</span><span class="markdown-diff-line added">+- Keep the display name readable, but do not rely on it for identity.</span><span class="markdown-diff-line added">+- Confirm every selected column is returned and populated by the query.</span><span class="markdown-diff-line added">+- Keep node columns entity-specific and edge columns relationship-specific.</span><span class="markdown-diff-line added">+- Make sure every edge points between existing nodes in the intended direction.</span><span class="markdown-diff-line added">+- For a conditional edge, verify that its column, operator, and required value describe exactly when the relationship should exist.</span><span class="markdown-diff-line added">+- Render the graph and select each supported node to confirm that the expected Defender entity pane opens.</span><span class="markdown-diff-line context"> </span></code></pre></div></div></section></main><aside class="detail-aside"><a class="aside-link diff-link doc-action-link" href="https://mx.merill.net/en-us/defender-xdr/advanced-hunting-graph-mapping-best-practices?_mx_base=2f51dff1970249bfc8974bf6873d8b933f5185ce&amp;_mx_head=3d5608854e760090e1120514cb5774664690f7ec" target="_blank" rel="noopener noreferrer"><span class="diff-link-icon" aria-hidden="true"></span>View full page diff</a><a class="aside-link doc-action-link" href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-graph-mapping-best-practices" target="_blank" rel="noopener noreferrer"><img src="/assets/ui/microsoft.svg" alt="">View on Microsoft Learn</a><hr class="rail-rule"><h2 class="section-title">Related changes</h2><div class="related-item"><div class="related-meta">14 June 2026</div><a href="https://mx.merill.net/en-us/defender-xdr/advanced-hunting-best-practices?_mx_base=764f1f8acea1cee968054b39e51346a12b418066&_mx_head=7866c8612172a30dbf8222f3a6787ae893d1ad7b">Advanced Hunting Best Practices</a></div><div class="related-item"><div class="related-meta">18 May 2026</div><a href="https://mx.merill.net/en-us/defender-xdr/advanced-hunting-best-practices?_mx_base=3f1a2a1c127f1bd7b773909249133d3c9463c1bc&_mx_head=667c22e2d86329b497deadffeb76ed3e8685b69d">Advanced hunting query best practices in Microsoft Defender XDR</a></div><div class="related-item"><div class="related-meta">8 September 2026</div><a href="/changes/2026-09-08/advanced-hunting-query-results-07/">Advanced Hunting Query Results</a></div><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/aadsignineventsbeta-table-in-the-advanced-hunting-schema-deprecated-839/">AADSignInEventsBeta table in the advanced hunting schema (deprecated)</a></div><div class="related-item"><div class="related-meta">4 September 2026</div><a href="/changes/2026-09-04/aadspnsignineventsbeta-table-in-the-advanced-hunting-schema-deprecated-840/">AADSpnSignInEventsBeta table in the advanced hunting schema (deprecated)</a></div><hr class="rail-rule"></aside></div><footer class="footer" id="site-footer"><div class="footer-inner"><section class="footer-feature"><div class="eyebrow">Featured project</div><div class="footer-feature-lockup"><img class="footer-feature-logo" src="/assets/ui/maester.png" alt=""><h2><a target="_blank" rel="noopener noreferrer" href="https://maester.cloud">Maester Cloud</a></h2></div><p>Maester Cloud continuously tests your Microsoft 365 and Defender security configuration.</p><a target="_blank" rel="noopener noreferrer" class="footer-cta" href="https://maester.cloud">Explore Maester Cloud →</a></section><section class="footer-projects"><h2 class="footer-section-title">More community projects</h2><ul class="footer-project-list"><li><a target="_blank" rel="noopener noreferrer" href="https://maester.dev">Maester</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://graphpermissions.merill.net">Graph Permissions Explorer</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://cmd.ms">cmd.ms</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://mc.merill.net">M365 Message Center Archive</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://getyako.com">Yako</a></li></ul></section><section class="footer-support"><h2 class="footer-section-title">Support free community tools</h2><p>Found these free tools useful? Shout me a cup of coffee—or more—on GitHub Sponsors. It helps keep the projects open, useful, and moving.</p><div class="footer-support-links"><a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/merill">Sponsor Merill on GitHub →</a></div></section></div><div class="footer-bottom"><div><div>Daily.Defender.Admin.News — an independent record of Microsoft Defender documentation changes.</div><div class="refresh-status"><span>Last refreshed <time data-refresh-last>checking…</time> <span class="refresh-relative" data-refresh-last-relative>recently</span></span><span>Next refresh <span class="refresh-relative" data-refresh-next>within six hours</span></span></div></div><nav aria-label="Footer"><a target="_blank" rel="noopener noreferrer" class="footer-rss-link" href="/rss.xml"><img src="/assets/ui/rss.svg" alt="">Daily RSS</a><a target="_blank" rel="noopener noreferrer" href="/about/">About</a><a target="_blank" rel="noopener noreferrer" href="https://merill.net">merill.net</a></nav></div></footer><script src="/assets/site.js"></script></body></html>

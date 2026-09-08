@@ -6913,6 +6913,52 @@
         "outputTokens": 4382,
         "costUsd": 0.006525
       }
+    },
+    "2026-09-08": {
+      "headline": "Sentinel parser guidance forbids cross-table enrichment and preserves one output per source record",
+      "overview": "The day’s most consequential updates sharpen Sentinel parser guidance and revise the documented severity of seven Azure Storage alerts to Informational. Defender XDR added dedicated guidance for mapping Advanced Hunting results into graphs, while Defender for Identity added resolution steps for the Sensor v3.x RPC Audit Misconfigured health alert. The remaining edits are primarily layout, link, terminology, and explanatory maintenance.",
+      "adminImpact": "Review custom Sentinel parsers and connectors against the declared source-table, one-output-per-record, and mapping restrictions. Source filtering must use fields in the current event, with missing source information addressed in the connector or source-specific table. Use the revised Informational labels when reviewing the seven documented Azure Storage alerts, and verify Unified Sensor RPC Audit configuration when troubleshooting the Identity health alert. Advanced Hunting teams can use the new graph-mapping guidance for query-result preparation and enrichment.",
+      "keyChanges": [
+        {
+          "title": "Sentinel parser guidance sets strict source and cardinality boundaries",
+          "detail": "The updated normalization guidance limits parsers to the declared source table, requires one normalized output per source record, and permits scalar or local static mappings. It explicitly prohibits cross-table enrichment, watchlists, multi-value expansion, joins, aggregation, and deduplication. Source filtering must use fields in the current event; missing source information should be handled in the connector or source-specific table.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-08-normalization-develop-parsers-09"
+        },
+        {
+          "title": "Sentinel parser-creation guidance permits lookup mappings only with unique keys",
+          "detail": "The parser-creation skills guidance says each source record is normalized independently and record cardinality is preserved. Query-local datatable or lookup mappings are allowed when lookup keys are unique, while same-table and cross-table event enrichment are not used.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-08-normalization-create-parsers-ai-agent-10"
+        },
+        {
+          "title": "New Defender XDR guidance details graph mapping for Advanced Hunting",
+          "detail": "The new guide explains how to prepare query results, configure graph nodes and edges, apply relationship conditions, and use recognized entity types and identifiers for Defender enrichment.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-08-best-practices-for-graph-mapping-in-advanced-hunting-01"
+        },
+        {
+          "title": "Azure Storage alert documentation now labels seven entries Informational",
+          "detail": "Seven documented Azure Storage alert entries now list their severity as Informational instead of High, Medium, or Low variants. Administrators reviewing the alert reference should use the revised labels when prioritizing those entries.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-08-alerts-azure-storage-05"
+        },
+        {
+          "title": "Defender for Identity adds resolution steps for an RPC audit health alert",
+          "detail": "The health-issues article now includes resolution guidance for the Sensor v3.x RPC Audit Misconfigured entry, including verification of the Unified Sensor RPC Audit configuration.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-08-microsoft-defender-for-identity-health-issues-06"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-08T17:56:54.324Z",
+      "usage": {
+        "inputTokens": 2093,
+        "outputTokens": 5147,
+        "costUsd": 0.006595
+      }
     }
   },
   "weeks": {
@@ -8315,6 +8361,52 @@
         "outputTokens": 3710,
         "costUsd": 0.006673
       }
+    },
+    "2026-09-07": {
+      "headline": "Sentinel normalization guidance now prohibits cross-table enrichment and preserves record cardinality",
+      "overview": "The period’s most consequential update was revised Sentinel parser guidance: parsers are limited to their declared source table, one normalized output per source record, and scalar or local static mappings. Cross-table enrichment, watchlists, multi-value expansion, joins, aggregation, and deduplication are explicitly excluded. Companion AI-agent guidance permits query-local lookup mappings only when keys are unique. Defender XDR also added detailed advanced-hunting graph guidance, while seven Azure Storage alert entries now use Informational severity. Other changes were mainly editorial, with added troubleshooting steps for the Sensor v3.x RPC Audit Misconfigured alert.",
+      "adminImpact": "Review custom Sentinel parsers and connectors against the documented source-table, record-cardinality, and enrichment limits. For AI-agent parser creation, use unique lookup keys and plan for record-by-record normalization; no required configuration change is stated. Use the revised Informational labels when reviewing documented Azure Storage alerts. Administrators troubleshooting the Identity health alert should follow the added resolution guidance, including verification of Unified Sensor RPC Audit configuration. The Linux formatting, Regex scope, filesystem-layout, and connector-link edits require no action.",
+      "keyChanges": [
+        {
+          "title": "Sentinel parser guidance draws strict normalization boundaries",
+          "detail": "The revised guidance limits parsers to the declared source table and one normalized output per source record, using scalar or local static mappings. It explicitly excludes cross-table enrichment, watchlists, multi-value expansion, joins, aggregation, and deduplication; source filtering must use fields from the current event.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-08-normalization-develop-parsers-09"
+        },
+        {
+          "title": "AI-agent parser guidance preserves record-by-record output",
+          "detail": "Parser-creation skills are described as normalizing each source record independently while preserving record cardinality. Query-local datatable or lookup mappings are allowed only when lookup keys are unique; same-table and cross-table event enrichment are not used.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-08-normalization-create-parsers-ai-agent-10"
+        },
+        {
+          "title": "Advanced hunting receives dedicated graph-mapping guidance",
+          "detail": "A new page explains how to prepare query results, configure graph nodes and edges, apply relationship conditions, and use recognized entity types and identifiers for Defender enrichment.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-08-best-practices-for-graph-mapping-in-advanced-hunting-01"
+        },
+        {
+          "title": "Advanced hunting results guidance expands visual relationship workflows",
+          "detail": "The updated article documents mapping results to nodes and edges through Builder or JSON, then exploring entity enrichment, relationship details, folding, and mapping edits without writing a graph-specific query.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-09-08-advanced-hunting-query-results-07"
+        },
+        {
+          "title": "Seven Azure Storage alert entries now show Informational severity",
+          "detail": "The documented severity for seven Azure Storage alerts changed from High, Medium, or Low variants to Informational. Administrators should use the revised labels when reviewing and prioritizing these documented alerts.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-08-alerts-azure-storage-05"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-08T17:56:54.324Z",
+      "usage": {
+        "inputTokens": 1912,
+        "outputTokens": 4299,
+        "costUsd": 0.005541
+      }
     }
   },
   "months": {
@@ -8639,53 +8731,53 @@
     },
     "2026-09": {
       "headline": "Defender XDR will default DLP alerts to behaviors on October 12",
-      "overview": "September was maintenance-heavy, with many representative edits limited to terminology, metadata, or procedural clarification. The consequential exceptions were a scheduled Defender XDR alert-behavior change, Defender for Office 365 prompt-injection protection, clearer Linux antivirus enforcement guidance, preview sensor deployment on additional identity servers, and Sentinel’s migration guidance for threat-intelligence tables.",
-      "adminImpact": "Prepare for the October 12 DLP behavior change and decide whether to disable the rule to keep DLP alerts in the Defender XDR incident queue. For Linux, verify supported versions before using audit mode. Identity teams deploying sensors only to non-domain-controller servers must account for manual activation and the requirement for at least one domain-controller sensor. Sentinel teams should move remaining queries, analytics, workbooks, and automation from the legacy threat-intelligence table. Eligible organizations receive the email protection rollout automatically.",
+      "overview": "September’s most consequential change is a Defender XDR alert-routing update: Microsoft Purview DLP alerts will become behaviors by default from October 12, 2026. Defender for Office 365 is rolling out prompt-injection protection for email, while Secure Score is adding four device-security AI-readiness recommendations. Documentation updates also add concrete Linux enforcement prerequisites and manual-activation limits for Defender for Identity sensor v3.x.",
+      "adminImpact": "Decide whether to disable the new DLP rule to keep DLP alerts in the Defender XDR incident queue. No opt-in action is stated for the email protection or Secure Score rollouts. Linux administrators should verify the Defender version before using audit mode, and Identity teams deploying sensors only to non-domain-controller servers should plan for manual activation and install at least one v3.x sensor on a domain controller.",
       "keyChanges": [
         {
-          "title": "DLP alerts will become behaviors by default",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default. This is intended to reduce alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "title": "Purview DLP alerts will become Defender XDR behaviors by default",
+          "detail": "Starting October 12, 2026, Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Email prompt-injection protection is rolling out",
-          "detail": "Defender for Office 365 is introducing protection that detects and quarantines malicious email content targeting AI assistants. For organizations with Defender for Office 365 Plan 2 or Microsoft 365 E5, automatic high-confidence threat quarantine is enabled by default as the capability rolls out through October 2026.",
+          "title": "Email protection targets prompt injection aimed at AI assistants",
+          "detail": "Defender for Office 365 is introducing prompt-injection protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic high-confidence threat quarantine enabled by default.",
           "product": "Defender for Office 365",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Linux antivirus guidance defines four enforcement levels",
-          "detail": "The Defender for Endpoint on Linux guidance now documents four antivirus enforcement levels, identifies passive mode as the default, and adds audit mode as a Preview capability. Audit mode requires Defender for Endpoint version 101.26062.0007 or later; the page also adds a command and verification field for checking the active level.",
+          "title": "Secure Score adds four AI-readiness checks for device security",
+          "detail": "New device-security recommendations cover TPM 2.0, virtualization-based security, hypervisor-protected code integrity, and LAPS. The recommendations roll out from early to late September 2026 and require no action to receive them.",
+          "product": "Defender for Endpoint",
+          "sourceId": "MC1466750"
+        },
+        {
+          "title": "Linux antivirus guidance adds passive defaults and an audit-mode prerequisite",
+          "detail": "The Defender for Endpoint on Linux guidance now documents four antivirus enforcement levels, identifies passive as the default, and marks audit mode as Preview. Audit mode requires Defender for Endpoint version 101.26062.0007 or later; a new command verifies the active enforcement level.",
           "product": "Defender for Endpoint",
           "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
         },
         {
-          "title": "Identity sensor v3.x adds preview coverage for additional servers",
-          "detail": "Defender for Identity v3.x deployment guidance now covers eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers. Activation on those servers is in Preview and must be performed manually; automatic activation and migration are unsupported. Deployments limited to those servers still require at least one v3.x sensor on a domain controller.",
+          "title": "Identity sensor v3.x activation remains manual on non-domain controllers",
+          "detail": "The v3.x deployment guidance now covers AD FS, AD CS, and Microsoft Entra Connect servers that are not domain controllers. Activation on those servers is in Preview and requires manual activation; automatic activation and migration are unsupported. Deployments limited to those servers must include at least one v3.x sensor on a domain controller.",
           "product": "Defender for Identity",
           "sourceId": "doc-2026-09-04-deploy-the-defender-for-identity-sensor-v3-x-635"
-        },
-        {
-          "title": "Sentinel threat intelligence moves to new STIX tables",
-          "detail": "The Sentinel guidance directs migrations to the ThreatIntelIndicators and ThreatIntelObjects schemas and records that ingestion into the legacy ThreatIntelligenceIndicator table stops after July 31, 2025. Remaining custom queries, analytics and detection rules, workbooks, and automation should use the replacement tables.",
-          "product": "Microsoft Sentinel",
-          "sourceId": "doc-2026-09-04-work-with-stix-objects-and-indicators-to-enhance-threat-intelligence-and-threat-hunting-in-micro-1257"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-04T22:57:19.578Z",
+      "generatedAt": "2026-09-08T17:56:54.324Z",
       "usage": {
-        "inputTokens": 6343,
-        "outputTokens": 3838,
-        "costUsd": 0.005874
+        "inputTokens": 6595,
+        "outputTokens": 3086,
+        "costUsd": 0.005022
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-04T22:57:19.578Z",
+  "generatedAt": "2026-09-08T17:56:54.324Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8738,18 +8830,24 @@
       "outputTokens": 22574,
       "requests": 6,
       "costUsd": 0.033134
+    },
+    "2026-09-08": {
+      "inputTokens": 10600,
+      "outputTokens": 12532,
+      "requests": 3,
+      "costUsd": 0.017158
     }
   },
   "lastRun": {
-    "inputTokens": 23778,
-    "outputTokens": 11930,
+    "inputTokens": 10600,
+    "outputTokens": 12532,
     "requests": 3,
-    "costUsd": 0.019072
+    "costUsd": 0.017158
   },
   "totalUsage": {
-    "inputTokens": 92768,
-    "outputTokens": 98172,
-    "requests": 33,
-    "costUsd": 0.136361
+    "inputTokens": 103368,
+    "outputTokens": 110704,
+    "requests": 36,
+    "costUsd": 0.153519
   }
 }
