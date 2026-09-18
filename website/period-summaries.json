@@ -6959,6 +6959,28 @@
         "outputTokens": 5147,
         "costUsd": 0.006595
       }
+    },
+    "2026-09-18": {
+      "headline": "Advanced Hunting adds MessageContents table for Teams message investigations",
+      "overview": "Microsoft Defender for Office 365 is introducing a new MessageContents table in Advanced Hunting for Microsoft Teams messages. Authorized security analysts will be able to query message snippets and metadata for threat investigations, with worldwide rollout scheduled from late September through mid-October 2026.",
+      "adminImpact": "Account for the worldwide rollout window and ensure authorized analysts have the appropriate permissions to access the new table.",
+      "keyChanges": [
+        {
+          "title": "New Teams message hunting data",
+          "detail": "The MessageContents table adds queryable snippets and metadata from Microsoft Teams messages to Advanced Hunting for threat investigations. Access requires appropriate permissions, and rollout is planned worldwide from late September to mid-October 2026.",
+          "product": "Microsoft Defender for Office 365",
+          "sourceId": "MC1474106"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-18T17:41:36.487Z",
+      "usage": {
+        "inputTokens": 1022,
+        "outputTokens": 511,
+        "costUsd": 0.000818
+      }
     }
   },
   "weeks": {
@@ -8407,6 +8429,28 @@
         "outputTokens": 4299,
         "costUsd": 0.005541
       }
+    },
+    "2026-09-14": {
+      "headline": "Advanced Hunting adds Teams MessageContents table for message investigations",
+      "overview": "Microsoft Defender for Office 365 is introducing a new MessageContents table in Advanced Hunting for Microsoft Teams messages. The table will let authorized security analysts query message snippets and metadata during threat investigations, with worldwide rollout scheduled from late September through mid-October 2026.",
+      "adminImpact": "Verify that intended analysts have the appropriate permissions to access the new table, and account for the rollout window when planning Teams threat-hunting workflows.",
+      "keyChanges": [
+        {
+          "title": "New MessageContents table for Teams hunting",
+          "detail": "Advanced Hunting will expose a MessageContents table containing Teams message snippets and metadata for authorized analysts investigating threats. The capability rolls out worldwide from late September to mid-October 2026 and requires appropriate permissions.",
+          "product": "Microsoft Defender for Office 365",
+          "sourceId": "MC1474106"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-18T17:41:36.487Z",
+      "usage": {
+        "inputTokens": 839,
+        "outputTokens": 574,
+        "costUsd": 0.000857
+      }
     }
   },
   "months": {
@@ -8730,54 +8774,54 @@
       }
     },
     "2026-09": {
-      "headline": "Defender XDR will default DLP alerts to behaviors on October 12",
-      "overview": "September’s most consequential change is a Defender XDR alert-routing update: Microsoft Purview DLP alerts will become behaviors by default from October 12, 2026. Defender for Office 365 is rolling out prompt-injection protection for email, while Secure Score is adding four device-security AI-readiness recommendations. Documentation updates also add concrete Linux enforcement prerequisites and manual-activation limits for Defender for Identity sensor v3.x.",
-      "adminImpact": "Decide whether to disable the new DLP rule to keep DLP alerts in the Defender XDR incident queue. No opt-in action is stated for the email protection or Secure Score rollouts. Linux administrators should verify the Defender version before using audit mode, and Identity teams deploying sensors only to non-domain-controller servers should plan for manual activation and install at least one v3.x sensor on a domain controller.",
+      "headline": "Teams message hunting expands as Defender XDR shifts DLP alerts to behaviors",
+      "overview": "September’s most consequential changes centered on Defender XDR and Defender for Office 365. DLP alerts will become behaviors by default on October 12, 2026, while the new Teams MessageContents table rolls out worldwide from late September through mid-October. Prompt injection protection for email is also rolling out to eligible Defender for Office 365 customers. Supporting documentation materially clarified Linux antivirus enforcement levels and Sentinel’s migration from legacy threat-intelligence schemas.",
+      "adminImpact": "Decide whether to retain the new DLP behavior default or disable it to keep DLP alerts in the Defender XDR incident queue. Confirm that intended analysts have the permissions required for MessageContents access. Linux administrators should review the passive default, audit-mode version requirement, and enforcement-level verification. Teams still dependent on Sentinel’s legacy ThreatIntelligenceIndicator table should move queries, detections, workbooks, and automation to the newer schemas.",
       "keyChanges": [
         {
-          "title": "Purview DLP alerts will become Defender XDR behaviors by default",
-          "detail": "Starting October 12, 2026, Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "title": "DLP alerts will become behaviors by default",
+          "detail": "Starting October 12, 2026, Microsoft Purview DLP alerts in Defender XDR will be set as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Microsoft Purview. Administrators can disable the rule to continue placing DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Email protection targets prompt injection aimed at AI assistants",
-          "detail": "Defender for Office 365 is introducing prompt-injection protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic high-confidence threat quarantine enabled by default.",
-          "product": "Defender for Office 365",
+          "title": "Advanced Hunting adds Teams MessageContents",
+          "detail": "Defender for Office 365 is introducing a MessageContents table for Microsoft Teams messages. Authorized security analysts will be able to query message snippets and metadata during threat investigations, with worldwide rollout scheduled from late September through mid-October 2026 and appropriate permissions required.",
+          "product": "Defender XDR",
+          "sourceId": "MC1474106"
+        },
+        {
+          "title": "Email prompt-injection protection rolls out to eligible tenants",
+          "detail": "Defender for Office 365 is adding protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic quarantine for high-confidence threats enabled by default and no action required to receive the capability.",
+          "product": "Defender XDR",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Secure Score adds four AI-readiness checks for device security",
-          "detail": "New device-security recommendations cover TPM 2.0, virtualization-based security, hypervisor-protected code integrity, and LAPS. The recommendations roll out from early to late September 2026 and require no action to receive them.",
-          "product": "Defender for Endpoint",
-          "sourceId": "MC1466750"
-        },
-        {
-          "title": "Linux antivirus guidance adds passive defaults and an audit-mode prerequisite",
-          "detail": "The Defender for Endpoint on Linux guidance now documents four antivirus enforcement levels, identifies passive as the default, and marks audit mode as Preview. Audit mode requires Defender for Endpoint version 101.26062.0007 or later; a new command verifies the active enforcement level.",
-          "product": "Defender for Endpoint",
+          "title": "Linux antivirus guidance now documents four enforcement levels",
+          "detail": "The Defender for Endpoint on Linux guidance now describes four antivirus enforcement levels, including audit mode in Preview, and identifies passive mode as the default. It also adds a way to verify the active level; audit mode requires Defender for Endpoint version 101.26062.0007 or later.",
+          "product": "Endpoint",
           "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
         },
         {
-          "title": "Identity sensor v3.x activation remains manual on non-domain controllers",
-          "detail": "The v3.x deployment guidance now covers AD FS, AD CS, and Microsoft Entra Connect servers that are not domain controllers. Activation on those servers is in Preview and requires manual activation; automatic activation and migration are unsupported. Deployments limited to those servers must include at least one v3.x sensor on a domain controller.",
-          "product": "Defender for Identity",
-          "sourceId": "doc-2026-09-04-deploy-the-defender-for-identity-sensor-v3-x-635"
+          "title": "Sentinel guidance directs migration from the legacy threat-intelligence table",
+          "detail": "The updated Sentinel Preview guidance documents the ThreatIntelIndicators and ThreatIntelObjects schemas and states that ingestion into the legacy ThreatIntelligenceIndicator table stops after July 31, 2025. Existing queries, analytics and detection rules, workbooks, and automation should use the newer tables.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-04-work-with-stix-objects-and-indicators-to-enhance-threat-intelligence-and-threat-hunting-in-micro-1257"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-08T17:56:54.324Z",
+      "generatedAt": "2026-09-18T17:41:36.487Z",
       "usage": {
-        "inputTokens": 6595,
-        "outputTokens": 3086,
-        "costUsd": 0.005022
+        "inputTokens": 6705,
+        "outputTokens": 2767,
+        "costUsd": 0.004661
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-08T17:56:54.324Z",
+  "generatedAt": "2026-09-18T17:41:36.487Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8836,18 +8880,24 @@
       "outputTokens": 12532,
       "requests": 3,
       "costUsd": 0.017158
+    },
+    "2026-09-18": {
+      "inputTokens": 8566,
+      "outputTokens": 3852,
+      "requests": 3,
+      "costUsd": 0.006336
     }
   },
   "lastRun": {
-    "inputTokens": 10600,
-    "outputTokens": 12532,
+    "inputTokens": 8566,
+    "outputTokens": 3852,
     "requests": 3,
-    "costUsd": 0.017158
+    "costUsd": 0.006336
   },
   "totalUsage": {
-    "inputTokens": 103368,
-    "outputTokens": 110704,
-    "requests": 36,
-    "costUsd": 0.153519
+    "inputTokens": 111934,
+    "outputTokens": 114556,
+    "requests": 39,
+    "costUsd": 0.159855
   }
 }
