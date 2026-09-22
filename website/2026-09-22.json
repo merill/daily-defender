@@ -1,0 +1,57 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1476237",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-21",
+      "title": "Microsoft Defender for Office 365: Remediation actions from the Teams message entity flyout",
+      "summary": "Microsoft Defender for Office 365 will enhance the Teams message entity flyout by late September 2026, enabling security admins to submit messages to Microsoft and block senders or domains in one workflow. This streamlines Teams message investigations for Plan 1 and Plan 2 customers without requiring configuration changes.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "email",
+        "name": "Email and collaboration",
+        "icon": "/assets/topics/email.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1476237/",
+      "originalUrl": "https://mc.merill.net/message/MC1476237",
+      "body": "<p><b><b>What and why</b></b></p><p>We are enhancing the Teams message entity flyout in Microsoft Defender for Office 365 to help security teams investigate and remediate malicious Teams messages more efficiently. Administrators will be able to submit messages to Microsoft and block external senders or associated domains from a single workflow, reducing the need to navigate between investigation experiences.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide):</b> Beginning in <b>late September 2026</b> and expected to complete by <b>mid-October 2026</b></li></ul><p><b><b>Impact on your organization</b></b></p><p><em>Who is affected</em></p><ul><li>Security administrators and analysts in organizations with Microsoft Defender for Office 365 Plan 1 or Plan 2 who investigate Teams messages through Submissions, Alerts, Advanced Hunting, or Quarantine</li></ul><p><em>Platforms and services</em></p><ul><li>Microsoft Defender for Office 365</li><li>Microsoft Teams</li><li>Microsoft Defender portal</li></ul><p><em>What will happen</em></p><p>Administrators investigating Teams messages through Submissions, Alerts, Advanced Hunting, or Quarantine will be able to open the Teams message entity flyout and access the <b>Take action</b> workflow directly from the message.</p><p></p><p>The updated action wizard will support the following actions:</p><ul><li><b>Submit to Microsoft:</b> Submit the Teams message to Microsoft for review and analysis:</li><li></li><li><b>Block sender:</b> Add the external sender to the Tenant Allow/Block List (TABL). When available, sender information will be prepopulated to reduce manual entry.</li><li><b>Block domain:</b> Add one or more domains associated with the investigated message to TABL. The wizard will identify and prepopulate domains associated with an external sender, allowing administrators to select the domains to block.</li><li>&nbsp;</li></ul><p>Administrators can perform multiple actions in a single workflow. For example, they can submit a message to Microsoft while also blocking the associated sender or domain.</p><p>These actions will be available to Microsoft Defender for Office 365 Plan 1 and Plan 2 customers. Existing investigation experiences and workflows will remain available. No configuration changes are required for this capability.</p><p><b><b>Action required and recommendations</b></b></p><p>No action is required before rollout.</p><p>We recommend that organizations:</p><ul><li>Review internal security operations procedures for Teams message investigations.</li><li>Update administrator training materials and documentation to include the new remediation actions available from the Teams message entity flyout.</li><li>Inform security operations teams about the streamlined investigation and remediation workflow.</li></ul><p><b>Learn more</b></p><ul><li><b>To be updated closer to launch.</b> <a href=\"https://learn.microsoft.com/en-us/defender-office-365/teams-message-entity-panel\" rel=\"noopener noreferrer\">Teams message entity panel in Microsoft Defender for Office 365 - Microsoft Defender for Office 365 | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations were identified in the source content. Review this change as appropriate for your organization.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Feature update",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-21T22:10:41Z",
+      "endDate": "2026-11-12T08:00:00Z",
+      "lastModifiedDateTime": "2026-09-21T22:11:53.923Z",
+      "version": "2026-09-21T22:11:53.923Z",
+      "eventId": "message-center:MC1476237:2026-09-21T22:11:53.923Z",
+      "firstSeenAt": "2026-09-22T07:43:03.540Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Defender documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}

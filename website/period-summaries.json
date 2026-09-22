@@ -6981,6 +6981,28 @@
         "outputTokens": 511,
         "costUsd": 0.000818
       }
+    },
+    "2026-09-21": {
+      "headline": "Teams message flyout will combine Microsoft submission and sender blocking by late September",
+      "overview": "Microsoft Defender for Office 365 will enhance the Teams message entity flyout by late September 2026. Security admins will be able to submit messages to Microsoft and block senders or domains within one workflow, covering Plan 1 and Plan 2 customers without configuration changes.",
+      "adminImpact": "Admins investigating Teams messages should expect a consolidated remediation workflow by late September 2026. No configuration changes are required.",
+      "keyChanges": [
+        {
+          "title": "Teams message entity flyout gains remediation actions",
+          "detail": "The enhanced flyout will let security admins submit a Teams message to Microsoft and block its sender or domain from the same workflow. The change is planned for late September 2026 and applies to Defender for Office 365 Plan 1 and Plan 2 customers.",
+          "product": "Microsoft Defender for Office 365",
+          "sourceId": "MC1476237"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-22T07:43:03.772Z",
+      "usage": {
+        "inputTokens": 1023,
+        "outputTokens": 715,
+        "costUsd": 0.001063
+      }
     }
   },
   "weeks": {
@@ -8451,6 +8473,28 @@
         "outputTokens": 574,
         "costUsd": 0.000857
       }
+    },
+    "2026-09-21": {
+      "headline": "Teams message flyout adds Microsoft submission and sender-blocking actions",
+      "overview": "Microsoft Defender for Office 365 will enhance the Teams message entity flyout by late September 2026. The updated workflow will let security administrators submit messages to Microsoft and block senders or domains from the same investigation flow.",
+      "adminImpact": "Plan 1 and Plan 2 customers can use the streamlined Teams message investigation workflow without making configuration changes.",
+      "keyChanges": [
+        {
+          "title": "Remediation actions added to the Teams message entity flyout",
+          "detail": "By late September 2026, the flyout will support submitting Teams messages to Microsoft and blocking senders or domains in one workflow.",
+          "product": "Microsoft Defender for Office 365",
+          "sourceId": "MC1476237"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-22T07:43:03.772Z",
+      "usage": {
+        "inputTokens": 842,
+        "outputTokens": 568,
+        "costUsd": 0.00085
+      }
     }
   },
   "months": {
@@ -8774,54 +8818,54 @@
       }
     },
     "2026-09": {
-      "headline": "Teams message hunting expands as Defender XDR shifts DLP alerts to behaviors",
-      "overview": "September’s most consequential changes centered on Defender XDR and Defender for Office 365. DLP alerts will become behaviors by default on October 12, 2026, while the new Teams MessageContents table rolls out worldwide from late September through mid-October. Prompt injection protection for email is also rolling out to eligible Defender for Office 365 customers. Supporting documentation materially clarified Linux antivirus enforcement levels and Sentinel’s migration from legacy threat-intelligence schemas.",
-      "adminImpact": "Decide whether to retain the new DLP behavior default or disable it to keep DLP alerts in the Defender XDR incident queue. Confirm that intended analysts have the permissions required for MessageContents access. Linux administrators should review the passive default, audit-mode version requirement, and enforcement-level verification. Teams still dependent on Sentinel’s legacy ThreatIntelligenceIndicator table should move queries, detections, workbooks, and automation to the newer schemas.",
+      "headline": "Teams threat hunting expands as Defender changes DLP alert handling",
+      "overview": "September's most consequential changes centered on Microsoft Defender for Office 365 and Defender XDR: Advanced Hunting is gaining a Teams MessageContents table, the Teams message flyout is gaining remediation actions, and email prompt-injection protection is rolling out. Defender XDR will also classify Microsoft Purview DLP alerts as behaviors by default on October 12, while several important administrator updates remained guidance-led, including Defender for Identity sensor activation prerequisites.",
+      "adminImpact": "Confirm hunting permissions for analysts who need the Teams MessageContents table and plan for its staged rollout. Before October 12, decide whether to retain the new DLP behavior default or disable the rule to keep DLP alerts in the Defender XDR incident queue. The Teams flyout and prompt-injection changes require no configuration change according to the supplied notices. Teams using the documented Defender for Identity preview path must follow its manual activation and domain-controller prerequisites.",
       "keyChanges": [
         {
-          "title": "DLP alerts will become behaviors by default",
-          "detail": "Starting October 12, 2026, Microsoft Purview DLP alerts in Defender XDR will be set as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Microsoft Purview. Administrators can disable the rule to continue placing DLP alerts in the Defender XDR incident queue.",
+          "title": "Teams MessageContents table arrives in Advanced Hunting",
+          "detail": "Microsoft Defender for Office 365 is introducing a new MessageContents table for Teams messages. Worldwide rollout is scheduled from late September through mid-October 2026, allowing authorized analysts to query message snippets and metadata during threat investigations. Verify that intended analysts have the required permissions and account for the staged rollout.",
+          "product": "Defender for Office 365 / Defender XDR",
+          "sourceId": "MC1474106"
+        },
+        {
+          "title": "Purview DLP alerts become Defender XDR behaviors by default",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Microsoft Purview. Administrators can disable the rule if DLP alerts must continue appearing in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Advanced Hunting adds Teams MessageContents",
-          "detail": "Defender for Office 365 is introducing a MessageContents table for Microsoft Teams messages. Authorized security analysts will be able to query message snippets and metadata during threat investigations, with worldwide rollout scheduled from late September through mid-October 2026 and appropriate permissions required.",
-          "product": "Defender XDR",
-          "sourceId": "MC1474106"
+          "title": "Teams investigations gain submission and sender-blocking actions",
+          "detail": "By late September 2026, the Teams message entity flyout will let security administrators submit messages to Microsoft and block senders or domains within the same workflow. The capability applies to Defender for Office 365 Plan 1 and Plan 2 customers and requires no configuration change.",
+          "product": "Defender for Office 365 / Defender XDR",
+          "sourceId": "MC1476237"
         },
         {
-          "title": "Email prompt-injection protection rolls out to eligible tenants",
-          "detail": "Defender for Office 365 is adding protection that detects and quarantines malicious email content targeting AI assistants. The rollout runs from July through October 2026 for organizations with Defender Plan 2 or Microsoft 365 E5, with automatic quarantine for high-confidence threats enabled by default and no action required to receive the capability.",
-          "product": "Defender XDR",
+          "title": "Email prompt-injection protection rolls out with automatic quarantine",
+          "detail": "Defender for Office 365 will detect and quarantine malicious email content targeting AI assistants for organizations with Defender for Office 365 Plan 2 or Microsoft 365 E5. The rollout runs from July through October 2026, with automatic quarantine for high-confidence threats enabled by default and no required administrator action stated.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1422060"
         },
         {
-          "title": "Linux antivirus guidance now documents four enforcement levels",
-          "detail": "The Defender for Endpoint on Linux guidance now describes four antivirus enforcement levels, including audit mode in Preview, and identifies passive mode as the default. It also adds a way to verify the active level; audit mode requires Defender for Endpoint version 101.26062.0007 or later.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
-        },
-        {
-          "title": "Sentinel guidance directs migration from the legacy threat-intelligence table",
-          "detail": "The updated Sentinel Preview guidance documents the ThreatIntelIndicators and ThreatIntelObjects schemas and states that ingestion into the legacy ThreatIntelligenceIndicator table stops after July 31, 2025. Existing queries, analytics and detection rules, workbooks, and automation should use the newer tables.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-09-04-work-with-stix-objects-and-indicators-to-enhance-threat-intelligence-and-threat-hunting-in-micro-1257"
+          "title": "Defender for Identity documents preview activation on non-domain controllers",
+          "detail": "Updated v3.x deployment guidance covers AD FS, AD CS, and Microsoft Entra Connect servers that are not domain controllers. Activation on those servers is in preview, requires manual activation, and supports neither automatic activation nor migration. Deployments limited to those servers must also install at least one v3.x sensor on a domain controller.",
+          "product": "Defender for Identity",
+          "sourceId": "doc-2026-09-04-deploy-the-defender-for-identity-sensor-v3-x-635"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-18T17:41:36.487Z",
+      "generatedAt": "2026-09-22T07:43:03.772Z",
       "usage": {
-        "inputTokens": 6705,
-        "outputTokens": 2767,
-        "costUsd": 0.004661
+        "inputTokens": 6817,
+        "outputTokens": 4233,
+        "costUsd": 0.006443
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-18T17:41:36.487Z",
+  "generatedAt": "2026-09-22T07:43:03.772Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8886,18 +8930,24 @@
       "outputTokens": 3852,
       "requests": 3,
       "costUsd": 0.006336
+    },
+    "2026-09-22": {
+      "inputTokens": 8682,
+      "outputTokens": 5516,
+      "requests": 3,
+      "costUsd": 0.008356
     }
   },
   "lastRun": {
-    "inputTokens": 8566,
-    "outputTokens": 3852,
+    "inputTokens": 8682,
+    "outputTokens": 5516,
     "requests": 3,
-    "costUsd": 0.006336
+    "costUsd": 0.008356
   },
   "totalUsage": {
-    "inputTokens": 111934,
-    "outputTokens": 114556,
-    "requests": 39,
-    "costUsd": 0.159855
+    "inputTokens": 120616,
+    "outputTokens": 120072,
+    "requests": 42,
+    "costUsd": 0.168211
   }
 }
