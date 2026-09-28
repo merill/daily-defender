@@ -10,9 +10,17 @@ with `daily-intune` and `entra-doc-diff`.
 
 ## What it tracks
 
-`MicrosoftDocs/defender-docs`, branch `public` — the fifteen subtrees that
-publish to Microsoft Learn, taken from the repository's own
-`.openpublishing.publish.config.json`:
+[`merill/defender-docs-mirror`](https://github.com/merill/defender-docs-mirror)
+— the fifteen subtrees of `MicrosoftDocs/defender-docs` that publish to
+Microsoft Learn, taken from that repository's own
+`.openpublishing.publish.config.json`.
+
+`MicrosoftDocs/defender-docs` stopped being public in September 2026. The
+mirror rebuilds it from Learn: [learn-mirror](https://github.com/merill/learn-mirror)
+fetches each page as Markdown four times a day and writes it to the path of
+the source file Learn built it from, so the layout — and every path below — is
+the original repository's. Changes between 23 September 2026 and the switch to
+the mirror on 28 September 2026 were not recorded.
 
 | Service | Learn path |
 |---|---|
