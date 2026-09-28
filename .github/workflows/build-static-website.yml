@@ -30,8 +30,8 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v4
 
-      - name: Clone Defender Docs repository
-        run: git clone --filter=blob:none --single-branch --branch public https://github.com/MicrosoftDocs/defender-docs.git defender-docs
+      - name: Clone Defender Docs mirror
+        run: git clone --filter=blob:none --single-branch https://github.com/merill/defender-docs-mirror.git defender-docs
 
       - name: Clone Message Center repository
         run: git clone --depth 1 https://github.com/merill/mc.git mc

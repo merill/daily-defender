@@ -52,10 +52,11 @@ jobs:
     - name: Checkout this repository
       uses: actions/checkout@v4
       
-    - name: Clone Defender Docs repository
-      # Blobs over 100k are media, which the monitor never reads. Markdown is
-      # fetched eagerly so the per-file `git show` calls stay local.
-      run: git clone --filter=blob:limit=100k --single-branch --branch public https://github.com/MicrosoftDocs/defender-docs.git defender-docs
+    - name: Clone Defender Docs mirror
+      # MicrosoftDocs/defender-docs is no longer public. The mirror rebuilds it
+      # from Microsoft Learn with the same layout, one commit per crawl that
+      # found a change, so the monitor diffs it exactly as it did the original.
+      run: git clone --filter=blob:limit=100k --single-branch https://github.com/merill/defender-docs-mirror.git defender-docs
 
     - name: Clone Message Center repository
       run: git clone --depth 1 https://github.com/merill/mc.git mc
@@ -79,6 +80,9 @@ jobs:
         DISCORD_ENABLED: ${{ inputs.backfill_period_summaries != true }}
         MC_DATA_PATH: "./mc/@data"
         USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
+        # Where a change's "view on GitHub" link points.
+        TARGET_REPO_OWNER: merill
+        TARGET_REPO_NAME: defender-docs-mirror
         GITHUB_ACTIONS: "true"
       run: dailynews monitor
 
