@@ -7027,37 +7027,49 @@
       }
     },
     "2026-09-29": {
-      "headline": "Sentinel documents three Airlock Digital paths as Foundry guidance clarifies agentic code-scanning impact",
-      "overview": "Sentinel’s updated references now describe SaaS polling, self-hosted polling, and push collection for Airlock Digital, while expanding connector mappings. Exposure Management guidance specifies Foundry model deployments and the effect of disconnecting Foundry on agentic code scanning.",
-      "adminImpact": "For Sentinel, use the revised table and connector mappings when checking data availability. Airlock Digital setup requires the specified API credentials; push setup requires permission to create a Microsoft Entra app registration, and administrators should use one connector per server to avoid duplicate data. For Exposure Management, follow the updated Foundry deployment guidance and account for agentic code scanning being disabled when Foundry is disconnected without another connection.",
+      "headline": "Identity sensor v2.x guidance now requires a directory service account for full coverage",
+      "overview": "The strongest administrator-facing change is explicit DSA guidance for sensor v2.x deployments, including DeletedObjects access and specific cross-domain scenarios. Cloud Apps added focused guidance for reviewing service principals with Microsoft Entra RBAC roles and documented risk-based app policy templates. Other notable updates list WSLc support and clarify that disconnecting Foundry disables agentic code scanning without a replacement connection.",
+      "adminImpact": "Review sensor v2.x deployments and configure a DSA where full coverage or the listed scenarios require it. Use the new Cloud Apps guidance to investigate service-principal privileges and create risk-based app alerts. Include WSLc workloads in monitoring where relevant, and provide another Foundry connection before disconnecting if agentic code scanning must continue.",
       "keyChanges": [
         {
-          "title": "Airlock Digital reference documents three Sentinel collection paths",
-          "detail": "The Data Connectors Reference now covers Airlock Digital SaaS polling, self-hosted polling, and push connectors, including supported tables, prerequisites, setup, and connection behavior. It also advises using one connector per server to avoid duplicate data; push setup requires permission to create a Microsoft Entra app registration.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-09-29-data-connectors-reference-02"
+          "title": "Sensor v2.x deployments need a DSA for full coverage",
+          "detail": "Updated identity guidance says sensor v2.x deployments should configure a Directory Service Account for full security coverage. A DSA is required to access the DeletedObjects container and for certain cross-domain and non-domain-controller scenarios.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-29-security-testing-best-practices-14"
         },
         {
-          "title": "Sentinel table mappings add four connector entries and remove older mappings",
-          "detail": "The Tables Connectors Reference adds mappings for Fortra Agari, Airlock Digital, BloodHound Enterprise, and Cisco Meraki, updates the ASim and Armis entries, and removes several older mappings.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-09-29-sentinel-tables-connectors-reference-03"
+          "title": "Cloud Apps adds service-principal RBAC review guidance",
+          "detail": "A new article explains how to use App Governance to filter, investigate, and assess Microsoft Entra RBAC roles assigned directly to service principals, including permissions, privilege levels, and risk signals. Access to App Governance data and the required App Governance role are prerequisites.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-09-29-secure-oauth-apps-with-microsoft-entra-rbac-roles-microsoft-defender-for-cloud-apps-microsoft-le-01"
         },
         {
-          "title": "Foundry guidance specifies model deployments and code-scanning consequences",
-          "detail": "The Mdash Foundry Integration guidance says Standard deployments use each of the three models once, points to the required model deployments for the Foundry resource, and consolidates the instruction that disconnecting Foundry disables agentic code scanning unless another connection is provided.",
+          "title": "App Governance documents risk-based alert templates",
+          "detail": "App policy guidance now includes Risk management templates such as New high risk app and Risk score policies, with customizable risk thresholds. The page also updates monitoring guidance and the navigation path.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-09-29-app-governance-app-policies-create-07"
+        },
+        {
+          "title": "Defender for Endpoint lists WSLc workload support",
+          "detail": "The Defender for Endpoint What's New page now lists support for WSL containers (WSLc), including protection and visibility into WSLc activity. Administrators can include WSLc workloads in protection and monitoring.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-09-29-whats-new-in-microsoft-defender-endpoint-06"
+        },
+        {
+          "title": "Foundry disconnection disables agentic code scanning",
+          "detail": "The Mdash Foundry guidance clarifies that disconnecting Foundry disables agentic code scanning unless another connection is provided. It also specifies that Standard deployments use each of the three models once and clarifies the required model deployments for the Foundry resource.",
           "product": "Exposure Management",
-          "sourceId": "doc-2026-09-29-mdash-foundry-integration-01"
+          "sourceId": "doc-2026-09-29-mdash-foundry-integration-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T08:29:04.183Z",
+      "generatedAt": "2026-09-29T14:50:31.773Z",
       "usage": {
-        "inputTokens": 1302,
-        "outputTokens": 1486,
-        "costUsd": 0.002044
+        "inputTokens": 2888,
+        "outputTokens": 3732,
+        "costUsd": 0.005056
       }
     }
   },
@@ -8553,49 +8565,49 @@
       }
     },
     "2026-09-28": {
-      "headline": "Detection-source alert tuning is slated for Defender XDR preview in mid-October",
-      "overview": "The period's most consequential item is a planned Microsoft Defender XDR enhancement allowing alert-tuning rules to target specific detection sources. Public preview is scheduled for mid-October 2026, with general availability planned for mid-November; existing rules continue to apply to all sources unless updated. Sentinel references also added connector mappings and Airlock Digital setup guidance, while Exposure Management clarified Foundry model and disconnection behavior. Endpoint release notes record Linux device-identification and stability fixes.",
-      "adminImpact": "No immediate Defender XDR action is required unless source-specific alert customization is wanted; review existing rules when the capability becomes available. Sentinel administrators should use the revised mappings and Airlock Digital prerequisites, including one connector per server and permission to create a Microsoft Entra app registration for push setup. Exposure Management administrators should account for agentic code scanning being disabled when Foundry is disconnected without a replacement connection. No administrator action is stated for the Endpoint fixes.",
+      "headline": "Defender XDR plans detection-source targeting for October alert-tuning preview",
+      "overview": "The period’s main product change is a scheduled Defender XDR alert-tuning enhancement: source-specific rules are due in public preview in mid-October 2026 and general availability in mid-November. Other notable administrator-facing updates cover sensor v2.x directory service accounts, documented WSLc coverage, service-principal RBAC assessment in Cloud Apps, and Foundry disconnection behavior. Most remaining entries refine terminology, inventories, connector references, and procedures.",
+      "adminImpact": "Existing alert-tuning rules will continue applying to all detection sources unless administrators update them for source-specific control. Review sensor v2.x deployments for the required directory service account, use the Cloud Apps prerequisites when assessing service-principal roles, and account for agentic code scanning being disabled if Foundry is disconnected without another connection.",
       "keyChanges": [
         {
-          "title": "Defender XDR alert tuning will support detection-source targeting",
-          "detail": "Microsoft says alert-tuning rules will be able to target specific detection sources, providing finer control. The capability is scheduled for public preview in mid-October 2026 and general availability in mid-November 2026. Existing rules apply to all sources until administrators update them.",
+          "title": "Alert tuning will support detection-source targeting",
+          "detail": "Microsoft Defender XDR will allow alert-tuning rules to target specific detection sources. Public preview is scheduled for mid-October 2026, followed by general availability in mid-November; existing rules apply to all sources unless updated. No action is needed unless source-specific customization is desired.",
           "product": "Defender XDR",
           "sourceId": "MC1481318"
         },
         {
-          "title": "Sentinel connector mappings add four named sources and revise older entries",
-          "detail": "The Tables Connectors Reference adds mappings for Fortra Agari, Airlock Digital, BloodHound Enterprise, and Cisco Meraki, updates the ASim and Armis entries, and removes several older mappings. Use the revised reference when checking table availability and connector associations.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-09-29-sentinel-tables-connectors-reference-03"
+          "title": "Sensor v2.x coverage requires a Directory Service Account in specified scenarios",
+          "detail": "Updated Identity guidance says sensor v2.x deployments should configure a Directory Service Account for full security coverage. The account is required to access the DeletedObjects container and for certain cross-domain and non-domain-controller scenarios.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-29-security-testing-best-practices-14"
         },
         {
-          "title": "Sentinel documents Airlock Digital SaaS, self-hosted, and push connectors",
-          "detail": "The Data Connectors Reference now covers Airlock Digital SaaS polling, self-hosted polling, and push connectors, including supported tables, prerequisites, setup, and connection behavior. The guidance calls for one connector per server to avoid duplicate data; push setup requires permission to create a Microsoft Entra app registration, along with the specified API credentials.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-09-29-data-connectors-reference-02"
-        },
-        {
-          "title": "Exposure Management clarifies Foundry model deployment and scanning loss",
-          "detail": "The Mdash Foundry guidance states that Standard deployments use each of the three models once and points to the required model deployments for the Foundry resource. It also consolidates the behavior that disconnecting Foundry disables agentic code scanning unless another connection is provided.",
-          "product": "Exposure Management",
-          "sourceId": "doc-2026-09-29-mdash-foundry-integration-01"
-        },
-        {
-          "title": "Endpoint release notes fix cloned Linux identity and SSE4.1 crashes",
-          "detail": "Microsoft Defender for Endpoint now correctly identifies cloned Linux virtual machines as unique devices. The release notes also record a fix for SIGILL crashes on processors without SSE4.1 support, along with general reliability improvements; no administrator action is stated.",
+          "title": "Defender for Endpoint documentation now lists WSLc support",
+          "detail": "The Defender for Endpoint What's New page now lists support for WSL containers (WSLc), extending protection and visibility into WSLc activity. Administrators can include WSLc workloads in Defender for Endpoint protection and monitoring.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-09-28-microsoft-defender-endpoint-releases-01"
+          "sourceId": "doc-2026-09-29-whats-new-in-microsoft-defender-endpoint-06"
+        },
+        {
+          "title": "App Governance guidance adds direct service-principal RBAC assessment",
+          "detail": "A new Cloud Apps article explains how to filter, investigate, and assess Microsoft Entra RBAC roles assigned directly to service principals, including permissions, privilege levels, and risk signals. Access to App Governance data and the required App Governance role are prerequisites.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-09-29-secure-oauth-apps-with-microsoft-entra-rbac-roles-microsoft-defender-for-cloud-apps-microsoft-le-01"
+        },
+        {
+          "title": "Foundry disconnects can disable agentic code scanning without replacement",
+          "detail": "Updated Exposure Management guidance says disconnecting Foundry disables agentic code scanning unless another connection is provided. It also clarifies that Standard deployments use each of the three models once and identifies the required model deployments for the Foundry resource.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-09-29-mdash-foundry-integration-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T08:29:04.183Z",
+      "generatedAt": "2026-09-29T14:50:31.773Z",
       "usage": {
-        "inputTokens": 1382,
-        "outputTokens": 2228,
-        "costUsd": 0.00295
+        "inputTokens": 2949,
+        "outputTokens": 3755,
+        "costUsd": 0.005096
       }
     }
   },
@@ -8920,54 +8932,54 @@
       }
     },
     "2026-09": {
-      "headline": "Defender for Endpoint ARM64 retirement and XDR alert changes set October deadlines",
-      "overview": "September’s highest-impact changes create two operational deadlines: Microsoft Defender for Endpoint support for Amazon Linux 2 ARM64 ends October 31, while Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default from October 12. Teams user reporting will also become the Microsoft Defender for Office 365 default in late October, alongside new Linux allowlisting requirements and a Teams message-hunting table.",
-      "adminImpact": "Inventory Amazon Linux 2 ARM64 devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution before October 31. Review DLP alert workflows and disable the new behavior rule if alerts must remain in the Defender XDR incident queue. Review Teams reporting and opt out before October 25 if needed, update Linux network allowlists with the relevant tenant-specific service URLs, and confirm permissions for analysts who need the new Teams hunting data.",
+      "headline": "Defender for Endpoint sets October 31 deadline for Amazon Linux 2 ARM64",
+      "overview": "September brought a hard Defender for Endpoint support cutoff, a scheduled Defender XDR alert-handling change, and new Teams investigation and reporting capabilities. Administrators also need to prepare for mid-October App Governance permission changes and make decisions around the October 25 Teams reporting opt-out deadline.",
+      "adminImpact": "Inventory Amazon Linux 2 ARM64 devices and plan migration before support ends. Decide whether Microsoft Purview DLP alerts should remain in the Defender XDR incident queue or be handled as behaviors. Validate analyst permissions for the new Teams hunting table, review Teams reporting preferences before October 25, and audit affected App Governance role assignments before the mid-October permission change.",
       "keyChanges": [
         {
           "title": "Amazon Linux 2 ARM64 support retires October 31",
-          "detail": "Microsoft Defender for Endpoint will stop providing updates and support for Amazon Linux 2 ARM64 after October 31, 2026. Organizations must identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution.",
-          "product": "Endpoint",
+          "detail": "Microsoft Defender for Endpoint will provide no further updates or support for Amazon Linux 2 ARM64 after October 31, 2026. Identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate them to a supported Linux distribution before the deadline.",
+          "product": "Defender for Endpoint",
           "sourceId": "MC1392568"
         },
         {
-          "title": "Defender XDR changes Purview DLP alerts to behaviors by default",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing incident-queue alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "title": "Purview DLP alerts become Defender XDR behaviors by default",
+          "detail": "Starting October 12, Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Teams user reporting becomes the Microsoft Defender for Office 365 default",
-          "detail": "For licensed organizations, Teams user reporting will be enabled by default starting in late October 2026. Administrators can review the setting or opt out through the dedicated Defender portal page before October 25, 2026.",
-          "product": "Defender XDR",
+          "title": "Teams MessageContents table arrives in Advanced Hunting",
+          "detail": "Microsoft Defender for Office 365 is introducing a MessageContents table for querying Teams message snippets and metadata during threat investigations. Worldwide rollout runs from late September through mid-October 2026 and requires appropriate analyst permissions.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1474106"
+        },
+        {
+          "title": "Teams user reporting will be enabled by default",
+          "detail": "For licensed organizations, Microsoft Defender for Office 365 will enable Teams user reporting by default starting in late October. Users will be able to report suspicious Teams content, while administrators can review the setting or opt out through the dedicated Defender portal page before October 25, 2026.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1478463"
         },
         {
-          "title": "Linux connectivity requires new tenant-specific Defender service URLs",
-          "detail": "Microsoft Defender for Endpoint on Linux now requires allowlisting new service URLs specific to tenant types so devices can receive internal configuration updates, feature rollouts, and critical issue mitigations. Review network controls and add the relevant URLs.",
-          "product": "Defender XDR",
-          "sourceId": "MC1388718"
-        },
-        {
-          "title": "MessageContents adds Teams message data to Advanced Hunting",
-          "detail": "Microsoft Defender for Office 365 is introducing a MessageContents table for Teams message snippets and metadata, enabling authorized analysts to investigate Teams threats through Advanced Hunting. Worldwide rollout is scheduled from late September through mid-October 2026, with appropriate permissions required.",
-          "product": "Defender XDR",
-          "sourceId": "MC1474106"
+          "title": "App Governance permissions align with Defender XDR Unified RBAC",
+          "detail": "Starting in mid-October, permission assignments for the Cloud App Security, Compliance Administrator, and Compliance Data Administrator Microsoft Entra roles will change. Review and adjust role assignments to account for the updated App Governance permissions.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "MC1479503"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T08:29:04.183Z",
+      "generatedAt": "2026-09-29T14:50:31.773Z",
       "usage": {
-        "inputTokens": 7072,
-        "outputTokens": 4767,
-        "costUsd": 0.007135
+        "inputTokens": 7046,
+        "outputTokens": 3866,
+        "costUsd": 0.006048
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-29T08:29:04.183Z",
+  "generatedAt": "2026-09-29T14:50:31.773Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9040,22 +9052,22 @@
       "costUsd": 0.012573
     },
     "2026-09-29": {
-      "inputTokens": 9756,
-      "outputTokens": 8481,
-      "requests": 3,
-      "costUsd": 0.012128
+      "inputTokens": 22639,
+      "outputTokens": 19834,
+      "requests": 6,
+      "costUsd": 0.028328
     }
   },
   "lastRun": {
-    "inputTokens": 9756,
-    "outputTokens": 8481,
+    "inputTokens": 12883,
+    "outputTokens": 11353,
     "requests": 3,
-    "costUsd": 0.012128
+    "costUsd": 0.0162
   },
   "totalUsage": {
-    "inputTokens": 139161,
-    "outputTokens": 137566,
-    "requests": 48,
-    "costUsd": 0.192912
+    "inputTokens": 152044,
+    "outputTokens": 148919,
+    "requests": 51,
+    "costUsd": 0.209112
   }
 }
