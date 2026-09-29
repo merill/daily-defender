@@ -7025,6 +7025,40 @@
         "outputTokens": 470,
         "costUsd": 0.000766
       }
+    },
+    "2026-09-29": {
+      "headline": "Sentinel documents three Airlock Digital paths as Foundry guidance clarifies agentic code-scanning impact",
+      "overview": "Sentinel’s updated references now describe SaaS polling, self-hosted polling, and push collection for Airlock Digital, while expanding connector mappings. Exposure Management guidance specifies Foundry model deployments and the effect of disconnecting Foundry on agentic code scanning.",
+      "adminImpact": "For Sentinel, use the revised table and connector mappings when checking data availability. Airlock Digital setup requires the specified API credentials; push setup requires permission to create a Microsoft Entra app registration, and administrators should use one connector per server to avoid duplicate data. For Exposure Management, follow the updated Foundry deployment guidance and account for agentic code scanning being disabled when Foundry is disconnected without another connection.",
+      "keyChanges": [
+        {
+          "title": "Airlock Digital reference documents three Sentinel collection paths",
+          "detail": "The Data Connectors Reference now covers Airlock Digital SaaS polling, self-hosted polling, and push connectors, including supported tables, prerequisites, setup, and connection behavior. It also advises using one connector per server to avoid duplicate data; push setup requires permission to create a Microsoft Entra app registration.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-29-data-connectors-reference-02"
+        },
+        {
+          "title": "Sentinel table mappings add four connector entries and remove older mappings",
+          "detail": "The Tables Connectors Reference adds mappings for Fortra Agari, Airlock Digital, BloodHound Enterprise, and Cisco Meraki, updates the ASim and Armis entries, and removes several older mappings.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-29-sentinel-tables-connectors-reference-03"
+        },
+        {
+          "title": "Foundry guidance specifies model deployments and code-scanning consequences",
+          "detail": "The Mdash Foundry Integration guidance says Standard deployments use each of the three models once, points to the required model deployments for the Foundry resource, and consolidates the instruction that disconnecting Foundry disables agentic code scanning unless another connection is provided.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-09-29-mdash-foundry-integration-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-29T08:29:04.183Z",
+      "usage": {
+        "inputTokens": 1302,
+        "outputTokens": 1486,
+        "costUsd": 0.002044
+      }
     }
   },
   "weeks": {
@@ -8519,13 +8553,37 @@
       }
     },
     "2026-09-28": {
-      "headline": "Defender for Endpoint now distinguishes cloned Linux VMs correctly",
-      "overview": "The Endpoint update fixes device identification for cloned Linux virtual machines and resolves SIGILL crashes on processors without SSE4.1 support, alongside general reliability improvements.",
-      "adminImpact": "No administrator action is stated. Affected Linux deployments should receive more accurate device identification and improved stability.",
+      "headline": "Detection-source alert tuning is slated for Defender XDR preview in mid-October",
+      "overview": "The period's most consequential item is a planned Microsoft Defender XDR enhancement allowing alert-tuning rules to target specific detection sources. Public preview is scheduled for mid-October 2026, with general availability planned for mid-November; existing rules continue to apply to all sources unless updated. Sentinel references also added connector mappings and Airlock Digital setup guidance, while Exposure Management clarified Foundry model and disconnection behavior. Endpoint release notes record Linux device-identification and stability fixes.",
+      "adminImpact": "No immediate Defender XDR action is required unless source-specific alert customization is wanted; review existing rules when the capability becomes available. Sentinel administrators should use the revised mappings and Airlock Digital prerequisites, including one connector per server and permission to create a Microsoft Entra app registration for push setup. Exposure Management administrators should account for agentic code scanning being disabled when Foundry is disconnected without a replacement connection. No administrator action is stated for the Endpoint fixes.",
       "keyChanges": [
         {
-          "title": "Linux VM identity and processor compatibility fixes",
-          "detail": "Cloned Linux virtual machines are now correctly identified as unique Defender for Endpoint devices. The release also fixes SIGILL crashes on processors without SSE4.1 support and includes general reliability improvements.",
+          "title": "Defender XDR alert tuning will support detection-source targeting",
+          "detail": "Microsoft says alert-tuning rules will be able to target specific detection sources, providing finer control. The capability is scheduled for public preview in mid-October 2026 and general availability in mid-November 2026. Existing rules apply to all sources until administrators update them.",
+          "product": "Defender XDR",
+          "sourceId": "MC1481318"
+        },
+        {
+          "title": "Sentinel connector mappings add four named sources and revise older entries",
+          "detail": "The Tables Connectors Reference adds mappings for Fortra Agari, Airlock Digital, BloodHound Enterprise, and Cisco Meraki, updates the ASim and Armis entries, and removes several older mappings. Use the revised reference when checking table availability and connector associations.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-29-sentinel-tables-connectors-reference-03"
+        },
+        {
+          "title": "Sentinel documents Airlock Digital SaaS, self-hosted, and push connectors",
+          "detail": "The Data Connectors Reference now covers Airlock Digital SaaS polling, self-hosted polling, and push connectors, including supported tables, prerequisites, setup, and connection behavior. The guidance calls for one connector per server to avoid duplicate data; push setup requires permission to create a Microsoft Entra app registration, along with the specified API credentials.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-09-29-data-connectors-reference-02"
+        },
+        {
+          "title": "Exposure Management clarifies Foundry model deployment and scanning loss",
+          "detail": "The Mdash Foundry guidance states that Standard deployments use each of the three models once and points to the required model deployments for the Foundry resource. It also consolidates the behavior that disconnecting Foundry disables agentic code scanning unless another connection is provided.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-09-29-mdash-foundry-integration-01"
+        },
+        {
+          "title": "Endpoint release notes fix cloned Linux identity and SSE4.1 crashes",
+          "detail": "Microsoft Defender for Endpoint now correctly identifies cloned Linux virtual machines as unique devices. The release notes also record a fix for SIGILL crashes on processors without SSE4.1 support, along with general reliability improvements; no administrator action is stated.",
           "product": "Endpoint",
           "sourceId": "doc-2026-09-28-microsoft-defender-endpoint-releases-01"
         }
@@ -8533,11 +8591,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-28T08:16:12.873Z",
+      "generatedAt": "2026-09-29T08:29:04.183Z",
       "usage": {
-        "inputTokens": 829,
-        "outputTokens": 467,
-        "costUsd": 0.000726
+        "inputTokens": 1382,
+        "outputTokens": 2228,
+        "costUsd": 0.00295
       }
     }
   },
@@ -8862,65 +8920,59 @@
       }
     },
     "2026-09": {
-      "headline": "Amazon Linux 2 ARM64 retirement and DLP behavior changes demand October planning",
-      "overview": "September’s strongest administrator signals were operational rather than editorial: Defender for Endpoint set an October 31 end-of-support date for Amazon Linux 2 ARM64, while Defender XDR will move Microsoft Purview DLP alerts into behaviors by default on October 12. Defender for Office 365 is also expanding Teams investigation data and changing Teams user-reporting defaults, while Linux deployments face new service-URL allowlisting requirements.",
-      "adminImpact": "Inventory Amazon Linux 2 ARM64 devices, prevent Defender for Endpoint upgrades beyond version 101.25122.0004, and migrate affected systems to a supported distribution before October 31. Decide whether to retain the DLP behavior default or disable it to preserve alerts in the Defender XDR incident queue. Review Teams reporting settings by October 25, grant intended analysts access to the new Teams hunting table, and update Linux allowlists with the tenant-specific service URLs.",
+      "headline": "Defender for Endpoint ARM64 retirement and XDR alert changes set October deadlines",
+      "overview": "September’s highest-impact changes create two operational deadlines: Microsoft Defender for Endpoint support for Amazon Linux 2 ARM64 ends October 31, while Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default from October 12. Teams user reporting will also become the Microsoft Defender for Office 365 default in late October, alongside new Linux allowlisting requirements and a Teams message-hunting table.",
+      "adminImpact": "Inventory Amazon Linux 2 ARM64 devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution before October 31. Review DLP alert workflows and disable the new behavior rule if alerts must remain in the Defender XDR incident queue. Review Teams reporting and opt out before October 25 if needed, update Linux network allowlists with the relevant tenant-specific service URLs, and confirm permissions for analysts who need the new Teams hunting data.",
       "keyChanges": [
         {
           "title": "Amazon Linux 2 ARM64 support retires October 31",
-          "detail": "Microsoft Defender for Endpoint will stop providing updates and support for Amazon Linux 2 on ARM64 after October 31, 2026. Identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate them to a supported Linux distribution before the deadline.",
-          "product": "Defender for Endpoint",
+          "detail": "Microsoft Defender for Endpoint will stop providing updates and support for Amazon Linux 2 ARM64 after October 31, 2026. Organizations must identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution.",
+          "product": "Endpoint",
           "sourceId": "MC1392568"
         },
         {
-          "title": "DLP alerts move to behaviors by default October 12",
-          "detail": "Microsoft Defender XDR will treat Microsoft Purview DLP alerts as behaviors by default starting October 12, 2026. DLP data remains available in Advanced Hunting and Purview; disable the rule if the organization must keep those alerts in the Defender XDR incident queue.",
+          "title": "Defender XDR changes Purview DLP alerts to behaviors by default",
+          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing incident-queue alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
           "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Linux connectivity now depends on tenant-specific service URL allowlists",
-          "detail": "Microsoft Defender for Endpoint on Linux requires new service URLs, specific to tenant types, to deliver internal configuration updates, feature rollouts, and critical issue mitigations. The change is available worldwide and does not change the user experience, but network allowlists must include the new endpoints.",
-          "product": "Defender for Endpoint",
+          "title": "Teams user reporting becomes the Microsoft Defender for Office 365 default",
+          "detail": "For licensed organizations, Teams user reporting will be enabled by default starting in late October 2026. Administrators can review the setting or opt out through the dedicated Defender portal page before October 25, 2026.",
+          "product": "Defender XDR",
+          "sourceId": "MC1478463"
+        },
+        {
+          "title": "Linux connectivity requires new tenant-specific Defender service URLs",
+          "detail": "Microsoft Defender for Endpoint on Linux now requires allowlisting new service URLs specific to tenant types so devices can receive internal configuration updates, feature rollouts, and critical issue mitigations. Review network controls and add the relevant URLs.",
+          "product": "Defender XDR",
           "sourceId": "MC1388718"
         },
         {
-          "title": "Advanced Hunting gains a Teams MessageContents table",
-          "detail": "Defender for Office 365 is rolling out a MessageContents table worldwide from late September through mid-October 2026. Authorized analysts can query Teams message snippets and metadata for threat investigations, subject to the appropriate permissions.",
-          "product": "Defender for Office 365",
+          "title": "MessageContents adds Teams message data to Advanced Hunting",
+          "detail": "Microsoft Defender for Office 365 is introducing a MessageContents table for Teams message snippets and metadata, enabling authorized analysts to investigate Teams threats through Advanced Hunting. Worldwide rollout is scheduled from late September through mid-October 2026, with appropriate permissions required.",
+          "product": "Defender XDR",
           "sourceId": "MC1474106"
-        },
-        {
-          "title": "Teams user reporting becomes enabled by default in late October",
-          "detail": "For licensed organizations, Microsoft Defender for Office 365 will enable Teams user reporting by default starting in late October 2026. Users can report suspicious Teams content, and administrators can review or opt out through a dedicated Defender portal page before October 25, 2026.",
-          "product": "Defender for Office 365",
-          "sourceId": "MC1478463"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-28T08:16:12.873Z",
+      "generatedAt": "2026-09-29T08:29:04.183Z",
       "usage": {
-        "inputTokens": 6950,
-        "outputTokens": 8076,
-        "costUsd": 0.011081
+        "inputTokens": 7072,
+        "outputTokens": 4767,
+        "costUsd": 0.007135
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-28T08:16:12.873Z",
+  "generatedAt": "2026-09-29T08:29:04.183Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-24": {
-      "inputTokens": 7991,
-      "outputTokens": 10102,
-      "requests": 3,
-      "costUsd": 0.013721
-    },
     "2026-08-26": {
       "inputTokens": 8707,
       "outputTokens": 8947,
@@ -8986,18 +9038,24 @@
       "outputTokens": 9013,
       "requests": 3,
       "costUsd": 0.012573
+    },
+    "2026-09-29": {
+      "inputTokens": 9756,
+      "outputTokens": 8481,
+      "requests": 3,
+      "costUsd": 0.012128
     }
   },
   "lastRun": {
-    "inputTokens": 8789,
-    "outputTokens": 9013,
+    "inputTokens": 9756,
+    "outputTokens": 8481,
     "requests": 3,
-    "costUsd": 0.012573
+    "costUsd": 0.012128
   },
   "totalUsage": {
-    "inputTokens": 129405,
-    "outputTokens": 129085,
-    "requests": 45,
-    "costUsd": 0.180784
+    "inputTokens": 139161,
+    "outputTokens": 137566,
+    "requests": 48,
+    "costUsd": 0.192912
   }
 }
