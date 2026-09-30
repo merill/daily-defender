@@ -1,0 +1,181 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud/defender-for-servers-overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud/defender-for-servers-overview.md b/defender-for-cloud/defender-for-servers-overview.md\nindex 165edce..811570e 100644\n--- a/defender-for-cloud/defender-for-servers-overview.md\n+++ b/defender-for-cloud/defender-for-servers-overview.md\n@@ -142,7 +142,7 @@ You should [enable Defender for Servers](tutorial-enable-servers-plan) at the su\n | **Enable for a resource** | Yes | No |\r\n | **Disable for a resource** | Yes | Yes |\r\n \r\n-- Enable and disable Plan 1 at the resource level per server.\r\n+- Enable and disable Plan 1 at the resource level per server. A server is defined as a device running a server operating system. For information, refer to [Common questions about Defender for Servers](faq-defender-for-servers).\r\n - Plan 2 can't be enabled at the resource level, but you can disable it at the resource level.\r\n \r\n ## After enabling\r\n",
+      "baseCommitSha": "e0a68ead1c3c9bbe7233f3f12012dd5903ebf4e3",
+      "commitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 14:04:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/defender-for-servers-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview",
+      "eventId": "defender-docs:8d8d3c675445f90728fdc8686edb9a42f4925af4:modified:defender-for-cloud/defender-for-servers-overview.md",
+      "firstSeenAt": "2026-09-30T14:53:47.292Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Servers now defines “server” for Plan 1 scope",
+        "summary": "The overview clarifies that a server is a device running a server operating system and links to the common questions page.",
+        "adminImpact": "Administrators can use this definition when enabling or disabling Plan 1 per server.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/faq-defender-for-servers.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-cloud/faq-defender-for-servers.md b/defender-for-cloud/faq-defender-for-servers.md\nindex 14942d2..8fa5849 100644\n--- a/defender-for-cloud/faq-defender-for-servers.md\n+++ b/defender-for-cloud/faq-defender-for-servers.md\n@@ -51,12 +51,12 @@ Get answers to common questions about Microsoft Defender for Servers.\n \r\n ### What servers do I pay for in a subscription?\r\n \r\n-When you enable Defender for Servers on a subscription, you're charged for all machines based on their power states.\r\n+When you enable Defender for Servers on a subscription, you're charged for all machines based on their power states. For more information, see [Upcoming billing updates for Defender for Servers](https://aka.ms/D4ServersUpcomingBillingPolicyChange).\r\n \r\n | State | Details | Billing |\r\n | --- | --- | --- |\r\n | **Azure VMs** |  |  |\r\n-| Starting | VM starting up. | Not billed |\r\n+| Starting | VM starting up. | Billed |\r\n | Running | Normal working state. | Billed |\r\n | Stopping | Transitional. Moves to Stopped state when finished. | Billed |\r\n | Stopped | VM shut down from within guest OS or by using PowerOff APIs. Hardware is still allocated, and the machine remains on the host. | Billed |\r\n",
+      "baseCommitSha": "e0a68ead1c3c9bbe7233f3f12012dd5903ebf4e3",
+      "commitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 14:04:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/faq-defender-for-servers.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/faq-defender-for-servers",
+      "eventId": "defender-docs:8d8d3c675445f90728fdc8686edb9a42f4925af4:modified:defender-for-cloud/faq-defender-for-servers.md",
+      "firstSeenAt": "2026-09-30T14:53:47.297Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Starting-state VMs are listed as billed for Defender for Servers",
+        "summary": "The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates.",
+        "adminImpact": "Account for Starting-state VMs when estimating Defender for Servers costs.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/plan-defender-for-servers-select-plan.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud/plan-defender-for-servers-select-plan.md b/defender-for-cloud/plan-defender-for-servers-select-plan.md\nindex 2ae0726..36273f9 100644\n--- a/defender-for-cloud/plan-defender-for-servers-select-plan.md\n+++ b/defender-for-cloud/plan-defender-for-servers-select-plan.md\n@@ -80,7 +80,7 @@ We recommend enabling Defender for Servers at the subscription level, but you ca\n | **Enable for resource** | Yes | No |\r\n | **Disable for resource** | Yes | Yes |\r\n \r\n-- Plan 1 can be enabled and disabled at resource level.\r\n+- Plan 1 can be enabled and disabled at resource level. A server is defined as a device running a server operating system. For information, refer to [Common questions about Defender for Servers](faq-defender-for-servers).\r\n - Plan 2 can't be enabled at the resource level, but you can disable the plan at the resource level.\r\n \r\n Here are some use case examples to help you decide on Defender for Servers deployment scope.\r\n",
+      "baseCommitSha": "e0a68ead1c3c9bbe7233f3f12012dd5903ebf4e3",
+      "commitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 14:04:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/plan-defender-for-servers-select-plan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/plan-defender-for-servers-select-plan",
+      "eventId": "defender-docs:8d8d3c675445f90728fdc8686edb9a42f4925af4:modified:defender-for-cloud/plan-defender-for-servers-select-plan.md",
+      "firstSeenAt": "2026-09-30T14:53:47.302Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Servers documentation clarifies the server definition",
+        "summary": "The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ.",
+        "adminImpact": "Administrators can use the added definition and FAQ link when determining which devices the guidance applies to. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/release-notes.md",
+      "status": "modified",
+      "additions": 56,
+      "deletions": 0,
+      "changes": 56,
+      "patch": "diff --git a/defender-for-cloud/release-notes.md b/defender-for-cloud/release-notes.md\nindex 7838743..6733fef 100644\n--- a/defender-for-cloud/release-notes.md\n+++ b/defender-for-cloud/release-notes.md\n@@ -61,11 +61,67 @@ Get notified when this page is updated by copying and pasting the following URL\n \r\n | Date | Category | Update |\r\n | --- | --- | --- |\r\n+| Sep 30, 2026 | Upcoming update | Upcoming billing updates for Defender for Servers |\r\n | September 29, 2026 | GA | Enhanced agent for Defender for SQL Servers on Machines is fully available in Azure Government cloud |\r\n | September 23, 2026 | Upcoming deprecation | Upcoming deprecation of the Machines should have a vulnerability assessment solution recommendation |\r\n | September 3, 2026 | GA | AWS GuardDuty coverage status is now shown on the S3 asset page |\r\n | September 3, 2026 | GA | General availability of Defender for Cosmos DB in Azure Government cloud |\r\n \r\n+### Upcoming billing updates for Defender for Servers\r\n+\r\n+September 30, 2026\r\n+\r\n+Effective November 1, 2026, Microsoft Defender for Servers introduces two related updates:\r\n+\r\n+- **Billing policy update:**Productivity and desktop client devices, such as Windows 10 and Windows 11 PCs, are no longer billed as servers. For more information, see the Billing Policy Update Details section.\r\n+    - **Affected plan:** Defender for Servers Plan 1.\r\n+- **Billable Server identification mechanism update:**Defender for Servers is updating how it identifies protected servers for billing at a more granular level across environments. This may change the billed server count reflected on your bill based on your usage and configuration. For more information, see the Billable Server Identification Mechanism Update section.\r\n+    - **Affected plans:** Defender for Servers Plan 1 and Plan 2.\r\n+\r\n+This section helps you understand both updates so you can anticipate how your devices are classified and billed after the updates take effect.\r\n+\r\n+#### Prerequisites\r\n+\r\n+- Defender for Servers Plan 1 or Plan 2 enabled.\r\n+\r\n+#### Billing Policy Update Details\r\n+\r\n+This update applies to Defender for Servers Plan 1 only.\r\n+\r\n+##### Understand how devices are classified and billed\r\n+\r\n+Microsoft Defender uses operating-system and device information to classify devices for licensing and billing. Classification doesn't depend on where a device is hosted, whether it's physical or virtual, or how you use it.\r\n+\r\n+The following examples aren't exhaustive and don't confirm product support or licensing eligibility. Classification depends on device information, not the OS or distribution name alone.\r\n+\r\n+| OS family | Desktop, workstation, or mobile examples | Server examples and classification signals |\r\n+| --- | --- | --- |\r\n+| Windows | Windows 11; Windows 10; Windows 8.1; Windows 7; Windows Enterprise multi-session / Windows Virtual Desktop (WVD); Windows 10 IoT Enterprise | Windows Server 2025, 2022, 2019, 2016, and 2012 R2; Server Core; Datacenter; Azure Stack HCI; Windows Server image or SKU information |\r\n+| Linux and other non-Windows systems | Ubuntu Desktop; Fedora / Fedora Workstation; SLED; Kali; Mint; Pop!\\_OS; KDE neon; elementary OS; Tuxedo OS | Ubuntu Server; RHEL; Debian; CentOS; SLES / SUSE; Mariner; Oracle Linux; Amazon Linux; Rocky Linux; AlmaLinux; Photon OS; Flatcar; COS; PAN-OS; Gaia |\r\n+| Other desktop and mobile systems | macOS; iOS; Android | None listed |\r\n+\r\n+If the available information doesn't clearly identify a device as a desktop or workstation, it will be classified as a server for billing purposes.\r\n+\r\n+##### Licensing routes\r\n+\r\n+- **Desktop, workstation, and mobile devices:** Licensed through Defender for Endpoint, where supported.\r\n+- **Servers:** Covered through Defender for Servers, billed per server-hour, or standalone Defender for Endpoint for Servers, licensed per device.\r\n+\r\n+##### Defender for Servers Plan 1 billing rules\r\n+\r\n+When Plan 1 is enabled, billing depends on the server's operating system:\r\n+\r\n+| Server operating system | Billing rule when Plan 1 is enabled |\r\n+| --- | --- |\r\n+| Windows | Windows servers in a connected environment, such as an Azure subscription, AWS accounts, or GCP projects and other supported environments, are billed because they receive built-in Plan 1 Windows Server protection without requiring you to manually deploy or manage the Microsoft Defender for Endpoint agent. |\r\n+| Linux and other non-Windows | Linux and other non-Windows servers in a connected environment, such as Azure subscriptions, AWS accounts, or GCP projects and other supported environments, don't get built-in Plan 1 protection and are billed only when the Defender for Endpoint agent is deployed, because the applicable Defender for Servers Plan 1 capabilities depend on it. |\r\n+\r\n+#### Billable Server Identification Mechanism Update\r\n+\r\n+This update applies to both Defender for Servers Plan 1 and Plan 2.\r\n+\r\n+Defender for Server service will check for online machines multiple times per hour up from once per hour, and count each deployed machine separately, including machines created from a golden image that share an Azure Arc ID.\r\n+\r\n ### Enhanced agent for Defender for SQL Servers on Machines is fully available in Azure Government cloud\r\n \r\n September 29, 2026\r\n",
+      "baseCommitSha": "e0a68ead1c3c9bbe7233f3f12012dd5903ebf4e3",
+      "commitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 14:04:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes",
+      "eventId": "defender-docs:8d8d3c675445f90728fdc8686edb9a42f4925af4:modified:defender-for-cloud/release-notes.md",
+      "firstSeenAt": "2026-09-30T14:53:47.311Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Defender for Servers billing rules will change November 1, 2026",
+        "summary": "Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
+        "adminImpact": "Administrators should assess how device classification and more granular counting may affect their Defender for Servers charges.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/tenant-allow-block-list-urls-configure.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/tenant-allow-block-list-urls-configure.md b/defender-office-365/tenant-allow-block-list-urls-configure.md\nindex 8d24a59..90e570b 100644\n--- a/defender-office-365/tenant-allow-block-list-urls-configure.md\n+++ b/defender-office-365/tenant-allow-block-list-urls-configure.md\n@@ -36,9 +36,11 @@ monikers: []\n item_type: Content\n source_path: defender-office-365/tenant-allow-block-list-urls-configure.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5cf46315-b33f-4e99-8224-a1592697eff9\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/6ab06385-661e-4214-8870-bbe4071c960d\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/715d24c3-3683-4219-82c5-1e3c813fb7fc\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/131ba09e-4280-4ae7-8622-1f9f1c0daad1\n platformId: c6aa9dd7-6d2e-c708-92c2-4808bca840cf\n@@ -360,7 +362,7 @@ For detailed syntax and parameter information, see [Remove-TenantAllowBlockListI\n \r\n - IPv4 and IPv6 addresses are allowed, but TCP/UDP ports aren't.\r\n - Filename extensions aren't allowed (for example, test.pdf).\r\n-- Unicode isn't supported, but Punycode is.\r\n+- Unicode isn't supported. Punycode is only allowed in hostname labels before a normal ASCII TLD.\r\n - Hostnames are allowed if all of the following statements are true:\r\n \r\n     - The hostname contains a period.\r\n",
+      "baseCommitSha": "e0a68ead1c3c9bbe7233f3f12012dd5903ebf4e3",
+      "commitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 14:04:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/tenant-allow-block-list-urls-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/tenant-allow-block-list-urls-configure",
+      "eventId": "defender-docs:8d8d3c675445f90728fdc8686edb9a42f4925af4:modified:defender-office-365/tenant-allow-block-list-urls-configure.md",
+      "firstSeenAt": "2026-09-30T14:53:47.317Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Punycode URL guidance is now more specific",
+        "summary": "The documentation now states that Unicode is unsupported and Punycode is allowed only in hostname labels before a normal ASCII TLD.",
+        "adminImpact": "Ensure configured Punycode URLs follow this format; no mandatory action or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 5,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "The overview clarifies that a server is a device running a server operating system and links to the common questions page. The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates. The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
+        "sourceFiles": [
+          "defender-for-cloud/defender-for-servers-overview.md",
+          "defender-for-cloud/faq-defender-for-servers.md",
+          "defender-for-cloud/plan-defender-for-servers-select-plan.md",
+          "defender-for-cloud/release-notes.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Office 365",
+        "summary": "The documentation now states that Unicode is unsupported and Punycode is allowed only in hostname labels before a normal ASCII TLD.",
+        "sourceFiles": [
+          "defender-office-365/tenant-allow-block-list-urls-configure.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "The overview clarifies that a server is a device running a server operating system and links to the common questions page. The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates. The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Office 365",
+        "detail": "The documentation now states that Unicode is unsupported and Punycode is allowed only in hostname labels before a normal ASCII TLD."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

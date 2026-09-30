@@ -7071,6 +7071,46 @@
         "outputTokens": 3827,
         "costUsd": 0.005856
       }
+    },
+    "2026-09-30": {
+      "headline": "Defender for Servers billing rules count machines individually and bill Starting-state VMs",
+      "overview": "The period was dominated by a Defender for Servers billing update. Release notes say Plan 1 will no longer bill desktop, workstation, and mobile devices as servers, while Plans 1 and 2 will identify servers more frequently and count deployed machines individually. A related FAQ states that VMs in the Starting power state are billed. The Office 365 update specifies stricter Tenant Allow/Block List URL syntax.",
+      "adminImpact": "Review Defender for Servers cost estimates and device classification against individual-machine counting and Starting-state billing. Use the server-operating-system definition when determining Plan 1 scope. For Office 365, validate Punycode entries against the required hostname-label and normal ASCII TLD format. No mandatory action or deadline is stated.",
+      "keyChanges": [
+        {
+          "title": "Plans 1 and 2 introduce more granular server counting",
+          "detail": "The release notes say server identification will run more frequently and count deployed machines individually. They also state that Plan 1 will no longer bill desktop, workstation, and mobile devices as servers, so billed server totals may change.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-30-release-notes-04"
+        },
+        {
+          "title": "Starting-state virtual machines are billed",
+          "detail": "The Defender for Servers FAQ now states that VMs in the Starting power state are billed and links to upcoming billing updates. Include these VMs when estimating costs.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-30-faq-defender-for-servers-02"
+        },
+        {
+          "title": "Plan 1 guidance defines a server by operating system",
+          "detail": "The Plan 1 documentation defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Apply that definition when determining which devices the guidance covers.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-30-plan-defender-for-servers-select-plan-03"
+        },
+        {
+          "title": "Tenant Allow/Block List guidance limits Punycode placement",
+          "detail": "The URL configuration guidance now states that Unicode is unsupported and that Punycode is allowed only in hostname labels before a normal ASCII TLD. Existing Punycode URL entries should follow this format.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-09-30-tenant-allow-block-list-urls-configure-05"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-30T14:53:59.734Z",
+      "usage": {
+        "inputTokens": 1468,
+        "outputTokens": 3092,
+        "costUsd": 0.004004
+      }
     }
   },
   "weeks": {
@@ -8565,49 +8605,49 @@
       }
     },
     "2026-09-28": {
-      "headline": "Defender XDR schedules detection-source alert tuning for October preview, November GA",
-      "overview": "The clearest product-facing change is a planned Defender XDR alert-tuning enhancement that will target individual detection sources, with public preview in mid-October 2026 and general availability in mid-November. Defender for Identity guidance now describes automatic sensor v3.x activation and Windows auditing for eligible servers, while Endpoint and Defender for Cloud updates document WSL container coverage and Azure Government SQL protection. Most remaining entries are documentation maintenance; the notable new Cloud Apps addition covers direct Entra RBAC review for service principals.",
-      "adminImpact": "Existing Defender XDR alert-tuning rules will continue applying to all detection sources unless administrators update them. Identity administrators should review the Sensor management notice and eligibility before automatic enablement, and can select Opt out if it is not wanted. Endpoint teams can include WSLc workloads in protection planning. Previously enabled SQL customers in Azure Government must update plan configuration, verify instance protection, and account for possible additional billing. Cloud Apps reviewers need access to app governance data and the required app governance role.",
+      "headline": "Defender for Identity expands automatic sensor v3.x activation to eligible servers",
+      "overview": "The week’s most consequential operational change is clearer scope for Defender for Identity’s automatic sensor v3.x activation across eligible Defender for Endpoint-onboarded servers. The period also set dates for Defender XDR detection-source alert tuning, added a Windows Server update prerequisite for sensor 3.0.8 and later, changed Defender for Servers billing and counting guidance, and documented WSL container coverage in Defender for Endpoint. Most remaining updates were narrower terminology, navigation, procedure, or troubleshooting revisions.",
+      "adminImpact": "Identity teams should verify activation eligibility and the Advanced features control. Before installing or upgrading sensor 3.0.8 or later for automatic RPC auditing on domain controllers, apply a July 2026 or later Windows Server cumulative update; preview activation on non-domain-controller servers has additional eligibility limits. XDR administrators need to revisit alert rules only if source-specific tuning is desired, while Defender for Servers owners should reassess billed-server forecasts and Endpoint teams can include WSLc workloads in coverage planning.",
       "keyChanges": [
         {
-          "title": "Detection-source targeting is coming to Defender XDR alert-tuning rules",
-          "detail": "Microsoft says the capability will enter public preview in mid-October 2026 and general availability in mid-November 2026. Existing rules remain scoped to all detection sources unless administrators update them.",
+          "title": "Automatic sensor v3.x activation scope is now explicit",
+          "detail": "The guidance says automatic activation applies to eligible Defender for Endpoint-onboarded domain controllers, AD FS, AD CS, and Microsoft Entra Connect servers running Windows Server 2019 or later. It activates the existing capability without installing a separate package, excludes servers that already have a Defender for Identity sensor, and provides an Advanced features control for stopping future activations.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-29-activate-sensor-49"
+        },
+        {
+          "title": "Sensor v3 deployment requires a recent Windows Server update",
+          "detail": "Manual activation preview is limited to eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers without an existing sensor. A July 2026 or later Windows Server cumulative update is required before installing or upgrading to sensor version 3.0.8 or later for automatic RPC auditing on domain controllers.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-29-deploy-sensor-v3-51"
+        },
+        {
+          "title": "Source-specific alert tuning gets October preview and November general availability",
+          "detail": "Defender XDR alert-tuning rules will be able to target specific detection sources, with public preview planned for mid-October 2026 and general availability planned for mid-November 2026. Existing rules continue to apply to all sources unless administrators update them; action is only needed for source-specific customization.",
           "product": "Defender XDR",
           "sourceId": "MC1481318"
         },
         {
-          "title": "Defender for Identity guidance describes automatic sensor v3.x activation",
-          "detail": "Eligible new Defender for Endpoint customers may receive automatic Defender for Identity sensor v3.x activation and Windows auditing. Existing Defender for Identity customers will see a portal notice before enablement, and eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers are included. Administrators can review Sensor management and opt out if automatic enablement is not desired.",
-          "product": "Identity",
-          "sourceId": "doc-2026-09-29-whats-new-53"
+          "title": "Defender for Servers changes device classification and server counting",
+          "detail": "The release notes say Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-30-release-notes-04"
         },
         {
-          "title": "Defender for Endpoint release guidance now lists WSL container support",
-          "detail": "The updated guidance lists WSL containers (WSLc) as supported workloads and provides visibility into their activity, giving endpoint teams a documented basis for including WSLc in protection and monitoring plans.",
+          "title": "Defender for Endpoint extends protection and visibility to WSLc workloads",
+          "detail": "The Defender for Endpoint What’s New guidance lists support for WSL containers (WSLc), extending protection to WSLc workloads and providing visibility into their activity. Endpoint administrators can account for these workloads in protection and monitoring plans.",
           "product": "Endpoint",
           "sourceId": "doc-2026-09-29-whats-new-in-microsoft-defender-endpoint-07"
-        },
-        {
-          "title": "Defender for Cloud release notes document Azure Government SQL protection without AMA",
-          "detail": "The enhanced agent for Defender for SQL Servers on Machines supports resource- and subscription-level enablement for SQL Server instances on Azure VMs and Azure Arc-enabled machines in Azure Government without deploying Azure Monitor Agent. Previously enabled customers must update plan configuration for automatic registration and verify instance protection; protecting additional instances may increase billing.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-09-29-release-notes-45"
-        },
-        {
-          "title": "New Cloud Apps guidance covers direct Entra RBAC review for service principals",
-          "detail": "The new App Governance guide explains how to filter, investigate, and assess Microsoft Entra RBAC roles assigned directly to service principals, including permissions, privilege levels, and risk signals. Access to app governance data and the required app governance role are prerequisites.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-09-29-secure-oauth-apps-with-microsoft-entra-rbac-roles-microsoft-defender-for-cloud-apps-microsoft-le-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T23:43:47.649Z",
+      "generatedAt": "2026-09-30T14:53:59.734Z",
       "usage": {
-        "inputTokens": 8390,
-        "outputTokens": 9527,
-        "costUsd": 0.01311
+        "inputTokens": 8962,
+        "outputTokens": 10557,
+        "costUsd": 0.014461
       }
     }
   },
@@ -8932,54 +8972,54 @@
       }
     },
     "2026-09": {
-      "headline": "Amazon Linux 2 ARM64 support ends October 31, requiring endpoint migration",
-      "overview": "September's most actionable changes were product-facing support and behavior changes amid a heavily documentation-led period. Defender for Endpoint has a hard Amazon Linux 2 ARM64 support deadline; Defender XDR is changing DLP alert handling and adding detection-source tuning; and Defender for Office 365 is expanding Teams hunting while enabling user reporting by default. A notable Linux guidance update also documents passive mode as the default and audit mode as Preview, requiring version 101.26062.0007 or later.",
-      "adminImpact": "Inventory and migrate Amazon Linux 2 ARM64 devices before October 31, 2026, preventing upgrades beyond version 101.25122.0004. Decide whether Purview DLP alerts should remain behaviors or continue appearing in the Defender XDR incident queue. Review Teams user-reporting settings and opt out by October 25 if needed, confirm appropriate permissions for Teams hunting analysts, and inspect alert-tuning rules if source-specific control is desired. Linux teams considering audit mode should verify the required Defender version.",
+      "headline": "Amazon Linux 2 ARM64 retirement and DLP behavior changes reshape Defender administration",
+      "overview": "September’s clearest administrator actions are a Defender for Endpoint retirement deadline and a Defender XDR alert-handling change: Amazon Linux 2 ARM64 support ends October 31, while Purview DLP alerts become behaviors by default on October 12. Defender for Office 365 adds Teams message-hunting data, and Teams user reporting is scheduled to become default-on. A separate Linux connectivity notice requires tenant-specific service URLs to be allowlisted. The documentation stream was largely maintenance, with substantive guidance on Linux enforcement settings and Defender for Identity sensor activation.",
+      "adminImpact": "Inventory Amazon Linux 2 ARM64 devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution before October 31. Decide whether the DLP behavior default fits your incident workflow; disable the rule if DLP alerts must remain in the Defender XDR incident queue. Ensure intended analysts have the permissions required for the Teams MessageContents table, review Teams user-reporting settings before October 25 if opting out, and update Linux tenant-specific service URL allowlists so devices continue receiving configuration updates, feature rollouts, and critical mitigations.",
       "keyChanges": [
         {
-          "title": "Amazon Linux 2 ARM64 support retires October 31",
-          "detail": "Microsoft Defender for Endpoint will stop providing updates and support for Amazon Linux 2 ARM64 after October 31, 2026. Organizations should identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution before the deadline.",
-          "product": "Microsoft Defender for Endpoint",
+          "title": "Defender for Endpoint retires Amazon Linux 2 ARM64 support October 31",
+          "detail": "Support ends October 31, 2026. After that date, affected devices receive no updates or support. Microsoft instructs organizations to identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution.",
+          "product": "Defender for Endpoint",
           "sourceId": "MC1392568"
         },
         {
-          "title": "Purview DLP alerts become behaviors by default",
-          "detail": "Starting October 12, 2026, Microsoft Defender XDR will set Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
-          "product": "Microsoft Defender XDR",
+          "title": "Purview DLP alerts become Defender XDR behaviors by default",
+          "detail": "Beginning October 12, 2026, Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default to reduce alert volume. DLP data remains available in Advanced Hunting and Purview; administrators can disable the rule to keep DLP alerts in the Defender XDR incident queue.",
+          "product": "Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Teams MessageContents table adds message-level hunting data",
-          "detail": "Microsoft Defender for Office 365 is rolling out the new MessageContents table worldwide from late September through mid-October 2026. Authorized analysts can query Teams message snippets and metadata for threat investigations, subject to the required permissions.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Teams MessageContents table expands Microsoft 365 Defender hunting",
+          "detail": "The new MessageContents table lets authorized security analysts query Teams message snippets and metadata during threat investigations. Worldwide rollout is scheduled from late September through mid-October 2026, with appropriate permissions required for access.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1474106"
         },
         {
-          "title": "Alert tuning gains detection-source targeting",
-          "detail": "Microsoft Defender XDR alert-tuning rules will be able to target individual detection sources, with public preview planned for mid-October 2026 and general availability for mid-November. Existing rules continue applying to all sources unless administrators update them.",
-          "product": "Microsoft Defender XDR",
-          "sourceId": "MC1481318"
+          "title": "Teams user reporting becomes enabled by default for licensed organizations",
+          "detail": "Starting in late October 2026, users in licensed organizations will be able to report suspicious Teams content by default. Administrators can review the setting or opt out through a dedicated Defender portal page before October 25, 2026.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1478463"
         },
         {
-          "title": "Teams user reporting becomes enabled by default",
-          "detail": "Microsoft Defender for Office 365 will enable Teams user reporting by default for licensed organizations starting in late October 2026. Administrators can review the setting or opt out through the dedicated Defender portal page before October 25, 2026.",
-          "product": "Microsoft Defender for Office 365",
-          "sourceId": "MC1478463"
+          "title": "Defender for Endpoint Linux connectivity adds tenant-specific allowlists",
+          "detail": "Linux devices now require allowlisting new service URLs specific to the tenant type so they can receive internal configuration updates, feature rollouts, and critical issue mitigations. The change is worldwide and does not alter the user experience.",
+          "product": "Defender for Endpoint",
+          "sourceId": "MC1388718"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T23:43:47.649Z",
+      "generatedAt": "2026-09-30T14:53:59.734Z",
       "usage": {
-        "inputTokens": 7091,
-        "outputTokens": 7095,
-        "costUsd": 0.009932
+        "inputTokens": 7086,
+        "outputTokens": 5813,
+        "costUsd": 0.008393
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-29T23:43:47.649Z",
+  "generatedAt": "2026-09-30T14:53:59.734Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9056,18 +9096,24 @@
       "outputTokens": 40283,
       "requests": 9,
       "costUsd": 0.057226
+    },
+    "2026-09-30": {
+      "inputTokens": 17516,
+      "outputTokens": 19462,
+      "requests": 3,
+      "costUsd": 0.026858
     }
   },
   "lastRun": {
-    "inputTokens": 21798,
-    "outputTokens": 20449,
+    "inputTokens": 17516,
+    "outputTokens": 19462,
     "requests": 3,
-    "costUsd": 0.028898
+    "costUsd": 0.026858
   },
   "totalUsage": {
-    "inputTokens": 173842,
-    "outputTokens": 169368,
-    "requests": 54,
-    "costUsd": 0.23801
+    "inputTokens": 191358,
+    "outputTokens": 188830,
+    "requests": 57,
+    "costUsd": 0.264868
   }
 }
