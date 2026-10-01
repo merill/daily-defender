@@ -130,29 +130,203 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-cloud/concept-cloud-security-posture-management.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 5,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-cloud/concept-cloud-security-posture-management.md b/defender-for-cloud/concept-cloud-security-posture-management.md\nindex b60ace6..3d1532a 100644\n--- a/defender-for-cloud/concept-cloud-security-posture-management.md\n+++ b/defender-for-cloud/concept-cloud-security-posture-management.md\n@@ -51,15 +51,11 @@ For Azure Database for PostgreSQL flexible server, Defender CSPM continuously ev\n \r\n When Foundational CSPM is enabled, the [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance) standard provides recommendations to help secure your multicloud environment. The [secure score](secure-score-security-controls) based on some of the MCSB recommendations helps you monitor cloud compliance. A higher score indicates a lower identified risk level.\r\n \r\n-Important\r\n-\r\n-Starting October 27, 2026, Foundational CSPM will move to an opt-in model and will no longer be enabled by default for new Azure subscriptions. The free plan will continue to be available at no cost and can be enabled at any time based on your organization's needs. Existing subscriptions that already have Foundational CSPM enabled will remain enabled unless you turn off the plan. For more information, see [Opt in to Foundational CSPM](foundational-cspm-opt-in).\r\n-\r\n ## CSPM plans\r\n \r\n Defender for Cloud offers two CSPM plans:\r\n \r\n-- **Foundational CSPM** (free): Available at no cost. Starting October 27, 2026, new Azure subscriptions must opt in. AWS and GCP onboarding isn't affected.\r\n+- **Foundational CSPM** (free): Available at no cost.\r\n - **Defender CSPM** (paid): Provides extra capabilities beyond the Foundational CSPM plan, including advanced CSPM tools for cloud visibility and compliance monitoring. This plan offers advanced security posture features such as AI security posture, attack path analysis, and risk prioritization.\r\n \r\n ### Plan availability\r\n",
+      "baseCommitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitSha": "768020de23a88b22000444d4339f6975c0143ac4",
+      "commitMessage": "Mirror Learn: 4 changed, 1 removed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:12:28 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/concept-cloud-security-posture-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+      "eventId": "defender-docs:768020de23a88b22000444d4339f6975c0143ac4:modified:defender-for-cloud/concept-cloud-security-posture-management.md",
+      "firstSeenAt": "2026-09-30T23:47:56.039Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Foundational CSPM opt-in guidance removed",
+        "summary": "The page now only states that Foundational CSPM is free. It no longer includes the October 27, 2026 opt-in notice for new Azure subscriptions or the AWS and GCP scope note.",
+        "adminImpact": "Administrators will no longer find those timing and onboarding details on this page. No action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/release-notes.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 13,
+      "changes": 13,
+      "patch": "diff --git a/defender-for-cloud/release-notes.md b/defender-for-cloud/release-notes.md\nindex 6733fef..1d64445 100644\n--- a/defender-for-cloud/release-notes.md\n+++ b/defender-for-cloud/release-notes.md\n@@ -240,7 +240,6 @@ For more information, see [Enable cloud infrastructure entitlement management (C\n | Date | Category | Update |\r\n | --- | --- | --- |\r\n | July 31, 2026 | Deprecation | Deprecation completed: Legacy grouped recommendations removed from Azure portal |\r\n-| July 30, 2026 | Upcoming change | Foundational CSPM moves to opt-in model for new Azure subscriptions |\r\n | July 26, 2026 | GA | Database-level recommendations for SQL Vulnerability Assessment (GA) |\r\n | July 5, 2026 | Deprecation | Plan enablement API now blocks onboarding to five deprecated Defender plans |\r\n | July 1, 2026 | GA | New container security capabilities are now generally available |\r\n@@ -253,18 +252,6 @@ July 31, 2026\n \r\n Retirement of legacy grouped recommendations (sub-assessments) has started. Customers can no longer access the deprecated data through the API. The Azure portal and Azure Resource Graph might take a few days to reflect the change. Individual recommendations replace the legacy grouped recommendations, as announced in May 2026. Customers who previously relied on grouped recommendations should validate existing automation, reporting, governance workflows, and queries, and migrate any remaining disable rules to exemptions. For more information, see [Transition from grouped to individual recommendations](transition-grouped-individual-recommendations)\r\n \r\n-### Foundational CSPM moves to opt-in model for new Azure subscriptions\r\n-\r\n-July 30, 2026\r\n-\r\n-Starting October 27, 2026, Foundational CSPM will move to an opt-in model and will no longer be enabled by default for new Azure subscriptions. This change gives you more control over how security posture management is configured for each new Azure subscription and is part of the transition of cloud security posture management to the Microsoft Defender portal.\r\n-\r\n-Foundational CSPM will continue to be available at no cost and can be enabled at any time based on your organization's needs.\r\n-\r\n-This change applies only to new Azure subscriptions. Existing Azure subscriptions keep their current configuration, and AWS and GCP environments aren't affected.\r\n-\r\n-For more information, see [Opt in to Foundational CSPM](foundational-cspm-opt-in).\r\n-\r\n ### Database-level recommendations for SQL Vulnerability Assessment (GA)\r\n \r\n July 26, 2026\r\n",
+      "baseCommitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitSha": "768020de23a88b22000444d4339f6975c0143ac4",
+      "commitMessage": "Mirror Learn: 4 changed, 1 removed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:12:28 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes",
+      "eventId": "defender-docs:768020de23a88b22000444d4339f6975c0143ac4:modified:defender-for-cloud/release-notes.md",
+      "firstSeenAt": "2026-09-30T23:47:56.048Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Foundational CSPM will become opt-in for new Azure subscriptions",
+        "summary": "Starting October 27, 2026, Foundational CSPM will no longer be enabled by default for new Azure subscriptions. It remains free and can be enabled at any time; existing subscriptions and AWS or GCP environments are unaffected.",
+        "adminImpact": "Plan to enable Foundational CSPM when creating new Azure subscriptions if your organization requires it. No change is needed for existing subscriptions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/tutorial-enable-cspm-plan.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 4,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-cloud/tutorial-enable-cspm-plan.md b/defender-for-cloud/tutorial-enable-cspm-plan.md\nindex 7fb0828..6da6aa3 100644\n--- a/defender-for-cloud/tutorial-enable-cspm-plan.md\n+++ b/defender-for-cloud/tutorial-enable-cspm-plan.md\n@@ -48,10 +48,6 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ\n \r\n Foundational CSPM provides free security posture management capabilities in Defender for Cloud.\r\n \r\n-Important\r\n-\r\n-Starting October 27, 2026, Foundational CSPM will move to an opt-in model and will no longer be enabled by default for new Azure subscriptions. The free plan will continue to be available at no cost and can be enabled at any time based on your organization's needs. Existing subscriptions that already have Foundational CSPM enabled will remain enabled unless you turn off the plan. For more information, see [Opt in to Foundational CSPM](foundational-cspm-opt-in).\r\n-\r\n You can enable the **Defender CSPM** plan, which offers extra protections for your environments such as governance, regulatory compliance, cloud security explorer, attack path analysis, and agentless scanning for machines.\r\n \r\n Note\r\n",
+      "baseCommitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitSha": "768020de23a88b22000444d4339f6975c0143ac4",
+      "commitMessage": "Mirror Learn: 4 changed, 1 removed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:12:28 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/tutorial-enable-cspm-plan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/tutorial-enable-cspm-plan",
+      "eventId": "defender-docs:768020de23a88b22000444d4339f6975c0143ac4:modified:defender-for-cloud/tutorial-enable-cspm-plan.md",
+      "firstSeenAt": "2026-09-30T23:47:56.052Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Foundational CSPM will become opt-in for new Azure subscriptions",
+        "summary": "Starting October 27, 2026, Foundational CSPM will no longer be enabled by default for new Azure subscriptions. The free plan will remain available at no cost and can be enabled at any time.",
+        "adminImpact": "Review whether your organization wants Foundational CSPM enabled for new subscriptions and enable it when needed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/ai-code-security-overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/exposure-management/ai-code-security-overview.md b/exposure-management/ai-code-security-overview.md\nindex 4743a66..dd49e74 100644\n--- a/exposure-management/ai-code-security-overview.md\n+++ b/exposure-management/ai-code-security-overview.md\n@@ -109,6 +109,7 @@ The following domains must be reachable from the machine or pipeline running the\n - `*.azurefd.net`\r\n - `*.login.microsoftonline.com`\r\n - `*.graph.microsoft.com`\r\n+- `aspm-data-externalapi-prd.security.aspm.microsoft.com`\r\n \r\n **Required for GitHub Actions (OIDC)**\r\n \r\n",
+      "baseCommitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitSha": "768020de23a88b22000444d4339f6975c0143ac4",
+      "commitMessage": "Mirror Learn: 4 changed, 1 removed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:12:28 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/ai-code-security-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/ai-code-security-overview",
+      "eventId": "defender-docs:768020de23a88b22000444d4339f6975c0143ac4:modified:exposure-management/ai-code-security-overview.md",
+      "firstSeenAt": "2026-09-30T23:47:56.056Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added ASPM external API hostname",
+        "summary": "The AI code security overview now lists `aspm-data-externalapi-prd.security.aspm.microsoft.com`.",
+        "adminImpact": "Administrators reviewing documented service endpoints should account for this hostname in their network configuration review.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
-  "deletedFiles": [],
-  "messageCenterItems": [],
+  "deletedFiles": [
+    {
+      "filename": "defender-for-cloud/foundational-cspm-opt-in.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 93,
+      "changes": 93,
+      "patch": "diff --git a/defender-for-cloud/foundational-cspm-opt-in.md b/defender-for-cloud/foundational-cspm-opt-in.md\ndeleted file mode 100644\nindex 14d4aa2..0000000\n--- a/defender-for-cloud/foundational-cspm-opt-in.md\n+++ /dev/null\n@@ -1,95 +0,0 @@\n----\n-layout: Conceptual\n-title: Opt in to Foundational CSPM - Microsoft Defender for Cloud | Microsoft Learn\n-canonicalUrl: https://learn.microsoft.com/en-us/azure/defender-for-cloud/foundational-cspm-opt-in\n-breadcrumb_path: /azure/breadcrumb/defender-for-cloud/toc.json\n-feedback_help_link_url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bd-p/MicrosoftDefenderCloud\n-feedback_help_link_type: ask-the-community\n-permissioned-type: public\n-feedback_product_url: ''\n-uhfHeaderId: MSDocsHeader-MicrosoftDefender\n-adobe-target: true\n-author: ElazarK\n-ms.author: elkrieger\n-manager: orspodek\n-ms.service: defender-for-cloud\n-description: Learn about the opt-in model for Foundational CSPM for new Azure subscriptions and choose how to manage your Azure security posture.\n-ms.topic: concept-article\n-ms.date: 2026-07-30T00:00:00.0000000Z\n-ai-usage: ai-assisted\n-locale: en-us\n-document_id: b36f08e8-6006-88f2-cad1-8994f6b3e6ac\n-document_version_independent_id: 43eb57ad-74a8-5f32-6ab9-9ba472a23b49\n-original_content_git_url: https://github.com/MicrosoftDocs/defender-docs-pr/blob/live/defender-for-cloud/foundational-cspm-opt-in.md\n-site_name: Docs\n-depot_name: Learn.defender-for-cloud\n-page_type: conceptual\n-toc_rel: toc.json\n-feedback_system: None\n-asset_id: defender-for-cloud/foundational-cspm-opt-in\n-moniker_range_name: \n-monikers: []\n-item_type: Content\n-source_path: defender-for-cloud/foundational-cspm-opt-in.md\n-cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n-spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n-platformId: b7159c5a-d04d-7387-8cb2-7269c3e174cc\n----\n-\n-# Opt in to Foundational CSPM - Microsoft Defender for Cloud | Microsoft Learn\n-\n-Starting October 27, 2026, Foundational CSPM will move to an opt-in model for new Azure subscriptions and will no longer be enabled by default.\r\n-\r\n-This change gives you more control over how security posture management is configured for each new Azure subscription and is part of the transition of cloud security posture management to the Microsoft Defender portal.\r\n-\r\n-Foundational CSPM will continue to be available at no cost and can be enabled at any time based on your organization's needs.\r\n-\r\n-Important\r\n-\r\n-This change applies only to new Azure subscriptions. Existing subscriptions that already have Foundational CSPM enabled will remain enabled unless you turn off the plan.\r\n-\r\n-## What is Foundational CSPM?\r\n-\r\n-Foundational CSPM is a free cloud security posture management plan in Microsoft Defender for Cloud. It helps you assess the security posture of your cloud resources by providing foundational capabilities, including security recommendations and Secure Score. These capabilities help you identify risks and prioritize remediation.\r\n-\r\n-To learn more, see [What is Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management).\r\n-\r\n-## What's changing?\r\n-\r\n-Starting October 27, 2026, the default behavior for new Azure subscriptions will change:\r\n-\r\n-- New Azure subscriptions will start with Foundational CSPM turned off.\r\n-- To use Foundational CSPM on a new Azure subscription, you must enable the plan for that subscription.\r\n-\r\n-## What stays the same?\r\n-\r\n-- Foundational CSPM remains available at no cost.\r\n-- Existing Azure subscriptions keep their current Foundational CSPM configuration.\r\n-- AWS and GCP environments aren't affected. Foundational CSPM remains enabled by default when those environments are onboarded.\r\n-- When enabled, Foundational CSPM continues to provide its existing posture-management capabilities, including security recommendations and Secure Score.\r\n-\r\n-## Choose how to manage your Azure security posture\r\n-\r\n-The move to an opt-in model for Foundational CSPM is part of Microsoft's broader transition of cloud security posture management to the Microsoft Defender portal. To learn more about the new management experience, see [Overview of Defender for Cloud in Defender portal](defender-portal/defender-for-cloud-defender-portal).\r\n-\r\n-Starting October 27, 2026, the Microsoft Defender portal will become the recommended experience for managing Azure security posture. It provides a unified security experience alongside other Microsoft Security solutions and introduces advanced posture-management capabilities that help security teams manage posture across onboarded environments at scale.\r\n-\r\n-In the Microsoft Defender portal, you can centrally manage Defender plans, Azure posture policies, and security recommendations.\r\n-\r\n-Choose the management experience that best fits your organization:\r\n-\r\n-| Option | What to do |\r\n-| --- | --- |\r\n-| **Recommended: Microsoft Defender portal** | Onboard your Azure environment to Microsoft Defender.[Overview of Defender for Cloud in Defender portal](defender-portal/defender-for-cloud-defender-portal).Manage your Azure posture policies and security recommendations in the Microsoft Defender portal. |\r\n-| **Continue managing plans in the Azure portal** | [Enable Foundational CSPM or another Defender plan in the Azure portal](connect-azure-subscription).Continue managing your Azure security posture in the Azure portal. |\r\n-\r\n-More information about the transition to the Microsoft Defender portal will be published closer to the transition date.\r\n-\r\n-## Learn more\r\n-\r\n-- [What is Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management)\r\n-- [Overview of Defender for Cloud in Defender portal](defender-portal/defender-for-cloud-defender-portal)\n\\ No newline at end of file\n",
+      "baseCommitSha": "8d8d3c675445f90728fdc8686edb9a42f4925af4",
+      "commitSha": "768020de23a88b22000444d4339f6975c0143ac4",
+      "commitMessage": "Mirror Learn: 4 changed, 1 removed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:12:28 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/foundational-cspm-opt-in.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/foundational-cspm-opt-in",
+      "eventId": "defender-docs:768020de23a88b22000444d4339f6975c0143ac4:removed:defender-for-cloud/foundational-cspm-opt-in.md",
+      "firstSeenAt": "2026-09-30T23:47:56.043Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Foundational CSPM will be opt-in for new Azure subscriptions",
+        "summary": "Starting October 27, 2026, new Azure subscriptions will have Foundational CSPM disabled by default. The plan remains free; existing subscriptions and AWS/GCP environments are unaffected.",
+        "adminImpact": "Administrators must enable Foundational CSPM on each new Azure subscription where its security recommendations and Secure Score are needed.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "messageCenterItems": [
+    {
+      "id": "MC1484009",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-30",
+      "title": "Microsoft Defender for Office 365: New email submissions data in Advanced Hunting",
+      "summary": "Microsoft Defender for Office 365 will add two new Advanced Hunting tables, SubmissionEvents and SubmissionResults, providing security teams enhanced visibility into email submissions. Rolling out worldwide in early October 2026, these tables enable tailored detection workflows without requiring immediate action or compliance changes.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "hunting",
+        "name": "Hunting and detection",
+        "icon": "/assets/topics/hunting.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1484009/",
+      "originalUrl": "https://mc.merill.net/message/MC1484009",
+      "body": "<p><b><b>What and Why:</b></b></p><p>Microsoft Defender for Office 365 is introducing new email submissions data in Advanced Hunting in Microsoft Defender. The new submissions tables provide security operations teams with greater visibility into email submission activity and results, enabling analysts to query submission activity alongside other Defender data and build hunting and detection workflows tailored to their organization.</p><p><b><b>Rollout Schedule:</b></b></p><p>Public Preview (Worldwide): We will begin rolling out in early October 2026 and expect to complete by early October 2026.</p><p>General Availability (Worldwide): We will begin rolling out in early October 2026 and expect to complete by early October 2026.</p><p><b><b>Impact on Your Organization:</b></b></p><p><b>Who is affected:</b></p><p>- Security operations teams that use Advanced Hunting in Microsoft Defender.</p><p>- Admins and analysts who investigate email submissions and submission results.</p><p><b>Platforms/Services:</b></p><p>- Microsoft Defender for Office 365</p><p>- Microsoft Defender XDR</p><p>- Advanced Hunting</p><p><b>What will happen:</b></p><p>- Two new Advanced Hunting tables will be available: SubmissionEvents and SubmissionResults.</p><p>- SubmissionEvents provides information about email submission events.</p><p>- SubmissionResults provides information about the results associated with those submissions.</p><p>- Security teams can query submission information directly and correlate it with other Microsoft Defender XDR data.</p><p>- The tables can be used with Advanced Hunting custom detections, allowing organizations to create detections based on submission activity that is important to their SOC workflows.</p><p><b><b>Action Required/Recommendations:</b></b></p><p>No immediate action is required. Additional documentation for the new tables will be provided as part of the release.</p><p><b><b>Compliance considerations:</b></b></p><p>No compliance considerations identified. Review as appropriate for your organization.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-30T22:58:35Z",
+      "endDate": "2026-10-31T07:00:00Z",
+      "lastModifiedDateTime": "2026-09-30T22:58:43.303Z",
+      "version": "2026-09-30T22:58:43.303Z",
+      "eventId": "message-center:MC1484009:2026-09-30T22:58:43.303Z",
+      "firstSeenAt": "2026-09-30T23:48:08.518Z"
+    }
+  ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 5,
+    "totalCommits": 2,
+    "totalFiles": 10,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 9 updated, and 1 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
         "title": "Defender for Cloud",
-        "summary": "The overview clarifies that a server is a device running a server operating system and links to the common questions page. The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates. The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
+        "summary": "The overview clarifies that a server is a device running a server operating system and links to the common questions page. The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates. The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals. The page now only states that Foundational CSPM is free. It no longer includes the October 27, 2026",
         "sourceFiles": [
           "defender-for-cloud/defender-for-servers-overview.md",
           "defender-for-cloud/faq-defender-for-servers.md",
           "defender-for-cloud/plan-defender-for-servers-select-plan.md",
-          "defender-for-cloud/release-notes.md"
+          "defender-for-cloud/release-notes.md",
+          "defender-for-cloud/concept-cloud-security-posture-management.md",
+          "defender-for-cloud/release-notes.md",
+          "defender-for-cloud/tutorial-enable-cspm-plan.md",
+          "defender-for-cloud/foundational-cspm-opt-in.md"
         ]
       },
       {
@@ -162,18 +336,31 @@
         "sourceFiles": [
           "defender-office-365/tenant-allow-block-list-urls-configure.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The AI code security overview now lists `aspm-data-externalapi-prd.security.aspm.microsoft.com`.",
+        "sourceFiles": [
+          "exposure-management/ai-code-security-overview.md"
+        ]
       }
     ],
     "highlights": [
       {
         "category": "Doc update",
         "headline": "Defender for Cloud",
-        "detail": "The overview clarifies that a server is a device running a server operating system and links to the common questions page. The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates. The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals."
+        "detail": "The overview clarifies that a server is a device running a server operating system and links to the common questions page. The documentation now states that VMs in the Starting power state are billed and links to upcoming billing updates. The Plan 1 documentation now defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals. The page now only states that Foundational CSPM is free. It no longer includes the October 27, 2026"
       },
       {
         "category": "Feature update",
         "headline": "Defender for Office 365",
         "detail": "The documentation now states that Unicode is unsupported and Punycode is allowed only in hostname labels before a normal ASCII TLD."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The AI code security overview now lists `aspm-data-externalapi-prd.security.aspm.microsoft.com`."
       }
     ],
     "generatedBy": "fallback"

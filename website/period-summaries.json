@@ -7073,31 +7073,37 @@
       }
     },
     "2026-09-30": {
-      "headline": "Defender for Servers billing rules count machines individually and bill Starting-state VMs",
-      "overview": "The period was dominated by a Defender for Servers billing update. Release notes say Plan 1 will no longer bill desktop, workstation, and mobile devices as servers, while Plans 1 and 2 will identify servers more frequently and count deployed machines individually. A related FAQ states that VMs in the Starting power state are billed. The Office 365 update specifies stricter Tenant Allow/Block List URL syntax.",
-      "adminImpact": "Review Defender for Servers cost estimates and device classification against individual-machine counting and Starting-state billing. Use the server-operating-system definition when determining Plan 1 scope. For Office 365, validate Punycode entries against the required hostname-label and normal ASCII TLD format. No mandatory action or deadline is stated.",
+      "headline": "Foundational CSPM will default off for new Azure subscriptions October 27",
+      "overview": "The main operational change is a Defender for Cloud default-setting shift: Foundational CSPM will remain free but will no longer be enabled automatically for new Azure subscriptions from October 27, 2026. Related updates clarify Defender for Servers billing treatment, while Defender for Office 365 is adding email-submission data to Advanced Hunting. Office 365 guidance also tightens the documented format for Punycode URLs.",
+      "adminImpact": "Add an explicit Foundational CSPM enablement step when provisioning new Azure subscriptions if the plan is required. Reassess Defender for Servers cost estimates for device classification, per-machine counting, and VMs in the Starting power state. Hunting teams can prepare for the new tables, but Microsoft states that no immediate action or compliance change is required. Review Punycode entries in Tenant Allow/Block List configurations against the documented hostname format.",
       "keyChanges": [
         {
-          "title": "Plans 1 and 2 introduce more granular server counting",
-          "detail": "The release notes say server identification will run more frequently and count deployed machines individually. They also state that Plan 1 will no longer bill desktop, workstation, and mobile devices as servers, so billed server totals may change.",
+          "title": "Foundational CSPM default changes for new Azure subscriptions",
+          "detail": "Starting October 27, 2026, Foundational CSPM will no longer be enabled by default for new Azure subscriptions. The plan remains free and can be enabled at any time; existing subscriptions and AWS or GCP environments are unaffected.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-30-release-notes-07"
+        },
+        {
+          "title": "Defender for Servers revises device classification and server counting",
+          "detail": "Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-09-30-release-notes-04"
         },
         {
-          "title": "Starting-state virtual machines are billed",
-          "detail": "The Defender for Servers FAQ now states that VMs in the Starting power state are billed and links to upcoming billing updates. Include these VMs when estimating costs.",
+          "title": "Starting-state VMs are included in Defender for Servers billing guidance",
+          "detail": "The Defender for Servers FAQ now states that virtual machines in the Starting power state are billed and links to upcoming billing updates. Administrators should include these VMs when estimating costs.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-09-30-faq-defender-for-servers-02"
         },
         {
-          "title": "Plan 1 guidance defines a server by operating system",
-          "detail": "The Plan 1 documentation defines a server as a device running a server operating system and links to the Defender for Servers FAQ. Apply that definition when determining which devices the guidance covers.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-09-30-plan-defender-for-servers-select-plan-03"
+          "title": "Advanced Hunting adds email submission telemetry tables",
+          "detail": "Microsoft Defender for Office 365 will add the SubmissionEvents and SubmissionResults Advanced Hunting tables, rolling out worldwide in early October 2026. They provide enhanced visibility into email submissions and support tailored detection workflows; no immediate action or compliance change is required.",
+          "product": "Defender XDR",
+          "sourceId": "MC1484009"
         },
         {
-          "title": "Tenant Allow/Block List guidance limits Punycode placement",
-          "detail": "The URL configuration guidance now states that Unicode is unsupported and that Punycode is allowed only in hostname labels before a normal ASCII TLD. Existing Punycode URL entries should follow this format.",
+          "title": "Tenant Allow/Block List guidance limits Unicode and Punycode URL formats",
+          "detail": "The documentation now states that Unicode is unsupported and that Punycode is allowed only in hostname labels before a normal ASCII top-level domain. Configured Punycode URLs should follow that format.",
           "product": "Office 365",
           "sourceId": "doc-2026-09-30-tenant-allow-block-list-urls-configure-05"
         }
@@ -7105,11 +7111,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-30T14:53:59.734Z",
+      "generatedAt": "2026-09-30T23:48:08.763Z",
       "usage": {
-        "inputTokens": 1468,
-        "outputTokens": 3092,
-        "costUsd": 0.004004
+        "inputTokens": 2229,
+        "outputTokens": 4100,
+        "costUsd": 0.005366
       }
     }
   },
@@ -8605,49 +8611,49 @@
       }
     },
     "2026-09-28": {
-      "headline": "Defender for Identity expands automatic sensor v3.x activation to eligible servers",
-      "overview": "The week’s most consequential operational change is clearer scope for Defender for Identity’s automatic sensor v3.x activation across eligible Defender for Endpoint-onboarded servers. The period also set dates for Defender XDR detection-source alert tuning, added a Windows Server update prerequisite for sensor 3.0.8 and later, changed Defender for Servers billing and counting guidance, and documented WSL container coverage in Defender for Endpoint. Most remaining updates were narrower terminology, navigation, procedure, or troubleshooting revisions.",
-      "adminImpact": "Identity teams should verify activation eligibility and the Advanced features control. Before installing or upgrading sensor 3.0.8 or later for automatic RPC auditing on domain controllers, apply a July 2026 or later Windows Server cumulative update; preview activation on non-domain-controller servers has additional eligibility limits. XDR administrators need to revisit alert rules only if source-specific tuning is desired, while Defender for Servers owners should reassess billed-server forecasts and Endpoint teams can include WSLc workloads in coverage planning.",
+      "headline": "Foundational CSPM will default to off for new Azure subscriptions on October 27",
+      "overview": "The clearest administrator deadline is Foundational CSPM’s change for new Azure subscriptions: from October 27, 2026, the free plan will no longer be enabled by default. Defender for Servers guidance also changes cost expectations, while Defender XDR adds source-specific alert tuning and Defender for Office 365 adds email-submission telemetry to Advanced Hunting. Defender for Identity documentation records broader automatic sensor v3.x activation coverage. Much of the remaining update volume consists of terminology, navigation, prerequisite, and formatting maintenance.",
+      "adminImpact": "Update new-subscription provisioning workflows to enable Foundational CSPM where recommendations and Secure Score are required. Recheck Defender for Servers cost forecasts and device classification. Hunting and incident teams can plan for the upcoming XDR rollouts, but no immediate action is required unless source-specific alert tuning or the new email-submission data is needed. Review the Defender for Identity Sensor management notice and opt out of automatic enablement if desired.",
       "keyChanges": [
         {
-          "title": "Automatic sensor v3.x activation scope is now explicit",
-          "detail": "The guidance says automatic activation applies to eligible Defender for Endpoint-onboarded domain controllers, AD FS, AD CS, and Microsoft Entra Connect servers running Windows Server 2019 or later. It activates the existing capability without installing a separate package, excludes servers that already have a Defender for Identity sensor, and provides an Advanced features control for stopping future activations.",
-          "product": "Identity",
-          "sourceId": "doc-2026-09-29-activate-sensor-49"
+          "title": "Foundational CSPM becomes opt-in for new Azure subscriptions",
+          "detail": "Starting October 27, 2026, new Azure subscriptions will have Foundational CSPM disabled by default. The plan remains free and can be enabled at any time; existing subscriptions and AWS or GCP environments are unaffected. Enable it on new subscriptions where its recommendations and Secure Score are needed.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-09-30-release-notes-07"
         },
         {
-          "title": "Sensor v3 deployment requires a recent Windows Server update",
-          "detail": "Manual activation preview is limited to eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers without an existing sensor. A July 2026 or later Windows Server cumulative update is required before installing or upgrading to sensor version 3.0.8 or later for automatic RPC auditing on domain controllers.",
-          "product": "Identity",
-          "sourceId": "doc-2026-09-29-deploy-sensor-v3-51"
-        },
-        {
-          "title": "Source-specific alert tuning gets October preview and November general availability",
-          "detail": "Defender XDR alert-tuning rules will be able to target specific detection sources, with public preview planned for mid-October 2026 and general availability planned for mid-November 2026. Existing rules continue to apply to all sources unless administrators update them; action is only needed for source-specific customization.",
-          "product": "Defender XDR",
-          "sourceId": "MC1481318"
-        },
-        {
-          "title": "Defender for Servers changes device classification and server counting",
-          "detail": "The release notes say Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
+          "title": "Defender for Servers billing guidance changes device classification and counting",
+          "detail": "Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-09-30-release-notes-04"
         },
         {
-          "title": "Defender for Endpoint extends protection and visibility to WSLc workloads",
-          "detail": "The Defender for Endpoint What’s New guidance lists support for WSL containers (WSLc), extending protection to WSLc workloads and providing visibility into their activity. Endpoint administrators can account for these workloads in protection and monitoring plans.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-09-29-whats-new-in-microsoft-defender-endpoint-07"
+          "title": "XDR alert-tuning rules will target individual detection sources",
+          "detail": "Microsoft Defender XDR is adding detection-source targeting to alert-tuning rules, with public preview planned for mid-October 2026 and general availability planned for mid-November. Existing rules will continue to apply to all sources unless administrators update them.",
+          "product": "Defender XDR",
+          "sourceId": "MC1481318"
+        },
+        {
+          "title": "Defender for Office 365 adds email-submission tables to Advanced Hunting",
+          "detail": "The SubmissionEvents and SubmissionResults tables are scheduled to roll out worldwide in early October 2026, giving security teams additional email-submission data for tailored detection workflows. The rollout requires no immediate action or compliance change.",
+          "product": "Defender XDR",
+          "sourceId": "MC1484009"
+        },
+        {
+          "title": "Defender for Identity broadens automatic sensor v3.x activation coverage",
+          "detail": "Eligible new Defender for Endpoint customers may receive automatic Defender for Identity sensor v3.x activation and Windows auditing. Existing Defender for Identity customers will see a portal notice before enablement, and eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers are now covered.",
+          "product": "Identity",
+          "sourceId": "doc-2026-09-29-whats-new-53"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-30T14:53:59.734Z",
+      "generatedAt": "2026-09-30T23:48:08.763Z",
       "usage": {
-        "inputTokens": 8962,
-        "outputTokens": 10557,
-        "costUsd": 0.014461
+        "inputTokens": 9703,
+        "outputTokens": 5130,
+        "costUsd": 0.008097
       }
     }
   },
@@ -8972,54 +8978,54 @@
       }
     },
     "2026-09": {
-      "headline": "Amazon Linux 2 ARM64 retirement and DLP behavior changes reshape Defender administration",
-      "overview": "September’s clearest administrator actions are a Defender for Endpoint retirement deadline and a Defender XDR alert-handling change: Amazon Linux 2 ARM64 support ends October 31, while Purview DLP alerts become behaviors by default on October 12. Defender for Office 365 adds Teams message-hunting data, and Teams user reporting is scheduled to become default-on. A separate Linux connectivity notice requires tenant-specific service URLs to be allowlisted. The documentation stream was largely maintenance, with substantive guidance on Linux enforcement settings and Defender for Identity sensor activation.",
-      "adminImpact": "Inventory Amazon Linux 2 ARM64 devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution before October 31. Decide whether the DLP behavior default fits your incident workflow; disable the rule if DLP alerts must remain in the Defender XDR incident queue. Ensure intended analysts have the permissions required for the Teams MessageContents table, review Teams user-reporting settings before October 25 if opting out, and update Linux tenant-specific service URL allowlists so devices continue receiving configuration updates, feature rollouts, and critical mitigations.",
+      "headline": "Defender October deadlines reset DLP alerts, retire Linux ARM64, and enable Teams reporting",
+      "overview": "September was dominated by documentation maintenance, but several changes carry near-term operational consequences. Microsoft Defender XDR will treat Purview DLP alerts as behaviors by default from October 12; Defender for Endpoint support for Amazon Linux 2 ARM64 ends October 31; and Teams user reporting becomes enabled by default in late October, with an October 25 opt-out deadline. Defender for Endpoint on Linux also now requires tenant-specific service URLs in allowlists, while updated Linux guidance specifies enforcement modes and the prerequisite for audit mode.",
+      "adminImpact": "Decide whether to disable the new DLP behavior rule if DLP alerts must remain in the Defender XDR incident queue. Inventory Amazon Linux 2 ARM64 devices, prevent upgrades beyond version 101.25122.0004, and migrate them before October 31. Review Teams user-reporting settings and opt out by October 25 if needed. Add the required tenant-specific Defender for Endpoint Linux service URLs to allowlists. Before using Linux audit mode, verify version 101.26062.0007 or later and check the active antivirus_enforcement_level.",
       "keyChanges": [
         {
-          "title": "Defender for Endpoint retires Amazon Linux 2 ARM64 support October 31",
-          "detail": "Support ends October 31, 2026. After that date, affected devices receive no updates or support. Microsoft instructs organizations to identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution.",
-          "product": "Defender for Endpoint",
+          "title": "Amazon Linux 2 ARM64 support retires October 31",
+          "detail": "Microsoft Defender for Endpoint will stop providing updates and support for Amazon Linux 2 ARM64 after October 31, 2026. Administrators are directed to identify affected devices, prevent upgrades beyond version 101.25122.0004, and migrate to a supported Linux distribution.",
+          "product": "Microsoft Defender for Endpoint",
           "sourceId": "MC1392568"
         },
         {
-          "title": "Purview DLP alerts become Defender XDR behaviors by default",
-          "detail": "Beginning October 12, 2026, Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default to reduce alert volume. DLP data remains available in Advanced Hunting and Purview; administrators can disable the rule to keep DLP alerts in the Defender XDR incident queue.",
-          "product": "Defender XDR",
+          "title": "Purview DLP alerts become behaviors by default October 12",
+          "detail": "Microsoft Defender XDR will classify Microsoft Purview DLP alerts as behaviors by default, reducing alert volume while keeping DLP data available in Advanced Hunting and Purview. Administrators can disable the rule to retain DLP alerts in the Defender XDR incident queue.",
+          "product": "Microsoft Defender XDR",
           "sourceId": "MC1465771"
         },
         {
-          "title": "Teams MessageContents table expands Microsoft 365 Defender hunting",
-          "detail": "The new MessageContents table lets authorized security analysts query Teams message snippets and metadata during threat investigations. Worldwide rollout is scheduled from late September through mid-October 2026, with appropriate permissions required for access.",
-          "product": "Defender for Office 365",
-          "sourceId": "MC1474106"
-        },
-        {
-          "title": "Teams user reporting becomes enabled by default for licensed organizations",
-          "detail": "Starting in late October 2026, users in licensed organizations will be able to report suspicious Teams content by default. Administrators can review the setting or opt out through a dedicated Defender portal page before October 25, 2026.",
-          "product": "Defender for Office 365",
+          "title": "Teams user reporting becomes the default for licensed organizations",
+          "detail": "Microsoft Defender for Office 365 will enable Teams user reporting by default starting in late October 2026. Administrators can review the setting or opt out through a dedicated Defender portal page before October 25.",
+          "product": "Microsoft Defender for Office 365",
           "sourceId": "MC1478463"
         },
         {
-          "title": "Defender for Endpoint Linux connectivity adds tenant-specific allowlists",
-          "detail": "Linux devices now require allowlisting new service URLs specific to the tenant type so they can receive internal configuration updates, feature rollouts, and critical issue mitigations. The change is worldwide and does not alter the user experience.",
-          "product": "Defender for Endpoint",
+          "title": "Linux endpoints need new tenant-specific Defender service URLs",
+          "detail": "Microsoft Defender for Endpoint on Linux now requires allowlisting new service URLs specific to tenant types so devices can receive internal configuration updates, feature rollouts, and critical issue mitigations. The change is worldwide and does not change the user experience.",
+          "product": "Microsoft Defender for Endpoint",
           "sourceId": "MC1388718"
+        },
+        {
+          "title": "Linux antivirus guidance adds enforcement levels and an audit prerequisite",
+          "detail": "The Defender for Endpoint on Linux guidance now documents four antivirus enforcement levels, with passive as the default and audit mode marked Preview. Audit mode requires Defender for Endpoint version 101.26062.0007 or later, and the documented check uses the antivirus_enforcement_level value.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-09-04-configure-security-settings-in-microsoft-defender-for-endpoint-on-linux-158"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-30T14:53:59.734Z",
+      "generatedAt": "2026-09-30T23:48:08.763Z",
       "usage": {
-        "inputTokens": 7086,
-        "outputTokens": 5813,
-        "costUsd": 0.008393
+        "inputTokens": 7069,
+        "outputTokens": 4827,
+        "costUsd": 0.007206
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-30T14:53:59.734Z",
+  "generatedAt": "2026-09-30T23:48:08.763Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9098,22 +9104,22 @@
       "costUsd": 0.057226
     },
     "2026-09-30": {
-      "inputTokens": 17516,
-      "outputTokens": 19462,
-      "requests": 3,
-      "costUsd": 0.026858
+      "inputTokens": 36517,
+      "outputTokens": 33519,
+      "requests": 6,
+      "costUsd": 0.047527
     }
   },
   "lastRun": {
-    "inputTokens": 17516,
-    "outputTokens": 19462,
+    "inputTokens": 19001,
+    "outputTokens": 14057,
     "requests": 3,
-    "costUsd": 0.026858
+    "costUsd": 0.020669
   },
   "totalUsage": {
-    "inputTokens": 191358,
-    "outputTokens": 188830,
-    "requests": 57,
-    "costUsd": 0.264868
+    "inputTokens": 210359,
+    "outputTokens": 202887,
+    "requests": 60,
+    "costUsd": 0.285537
   }
 }
