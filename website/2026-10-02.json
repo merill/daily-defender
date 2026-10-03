@@ -1,0 +1,102 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/scc-permissions.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/scc-permissions.md b/defender-office-365/scc-permissions.md\nindex f55bd6f..a7f631a 100644\n--- a/defender-office-365/scc-permissions.md\n+++ b/defender-office-365/scc-permissions.md\n@@ -112,7 +112,7 @@ To view the **Permissions** tab as described in this article, you need to be an\n | **Data Estate Insights Readers** | Provides read-only access to all insights reports across platforms and providers. | Data Map Reader  Insights Reader |\r\n | **Data Governance** | Grants access to data governance roles within Microsoft Purview. | Data Governance Administrator |\r\n | **Data Investigator** | Perform searches on mailboxes, SharePoint sites, and OneDrive locations. | Communication  Compliance Search  Custodian  Data Investigation Management  Export  Preview  Review  RMS Decrypt  Search And Purge |\r\n-| **Data Security AI Admins** | Use this group to assign editing capabilities for Data Loss Prevention policies related to Copilot and viewing AI content in Data Security Posture Management. Review the role description for access details. | Data Security AI Admin |\r\n+| **Data Security AI Admins** | Use this group to assign editing capabilities for Data Loss Prevention policies and viewing AI content in Data Security Posture Management. Review the role description for access details. | Data Security AI Admin |\r\n | **Data Security AI Content Viewers** | Use this group to grant permissions for users to view extended prompt and response details in AI application interactions within Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management. | Data Security AI Content Viewer |\r\n | **Data Security AI Viewers** | Use this group to assign read-only permissions to users for Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management. | Data Security AI Viewer |\r\n | **Data Security DLP Triage Agent** | Intended exclusively for non-interactive agent users to triage and remediate data loss prevention alerts. | Data Classification Content Download  Data Classification Content Viewer  Information Protection Analyst  Purview Content Analyst  Purview Copilot Workspace Contributor |\r\n@@ -217,7 +217,7 @@ Roles that aren't assigned to the Organization Management role group by default\n | ^\\*^**Data Investigation Management** | Create, edit, delete, and control access to data investigation. | Compliance Administrator  Data Investigator |\r\n | ^\\*^**Data Map Reader** | Read actions on data map objects. | Compliance Administrator  Data Catalog Curators  Data Estate Insights Admins  Data Estate Insights Readers  Data Security Management  Information Protection  Information Protection Admins  Information Protection Analysts  Information Protection Investigators  Privacy Management  Privacy Management Administrators  Privacy Management Analysts  Privacy Management Contributors  Privacy Management Investigators  Privacy Management Viewers |\r\n | ^\\*^**Data Map Writer** | Create, read, modify, and delete actions on data map objects and establish relationships between objects. | Data Catalog Curators |\r\n-| ^\\*^**Data Security AI Admin** | Role for editing Data Loss Prevention policies related to Copilot and viewing AI content in Data Security Posture Management. This role does not have access to read prompts and responses of AI interactions. | Data Security AI Admins |\r\n+| ^\\*^**Data Security AI Admin** | Role for editing Data Loss Prevention policies and viewing AI content in Data Security Posture Management. This role does not have access to read prompts and responses of AI interactions. | Data Security AI Admins |\r\n | ^\\*^**Data Security AI Content Viewer** | Role for read-only access to prompts and responses of AI interactions in Data Security Posture Management for AI (classic) and the preview version of Data Security Posture Management. | Data Security AI Content Viewers |\r\n | ^\\*^**Data Security AI Viewer** | Role for read-only access to all pages in Data Security Posture Management for AI (classic) and AI-related data in the preview version of Data Security Posture Management. This role does not have access to read prompts and responses of AI interactions. | Data Security AI Viewers |\r\n | ^\\*^**Data Security Investigation Admin** | Used to create and manage investigations, processes, and settings in Data Security Investigation. | Compliance Administrator  Data Security Investigation Admins  Organization Management |\r\n",
+      "baseCommitSha": "559ab345dc719696f921a6d63f1fd3e856d2c0ea",
+      "commitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-02 23:12:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/scc-permissions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/scc-permissions",
+      "eventId": "defender-docs:266d613f911e1ed3804673787e70fbf45e9cc1db:modified:defender-office-365/scc-permissions.md",
+      "firstSeenAt": "2026-10-02T23:46:07.908Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated Data Security AI permissions descriptions",
+        "summary": "The documentation now describes Data Security AI Admins and the Data Security AI Admin role as editing Data Loss Prevention policies without the previous “related to Copilot” qualifier. Access to view AI content remains documented, while prompt and response access remains excluded.",
+        "adminImpact": "Administrators should use the updated descriptions when reviewing or communicating role permissions. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1279093",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-10-02",
+      "title": "Microsoft Defender for Office 365: Enhancing how we handle promotional mail",
+      "summary": "Microsoft Defender for Office 365 will tag promotional emails as “promotions” and can auto-move them to a Promotions folder, learning from user actions. Public preview starts mid-April 2026; general rollout completes by late 2026. Admins control settings; users can customize via message moves.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "email",
+        "name": "Email and collaboration",
+        "icon": "/assets/topics/email.svg"
+      },
+      "changeType": "Major update",
+      "url": "/message-center/MC1279093/",
+      "originalUrl": "https://mc.merill.net/message/MC1279093",
+      "body": "<p>Updated October 2, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>Introduction</b></b></p><p>We are enhancing how <b>Microsoft Defender for Office 365</b> identifies and manages promotional email. Promotional messages will be tagged as “promotions” (previously “Bulk” in preview) and can be moved automatically to a new Promotions folder. The system learns from user actions, such as moving messages into or out of the <b><i>Promotions folder</i></b> and applies those preferences to future messages. These improvements reduce inbox clutter and help users stay focused while still receiving promotional content they want.</p><p><b><b>When this will happen</b></b></p><ul><li><b>Public Preview (Limited): </b>We will begin rolling out in <b>mid-April 2026</b> and expect to complete by <b>mid-May 2026</b> (previously<b> </b>end of April). To be included in the public preview program, send an email to <a>BulkMailPreviews@microsoft.com</a> indicating: Organization name, Tenant ID and your onmicrosoft.com domain (e.g contoso.onmicrosoft.com). Slots are limited and will close on <b>May 15th, 2026</b>.</li><li><b>General Availability (Worldwide): </b>We will begin rolling out in<b> late July 2026 </b>(previously early July)<b> </b>and expect to complete by <b>late October 2026</b> (previously late August).</li><li><b>General Availability (DoD, GCC, GCC High): </b>We will begin rolling out in<b> late July 2026</b> (previously early July)<b> </b>and expect to complete by <b>late November 2026</b> (previously mid-September).</li></ul><p><b><b>How this affects your organization</b></b></p><p><i>Who is affected</i></p><ul><li>All organizations that use <b>Microsoft Defender for Office 365</b> across Worldwide, GCC, GCC High, and DoD clouds</li></ul><p><i>What will happen</i></p><ul><li>Incoming promotional messages will be tagged as “<b><i>promotions</i></b>.” (previously “Bulk” in private and public preview)</li><li>If the <b>Bulk Moves Enabled setting</b> is turned on, tagged messages will automatically move to a <b>Promotions folder</b> created in user mailboxes.</li><li>The system will learn from user actions when they move messages into or out of the Promotions folder. Future messages will follow the learned behavior.</li><li>Users will be able to <b>create inbox rules that reference the promotions tag</b>.<ul><li><b>During the Public Preview:</b> <b>Tagging will be opt-in</b> and configured using Exchange transport rules.</li><li>Folder routing will be enabled through anti-spam policy settings (“Bulk moves enabled”).</li><li>Both features will be able to be scoped to pilot security groups for a staged rollout.</li></ul></li><li><b>At Worldwide General Availability, tagging will be enabled by default for all tenants and will always remain that way.</b></li><li><b>For the tagging experience</b>, supported outlooks clients are Outlook on the web and outlook for Windows. Other client such as Outlook for IOS/Android and classic outlook will follow subsequently</li><li><b>For the promotions folder experiences</b>, Outlook on the web, outlook for Windows, Outlook for IOS/Android and classic outlook are all supported.&nbsp;</li></ul><p><i>Figure one - Admin configuration for tagging using exchange transport rule (required for public preview opt-In):</i></p><p><i>&nbsp;</i></p><p><i>Figure two - Admin configuration for Bulk moves enabled to provision the promotions folder:</i></p><p><i>&nbsp;</i></p><p><i>Figure three - System tagging of “Promotions” in outlook client and promotions folder (previously&nbsp;&nbsp;tagged as “Bulk” in private and public preview):</i></p><p>&nbsp;</p><p><i>Figure four - User inbox rules using the promotions” tag:</i></p><p>&nbsp;</p><p><b><b>What you can do to prepare</b></b></p><ul><li>To be included in the public preview program, send an email to <a>BulkMailPreviews@microsoft.com</a> indicating: Organization name, Tenant ID and your onmicrosoft.com domain (e.g contoso.onmicrosoft.com). Slots are limited and will close on April 30th, 2026.</li><li>Review your internal mailbox and message handling guidance and update training materials if needed.</li><li>If you plan to participate in the Public Preview, review your Exchange transport rule and anti-spam policy configurations to determine if you want to opt-in.</li><li>Monitor the product documentation. You can review the following: <a href=\"https://learn.microsoft.com/defender-office-365/anti-spam-bulk-complaint-level-bcl-about\" rel=\"noopener noreferrer\">Bulk email detection and bulk complaint level (BCL) in cloud organizations</a></li></ul><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td><b>Question</b></td><td><b>Answer</b></td></tr><tr><td><b>Does the change alter how existing customer data is processed, stored, or accessed?</b></td><td><b>Yes. </b>Incoming email will receive the promotions classification and may be moved automatically to the Promotions folder depending on admin configuration.</td></tr><tr><td><b>Does the change introduce or significantly modify AI or ML that interacts with customer data?</b></td><td><b>Yes. </b>The system learns from user actions when they move messages and applies that learning to future similar messages.</td></tr><tr><td><b>Does the change include an admin control, and can it be controlled through Entra ID group membership?</b></td><td><b>Yes. </b>Admins can enable or disable Bulk Moves Enabled and can opt in to tagging during Public Preview. These controls can be scoped using existing admin delegation models.</td></tr><tr><td><b>Does the change allow a user to enable or disable the feature themselves?</b></td><td><b>Yes. </b>Users can override tagging behavior by moving messages in or out of the Promotions folder, which trains the ML model and adjusts future message handling.</td></tr></tbody></table>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-04-13T22:54:05Z",
+      "endDate": "2026-12-31T07:00:00Z",
+      "lastModifiedDateTime": "2026-10-02T16:12:47.213Z",
+      "version": "2026-10-02T16:12:47.213Z",
+      "eventId": "message-center:MC1279093:2026-10-02T16:12:47.213Z",
+      "firstSeenAt": "2026-10-02T23:46:14.295Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The documentation now describes Data Security AI Admins and the Data Security AI Admin role as editing Data Loss Prevention policies without the previous “related to Copilot” qualifier. Access to view AI content remains documented, while prompt and response access remains excluded.",
+        "sourceFiles": [
+          "defender-office-365/scc-permissions.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The documentation now describes Data Security AI Admins and the Data Security AI Admin role as editing Data Loss Prevention policies without the previous “related to Copilot” qualifier. Access to view AI content remains documented, while prompt and response access remains excluded."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -7163,6 +7163,34 @@
         "outputTokens": 3222,
         "costUsd": 0.004942
       }
+    },
+    "2026-10-02": {
+      "headline": "Defender for Office 365 rolls out promotional-mail tagging and automatic folder moves",
+      "overview": "Defender for Office 365 will label promotional emails as “promotions” and can move them automatically to a Promotions folder, learning from user actions. Separately, the Office 365 permissions documentation removes the “related to Copilot” qualifier from descriptions of Data Security AI Admin DLP permissions while retaining the exclusion for prompt and response access.",
+      "adminImpact": "Administrators control the promotional-mail settings, while users can customize handling by moving messages. The Message Center timeline places public preview in mid-April 2026 and completion of general rollout in late 2026. No action is required for the permissions wording update; administrators should use the revised descriptions when reviewing or communicating role permissions.",
+      "keyChanges": [
+        {
+          "title": "Promotional emails gain “promotions” labels and automatic folder handling",
+          "detail": "Microsoft says Defender for Office 365 will tag promotional emails as “promotions” and can automatically move them to a Promotions folder. The capability learns from user actions, and users can customize handling by moving messages. Public preview starts in mid-April 2026, with general rollout completing by late 2026.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1279093"
+        },
+        {
+          "title": "Data Security AI Admin descriptions remove the Copilot qualifier",
+          "detail": "The Scc Permissions page now describes Data Security AI Admins and the Data Security AI Admin role as able to edit Data Loss Prevention policies without the previous “related to Copilot” qualifier. It continues to document access to view AI content, while prompt and response access remains excluded.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-10-02-scc-permissions-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-02T23:46:14.523Z",
+      "usage": {
+        "inputTokens": 1167,
+        "outputTokens": 2437,
+        "costUsd": 0.003158
+      }
     }
   },
   "weeks": {
@@ -8657,49 +8685,49 @@
       }
     },
     "2026-09-28": {
-      "headline": "Foundational CSPM opt-in deadline and XDR alert tuning shape October planning",
-      "overview": "The week was dominated by routine Learn maintenance—98 updated pages, two new pages, and one removal—but several changes have direct planning value. Foundational CSPM is slated to be disabled by default on new Azure subscriptions from 27 October 2026; Defender XDR is preparing detection-source targeting for alert-tuning rules and new Defender for Office 365 hunting tables; and Defender for Cloud release notes flag a server-counting change that can alter charges. Identity guidance also describes automatic sensor v3 activation for eligible environments.",
-      "adminImpact": "Treat 27 October as the planning date for new Azure subscriptions: enable Foundational CSPM where its recommendations and Secure Score are required. Recheck Defender for Servers cost assumptions, track the XDR rollout windows, and review the Defender for Identity Sensor management notice; administrators can opt out of automatic enablement if desired. The new hunting tables require no immediate action.",
+      "headline": "Foundational CSPM becomes opt-in for new Azure subscriptions October 27",
+      "overview": "The week’s meaningful administrator changes center on Defender for Cloud onboarding and billing, alongside planned Defender XDR and Defender for Identity updates. Most other entries are terminology, navigation, formatting, or procedure refinements; the main exceptions are the Foundational CSPM deadline, revised server counting, source-aware alert tuning, a sensor v3 prerequisite, and new Office 365 hunting tables.",
+      "adminImpact": "Starting October 27, 2026, enable Foundational CSPM on each new Azure subscription that needs its recommendations and Secure Score; existing subscriptions and AWS and GCP environments are unaffected. Reassess Defender for Cloud cost estimates because server classification and counting changes may alter billed totals. Apply a July 2026 or later Windows Server cumulative update before deploying or upgrading Defender for Identity sensor 3.0.8 or later. Existing XDR alert-tuning rules remain applicable to all detection sources unless administrators revise them, while the new Office 365 hunting tables require no immediate action.",
       "keyChanges": [
         {
-          "title": "Foundational CSPM becomes opt-in for new Azure subscriptions",
-          "detail": "Starting 27 October 2026, new Azure subscriptions will have Foundational CSPM disabled by default. The plan remains free, while existing subscriptions and AWS/GCP environments are unaffected. Enable it on each new Azure subscription where its security recommendations and Secure Score are needed.",
+          "title": "Foundational CSPM defaults change for new Azure subscriptions",
+          "detail": "Starting October 27, 2026, Foundational CSPM is disabled by default on new Azure subscriptions. The plan remains free, while existing subscriptions and AWS and GCP environments are unaffected. Enable it on each new subscription where its recommendations and Secure Score are needed.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-09-30-foundational-cspm-opt-in-10"
         },
         {
-          "title": "XDR alert-tuning rules will gain detection-source targeting",
-          "detail": "Microsoft says the capability will roll out in public preview in mid-October 2026 and reach general availability in mid-November. Existing rules continue to apply to all detection sources unless administrators update them; no action is needed unless source-specific tuning is wanted.",
-          "product": "Defender XDR",
-          "sourceId": "MC1481318"
-        },
-        {
-          "title": "Defender for Office 365 adds submission telemetry to Advanced Hunting",
-          "detail": "A worldwide rollout in early October 2026 adds the SubmissionEvents and SubmissionResults tables, giving security teams visibility into email submissions and supporting tailored detection workflows. Message Center says no immediate action or compliance change is required.",
-          "product": "Defender XDR",
-          "sourceId": "MC1484009"
-        },
-        {
-          "title": "Defender for Cloud server counting changes may alter Defender for Servers bills",
-          "detail": "Plan 1 will stop billing desktop, workstation, and mobile devices as servers. Across Plans 1 and 2, server identification will run more frequently and count deployed machines individually, so billed server totals may change. Review classifications and cost forecasts.",
+          "title": "Defender for Cloud changes server billing classification and counting",
+          "detail": "Plan 1 will no longer bill desktop, workstation, and mobile devices as servers. For Plans 1 and 2, server identification will run more frequently and count deployed machines individually, which may change billed server totals.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-09-30-release-notes-04"
         },
         {
-          "title": "Defender for Identity guidance describes automatic sensor v3 activation",
-          "detail": "Eligible new Defender for Endpoint customers may receive automatic Defender for Identity sensor v3.x activation and Windows auditing. Existing Defender for Identity customers will see a portal notice before those settings are enabled; eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers are included. Administrators can review Sensor management and opt out if they do not want automatic enablement.",
+          "title": "XDR alert tuning will target individual detection sources",
+          "detail": "Microsoft Defender XDR is scheduled to support detection-source targeting in public preview in mid-October 2026 and general availability in mid-November 2026. Existing alert-tuning rules continue to apply to all sources unless administrators update them.",
+          "product": "Defender XDR",
+          "sourceId": "MC1481318"
+        },
+        {
+          "title": "Defender for Identity sensor v3 adds a Windows Server prerequisite",
+          "detail": "A July 2026 or later Windows Server cumulative update is required before installing or upgrading to sensor version 3.0.8 or later for automatic RPC auditing on domain controllers. Manual activation preview is limited to eligible non-domain-controller AD FS, AD CS, and Microsoft Entra Connect servers without an existing sensor.",
           "product": "Identity",
-          "sourceId": "doc-2026-09-29-whats-new-53"
+          "sourceId": "doc-2026-09-29-deploy-sensor-v3-51"
+        },
+        {
+          "title": "Office 365 Advanced Hunting gains email-submission tables",
+          "detail": "SubmissionEvents and SubmissionResults are scheduled to roll out worldwide in early October 2026, adding visibility into email submissions for tailored detection workflows. The notice specifies no immediate action or compliance change.",
+          "product": "Office 365",
+          "sourceId": "MC1484009"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-01T23:53:30.458Z",
+      "generatedAt": "2026-10-02T23:46:14.523Z",
       "usage": {
-        "inputTokens": 10755,
-        "outputTokens": 7406,
-        "costUsd": 0.011038
+        "inputTokens": 10737,
+        "outputTokens": 5192,
+        "costUsd": 0.008378
       }
     }
   },
@@ -9070,65 +9098,59 @@
       }
     },
     "2026-10": {
-      "headline": "Managed Linux scans, server exclusions, and Teams reporting shape October Defender guidance",
-      "overview": "October’s most actionable content is a set of precise configuration and reference updates. Defender for Endpoint release guidance now documents centrally scheduled Linux antivirus scans through managed JSON and Defender Portal policies; Secure Controlled Configuration lists Windows Server 2022 and 2025 and clarifies local administrator-defined exclusion handling. For eligible Worldwide Defender for Office 365 customers, Teams user reporting is directed to a separate settings page, with related guidance defining report destinations. Sentinel’s connector reference adds Cisco Meraki File Scanned schema details and workspace transform DCR support. Most remaining Defender for Business edits are wording, links, terminology, and navigation cleanup.",
-      "adminImpact": "Review the Linux policy instructions if centralized scans are needed. For Secure Controlled Configuration, account for the listed server versions and use Defender or Intune policy when local administrator-defined exclusions need to be enabled. Eligible Defender for Office 365 administrators should use the separate Teams reporting page and verify whether reports go to Microsoft, a reporting mailbox, or both. Use the revised policy-order explanation when reordering custom policies, and consult the updated Sentinel references when handling Cisco Meraki File Scanned data or workspace transform DCRs. The supplied entries state no mandatory action for the release notes or general editorial revisions.",
+      "headline": "Promotional mail moves and Linux scan scheduling headline October Defender changes",
+      "overview": "October’s most consequential update is a Defender for Office 365 Message Center change: promotional messages will be tagged “promotions,” can be moved automatically to a Promotions folder, and the system will learn from user actions. Public preview is scheduled to start in mid-April 2026, with general rollout completing by late 2026. Endpoint guidance also now documents centrally scheduled Linux antivirus scans and gives more specific Windows Server and local-exclusion requirements. Teams reporting and Sentinel connector references received concrete configuration and schema updates, while most remaining Defender for Business edits were wording, links, terminology, and navigation refinements.",
+      "adminImpact": "Administrators control the promotional-mail settings, while users can customize handling by moving messages. Endpoint administrators can use managed JSON or Defender Portal policies for centrally scheduled Linux scans and apply the Secure Controlled Configuration guidance to Windows Server 2022 and 2025; local administrator-defined antivirus exclusions can be enabled through Defender or Intune policy. Office 365 administrators can use the Teams user reported settings page or the documented PowerShell commands to manage reporting destinations. Sentinel administrators should account for the Cisco Meraki File Scanned table and the newly documented connector and DCR support. The broader wording and navigation refreshes do not state mandatory action.",
       "keyChanges": [
         {
-          "title": "Defender for Endpoint release guidance documents centralized Linux antivirus scans",
-          "detail": "The release page now covers centrally scheduled Linux antivirus scans through managed JSON and Defender Portal policies. It also documents expanded detection of critical Node.js, Python, and Java libraries, the libcurl 8.20.0 security update, and Windows Antivirus August 2026-2 details and fixes. Administrators can use the documented Linux policy settings; the entry states that no mandatory action is required.",
-          "product": "Endpoint",
+          "title": "Promotional emails gain a “promotions” label and optional folder routing",
+          "detail": "The Message Center update says Defender for Office 365 will tag promotional mail as “promotions,” optionally auto-move it to a Promotions folder, and learn from user actions. Public preview starts in mid-April 2026; general rollout is due to complete by late 2026. Administrators control the settings, and users can customize handling by moving messages.",
+          "product": "Microsoft Defender for Office 365",
+          "sourceId": "MC1279093"
+        },
+        {
+          "title": "Endpoint release guidance documents centrally scheduled Linux antivirus scans",
+          "detail": "The Microsoft Defender Endpoint release page now documents centrally scheduled Linux antivirus scans through managed JSON and Defender Portal policies. It also records expanded detection of critical Node.js, Python, and Java libraries, the libcurl 8.20.0 security update, and Windows Antivirus August 2026-2 details and fixes. Administrators can use the documented policy settings to schedule scans centrally.",
+          "product": "Microsoft Defender for Endpoint",
           "sourceId": "doc-2026-10-01-microsoft-defender-endpoint-releases-26"
         },
         {
-          "title": "Secure Controlled Configuration documents Windows Server 2022 and 2025",
-          "detail": "The documented device requirement now includes Windows Server 2022 and Windows Server 2025. The guidance also clarifies that local administrator-defined antivirus exclusions are not honored by default and can be enabled through Defender or Intune policy.",
-          "product": "Endpoint",
+          "title": "Secure Controlled Configuration covers Windows Server 2022 and 2025",
+          "detail": "The updated guidance adds Windows Server 2022 and Windows Server 2025 to the documented device requirement. It also states that local administrator-defined antivirus exclusions are not honored by default and can be enabled through Defender or Intune policy.",
+          "product": "Microsoft Defender for Endpoint",
           "sourceId": "doc-2026-10-01-secure-controlled-configuration-27"
         },
         {
-          "title": "Teams reporting guidance specifies its settings path and destinations",
-          "detail": "The Teams submissions article now points administrators to the Teams user reported settings page and documents Exchange Online PowerShell commands for viewing and configuring report destinations: Microsoft, a reporting mailbox, or both. Administrators can use the revised page and examples to verify or manage Teams reporting.",
-          "product": "Office 365",
+          "title": "Teams user reporting gains explicit portal and PowerShell destinations",
+          "detail": "The Submissions Teams article directs administrators to the Teams user reported settings page and documents Exchange Online PowerShell commands for viewing and configuring report destinations: Microsoft, a reporting mailbox, or both.",
+          "product": "Microsoft Defender for Office 365",
           "sourceId": "doc-2026-10-01-submissions-teams-31"
         },
         {
-          "title": "Defender for Business policy guidance spells out priority application",
-          "detail": "The revised article states that only the highest-priority applicable policy is applied. Default policy priority remains fixed, while new policies are assigned a priority and move default policies lower. Administrators can use this clarification when reviewing or reordering custom policies.",
-          "product": "Business",
-          "sourceId": "doc-2026-10-01-understand-policy-order-in-microsoft-defender-for-business-microsoft-defender-for-business-micro-20"
-        },
-        {
-          "title": "Sentinel reference adds Cisco Meraki File Scanned data and DCR support",
-          "detail": "The Data Connectors Reference now documents File Scanned detections and the CiscoMerakiFileScannedEvents_CL table. It also marks the F5Telemetry LTM and RFI Playbook Alert Results tables as supported and documents workspace transform DCR support for data transformations.",
-          "product": "Sentinel",
+          "title": "Sentinel connector references document Cisco Meraki File Scanned coverage",
+          "detail": "The Data Connectors Reference now documents File Scanned detections and the `CiscoMerakiFileScannedEvents_CL` table for Cisco Meraki. It marks `F5Telemetry_LTM_CL` and `RFI_PlaybookAlertResults_V2_CL` as supported and documents workspace transform DCR support.",
+          "product": "Microsoft Sentinel",
           "sourceId": "doc-2026-10-01-data-connectors-reference-33"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-01T23:53:30.458Z",
+      "generatedAt": "2026-10-02T23:46:14.523Z",
       "usage": {
-        "inputTokens": 5403,
-        "outputTokens": 10615,
-        "costUsd": 0.013819
+        "inputTokens": 5687,
+        "outputTokens": 5542,
+        "costUsd": 0.007788
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-01T23:53:30.458Z",
+  "generatedAt": "2026-10-02T23:46:14.523Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-27": {
-      "inputTokens": 8845,
-      "outputTokens": 13392,
-      "requests": 3,
-      "costUsd": 0.017839
-    },
     "2026-08-29": {
       "inputTokens": 9123,
       "outputTokens": 13361,
@@ -9200,18 +9222,24 @@
       "outputTokens": 21243,
       "requests": 3,
       "costUsd": 0.029799
+    },
+    "2026-10-02": {
+      "inputTokens": 17591,
+      "outputTokens": 13171,
+      "requests": 3,
+      "costUsd": 0.019323
     }
   },
   "lastRun": {
-    "inputTokens": 21536,
-    "outputTokens": 21243,
+    "inputTokens": 17591,
+    "outputTokens": 13171,
     "requests": 3,
-    "costUsd": 0.029799
+    "costUsd": 0.019323
   },
   "totalUsage": {
-    "inputTokens": 231895,
-    "outputTokens": 224130,
-    "requests": 63,
-    "costUsd": 0.315336
+    "inputTokens": 249486,
+    "outputTokens": 237301,
+    "requests": 66,
+    "costUsd": 0.334659
   }
 }
