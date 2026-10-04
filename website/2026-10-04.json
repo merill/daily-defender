@@ -1,0 +1,310 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 8cf4e0a..4650113 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -73,7 +73,7 @@ Learn more about [Preview features](/en-us/defender-xdr/preview).\n | Feature | [Antivirus audit mode for Linux](linux-preferences#antivirus-antimalware-and-edr-settings-in-defender-for-endpoint-on-linux) | Preview | Provides real-time malware detection and alerting without automatically quarantining files or terminating processes. This enables organizations to evaluate Defender detection efficacy and performance on sensitive workloads before enabling enforcement.**Available in Microsoft Defender for Endpoint on Linux version 101.26062.0007 or later.** |\r\n | Feature | [Offboarding API support for Linux](api/offboard-machine-api) | GA | Enables organizations to automate the offboarding of Linux servers from Microsoft Defender for Endpoint through the Offboard machine API, simplifying device lifecycle management at scale.**Available in Microsoft Defender for Endpoint on Linux version 101.26062.0007 or later.** |\r\n | Release - macOS | Build 101.26062.0012 | GA | Release version 20.126062.12.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--august-2026--101260620012). |\r\n-| Feature | [Vulnerability assessment for Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications) | Preview | You can now monitor vulnerabilities on devices running Microsoft Store applications, including Microsoft Teams, Mozilla Firefox, WhatsApp, Slack, Dropbox, DuckDuckGo, Dell Command, HP Smart, HP Support Assistant, Dell SupportAssist for Home PCs, and NVIDIA Control Panel (see [Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications) for the full list). Use the **Software evidence** area in the software page to view the file path for the vulnerable application, along with a suggested query showing the vulnerable app, version, and file location. |\r\n+| Feature | [Vulnerability assessment for Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications-preview) | Preview | You can now monitor vulnerabilities on devices running Microsoft Store applications, including Microsoft Teams, Mozilla Firefox, WhatsApp, Slack, Dropbox, DuckDuckGo, Dell Command | Update, HP Smart, NVIDIA Control Panel, 1Password, Beyond Compare, and Evernote (see [Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications-preview) for the full list). Use the **Software evidence** area in the software page to view the file path for the vulnerable application, along with a suggested query showing the vulnerable app, version, and file location. |\r\n | Release - macOS | Build 101.26062.0011 | GA | Release version 20.126062.11.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--august-2026--101260620011). |\r\n \r\n ## July 2026\r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "firstSeenAt": "2026-10-04T14:03:34.211Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated link for Microsoft Store application vulnerability assessment",
+        "summary": "The Defender Endpoint What's New entry now links to the preview-specific Microsoft Store applications section.",
+        "adminImpact": "Administrators following the entry will be directed to the relevant preview documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/manage-admins.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-cloud-apps/manage-admins.md b/defender-for-cloud-apps/manage-admins.md\nindex 7dacedf..b264499 100644\n--- a/defender-for-cloud-apps/manage-admins.md\n+++ b/defender-for-cloud-apps/manage-admins.md\n@@ -13,7 +13,7 @@ ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n description: Set up role-based administrator access in Defender for Cloud Apps and understand how Microsoft Entra ID and Microsoft 365 roles affect permissions.\n-ms.date: 2026-07-03T00:00:00.0000000Z\n+ms.date: 2026-10-04T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: Naama-Goldbart\n ms.custom:\n@@ -123,6 +123,10 @@ The following specific admin roles can be configured in the Microsoft Defender p\n | **Cloud Discovery global admin** | Has permission to view and edit all cloud discovery settings and data. The Global Discovery admin has the following access: <br>- Settings: System settings - View only; Cloud Discovery settings - View and edit all (anonymization permissions depend on whether it was allowed during role assignment)<br>- Cloud discovery activity - full permissions<br>- Alerts - view and manage only alerts related to the relevant cloud discovery report<br>- Policies - Can view all policies and can edit or create only cloud discovery policies<br>- Activities page - No permissions<br>- Accounts page - No permissions<br>- App permissions – No permissions<br>- Files page – No permissions<br>- Conditional access app control - No permissions<br>- Security extensions - Creating and deleting their own API tokens<br>- Governance actions - Only Cloud Discovery related actions<br>- Security recommendations for cloud platforms - No permissions<br>- IP ranges - No permissions |\r\n | **Cloud Discovery report admin** | - Settings: System settings - View only; Cloud discovery settings - View all (anonymization permissions depend on whether it was allowed during role assignment)<br>- Cloud discovery activity - read permissions only<br>- Alerts – view only alerts related to the relevant cloud discovery report<br>- Policies - Can view all policies and can create only cloud discovery policies, without the possibility to govern application (tagging, sanction and unsanctioned)<br>- Activities page - No permissions<br>- Accounts page - No permissions<br>- App permissions – No permissions<br>- Files page – No permissions<br>- Conditional access app control - No permissions<br>- Security extensions - Creating and deleting their own API tokens<br>- Governance actions – view only actions related to the relevant cloud discovery report<br>- Security recommendations for cloud platforms - No permissions<br>- IP ranges - No permissions |\r\n \r\n+Note\r\n+\r\n+The **App/instance admin** and **User group admin** role assignments are no longer available for new configurations as part of platform consolidation efforts. Existing configurations aren't affected and continue to be supported. If your organization requires these capabilities, contact Microsoft Support.\r\n+\r\n Important\r\n \r\n Microsoft recommends that you use roles with the fewest permissions. Using least-privilege roles helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.\r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/manage-admins.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/manage-admins",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-for-cloud-apps/manage-admins.md",
+      "firstSeenAt": "2026-10-04T14:03:34.215Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Some admin role assignments are unavailable for new configurations",
+        "summary": "App/instance admin and User group admin role assignments can no longer be used in new configurations. Existing configurations remain supported.",
+        "adminImpact": "No action is required for existing assignments. Organizations needing these capabilities should contact Microsoft Support.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-sensor-change-log.md",
+      "status": "modified",
+      "additions": 28,
+      "deletions": 0,
+      "changes": 28,
+      "patch": "diff --git a/defender-for-cloud/defender-sensor-change-log.md b/defender-for-cloud/defender-sensor-change-log.md\nindex 7c1f1a6..4e2ab42 100644\n--- a/defender-for-cloud/defender-sensor-change-log.md\n+++ b/defender-for-cloud/defender-sensor-change-log.md\n@@ -69,6 +69,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.11 (deployed by Helm or Arc for K8s)\r\n \r\n+**Sensor v0.11.7 — GA**\r\n+\r\n+- **Released:** September 2026\r\n+- **What's included:**\r\n+\r\n+    - Security vulnerability fixes and dependency updates.\r\n+\r\n **Sensor v0.11.6 — GA**\r\n \r\n - **Released:** August 2026\r\n@@ -93,6 +100,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.10 (deployed by Helm or Arc for K8s)\r\n \r\n+**Sensor v0.10.10 — GA**\r\n+\r\n+- **Released:** September 2026\r\n+- **What's included:**\r\n+\r\n+    - Security vulnerability fixes and dependency updates.\r\n+\r\n **Sensor v0.10.9 — GA**\r\n \r\n - **Released:** August 2026\r\n@@ -155,6 +169,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.9 (AKS 1.35 or by Helm)\r\n \r\n+**Sensor v0.9.68 — GA**\r\n+\r\n+- **Released:** September 2026\r\n+- **What's included:**\r\n+\r\n+    - Security vulnerability fixes and dependency updates.\r\n+\r\n **Sensor v0.9.66 — GA**\r\n \r\n - **Released:** August 2026\r\n@@ -271,6 +292,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.8 (AKS versions 1.34 and below)\r\n \r\n+**Sensor v0.8.61 — GA**\r\n+\r\n+- **Released:** September 2026\r\n+- **What's included:**\r\n+\r\n+    - Security vulnerability fixes and dependency updates.\r\n+\r\n **Sensor v0.8.59 — GA**\r\n \r\n - **Released:** August 2026\r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/defender-sensor-change-log.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-sensor-change-log",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-for-cloud/defender-sensor-change-log.md",
+      "firstSeenAt": "2026-10-04T14:03:34.219Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender sensor changelog adds four releases",
+        "summary": "The changelog now lists sensor versions 0.11.7, 0.10.10, 0.9.68, and 0.8.61 as GA releases from September 2026, each containing security vulnerability fixes and dependency updates.",
+        "adminImpact": "Administrators can review these entries when tracking sensor versions and security-related updates; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/regional-availability.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud/regional-availability.md b/defender-for-cloud/regional-availability.md\nindex cbbf401..59135a0 100644\n--- a/defender-for-cloud/regional-availability.md\n+++ b/defender-for-cloud/regional-availability.md\n@@ -163,7 +163,7 @@ This article gives an overview of where you can use Microsoft Defender for Cloud\n \r\n ### Defender for Servers (Agentless scanning)\r\n \r\n-**Supported regions:** us-east-1, us-east-2, us-west-1, us-west-2, af-south-1, ap-east-1, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-4, ap-northeast-1, ap-northeast-2, ap-northeast-3, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-west-1, eu-west-2, eu-west-3, eu-north-1, me-central-1, sa-east-1\r\n+**Supported regions:** us-east-1, us-east-2, us-west-1, us-west-2, af-south-1, ap-east-1, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-4, ap-southeast-7, ap-northeast-1, ap-northeast-2, ap-northeast-3, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-west-1, eu-west-2, eu-west-3, eu-north-1, me-central-1, sa-east-1\r\n \r\n **Unsupported regions:** ap-southeast-3, eu-south-1, eu-south-2, me-south-1, il-central-1, us-gov-west-1, us-gov-east-1, cn-north-1, cn-northwest-1, ap-southeast-5, ap-northeast-4, me-central-2, eu-sov-1\r\n \r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/regional-availability.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/regional-availability",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-for-cloud/regional-availability.md",
+      "firstSeenAt": "2026-10-04T14:03:34.223Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "ap-southeast-7 added to supported regions",
+        "summary": "The regional availability documentation now lists ap-southeast-7 among the supported regions.",
+        "adminImpact": "Administrators can include ap-southeast-7 in regional availability and deployment planning.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/tvm-software-inventory.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 4,
+      "changes": 9,
+      "patch": "diff --git a/defender-vulnerability-management/tvm-software-inventory.md b/defender-vulnerability-management/tvm-software-inventory.md\nindex 99d37a9..1251179 100644\n--- a/defender-vulnerability-management/tvm-software-inventory.md\n+++ b/defender-vulnerability-management/tvm-software-inventory.md\n@@ -17,7 +17,7 @@ ms.collection:\n - m365-security\n - Tier1\n ms.topic: article\n-ms.date: 2025-04-29T00:00:00.0000000Z\n+ms.date: 2026-08-26T00:00:00.0000000Z\n locale: en-us\n document_id: dcfe35dc-acbb-b948-8165-864982dba838\n document_version_independent_id: dcfe35dc-acbb-b948-8165-864982dba838\n@@ -137,11 +137,12 @@ Supported applications include:\n - Slack\r\n - Dropbox\r\n - DuckDuckGo\r\n-- Dell Command\r\n+- Dell Command | Update\r\n - HP Smart\r\n-- HP Support Assistant\r\n-- Dell SupportAssist for Home PCs\r\n - NVIDIA Control Panel\r\n+- 1Password\r\n+- Beyond Compare\r\n+- Evernote\r\n \r\n ## Software pages\r\n \r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-vulnerability-management/tvm-software-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-software-inventory",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-vulnerability-management/tvm-software-inventory.md",
+      "firstSeenAt": "2026-10-04T14:03:34.227Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Software inventory examples updated",
+        "summary": "The documentation date was updated, “Dell Command” was changed to “Dell Command | Update,” and the listed software examples were revised to add 1Password, Beyond Compare, and Evernote while removing two entries.",
+        "adminImpact": "No administrator action is required; use the updated examples when referring to the software inventory documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-manage.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/custom-detection-manage.md b/defender-xdr/custom-detection-manage.md\nindex b8eb976..6d95236 100644\n--- a/defender-xdr/custom-detection-manage.md\n+++ b/defender-xdr/custom-detection-manage.md\n@@ -19,11 +19,11 @@ ms.collection:\n - m365initiative-m365-defender\n - tier2\n ms.custom:\n-- msecd-doc-authoring-1014\n+- msecd-doc-authoring-1030\n - cx-ti\n - cx-ah\n ms.topic: how-to\n-ms.date: 2026-07-02T00:00:00.0000000Z\n+ms.date: 2026-10-04T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 76dfe3e6-2253-8172-d91e-df741bf40f4f\n@@ -94,7 +94,7 @@ You can also take the following actions on the rule from the rule details page:\n \r\n - **Open detection rule page** - opens the detection rule page to view triggered alerts and review actions (for custom detection rules only)\r\n - **Run** - runs the rule immediately; this also resets the interval for the next run (for custom detection rules only)\r\n-- **Edit** - opens the rule wizard where you can modify the rule settings and the query\r\n+- **Edit** - opens the rule wizard where you can modify the rule settings and the query. Flexible frequency and lookback for all supported data sources are in public preview. For more information, see [Custom frequency and lookback](custom-detection-rules#custom-frequency-and-lookback-preview).\r\n - **Modify query** - opens the query directly in advanced hunting for editing\r\n - **Turn on** / **Turn off** - allows you to enable the rule or stop it from running\r\n - **Delete** - turns off the rule and permanently removes it\r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/custom-detection-manage.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-manage",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-xdr/custom-detection-manage.md",
+      "firstSeenAt": "2026-10-04T14:03:34.231Z",
+      "englishSummary": {
+        "category": "Public preview",
+        "headline": "Custom detection rules document flexible frequency and lookback",
+        "summary": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance.",
+        "adminImpact": "Administrators editing custom detection rules can review the linked guidance for these options.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 30,
+      "changes": 53,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex 8d81c93..078e0e7 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -20,13 +20,13 @@ ms.collection:\n - m365initiative-m365-defender\n - tier2\n ms.custom:\n-- msecd-doc-authoring-1014\n+- msecd-doc-authoring-1030\n - sfi-ga-nochange\n - cx-ti\n - cx-ah\n - sfi-image-nochange\n ms.topic: how-to\n-ms.date: 2026-09-02T00:00:00.0000000Z\n+ms.date: 2026-10-04T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 889233db-f43a-794c-5a31-24ee96a226be\n@@ -172,7 +172,7 @@ DeviceEvents\n \r\n Tip\r\n \r\n-For better query performance, set a time filter that matches your intended run frequency for the rule. Since the least frequent run is *every 24 hours*, filtering for the past day covers all new data.\r\n+For better query performance, set a time filter that matches the configured lookback period for the rule.\r\n \r\n #### Custom column for Microsoft Sentinel scoping\r\n \r\n@@ -185,8 +185,8 @@ When you create custom detections and analytics rules, you must project the `Sen\n In the query editor, select **Create detection rule** and specify the following alert details:\r\n \r\n - **Detection name** - Name of the detection rule; make it unique.\r\n-- **Frequency** - Interval for running the query and taking action. For more information, see Rule frequency.\r\n-- **Lookback** - The time period covered by the query when the custom detection targets data from Microsoft Sentinel only. For more information, see Lookback.\r\n+- **Frequency** - Interval for running the query and taking action. Custom frequency for all supported data sources is in public preview and supports intervals from 5 minutes to 14 days. For more information, see Rule frequency.\r\n+- **Lookback** - Amount of historical data that the query evaluates each time it runs. Configurable lookback for all supported data sources is in public preview and supports periods from 5 minutes to 30 days. For more information, see Custom frequency and lookback.\r\n - **Alert title** - Title displayed with alerts triggered by the rule; make it unique and use plaintext. Strings are sanitized for security purposes, so HTML, Markdown, and other code don't work. Any URLs included in the title should follow the [percent-encoding format](https://en.m.wikipedia.org/wiki/Percent-encoding) for them to display properly.\r\n - **Severity** - Potential risk of the component or activity identified by the rule.\r\n - **Category** - Threat component or activity identified by the rule.\r\n@@ -199,14 +199,14 @@ In the query editor, select **Create detection rule** and specify the following\n \r\n #### Rule frequency\r\n \r\n-When you save a new rule, it runs and checks for matches from the past 30 days of data. The rule then runs again at fixed intervals, applying a lookback period based on the frequency you choose:\r\n+When you save a new rule, it runs and checks for matches from the past 30 days of data. The rule then runs again at the configured interval:\r\n \r\n - **Every 24 hours**\r\n - **Every 12 hours**\r\n - **Every 3 hours**\r\n - **Every hour**\r\n - **Continuous (NRT)** - Runs continuously, checking data from events as they're collected and processed in near real-time (NRT). For more information, see [Continuous (NRT) frequency](custom-detection-rules#continuous-nrt-frequency).\r\n-- **Custom** - Runs according to the frequency you selected. This option is available if the rule is based only on data that is ingested to Microsoft Sentinel. For more information, see Custom frequency for Microsoft Sentinel data.\r\n+- **Custom (public preview)** - Runs at an interval that you configure, from 5 minutes to 14 days. For more information, see Custom frequency and lookback.\r\n \r\n Tip\r\n \r\n@@ -249,37 +249,30 @@ Note\n \r\n Only generally available columns support **Continuous (NRT)** frequency.\r\n \r\n-###### Custom frequency for Microsoft Sentinel data\r\n+##### Custom frequency and lookback (public preview)\r\n \r\n-Microsoft Sentinel customers who onboard to Microsoft Defender can select **Custom** frequency when the rule is based only on data that Microsoft Sentinel ingests.\r\n+Flexible frequency and lookback for custom detections are in public preview. You can configure these settings independently for rules that use any supported data source, including Microsoft Defender XDR and Microsoft Sentinel data.\r\n \r\n-When you select this frequency option, the **Run query every input** component appears. Type the desired frequency for the rule and use the dropdown to select the units: minutes, hours, or days. The supported range is any value from 5 minutes to 14 days.\r\n+Use these settings to:\r\n \r\n-[![Screenshot that shows the Custom frequency option in the Custom detections setup guide.](media/custom-detection-rules/ah-custom-frequency.png)](media/custom-detection-rules/ah-custom-frequency.png#lightbox)\r\n+- Run a rule as frequently as every 5 minutes.\r\n+- Set the frequency from 5 minutes to 14 days.\r\n+- Set the lookback from 5 minutes to 30 days.\r\n+- Use a longer lookback while keeping the frequency needed for time-sensitive detections.\r\n \r\n-Important\r\n-\r\n-When you select a custom frequency, Defender fetches your data from Microsoft Sentinel. This condition means that:\r\n-\r\n-1. You must have data available in Microsoft Sentinel.\r\n-2. Defender data doesn't support scoping, since Microsoft Sentinel doesn't support scoping.\r\n+To configure the schedule, select **Custom** frequency. In **Run query every**, enter the frequency, and then select minutes, hours, or days. In **Lookup data from the last**, configure the lookback period.\r\n \r\n-#### Lookback\r\n+[![Screenshot that shows the Custom frequency option in the custom detection rule wizard.](media/custom-detection-rules/ah-custom-frequency.png)](media/custom-detection-rules/ah-custom-frequency.png#lightbox)\r\n \r\n-The lookback period of your custom detections can range from five minutes to 30 days, depending on the target data and frequency of your query.\r\n+The lookback must be at least as long as the frequency to avoid coverage gaps. The frequency also determines the maximum supported lookback:\r\n \r\n-If your custom detections include Defender XDR data, a fixed lookback period is applied depending on the rule frequency that you choose:\r\n-\r\n-- For detections set to run **every 24 hours**, the lookback period is **30 days**.\r\n-- For detections set to run **every 12 hours**, the lookback period is **48 hours**.\r\n-- For detections set to run **every three hours**, the lookback period is **12 hours**.\r\n-- For detections set to run **hourly**, the lookback period is **four hours**.\r\n-\r\n-If your custom detections target Microsoft Sentinel data only, you can customize the lookback period depending on the rule frequency that you set:\r\n+| Frequency | Supported lookback |\r\n+| --- | --- |\r\n+| 5 minutes to less than 1 hour | At least the selected frequency and less than 48 hours |\r\n+| 1 hour to less than 1 day | At least the selected frequency and up to 14 days |\r\n+| 1 day to 14 days | At least the selected frequency and up to 30 days |\r\n \r\n-- For detections set to run in frequencies **higher (more frequent) than one hour**, the lookback period is limited to **less than 48 hours**.\r\n-- For detections set to run in frequencies **higher than one day**, the lookback can be set **up to 14 days**.\r\n-- For detections set to run in frequencies of **one day or less**, the lookback can be set **up to 30 days**.\r\n+Rules that run more frequently have shorter maximum lookback periods to maintain performance.\r\n \r\n Important\r\n \r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:defender-xdr/custom-detection-rules.md",
+      "firstSeenAt": "2026-10-04T14:03:34.234Z",
+      "englishSummary": {
+        "category": "Public preview",
+        "headline": "Custom detections gain configurable frequency and lookback",
+        "summary": "The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps.",
+        "adminImpact": "Administrators can tune detection timing and historical coverage; review these settings when creating or updating custom detection rules.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/compare-analytics-rules-custom-detections.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/sentinel/compare-analytics-rules-custom-detections.md b/sentinel/compare-analytics-rules-custom-detections.md\nindex c8df2c6..01692dd 100644\n--- a/sentinel/compare-analytics-rules-custom-detections.md\n+++ b/sentinel/compare-analytics-rules-custom-detections.md\n@@ -26,9 +26,10 @@ ms.author: pauloliveria\n author: poliveria\n ms.reviewer: nonutkev\n ms.topic: product-comparison\n-ms.date: 2026-05-19T00:00:00.0000000Z\n+ms.date: 2026-10-04T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.collection: ms-security\n+ms.custom: msecd-doc-authoring-1030\n locale: en-us\n document_id: e077c24d-c9ad-2350-c27c-0ca841d756bc\n document_version_independent_id: a2c87e85-8daa-bb87-ecbb-87e92b0c29f8\n@@ -70,11 +71,11 @@ Important\n |  | Enrich alerts with custom details | Supported | Supported |\r\n |  | Define alert title and description dynamically - Integrate query results in runtime | Supported | Supported |\r\n |  | Define all alerts properties dynamically - Integrate query results in runtime | Supported | Planned |\r\n-| **Rule frequency** | Support flexible and high frequency for Sentinel data | Supported | Supported |\r\n+| **Rule frequency** | Flexible rule frequency | Supported | [Supported (public preview)](/en-us/defender-xdr/custom-detection-rules#custom-frequency-and-lookback-preview) |\r\n |  | Near-real-time (NRT) rules on Sentinel data | Supported | [Supported](/en-us/defender-xdr/custom-detection-rules#queries-you-can-run-continuously) |\r\n |  | NRT streaming technology - Test events as they stream, not sensitive to ingestion delays | Not supported. Analytics NRT rules test events after they're ingested. | Supported |\r\n |  | Determine rule's first run | Supported | Not supported |\r\n-| **Rule lookback** | Lookback support | Lookback is flexible:<br>- Up to 48 hours for frequency higher than one hour<br>- Up to 14 days for frequency of one hour and less | [In public preview](/en-us/defender-xdr/custom-detection-rules#lookback). Parity with analytics rules on Sentinel data. |\r\n+| **Rule lookback** | Configurable lookback | Supported | [Supported (public preview)](/en-us/defender-xdr/custom-detection-rules#custom-frequency-and-lookback-preview) |\r\n | **Rule data** | Defender XDR data | Not supported | Supported |\r\n |  | Sentinel analytics tier | Supported | Supported |\r\n | **Automated actions** | Native Defender XDR remediation actions | Not supported | Supported |\r\n",
+      "baseCommitSha": "266d613f911e1ed3804673787e70fbf45e9cc1db",
+      "commitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 13:25:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/compare-analytics-rules-custom-detections.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/compare-analytics-rules-custom-detections",
+      "eventId": "defender-docs:86e9a9344f4b7fbd63a915877aa957e7f56891fc:modified:sentinel/compare-analytics-rules-custom-detections.md",
+      "firstSeenAt": "2026-10-04T14:03:34.240Z",
+      "englishSummary": {
+        "category": "Public preview",
+        "headline": "Custom detection frequency and lookback support updated",
+        "summary": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated.",
+        "adminImpact": "Admins can use the revised comparison to evaluate scheduling and lookback options for custom detection rules.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 8,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 6 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The Defender Endpoint What's New entry now links to the preview-specific Microsoft Store applications section.",
+        "sourceFiles": [
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Retirement",
+        "title": "Defender for Cloud Apps",
+        "summary": "App/instance admin and User group admin role assignments can no longer be used in new configurations. Existing configurations remain supported.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/manage-admins.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "The changelog now lists sensor versions 0.11.7, 0.10.10, 0.9.68, and 0.8.61 as GA releases from September 2026, each containing security vulnerability fixes and dependency updates. The regional availability documentation now lists ap-southeast-7 among the supported regions.",
+        "sourceFiles": [
+          "defender-for-cloud/defender-sensor-change-log.md",
+          "defender-for-cloud/regional-availability.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "The documentation date was updated, “Dell Command” was changed to “Dell Command | Update,” and the listed software examples were revised to add 1Password, Beyond Compare, and Evernote while removing two entries.",
+        "sourceFiles": [
+          "defender-vulnerability-management/tvm-software-inventory.md"
+        ]
+      },
+      {
+        "category": "Public preview",
+        "title": "Defender XDR",
+        "summary": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance. The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps.",
+        "sourceFiles": [
+          "defender-xdr/custom-detection-manage.md",
+          "defender-xdr/custom-detection-rules.md"
+        ]
+      },
+      {
+        "category": "Public preview",
+        "title": "Microsoft Sentinel",
+        "summary": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated.",
+        "sourceFiles": [
+          "sentinel/compare-analytics-rules-custom-detections.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The Defender Endpoint What's New entry now links to the preview-specific Microsoft Store applications section."
+      },
+      {
+        "category": "Retirement",
+        "headline": "Defender for Cloud Apps",
+        "detail": "App/instance admin and User group admin role assignments can no longer be used in new configurations. Existing configurations remain supported."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "The changelog now lists sensor versions 0.11.7, 0.10.10, 0.9.68, and 0.8.61 as GA releases from September 2026, each containing security vulnerability fixes and dependency updates. The regional availability documentation now lists ap-southeast-7 among the supported regions."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "The documentation date was updated, “Dell Command” was changed to “Dell Command | Update,” and the listed software examples were revised to add 1Password, Beyond Compare, and Evernote while removing two entries."
+      },
+      {
+        "category": "Public preview",
+        "headline": "Defender XDR",
+        "detail": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance. The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps."
+      },
+      {
+        "category": "Public preview",
+        "headline": "Microsoft Sentinel",
+        "detail": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
