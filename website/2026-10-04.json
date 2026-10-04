@@ -208,19 +208,123 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-xdr/automatic-attack-disruption-exclusions.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 7,
+      "changes": 16,
+      "patch": "diff --git a/defender-xdr/automatic-attack-disruption-exclusions.md b/defender-xdr/automatic-attack-disruption-exclusions.md\nindex 0678d76..d91fe84 100644\n--- a/defender-xdr/automatic-attack-disruption-exclusions.md\n+++ b/defender-xdr/automatic-attack-disruption-exclusions.md\n@@ -19,9 +19,9 @@ ms.collection:\n - usx-security\n - usx-security\n ms.topic: how-to\n-ms.date: 2026-08-07T00:00:00.0000000Z\n+ms.date: 2026-10-04T00:00:00.0000000Z\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1015\n+ms.custom: msecd-doc-authoring-1028\n locale: en-us\n document_id: f3006777-871c-e28b-7788-ece7737856a9\n document_version_independent_id: f3006777-871c-e28b-7788-ece7737856a9\n@@ -60,7 +60,7 @@ Excluding assets from automated responses isn't recommended. It can reduce the e\n \r\n ## Prerequisites\r\n \r\n-The permissions required to manage attack disruption exclusions depend on whether [Microsoft Defender XDR Unified role-based access control (RBAC)](manage-rbac) is enabled for the relevant workload.\r\n+The permissions required to manage attack disruption exclusions depend on whether [Microsoft Defender XDR Unified role-based access control (RBAC)](manage-rbac) is enabled for the relevant product.\r\n \r\n ### Device exclusions\r\n \r\n@@ -75,12 +75,14 @@ For information about enabling Unified RBAC, see [Activate Microsoft Defender XD\n \r\n ### Identity exclusions\r\n \r\n-The following table lists the permissions required to manage identity exclusions.\r\n+Identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. The following table lists the permissions required to manage identity exclusions for each deployed product.\r\n \r\n-| Unified RBAC for identities or endpoints | Required permission |\r\n+| Unified RBAC for identities and endpoints | Required permission |\r\n | --- | --- |\r\n-| **Disabled** (both identities and endpoints) | Security Administrator or Global Administrator role in [Microsoft Entra ID](https://entra.microsoft.com) or the [Microsoft 365 admin center](https://admin.microsoft.com). |\r\n-| **Enabled** (for identities or endpoints) | Security Operator (or higher) global Microsoft Entra role, **or** the [Core security settings (manage)](custom-permissions-details) permission in Unified RBAC. |\r\n+| **Disabled for identities and endpoints** | Security Administrator or Global Administrator role in [Microsoft Entra ID](https://entra.microsoft.com) or the [Microsoft 365 admin center](https://admin.microsoft.com). |\r\n+| **Enabled** | Security Operator (or higher) global Microsoft Entra role, **or** the [Core security settings (manage)](custom-permissions-details) permission in Unified RBAC for the **Microsoft Defender for Endpoint** and **Microsoft Defender for Identity** data sources. If either product isn't deployed, permission for its data source isn't required. |\r\n+\r\n+For information about role assignments and data-source scope, see [Create a custom role](create-custom-rbac-roles#create-a-custom-role).\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitSha": "b30ef894751d82a0f106a8b4b9ca8e06e312616a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 17:48:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/automatic-attack-disruption-exclusions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/automatic-attack-disruption-exclusions",
+      "eventId": "defender-docs:b30ef894751d82a0f106a8b4b9ca8e06e312616a:modified:defender-xdr/automatic-attack-disruption-exclusions.md",
+      "firstSeenAt": "2026-10-04T18:09:23.815Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Attack disruption exclusion permissions guidance clarified",
+        "summary": "The documentation now explains that identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. It clarifies Unified RBAC permissions for both products’ data sources and adds guidance on role assignments and data-source scope.",
+        "adminImpact": "Administrators managing identity exclusions should review the updated permissions table and confirm their role assignments cover the relevant product data sources.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-manage.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/custom-detection-manage.md b/defender-xdr/custom-detection-manage.md\nindex 6d95236..b8eb976 100644\n--- a/defender-xdr/custom-detection-manage.md\n+++ b/defender-xdr/custom-detection-manage.md\n@@ -19,11 +19,11 @@ ms.collection:\n - m365initiative-m365-defender\n - tier2\n ms.custom:\n-- msecd-doc-authoring-1030\n+- msecd-doc-authoring-1014\n - cx-ti\n - cx-ah\n ms.topic: how-to\n-ms.date: 2026-10-04T00:00:00.0000000Z\n+ms.date: 2026-07-02T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 76dfe3e6-2253-8172-d91e-df741bf40f4f\n@@ -94,7 +94,7 @@ You can also take the following actions on the rule from the rule details page:\n \r\n - **Open detection rule page** - opens the detection rule page to view triggered alerts and review actions (for custom detection rules only)\r\n - **Run** - runs the rule immediately; this also resets the interval for the next run (for custom detection rules only)\r\n-- **Edit** - opens the rule wizard where you can modify the rule settings and the query. Flexible frequency and lookback for all supported data sources are in public preview. For more information, see [Custom frequency and lookback](custom-detection-rules#custom-frequency-and-lookback-preview).\r\n+- **Edit** - opens the rule wizard where you can modify the rule settings and the query\r\n - **Modify query** - opens the query directly in advanced hunting for editing\r\n - **Turn on** / **Turn off** - allows you to enable the rule or stop it from running\r\n - **Delete** - turns off the rule and permanently removes it\r\n",
+      "baseCommitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitSha": "b30ef894751d82a0f106a8b4b9ca8e06e312616a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 17:48:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/custom-detection-manage.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-manage",
+      "eventId": "defender-docs:b30ef894751d82a0f106a8b4b9ca8e06e312616a:modified:defender-xdr/custom-detection-manage.md",
+      "firstSeenAt": "2026-10-04T18:09:23.818Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Custom detection rule documentation removes preview scheduling details",
+        "summary": "The Edit description no longer mentions flexible frequency and lookback being in public preview or links to related guidance. Author and date metadata also changed.",
+        "adminImpact": "No administrator action is stated; administrators will no longer find those preview details on this page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/custom-detection-rules.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 23,
+      "changes": 53,
+      "patch": "diff --git a/defender-xdr/custom-detection-rules.md b/defender-xdr/custom-detection-rules.md\nindex 078e0e7..8d81c93 100644\n--- a/defender-xdr/custom-detection-rules.md\n+++ b/defender-xdr/custom-detection-rules.md\n@@ -20,13 +20,13 @@ ms.collection:\n - m365initiative-m365-defender\n - tier2\n ms.custom:\n-- msecd-doc-authoring-1030\n+- msecd-doc-authoring-1014\n - sfi-ga-nochange\n - cx-ti\n - cx-ah\n - sfi-image-nochange\n ms.topic: how-to\n-ms.date: 2026-10-04T00:00:00.0000000Z\n+ms.date: 2026-09-02T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 889233db-f43a-794c-5a31-24ee96a226be\n@@ -172,7 +172,7 @@ DeviceEvents\n \r\n Tip\r\n \r\n-For better query performance, set a time filter that matches the configured lookback period for the rule.\r\n+For better query performance, set a time filter that matches your intended run frequency for the rule. Since the least frequent run is *every 24 hours*, filtering for the past day covers all new data.\r\n \r\n #### Custom column for Microsoft Sentinel scoping\r\n \r\n@@ -185,8 +185,8 @@ When you create custom detections and analytics rules, you must project the `Sen\n In the query editor, select **Create detection rule** and specify the following alert details:\r\n \r\n - **Detection name** - Name of the detection rule; make it unique.\r\n-- **Frequency** - Interval for running the query and taking action. Custom frequency for all supported data sources is in public preview and supports intervals from 5 minutes to 14 days. For more information, see Rule frequency.\r\n-- **Lookback** - Amount of historical data that the query evaluates each time it runs. Configurable lookback for all supported data sources is in public preview and supports periods from 5 minutes to 30 days. For more information, see Custom frequency and lookback.\r\n+- **Frequency** - Interval for running the query and taking action. For more information, see Rule frequency.\r\n+- **Lookback** - The time period covered by the query when the custom detection targets data from Microsoft Sentinel only. For more information, see Lookback.\r\n - **Alert title** - Title displayed with alerts triggered by the rule; make it unique and use plaintext. Strings are sanitized for security purposes, so HTML, Markdown, and other code don't work. Any URLs included in the title should follow the [percent-encoding format](https://en.m.wikipedia.org/wiki/Percent-encoding) for them to display properly.\r\n - **Severity** - Potential risk of the component or activity identified by the rule.\r\n - **Category** - Threat component or activity identified by the rule.\r\n@@ -199,14 +199,14 @@ In the query editor, select **Create detection rule** and specify the following\n \r\n #### Rule frequency\r\n \r\n-When you save a new rule, it runs and checks for matches from the past 30 days of data. The rule then runs again at the configured interval:\r\n+When you save a new rule, it runs and checks for matches from the past 30 days of data. The rule then runs again at fixed intervals, applying a lookback period based on the frequency you choose:\r\n \r\n - **Every 24 hours**\r\n - **Every 12 hours**\r\n - **Every 3 hours**\r\n - **Every hour**\r\n - **Continuous (NRT)** - Runs continuously, checking data from events as they're collected and processed in near real-time (NRT). For more information, see [Continuous (NRT) frequency](custom-detection-rules#continuous-nrt-frequency).\r\n-- **Custom (public preview)** - Runs at an interval that you configure, from 5 minutes to 14 days. For more information, see Custom frequency and lookback.\r\n+- **Custom** - Runs according to the frequency you selected. This option is available if the rule is based only on data that is ingested to Microsoft Sentinel. For more information, see Custom frequency for Microsoft Sentinel data.\r\n \r\n Tip\r\n \r\n@@ -249,30 +249,37 @@ Note\n \r\n Only generally available columns support **Continuous (NRT)** frequency.\r\n \r\n-##### Custom frequency and lookback (public preview)\r\n+###### Custom frequency for Microsoft Sentinel data\r\n \r\n-Flexible frequency and lookback for custom detections are in public preview. You can configure these settings independently for rules that use any supported data source, including Microsoft Defender XDR and Microsoft Sentinel data.\r\n+Microsoft Sentinel customers who onboard to Microsoft Defender can select **Custom** frequency when the rule is based only on data that Microsoft Sentinel ingests.\r\n \r\n-Use these settings to:\r\n+When you select this frequency option, the **Run query every input** component appears. Type the desired frequency for the rule and use the dropdown to select the units: minutes, hours, or days. The supported range is any value from 5 minutes to 14 days.\r\n \r\n-- Run a rule as frequently as every 5 minutes.\r\n-- Set the frequency from 5 minutes to 14 days.\r\n-- Set the lookback from 5 minutes to 30 days.\r\n-- Use a longer lookback while keeping the frequency needed for time-sensitive detections.\r\n+[![Screenshot that shows the Custom frequency option in the Custom detections setup guide.](media/custom-detection-rules/ah-custom-frequency.png)](media/custom-detection-rules/ah-custom-frequency.png#lightbox)\r\n \r\n-To configure the schedule, select **Custom** frequency. In **Run query every**, enter the frequency, and then select minutes, hours, or days. In **Lookup data from the last**, configure the lookback period.\r\n+Important\r\n \r\n-[![Screenshot that shows the Custom frequency option in the custom detection rule wizard.](media/custom-detection-rules/ah-custom-frequency.png)](media/custom-detection-rules/ah-custom-frequency.png#lightbox)\r\n+When you select a custom frequency, Defender fetches your data from Microsoft Sentinel. This condition means that:\r\n \r\n-The lookback must be at least as long as the frequency to avoid coverage gaps. The frequency also determines the maximum supported lookback:\r\n+1. You must have data available in Microsoft Sentinel.\r\n+2. Defender data doesn't support scoping, since Microsoft Sentinel doesn't support scoping.\r\n \r\n-| Frequency | Supported lookback |\r\n-| --- | --- |\r\n-| 5 minutes to less than 1 hour | At least the selected frequency and less than 48 hours |\r\n-| 1 hour to less than 1 day | At least the selected frequency and up to 14 days |\r\n-| 1 day to 14 days | At least the selected frequency and up to 30 days |\r\n+#### Lookback\r\n+\r\n+The lookback period of your custom detections can range from five minutes to 30 days, depending on the target data and frequency of your query.\r\n+\r\n+If your custom detections include Defender XDR data, a fixed lookback period is applied depending on the rule frequency that you choose:\r\n+\r\n+- For detections set to run **every 24 hours**, the lookback period is **30 days**.\r\n+- For detections set to run **every 12 hours**, the lookback period is **48 hours**.\r\n+- For detections set to run **every three hours**, the lookback period is **12 hours**.\r\n+- For detections set to run **hourly**, the lookback period is **four hours**.\r\n+\r\n+If your custom detections target Microsoft Sentinel data only, you can customize the lookback period depending on the rule frequency that you set:\r\n \r\n-Rules that run more frequently have shorter maximum lookback periods to maintain performance.\r\n+- For detections set to run in frequencies **higher (more frequent) than one hour**, the lookback period is limited to **less than 48 hours**.\r\n+- For detections set to run in frequencies **higher than one day**, the lookback can be set **up to 14 days**.\r\n+- For detections set to run in frequencies of **one day or less**, the lookback can be set **up to 30 days**.\r\n \r\n Important\r\n \r\n",
+      "baseCommitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitSha": "b30ef894751d82a0f106a8b4b9ca8e06e312616a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 17:48:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/custom-detection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules",
+      "eventId": "defender-docs:b30ef894751d82a0f106a8b4b9ca8e06e312616a:modified:defender-xdr/custom-detection-rules.md",
+      "firstSeenAt": "2026-10-04T18:09:23.821Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Custom detection frequency and lookback rules updated",
+        "summary": "Custom frequency from 5 minutes to 14 days is available only for rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data now use fixed lookback periods based on their run frequency, ranging from 4 hours to 30 days.",
+        "adminImpact": "When creating custom detections, verify the data source and expected lookback coverage; Defender XDR data cannot use custom scoping with this frequency option.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/compare-analytics-rules-custom-detections.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 4,
+      "changes": 7,
+      "patch": "diff --git a/sentinel/compare-analytics-rules-custom-detections.md b/sentinel/compare-analytics-rules-custom-detections.md\nindex 01692dd..c8df2c6 100644\n--- a/sentinel/compare-analytics-rules-custom-detections.md\n+++ b/sentinel/compare-analytics-rules-custom-detections.md\n@@ -26,10 +26,9 @@ ms.author: pauloliveria\n author: poliveria\n ms.reviewer: nonutkev\n ms.topic: product-comparison\n-ms.date: 2026-10-04T00:00:00.0000000Z\n+ms.date: 2026-05-19T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.collection: ms-security\n-ms.custom: msecd-doc-authoring-1030\n locale: en-us\n document_id: e077c24d-c9ad-2350-c27c-0ca841d756bc\n document_version_independent_id: a2c87e85-8daa-bb87-ecbb-87e92b0c29f8\n@@ -71,11 +70,11 @@ Important\n |  | Enrich alerts with custom details | Supported | Supported |\r\n |  | Define alert title and description dynamically - Integrate query results in runtime | Supported | Supported |\r\n |  | Define all alerts properties dynamically - Integrate query results in runtime | Supported | Planned |\r\n-| **Rule frequency** | Flexible rule frequency | Supported | [Supported (public preview)](/en-us/defender-xdr/custom-detection-rules#custom-frequency-and-lookback-preview) |\r\n+| **Rule frequency** | Support flexible and high frequency for Sentinel data | Supported | Supported |\r\n |  | Near-real-time (NRT) rules on Sentinel data | Supported | [Supported](/en-us/defender-xdr/custom-detection-rules#queries-you-can-run-continuously) |\r\n |  | NRT streaming technology - Test events as they stream, not sensitive to ingestion delays | Not supported. Analytics NRT rules test events after they're ingested. | Supported |\r\n |  | Determine rule's first run | Supported | Not supported |\r\n-| **Rule lookback** | Configurable lookback | Supported | [Supported (public preview)](/en-us/defender-xdr/custom-detection-rules#custom-frequency-and-lookback-preview) |\r\n+| **Rule lookback** | Lookback support | Lookback is flexible:<br>- Up to 48 hours for frequency higher than one hour<br>- Up to 14 days for frequency of one hour and less | [In public preview](/en-us/defender-xdr/custom-detection-rules#lookback). Parity with analytics rules on Sentinel data. |\r\n | **Rule data** | Defender XDR data | Not supported | Supported |\r\n |  | Sentinel analytics tier | Supported | Supported |\r\n | **Automated actions** | Native Defender XDR remediation actions | Not supported | Supported |\r\n",
+      "baseCommitSha": "86e9a9344f4b7fbd63a915877aa957e7f56891fc",
+      "commitSha": "b30ef894751d82a0f106a8b4b9ca8e06e312616a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-04 17:48:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/compare-analytics-rules-custom-detections.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/compare-analytics-rules-custom-detections",
+      "eventId": "defender-docs:b30ef894751d82a0f106a8b4b9ca8e06e312616a:modified:sentinel/compare-analytics-rules-custom-detections.md",
+      "firstSeenAt": "2026-10-04T18:09:23.823Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Custom detection frequency and lookback limits updated",
+        "summary": "The documentation now lists flexible and high-frequency support for Sentinel data. It specifies lookback limits of up to 48 hours for frequencies over one hour and up to 14 days for frequencies of one hour or less; lookback remains in public preview.",
+        "adminImpact": "No administrator action is required. Use the documented limits when configuring or reviewing custom detections.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 8,
+    "totalCommits": 2,
+    "totalFiles": 12,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 6 documentation areas.",
+    "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Defender documentation files across 6 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -258,8 +362,11 @@
       {
         "category": "Public preview",
         "title": "Defender XDR",
-        "summary": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance. The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps.",
+        "summary": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance. The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps. The documentation now explains that identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. It clarifies Unified RBAC permissions for both products’ data sources and adds guidance on role assignments and data-source scope. The Edit description no longer mentions f",
         "sourceFiles": [
+          "defender-xdr/custom-detection-manage.md",
+          "defender-xdr/custom-detection-rules.md",
+          "defender-xdr/automatic-attack-disruption-exclusions.md",
           "defender-xdr/custom-detection-manage.md",
           "defender-xdr/custom-detection-rules.md"
         ]
@@ -267,8 +374,9 @@
       {
         "category": "Public preview",
         "title": "Microsoft Sentinel",
-        "summary": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated.",
+        "summary": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated. The documentation now lists flexible and high-frequency support for Sentinel data. It specifies lookback limits of up to 48 hours for frequencies over one hour and up to 14 days for frequencies of one hour or less; lookback remains in public preview.",
         "sourceFiles": [
+          "sentinel/compare-analytics-rules-custom-detections.md",
           "sentinel/compare-analytics-rules-custom-detections.md"
         ]
       }
@@ -297,12 +405,12 @@
       {
         "category": "Public preview",
         "headline": "Defender XDR",
-        "detail": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance. The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps."
+        "detail": "The Edit option description now notes flexible frequency and lookback for all supported data sources and links to further guidance. The documentation now describes independently configuring detection frequency from 5 minutes to 14 days and lookback from 5 minutes to 30 days across supported data sources. Lookback must be at least as long as the frequency to avoid coverage gaps. The documentation now explains that identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. It clarifies Unified RBAC permissions for both products’ data sources and adds guidance on role assignments and data-source scope. The Edit description no longer mentions f"
       },
       {
         "category": "Public preview",
         "headline": "Microsoft Sentinel",
-        "detail": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated."
+        "detail": "The comparison table now identifies flexible rule frequency and configurable lookback for custom detection rules, with links to detailed guidance. Page metadata was also updated. The documentation now lists flexible and high-frequency support for Sentinel data. It specifies lookback limits of up to 48 hours for frequencies over one hour and up to 14 days for frequencies of one hour or less; lookback remains in public preview."
       }
     ],
     "generatedBy": "fallback"
