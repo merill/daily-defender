@@ -7237,6 +7237,28 @@
         "outputTokens": 7931,
         "costUsd": 0.009993
       }
+    },
+    "2026-10-05": {
+      "headline": "Defender for Cloud enablement guidance adds same-tenant sensor and Linux checks",
+      "overview": "The updated “Enable Defender For Endpoint” guidance says the integration can use an existing Defender for Endpoint sensor from the same tenant. It also updates platform and Linux requirements and adds pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies.",
+      "adminImpact": "Before enabling the integration, administrators should validate the listed prerequisites and install Python 3 on Linux servers.",
+      "keyChanges": [
+        {
+          "title": "Enable Defender For Endpoint guidance expands prerequisites",
+          "detail": "The page now documents reuse of an existing same-tenant Defender for Endpoint sensor, updated platform and Linux requirements, and checks for connectivity, proxy authentication, file-system settings, and security policies. Linux deployments require Python 3.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-05T09:02:26.302Z",
+      "usage": {
+        "inputTokens": 1036,
+        "outputTokens": 649,
+        "costUsd": 0.000986
+      }
     }
   },
   "weeks": {
@@ -8775,6 +8797,28 @@
         "outputTokens": 6610,
         "costUsd": 0.01006
       }
+    },
+    "2026-10-05": {
+      "headline": "Defender for Cloud guidance adds same-tenant Endpoint sensor reuse",
+      "overview": "The week's only update revises the Defender for Cloud “Enable Defender For Endpoint” guidance. It states that the integration can use an existing Defender for Endpoint sensor from the same tenant and adds updated platform and Linux requirements, along with pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies.",
+      "adminImpact": "Before enabling the integration, administrators should validate the documented prerequisites and checks. Linux server deployments require Python 3, and the guidance now calls out connectivity, proxy authentication, file-system settings, and security policies for pre-deployment review.",
+      "keyChanges": [
+        {
+          "title": "Enablement guidance now covers sensor reuse and deployment prerequisites",
+          "detail": "The procedure states that an existing Defender for Endpoint sensor from the same tenant can be used. It also adds updated platform and Linux requirements and requires administrators to check connectivity, proxy authentication, file-system settings, and security policies before deployment.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-05T09:02:26.302Z",
+      "usage": {
+        "inputTokens": 845,
+        "outputTokens": 751,
+        "costUsd": 0.00107
+      }
     }
   },
   "months": {
@@ -9144,54 +9188,54 @@
       }
     },
     "2026-10": {
-      "headline": "Defender custom-detection guidance now splits frequency and lookback by data source",
-      "overview": "October’s most consequential updates concern configuration boundaries and administrator controls. Updated custom-detection guidance distinguishes Sentinel-only flexible scheduling from Defender XDR lookback behavior; Cloud Apps restricts two admin-role assignments in new configurations; and Attack Disruption guidance clarifies cross-product RBAC scope. A Defender for Office 365 Message Center update also describes promotional-mail tagging and folder handling, while Endpoint release guidance adds centrally managed Linux scan procedures. Much of the remaining material consists of Defender for Business wording, navigation, and portal-link maintenance.",
-      "adminImpact": "Verify the data source and expected lookback when creating or reviewing custom detections. Review Unified RBAC assignments for identities covered by Automatic Attack Disruption exclusions. Do not plan new Cloud Apps configurations around App/instance admin or User group admin assignments; existing configurations remain supported, and Microsoft directs new requirements to Support. For promotional mail, administrators control the settings while users can customize behavior through message moves. For Linux Endpoint scans, use the documented managed JSON or Defender Portal policy path when central scheduling is needed.",
+      "headline": "Custom detection guidance sets Sentinel-only schedules apart from XDR lookback rules",
+      "overview": "October’s most consequential updates cover detection scheduling, Defender for Cloud onboarding, promotional-mail handling, and administrator permissions. Custom detection guidance now limits the 5-minute-to-14-day custom-frequency range to rules based exclusively on Microsoft Sentinel, while Defender XDR data uses fixed lookback periods tied to run frequency. Defender for Cloud guidance adds same-tenant sensor reuse and explicit deployment checks, while Defender for Office 365 is rolling out promotional-mail tagging and folder handling. A Cloud Apps restriction on new role assignments and clarified Automatic Attack Disruption permissions are the other changes requiring administrator attention. Much of the remaining activity is wording, navigation, metadata, and reference maintenance.",
+      "adminImpact": "Check the data source and intended lookback coverage when creating or changing custom detections. Before enabling the Defender for Cloud integration, validate connectivity, proxy authentication, file-system settings, and security policies; Linux deployments require Python 3. Administrators control promotional-mail settings, while users can customize handling by moving messages. Existing Cloud Apps assignments remain supported, but the affected roles cannot be used in new configurations. For identity exclusions, verify that Unified RBAC assignments cover the relevant Defender for Identity and Defender for Endpoint data sources.",
       "keyChanges": [
         {
-          "title": "Promotional-mail tagging and folder handling",
-          "detail": "The Microsoft Defender for Office 365 update says promotional email will be tagged as “promotions” and can be automatically moved to a Promotions folder while learning from user actions. It records public preview as starting in mid-April 2026 and general rollout as completing by late 2026. Administrators control the settings, while users can customize behavior by moving messages.",
-          "product": "Defender XDR",
-          "sourceId": "MC1279093"
-        },
-        {
-          "title": "Custom detection timing depends on the data source",
-          "detail": "The updated guidance limits custom frequency from 5 minutes to 14 days to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days. Administrators should verify the source and expected historical coverage when configuring detections.",
+          "title": "Custom detection frequency now depends on data source",
+          "detail": "Updated guidance says the 5-minute-to-14-day custom-frequency range applies only to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days. Verify the source and expected coverage when configuring detections.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-04-custom-detection-rules-11"
         },
         {
-          "title": "Attack Disruption exclusions clarify cross-product RBAC scope",
-          "detail": "The guidance explains that identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. It also documents Unified RBAC permissions, role assignments, and data-source scope for both products, so administrators should confirm that their assignments cover the relevant sources.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-10-04-automatic-attack-disruption-exclusions-09"
+          "title": "Defender for Cloud adds same-tenant sensor reuse and deployment checks",
+          "detail": "The integration guidance now says it can use an existing Defender for Endpoint sensor from the same tenant. It adds updated platform and Linux requirements plus pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies; Linux servers require Python 3.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-01"
         },
         {
-          "title": "Cloud Apps restricts new admin-role configurations",
-          "detail": "App/instance admin and User group admin role assignments can no longer be used in new configurations. Existing configurations remain supported; organizations that need these capabilities for new setups are directed to contact Microsoft Support.",
+          "title": "Defender for Office 365 rolls out promotional-mail tagging and folders",
+          "detail": "Promotional messages will be tagged as “promotions” and can be automatically moved to a Promotions folder, with the system learning from user moves. The Message Center update says public preview starts in mid-April 2026 and general rollout completes by late 2026; administrators control the settings and users can customize handling.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1279093"
+        },
+        {
+          "title": "Cloud Apps blocks two administrator roles in new configurations",
+          "detail": "App/instance admin and User group admin role assignments can no longer be used in new configurations, while existing configurations remain supported. Organizations that need these capabilities should contact Microsoft Support.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-04-manage-admins-02"
         },
         {
-          "title": "Endpoint guidance adds centrally managed Linux scans",
-          "detail": "The Defender Endpoint release guidance now covers centrally scheduled Linux antivirus scans through managed JSON and Defender Portal policies. It also records expanded detection for critical Node.js, Python, and Java libraries, a libcurl 8.20.0 security update, and Windows Antivirus August 2026-2 details and fixes. Administrators can use the documented policy settings to schedule scans centrally; no mandatory action is stated.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-01-microsoft-defender-endpoint-releases-26"
+          "title": "Automatic Attack Disruption guidance expands identity-exclusion scope",
+          "detail": "The guidance now states that identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. It also clarifies that Unified RBAC permissions must cover both products’ data sources and adds role-assignment and data-source-scope guidance.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-04-automatic-attack-disruption-exclusions-09"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-04T18:09:37.925Z",
+      "generatedAt": "2026-10-05T09:02:26.302Z",
       "usage": {
-        "inputTokens": 6150,
-        "outputTokens": 5395,
-        "costUsd": 0.007704
+        "inputTokens": 6306,
+        "outputTokens": 4360,
+        "costUsd": 0.006493
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-04T18:09:37.925Z",
+  "generatedAt": "2026-10-05T09:02:26.302Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9274,18 +9318,24 @@
       "outputTokens": 39212,
       "requests": 6,
       "costUsd": 0.054619
+    },
+    "2026-10-05": {
+      "inputTokens": 8187,
+      "outputTokens": 5760,
+      "requests": 3,
+      "costUsd": 0.008549
     }
   },
   "lastRun": {
-    "inputTokens": 19170,
-    "outputTokens": 19936,
+    "inputTokens": 8187,
+    "outputTokens": 5760,
     "requests": 3,
-    "costUsd": 0.027757
+    "costUsd": 0.008549
   },
   "totalUsage": {
-    "inputTokens": 287312,
-    "outputTokens": 276513,
-    "requests": 72,
-    "costUsd": 0.389278
+    "inputTokens": 295499,
+    "outputTokens": 282273,
+    "requests": 75,
+    "costUsd": 0.397827
   }
 }
