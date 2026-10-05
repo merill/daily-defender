@@ -7239,25 +7239,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Defender for Cloud enablement guidance adds same-tenant sensor and Linux checks",
-      "overview": "The updated “Enable Defender For Endpoint” guidance says the integration can use an existing Defender for Endpoint sensor from the same tenant. It also updates platform and Linux requirements and adds pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies.",
-      "adminImpact": "Before enabling the integration, administrators should validate the listed prerequisites and install Python 3 on Linux servers.",
+      "headline": "Defender for Cloud Apps will auto-enable Identity inventory for eligible tenants October 15",
+      "overview": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory will move from opt-in to automatic enablement for eligible tenants without listed excluded configurations. Defender for Storage adds targeted on-demand scanning, while Defender for Cloud guidance adds integration prerequisites and Linux requirements. Microsoft also documents the Defender XDR Hunts experience for Defender Experts customers and clarifies Identity sensor v3 activation eligibility and operating mode.",
+      "adminImpact": "Eligible Cloud Apps tenants should prepare for automatic Identity inventory activation and review whether excluded configurations apply. Storage administrators can use REST API filters to scan selected blobs, files, containers, file shares, or path prefixes; scans without filters cover the entire storage account. Before enabling the Defender for Endpoint integration, validate connectivity, proxy authentication, file-system settings, security policies, platform and Linux requirements, and install Python 3 on Linux servers. Hunts requires Defender Experts Hunting enrollment and at least the Security Reader role in Microsoft Defender RBAC.",
       "keyChanges": [
         {
-          "title": "Enable Defender For Endpoint guidance expands prerequisites",
-          "detail": "The page now documents reuse of an existing same-tenant Defender for Endpoint sensor, updated platform and Linux requirements, and checks for connectivity, proxy authentication, file-system settings, and security policies. Linux deployments require Python 3.",
+          "title": "Identity inventory moves from opt-in to automatic enablement",
+          "detail": "The Defender for Cloud Apps release notes set October 15, 2026, as the date when Identity inventory integration will automatically enable for eligible tenants that do not use the listed excluded configurations.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
+        },
+        {
+          "title": "Defender for Storage supports scoped malware scans",
+          "detail": "On-demand malware scanning can target individual blobs or files, containers or file shares, or objects matching a path prefix. REST API filters define the scope; without filters, the entire storage account is scanned.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-01"
+          "sourceId": "doc-2026-10-05-release-notes-05"
+        },
+        {
+          "title": "Endpoint integration guidance adds prerequisite and sensor details",
+          "detail": "The Enable Defender For Endpoint guidance now states that the integration can use an existing Defender for Endpoint sensor from the same tenant. It also adds platform and Linux requirements plus checks for connectivity, proxy authentication, file-system settings, and security policies; Linux servers require Python 3.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-02"
+        },
+        {
+          "title": "Hunts guidance defines access to expert-led investigations",
+          "detail": "The new Hunts overview describes how to view in-progress and completed expert-led hunts, including hunt types, statuses, outcomes, and supporting details in the Defender portal. The organization must be enrolled in Defender Experts Hunting, Plan 1, or Plan 2, and the user needs at least the Security Reader role in Microsoft Defender RBAC.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-05-hunts-in-microsoft-defender-experts-hunting-overview-microsoft-defender-xdr-microsoft-learn-01"
+        },
+        {
+          "title": "Identity sensor v3 activation eligibility is now explicit",
+          "detail": "The Activate Sensor guidance specifies support for new sensor v3.x deployments on eligible domain controllers without sensor v2.x. It also states that the standalone package activates sensor v3.x on Windows Sense in restricted identity-only mode.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-05-activate-sensor-06"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-05T09:02:26.302Z",
+      "generatedAt": "2026-10-05T17:07:16.719Z",
       "usage": {
-        "inputTokens": 1036,
-        "outputTokens": 649,
-        "costUsd": 0.000986
+        "inputTokens": 1684,
+        "outputTokens": 2231,
+        "costUsd": 0.003014
       }
     }
   },
@@ -8799,25 +8823,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Defender for Cloud guidance adds same-tenant Endpoint sensor reuse",
-      "overview": "The week's only update revises the Defender for Cloud “Enable Defender For Endpoint” guidance. It states that the integration can use an existing Defender for Endpoint sensor from the same tenant and adds updated platform and Linux requirements, along with pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies.",
-      "adminImpact": "Before enabling the integration, administrators should validate the documented prerequisites and checks. Linux server deployments require Python 3, and the guidance now calls out connectivity, proxy authentication, file-system settings, and security policies for pre-deployment review.",
+      "headline": "Targeted Storage scans and Cloud Apps auto-enablement lead this Defender update",
+      "overview": "Defender for Cloud’s on-demand malware scanning is now documented with REST-filtered targeting for individual blobs or files, containers or file shares, and path prefixes. Defender for Cloud Apps is set to move its Identity inventory integration from opt-in to automatic enablement for eligible tenants on 15 October 2026. Defender XDR also documents the Hunts experience and its access requirements, while Endpoint and Identity onboarding pages add concrete prerequisite and sensor-mode detail. A separate heading edit removes “(Preview)” from specific-item malware filtering.",
+      "adminImpact": "Use REST API filters to limit Defender for Storage scans; without filters, the entire storage account is scanned. Review Cloud Apps tenant eligibility and listed excluded configurations before 15 October because eligible tenants may be enabled without opting in. Hunts users need Defender Experts Hunting enrollment in Plan 1 or Plan 2 and at least the Security Reader role. Defender for Endpoint onboarding requires prerequisite checks and Python 3 on Linux, while Identity administrators should match sensor v3.x eligibility and operating-mode details to their deployment.",
       "keyChanges": [
         {
-          "title": "Enablement guidance now covers sensor reuse and deployment prerequisites",
-          "detail": "The procedure states that an existing Defender for Endpoint sensor from the same tenant can be used. It also adds updated platform and Linux requirements and requires administrators to check connectivity, proxy authentication, file-system settings, and security policies before deployment.",
+          "title": "Defender for Storage scans can be narrowed with REST API filters",
+          "detail": "Updated release notes describe on-demand malware scanning for individual blobs or files, containers or file shares, and objects matching a path prefix. REST API filters define the scope; without filters, the entire storage account is scanned. Administrators can therefore focus scans on selected storage items.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-01"
+          "sourceId": "doc-2026-10-05-release-notes-05"
+        },
+        {
+          "title": "Cloud Apps–Identity inventory integration moves to automatic enablement October 15",
+          "detail": "Starting 15 October 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations. Those tenants may receive the integration without opting in.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
+        },
+        {
+          "title": "Defender XDR Hunts overview sets enrollment and RBAC access requirements",
+          "detail": "The new Hunts overview documents how to view in-progress and completed expert-led hunts, including hunt types, statuses, outcomes, and supporting details in the Defender portal. Use requires enrollment in Defender Experts Hunting, Plan 1, or Plan 2, and at least the Security Reader role in Microsoft Defender RBAC.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-05-hunts-in-microsoft-defender-experts-hunting-overview-microsoft-defender-xdr-microsoft-learn-01"
+        },
+        {
+          "title": "Endpoint onboarding now calls out same-tenant sensor reuse and Linux prerequisites",
+          "detail": "The updated onboarding page states that the integration can use an existing Defender for Endpoint sensor from the same tenant. It also adds updated platform and Linux requirements plus pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies; Linux servers require Python 3.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-02"
+        },
+        {
+          "title": "Identity sensor activation page clarifies v3.x eligibility and restricted mode",
+          "detail": "The page now specifies that the method supports new sensor v3.x deployments on eligible domain controllers without sensor v2.x. It also states that the standalone package activates sensor v3.x on Windows Sense in restricted identity-only mode, giving administrators clearer deployment-selection criteria.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-05-activate-sensor-06"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-05T09:02:26.302Z",
+      "generatedAt": "2026-10-05T17:07:16.719Z",
       "usage": {
-        "inputTokens": 845,
-        "outputTokens": 751,
-        "costUsd": 0.00107
+        "inputTokens": 1493,
+        "outputTokens": 3842,
+        "costUsd": 0.004909
       }
     }
   },
@@ -9188,54 +9236,54 @@
       }
     },
     "2026-10": {
-      "headline": "Custom detection guidance sets Sentinel-only schedules apart from XDR lookback rules",
-      "overview": "October’s most consequential updates cover detection scheduling, Defender for Cloud onboarding, promotional-mail handling, and administrator permissions. Custom detection guidance now limits the 5-minute-to-14-day custom-frequency range to rules based exclusively on Microsoft Sentinel, while Defender XDR data uses fixed lookback periods tied to run frequency. Defender for Cloud guidance adds same-tenant sensor reuse and explicit deployment checks, while Defender for Office 365 is rolling out promotional-mail tagging and folder handling. A Cloud Apps restriction on new role assignments and clarified Automatic Attack Disruption permissions are the other changes requiring administrator attention. Much of the remaining activity is wording, navigation, metadata, and reference maintenance.",
-      "adminImpact": "Check the data source and intended lookback coverage when creating or changing custom detections. Before enabling the Defender for Cloud integration, validate connectivity, proxy authentication, file-system settings, and security policies; Linux deployments require Python 3. Administrators control promotional-mail settings, while users can customize handling by moving messages. Existing Cloud Apps assignments remain supported, but the affected roles cannot be used in new configurations. For identity exclusions, verify that Unified RBAC assignments cover the relevant Defender for Identity and Defender for Endpoint data sources.",
+      "headline": "Cloud Apps Identity inventory goes automatic while Defender for Storage gains targeted scans",
+      "overview": "October's highest-impact items are an automatic-enablement deadline, targeted malware-scan scope, and data-source-specific detection behavior. Starting October 15, 2026, eligible Defender for Cloud Apps tenants without the listed excluded configurations will have Identity inventory enabled automatically. Defender for Storage on-demand scanning can target selected blobs or files, containers or file shares, or path prefixes through REST filters; an unfiltered request scans the entire storage account. Defender XDR and Defender for Office 365 also carry concrete scheduling and mail-handling changes, while most remaining entries are wording, portal-link, terminology, and reference maintenance.",
+      "adminImpact": "Review Defender for Cloud Apps eligibility and excluded configurations before October 15 because qualifying tenants may be enabled without opting in. Use REST filters when a Defender for Storage scan should cover less than the full storage account. For custom detections, confirm whether a rule uses Sentinel or Defender XDR data before setting frequency and lookback. Before enabling the Defender for Cloud–Defender for Endpoint integration, complete the documented connectivity, proxy-authentication, file-system, and security-policy checks and install Python 3 on Linux. For promotional mail, review administrator controls and prepare users for tagging, folder moves, and learning from their actions as rollout proceeds.",
       "keyChanges": [
         {
-          "title": "Custom detection frequency now depends on data source",
-          "detail": "Updated guidance says the 5-minute-to-14-day custom-frequency range applies only to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days. Verify the source and expected coverage when configuring detections.",
+          "title": "Cloud Apps Identity inventory moves from opt-in to automatic enablement",
+          "detail": "Updated release notes set October 15, 2026 as the start of automatic enablement for eligible tenants that do not use the listed excluded configurations. Those tenants may receive the Defender for Cloud Apps Identity inventory integration without opting in.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
+        },
+        {
+          "title": "Defender for Storage adds REST-filtered on-demand scan scopes",
+          "detail": "On-demand malware scanning can target individual blobs or files, containers or file shares, or objects matching a path prefix. REST API filters define the scope; without filters, the entire storage account is scanned.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-release-notes-05"
+        },
+        {
+          "title": "Custom detection frequency is limited by the data source",
+          "detail": "Updated Defender XDR guidance specifies that custom frequency from 5 minutes to 14 days is available only for rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-04-custom-detection-rules-11"
         },
         {
-          "title": "Defender for Cloud adds same-tenant sensor reuse and deployment checks",
-          "detail": "The integration guidance now says it can use an existing Defender for Endpoint sensor from the same tenant. It adds updated platform and Linux requirements plus pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies; Linux servers require Python 3.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-01"
-        },
-        {
-          "title": "Defender for Office 365 rolls out promotional-mail tagging and folders",
-          "detail": "Promotional messages will be tagged as “promotions” and can be automatically moved to a Promotions folder, with the system learning from user moves. The Message Center update says public preview starts in mid-April 2026 and general rollout completes by late 2026; administrators control the settings and users can customize handling.",
-          "product": "Defender for Office 365",
+          "title": "Promotional mail gains tagging and adaptive Promotions-folder handling",
+          "detail": "Microsoft Defender for Office 365 will tag promotional messages as promotions and can move them automatically to a Promotions folder, learning from user moves. The Message Center rollout schedule places public preview in mid-April 2026 and general rollout completion by late 2026; administrators control the settings and users can customize the behavior through message moves.",
+          "product": "Office 365",
           "sourceId": "MC1279093"
         },
         {
-          "title": "Cloud Apps blocks two administrator roles in new configurations",
-          "detail": "App/instance admin and User group admin role assignments can no longer be used in new configurations, while existing configurations remain supported. Organizations that need these capabilities should contact Microsoft Support.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-10-04-manage-admins-02"
-        },
-        {
-          "title": "Automatic Attack Disruption guidance expands identity-exclusion scope",
-          "detail": "The guidance now states that identity exclusions affect automated response actions in both Defender for Identity and Defender for Endpoint. It also clarifies that Unified RBAC permissions must cover both products’ data sources and adds role-assignment and data-source-scope guidance.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-10-04-automatic-attack-disruption-exclusions-09"
+          "title": "Defender for Cloud onboarding adds explicit sensor and Linux checks",
+          "detail": "Updated enablement guidance says the integration can use an existing Defender for Endpoint sensor from the same tenant. It adds platform and Linux requirements plus pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies; Linux servers require Python 3.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-05-enable-defender-for-endpoint-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-05T09:02:26.302Z",
+      "generatedAt": "2026-10-05T17:07:16.719Z",
       "usage": {
-        "inputTokens": 6306,
-        "outputTokens": 4360,
-        "costUsd": 0.006493
+        "inputTokens": 6385,
+        "outputTokens": 6952,
+        "costUsd": 0.009619
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-05T09:02:26.302Z",
+  "generatedAt": "2026-10-05T17:07:16.719Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9320,22 +9368,22 @@
       "costUsd": 0.054619
     },
     "2026-10-05": {
-      "inputTokens": 8187,
-      "outputTokens": 5760,
-      "requests": 3,
-      "costUsd": 0.008549
+      "inputTokens": 17749,
+      "outputTokens": 18785,
+      "requests": 6,
+      "costUsd": 0.026091
     }
   },
   "lastRun": {
-    "inputTokens": 8187,
-    "outputTokens": 5760,
+    "inputTokens": 9562,
+    "outputTokens": 13025,
     "requests": 3,
-    "costUsd": 0.008549
+    "costUsd": 0.017542
   },
   "totalUsage": {
-    "inputTokens": 295499,
-    "outputTokens": 282273,
-    "requests": 75,
-    "costUsd": 0.397827
+    "inputTokens": 305061,
+    "outputTokens": 295298,
+    "requests": 78,
+    "costUsd": 0.415369
   }
 }

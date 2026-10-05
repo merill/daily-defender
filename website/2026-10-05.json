@@ -1,5 +1,32 @@
 {
-  "newFiles": [],
+  "newFiles": [
+    {
+      "filename": "defender-xdr/defender-experts/defender-experts-hunting-hunts.md",
+      "status": "added",
+      "additions": 103,
+      "deletions": 0,
+      "changes": 103,
+      "patch": "diff --git a/defender-xdr/defender-experts/defender-experts-hunting-hunts.md b/defender-xdr/defender-experts/defender-experts-hunting-hunts.md\nnew file mode 100644\nindex 0000000..f967f73\n--- /dev/null\n+++ b/defender-xdr/defender-experts/defender-experts-hunting-hunts.md\n@@ -0,0 +1,103 @@\n+---\n+layout: Conceptual\n+title: Hunts in Microsoft Defender Experts Hunting overview - Microsoft Defender XDR | Microsoft Learn\n+canonicalUrl: https://learn.microsoft.com/en-us/defender-xdr/defender-experts/defender-experts-hunting-hunts\n+breadcrumb_path: /defender-xdr/breadcrumb/toc.json\n+permissioned-type: public\n+feedback_system: Standard\n+feedback_product_url: https://techcommunity.microsoft.com/t5/microsoft-365-defender/bd-p/MicrosoftThreatProtection\n+uhfHeaderId: MSDocsHeader-MicrosoftDefender\n+manager: orspodek\n+description: Learn how Hunts in Microsoft Defender Experts Hunting gives security teams visibility into in-progress and completed expert-led threat investigations.\n+ms.service: defender-experts-for-hunting\n+ms.author: dpersaud\n+author: dpersaud-microsoft\n+ms.localizationpriority: medium\n+ms.collection:\n+- m365-security\n+- tier1\n+- essentials-overview\n+ms.topic: overview\n+ms.custom:\n+- msecd-doc-authoring-1028\n+- cx-ti\n+- cx-ean\n+ms.date: 2026-09-22T00:00:00.0000000Z\n+ai-usage: ai-generated\n+locale: en-us\n+document_id: 63564ab1-2149-4450-eced-2826b09f5042\n+document_version_independent_id: 63564ab1-2149-4450-eced-2826b09f5042\n+original_content_git_url: https://github.com/MicrosoftDocs/defender-docs-pr/blob/live/defender-xdr/defender-experts/defender-experts-hunting-hunts.md\n+site_name: Docs\n+depot_name: MSDN.defender-xdr\n+page_type: conceptual\n+toc_rel: ../toc.json\n+feedback_help_link_type: ''\n+feedback_help_link_url: ''\n+asset_id: defender-experts/defender-experts-hunting-hunts\n+moniker_range_name: \n+monikers: []\n+item_type: Content\n+source_path: defender-xdr/defender-experts/defender-experts-hunting-hunts.md\n+cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n+spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n+platformId: 733b0483-3bea-d1fb-db69-365eaf8dcbfd\n+---\n+\n+# Hunts in Microsoft Defender Experts Hunting overview - Microsoft Defender XDR | Microsoft Learn\n+\n+**Hunts** is an experience in Microsoft Defender Experts Hunting that gives security teams a centralized view of threat hunts Microsoft experts conduct in their environment. Use Hunts to see expert threat hunting activities while they're both in progress to see what threats we're currently tracking, and after completion to review the outcome and supporting details.\r\n+\r\n+Hunts provides a record of proactive hunting activity, including investigations that don't result in uncovering an undetected threat. This visibility helps you understand what Defender Experts hunted, what they found, and whether your team needs to take follow-up action.\r\n+\r\n+Hunts is generally available to Defender Experts customers. Before you use Hunts, your organization must be enrolled in Defender Experts Hunting, Plan 1, or Plan 2, and your account must have at least the **Security Reader** role in Microsoft Defender role-based access control (RBAC).\r\n+\r\n+**Applies to:**\r\n+\r\n+- [Microsoft Defender](../microsoft-365-defender)\r\n+\r\n+## Prerequisites\r\n+\r\n+- Your organization must be enrolled in [Microsoft Defender Experts Hunting](defender-experts-hunting-prerequisites).\r\n+- Your account must have the **Security Reader** role in Microsoft Defender RBAC.\r\n+\r\n+## View hunt activity in one place\r\n+\r\n+In the Microsoft Defender portal, select **Defender Experts** &gt; **Hunts** to view hunts conducted in your environment.\r\n+\r\n+The Hunts experience distinguishes investigations that are still in progress from completed investigations. You can monitor an active investigation and return after it concludes to review the final outcome.\r\n+\r\n+[![Screenshot of the Hunts page showing in-progress and completed Defender Experts investigations.](media/defender-experts-hunting-hunts/hunts-list.png)](media/defender-experts-hunting-hunts/hunts-list.png#lightbox)\r\n+\r\n+## Understand hunt types\r\n+\r\n+Defender Experts conducts the following types of hunts:\r\n+\r\n+- **Intelligence-based hunts:** Proactive investigations of emerging threats, attacker techniques, campaigns, and other intelligence-driven hypotheses.\r\n+- **Suspicious activity hunts:** Investigations that begin when Defender Experts identifies behavior in your environment that warrants deeper analysis.\r\n+\r\n+## Follow a hunt from investigation to outcome\r\n+\r\n+The hunt status helps you distinguish ongoing work from final conclusions.\r\n+\r\n+| Status | What it means |\r\n+| --- | --- |\r\n+| **In progress** | Defender Experts is still investigating. The available information isn't a final conclusion. |\r\n+| **Completed** | The investigation has concluded. You can review the outcome and supporting details, including when the hunt didn't result in an incident. |\r\n+\r\n+When a noteworthy threat is circulating, Hunts lets you see that Defender Experts is investigating it on your behalf. After the hunt is complete, review the findings to determine whether your organization needs to take action.\r\n+\r\n+[![Screenshot of a completed Defender Experts hunt showing the investigation status, summary, and outcome.](media/defender-experts-hunting-hunts/completed-hunt-details.png)](media/defender-experts-hunting-hunts/completed-hunt-details.png#lightbox)\r\n+\r\n+## How Hunts works\r\n+\r\n+Defender Experts investigates intelligence-based hypotheses and suspicious activity in your environment. Hunts shows the investigation as it progresses:\r\n+\r\n+1. Defender Experts starts a hunt based on threat intelligence or suspicious behavior.\r\n+2. The hunt appears as **In progress** while the investigation continues.\r\n+3. Defender Experts completes the investigation and records the outcome.\r\n+4. You review the completed hunt and its supporting details to determine whether follow-up action is needed.\n\\ No newline at end of file\n",
+      "baseCommitSha": "98206699f7096cb9583c5fd56803bcb79d255685",
+      "commitSha": "44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-05 16:19:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/defender-experts/defender-experts-hunting-hunts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/defender-experts/defender-experts-hunting-hunts",
+      "eventId": "defender-docs:44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae:added:defender-xdr/defender-experts/defender-experts-hunting-hunts.md",
+      "firstSeenAt": "2026-10-05T17:06:48.157Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Hunts centralizes Defender Experts investigation visibility",
+        "summary": "The Hunts overview documents an experience for viewing in-progress and completed expert-led hunts, including hunt types, statuses, outcomes, and supporting details in the Defender portal.",
+        "adminImpact": "To use Hunts, the organization must be enrolled in Defender Experts Hunting, Plan 1, or Plan 2, and the accessing account must have at least the Security Reader role in Microsoft Defender RBAC.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "modifiedFiles": [
     {
       "filename": "defender-for-cloud/enable-defender-for-endpoint.md",
@@ -26,34 +53,179 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-cloud-apps/release-notes.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/defender-for-cloud-apps/release-notes.md b/defender-for-cloud-apps/release-notes.md\nindex 453872d..05a2db8 100644\n--- a/defender-for-cloud-apps/release-notes.md\n+++ b/defender-for-cloud-apps/release-notes.md\n@@ -13,11 +13,13 @@ ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n description: This article is updated frequently to let you know what's new in the latest release of Microsoft Defender for Cloud Apps.\n-ms.date: 2026-06-14T00:00:00.0000000Z\n+ms.date: 2026-10-04T00:00:00.0000000Z\n ms.topic: overview\n ms.custom:\n+- msecd-doc-authoring-1026\n - sfi-ga-nochange\n - sfi-image-nochange\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 9a3d9f7b-4864-bde6-1ec0-292f4af822bd\n document_version_independent_id: 9a3d9f7b-4864-bde6-1ec0-292f4af822bd\n@@ -59,6 +61,14 @@ For more information on what's new with other Microsoft Defender security produc\n \r\n For news about earlier releases, see [Archive of past updates for Microsoft Defender for Cloud Apps](release-note-archive).\r\n \r\n+## October 2026\r\n+\r\n+### Automatic enablement of SaaS accounts integration with Identity inventory\r\n+\r\n+Starting **October 15, 2026**, the SaaS accounts integration between Microsoft Defender for Cloud Apps and Identity inventory will transition from opt-in to automatic enablement. The integration will be enabled automatically for eligible tenants that don't use the **User group admin** or **App/instance admin** roles. Eligible tenants don't need to take any action.\r\n+\r\n+For more information, see [Identity inventory integration](https://aka.ms/saas-accounts-integration).\r\n+\r\n ## August 2026\r\n \r\n ### Unified RBAC is enabled by default for new Defender for Cloud Apps customers\r\n",
+      "baseCommitSha": "98206699f7096cb9583c5fd56803bcb79d255685",
+      "commitSha": "44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-05 16:19:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/release-notes",
+      "eventId": "defender-docs:44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae:modified:defender-for-cloud-apps/release-notes.md",
+      "firstSeenAt": "2026-10-05T17:06:48.141Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "SaaS accounts integration will be enabled automatically",
+        "summary": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory will move from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations.",
+        "adminImpact": "Eligible tenants may receive the integration without opting in, so administrators should account for its automatic activation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/on-demand-malware-scanning.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud/on-demand-malware-scanning.md b/defender-for-cloud/on-demand-malware-scanning.md\nindex fd12987..a090b24 100644\n--- a/defender-for-cloud/on-demand-malware-scanning.md\n+++ b/defender-for-cloud/on-demand-malware-scanning.md\n@@ -90,7 +90,7 @@ The on-demand scanning process includes the following stages and behaviors:\n - **Monitoring progress**: You can track scan progress through the Azure portal or API. You get details on the number of objects scanned, skipped objects, data volume, malicious objects detected, scan status, and duration.\r\n - **Completion and results**: After all objects are scanned, the system marks the scan as complete and provides a summary of findings. You can also use the API to query the details of the last scan.\r\n \r\n-### Filter scans to specific items (Preview)\r\n+### Filter scans to specific items\r\n \r\n You can scope an on-demand scan to specific blobs or files instead of scanning the entire storage account. Pass filters in the request body when you initiate a scan by using the REST API.\r\n \r\n",
+      "baseCommitSha": "98206699f7096cb9583c5fd56803bcb79d255685",
+      "commitSha": "44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-05 16:19:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/on-demand-malware-scanning.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/on-demand-malware-scanning",
+      "eventId": "defender-docs:44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae:modified:defender-for-cloud/on-demand-malware-scanning.md",
+      "firstSeenAt": "2026-10-05T17:06:48.145Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Preview label removed from specific-item scan filtering",
+        "summary": "The documentation heading for filtering malware scans to specific items no longer includes “(Preview).”",
+        "adminImpact": "No administrator action is stated as required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/release-notes.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 1,
+      "changes": 18,
+      "patch": "diff --git a/defender-for-cloud/release-notes.md b/defender-for-cloud/release-notes.md\nindex 1d64445..2908a00 100644\n--- a/defender-for-cloud/release-notes.md\n+++ b/defender-for-cloud/release-notes.md\n@@ -16,7 +16,7 @@ ms.service: defender-for-cloud\n description: Learn about new, updated, and deprecated features in Microsoft Defender for Cloud, including preview releases, general availability updates, and upcoming changes.\n ms.topic: overview\n ms.custom: references_regions\n-ms.date: 2026-07-05T00:00:00.0000000Z\n+ms.date: 2026-10-05T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 0cdaa215-1c9d-088d-65a0-67efec1dc3b9\n@@ -57,6 +57,22 @@ Get notified when this page is updated by copying and pasting the following URL\n \r\n `https://aka.ms/mdc/rss`\r\n \r\n+## October 2026\r\n+\r\n+| Date | Category | Update |\r\n+| --- | --- | --- |\r\n+| October 5, 2026 | GA | On-demand malware scanning now supports scanning specific blobs, files, containers, and file shares |\r\n+\r\n+### On-demand malware scanning now supports scanning specific blobs, files, containers, and file shares (GA)\r\n+\r\n+October 5, 2026\r\n+\r\n+On-demand malware scanning in Microsoft Defender for Storage now supports targeted scanning of specific items. Instead of scanning an entire storage account, you can scope scans to a single blob or file, a specific container or file share, or all objects matching a path prefix.\r\n+\r\n+You can use filters in the REST API request body to specify which items to scan. When no filters are provided, the scan covers the entire storage account.\r\n+\r\n+Learn more about [on-demand malware scanning](on-demand-malware-scanning).\r\n+\r\n ## September 2026\r\n \r\n | Date | Category | Update |\r\n",
+      "baseCommitSha": "98206699f7096cb9583c5fd56803bcb79d255685",
+      "commitSha": "44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-05 16:19:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes",
+      "eventId": "defender-docs:44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae:modified:defender-for-cloud/release-notes.md",
+      "firstSeenAt": "2026-10-05T17:06:48.150Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Targeted on-demand malware scanning is now available",
+        "summary": "Microsoft Defender for Storage on-demand malware scanning can now target individual blobs or files, containers or file shares, or objects matching a path prefix. REST API filters define the scope; without filters, the entire storage account is scanned.",
+        "adminImpact": "Administrators can use targeted scans to focus malware checks on selected storage items instead of scanning the full account.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/activate-sensor.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-identity/deploy/activate-sensor.md b/defender-for-identity/deploy/activate-sensor.md\nindex ecf52d2..0f5e48b 100644\n--- a/defender-for-identity/deploy/activate-sensor.md\n+++ b/defender-for-identity/deploy/activate-sensor.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Learn how to automatically or manually activate the Microsoft Defender for Identity sensor v3.x on eligible identity-role servers.\n-ms.date: 2026-09-23T00:00:00.0000000Z\n+ms.date: 2026-10-05T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: rlitinsky\n ms.custom: msecd-doc-authoring-1015\n@@ -85,9 +85,9 @@ To activate the Defender for Identity sensor v3.x on an eligible server, follow\n \r\n Use onboarding without Defender for Endpoint deployment to activate the Defender for Identity sensor v3.x without first onboarding the domain controller to Defender for Endpoint:\r\n \r\n-Important\r\n+Note\r\n \r\n-This onboarding method supports new sensor v3.x deployments on eligible domain controllers that don't have sensor v2.x installed.\r\n+This onboarding method supports new Defender for Identity sensor v3.x deployments on eligible domain controllers that don't have sensor v2.x installed. The standalone onboarding package activates sensor v3.x on the Windows Sense platform in restricted identity-only mode. It doesn't deploy or license the full Defender for Endpoint experience. The server still requires connectivity to Defender for Endpoint cloud services because the underlying Sense component uses that infrastructure.\r\n \r\n 1. [Configure your network environment to ensure connectivity with Defender for Endpoint](/en-us/defender-endpoint/configure-environment#enable-access-to-microsoft-defender-for-endpoint-service-urls-in-the-proxy-server) by using [streamlined URLs](/en-us/defender-endpoint/configure-device-connectivity#option-1-configure-connectivity-using-the-simplified-domain).\r\n 2. On the **Sensor management** tab of the **On-premises** page in the Microsoft Defender portal, select **Download onboarding package**.\r\n",
+      "baseCommitSha": "98206699f7096cb9583c5fd56803bcb79d255685",
+      "commitSha": "44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-05 16:19:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/activate-sensor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor",
+      "eventId": "defender-docs:44c5b415f98c7d9d82bc6a63eb74e5b3ab859bae:modified:defender-for-identity/deploy/activate-sensor.md",
+      "firstSeenAt": "2026-10-05T17:06:48.154Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Activation guidance clarifies standalone sensor v3.x onboarding",
+        "summary": "The page now specifies that the method supports new sensor v3.x deployments on eligible domain controllers without sensor v2.x, and that the standalone package activates sensor v3.x on Windows Sense in restricted identity-only mode.",
+        "adminImpact": "Administrators can use the clarified eligibility and operating-mode details when selecting this onboarding method.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 6,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 1 new, 5 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
     "groups": [
+      {
+        "category": "Generally available",
+        "title": "Defender XDR",
+        "summary": "The Hunts overview documents an experience for viewing in-progress and completed expert-led hunts, including hunt types, statuses, outcomes, and supporting details in the Defender portal.",
+        "sourceFiles": [
+          "defender-xdr/defender-experts/defender-experts-hunting-hunts.md"
+        ]
+      },
       {
         "category": "Feature update",
         "title": "Defender for Cloud",
-        "summary": "The documentation now states that the integration can use an existing Defender for Endpoint sensor from the same tenant, adds updated platform and Linux requirements, and lists pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies.",
+        "summary": "The documentation now states that the integration can use an existing Defender for Endpoint sensor from the same tenant, adds updated platform and Linux requirements, and lists pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies. The documentation heading for filtering malware scans to specific items no longer includes “(Preview).” Microsoft Defender for Storage on-demand malware scanning can now target individual blobs or files, containers or file shares, or objects matching a path prefix. REST API filters define the scope; without filters, the entire storage account is scanned.",
         "sourceFiles": [
-          "defender-for-cloud/enable-defender-for-endpoint.md"
+          "defender-for-cloud/enable-defender-for-endpoint.md",
+          "defender-for-cloud/on-demand-malware-scanning.md",
+          "defender-for-cloud/release-notes.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory will move from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/release-notes.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The page now specifies that the method supports new sensor v3.x deployments on eligible domain controllers without sensor v2.x, and that the standalone package activates sensor v3.x on Windows Sense in restricted identity-only mode.",
+        "sourceFiles": [
+          "defender-for-identity/deploy/activate-sensor.md"
         ]
       }
     ],
     "highlights": [
       {
+        "category": "Generally available",
+        "headline": "Defender XDR",
+        "detail": "The Hunts overview documents an experience for viewing in-progress and completed expert-led hunts, including hunt types, statuses, outcomes, and supporting details in the Defender portal."
+      },
+      {
         "category": "Feature update",
         "headline": "Defender for Cloud",
-        "detail": "The documentation now states that the integration can use an existing Defender for Endpoint sensor from the same tenant, adds updated platform and Linux requirements, and lists pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies."
+        "detail": "The documentation now states that the integration can use an existing Defender for Endpoint sensor from the same tenant, adds updated platform and Linux requirements, and lists pre-deployment checks for connectivity, proxy authentication, file-system settings, and security policies. The documentation heading for filtering malware scans to specific items no longer includes “(Preview).” Microsoft Defender for Storage on-demand malware scanning can now target individual blobs or files, containers or file shares, or objects matching a path prefix. REST API filters define the scope; without filters, the entire storage account is scanned."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory will move from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The page now specifies that the method supports new sensor v3.x deployments on eligible domain controllers without sensor v2.x, and that the standalone package activates sensor v3.x on Windows Sense in restricted identity-only mode."
       }
     ],
     "generatedBy": "fallback"
