@@ -365,28 +365,211 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md",
+      "status": "modified",
+      "additions": 117,
+      "deletions": 3,
+      "changes": 120,
+      "patch": "diff --git a/defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md b/defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md\nindex 982bfd0..da127f5 100644\n--- a/defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md\n+++ b/defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md\n@@ -20,7 +20,8 @@ ms.collection:\n - mde-linux\n ms.topic: install-set-up-deploy\n ms.subservice: linux\n-ms.date: 2025-09-16T00:00:00.0000000Z\n+ms.date: 2026-10-05T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 3ea4d58e-c2c0-3ad8-dce0-673b9b1019d0\n document_version_independent_id: 3ea4d58e-c2c0-3ad8-dce0-673b9b1019d0\n@@ -85,6 +86,59 @@ Note\n \r\n Once Defender is successfully deployed on the golden image, there's no requirement to install and onboard it individually on each cloned machine.\r\n \r\n+### Add the onboarding package to the golden image\r\n+\r\n+You can include the tenant-specific onboarding package in the golden image so that every machine created from the image onboards to Microsoft Defender for Endpoint automatically when the Defender service starts. Each clone onboards directly, without waiting for a separate deployment or extension to run. This approach is useful for short-lived or autoscaled virtual machines.\r\n+\r\n+Important\r\n+\r\n+Copy the onboarding file to the golden image **only while the `mdatp` service is stopped**. If the service is running when you add the onboarding file, the golden image virtual machine onboards immediately and creates device identity state. That state is then captured in the image and carried over to every clone, which might cause multiple machines to report as the same device in the Microsoft Defender portal.\r\n+\r\n+#### Prerequisites\r\n+\r\n+- Microsoft Defender for Endpoint is installed on the golden image virtual machine, as described in Step 1. Use a current, supported version of the package.\r\n+- You have access to the Microsoft Defender portal with permissions to download the onboarding package.\r\n+\r\n+#### Download the onboarding package\r\n+\r\n+1. In the [Microsoft Defender portal](https://security.microsoft.com), go to **Settings** &gt; **Endpoints** &gt; **Device management** &gt; **Onboarding**.\r\n+2. Select **Linux Server** as the operating system.\r\n+3. For **Deployment method**, select **Your preferred Linux configuration management tool**.\r\n+4. Select **Download onboarding package**, and save `WindowsDefenderATPOnboardingPackage.zip`.\r\n+5. Extract the package. It contains the `mdatp_onboard.json` onboarding file.\r\n+\r\n+    ```bash\r\n+    unzip WindowsDefenderATPOnboardingPackage.zip\r\n+    ```\r\n+\r\n+#### Add the onboarding file to the image\r\n+\r\n+Run the following steps on the golden image virtual machine:\r\n+\r\n+1. Stop the Defender service.\r\n+\r\n+    ```bash\r\n+    sudo systemctl stop mdatp\r\n+    ```\r\n+2. Confirm that the service is stopped before you continue.\r\n+\r\n+    ```bash\r\n+    systemctl is-active mdatp\r\n+    ```\r\n+\r\n+    The command must return `inactive`. Don't continue until the service is stopped.\r\n+3. Copy the onboarding file to `/etc/opt/microsoft/mdatp/`, set its ownership to `root:root`, and restrict read and write access to the root user.\r\n+\r\n+    ```bash\r\n+    sudo cp mdatp_onboard.json /etc/opt/microsoft/mdatp/mdatp_onboard.json\r\n+    sudo chown root:root /etc/opt/microsoft/mdatp/mdatp_onboard.json\r\n+    sudo chmod 600 /etc/opt/microsoft/mdatp/mdatp_onboard.json\r\n+    ```\r\n+\r\n+Note\r\n+\r\n+The onboarding file is tenant-specific. Store golden images that contain the onboarding file securely, and rebuild the image if you need to onboard machines to a different tenant.\r\n+\r\n ## Step 2: Prepare the golden image for cloning\r\n \r\n When deploying Defender for Endpoint on virtual machines, the hardware UUID reported by the system (system-uuid from dmidecode) is used to uniquely identify each instance.\r\n@@ -114,6 +168,66 @@ Hyper-V automatically generates a new hardware UUID when you create a virtual ma\n \r\n Cloud platforms (for example, Azure, AWS, GCP) automatically inject unique metadata and identifiers via their instance metadata services (IMDS). No manual steps are required. Microsoft Defender for Endpoint automatically detects and uses these values to generate unique machine IDs.\r\n \r\n-## Hostname Management\r\n+## Handle hostname changes on cloned machines\r\n+\r\n+Defender for Endpoint reads the machine's hostname when the `mdatp` service starts and uses it to represent the device in the Microsoft Defender portal. If the hostname changes after the service starts, Defender for Endpoint continues to report the machine with the temporary or template hostname and its associated device ID until the service restarts. When the `mdatp` service restarts, Defender for Endpoint assigns the machine a new device ID and reports it with the current hostname.\r\n+\r\n+On machines created from a golden image, the final hostname is often set during first boot by a provisioning service, such as `cloud-init`, a cloud platform agent, or a custom startup script. These services can run at the same time as the `mdatp` service. If `mdatp` starts first, it picks up the hostname from the golden image instead of the clone's final hostname.\r\n+\r\n+Important\r\n+\r\n+If the hostname is set by a service that can run at the same time as the `mdatp` service, make sure the hostname is stable before you start the `mdatp` service on the cloned machine.\r\n+\r\n+### Start Defender only after the hostname is stable\r\n+\r\n+1. **On the golden image**, after you stop the service, disable it so that it doesn't start automatically when a clone boots.\r\n+\r\n+    ```bash\r\n+    sudo systemctl stop mdatp\r\n+    sudo systemctl disable mdatp\r\n+    ```\r\n+2. **On each cloned machine**, wait until the service that sets the hostname has finished and the hostname has its final value.\r\n+3. Enable and start the Defender service.\r\n+\r\n+    ```bash\r\n+    sudo systemctl enable --now mdatp\r\n+    ```\r\n+\r\n+You can run the last two steps from your existing provisioning or startup automation after the hostname is set. For example, if `cloud-init` sets the hostname:\r\n+\r\n+```bash\r\n+#!/bin/bash\r\n+# Wait for cloud-init to finish provisioning, including setting the hostname.\r\n+cloud-init status --wait\r\n+\r\n+# Optional: Confirm that the hostname is no longer the golden image hostname.\r\n+GOLDEN_IMAGE_HOSTNAME=\"<golden-image-hostname>\"\r\n+until [ \"$(hostname)\" != \"$GOLDEN_IMAGE_HOSTNAME\" ]; do\r\n+  sleep 5\r\n+done\r\n+\r\n+# Start Defender for Endpoint after the hostname is stable.\r\n+systemctl enable --now mdatp\r\n+```\r\n+\r\n+Adjust the wait condition to match the service that sets the hostname in your environment.\r\n+\r\n+### Verify the cloned machine\r\n+\r\n+After the service starts on the cloned machine, verify onboarding and health:\r\n+\r\n+```bash\r\n+mdatp health --field org_id\r\n+mdatp health --field healthy\r\n+mdatp health --field licensed\r\n+```\r\n+\r\n+Confirm that `org_id` shows your organization ID and that `healthy` and `licensed` both return `true`. In the Microsoft Defender portal, confirm that the device appears with the clone's final hostname.\r\n+\r\n+### If the hostname changes after Defender starts\r\n+\r\n+If the hostname of a Linux server changes after Defender for Endpoint starts, restart the `mdatp` service so that the new hostname is used:\r\n \r\n-If the hostname of a Linux server is changed after successful deployment of Defender, then you must restart the `mdatp` service to ensure the new hostname is correctly recognized by product.\n\\ No newline at end of file\n+```bash\r\n+sudo systemctl restart mdatp\r\n+```\n\\ No newline at end of file\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md",
+      "firstSeenAt": "2026-10-06T19:31:53.692Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Golden-image guidance adds automatic onboarding and hostname sequencing",
+        "summary": "The Linux deployment article now explains how to embed the tenant-specific onboarding file in a golden image, keep `mdatp` stopped during image creation, and start Defender on clones only after their final hostname is set. It also adds onboarding and health verification steps.",
+        "adminImpact": "Administrators using golden images should update image and provisioning automation to prevent copied device identity state or incorrect hostnames, and securely protect tenant-specific onboarding files.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/activate-sensor.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-identity/deploy/activate-sensor.md b/defender-for-identity/deploy/activate-sensor.md\nindex 0f5e48b..d6db3fb 100644\n--- a/defender-for-identity/deploy/activate-sensor.md\n+++ b/defender-for-identity/deploy/activate-sensor.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Learn how to automatically or manually activate the Microsoft Defender for Identity sensor v3.x on eligible identity-role servers.\n-ms.date: 2026-10-05T00:00:00.0000000Z\n+ms.date: 2026-10-06T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: rlitinsky\n ms.custom: msecd-doc-authoring-1015\n@@ -60,6 +60,8 @@ See [Microsoft Defender for Identity sensor v3.x prerequisites](deploy-sensor-v3\n \r\n Note\r\n \r\n+Automatic sensor activation and automatic Windows auditing are available only after your organization has an active license that includes Microsoft Defender for Identity.\r\n+\r\n When **Automatic sensor v3.x activation** is enabled, Defender for Identity automatically activates sensor v3.x on eligible domain controllers, AD FS, AD CS, or Microsoft Entra Connect servers that you onboard to Defender for Endpoint. The servers must run Windows Server 2019 or later.\r\n \r\n Automatic activation doesn't install a separate Defender for Identity sensor package. It activates the sensor capability on eligible servers that are already onboarded to Defender for Endpoint. Servers that already have a Defender for Identity sensor aren't targeted by this flow.\r\n@@ -81,7 +83,7 @@ To activate the Defender for Identity sensor v3.x on an eligible server, follow\n \r\n     [![Screenshot of the successful sensor activation banner with a link to view onboarded servers.](media/activated-sensor.png)](media/activated-sensor.png#lightbox)\r\n \r\n-## Onboard a domain controller without Defender for Endpoint deployment (preview)\r\n+## Onboard a domain controller without Defender for Endpoint deployment\r\n \r\n Use onboarding without Defender for Endpoint deployment to activate the Defender for Identity sensor v3.x without first onboarding the domain controller to Defender for Endpoint:\r\n \r\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/activate-sensor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:defender-for-identity/deploy/activate-sensor.md",
+      "firstSeenAt": "2026-10-06T19:31:53.695Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "License prerequisite added for automatic sensor activation",
+        "summary": "The documentation now states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading no longer labels the process as preview.",
+        "adminImpact": "Administrators must verify licensing before relying on these automatic capabilities.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex 51ffa21..f622393 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Configure Windows event auditing for Defender for Identity sensors. Learn automatic, manual, and PowerShell methods to enable required audit policies.\n-ms.date: 2026-09-23T00:00:00.0000000Z\n+ms.date: 2026-10-06T00:00:00.0000000Z\n ms.topic: how-to\n ms.custom:\n - msecd-doc-authoring-1015\n@@ -67,6 +67,8 @@ If you're deploying the Defender for Identity sensor v3.x, use automatic Windows\n \r\n Note\r\n \r\n+Automatic sensor activation and automatic Windows auditing are available only after your organization has an active license that includes Microsoft Defender for Identity.\r\n+\r\n When **Automatic sensor v3.x activation** and **Automatic Windows auditing configuration** are enabled, Defender for Identity automatically activates sensor v3.x and configures Windows auditing on eligible domain controllers, AD FS, AD CS, or Microsoft Entra Connect servers that you onboard to Defender for Endpoint. The servers must run Windows Server 2019 or later.\r\n \r\n To enable automatic Windows auditing in the Defender portal, complete the following steps:\r\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "firstSeenAt": "2026-10-06T19:31:53.698Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "License prerequisite added for automatic activation and auditing",
+        "summary": "Automatic sensor activation and automatic Windows auditing now require an active license that includes Microsoft Defender for Identity.",
+        "adminImpact": "Verify that your organization has the required active license before using these automatic capabilities.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/uninstall-sensor.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 6,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-identity/uninstall-sensor.md b/defender-for-identity/uninstall-sensor.md\nindex ec1108a..e3e3ceb 100644\n--- a/defender-for-identity/uninstall-sensor.md\n+++ b/defender-for-identity/uninstall-sensor.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Remove the Microsoft Defender for Identity sensor from servers by deleting, uninstalling, or cleaning up orphaned and duplicate entries in the Microsoft Defender portal.\n-ms.date: 2026-09-09T00:00:00.0000000Z\n+ms.date: 2026-10-06T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: rlitinsky\n ms.custom: msecd-doc-authoring-1015\n@@ -34,13 +34,11 @@ monikers: []\n item_type: Content\n source_path: defender-for-identity/uninstall-sensor.md\n cmProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/07bb3e10-d135-43ff-bc8b-360497cb39fa\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/12e559b9-eaf6-4aee-9af7-62334e15f863\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: 956293f4-c9be-c774-103b-3c49f82b9c9e\n ---\n \n@@ -48,7 +46,7 @@ platformId: 956293f4-c9be-c774-103b-3c49f82b9c9e\n \n Remove the Microsoft Defender for Identity sensor when you need to decommission a server, clean up orphaned or duplicate sensor entries, or stop Defender for Identity monitoring on a specific server. For sensors onboarded without Microsoft Defender for Endpoint deployment, follow the dedicated offboarding procedure before removing the sensor entry.\r\n \r\n-## Offboard a domain controller without Defender for Endpoint deployment (Preview)\r\n+## Offboard a domain controller without Defender for Endpoint deployment\r\n \r\n For a domain controller onboarded without Defender for Endpoint deployment, run the offboarding package on the domain controller before removing the sensor from the portal. Removing the portal entry alone doesn't uninstall the sensor component. The sensor can continue sending data and reactivate.\r\n \r\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/uninstall-sensor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/uninstall-sensor",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:defender-for-identity/uninstall-sensor.md",
+      "firstSeenAt": "2026-10-06T19:31:53.700Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Preview label removed from domain controller offboarding guidance",
+        "summary": "The page date was updated, and the “Offboard a domain controller without Defender for Endpoint deployment” heading no longer includes “(Preview).”",
+        "adminImpact": "No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 3,
+      "changes": 14,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex dc160bc..71b3d73 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Learn about the latest Microsoft Defender for Identity features, sensor updates, security alerts, enhancements, and preview capabilities.\n-ms.date: 2026-09-23T00:00:00.0000000Z\n+ms.date: 2026-10-06T00:00:00.0000000Z\n ms.topic: overview\n ms.reviewer: AbbyMSFT\n ms.custom: sfi-image-nochange, msecd-doc-authoring-1015\n@@ -35,12 +35,12 @@ item_type: Content\n source_path: defender-for-identity/whats-new.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n platformId: 40ff3b63-e58a-65f9-679b-e6b024715b88\n ---\n \n@@ -60,10 +60,18 @@ For more information, see also:\n \r\n For updates about versions and features released six months ago or earlier, see the [What's new archive for Microsoft Defender for Identity](whats-new-archive).\r\n \r\n+## October 2026\r\n+\r\n+### General availability of sensor v3.x activation without Defender for Endpoint\r\n+\r\n+Defender for Identity sensor v3.x activation without Defender for Endpoint is now generally available for eligible domain controllers running Windows Server 2019 or later. This activation method supports only new sensor v3.x deployments on eligible domain controllers without an existing Defender for Identity sensor. Sensor v2.x migration isn't supported. For more information, see [Activate the Defender for Identity sensor](deploy/activate-sensor).\r\n+\r\n ## September 2026\r\n \r\n ### Automatic sensor v3.x activation and Windows auditing by default\r\n \r\n+Automatic sensor v3.x activation and automatic Windows auditing apply only to organizations with an active license that includes Microsoft Defender for Identity.\r\n+\r\n The rollout differs for new Microsoft Defender for Endpoint customers and existing Defender for Identity customers:\r\n \r\n **New Microsoft Defender for Endpoint customers:** If your organization is licensed for Defender for Identity, its first device was onboarded to Defender for Endpoint on or after September 13, 2026, and it doesn't already have a Defender for Identity workspace, Defender for Identity automatically creates a workspace when it identifies an eligible identity-role server. It also enables automatic sensor v3.x activation and Windows auditing by default.\r\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:defender-for-identity/whats-new.md",
+      "firstSeenAt": "2026-10-06T19:31:53.703Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Sensor v3.x activation without Defender for Endpoint",
+        "summary": "The documentation adds sensor v3.x activation without Defender for Endpoint for eligible Windows Server 2019 or later domain controllers. It applies only to new sensor v3.x deployments, and automatic activation and Windows auditing require an active license that includes Microsoft Defender for Identity.",
+        "adminImpact": "Administrators can use this activation method for eligible new deployments, provided the licensing and operating system requirements are met.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/create-github-connector.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 4,
+      "changes": 7,
+      "patch": "diff --git a/exposure-management/create-github-connector.md b/exposure-management/create-github-connector.md\nindex a21ddfd..c16b2bc 100644\n--- a/exposure-management/create-github-connector.md\n+++ b/exposure-management/create-github-connector.md\n@@ -71,10 +71,9 @@ If the tenant hasn't used Cloud Security in the Defender portal:\n \r\n 1. In the Defender portal, go to MDASH Initiative &gt; **Settings**. For information about accessing the MDASH Initiative, see [Entry points](/en-us/security-exposure-management/ai-code-security-onboarding).\r\n \r\n-    *Select **Create and Manage connectors**. You'll be redirected to the **Cloud Security Connectors** page.*\r\n-2. On the **Connectors** tab, select the GitHub connector from the list.\r\n-3. Optionally, enter a connector name. If you leave it blank, a default name is assigned automatically.\r\n-4. Select **Next**.\r\n+- In **Agentic code scanning management**, next to **Source code environment**, select **Add another**, and then select **Azure DevOps.***You'll be redirected to the***Azure DevOps*****connector flow.***\r\n+- Optionally, enter a connector name. If you leave it blank, a default name is assigned automatically.\r\n+- Select **Next**.\r\n \r\n ## Step 3: Configure access and permissions\r\n \r\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/create-github-connector.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/create-github-connector",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:exposure-management/create-github-connector.md",
+      "firstSeenAt": "2026-10-06T19:31:53.706Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Connector setup instructions now use the Azure DevOps flow",
+        "summary": "The instructions now direct administrators to Agentic code scanning management, select Add another under Source code environment, and choose Azure DevOps. Connector naming remains optional.",
+        "adminImpact": "Administrators following this setup should use the updated navigation path. No mandatory action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/understand-threat-intelligence.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/sentinel/understand-threat-intelligence.md b/sentinel/understand-threat-intelligence.md\nindex 2f611ce..83b10e7 100644\n--- a/sentinel/understand-threat-intelligence.md\n+++ b/sentinel/understand-threat-intelligence.md\n@@ -266,6 +266,8 @@ When an indicator is created, updated, or deleted, Microsoft Sentinel creates a\n \r\n The `Id` property is a concatenation of the base64-encoded `SourceSystem` value, `---` (three dashes), and the `stixId` (which is the `Data.Id` value).\r\n \r\n+Cost for this re-ingestion matches the standard log ingestion pricing for paid tables. Note: Your exact final cost will reflect any tenant-level discounts or commitment tiers currently active on your account.\r\n+\r\n ### View your GeoLocation and WhoIs data enrichments (public preview)\r\n \r\n Microsoft enriches IP and domain indicators with extra `GeoLocation` and `WhoIs` data to provide more context for investigations where the selected IOC is found.\r\n",
+      "baseCommitSha": "f24b3e311d6ea31bb4574d5c3bdde8fc3ad3d11d",
+      "commitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:03:27 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/understand-threat-intelligence.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence",
+      "eventId": "defender-docs:2143211c6cd03d3bebbd8403e3a45ad96627da58:modified:sentinel/understand-threat-intelligence.md",
+      "firstSeenAt": "2026-10-06T19:31:53.709Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation adds re-ingestion pricing details",
+        "summary": "The page now states that re-ingestion costs follow standard log ingestion pricing for paid tables, with final costs affected by tenant discounts or commitment tiers.",
+        "adminImpact": "Administrators can use this information when estimating re-ingestion costs for their tenants.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 14,
+    "totalCommits": 2,
+    "totalFiles": 21,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 1 new, 13 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "overview": "Today's report includes 1 new, 20 updated, and 0 removed Microsoft Defender documentation files across 7 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
         "title": "Microsoft Sentinel",
-        "summary": "Microsoft added reference documentation for the ASIM Email Event schema, including email routing, authentication, delivery outcomes, and threat fields. It also documents the `_Im_EmailEvent` parser, custom parser naming, and filtering parameters. The schema reference now lists the Email Event schema as `EmailEvent`, version 1.0.0, with GA status. The normalization page now links to the Email Event schema and has an updated documentation date.",
+        "summary": "Microsoft added reference documentation for the ASIM Email Event schema, including email routing, authentication, delivery outcomes, and threat fields. It also documents the `_Im_EmailEvent` parser, custom parser naming, and filtering parameters. The schema reference now lists the Email Event schema as `EmailEvent`, version 1.0.0, with GA status. The normalization page now links to the Email Event schema and has an updated documentation date. The page now states that re-ingestion costs follow standard log ingestion pricing for paid tables, with final costs affected by tenant discounts or commitment tiers.",
         "sourceFiles": [
           "sentinel/normalization-schema-email.md",
           "sentinel/normalization-about-schemas.md",
-          "sentinel/normalization.md"
+          "sentinel/normalization.md",
+          "sentinel/understand-threat-intelligence.md"
         ]
       },
       {
@@ -420,13 +603,40 @@
           "defender-office-365/mdo-support-teams-sec-ops-guide.md",
           "defender-office-365/submissions-teams.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The Linux deployment article now explains how to embed the tenant-specific onboarding file in a golden image, keep `mdatp` stopped during image creation, and start Defender on clones only after their final hostname is set. It also adds onboarding and health verification steps.",
+        "sourceFiles": [
+          "defender-endpoint/linux-deploy-defender-for-endpoint-using-golden-images.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Identity",
+        "summary": "The documentation now states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading no longer labels the process as preview. Automatic sensor activation and automatic Windows auditing now require an active license that includes Microsoft Defender for Identity. The page date was updated, and the “Offboard a domain controller without Defender for Endpoint deployment” heading no longer includes “(Preview).” The documentation adds sensor v3.x activation without Defender for Endpoint for eligible Windows Server 2019 or later domain controllers. It applies only to new sensor v",
+        "sourceFiles": [
+          "defender-for-identity/deploy/activate-sensor.md",
+          "defender-for-identity/deploy/configure-windows-event-collection.md",
+          "defender-for-identity/uninstall-sensor.md",
+          "defender-for-identity/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The instructions now direct administrators to Agentic code scanning management, select Add another under Source code environment, and choose Azure DevOps. Connector naming remains optional.",
+        "sourceFiles": [
+          "exposure-management/create-github-connector.md"
+        ]
       }
     ],
     "highlights": [
       {
         "category": "Doc update",
         "headline": "Microsoft Sentinel",
-        "detail": "Microsoft added reference documentation for the ASIM Email Event schema, including email routing, authentication, delivery outcomes, and threat fields. It also documents the `_Im_EmailEvent` parser, custom parser naming, and filtering parameters. The schema reference now lists the Email Event schema as `EmailEvent`, version 1.0.0, with GA status. The normalization page now links to the Email Event schema and has an updated documentation date."
+        "detail": "Microsoft added reference documentation for the ASIM Email Event schema, including email routing, authentication, delivery outcomes, and threat fields. It also documents the `_Im_EmailEvent` parser, custom parser naming, and filtering parameters. The schema reference now lists the Email Event schema as `EmailEvent`, version 1.0.0, with GA status. The normalization page now links to the Email Event schema and has an updated documentation date. The page now states that re-ingestion costs follow standard log ingestion pricing for paid tables, with final costs affected by tenant discounts or commitment tiers."
       },
       {
         "category": "Doc update",
@@ -442,6 +652,21 @@
         "category": "New feature",
         "headline": "Defender for Office 365",
         "detail": "Users can report scheduled or Meet now Microsoft Teams meetings, or individual meeting participants, as security concerns during or after the meeting. The article now covers malicious activity in Teams messages, calls, and meetings, and lists messages, calls, meetings, and meeting participants as reportable items. It also links to Teams user reporting settings. The guide now directs administrators to configure the Allow users to report meetings policy in the Teams admin center. The Defender portal step to verify Monitor reported items in Microsoft Teams remains. The guide now covers reported Teams meetings and meeting participants, including alert generation and Defender portal review locati"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The Linux deployment article now explains how to embed the tenant-specific onboarding file in a golden image, keep `mdatp` stopped during image creation, and start Defender on clones only after their final hostname is set. It also adds onboarding and health verification steps."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Identity",
+        "detail": "The documentation now states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading no longer labels the process as preview. Automatic sensor activation and automatic Windows auditing now require an active license that includes Microsoft Defender for Identity. The page date was updated, and the “Offboard a domain controller without Defender for Endpoint deployment” heading no longer includes “(Preview).” The documentation adds sensor v3.x activation without Defender for Endpoint for eligible Windows Server 2019 or later domain controllers. It applies only to new sensor v"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The instructions now direct administrators to Agentic code scanning management, select Add another under Source code environment, and choose Azure DevOps. Connector naming remains optional."
       }
     ],
     "generatedBy": "fallback"
