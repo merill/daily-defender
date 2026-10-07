@@ -7285,49 +7285,49 @@
       }
     },
     "2026-10-06": {
-      "headline": "Identity sensor v3 activation and controller-based KSPM findings reshape administration",
-      "overview": "Two changes carry the clearest operational weight: Microsoft Defender for Identity guidance adds sensor v3.x activation without Defender for Endpoint for eligible Windows Server 2019 or later domain controllers, while Defender for Cloud says that, starting October 5, KSPM misconfiguration recommendations align with Kubernetes workload controllers rather than individual running container instances. The period also adds concrete guidance for Teams meeting and participant reporting, Linux golden-image onboarding, and Sentinel’s ASIM Email Event schema. Most remaining edits are terminology, link, navigation, and formatting cleanup.",
-      "adminImpact": "Identity teams should check the new-deployment, operating-system, and licensing boundaries before relying on automatic activation or automatic Windows auditing. Cloud teams should locate and triage KSPM recommendations at the controller level. Teams administrators should review the meeting-reporting policy and reporting workflow, while Linux image owners should change provisioning order and protect tenant-specific onboarding files. Sentinel teams can use the new schema reference when normalizing email data; the remaining editorial changes do not call for administrator action.",
+      "headline": "Defender for Identity details sensor v3.x activation without Defender for Endpoint",
+      "overview": "The period’s strongest operational changes affect Identity onboarding, Defender for Cloud KSPM scope, and Linux golden-image provisioning. Teams meeting-reporting setup and Sentinel’s ASIM Email Event reference also gained concrete guidance. Most remaining edits are navigation, capitalization, link, and wording maintenance.",
+      "adminImpact": "Verify the required operating system and active Microsoft Defender for Identity license before using the sensor activation path. Update Linux image automation and KSPM triage procedures, and review the Teams meeting-reporting control if that workflow is in use. The Sentinel reference supports normalization work; the mechanical documentation edits require no action.",
       "keyChanges": [
         {
-          "title": "Defender for Identity adds a documented sensor v3.x activation path",
-          "detail": "For new sensor v3.x deployments on eligible Windows Server 2019 or later domain controllers, the guidance describes activation without a Defender for Endpoint deployment. Automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity.",
-          "product": "Microsoft Defender for Identity",
+          "title": "Identity activation is limited to new sensor v3.x deployments",
+          "detail": "The updated guidance covers sensor v3.x activation without Defender for Endpoint on eligible Windows Server 2019 or later domain controllers. It applies only to new sensor v3.x deployments; automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. Verify the operating system and licensing before using the method.",
+          "product": "Identity",
           "sourceId": "doc-2026-10-06-whats-new-19"
         },
         {
           "title": "KSPM recommendations move from running containers to workload controllers",
-          "detail": "Starting October 5, 2026, Defender for Cloud KSPM misconfiguration recommendations align with Kubernetes workload controllers instead of individual running container instances. Teams should therefore locate and triage these recommendations against the deployment controller rather than the individual container.",
+          "detail": "Starting October 5, 2026, KSPM misconfiguration recommendations align with Kubernetes workload controllers rather than individual running container instances. Teams should look for findings against container deployment controllers when locating and triaging recommendations.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-06-release-notes-07"
         },
         {
-          "title": "Teams reporting guidance names the controlling admin-center policy",
-          "detail": "The setup guide now directs administrators to configure `Allow users to report meetings` in the Teams admin center; the Defender portal step to verify `Monitor reported items in Microsoft Teams` remains. Related guidance covers reports for Teams meetings and individual participants.",
-          "product": "Microsoft Defender for Office 365",
-          "sourceId": "doc-2026-10-06-mdo-support-teams-quick-configure-10"
-        },
-        {
-          "title": "Linux golden-image procedures sequence onboarding after the final hostname",
-          "detail": "The deployment guidance says to embed the tenant-specific onboarding file in the golden image, keep `mdatp` stopped during image creation, and start Defender on clones only after each clone’s final hostname is set. It adds onboarding and health verification steps to avoid copied device identity state or incorrect hostnames.",
-          "product": "Microsoft Defender for Endpoint",
+          "title": "Linux golden-image guidance gates Defender startup on final hostnames",
+          "detail": "The deployment article now directs administrators to embed the tenant-specific onboarding file in the golden image, keep `mdatp` stopped during image creation, and start Defender on clones only after each final hostname is set. It also adds onboarding and health checks; image automation should protect the tenant-specific file and follow this startup sequence.",
+          "product": "Endpoint",
           "sourceId": "doc-2026-10-06-wait-for-cloud-init-to-finish-provisioning-including-setting-the-hostname-15"
         },
         {
-          "title": "Sentinel adds a new ASIM Email Event normalization reference",
-          "detail": "The reference documents email routing, authentication, delivery outcomes, and threat fields, plus the `_Im_EmailEvent` parser, custom parser naming, and filtering parameters. A companion normalization entry identifies the schema as `EmailEvent`, version 1.0.0, with GA status.",
-          "product": "Microsoft Sentinel",
+          "title": "Teams meeting reporting now has an explicit Teams admin center control",
+          "detail": "The setup path now uses the Teams admin center’s `Allow users to report meetings` policy, while the Defender portal step remains to verify `Monitor reported items in Microsoft Teams`. Use both controls when configuring meeting-report handling.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-10-06-mdo-support-teams-quick-configure-10"
+        },
+        {
+          "title": "Sentinel adds a reference for normalized Email Event data",
+          "detail": "The new ASIM reference defines email routing, authentication, delivery-outcome, and threat fields, and documents the `_Im_EmailEvent` parser, custom parser naming, and filtering parameters. It provides a common basis for normalizing and querying email data across mail servers, gateways, and inspection systems.",
+          "product": "Sentinel",
           "sourceId": "doc-2026-10-06-microsoft-sentinel-asim-email-event-normalization-schema-reference-microsoft-learn-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T19:32:22.848Z",
+      "generatedAt": "2026-10-06T23:48:13.629Z",
       "usage": {
-        "inputTokens": 3435,
-        "outputTokens": 11916,
-        "costUsd": 0.014986
+        "inputTokens": 3582,
+        "outputTokens": 5832,
+        "costUsd": 0.007715
       }
     }
   },
@@ -8869,49 +8869,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Defender for Cloud Apps Identity inventory integration auto-enables October 15 for eligible tenants",
-      "overview": "The period was mostly editorial cleanup, but five updates carry clear operational weight. Defender for Cloud Apps is moving the Identity inventory integration from opt-in to automatic enablement on 15 October 2026 for eligible tenants without listed exclusions. Identity guidance now documents sensor v3.x activation for eligible Windows Server 2019 or later domain controllers without Defender for Endpoint, while Defender for Storage gains scoped on-demand scans and KSPM recommendations move to workload controllers. Linux endpoint guidance also adds a controlled golden-image onboarding sequence.",
-      "adminImpact": "Before 15 October, check Cloud Apps tenant eligibility and excluded configurations. For the Identity path, confirm the Windows Server, new sensor v3.x deployment, and licensing requirements before relying on automatic activation or Windows auditing. Use REST filters to limit storage scans, adjust KSPM triage to workload controllers, and update Linux golden-image automation so `mdatp` starts only after the final hostname is set while tenant-specific onboarding files remain protected. Many other updates refine wording, links, headings, or references and state no required action.",
+      "headline": "Cloud Apps’ Identity inventory integration becomes automatic October 15 for eligible tenants",
+      "overview": "The week included a scheduled enablement change, a new Defender for Identity sensor activation path, scoped Defender for Storage scanning, expanded Teams reporting, and a KSPM recommendation model change. Most remaining updates refined setup guidance, terminology, or page structure.",
+      "adminImpact": "Cloud Apps administrators should review the documented exclusion conditions before October 15. Identity teams should verify the Windows Server and licensing requirements for sensor v3.x activation; Storage teams can use REST filters to narrow scans; Teams administrators should account for meeting and participant reports; and KSPM operators should locate findings on workload controllers rather than individual running containers.",
       "keyChanges": [
         {
-          "title": "Identity inventory integration moves to automatic enablement",
-          "detail": "Release-note guidance says the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement on 15 October 2026 for eligible tenants that do not use listed excluded configurations. Administrators should check eligibility and exclusions before the change.",
+          "title": "Cloud Apps moves Identity inventory integration from opt-in to automatic enablement",
+          "detail": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations. Those tenants may receive the integration without opting in.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-05-release-notes-03"
         },
         {
-          "title": "New sensor v3.x activation path avoids the Defender for Endpoint dependency",
-          "detail": "Updated Identity guidance describes sensor v3.x activation without Defender for Endpoint for eligible Windows Server 2019 or later domain controllers. The method applies only to new sensor v3.x deployments, and automatic activation and Windows auditing require an active license that includes Microsoft Defender for Identity.",
+          "title": "Sensor v3.x activation without Defender for Endpoint is documented for eligible domain controllers",
+          "detail": "The updated Identity guidance adds activation without Defender for Endpoint for new sensor v3.x deployments on eligible Windows Server 2019 or later domain controllers. Automatic activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity.",
           "product": "Identity",
           "sourceId": "doc-2026-10-06-whats-new-19"
         },
         {
-          "title": "Defender for Storage scans gain targeted scope controls",
-          "detail": "Release notes state that on-demand malware scans can target individual blobs or files, containers or file shares, or objects matching a path prefix through REST API filters. Without filters, the entire storage account is scanned.",
+          "title": "Defender for Storage supports targeted on-demand malware scans",
+          "detail": "On-demand malware scanning can target individual blobs or files, containers or file shares, or objects matching a path prefix through REST API filters. Without filters, the scan covers the entire storage account.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-05-release-notes-05"
         },
         {
-          "title": "KSPM recommendations shift from running containers to workload controllers",
-          "detail": "Starting 5 October 2026, KSPM misconfiguration recommendations align with Kubernetes workload controllers instead of individual running container instances. Teams should expect to locate and triage recommendations at the controller level.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-06-release-notes-07"
+          "title": "Defender for Office 365 reporting now covers Teams meetings and participants",
+          "detail": "Users can report scheduled or Meet now Microsoft Teams meetings, or individual meeting participants, as security concerns during or after the meeting. Security teams should account for these reports in their handling workflows.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-10-06-defender-for-office-365-whats-new-08"
         },
         {
-          "title": "Linux golden-image onboarding now controls Defender startup and host identity",
-          "detail": "The updated Linux deployment article specifies a golden-image sequence: embed the tenant-specific onboarding file, keep `mdatp` stopped during image creation, and start Defender on clones only after each final hostname is set. It also adds onboarding and health verification steps and calls for protecting the tenant-specific onboarding file.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-06-wait-for-cloud-init-to-finish-provisioning-including-setting-the-hostname-15"
+          "title": "KSPM recommendations shift from running containers to workload controllers",
+          "detail": "Starting October 5, 2026, KSPM misconfiguration recommendations align with Kubernetes workload controllers instead of individual running container instances. This changes where administrators locate and triage findings.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-06-release-notes-07"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T19:32:22.848Z",
+      "generatedAt": "2026-10-06T23:48:13.629Z",
       "usage": {
-        "inputTokens": 4013,
-        "outputTokens": 9502,
-        "costUsd": 0.012205
+        "inputTokens": 4149,
+        "outputTokens": 5148,
+        "costUsd": 0.007007
       }
     }
   },
@@ -9282,54 +9282,54 @@
       }
     },
     "2026-10": {
-      "headline": "Identity inventory auto-enables October 15 as detection guidance splits by source",
-      "overview": "October was mostly maintenance—72 updated entries versus two new ones—but several changes carry direct operational weight. Defender for Cloud Apps is moving Identity inventory from opt-in to automatic enablement for eligible tenants on October 15, 2026. Defender for Office 365 is rolling out promotional-mail tagging and folder handling, while updated Defender XDR guidance separates Sentinel-only custom-detection scheduling from Defender XDR lookback behavior. Identity licensing and Linux golden-image procedures also received concrete deployment guidance.",
-      "adminImpact": "Eligible Defender for Cloud Apps tenants should account for automatic Identity inventory activation on October 15 and review the documented exclusions. Before changing custom detections, verify the data source and resulting lookback coverage. Confirm that an active license including Microsoft Defender for Identity is present before relying on automatic sensor activation or Windows auditing. For Linux golden images, keep `mdatp` stopped during image creation, start it only after each clone receives its final hostname, complete onboarding and health checks, and protect tenant-specific onboarding files. For promotional mail, administrators control the setting while users can customize behavior through message moves.",
+      "headline": "Cloud Apps Identity inventory moves to automatic enablement for eligible tenants",
+      "overview": "The clearest operational change is the scheduled move of the Defender for Cloud Apps Identity inventory integration from opt-in to automatic enablement on October 15, 2026, subject to documented exclusions. Defender for Office 365 is also rolling out promotional-mail tagging and folder handling, while Defender XDR guidance now separates Sentinel-only custom-detection scheduling from Defender XDR lookback behavior. Most remaining updates were maintenance, with the strongest administrator guidance covering Linux golden-image onboarding and Defender for Identity licensing prerequisites.",
+      "adminImpact": "Cloud Apps administrators should review the documented exclusion conditions and account for automatic activation in eligible tenants from October 15. Detection authors should verify the data source and lookback coverage; Linux image owners should sequence Defender startup after final hostname assignment and protect tenant-specific onboarding files; Identity administrators must verify an active Defender for Identity license before relying on automatic sensor activation or Windows auditing.",
       "keyChanges": [
         {
-          "title": "Identity inventory moves from opt-in to automatic enablement",
-          "detail": "Defender for Cloud Apps release notes state that the Identity inventory integration will become automatically enabled starting October 15, 2026, for eligible tenants that do not use the listed excluded configurations. Eligible tenants may receive the integration without opting in.",
+          "title": "Cloud Apps Identity inventory integration switches from opt-in to automatic",
+          "detail": "Starting October 15, 2026, the integration will be enabled automatically for eligible tenants that do not use the listed excluded configurations. Administrators should account for activation without an opt-in step in those tenants.",
           "product": "Defender for Cloud Apps",
           "sourceId": "doc-2026-10-05-release-notes-03"
         },
         {
-          "title": "Promotional mail gains tagging and Promotions-folder handling",
-          "detail": "Defender for Office 365 will tag promotional messages as `promotions`, can automatically move them to a Promotions folder, and learn from user actions. Microsoft says public preview began in mid-April 2026 and general rollout completes by late 2026; administrators control the settings and users can customize behavior through message moves.",
+          "title": "Defender for Office 365 rollout tags promotional mail and learns from moves",
+          "detail": "Promotional emails will be tagged as “promotions” and can be moved automatically to a Promotions folder, with the system learning from user actions. Public preview starts in mid-April 2026 and general rollout is scheduled to complete by late 2026; administrators control the settings and users can customize handling by moving messages.",
           "product": "Defender for Office 365",
           "sourceId": "MC1279093"
         },
         {
-          "title": "Custom detection scheduling now depends on the data source",
-          "detail": "Updated Defender XDR guidance says custom frequency from 5 minutes to 14 days applies only to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days.",
+          "title": "Custom detection scheduling now distinguishes Sentinel and Defender XDR data",
+          "detail": "Custom frequency from 5 minutes to 14 days is limited to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days, so authors should verify the data source and expected coverage.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-04-custom-detection-rules-11"
         },
         {
-          "title": "Automatic Identity sensor activation requires Defender for Identity licensing",
-          "detail": "The updated activation guidance states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview.",
-          "product": "Defender for Identity",
-          "sourceId": "doc-2026-10-06-activate-sensor-16"
+          "title": "Linux golden-image onboarding adds hostname-safe startup sequencing",
+          "detail": "The deployment procedure says to embed the tenant-specific onboarding file in the image, keep `mdatp` stopped during image creation, and start Defender on clones only after each final hostname is set. It also adds onboarding and health checks and calls for protecting tenant-specific onboarding files to prevent copied device identity state or incorrect hostnames.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-10-06-wait-for-cloud-init-to-finish-provisioning-including-setting-the-hostname-15"
         },
         {
-          "title": "Linux golden-image onboarding now requires delayed Defender startup",
-          "detail": "The deployment procedure explains how to embed a tenant-specific onboarding file in a golden image while keeping `mdatp` stopped during image creation. Defender should start on clones only after their final hostname is set, followed by onboarding and health verification; the onboarding file must be protected.",
-          "product": "Defender for Endpoint",
-          "sourceId": "doc-2026-10-06-wait-for-cloud-init-to-finish-provisioning-including-setting-the-hostname-15"
+          "title": "Identity sensor activation guidance adds an active-license prerequisite",
+          "detail": "The activation guidance now states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview.",
+          "product": "Microsoft Defender for Identity",
+          "sourceId": "doc-2026-10-06-activate-sensor-16"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T19:32:22.848Z",
+      "generatedAt": "2026-10-06T23:48:13.629Z",
       "usage": {
-        "inputTokens": 6340,
-        "outputTokens": 6774,
-        "costUsd": 0.009397
+        "inputTokens": 6247,
+        "outputTokens": 6403,
+        "costUsd": 0.008933
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-06T19:32:22.848Z",
+  "generatedAt": "2026-10-06T23:48:13.629Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9414,22 +9414,22 @@
       "costUsd": 0.026091
     },
     "2026-10-06": {
-      "inputTokens": 26053,
-      "outputTokens": 53573,
-      "requests": 6,
-      "costUsd": 0.069498
+      "inputTokens": 40031,
+      "outputTokens": 70956,
+      "requests": 9,
+      "costUsd": 0.093153
     }
   },
   "lastRun": {
-    "inputTokens": 13788,
-    "outputTokens": 28192,
+    "inputTokens": 13978,
+    "outputTokens": 17383,
     "requests": 3,
-    "costUsd": 0.036588
+    "costUsd": 0.023655
   },
   "totalUsage": {
-    "inputTokens": 331114,
-    "outputTokens": 348871,
-    "requests": 84,
-    "costUsd": 0.484867
+    "inputTokens": 345092,
+    "outputTokens": 366254,
+    "requests": 87,
+    "costUsd": 0.508522
   }
 }

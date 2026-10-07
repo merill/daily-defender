@@ -547,19 +547,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-xdr/virus-initiative-criteria.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/virus-initiative-criteria.md b/defender-xdr/virus-initiative-criteria.md\nindex 3231269..03abf48 100644\n--- a/defender-xdr/virus-initiative-criteria.md\n+++ b/defender-xdr/virus-initiative-criteria.md\n@@ -41,7 +41,7 @@ spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ade36b61-c646-4bd8-87ee-f3a843461962\n-platformId: 7f407783-4057-51c3-a8a4-6315e439adf9\n+platformId: 2d79a272-a393-44ec-97ab-fbb4d2b413d2\n ---\n \n # Microsoft Virus Initiative - Microsoft Defender XDR | Microsoft Learn\n@@ -73,7 +73,7 @@ To be considered for the MVI program, your organization must meet all the follow\n | [MRG Effitas](https://www.mrg-effitas.com/) | 360 Assessment and Certification | Level 2 |\r\n | [SE Labs](https://selabs.uk/en/reports/) | Endpoint Security (EPS) or Enterprise Advanced Security (EAS) | AAA |\r\n | [SKD Labs](https://www.skdlabs.com/html/english/) | Starcheck Anti-malware Real-time protection and cleaning | Starcheck Certified |\r\n-| [VB 100](https://www.virusbulletin.com/testing/vb100/vb100-methodology/vb100-methodology-ver1-1) | VB100 | Detection rate of 95% with Grade C or higher |\r\n+| [VB 100](https://www.virusbulletin.com/testing/vb100/vb100-methodology/vb100-methodology-ver1-1) | VB100 | Detection rate of 95% with Grade B or higher |\r\n | [West Coast Labs](https://www.westcoastlabs.com/wclvalid) | WCL Validated for Malware Detection and Malware Remediation technologies | Product Rating A |\r\n \r\n ## Apply now\r\n",
+      "baseCommitSha": "2143211c6cd03d3bebbd8403e3a45ad96627da58",
+      "commitSha": "adbe149ba2776bf3ab953b07d63e909b11351141",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 23:14:45 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/virus-initiative-criteria.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/virus-initiative-criteria",
+      "eventId": "defender-docs:adbe149ba2776bf3ab953b07d63e909b11351141:modified:defender-xdr/virus-initiative-criteria.md",
+      "firstSeenAt": "2026-10-06T23:48:05.506Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "VB100 criterion now requires Grade B or higher",
+        "summary": "The virus initiative criteria page updates its VB100 entry from Grade C or higher to Grade B or higher for a 95% detection rate. Its platform identifier was also updated.",
+        "adminImpact": "Administrators reviewing VB100 criteria should use the updated Grade B-or-higher requirement. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 2,
-    "totalFiles": 21,
+    "totalCommits": 3,
+    "totalFiles": 22,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 1 new, 20 updated, and 0 removed Microsoft Defender documentation files across 7 documentation areas.",
+    "overview": "Today's report includes 1 new, 21 updated, and 0 removed Microsoft Defender documentation files across 8 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -630,6 +656,14 @@
         "sourceFiles": [
           "exposure-management/create-github-connector.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The virus initiative criteria page updates its VB100 entry from Grade C or higher to Grade B or higher for a 95% detection rate. Its platform identifier was also updated.",
+        "sourceFiles": [
+          "defender-xdr/virus-initiative-criteria.md"
+        ]
       }
     ],
     "highlights": [
@@ -667,6 +701,11 @@
         "category": "Doc update",
         "headline": "Exposure Management",
         "detail": "The instructions now direct administrators to Agentic code scanning management, select Add another under Source code environment, and choose Azure DevOps. Connector naming remains optional."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The virus initiative criteria page updates its VB100 entry from Grade C or higher to Grade B or higher for a 95% detection rate. Its platform identifier was also updated."
       }
     ],
     "generatedBy": "fallback"
