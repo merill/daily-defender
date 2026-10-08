@@ -7329,6 +7329,52 @@
         "outputTokens": 5832,
         "costUsd": 0.007715
       }
+    },
+    "2026-10-08": {
+      "headline": "Server-security guidance details unified Defender for Endpoint and Defender for Servers workflows",
+      "overview": "Most updates were documentation maintenance, but the server material now describes a combined Microsoft Defender portal experience for Azure and on-premises servers and makes server offboarding consequences explicit. Endpoint support collection guidance received a substantial procedural rewrite, while Sentinel normalization references and Exposure Management connector setup instructions were also refreshed.",
+      "adminImpact": "Review capability requirements for the unified server experience; existing Defender for Endpoint servers require no onboarding, reinstallation, or migration. Treat disabling Defender for Servers for Azure subscriptions in public preview as an offboarding action, while switching from Plan 2 to Plan 1 does not trigger automatic offboarding; use the subscription plan control. For support collection, select binary or Python Live Response actions based on the listed prerequisites, utilities, and HTTPS access, or use the local workflow when Microsoft endpoint access is unavailable.",
+      "keyChanges": [
+        {
+          "title": "Combined server workflows span inventory, investigations, hunting, and access controls",
+          "detail": "Updated Endpoint guidance describes bringing Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers. It covers server asset views, investigations, hunting, RBAC, and device groups, and states that existing Defender for Endpoint servers need no onboarding, reinstallation, or migration.",
+          "product": "Endpoint and Defender for Cloud",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
+        },
+        {
+          "title": "Server-plan guidance spells out automatic offboarding and the Plan 2 exception",
+          "detail": "The updated offboarding material ties automatic removal of eligible servers to disabling Defender for Servers, directs administrators to use the subscription plan control rather than delete the Azure environment connection, and allows up to one hour for large subscriptions. Companion plan guidance records that switching from Plan 2 to Plan 1 does not automatically offboard servers.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-08-offboard-machines-03"
+        },
+        {
+          "title": "Collect Support Log procedures move to self-contained Live Response actions",
+          "detail": "The revised guidance replaces manual analyzer downloads with binary or Python Live Response action pairs. It adds package validation, workspace-ID handoff, explicit prerequisites, and HTTPS requirements, while providing a local workflow for devices without Microsoft endpoint access. Binary actions do not require Python; Python actions do.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-08-troubleshoot-collect-support-log-04"
+        },
+        {
+          "title": "Sentinel normalization references add AgentEvent and AssetEntity mappings",
+          "detail": "The normalization reference now adds AgentEvent and AssetEntity entries, revises the ProcessEvent listing, and changes parser examples to show explicit parameter-to-column mappings. Several examples also include fields such as `pack` and `disabled`, which matters when reviewing normalized queries or custom parser compatibility.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-08-normalization-about-workspace-parsers-11"
+        },
+        {
+          "title": "Exposure Management connector setup routes through Agentic code scanning management",
+          "detail": "The updated Azure DevOps guide sends administrators to Agentic code scanning management, then to Add another beside Source code environment and the Azure DevOps connector flow. The corresponding GitHub instructions likewise update the source selection to GitHub for that connector.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-10-08-create-azure-devops-connector-08"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-08T00:12:37.064Z",
+      "usage": {
+        "inputTokens": 2661,
+        "outputTokens": 5886,
+        "costUsd": 0.007595
+      }
     }
   },
   "weeks": {
@@ -8869,49 +8915,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Cloud Apps’ Identity inventory integration becomes automatic October 15 for eligible tenants",
-      "overview": "The week included a scheduled enablement change, a new Defender for Identity sensor activation path, scoped Defender for Storage scanning, expanded Teams reporting, and a KSPM recommendation model change. Most remaining updates refined setup guidance, terminology, or page structure.",
-      "adminImpact": "Cloud Apps administrators should review the documented exclusion conditions before October 15. Identity teams should verify the Windows Server and licensing requirements for sensor v3.x activation; Storage teams can use REST filters to narrow scans; Teams administrators should account for meeting and participant reports; and KSPM operators should locate findings on workload controllers rather than individual running containers.",
+      "headline": "Unified Defender server security joins Defender for Endpoint and Defender for Servers without migration",
+      "overview": "The material is mostly guidance maintenance, but five changes carry operational weight: a combined server-security experience, explicit Defender for Servers offboarding behavior, a standalone Defender for Identity sensor v3.x path, expanded Teams reporting, and automatic Cloud Apps Identity inventory enablement on October 15.",
+      "adminImpact": "Review the combined server experience and the consequences of disabling Defender for Servers. Check operating-system eligibility and licensing before using the sensor v3.x activation path, prepare workflows for Teams meeting reports, and review Cloud Apps tenant exclusions before automatic enablement begins.",
       "keyChanges": [
         {
-          "title": "Cloud Apps moves Identity inventory integration from opt-in to automatic enablement",
-          "detail": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations. Those tenants may receive the integration without opting in.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-10-05-release-notes-03"
+          "title": "Unified server security experience",
+          "detail": "The Microsoft Defender portal brings Defender for Endpoint and Defender for Servers together for Azure and on-premises servers, with shared server asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should review capability requirements before changing configuration.",
+          "product": "Defender for Endpoint and Defender for Servers",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
         },
         {
-          "title": "Sensor v3.x activation without Defender for Endpoint is documented for eligible domain controllers",
-          "detail": "The updated Identity guidance adds activation without Defender for Endpoint for new sensor v3.x deployments on eligible Windows Server 2019 or later domain controllers. Automatic activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity.",
-          "product": "Identity",
+          "title": "Sensor v3.x activation without Defender for Endpoint",
+          "detail": "The updated Defender for Identity guidance documents activation for new sensor v3.x deployments on eligible Windows Server 2019 or later domain controllers without Defender for Endpoint. Automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity.",
+          "product": "Defender for Identity",
           "sourceId": "doc-2026-10-06-whats-new-19"
         },
         {
-          "title": "Defender for Storage supports targeted on-demand malware scans",
-          "detail": "On-demand malware scanning can target individual blobs or files, containers or file shares, or objects matching a path prefix through REST API filters. Without filters, the scan covers the entire storage account.",
+          "title": "Defender for Servers plan changes have explicit offboarding outcomes",
+          "detail": "For Azure subscriptions in public preview, disabling Defender for Servers automatically offboards eligible servers. Changing from Plan 2 to Plan 1 does not trigger automatic offboarding.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-05-release-notes-05"
+          "sourceId": "doc-2026-10-08-tutorial-enable-servers-plan-07"
         },
         {
-          "title": "Defender for Office 365 reporting now covers Teams meetings and participants",
-          "detail": "Users can report scheduled or Meet now Microsoft Teams meetings, or individual meeting participants, as security concerns during or after the meeting. Security teams should account for these reports in their handling workflows.",
-          "product": "Office 365",
+          "title": "Teams reporting expands to meetings and participants",
+          "detail": "Defender for Office 365 guidance now covers users reporting scheduled or Meet now Teams meetings, as well as individual meeting participants, as security concerns during or after the meeting. Administrators should account for these reports in security-report handling processes.",
+          "product": "Defender for Office 365",
           "sourceId": "doc-2026-10-06-defender-for-office-365-whats-new-08"
         },
         {
-          "title": "KSPM recommendations shift from running containers to workload controllers",
-          "detail": "Starting October 5, 2026, KSPM misconfiguration recommendations align with Kubernetes workload controllers instead of individual running container instances. This changes where administrators locate and triage findings.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-06-release-notes-07"
+          "title": "Cloud Apps Identity inventory moves to automatic enablement",
+          "detail": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T23:48:13.629Z",
+      "generatedAt": "2026-10-08T00:12:37.064Z",
       "usage": {
-        "inputTokens": 4149,
-        "outputTokens": 5148,
-        "costUsd": 0.007007
+        "inputTokens": 5879,
+        "outputTokens": 6132,
+        "costUsd": 0.008534
       }
     }
   },
@@ -9282,65 +9328,59 @@
       }
     },
     "2026-10": {
-      "headline": "Cloud Apps Identity inventory moves to automatic enablement for eligible tenants",
-      "overview": "The clearest operational change is the scheduled move of the Defender for Cloud Apps Identity inventory integration from opt-in to automatic enablement on October 15, 2026, subject to documented exclusions. Defender for Office 365 is also rolling out promotional-mail tagging and folder handling, while Defender XDR guidance now separates Sentinel-only custom-detection scheduling from Defender XDR lookback behavior. Most remaining updates were maintenance, with the strongest administrator guidance covering Linux golden-image onboarding and Defender for Identity licensing prerequisites.",
-      "adminImpact": "Cloud Apps administrators should review the documented exclusion conditions and account for automatic activation in eligible tenants from October 15. Detection authors should verify the data source and lookback coverage; Linux image owners should sequence Defender startup after final hostname assignment and protect tenant-specific onboarding files; Identity administrators must verify an active Defender for Identity license before relying on automatic sensor activation or Windows auditing.",
+      "headline": "Promotional-mail controls and unified server security headline October Defender changes",
+      "overview": "Defender for Office 365 promotional-mail handling is the clearest tenant-facing behavior change: promotional messages will be tagged “promotions,” can be moved automatically to a Promotions folder, and can learn from user actions. Microsoft also documented a combined Defender for Endpoint and Defender for Servers experience without migration for existing Endpoint servers, while custom-detection timing now varies by data source. Defender for Cloud Apps Identity inventory is slated to become automatic for eligible tenants on October 15, and Defender for Servers offboarding outcomes are now explicit. Most remaining entries were documentation cleanup or reference maintenance.",
+      "adminImpact": "Review promotional-mail controls because administrators control the settings and user moves can influence handling. Existing Defender for Endpoint servers do not require onboarding, reinstallation, or migration for the combined server experience. For custom detections, verify the data source and expected lookback. Account for automatic Identity inventory enablement in eligible tenants and understand the different offboarding outcomes when disabling Defender for Servers versus moving from Plan 2 to Plan 1.",
       "keyChanges": [
         {
-          "title": "Cloud Apps Identity inventory integration switches from opt-in to automatic",
-          "detail": "Starting October 15, 2026, the integration will be enabled automatically for eligible tenants that do not use the listed excluded configurations. Administrators should account for activation without an opt-in step in those tenants.",
-          "product": "Defender for Cloud Apps",
-          "sourceId": "doc-2026-10-05-release-notes-03"
-        },
-        {
-          "title": "Defender for Office 365 rollout tags promotional mail and learns from moves",
-          "detail": "Promotional emails will be tagged as “promotions” and can be moved automatically to a Promotions folder, with the system learning from user actions. Public preview starts in mid-April 2026 and general rollout is scheduled to complete by late 2026; administrators control the settings and users can customize handling by moving messages.",
+          "title": "Promotional mail gains a Promotions label and automatic folder handling",
+          "detail": "Microsoft’s rollout notice says Defender for Office 365 will tag promotional email as “promotions,” optionally move it to a Promotions folder, and learn from user actions. The notice places public preview in mid-April 2026 and general rollout completion in late 2026; administrators control the settings and users can customize handling by moving messages.",
           "product": "Defender for Office 365",
           "sourceId": "MC1279093"
         },
         {
-          "title": "Custom detection scheduling now distinguishes Sentinel and Defender XDR data",
-          "detail": "Custom frequency from 5 minutes to 14 days is limited to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days, so authors should verify the data source and expected coverage.",
-          "product": "Defender XDR",
+          "title": "Defender for Endpoint and Defender for Servers are presented in one server experience",
+          "detail": "The updated experience brings Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers, including shared server views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should review capability requirements before changing configuration.",
+          "product": "Defender for Endpoint and Defender for Servers",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
+        },
+        {
+          "title": "Custom detection timing now depends on the data source",
+          "detail": "Custom frequency from 5 minutes to 14 days is available only for rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days. Check the data source and expected coverage when creating or reviewing rules.",
+          "product": "Defender XDR custom detections",
           "sourceId": "doc-2026-10-04-custom-detection-rules-11"
         },
         {
-          "title": "Linux golden-image onboarding adds hostname-safe startup sequencing",
-          "detail": "The deployment procedure says to embed the tenant-specific onboarding file in the image, keep `mdatp` stopped during image creation, and start Defender on clones only after each final hostname is set. It also adds onboarding and health checks and calls for protecting tenant-specific onboarding files to prevent copied device identity state or incorrect hostnames.",
-          "product": "Microsoft Defender for Endpoint",
-          "sourceId": "doc-2026-10-06-wait-for-cloud-init-to-finish-provisioning-including-setting-the-hostname-15"
+          "title": "Cloud Apps Identity inventory moves from opt-in to automatic enablement",
+          "detail": "Starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations. Eligible tenants may receive the integration without opting in.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
         },
         {
-          "title": "Identity sensor activation guidance adds an active-license prerequisite",
-          "detail": "The activation guidance now states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview.",
-          "product": "Microsoft Defender for Identity",
-          "sourceId": "doc-2026-10-06-activate-sensor-16"
+          "title": "Defender for Servers plan changes carry different offboarding outcomes",
+          "detail": "The updated Defender for Cloud guidance states that disabling Defender for Servers for Azure subscriptions in public preview automatically offboards eligible servers. Switching from Plan 2 to Plan 1 does not trigger automatic offboarding.",
+          "product": "Defender for Cloud — Defender for Servers",
+          "sourceId": "doc-2026-10-08-tutorial-enable-servers-plan-07"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T23:48:13.629Z",
+      "generatedAt": "2026-10-08T00:12:37.064Z",
       "usage": {
-        "inputTokens": 6247,
-        "outputTokens": 6403,
-        "costUsd": 0.008933
+        "inputTokens": 6276,
+        "outputTokens": 7478,
+        "costUsd": 0.010229
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-06T23:48:13.629Z",
+  "generatedAt": "2026-10-08T00:12:37.064Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-02": {
-      "inputTokens": 7605,
-      "outputTokens": 8590,
-      "requests": 6,
-      "costUsd": 0.011829
-    },
     "2026-09-03": {
       "inputTokens": 11484,
       "outputTokens": 14560,
@@ -9418,18 +9458,24 @@
       "outputTokens": 70956,
       "requests": 9,
       "costUsd": 0.093153
+    },
+    "2026-10-08": {
+      "inputTokens": 14816,
+      "outputTokens": 19496,
+      "requests": 3,
+      "costUsd": 0.026358
     }
   },
   "lastRun": {
-    "inputTokens": 13978,
-    "outputTokens": 17383,
+    "inputTokens": 14816,
+    "outputTokens": 19496,
     "requests": 3,
-    "costUsd": 0.023655
+    "costUsd": 0.026358
   },
   "totalUsage": {
-    "inputTokens": 345092,
-    "outputTokens": 366254,
-    "requests": 87,
-    "costUsd": 0.508522
+    "inputTokens": 359908,
+    "outputTokens": 385750,
+    "requests": 90,
+    "costUsd": 0.53488
   }
 }
