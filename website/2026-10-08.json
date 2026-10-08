@@ -364,6 +364,32 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-office-365/quarantine-admin-manage-messages-files.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 10,
+      "changes": 14,
+      "patch": "diff --git a/defender-office-365/quarantine-admin-manage-messages-files.md b/defender-office-365/quarantine-admin-manage-messages-files.md\nindex 55fd05a..42f83e7 100644\n--- a/defender-office-365/quarantine-admin-manage-messages-files.md\n+++ b/defender-office-365/quarantine-admin-manage-messages-files.md\n@@ -17,13 +17,13 @@ ms.collection:\n - m365-security\n - tier1\n ms.custom:\n-- msecd-doc-authoring-1016\n+- msecd-doc-authoring-1030\n - seo-marvel-apr2020\n - sfi-ga-nochange\n - sfi-image-nochange\n description: Admins can learn how to view and manage quarantined messages for all users in Microsoft 365 organizations with cloud mailboxes. Admins in organizations with Microsoft Defender for Office 365 can also manage quarantined files in SharePoint, OneDrive, and Microsoft Teams.\n ms.service: defender-office-365\n-ms.date: 2026-08-31T00:00:00.0000000Z\n+ms.date: 2026-10-07T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 63f8cdbb-7429-da44-41cb-c85bb9f27e99\n@@ -429,10 +429,7 @@ After you select the message, use either of the following methods to preview it:\n - **On the Email tab**: Select ![](media/defender-portal-icon-preview-message.png)**Preview message**.\r\n - **In the details flyout of the selected message**: Select ![](media/defender-portal-icon-more-actions.png)**More options** &gt; ![](media/defender-portal-icon-preview-message.png)**Preview message**.\r\n \r\n-In the flyout that opens, choose one of the following tabs:\r\n-\r\n-- **Source**: Shows the HTML version of the message body with all links disabled.\r\n-- **Plain text**: Shows the message body in plain text.\r\n+In the flyout that opens, the **Source** tab shows the HTML version of the message body with all links disabled.\r\n \r\n #### View email message headers\r\n \r\n@@ -902,10 +899,7 @@ After you select the Teams message, use either of the following methods to previ\n - **On the Teams messages tab**: Select ![](media/defender-portal-icon-preview-message.png)**Preview message**.\r\n - **In the details flyout of the selected message**: Select ![](media/defender-portal-icon-more-actions.png)![](media/defender-portal-icon-preview-message.png)**Preview message**.\r\n \r\n-In the flyout that opens, choose one of the following tabs:\r\n-\r\n-- **Source**: Shows the HTML version of the message body with all links disabled.\r\n-- **Plain text**: Shows the message body in plain text.\r\n+In the flyout that opens, the **Source** tab shows the HTML version of the message body with all links disabled.\r\n \r\n #### Submit Teams messages to Microsoft for review from quarantine\r\n \r\n",
+      "baseCommitSha": "2a68b13d35976e5cc0bb2d8d1dd0f18438a6273f",
+      "commitSha": "83a97df042db3c26b0207a50f6084623171015b3",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-08 19:25:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/quarantine-admin-manage-messages-files.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/quarantine-admin-manage-messages-files",
+      "eventId": "defender-docs:83a97df042db3c26b0207a50f6084623171015b3:modified:defender-office-365/quarantine-admin-manage-messages-files.md",
+      "firstSeenAt": "2026-10-08T19:56:33.661Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Quarantine message instructions now focus on the Source tab",
+        "summary": "The instructions now state that the Source tab displays the message body as HTML with links disabled. The separate Plain text tab description was removed, and the metadata date was updated.",
+        "adminImpact": "Administrators reviewing quarantined messages should use the Source tab guidance when inspecting message content.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -447,14 +473,14 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 14,
+    "totalCommits": 2,
+    "totalFiles": 15,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "overview": "Today's report includes 0 new, 15 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Public preview",
@@ -497,6 +523,14 @@
           "sentinel/normalization-parsers-list.md",
           "sentinel/normalization-schema-process-event.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The instructions now state that the Source tab displays the message body as HTML with links disabled. The separate Plain text tab description was removed, and the metadata date was updated.",
+        "sourceFiles": [
+          "defender-office-365/quarantine-admin-manage-messages-files.md"
+        ]
       }
     ],
     "highlights": [
@@ -519,6 +553,11 @@
         "category": "Doc update",
         "headline": "Microsoft Sentinel",
         "detail": "The page adds an Email Event mapping to `_Im_EmailEvent`, updates the Process Event mapping to include `_Im_ProcessEvent`, and refreshes ontology links and the publication date. The documentation adds AgentEvent and AssetEntity entries, updates the ProcessEvent listing, and revises parser examples to show explicit parameter-to-column mappings. Several examples also include fields such as `pack` and `disabled`. The parser-management documentation updates custom unifying-function examples to pass `disabled=disabled` where supported, including AgentEvent and DNS parser examples, and adds or updates parser entries. The documentation now lists the `_Im_AgentEvent_AnthropicClaudeCompliance` parser"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The instructions now state that the Source tab displays the message body as HTML with links disabled. The separate Plain text tab description was removed, and the metadata date was updated."
       }
     ],
     "generatedBy": "fallback"
