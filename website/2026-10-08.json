@@ -367,7 +367,85 @@
     }
   ],
   "deletedFiles": [],
-  "messageCenterItems": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1490909",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-10-07",
+      "title": "Microsoft Defender Vulnerability Management: Private preview for selected developer package vulnerability coverage",
+      "summary": "Microsoft Defender Vulnerability Management is privately previewing expanded vulnerability coverage for selected Node.js, Python, and Java packages on Windows devices. It integrates with existing workflows, APIs, and exports, with rollout planned from September to December 2026. Organizations should prepare for increased data volume and validate integrations before enabling.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "vulnerabilities",
+        "name": "Vulnerabilities and exposure",
+        "icon": "/assets/topics/vulnerabilities.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1490909/",
+      "originalUrl": "https://mc.merill.net/message/MC1490909",
+      "body": "<p><b><b>What and Why:</b></b></p><p>Microsoft Defender Vulnerability Management is expanding vulnerability coverage to selected Node.js, Python, and Java packages on supported Microsoft Defender for Endpoint-managed Windows devices. During this private preview, participating customers can identify supported vulnerable packages, affected devices, and detected versions through existing vulnerability investigation and recommendation workflows. Package data may also become available through supported API, export, and Advanced Hunting experiences as those preview paths are enabled. The expanded coverage can increase the number of records returned through assessment APIs and complete-file exports. For JSON assessment exports, customers can use supported server-side filters to limit the returned population. Complete-file exports include the full enabled population, so customers can filter the downloaded files by ProductCategory or use the Microsoft-provided legacy component support list to preserve their previous processing scope where needed. This preview provides curated coverage rather than a complete package inventory. Coverage varies by package, platform, collector, and product experience. It does not provide SBOM, dependency graphs, reachability analysis, package ownership, or complete ecosystem coverage. Participants will receive enablement guidance, known limitations, test scenarios, and a dedicated feedback channel.</p><p><b><b>Rollout Schedule:</b></b></p><p>General Availability (Worldwide): We will begin rolling out on late November 2026 and expect to complete by late December 2026.</p><p>Public Preview (Worldwide): We will begin rolling out on late October 2026 and expect to complete by late November 2026.</p><p>Targeted Release (Worldwide): We will begin rolling out on late September 2026 and expect to complete by late October 2026.</p><p><b><b>Impact on Your Organization:</b></b></p><p></p><p>This feature expands vulnerability management coverage in Microsoft Security Exposure Management (MSEM) to include CVE exposure for a curated set of Node.js, Python, and Java packages on supported Windows devices onboarded to Microsoft Defender for Endpoint. These package findings will appear within existing experiences for software components, vulnerabilities, affected devices, and security recommendations, helping security teams identify developer-package exposure alongside the software and vulnerability information they already use.&nbsp;</p><p>For organizations that consume vulnerability data outside the portal, the expanded coverage may also affect assessment exports and downstream integrations. The preview introduces <code>ProductCategory</code> to help distinguish Applications, Components, and BIOS/firmware records, while JSON integrations can explicitly include the expanded component population. Complete-file exports for enabled tenants receive the full package population, so organizations should evaluate potential changes to file volume, ingestion, and downstream processing.</p><p>The initial preview has defined coverage boundaries. It is limited to Windows, and areas such as package-native identity, dependency relationships, ownership, SBOM, VEX, reachability, and affectedness are not included. Advanced Hunting remains available, but <code>ProductCategory</code> support in the relevant tables may not be enabled during the initial preview phase.</p><p><b><b>Action Required/Recommendations:</b></b></p><p></p><p></p><p>Before enablement, admins should identify the people, integrations, and workflows that may be affected by the expanded package population. This includes JSON and complete-file assessment exports, Delta integrations, Advanced Hunting queries and custom detections where applicable, as well as API-based extraction, dashboards, BI, SIEM, ITSM, and data-lake ingestion. Organizations should also capture a baseline of relevant workflows, including current file sizes, ingestion and processing times, so they can compare behavior before and after activation.&nbsp;</p><p>Admins should review each integration before opting in and validate that existing applications, components, queries, and downstream processes continue to behave as expected after enablement. For Delta integrations, a new baseline should be established when the included population changes. For complete-file exports, organizations that need to preserve their previous component population can use the Microsoft-provided Legacy Components Support List during ingestion.&nbsp;</p><p>Finally, organizations participating in the preview need an approved environment and enablement window, along with named practitioner, integration, and rollback contacts. Microsoft enables the bounded package population for the approved environment, after which the organization should run its assigned scenarios and report unexpected endpoint, data, query, or processing behavior.</p><p><b><b>Compliance considerations:</b></b></p><p>No compliance considerations identified. Review as appropriate for your organization.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-07T22:28:52Z",
+      "endDate": "2026-11-30T08:00:00Z",
+      "lastModifiedDateTime": "2026-10-07T22:28:59.297Z",
+      "version": "2026-10-07T22:28:59.297Z",
+      "eventId": "message-center:MC1490909:2026-10-07T22:28:59.297Z",
+      "firstSeenAt": "2026-10-08T08:56:33.545Z"
+    },
+    {
+      "id": "MC1490905",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-10-07",
+      "title": "Microsoft Defender for Office 365: Post-delivery protection for malicious QR codes in Microsoft Teams",
+      "summary": "Microsoft Defender for Office 365 extends Teams URL protection to detect malicious URLs in QR codes post-delivery, warning users and enabling security teams to investigate via Advanced Hunting. Rolling out worldwide from October to November 2026, no user action is required, but admins should review related settings and processes.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1490905/",
+      "originalUrl": "https://mc.merill.net/message/MC1490905",
+      "body": "<p><b><b>What and why</b></b></p><p>We're extending Microsoft Teams URL protection in Microsoft Defender for Office 365 to detect and respond to malicious URLs embedded in QR codes. As attackers increasingly use QR codes to conceal malicious destinations, this update helps protect users by analyzing URLs extracted from QR codes after message delivery and applying post-delivery protections when malicious content is identified.</p><p>For organizations using Microsoft Defender for Office 365, this enhancement builds on existing Teams URL protection capabilities and improves visibility for security operations teams investigating QR-code-based threats. Security teams will also be able to identify QR code URL detections in Advanced Hunting through the <b>MessageUrlInfo</b> table.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide):</b> Beginning in <b>early October 2026</b> and expected to complete by <b>early November 2026</b></li></ul><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Teams with Microsoft Defender for Office 365</li><li>Organizations using Microsoft Teams</li><li>Organizations licensed for Microsoft Defender for Office 365</li><li>Security operations teams that use Microsoft Defender XDR Advanced Hunting</li><li>Organizations that have Zero-hour Auto Purge (ZAP) for Teams enabled can receive additional protection for eligible internal messages</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Teams</li><li>Microsoft Defender for Office 365</li><li>Microsoft Defender XDR Advanced Hunting</li></ul><p><i>What will happen</i></p><ul><li>Teams messages containing QR codes will be analyzed after message delivery.</li><li>URLs extracted from QR codes will be evaluated for malicious content.</li><li>When a malicious URL is identified in an external conversation, users will see a warning on the affected Teams message.</li><li>When a malicious URL is identified in an internal conversation, users will see a warning on the affected Teams message.</li><li>Organizations with Microsoft Defender for Office 365 Plan 1 or Plan 2 and Teams ZAP enabled may have eligible malicious internal messages blocked through existing post-delivery protection mechanisms.</li><li>Security teams will gain visibility into QR code URL detections through Advanced Hunting.</li><li>URLs extracted from QR codes will appear with <b>QRCode</b> in the <b>UrlLocation</b> column of the <b>MessageUrlInfo</b> table.</li><li>The feature is enabled as part of existing Teams URL protection capabilities. No separate end-user configuration is required.</li></ul><p><i>Screenshot 1 - QR-code-blocking:</i></p><p></p><p><i>Screenshot 2 - QR-warning-protection:</i></p><p></p><p><i>Screenshot 3 - QR-Code Advanced Hunting:</i></p><p></p><p></p><p><b><b>Action required and recommendations</b></b></p><p>No action is required.</p><p>We recommend that administrators:</p><ul><li>Review existing Microsoft Defender for Office 365 Teams protection settings and Teams ZAP configuration to understand how blocking behavior applies in your organization.</li><li>Inform security operations teams that QR code URL detections will become available in Advanced Hunting.</li><li>Review your incident investigation and threat hunting processes to incorporate QR code detections where applicable.</li></ul><p><b>Learn more</b></p><ul><li><a href=\"https://learn.microsoft.com/defender-office-365/mdo-support-teams-about#configure-zap-for-teams-protection-in-defender-for-office-365\" rel=\"noopener noreferrer\">Configure ZAP for Teams protection in Defender for Office 365 - Microsoft Defender for Office 365 | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-office-365/zero-hour-auto-purge#zero-hour-auto-purge-zap-in-microsoft-teams\" rel=\"noopener noreferrer\">Zero-hour auto purge (ZAP) in Microsoft Teams - Zero-hour auto purge (ZAP) in Microsoft Defender for Office 365 - Microsoft Defender for Office 365 | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified, review as appropriate for your organization.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Feature update",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-07T22:26:20Z",
+      "endDate": "2026-12-02T08:00:00Z",
+      "lastModifiedDateTime": "2026-10-07T22:26:44.017Z",
+      "version": "2026-10-07T22:26:44.017Z",
+      "eventId": "message-center:MC1490905:2026-10-07T22:26:44.017Z",
+      "firstSeenAt": "2026-10-08T08:56:33.545Z"
+    }
+  ],
   "summary": {
     "totalCommits": 1,
     "totalFiles": 14,
