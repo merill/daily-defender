@@ -7377,25 +7377,49 @@
       }
     },
     "2026-10-09": {
-      "headline": "Sentinel normalization guidance clarifies disabled=false and conditional pack forwarding",
-      "overview": "A targeted Sentinel normalization update explains that the generated table sets `disabled=false` to enable custom parsers. It also advises forwarding `pack` only when the source-specific parser supports it.",
-      "adminImpact": "When creating or adapting custom unifying parser functions, review the declared parameters and confirm that `pack` is supported before forwarding it.",
+      "headline": "AI agent support matrix clarifies Defender for Endpoint’s activity-based discovery",
+      "overview": "The period’s most consequential administrator guidance concerns local AI agents in Microsoft Defender for Endpoint. A new support matrix covers supported agents, MCP server discovery, and runtime protection by operating system and configuration, while related pages clarify that discovery depends on observed activity. Sentinel also added specific custom-parser guidance. Most remaining updates—32 in Microsoft Security Exposure Management—were page-attribution maintenance.",
+      "adminImpact": "Use the AI agent support matrix to verify documented coverage, and interpret agent inventory as activity-based security context rather than a complete software inventory. An installed agent may not appear until it becomes active. For Sentinel custom parsers, review the generated table’s `disabled=false` setting and forward `pack` only when the source-specific parser supports it. No action is indicated for the attribution-only updates.",
       "keyChanges": [
         {
-          "title": "Custom parser settings and pack support are documented more precisely",
-          "detail": "The updated guidance identifies `disabled=false` as the value used to enable custom parsers and limits `pack` forwarding to source-specific parsers that support the parameter.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-10-09-normalization-manage-parsers-01"
+          "title": "New matrix separates AI agent support by operating system and configuration",
+          "detail": "A new Microsoft Defender for Endpoint article documents supported local AI agents, MCP server discovery, and runtime protection scenarios, with support listed separately by operating system and configuration. It also explains that discovery depends on observed agent activity.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-10-09-microsoft-defender-for-endpoint-ai-agent-support-matrix-microsoft-defender-for-endpoint-microsof-01"
+        },
+        {
+          "title": "Installed agents may remain absent until Defender observes activity",
+          "detail": "The local-agent guidance states that Defender lists an agent after observing activity on an onboarded device; installation alone does not guarantee discovery. It also says the inventory is not a complete software inventory, directing administrators to Software inventory for installed-software details and the support matrix for coverage.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-10-09-local-agent-discovery-overview-05"
+        },
+        {
+          "title": "Runtime protection guidance broadens inspection-point terminology",
+          "detail": "The AI Agent Runtime Protection overview now uses broader descriptions of inspection points, streamlines its explanations of agent-native and network inspection, updates discovery terminology, and removes the explicit event-point list and vendor links.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-10-09-ai-agent-runtime-protection-overview-03"
+        },
+        {
+          "title": "Sentinel parser guidance sets disabled=false and conditions pack forwarding",
+          "detail": "Normalization guidance now explains that the generated table sets `disabled=false` to enable custom parsers and advises forwarding `pack` only when the source-specific parser supports it. Review custom unifying parser functions for these parameter expectations.",
+          "product": "Microsoft Sentinel",
+          "sourceId": "doc-2026-10-09-normalization-manage-parsers-02"
+        },
+        {
+          "title": "Exposure Management updates largely change page attribution",
+          "detail": "A broad Microsoft Security Exposure Management sweep changed author metadata across connector, attack-surface, and vulnerability/exposure pages. For example, the OT data connectors page now credits DebLanger instead of limwainstein/lwainstein. These edits indicate no administrator action.",
+          "product": "Microsoft Security Exposure Management",
+          "sourceId": "doc-2026-10-09-ot-data-connectors-in-microsoft-security-exposure-management-microsoft-security-exposure-man-30"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-09T00:22:17.438Z",
+      "generatedAt": "2026-10-09T19:33:02.165Z",
       "usage": {
-        "inputTokens": 1023,
-        "outputTokens": 690,
-        "costUsd": 0.001033
+        "inputTokens": 5562,
+        "outputTokens": 3246,
+        "costUsd": 0.005008
       }
     }
   },
@@ -8937,49 +8961,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Unified server security brings Defender for Endpoint and Defender for Servers into one portal",
-      "overview": "The clearest operational shift this week is the combined Defender for Endpoint and Defender for Servers experience in the Microsoft Defender portal, covering Azure and on-premises servers. Other material changes include post-delivery Teams QR-code protection, a private preview for developer-package vulnerability coverage, clarified Defender for Servers offboarding behavior, and new Defender for Identity sensor v3.x onboarding guidance. The remaining updates largely refine setup paths, parser references, reporting procedures, and terminology.",
-      "adminImpact": "Server administrators should review the combined portal capabilities and the conditions that trigger automatic offboarding. Defender for Office 365 teams should account for reported or blocked Teams content in existing processes. Organizations participating in the vulnerability-management preview should prepare for increased data volume and validate integrations. Identity administrators should verify the required operating system, sensor version, and Defender for Identity licensing before using the new activation method.",
+      "headline": "Defender for Office 365 adds post-delivery protection for malicious Teams QR codes",
+      "overview": "The period was maintenance-heavy, with a large cluster of Exposure Management pages changing only author metadata. The substantive administrator-facing changes were a Teams QR-code protection rollout, a private package-vulnerability preview, an October 15 Cloud Apps enablement change, and clearer Defender for Servers and Defender for Endpoint lifecycle guidance.",
+      "adminImpact": "Review Teams protection and investigation processes ahead of the October–November rollout. Validate Vulnerability Management integrations before enabling the expanded package coverage, account for automatic Cloud Apps activation on October 15, and treat disabling Defender for Servers as an offboarding operation for eligible Azure servers. Existing Defender for Endpoint servers do not need re-onboarding for the unified server experience.",
       "keyChanges": [
         {
-          "title": "Defender for Endpoint and Defender for Servers share a unified server experience",
-          "detail": "The Microsoft Defender portal now brings together server asset views, investigations, hunting, RBAC, and device groups for Azure and on-premises servers. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should review capability requirements before changing configuration.",
-          "product": "Defender for Endpoint and Defender for Servers",
-          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
-        },
-        {
-          "title": "Teams QR-code protection adds post-delivery malicious-URL detection",
-          "detail": "Microsoft Defender for Office 365 is rolling out Teams URL protection that detects malicious URLs encoded in QR codes after delivery, warns users, and makes activity available for investigation through Advanced Hunting. Worldwide rollout is planned from October through November 2026.",
+          "title": "Teams QR codes gain post-delivery URL protection",
+          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and expose the activity for investigation through Advanced Hunting. Worldwide rollout is planned for October through November 2026; no user action is required, but administrators should review related settings and investigation processes.",
           "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Vulnerability Management previews coverage for selected developer packages",
-          "detail": "The private preview expands Microsoft Defender Vulnerability Management coverage for selected Node.js, Python, and Java packages on Windows devices. It integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026.",
-          "product": "Microsoft Defender Vulnerability Management",
+          "title": "Vulnerability Management previews coverage for developer packages",
+          "detail": "Microsoft Defender Vulnerability Management is privately previewing selected Node.js, Python, and Java package vulnerability coverage on Windows devices. The preview uses existing workflows, APIs, and exports, with rollout planned from September through December 2026; organizations should prepare for increased data volume and validate integrations before enabling it.",
+          "product": "Defender Vulnerability Management",
           "sourceId": "MC1490909"
         },
         {
-          "title": "Disabling Defender for Servers can automatically offboard eligible servers",
-          "detail": "For Azure subscriptions in public preview, disabling Defender for Servers automatically offboards eligible servers. Changing from Plan 2 to Plan 1 does not trigger automatic offboarding.",
+          "title": "Cloud Apps Identity inventory integration switches to automatic enablement October 15",
+          "detail": "The Defender for Cloud Apps integration with Identity inventory is scheduled to move from opt-in to automatic enablement on October 15, 2026, for eligible tenants that do not use the listed excluded configurations.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
+        },
+        {
+          "title": "Disabling Defender for Servers automatically offboards eligible servers",
+          "detail": "Updated Defender for Cloud guidance makes explicit that disabling Defender for Servers for Azure subscriptions in public preview automatically offboards eligible servers. Switching from Plan 2 to Plan 1 does not trigger automatic offboarding.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-08-tutorial-enable-servers-plan-07"
         },
         {
-          "title": "Defender for Identity documents sensor v3.x activation without Defender for Endpoint",
-          "detail": "The new guidance covers new sensor v3.x deployments on eligible Windows Server 2019 or later domain controllers without Defender for Endpoint. Automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity.",
-          "product": "Defender for Identity",
-          "sourceId": "doc-2026-10-06-whats-new-19"
+          "title": "Server guidance documents a unified Defender portal experience",
+          "detail": "Updated Defender for Endpoint guidance describes bringing Defender for Endpoint and Defender for Servers together for Azure and on-premises servers, with combined asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should still review capability requirements before changing configuration.",
+          "product": "Defender for Endpoint and Defender for Servers",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-09T00:22:17.438Z",
+      "generatedAt": "2026-10-09T19:33:02.165Z",
       "usage": {
-        "inputTokens": 6374,
-        "outputTokens": 4266,
-        "costUsd": 0.006394
+        "inputTokens": 9801,
+        "outputTokens": 6856,
+        "costUsd": 0.010187
       }
     }
   },
@@ -9350,54 +9374,54 @@
       }
     },
     "2026-10": {
-      "headline": "Unified server security brings Endpoint and Defender for Servers into one portal",
-      "overview": "October’s meaningful updates center on a unified server portal, post-delivery QR-code protection in Teams, and expanded vulnerability coverage that remains in private preview. The period also made custom-detection limits more data-source-specific and clarified when disabling Defender for Servers automatically offboards Azure servers. Most other activity was documentation maintenance involving terminology, links, formatting, and navigation.",
-      "adminImpact": "Review the combined server experience and its capability requirements; existing Defender for Endpoint servers require no onboarding, reinstallation, or migration. Add the Defender for Servers offboarding distinction to plan-change runbooks. Teams security teams should review related settings and investigation processes, while preview participants should prepare for increased vulnerability data and validate integrations. Detection authors should verify the data source and applicable lookback behavior.",
+      "headline": "Microsoft Defender brings server security together as Teams QR-code protection rolls out",
+      "overview": "October’s high-signal changes include expanded post-delivery protection for malicious QR codes in Teams, a private preview for developer-package vulnerability coverage, and clearer operational prerequisites and limits for Defender for Identity and Sentinel. The period was otherwise maintenance-heavy, including a substantial Exposure Management cluster consisting only of author-metadata updates.",
+      "adminImpact": "Review the combined server-experience capability requirements; existing Defender for Endpoint servers do not need onboarding, reinstallation, or migration. During the October–November Teams rollout, review related protection settings and investigation processes. Before enabling package vulnerability coverage, validate integrations and prepare for increased data volume. Verify that automatic Defender for Identity sensor activation and Windows auditing are backed by an active qualifying license, and apply the documented Sentinel lookback limits when configuring custom detections.",
       "keyChanges": [
         {
-          "title": "Endpoint and Defender for Servers now share a documented server experience",
-          "detail": "The updated guidance describes Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers, including server asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should review capability requirements before changing configuration.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
-        },
-        {
-          "title": "Teams URL protection expands to malicious QR codes after delivery",
-          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes post-delivery, warn users, and expose activity for investigation through Advanced Hunting. Worldwide rollout is planned for October through November 2026. No user action is required, but administrators should review related settings and processes.",
-          "product": "Defender for Office 365",
+          "title": "Teams protection expands to malicious QR-code URLs after delivery",
+          "detail": "Microsoft Defender for Office 365 is rolling out Teams URL protection that detects malicious URLs embedded in QR codes after delivery, warns users, and exposes investigations through Advanced Hunting. Worldwide rollout is planned from October through November 2026; no user action is required, but administrators should review related settings and security processes.",
+          "product": "Defender for Office 365 (Microsoft Teams)",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Developer-package vulnerability coverage enters private preview",
-          "detail": "Defender Vulnerability Management is privately previewing coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026. Participating organizations should prepare for increased data volume and validate integrations before enabling it.",
-          "product": "Defender Vulnerability Management",
+          "title": "Defender for Endpoint and Defender for Servers guidance describes a unified experience",
+          "detail": "The updated guidance covers a combined Microsoft Defender portal experience for Azure and on-premises servers, including server asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should review capability requirements before changing configuration.",
+          "product": "Defender for Endpoint / Defender for Servers",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
+        },
+        {
+          "title": "Vulnerability Management previews coverage for selected developer packages",
+          "detail": "A private preview expands Microsoft Defender Vulnerability Management coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026. Organizations should validate integrations and prepare for increased data volume before enabling it.",
+          "product": "Defender XDR — Defender Vulnerability Management",
           "sourceId": "MC1490909"
         },
         {
-          "title": "Custom-detection frequency and lookback now depend on data source",
-          "detail": "The revised guidance limits custom frequency from 5 minutes to 14 days to rules based exclusively on Microsoft Sentinel data. Rules using Defender XDR data use fixed lookback periods tied to run frequency, ranging from 4 hours to 30 days. Administrators should check the data source and expected coverage when creating or updating rules.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-10-04-custom-detection-rules-11"
+          "title": "Automatic Defender for Identity sensor activation requires a qualifying license",
+          "detail": "Updated guidance states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview. Administrators should verify licensing before relying on these automatic capabilities.",
+          "product": "Microsoft Defender for Identity",
+          "sourceId": "doc-2026-10-06-activate-sensor-16"
         },
         {
-          "title": "Disabling Defender for Servers can automatically offboard eligible Azure servers",
-          "detail": "The updated Defender for Cloud tutorial states that disabling Defender for Servers for Azure subscriptions in public preview automatically offboards eligible servers. Switching from Plan 2 to Plan 1 does not trigger automatic offboarding, so the distinction belongs in plan-change procedures.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-08-tutorial-enable-servers-plan-07"
+          "title": "Sentinel custom-detection guidance sets explicit lookback limits",
+          "detail": "The documentation now lists flexible and high-frequency support for Sentinel data. Lookback is limited to 48 hours for frequencies over one hour and to 14 days for frequencies of one hour or less; the lookback capability remains in public preview.",
+          "product": "Microsoft Sentinel — custom detections",
+          "sourceId": "doc-2026-10-04-compare-analytics-rules-custom-detections-12"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-09T00:22:17.438Z",
+      "generatedAt": "2026-10-09T19:33:02.165Z",
       "usage": {
-        "inputTokens": 6365,
-        "outputTokens": 8974,
-        "costUsd": 0.012042
+        "inputTokens": 5910,
+        "outputTokens": 5865,
+        "costUsd": 0.00822
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-09T00:22:17.438Z",
+  "generatedAt": "2026-10-09T19:33:02.165Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9482,22 +9506,22 @@
       "costUsd": 0.073691
     },
     "2026-10-09": {
-      "inputTokens": 13762,
-      "outputTokens": 13930,
-      "requests": 3,
-      "costUsd": 0.019468
+      "inputTokens": 35035,
+      "outputTokens": 29897,
+      "requests": 6,
+      "costUsd": 0.042883
     }
   },
   "lastRun": {
-    "inputTokens": 13762,
-    "outputTokens": 13930,
+    "inputTokens": 21273,
+    "outputTokens": 15967,
     "requests": 3,
-    "costUsd": 0.019468
+    "costUsd": 0.023415
   },
   "totalUsage": {
-    "inputTokens": 404344,
-    "outputTokens": 434012,
-    "requests": 99,
-    "costUsd": 0.601681
+    "inputTokens": 425617,
+    "outputTokens": 449979,
+    "requests": 102,
+    "costUsd": 0.625096
   }
 }
