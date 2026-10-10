@@ -7421,6 +7421,40 @@
         "outputTokens": 3246,
         "costUsd": 0.005008
       }
+    },
+    "2026-10-10": {
+      "headline": "SAP BTP application vulnerability findings and Netskope deprecation mark Sentinel reference updates",
+      "overview": "Sentinel’s updated connector references add coverage for SAP BTP application vulnerability findings, revise Corelight access requirements, and change the connector catalog by deprecating Netskope Web Transactions, removing older entries, and adding Snowflake V3 tables.",
+      "adminImpact": "For the documented SAP BTP connector, enable API access and create dedicated client credentials. Corelight deployments now need Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher. Review integrations, queries, and runbooks that reference deprecated Netskope tables or removed Snowflake V2, Okta, and SentinelOne entries.",
+      "keyChanges": [
+        {
+          "title": "SAP BTP vulnerability findings connector added to the reference",
+          "detail": "The Data Connectors Reference now lists a connector that ingests SAP BTP application vulnerability findings into Microsoft Sentinel. Using it requires API access and dedicated client credentials.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
+        },
+        {
+          "title": "Corelight access requirements now include Reader and Microsoft Graph",
+          "detail": "The updated reference lists Reader and Microsoft Graph access as required for Corelight deployments, in addition to Monitoring Metrics Publisher.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
+        },
+        {
+          "title": "Netskope Web Transactions is labeled deprecated",
+          "detail": "The Sentinel Tables Connectors Reference now marks the Netskope Web Transactions connector as deprecated and removes the Snowflake V2, Okta, and SentinelOne entries. It also adds new connectors and Snowflake V3 tables.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-10-sentinel-tables-connectors-reference-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-10T00:02:32.917Z",
+      "usage": {
+        "inputTokens": 1160,
+        "outputTokens": 1625,
+        "costUsd": 0.002182
+      }
     }
   },
   "weeks": {
@@ -8961,49 +8995,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Defender for Office 365 adds post-delivery protection for malicious Teams QR codes",
-      "overview": "The period was maintenance-heavy, with a large cluster of Exposure Management pages changing only author metadata. The substantive administrator-facing changes were a Teams QR-code protection rollout, a private package-vulnerability preview, an October 15 Cloud Apps enablement change, and clearer Defender for Servers and Defender for Endpoint lifecycle guidance.",
-      "adminImpact": "Review Teams protection and investigation processes ahead of the October–November rollout. Validate Vulnerability Management integrations before enabling the expanded package coverage, account for automatic Cloud Apps activation on October 15, and treat disabling Defender for Servers as an offboarding operation for eligible Azure servers. Existing Defender for Endpoint servers do not need re-onboarding for the unified server experience.",
+      "headline": "Teams QR-code protection expands while Defender previews package coverage and unifies servers",
+      "overview": "Three concrete capability moves stand out: Defender for Office 365 is rolling out post-delivery detection and warnings for malicious URLs in Teams QR codes worldwide during October and November; Defender Vulnerability Management is privately previewing selected Node.js, Python, and Java package vulnerability coverage on Windows; and new SubmissionEvents and SubmissionResults tables are scheduled for Public Preview in early October and general availability in late October. The period also documents a unified server-security experience for Defender for Endpoint and Defender for Servers, plus an October 15 switch to automatic Identity inventory enablement for eligible Defender for Cloud Apps tenants. Many remaining Exposure Management entries only change author metadata and carry no administrator action.",
+      "adminImpact": "Review Teams URL-protection settings and investigation processes; the QR-code rollout requires no user action. If enabling the package-vulnerability preview, validate API, export, and workflow integrations and prepare for increased data volume. Existing Defender for Endpoint servers need no onboarding, reinstallation, or migration for the combined server experience, but administrators should check capability requirements before changing configuration. Eligible Defender for Cloud Apps tenants should account for automatic Identity inventory activation on October 15. The email-submission tables require no immediate action.",
       "keyChanges": [
         {
-          "title": "Teams QR codes gain post-delivery URL protection",
-          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and expose the activity for investigation through Advanced Hunting. Worldwide rollout is planned for October through November 2026; no user action is required, but administrators should review related settings and investigation processes.",
+          "title": "Teams gains post-delivery protection for malicious QR-code URLs",
+          "detail": "Defender for Office 365 is extending Teams URL protection to malicious URLs embedded in QR codes after delivery. Users can receive warnings, while security teams can investigate through Advanced Hunting. Worldwide rollout is planned for October through November 2026; administrators should review related settings and processes.",
           "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Vulnerability Management previews coverage for developer packages",
-          "detail": "Microsoft Defender Vulnerability Management is privately previewing selected Node.js, Python, and Java package vulnerability coverage on Windows devices. The preview uses existing workflows, APIs, and exports, with rollout planned from September through December 2026; organizations should prepare for increased data volume and validate integrations before enabling it.",
+          "title": "Vulnerability Management previews selected developer-package coverage",
+          "detail": "The private preview adds selected Node.js, Python, and Java package vulnerability coverage on Windows devices and integrates the findings with existing workflows, APIs, and exports. Rollout is planned from September through December 2026; organizations enabling it should validate integrations and prepare for increased data volume.",
           "product": "Defender Vulnerability Management",
           "sourceId": "MC1490909"
         },
         {
-          "title": "Cloud Apps Identity inventory integration switches to automatic enablement October 15",
-          "detail": "The Defender for Cloud Apps integration with Identity inventory is scheduled to move from opt-in to automatic enablement on October 15, 2026, for eligible tenants that do not use the listed excluded configurations.",
-          "product": "Defender for Cloud Apps",
-          "sourceId": "doc-2026-10-05-release-notes-03"
+          "title": "Advanced Hunting gains dedicated email-submission tables",
+          "detail": "Defender for Office 365 is adding the SubmissionEvents and SubmissionResults tables to improve email-submission visibility and detection workflows. Public Preview begins in early October 2026 and General Availability begins in late October; Microsoft states that no immediate administrator action is required.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1484009"
         },
         {
-          "title": "Disabling Defender for Servers automatically offboards eligible servers",
-          "detail": "Updated Defender for Cloud guidance makes explicit that disabling Defender for Servers for Azure subscriptions in public preview automatically offboards eligible servers. Switching from Plan 2 to Plan 1 does not trigger automatic offboarding.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-08-tutorial-enable-servers-plan-07"
-        },
-        {
-          "title": "Server guidance documents a unified Defender portal experience",
-          "detail": "Updated Defender for Endpoint guidance describes bringing Defender for Endpoint and Defender for Servers together for Azure and on-premises servers, with combined asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should still review capability requirements before changing configuration.",
+          "title": "Defender portal guidance describes a combined server-security experience",
+          "detail": "An updated Defender for Endpoint page describes bringing Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers, including server asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should check capability requirements before changing configuration.",
           "product": "Defender for Endpoint and Defender for Servers",
           "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
+        },
+        {
+          "title": "Defender for Cloud Apps schedules automatic Identity inventory enablement",
+          "detail": "Release notes state that starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations. Those tenants may receive the integration without opting in.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "doc-2026-10-05-release-notes-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-09T19:33:02.165Z",
+      "generatedAt": "2026-10-10T00:02:32.917Z",
       "usage": {
-        "inputTokens": 9801,
-        "outputTokens": 6856,
-        "costUsd": 0.010187
+        "inputTokens": 9835,
+        "outputTokens": 6962,
+        "costUsd": 0.010321
       }
     }
   },
@@ -9374,65 +9408,59 @@
       }
     },
     "2026-10": {
-      "headline": "Microsoft Defender brings server security together as Teams QR-code protection rolls out",
-      "overview": "October’s high-signal changes include expanded post-delivery protection for malicious QR codes in Teams, a private preview for developer-package vulnerability coverage, and clearer operational prerequisites and limits for Defender for Identity and Sentinel. The period was otherwise maintenance-heavy, including a substantial Exposure Management cluster consisting only of author-metadata updates.",
-      "adminImpact": "Review the combined server-experience capability requirements; existing Defender for Endpoint servers do not need onboarding, reinstallation, or migration. During the October–November Teams rollout, review related protection settings and investigation processes. Before enabling package vulnerability coverage, validate integrations and prepare for increased data volume. Verify that automatic Defender for Identity sensor activation and Windows auditing are backed by an active qualifying license, and apply the documented Sentinel lookback limits when configuring custom detections.",
+      "headline": "Teams QR-code protection, unified servers and SAP BTP ingestion lead October",
+      "overview": "October combined several concrete Defender changes with a large amount of maintenance. Defender for Office 365 is rolling out post-delivery detection and warning for malicious URLs in Teams QR codes worldwide during October and November; Defender Vulnerability Management is privately previewing selected Node.js, Python, and Java package coverage on Windows; and updated Endpoint guidance describes a unified Defender for Endpoint and Defender for Servers experience for Azure and on-premises servers. Sentinel's connector reference adds SAP BTP application vulnerability findings, while Identity sensor guidance makes the active-license requirement explicit. Of 139 records, 132 were updates; representative Exposure Management entries largely changed only author metadata, making these capability and setup changes the main administrator-relevant exceptions.",
+      "adminImpact": "Review related Teams protection settings and investigation handling; the QR-code rollout requires no user action. If enabling the package-coverage preview, validate API, export, and workflow integrations and prepare for increased data volume. For SAP BTP ingestion, enable API access and create dedicated client credentials. Verify that the active license includes Microsoft Defender for Identity before relying on automatic sensor activation or automatic Windows auditing. Existing Defender for Endpoint servers need no onboarding, reinstallation, or migration, but administrators should review capability requirements before changing configuration. Most other October edits, including the Exposure Management author-metadata changes, require no action.",
       "keyChanges": [
         {
-          "title": "Teams protection expands to malicious QR-code URLs after delivery",
-          "detail": "Microsoft Defender for Office 365 is rolling out Teams URL protection that detects malicious URLs embedded in QR codes after delivery, warns users, and exposes investigations through Advanced Hunting. Worldwide rollout is planned from October through November 2026; no user action is required, but administrators should review related settings and security processes.",
-          "product": "Defender for Office 365 (Microsoft Teams)",
+          "title": "Teams QR-code URLs gain post-delivery malicious-link protection",
+          "detail": "Microsoft Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery, warn users, and expose the activity for investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026. Administrators should review related settings and investigation processes.",
+          "product": "Defender XDR",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Defender for Endpoint and Defender for Servers guidance describes a unified experience",
-          "detail": "The updated guidance covers a combined Microsoft Defender portal experience for Azure and on-premises servers, including server asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should review capability requirements before changing configuration.",
-          "product": "Defender for Endpoint / Defender for Servers",
-          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
-        },
-        {
-          "title": "Vulnerability Management previews coverage for selected developer packages",
-          "detail": "A private preview expands Microsoft Defender Vulnerability Management coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026. Organizations should validate integrations and prepare for increased data volume before enabling it.",
-          "product": "Defender XDR — Defender Vulnerability Management",
+          "title": "Selected developer packages enter Defender Vulnerability Management private preview",
+          "detail": "The private preview expands vulnerability coverage on Windows devices to selected Node.js, Python, and Java packages. It integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026. Organizations enabling it should validate integrations and prepare for increased data volume.",
+          "product": "Defender XDR",
           "sourceId": "MC1490909"
         },
         {
-          "title": "Automatic Defender for Identity sensor activation requires a qualifying license",
-          "detail": "Updated guidance states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview. Administrators should verify licensing before relying on these automatic capabilities.",
-          "product": "Microsoft Defender for Identity",
-          "sourceId": "doc-2026-10-06-activate-sensor-16"
+          "title": "Unified server security brings Endpoint and Servers views together",
+          "detail": "Updated guidance describes bringing Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers, including combined asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
         },
         {
-          "title": "Sentinel custom-detection guidance sets explicit lookback limits",
-          "detail": "The documentation now lists flexible and high-frequency support for Sentinel data. Lookback is limited to 48 hours for frequencies over one hour and to 14 days for frequencies of one hour or less; the lookback capability remains in public preview.",
-          "product": "Microsoft Sentinel — custom detections",
-          "sourceId": "doc-2026-10-04-compare-analytics-rules-custom-detections-12"
+          "title": "Sentinel adds SAP BTP application-vulnerability ingestion",
+          "detail": "The Data Connectors Reference now includes a connector that ingests SAP BTP application vulnerability findings into Microsoft Sentinel. Using it requires API access and dedicated client credentials. The same update says Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
+        },
+        {
+          "title": "Activate Sensor guidance ties automatic features to an active license",
+          "detail": "The updated Identity article states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview, so administrators should verify licensing before relying on these automatic capabilities.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-06-activate-sensor-16"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-09T19:33:02.165Z",
+      "generatedAt": "2026-10-10T00:02:32.917Z",
       "usage": {
-        "inputTokens": 5910,
-        "outputTokens": 5865,
-        "costUsd": 0.00822
+        "inputTokens": 6033,
+        "outputTokens": 8008,
+        "costUsd": 0.010816
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-09T19:33:02.165Z",
+  "generatedAt": "2026-10-10T00:02:32.917Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-04": {
-      "inputTokens": 30226,
-      "outputTokens": 22574,
-      "requests": 6,
-      "costUsd": 0.033134
-    },
     "2026-09-08": {
       "inputTokens": 10600,
       "outputTokens": 12532,
@@ -9510,18 +9538,24 @@
       "outputTokens": 29897,
       "requests": 6,
       "costUsd": 0.042883
+    },
+    "2026-10-10": {
+      "inputTokens": 17028,
+      "outputTokens": 16595,
+      "requests": 3,
+      "costUsd": 0.02332
     }
   },
   "lastRun": {
-    "inputTokens": 21273,
-    "outputTokens": 15967,
+    "inputTokens": 17028,
+    "outputTokens": 16595,
     "requests": 3,
-    "costUsd": 0.023415
+    "costUsd": 0.02332
   },
   "totalUsage": {
-    "inputTokens": 425617,
-    "outputTokens": 449979,
-    "requests": 102,
-    "costUsd": 0.625096
+    "inputTokens": 442645,
+    "outputTokens": 466574,
+    "requests": 105,
+    "costUsd": 0.648416
   }
 }
