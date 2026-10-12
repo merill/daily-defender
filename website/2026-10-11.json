@@ -1,0 +1,88 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md b/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md\nindex 50ba5bb..0d8da2a 100644\n--- a/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md\n+++ b/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md\n@@ -15,8 +15,8 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Configure File Integrity Monitoring in Microsoft Defender for Cloud. Use the Defender for Endpoint scanning to collect monitoring data.\n ms.topic: how-to\n-ms.date: 2026-07-03T00:00:00.0000000Z\n-ms.custom: sfi-image-nochange, msecd-doc-authoring-1013\n+ms.date: 2026-10-06T00:00:00.0000000Z\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1030\n ai-usage: ai-assisted\n locale: en-us\n document_id: 435e1a40-0037-f9fa-2c63-24b0e267705b\n@@ -61,7 +61,8 @@ Note\n - Install the [Defender for Endpoint](/en-us/defender-endpoint/microsoft-defender-endpoint) agent through the [Defender for Servers extensions](faq-defender-for-servers) on machines you want to monitor.\r\n - Connect non-Azure machines with [Azure Arc](/en-us/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).\r\n - Enable [agentless machine scanning](concept-agentless-data-collection) on your subscription to gain extra coverage and the ability to monitor custom paths.\r\n-- Have **Workspace owner** and **Security admin** permissions to enable and disable File Integrity Monitoring. **Security reader** permissions can view results.\r\n+- To enable, disable, or change the File Integrity Monitoring configuration, have the **Security Admin** and **Owner** roles on the subscription that contains the Log Analytics workspace.\r\n+- The **Security Reader** role can view results.\r\n \r\n ## Verify Defender for Endpoint client version\r\n \r\n",
+      "baseCommitSha": "80e194adf5b5801a218877fdeca03c78180bae61",
+      "commitSha": "179c288d6af54b43bf69606b0177acee4b3f2d5f",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-11 23:06:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint",
+      "eventId": "defender-docs:179c288d6af54b43bf69606b0177acee4b3f2d5f:modified:defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md",
+      "firstSeenAt": "2026-10-11T23:38:59.568Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updated File Integrity Monitoring role requirements",
+        "summary": "The documentation now specifies that Security Admin and Owner roles on the subscription containing the Log Analytics workspace are required to enable, disable, or change File Integrity Monitoring. Security Reader can view results.",
+        "adminImpact": "Review role assignments and subscription scope when granting File Integrity Monitoring access.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/release-notes.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-for-cloud/release-notes.md b/defender-for-cloud/release-notes.md\nindex 0d14cae..1e206ef 100644\n--- a/defender-for-cloud/release-notes.md\n+++ b/defender-for-cloud/release-notes.md\n@@ -73,14 +73,16 @@ The new Defender server security experience brings together cloud and endpoint d\n \r\n In the Microsoft Defender portal, you can:\r\n \r\n-- Review unified server inventory and combined cloud and endpoint details.\r\n+- Review the new server asset page with combined cloud and endpoint details.\r\n - Investigate servers across alerts, incidents, and the attack graph.\r\n - Use **Go hunt** to investigate related events.\r\n - Manage access with role-based access control (RBAC), server device groups, and cloud scopes.\r\n \r\n In Microsoft Defender for Cloud in the Azure portal, you can:\r\n \r\n-- Automatically offboard eligible servers from Defender for Endpoint by turning off Defender for Servers for the subscription.\r\n+- [Automatically offboard servers](/en-us/defender-endpoint/offboard-machines) from Defender for Endpoint by turning off Defender for Servers plan for the subscription.\r\n+\r\n+Learn more about [the new Defender server security experience](/en-us/defender-endpoint/azure-server-integration).\r\n \r\n ### KSPM misconfiguration recommendations moving to controller-level scope (GA)\r\n \r\n",
+      "baseCommitSha": "80e194adf5b5801a218877fdeca03c78180bae61",
+      "commitSha": "179c288d6af54b43bf69606b0177acee4b3f2d5f",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-11 23:06:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes",
+      "eventId": "defender-docs:179c288d6af54b43bf69606b0177acee4b3f2d5f:modified:defender-for-cloud/release-notes.md",
+      "firstSeenAt": "2026-10-11T23:38:59.572Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "New Defender server asset experience documented",
+        "summary": "The release notes now describe a new server asset page combining cloud and endpoint details, link to server offboarding guidance, and reference the new Defender server security experience.",
+        "adminImpact": "Administrators can use the updated guidance to review combined server information and find the offboarding procedure.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Cloud",
+        "summary": "The documentation now specifies that Security Admin and Owner roles on the subscription containing the Log Analytics workspace are required to enable, disable, or change File Integrity Monitoring. Security Reader can view results. The release notes now describe a new server asset page combining cloud and endpoint details, link to server offboarding guidance, and reference the new Defender server security experience.",
+        "sourceFiles": [
+          "defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint.md",
+          "defender-for-cloud/release-notes.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Cloud",
+        "detail": "The documentation now specifies that Security Admin and Owner roles on the subscription containing the Log Analytics workspace are required to enable, disable, or change File Integrity Monitoring. Security Reader can view results. The release notes now describe a new server asset page combining cloud and endpoint details, link to server offboarding guidance, and reference the new Defender server security experience."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

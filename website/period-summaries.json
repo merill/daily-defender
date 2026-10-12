@@ -7455,6 +7455,34 @@
         "outputTokens": 1625,
         "costUsd": 0.002182
       }
+    },
+    "2026-10-11": {
+      "headline": "File Integrity Monitoring access now requires elevated subscription roles in Defender for Cloud",
+      "overview": "Defender for Cloud updates focus on tighter role requirements for File Integrity Monitoring and guidance around the server security experience. Administrators should verify access at the subscription containing the Log Analytics workspace and use the updated server guidance for asset review and offboarding.",
+      "adminImpact": "Review role assignments and subscription scope before granting File Integrity Monitoring administration. Security Admin or Owner is required to enable, disable, or change the feature; Security Reader can view results. For server operations, use the combined asset view and linked offboarding guidance described in the updated release notes.",
+      "keyChanges": [
+        {
+          "title": "File Integrity Monitoring role requirements are now explicit",
+          "detail": "Security Admin and Owner roles on the subscription containing the Log Analytics workspace are required to enable, disable, or change File Integrity Monitoring. Security Reader can view its results.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-11-file-integrity-monitoring-enable-defender-endpoint-01"
+        },
+        {
+          "title": "Server guidance adds a combined cloud-and-endpoint asset view",
+          "detail": "Updated Defender for Cloud release notes describe a server asset page that combines cloud and endpoint details, link to server offboarding guidance, and reference the new Defender server security experience.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-11-release-notes-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-11T23:39:06.729Z",
+      "usage": {
+        "inputTokens": 1139,
+        "outputTokens": 715,
+        "costUsd": 0.001086
+      }
     }
   },
   "weeks": {
@@ -8995,49 +9023,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Teams QR-code protection expands while Defender previews package coverage and unifies servers",
-      "overview": "Three concrete capability moves stand out: Defender for Office 365 is rolling out post-delivery detection and warnings for malicious URLs in Teams QR codes worldwide during October and November; Defender Vulnerability Management is privately previewing selected Node.js, Python, and Java package vulnerability coverage on Windows; and new SubmissionEvents and SubmissionResults tables are scheduled for Public Preview in early October and general availability in late October. The period also documents a unified server-security experience for Defender for Endpoint and Defender for Servers, plus an October 15 switch to automatic Identity inventory enablement for eligible Defender for Cloud Apps tenants. Many remaining Exposure Management entries only change author metadata and carry no administrator action.",
-      "adminImpact": "Review Teams URL-protection settings and investigation processes; the QR-code rollout requires no user action. If enabling the package-vulnerability preview, validate API, export, and workflow integrations and prepare for increased data volume. Existing Defender for Endpoint servers need no onboarding, reinstallation, or migration for the combined server experience, but administrators should check capability requirements before changing configuration. Eligible Defender for Cloud Apps tenants should account for automatic Identity inventory activation on October 15. The email-submission tables require no immediate action.",
+      "headline": "Teams QR-code protection and unified server security headline Defender’s week",
+      "overview": "Most of the 93 entries were updates, and the largest product cluster—Exposure Management—was dominated in the supplied items by author-attribution maintenance. The substantive changes centered on Defender for Office 365 rollouts, a private Vulnerability Management preview, combined server guidance, and automatic Identity inventory enablement for eligible tenants.",
+      "adminImpact": "Review Teams protection and Advanced Hunting processes as the October rollouts arrive. Preview participants should validate integrations against increased vulnerability data volume; administrators should also review server access and offboarding implications and prepare for Identity inventory enablement on October 15. Attribution and wording edits require no operational response.",
       "keyChanges": [
         {
-          "title": "Teams gains post-delivery protection for malicious QR-code URLs",
-          "detail": "Defender for Office 365 is extending Teams URL protection to malicious URLs embedded in QR codes after delivery. Users can receive warnings, while security teams can investigate through Advanced Hunting. Worldwide rollout is planned for October through November 2026; administrators should review related settings and processes.",
-          "product": "Defender for Office 365",
+          "title": "Post-delivery Teams protection now covers malicious QR-code URLs",
+          "detail": "Microsoft Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery, warn users, and expose the activity for investigation through Advanced Hunting. Worldwide rollout is planned for October through November 2026, with no user action required.",
+          "product": "Defender XDR",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Vulnerability Management previews selected developer-package coverage",
-          "detail": "The private preview adds selected Node.js, Python, and Java package vulnerability coverage on Windows devices and integrates the findings with existing workflows, APIs, and exports. Rollout is planned from September through December 2026; organizations enabling it should validate integrations and prepare for increased data volume.",
-          "product": "Defender Vulnerability Management",
+          "title": "Defender for Cloud documents combined Endpoint and Servers workflows",
+          "detail": "The updated release notes describe a server experience combining Microsoft Defender for Endpoint and Defender for Servers data for unified inventory, cross-service investigations, Go hunt, and access management through RBAC, device groups, and cloud scopes. They also document offboarding eligible servers by disabling Defender for Servers for a subscription.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-08-release-notes-06"
+        },
+        {
+          "title": "Vulnerability Management previews selected Node.js, Python, and Java package coverage",
+          "detail": "A private preview expands Microsoft Defender Vulnerability Management coverage to selected Node.js, Python, and Java package vulnerabilities on Windows devices. It uses existing workflows, APIs, and exports, with rollout planned from September through December 2026; Microsoft advises preparing for increased data volume and validating integrations before enabling it.",
+          "product": "Defender XDR",
           "sourceId": "MC1490909"
         },
         {
-          "title": "Advanced Hunting gains dedicated email-submission tables",
-          "detail": "Defender for Office 365 is adding the SubmissionEvents and SubmissionResults tables to improve email-submission visibility and detection workflows. Public Preview begins in early October 2026 and General Availability begins in late October; Microsoft states that no immediate administrator action is required.",
-          "product": "Defender for Office 365",
+          "title": "New email-submission tables expand Defender for Office 365 hunting",
+          "detail": "The SubmissionEvents and SubmissionResults tables are being added to Advanced Hunting to improve visibility into email submissions and support detection workflows. Public Preview starts in early October 2026, with General Availability beginning in late October 2026.",
+          "product": "Defender XDR",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Defender portal guidance describes a combined server-security experience",
-          "detail": "An updated Defender for Endpoint page describes bringing Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers, including server asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration; administrators should check capability requirements before changing configuration.",
-          "product": "Defender for Endpoint and Defender for Servers",
-          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
-        },
-        {
-          "title": "Defender for Cloud Apps schedules automatic Identity inventory enablement",
-          "detail": "Release notes state that starting October 15, 2026, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement for eligible tenants that do not use the listed excluded configurations. Those tenants may receive the integration without opting in.",
-          "product": "Defender for Cloud Apps",
+          "title": "Identity inventory integration shifts to automatic enablement October 15",
+          "detail": "For eligible tenants without the listed excluded configurations, the Defender for Cloud Apps integration with Identity inventory moves from opt-in to automatic enablement starting October 15, 2026.",
+          "product": "Cloud Apps",
           "sourceId": "doc-2026-10-05-release-notes-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-10T00:02:32.917Z",
+      "generatedAt": "2026-10-11T23:39:06.729Z",
       "usage": {
-        "inputTokens": 9835,
-        "outputTokens": 6962,
-        "costUsd": 0.010321
+        "inputTokens": 9834,
+        "outputTokens": 8352,
+        "costUsd": 0.011989
       }
     }
   },
@@ -9408,54 +9436,54 @@
       }
     },
     "2026-10": {
-      "headline": "Teams QR-code protection, unified servers and SAP BTP ingestion lead October",
-      "overview": "October combined several concrete Defender changes with a large amount of maintenance. Defender for Office 365 is rolling out post-delivery detection and warning for malicious URLs in Teams QR codes worldwide during October and November; Defender Vulnerability Management is privately previewing selected Node.js, Python, and Java package coverage on Windows; and updated Endpoint guidance describes a unified Defender for Endpoint and Defender for Servers experience for Azure and on-premises servers. Sentinel's connector reference adds SAP BTP application vulnerability findings, while Identity sensor guidance makes the active-license requirement explicit. Of 139 records, 132 were updates; representative Exposure Management entries largely changed only author metadata, making these capability and setup changes the main administrator-relevant exceptions.",
-      "adminImpact": "Review related Teams protection settings and investigation handling; the QR-code rollout requires no user action. If enabling the package-coverage preview, validate API, export, and workflow integrations and prepare for increased data volume. For SAP BTP ingestion, enable API access and create dedicated client credentials. Verify that the active license includes Microsoft Defender for Identity before relying on automatic sensor activation or automatic Windows auditing. Existing Defender for Endpoint servers need no onboarding, reinstallation, or migration, but administrators should review capability requirements before changing configuration. Most other October edits, including the Exposure Management author-metadata changes, require no action.",
+      "headline": "Teams QR-code protection and unified server security lead October Defender changes",
+      "overview": "October was largely documentation maintenance, with Exposure Management especially affected by author-attribution edits. The substantive changes centered on Defender for Office 365 rollouts, a Vulnerability Management private preview, new Sentinel connector coverage, and updated guidance for managing Azure and on-premises servers.",
+      "adminImpact": "Review Defender for Office 365 Teams protection settings and hunting or reporting processes as the October rollouts arrive; no user action is required for these changes. Organizations participating in the Vulnerability Management preview should validate APIs, exports, and downstream integrations against increased data volume. Sentinel administrators using the SAP BTP connector must enable API access and create dedicated client credentials. Existing Defender for Endpoint servers do not require onboarding, reinstallation, or migration for the combined server experience.",
       "keyChanges": [
         {
-          "title": "Teams QR-code URLs gain post-delivery malicious-link protection",
-          "detail": "Microsoft Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery, warn users, and expose the activity for investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026. Administrators should review related settings and investigation processes.",
-          "product": "Defender XDR",
+          "title": "Teams protection expands to malicious QR-code URLs",
+          "detail": "Microsoft Defender for Office 365 is extending post-delivery Teams URL protection to detect malicious URLs embedded in QR codes, warn users, and support investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Selected developer packages enter Defender Vulnerability Management private preview",
-          "detail": "The private preview expands vulnerability coverage on Windows devices to selected Node.js, Python, and Java packages. It integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026. Organizations enabling it should validate integrations and prepare for increased data volume.",
-          "product": "Defender XDR",
+          "title": "SubmissionEvents and SubmissionResults add email-submission visibility",
+          "detail": "Defender for Office 365 Advanced Hunting is adding the SubmissionEvents and SubmissionResults tables. Public Preview begins in early October 2026, with General Availability beginning in late October; the new data is intended to support email-submission detection workflows.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1484009"
+        },
+        {
+          "title": "Vulnerability Management previews selected developer-package coverage",
+          "detail": "Microsoft Defender Vulnerability Management is privately previewing coverage for selected Node.js, Python, and Java packages on Windows devices. The preview integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026.",
+          "product": "Defender Vulnerability Management",
           "sourceId": "MC1490909"
         },
         {
-          "title": "Unified server security brings Endpoint and Servers views together",
-          "detail": "Updated guidance describes bringing Defender for Endpoint and Defender for Servers together in the Microsoft Defender portal for Azure and on-premises servers, including combined asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration.",
+          "title": "Server guidance describes a combined Defender portal experience",
+          "detail": "Updated Microsoft Defender for Endpoint guidance describes bringing Defender for Endpoint and Defender for Servers together for Azure and on-premises servers, including shared asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
         },
         {
           "title": "Sentinel adds SAP BTP application-vulnerability ingestion",
-          "detail": "The Data Connectors Reference now includes a connector that ingests SAP BTP application vulnerability findings into Microsoft Sentinel. Using it requires API access and dedicated client credentials. The same update says Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "detail": "The Sentinel Data Connectors Reference now includes a connector for SAP BTP application vulnerability findings. Using it requires API access and dedicated client credentials; the same reference also says Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
           "product": "Sentinel",
           "sourceId": "doc-2026-10-10-data-connectors-reference-01"
-        },
-        {
-          "title": "Activate Sensor guidance ties automatic features to an active license",
-          "detail": "The updated Identity article states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview, so administrators should verify licensing before relying on these automatic capabilities.",
-          "product": "Identity",
-          "sourceId": "doc-2026-10-06-activate-sensor-16"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-10T00:02:32.917Z",
+      "generatedAt": "2026-10-11T23:39:06.729Z",
       "usage": {
-        "inputTokens": 6033,
-        "outputTokens": 8008,
-        "costUsd": 0.010816
+        "inputTokens": 5919,
+        "outputTokens": 4231,
+        "costUsd": 0.006261
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-10T00:02:32.917Z",
+  "generatedAt": "2026-10-11T23:39:06.729Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9544,18 +9572,24 @@
       "outputTokens": 16595,
       "requests": 3,
       "costUsd": 0.02332
+    },
+    "2026-10-11": {
+      "inputTokens": 16892,
+      "outputTokens": 13298,
+      "requests": 3,
+      "costUsd": 0.019336
     }
   },
   "lastRun": {
-    "inputTokens": 17028,
-    "outputTokens": 16595,
+    "inputTokens": 16892,
+    "outputTokens": 13298,
     "requests": 3,
-    "costUsd": 0.02332
+    "costUsd": 0.019336
   },
   "totalUsage": {
-    "inputTokens": 442645,
-    "outputTokens": 466574,
-    "requests": 105,
-    "costUsd": 0.648416
+    "inputTokens": 459537,
+    "outputTokens": 479872,
+    "requests": 108,
+    "costUsd": 0.667752
   }
 }
