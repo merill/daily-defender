@@ -7483,6 +7483,46 @@
         "outputTokens": 1166,
         "costUsd": 0.001627
       }
+    },
+    "2026-10-12": {
+      "headline": "Mobile TVM guidance warns restrictive Conditional Access can disrupt service flows",
+      "overview": "Updates center on Mobile TVM connectivity and Conditional Access, with additional Endpoint tagging limitations and a Defender for Identity role-table change.",
+      "adminImpact": "Review Conditional Access policies affecting Mobile TVM, allow the documented Android and iOS Defender for Endpoint domains through applicable firewalls and proxies, and avoid treating the DeviceTagging Group registry value as a complete tag inventory. Identity administrators should also account for the Security Operator role when reviewing Revoke session permissions.",
+      "keyChanges": [
+        {
+          "title": "Mobile TVM guidance identifies Conditional Access disruption risks",
+          "detail": "The updated guidance lists onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-12-mobile-resources-defender-endpoint-02"
+        },
+        {
+          "title": "Android and iOS onboarding guidance adds cross-cloud network requirements",
+          "detail": "The Mtd article now lists the firewall and proxy URLs required to onboard and maintain Microsoft Defender for Endpoint devices on Android and iOS in both commercial and US Government cloud environments. Administrators should verify that the applicable domains are allowed.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-12-mtd-03"
+        },
+        {
+          "title": "DeviceTagging registry guidance limits Group values to one tag",
+          "detail": "The DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods are not written there, so the registry value may not represent every tag on a device; multiple tags should use another supported tagging method.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-12-machine-tags-01"
+        },
+        {
+          "title": "Defender for Identity lists Security Operator for Revoke session",
+          "detail": "The remediation-actions table now includes Security Operator among the roles for the Revoke session action, giving administrators an additional role to consider when reviewing or assigning session-revocation permissions.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-12-remediation-actions-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-12T22:08:22.418Z",
+      "usage": {
+        "inputTokens": 1360,
+        "outputTokens": 1474,
+        "costUsd": 0.002041
+      }
     }
   },
   "weeks": {
@@ -9067,6 +9107,46 @@
         "outputTokens": 7960,
         "costUsd": 0.011519
       }
+    },
+    "2026-10-12": {
+      "headline": "Defender for Endpoint guidance adds Conditional Access warnings and Android/iOS network requirements",
+      "overview": "The week was dominated by targeted documentation updates. Endpoint guidance now identifies Mobile TVM service uses, warns about restrictive Conditional Access policies, and lists firewall and proxy URLs for Android and iOS onboarding and maintenance across commercial and US Government clouds. Separate guidance clarifies a one-tag registry limitation, while Defender for Identity adds Security Operator to the Revoke session role table.",
+      "adminImpact": "Review Conditional Access policies affecting the Mobile TVM service and consider the documented exclusion to prevent disrupted flows. Verify the applicable listed domains are allowed through firewalls and proxies, include Security Operator when reviewing or assigning Revoke session permissions, and use another supported tagging method for multiple tags rather than treating the Group registry value as a complete tag inventory.",
+      "keyChanges": [
+        {
+          "title": "Mobile TVM guidance now covers Conditional Access disruption risk",
+          "detail": "The article now identifies onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-12-mobile-resources-defender-endpoint-02"
+        },
+        {
+          "title": "Android and iOS onboarding now has cloud-specific firewall guidance",
+          "detail": "The Mtd article now lists the firewall and proxy URLs needed to onboard and maintain Microsoft Defender for Endpoint devices on Android and iOS, covering both commercial and US Government cloud environments.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-12-mtd-03"
+        },
+        {
+          "title": "DeviceTagging Group value is documented as single-tag only",
+          "detail": "The Machine Tags guidance clarifies that the DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods are not written there, so the registry value may not show every tag assigned to a device.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-12-machine-tags-01"
+        },
+        {
+          "title": "Security Operator added to the Revoke session role table",
+          "detail": "The Defender for Identity remediation-actions table now lists Security Operator among the roles for the Revoke session action.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-12-remediation-actions-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-12T22:08:22.418Z",
+      "usage": {
+        "inputTokens": 1170,
+        "outputTokens": 1701,
+        "costUsd": 0.002275
+      }
     }
   },
   "months": {
@@ -9436,54 +9516,54 @@
       }
     },
     "2026-10": {
-      "headline": "November RBAC change removes Security Operator access to Defender email policies by default",
-      "overview": "October’s meaningful administrator changes center on an upcoming Unified RBAC permission remap in Defender for Office 365, post-delivery Teams QR-code protection, and new email-submission telemetry. The Sentinel connector reference now covers SAP BTP vulnerability findings, while Identity guidance makes licensing an explicit prerequisite for automatic sensor activation and Windows auditing. Much of the remaining volume was routine documentation maintenance, including author metadata, links, wording, and software examples.",
-      "adminImpact": "Before the November 2026 RBAC change, audit Unified RBAC assignments for the Microsoft Entra Security Operator role and manually grant the required permissions where continued access to email threat policies or Tenant/Allow Block List is needed. Review Teams URL-protection settings and investigation processes; no user action is required for the QR-code rollout. The new hunting tables require no immediate action or compliance change. For SAP BTP, enable API access and create dedicated client credentials; Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher. Verify that automatic sensor activation and automatic Windows auditing are covered by an active license that includes Microsoft Defender for Identity.",
+      "headline": "Unified RBAC access changes and Teams QR protection lead October’s Defender updates",
+      "overview": "October’s consequential changes centered on Defender for Office 365: the Microsoft Entra Security Operator role will lose default access to email threat policies and the Tenant/Allow Block List from November 2026 when Unified RBAC is enabled; Teams is gaining post-delivery protection for malicious QR-code URLs; and two email-submission hunting tables are moving from preview toward general availability. Sentinel also added SAP BTP application-vulnerability ingestion, while Defender Vulnerability Management announced a private preview for selected Node.js, Python, and Java packages on Windows. The remaining period was largely maintenance and metadata work.",
+      "adminImpact": "For tenants using Unified RBAC, manually assign the required Defender for Office 365 permissions to preserve Security Operator access after the November change. Review Teams URL-protection settings and investigation processes, track the new hunting tables as they move toward general availability, and prepare the SAP BTP connector prerequisites. Organizations considering the package-coverage preview should validate integrations and plan for increased data volume before enabling it.",
       "keyChanges": [
         {
-          "title": "Unified RBAC mapping changes Security Operator access",
-          "detail": "Starting November 2026, the Microsoft Entra Security Operator role will no longer have default access in Defender for Office 365 to email threat policies and Tenant/Allow Block List. When Unified RBAC is enabled, continued access requires manual permission assignment.",
-          "product": "Defender XDR",
+          "title": "Unified RBAC removes Security Operator defaults for Defender for Office 365",
+          "detail": "Beginning in November 2026, Microsoft Entra Security Operator will no longer have default access to email threat policies or the Tenant/Allow Block List when Unified RBAC is enabled. Continued access requires manual permission assignment.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams URL protection now covers malicious QR codes after delivery",
-          "detail": "Defender for Office 365 extends Teams URL protection to detect malicious URLs in QR codes post-delivery, warn users, and enable security-team investigation through Advanced Hunting. Worldwide rollout runs from October through November 2026, with no user action required.",
-          "product": "Defender XDR",
+          "title": "Teams URL protection expands to malicious QR codes after delivery",
+          "detail": "Defender for Office 365 will apply Teams URL protection post-delivery to malicious URLs embedded in QR codes, warn users, and enable security-team investigation through Advanced Hunting. Worldwide rollout is scheduled for October through November 2026, with no user action required.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "SubmissionEvents and SubmissionResults add email-submission hunting telemetry",
-          "detail": "Two new Advanced Hunting tables, SubmissionEvents and SubmissionResults, add visibility into email submissions and detection workflows. Public Preview starts in early October 2026 and General Availability begins in late October 2026; Microsoft states that no immediate action or compliance change is required.",
-          "product": "Defender XDR",
+          "title": "SubmissionEvents and SubmissionResults add email-submission hunting visibility",
+          "detail": "Two Advanced Hunting tables—SubmissionEvents and SubmissionResults—are being added to improve email-submission visibility and detection workflows. Public Preview starts in early October 2026, followed by General Availability in late October.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Sentinel reference adds SAP BTP vulnerability findings connector",
-          "detail": "The Data Connectors Reference now includes a connector that ingests SAP BTP application vulnerability findings into Microsoft Sentinel. Its documented setup requires API access and dedicated client credentials; the same update says Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "title": "Sentinel adds SAP BTP vulnerability ingestion and tightens Corelight access",
+          "detail": "The Data Connectors Reference adds a connector for SAP BTP application vulnerability findings; using it requires API access and dedicated client credentials. Corelight deployments now additionally require Reader and Microsoft Graph access alongside Monitoring Metrics Publisher.",
           "product": "Sentinel",
           "sourceId": "doc-2026-10-10-data-connectors-reference-01"
         },
         {
-          "title": "Identity sensor automation now carries an explicit licensing prerequisite",
-          "detail": "The Activate Sensor guidance now states that automatic sensor activation and automatic Windows auditing require an active license that includes Microsoft Defender for Identity. The domain-controller onboarding heading also no longer labels the process as preview.",
-          "product": "Identity",
-          "sourceId": "doc-2026-10-06-activate-sensor-16"
+          "title": "Private preview expands package vulnerability coverage on Windows",
+          "detail": "Defender Vulnerability Management is privately previewing coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage integrates with existing workflows, APIs, and exports; rollout is planned from September through December 2026, with increased data volume and integration validation expected before enabling it.",
+          "product": "Defender Vulnerability Management",
+          "sourceId": "MC1490909"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-12T09:10:22.664Z",
+      "generatedAt": "2026-10-12T22:08:22.418Z",
       "usage": {
-        "inputTokens": 5993,
-        "outputTokens": 4162,
-        "costUsd": 0.006193
+        "inputTokens": 6161,
+        "outputTokens": 3232,
+        "costUsd": 0.005111
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-12T09:10:22.664Z",
+  "generatedAt": "2026-10-12T22:08:22.418Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9580,22 +9660,22 @@
       "costUsd": 0.019336
     },
     "2026-10-12": {
-      "inputTokens": 16966,
-      "outputTokens": 13288,
-      "requests": 3,
-      "costUsd": 0.019339
+      "inputTokens": 25657,
+      "outputTokens": 19695,
+      "requests": 6,
+      "costUsd": 0.028766
     }
   },
   "lastRun": {
-    "inputTokens": 16966,
-    "outputTokens": 13288,
+    "inputTokens": 8691,
+    "outputTokens": 6407,
     "requests": 3,
-    "costUsd": 0.019339
+    "costUsd": 0.009427
   },
   "totalUsage": {
-    "inputTokens": 476503,
-    "outputTokens": 493160,
-    "requests": 111,
-    "costUsd": 0.687091
+    "inputTokens": 485194,
+    "outputTokens": 499567,
+    "requests": 114,
+    "costUsd": 0.696518
   }
 }

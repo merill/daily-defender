@@ -1,6 +1,111 @@
 {
   "newFiles": [],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/machine-tags.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/machine-tags.md b/defender-endpoint/machine-tags.md\nindex f5014eb..04d0f1d 100644\n--- a/defender-endpoint/machine-tags.md\n+++ b/defender-endpoint/machine-tags.md\n@@ -74,7 +74,7 @@ Device tagging is supported on:\n \r\n ### Performance notes\r\n \r\n-- Each device can have multiple tags.\r\n+- Each device can have multiple tags. However, the number of tags that you can configure might depend on the tagging method. For example, registry-based tagging on Windows supports one tag.\r\n - Dynamic tags update approximately every hour.\r\n - There might be some latency between the time a tag is added to a device and its availability in the devices list and device page.\r\n - Large numbers of tags don't significantly affect performance.\r\n@@ -98,7 +98,9 @@ You can add tags to devices using the following methods. Each method is suited f\n \r\n Note\r\n \r\n-Device group creation is supported in Defender for Endpoint Plan 1 and Plan 2.\r\n+- Device group creation is supported in Defender for Endpoint Plan 1 and Plan 2.\r\n+- When you configure a device tag by using the `DeviceTagging` registry key, you can specify only one tag in the `Group` value. To assign multiple tags to a device, use another supported tagging method.\r\n+- Tags assigned through other methods, such as the Microsoft Defender portal, aren't written to the `Group` registry value. Therefore, don't use the registry key to determine all tags currently assigned to a device.\r\n \r\n To add device tags using API, see [Add or remove device tags API](api/add-or-remove-machine-tags).\r\n \r\n",
+      "baseCommitSha": "179c288d6af54b43bf69606b0177acee4b3f2d5f",
+      "commitSha": "41e4ba6211821c2a65eff30a2e34bc99b61aca2d",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-12 21:53:45 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/machine-tags.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/machine-tags",
+      "eventId": "defender-docs:41e4ba6211821c2a65eff30a2e34bc99b61aca2d:modified:defender-endpoint/machine-tags.md",
+      "firstSeenAt": "2026-10-12T22:08:09.702Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Registry-based device tagging supports one tag",
+        "summary": "The documentation now clarifies that the DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods aren't written there, so the registry value may not show all tags on a device.",
+        "adminImpact": "Use another supported tagging method to assign multiple tags, and don't rely on the Group registry value as a complete tag inventory.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mobile-resources-defender-endpoint.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/mobile-resources-defender-endpoint.md b/defender-endpoint/mobile-resources-defender-endpoint.md\nindex 66e07f4..d6e89d4 100644\n--- a/defender-endpoint/mobile-resources-defender-endpoint.md\n+++ b/defender-endpoint/mobile-resources-defender-endpoint.md\n@@ -98,7 +98,13 @@ The Microsoft Defender mobile app is a security app that needs to constantly be\n ### Apps required to exclude\r\n \r\n 1. **MicrosoftDefenderATP XPlat app (a0e84e36-b067-4d5c-ab4a-3db38e598ae2)**: MicrosoftDefenderATP XPlat app is the application responsible for forwarding Defender risk signals to the Defender backend. However, the presence of restrictive CA policies can result in Defender blocked from reporting signals. In these scenarios, we recommend excluding the MicrosoftDefenderATP XPlat app. Note, that **MicrosoftDefenderATP XPlat app** is also used by other platforms like Mac and Linux. So if the policy is same for these platforms, it is better to create a separate Conditional Access policy for Mobile.\r\n-2. **Microsoft Defender for Mobile TVM app (e724aa31-0f56-4018-b8be-f8cb82ca1196)**: Microsoft Defender for Mobile TVM (Threat and Vulnerability Management) is the service, which provides the vulnerability assessment for the installed apps on the iOS devices. However, the presence of restrictive CA policies can result in Defender blocked from communicating the onboarding requests to the TVM backend services. This service should be excluded if MDVM (Vulnerability Assessment) is used in the organization.\r\n+2. **Microsoft Defender for Mobile TVM app (e724aa31-0f56-4018-b8be-f8cb82ca1196)**: This service is used by Microsoft Defender client for multiple use-cases -\r\n+\r\n+- Onboard new devices for Android and iOS\r\n+- Periodically report security alerts, events and other information for Android and iOS\r\n+- Provide TVM (Threat Vulnerability and Management) feature in iOS\r\n+\r\n+    However, the presence of restrictive CA policies can prevent Defender client from communicating to this service causing disruption in the above mentioned flows. Hence, we recommend excluding it from the CA policies.\r\n \r\n ### Steps to exclude\r\n \r\n",
+      "baseCommitSha": "179c288d6af54b43bf69606b0177acee4b3f2d5f",
+      "commitSha": "41e4ba6211821c2a65eff30a2e34bc99b61aca2d",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-12 21:53:45 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/mobile-resources-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mobile-resources-defender-endpoint",
+      "eventId": "defender-docs:41e4ba6211821c2a65eff30a2e34bc99b61aca2d:modified:defender-endpoint/mobile-resources-defender-endpoint.md",
+      "firstSeenAt": "2026-10-12T22:08:09.706Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mobile TVM service usage and CA policy guidance expanded",
+        "summary": "The documentation now lists onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It also warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies.",
+        "adminImpact": "Review Conditional Access policies affecting the Mobile TVM service to help prevent communication disruptions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/mtd.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 0,
+      "changes": 13,
+      "patch": "diff --git a/defender-endpoint/mtd.md b/defender-endpoint/mtd.md\nindex 7a1c54e..6cc0e50 100644\n--- a/defender-endpoint/mtd.md\n+++ b/defender-endpoint/mtd.md\n@@ -170,6 +170,19 @@ iOS Dedicated/shared/kiosk device enrollment isn't supported.\n - [Microsoft Intune: Android Enterprise - Setup Always-on VPN](/en-us/intune/intune-service/protect/microsoft-defender-deploy-android#set-up-always-on-vpn)\r\n - [iOS - Autosetup of VPN profile](ios-install#auto-onboarding-of-vpn-profile-simplified-onboarding)\r\n \r\n+## Standard Device Connectivity URLs\r\n+\r\n+This article provides the standard connectivity requirements for onboarding and maintaining devices in Microsoft Defender for Endpoint on Android and iOS. Network and security administrators should allow the below URLs through their firewalls and proxy servers to ensure devices can communicate with Microsoft Defender for Endpoint services for onboarding and ongoing operation.\r\n+\r\n+- **Commercial cloud environments:**\r\n+\r\n+    - \\*.securitycenter.windows.com\r\n+    - \\*.endpoint.security.microsoft.com\r\n+- **US Government cloud environments (Government Community Cloud (GCC), Government Community Cloud High (GCC High), United States Department of Defense (DoD)):**\r\n+\r\n+    - \\*.securitycenter.windows.us\r\n+    - \\*.endpoint.security.microsoft.us\r\n+\r\n ## Pilot evaluation\r\n \r\n While evaluating mobile threat defense with Microsoft Defender for Endpoint, you can verify that certain criteria is met before proceeding to deploy the service to a larger set of devices. You can define the exit criteria and ensure that they're satisfied before deploying widely.\r\n",
+      "baseCommitSha": "179c288d6af54b43bf69606b0177acee4b3f2d5f",
+      "commitSha": "41e4ba6211821c2a65eff30a2e34bc99b61aca2d",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-12 21:53:45 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/mtd.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mtd",
+      "eventId": "defender-docs:41e4ba6211821c2a65eff30a2e34bc99b61aca2d:modified:defender-endpoint/mtd.md",
+      "firstSeenAt": "2026-10-12T22:08:09.710Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Standard mobile connectivity URLs added",
+        "summary": "The article now lists firewall and proxy URLs needed to onboard and maintain Microsoft Defender for Endpoint devices on Android and iOS, covering commercial and US Government cloud environments.",
+        "adminImpact": "Network and security administrators should verify that the applicable listed domains are allowed through firewalls and proxy servers so devices can communicate with Defender for Endpoint.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/remediation-actions.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-identity/remediation-actions.md b/defender-for-identity/remediation-actions.md\nindex 9d4c4bf..ebfd473 100644\n--- a/defender-for-identity/remediation-actions.md\n+++ b/defender-for-identity/remediation-actions.md\n@@ -97,11 +97,11 @@ The following table lists the remediation actions supported by Defender for Iden\n \r\n | Remediation Action | Active Directory | Microsoft Entra ID | Okta, SailPoint, CyberArk | Supported SaaS apps |\r\n | --- | --- | --- | --- | --- |\r\n-| Disable | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n-| Enable | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n-| Revoke session | N/A | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, Helpdesk Administrator, SOC Identity Responder | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | N/A |\r\n+| Disable | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder, Security Operator | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n+| Enable | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder, Security Operator | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n+| Revoke session | N/A | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, Helpdesk Administrator, SOC Identity Responder, Security Operator | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | N/A |\r\n | Mark as compromised | N/A | Global Administrator, Security Administrator, Security Operator, SOC Identity Responder | N/A | N/A |\r\n-| Force password change | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Privileged Authentication Administrator, Authentication Administrator, User Administrator, Password Administrator, Helpdesk Administrator, SOC Identity Responder | N/A | N/A |\r\n+| Force password change | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Privileged Authentication Administrator, Authentication Administrator, User Administrator, Password Administrator, Helpdesk Administrator, SOC Identity Responder, Security Operator | N/A | N/A |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "179c288d6af54b43bf69606b0177acee4b3f2d5f",
+      "commitSha": "41e4ba6211821c2a65eff30a2e34bc99b61aca2d",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-12 21:53:45 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/remediation-actions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/remediation-actions",
+      "eventId": "defender-docs:41e4ba6211821c2a65eff30a2e34bc99b61aca2d:modified:defender-for-identity/remediation-actions.md",
+      "firstSeenAt": "2026-10-12T22:08:09.714Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Security Operator added for Revoke session",
+        "summary": "The Defender for Identity remediation-actions table now lists Security Operator among the roles for the Revoke session action.",
+        "adminImpact": "Administrators can include this role when reviewing or assigning permissions for session revocation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [
     {
@@ -120,14 +225,46 @@
     }
   ],
   "summary": {
-    "totalCommits": 0,
-    "totalFiles": 0,
-    "authors": []
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
   },
   "englishSummary": {
-    "overview": "No substantive Microsoft Defender documentation changes were detected for this report.",
-    "groups": [],
-    "highlights": [],
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation now clarifies that the DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods aren't written there, so the registry value may not show all tags on a device. The documentation now lists onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It also warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies. The article now lists firewall and proxy URLs needed to onboard and maintain Microsoft Defender for Endpoint devices on Android and iOS, covering commercial and US Government cloud environments.",
+        "sourceFiles": [
+          "defender-endpoint/machine-tags.md",
+          "defender-endpoint/mobile-resources-defender-endpoint.md",
+          "defender-endpoint/mtd.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Identity",
+        "summary": "The Defender for Identity remediation-actions table now lists Security Operator among the roles for the Revoke session action.",
+        "sourceFiles": [
+          "defender-for-identity/remediation-actions.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation now clarifies that the DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods aren't written there, so the registry value may not show all tags on a device. The documentation now lists onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It also warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies. The article now lists firewall and proxy URLs needed to onboard and maintain Microsoft Defender for Endpoint devices on Android and iOS, covering commercial and US Government cloud environments."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Identity",
+        "detail": "The Defender for Identity remediation-actions table now lists Security Operator among the roles for the Revoke session action."
+      }
+    ],
     "generatedBy": "fallback"
   }
 }
