@@ -1,0 +1,133 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1486293",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-10-02",
+      "title": "Microsoft Defender for Office 365: Changes to Unified RBAC permission mapping for Microsoft Entra Security Operator role",
+      "summary": "Microsoft is updating Microsoft Defender for Office 365's Unified RBAC mapping for the Microsoft Entra Security Operator role, removing default access to email threat policies and Tenant Allow/Block List. This change starts November 2026 and requires manual permission assignment for continued access when Unified RBAC is enabled.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "email",
+        "name": "Email and collaboration",
+        "icon": "/assets/topics/email.svg"
+      },
+      "changeType": "Major update",
+      "url": "/message-center/MC1486293/",
+      "originalUrl": "https://mc.merill.net/message/MC1486293",
+      "body": "<p><b><b>What and why</b></b></p><p>We are updating the Microsoft Defender unified role-based access control (Unified RBAC) permission mapping for Microsoft Defender for Office 365 (Email &amp; Collaboration). Currently, the Microsoft Entra Security Operator role includes the <i>Authorization and settings\\Security settings</i> permission through the default Unified RBAC mapping. As a result, users assigned this role can view and manage email threat policies and the Tenant Allow/Block List.</p><p>To align access with documented Microsoft Defender for Office 365 role expectations and least-privilege principles, we are updating the default mapping so that <i>Authorization and settings\\Security settings (All permissions)</i> is no longer included by default for the Microsoft Entra Security Operator role mapping for the Microsoft Defender for Office 365 workload. After this change, organizations that have Unified RBAC enabled and rely only on the Microsoft Entra Security Operator role for this access will need to manually assign the appropriate permissions or assign a role that includes those permissions.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide, GCC, GCC High, DoD):</b> Rollout begins in early November 2026 and is expected to complete by early December 2026.</li></ul><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li><span>Organizations where both of the following conditions apply:</span><ol><li><span>Microsoft Defender XDR Unified RBAC is enabled, or will be enabled, for Microsoft Defender for Office 365 (Email &amp; Collaboration).</span></li><li><span>Users assigned the Microsoft Entra Security Operator role.</span></li></ol></li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Defender for Office 365 (Email &amp; Collaboration)</li><li>Microsoft Defender XDR Unified RBAC</li><li>Microsoft Entra ID</li></ul><p><i>What will happen</i></p><ul><li>The default Unified RBAC mapping for the Microsoft Entra Security Operator role will be updated to align with its documented Microsoft Defender for Office 365 scope and least-privilege principles.</li><li>When Unified RBAC is enabled for Microsoft Defender for Office 365, by default, the Security Operator role will no longer provide access to view, create, edit, or delete email threat policies, including anti-spam, anti-phishing, anti-malware, Safe Links, Safe Attachments, and preset security policies. The role will also no longer provide access to view, add, edit, or remove Tenant Allow/Block List entries.</li><li>This change applies only to Microsoft Defender for Office 365 when Unified RBAC is enabled. Tenants that have not enabled Unified RBAC are not affected.</li><li>Organizations that want operators to retain access can manually assign the appropriate Unified RBAC permissions, including Core security settings and Detection tuning, or assign a role that already includes those permissions, such as Security Administrator.</li><li>Other role mappings and existing Exchange Online PowerShell authorization are unchanged.</li></ul><p><b><b>Action required and recommendations</b></b></p><p>We recommend that you:</p><ul><li>Review users who are assigned the Microsoft Entra Security Operator role and determine whether they rely on that role to view or manage email threat policies or the Tenant Allow/Block List.</li><li>If continued access is required, assign an appropriate role or grant the required Unified RBAC permissions, including Core security settings and Detection tuning.</li><li>Update internal operational procedures, runbooks, and access-control documentation as needed.</li><li>Communicate this change to security operations teams and help desk staff.</li></ul><p><b><b>Learn more</b></b></p><ul><li><a href=\"https://learn.microsoft.com/defender-xdr/activate-defender-rbac\" rel=\"noopener noreferrer\">Activate Microsoft Defender unified role-based access control (URBAC) - Microsoft Defender XDR | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-xdr/create-custom-rbac-roles\" rel=\"noopener noreferrer\">Create custom roles with Microsoft Defender unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-xdr/compare-rbac-roles#microsoft-entra-global-roles-access\" rel=\"noopener noreferrer\">Map Microsoft Defender unified role-based access control (RBAC) permissions - Microsoft Defender XDR | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-xdr/custom-permissions-details\" rel=\"noopener noreferrer\">Permissions in Microsoft Defender unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified. Review as appropriate for your organization.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Feature update",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-02T22:22:36Z",
+      "endDate": "2027-01-08T08:00:00Z",
+      "lastModifiedDateTime": "2026-10-02T22:23:27.98Z",
+      "version": "2026-10-02T22:23:27.98Z",
+      "eventId": "message-center:MC1486293:2026-10-02T22:23:27.98Z",
+      "firstSeenAt": "2026-10-12T09:10:22.513Z"
+    },
+    {
+      "id": "MC1484018",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-30",
+      "title": "Microsoft Defender for Identity auto-activation and auto-auditing automatic enablement",
+      "summary": "Microsoft Defender for Identity will auto-enable sensor v3.x activation and Windows event auditing for eligible tenants starting late October 2026, easing setup for security admins. A portal banner allows opt-out before rollout; manual control remains afterward. Review configurations and update guidance accordingly.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "identity",
+        "name": "Identity protection",
+        "icon": "/assets/topics/identity.svg"
+      },
+      "changeType": "Major update",
+      "url": "/message-center/MC1484018/",
+      "originalUrl": "https://mc.merill.net/message/MC1484018",
+      "body": "<p><b><b>What and Why:</b></b></p><p>Microsoft Defender for Identity will automatically enable auto-activation and auto-auditing for eligible tenants using Defender for Identity sensor v3.x. Auto-activation helps activate eligible servers that are already onboarded to Microsoft Defender for Endpoint, and auto-auditing helps configure the required Windows event auditing.</p><p>This update supports enterprise-ready security operations by helping organizations complete Defender for Identity sensor activation and auditing setup with less manual configuration.</p><p><b><b>Rollout Schedule:</b></b></p><ul><li>General Availability, Worldwide: We will begin rolling out in late October 2026 and will roll out gradually.</li><li>Before enablement begins, a banner will appear in the Microsoft Defender portal under <b>Settings</b> &gt; <b>Identities</b> &gt; <b>Sensor management</b>.</li></ul><p><b><b>Impact on Your Organization:</b></b></p><p><b>Who is affected:</b></p><ul><li>Organizations using Microsoft Defender for Identity sensor v3.x.</li><li>Security administrators who manage Microsoft Defender for Identity sensors and Microsoft Defender XDR settings.</li><li>Servers already onboarded to Microsoft Defender for Endpoint that are eligible for Defender for Identity sensor activation.</li></ul><p><b>Platforms/Services:</b></p><ul><li>Microsoft Defender for Identity.</li><li>Microsoft Defender XDR portal.</li><li>Microsoft Defender for Endpoint.</li></ul><p><b>What will happen:</b></p><ul><li>Auto-activation will help activate eligible servers that are already onboarded to Microsoft Defender for Endpoint.</li><li>Auto-auditing will help configure the required Windows event auditing for Defender for Identity.</li><li>A banner will be shown in the Microsoft Defender portal before enablement starts.</li><li>Admins can use the banner to opt out during the limited opt-out period.</li><li>After the opt-out period ends and rollout starts, admins can still manually change the toggle status at any time in <b>Settings</b> &gt; <b>Advanced features</b>.</li></ul><p><b><b>Action Required/Recommendations:</b></b></p><ul><li>Review the banner in the Microsoft Defender portal if your organization wants to opt out before gradual rollout starts.</li><li>Review your current Defender for Identity sensor activation and Windows event auditing configuration.</li><li>Update internal security operations or deployment guidance if it references manual activation or auditing steps for Defender for Identity sensor v3.x.</li><li>For special cases related to the feature or opt-out, contact the Defender for Identity support team.</li><li>Learn more about sensor activation: <a href=\"https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor\" rel=\"noopener noreferrer\">https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor</a>.</li><li>Learn more about automatic Windows event auditing: <a href=\"https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection\" rel=\"noopener noreferrer\">https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection</a>.</li></ul><p><b><b>Compliance considerations:</b></b></p><table><tbody><tr><td>Does the change include an admin control and, can it be controlled through Entra ID group membership?</td><td>The feature includes or affects admin controls, policies, permissions, roles, authentication, or management settings as described in this message. Review the linked documentation or admin center controls for group-based configuration support.</td></tr></tbody></table>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-30T23:07:45Z",
+      "endDate": "2027-01-25T08:00:00Z",
+      "lastModifiedDateTime": "2026-09-30T23:08:07.323Z",
+      "version": "2026-09-30T23:08:07.323Z",
+      "eventId": "message-center:MC1484018:2026-09-30T23:08:07.323Z",
+      "firstSeenAt": "2026-10-12T09:10:22.513Z"
+    },
+    {
+      "id": "MC1477180",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-23",
+      "title": "Microsoft Defender for Cloud Apps: Retirement of EWS detections in App Governance",
+      "summary": "Exchange Web Services (EWS) in Exchange Online will be retired starting October 1, 2026, with related Microsoft Defender for Cloud Apps app governance detections ending October 15, 2026. Organizations not using EWS need no action; those continuing EWS use will lose related alerts and should migrate away from EWS.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1477180/",
+      "originalUrl": "https://mc.merill.net/message/MC1477180",
+      "body": "<p><b>What and Why:</b></p><p>As announced in 2023, Exchange Web Services (EWS) in Exchange Online is being retired. Phased disablement will begin on October 1, 2026.</p><p>Starting October 15, 2026, Microsoft Defender for Cloud Apps app governance threat detections that rely on EWS activity signals will also be sunset.</p><p>For full details on the EWS retirement, see the Learn documentation: <a href=\"https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online\" rel=\"noopener noreferrer\">Deprecation of Exchange Web Services in Exchange Online | Microsoft Learn</a></p><p><b>Impact on your organization:</b></p><p><b>Organizations that do not use EWS:</b> No action is required. Microsoft Defender for Cloud Apps already provides threat protection for Microsoft Graph activity, and app governance detections that do not depend on EWS activity signals will continue to operate.</p><p><b>Organizations that plan to keep using EWS between October 15, 2026 and April 2027:</b> Microsoft Defender for Cloud Apps customers who choose to continue using EWS after October 15th 2026 will no longer see app governance alerts for suspicious app behavior observed through EWS activity. To maintain protection, we recommend that you adhere to the guidance from the Exchange Online team and migrate away from EWS. For the full details on EWS retirement please see the learn docs here.</p><p>Learn more</p><ol><li><a href=\"https://techcommunity.microsoft.com/blog/exchange/exchange-online-ews-your-time-is-almost-up/4492361\" rel=\"noopener noreferrer\">Exchange Online EWS, Your Time is Almost Up | Microsoft Community Hub</a></li><li><a href=\"https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-anomaly-detection-alerts\" rel=\"noopener noreferrer\">Microsoft Defender for Cloud Apps app governance detections</a></li></ol>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Admin impact",
+        "Retirement"
+      ],
+      "startDate": "2026-09-22T23:25:29Z",
+      "endDate": "2026-12-22T08:00:00Z",
+      "lastModifiedDateTime": "2026-09-23T19:23:42.853Z",
+      "version": "2026-09-23T19:23:42.853Z",
+      "eventId": "message-center:MC1477180:2026-09-23T19:23:42.853Z",
+      "firstSeenAt": "2026-10-12T09:10:22.513Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Defender documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}
