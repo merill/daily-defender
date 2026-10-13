@@ -7523,6 +7523,46 @@
         "outputTokens": 1474,
         "costUsd": 0.002041
       }
+    },
+    "2026-10-13": {
+      "headline": "Defender for Business web filtering guidance clarifies browser coverage and policy scope",
+      "overview": "Five Microsoft Learn pages for Microsoft Defender for Business were revised. The clearest administrator-facing update is the web content filtering guidance, which clarifies browser enforcement and streamlines category and policy instructions. Policy, onboarding, and incident-management articles also received reorganized guidance, updated links, and presentation improvements; the supplied impact notes indicate no configuration change for the latter updates.",
+      "adminImpact": "Use the revised web filtering article to check browser coverage and configure filtering categories and policy scope. The policy article provides clearer guidance on default policy types and controls, while the onboarding and incident articles preserve existing workflows and improve navigation, links, and visuals.",
+      "keyChanges": [
+        {
+          "title": "Web content filtering guidance clarifies enforcement and policy setup",
+          "detail": "The article now clarifies browser enforcement wording, streamlines setup examples and policy instructions, and adds two ontology links. Administrators can use it to identify browser coverage and configure filtering categories and policy scope.",
+          "product": "Business",
+          "sourceId": "doc-2026-10-13-set-up-web-content-filtering-in-microsoft-defender-for-business-microsoft-defender-for-business--05"
+        },
+        {
+          "title": "Policy guidance reorganizes core Defender for Business security controls",
+          "detail": "Guidance for next-generation protection, firewall policies, controlled folder access, and attack surface reduction was reorganized and simplified. The revised article makes default policy types and available controls easier to understand.",
+          "product": "Business",
+          "sourceId": "doc-2026-10-13-view-or-edit-policies-in-microsoft-defender-for-business-microsoft-defender-for-business-microso-02"
+        },
+        {
+          "title": "Onboarding resources update local-script and Intune guidance",
+          "detail": "The learning-resources page revises onboarding guidance for local scripts and Intune, updates the Intune enrollment link, and clarifies Microsoft 365 Lighthouse terminology. The supplied impact note calls for no administrator action.",
+          "product": "Business",
+          "sourceId": "doc-2026-10-13-learning-resources-for-microsoft-defender-for-business-microsoft-defender-for-business-microsoft-01"
+        },
+        {
+          "title": "Incident-management guidance refreshes navigation and severity explanations",
+          "detail": "The incident article revises descriptions, navigation steps, severity explanations, and attack-disruption text, and allows the incident screenshot to open in a lightbox. The existing incident-management guidance and configuration remain unchanged according to the supplied impact note.",
+          "product": "Business",
+          "sourceId": "doc-2026-10-13-view-and-manage-incidents-in-microsoft-defender-for-business-microsoft-defender-for-business-mic-03"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-13T09:24:47.731Z",
+      "usage": {
+        "inputTokens": 1566,
+        "outputTokens": 1461,
+        "costUsd": 0.002066
+      }
     }
   },
   "weeks": {
@@ -9109,43 +9149,49 @@
       }
     },
     "2026-10-12": {
-      "headline": "Defender for Endpoint guidance adds Conditional Access warnings and Android/iOS network requirements",
-      "overview": "The week was dominated by targeted documentation updates. Endpoint guidance now identifies Mobile TVM service uses, warns about restrictive Conditional Access policies, and lists firewall and proxy URLs for Android and iOS onboarding and maintenance across commercial and US Government clouds. Separate guidance clarifies a one-tag registry limitation, while Defender for Identity adds Security Operator to the Revoke session role table.",
-      "adminImpact": "Review Conditional Access policies affecting the Mobile TVM service and consider the documented exclusion to prevent disrupted flows. Verify the applicable listed domains are allowed through firewalls and proxies, include Security Operator when reviewing or assigning Revoke session permissions, and use another supported tagging method for multiple tags rather than treating the Group registry value as a complete tag inventory.",
+      "headline": "Mobile TVM exclusions and one-tag registry limits sharpen Defender administration guidance",
+      "overview": "The week brought nine Microsoft Learn updates and no recorded new, removed, or Message Center items. The most consequential revisions are operational: Mobile TVM guidance now flags restrictive Conditional Access as a disruption risk and recommends excluding the service; Endpoint guidance adds required firewall and proxy URLs for Android and iOS onboarding; and Machine Tags documents a one-tag limitation in the DeviceTagging Group registry value. Defender for Identity also expands the documented Revoke session role list. The remaining Defender for Business updates mainly clarify policy, web filtering, incident, vulnerability-management, and learning guidance.",
+      "adminImpact": "Review Conditional Access policies affecting Mobile TVM, verify firewall and proxy access to the listed Defender for Endpoint domains in the applicable cloud, and do not use the DeviceTagging Group value as a complete multi-tag inventory. For Defender for Identity, include Security Operator when reviewing or assigning Revoke session permissions. The readability and navigation updates do not indicate configuration changes.",
       "keyChanges": [
         {
-          "title": "Mobile TVM guidance now covers Conditional Access disruption risk",
-          "detail": "The article now identifies onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies.",
+          "title": "Mobile TVM guidance calls out Conditional Access disruption risk",
+          "detail": "The Mobile Resources Defender Endpoint article now identifies onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-12-mobile-resources-defender-endpoint-02"
         },
         {
-          "title": "Android and iOS onboarding now has cloud-specific firewall guidance",
-          "detail": "The Mtd article now lists the firewall and proxy URLs needed to onboard and maintain Microsoft Defender for Endpoint devices on Android and iOS, covering both commercial and US Government cloud environments.",
+          "title": "Defender for Endpoint mobile onboarding now has explicit network endpoints",
+          "detail": "The Mtd article now lists firewall and proxy URLs needed to onboard and maintain Android and iOS devices, covering both commercial and US Government cloud environments. Network and security administrators should verify that the applicable domains are allowed through firewalls and proxy servers.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-12-mtd-03"
         },
         {
-          "title": "DeviceTagging Group value is documented as single-tag only",
-          "detail": "The Machine Tags guidance clarifies that the DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods are not written there, so the registry value may not show every tag assigned to a device.",
+          "title": "Machine Tags clarifies the DeviceTagging registry value is single-tag",
+          "detail": "The Group value under the DeviceTagging registry key supports only one tag. Tags assigned through other methods aren't written there, so the registry value may not show every tag on a device. Use another supported tagging method for multiple tags and don't treat Group as a complete tag inventory.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-12-machine-tags-01"
         },
         {
-          "title": "Security Operator added to the Revoke session role table",
-          "detail": "The Defender for Identity remediation-actions table now lists Security Operator among the roles for the Revoke session action.",
+          "title": "Defender for Identity adds Security Operator to Revoke session roles",
+          "detail": "The Remediation Actions table now lists Security Operator among the roles for the Revoke session action. Include this role when reviewing or assigning permissions for session revocation.",
           "product": "Identity",
           "sourceId": "doc-2026-10-12-remediation-actions-04"
+        },
+        {
+          "title": "Defender for Business web-filtering guidance clarifies browser coverage and setup",
+          "detail": "The web content filtering article revised browser-enforcement wording, streamlined setup examples and policy instructions, and added two ontology links. Use the revised guidance to identify browser coverage and configure filtering categories and policy scope.",
+          "product": "Business",
+          "sourceId": "doc-2026-10-13-set-up-web-content-filtering-in-microsoft-defender-for-business-microsoft-defender-for-business--05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-12T22:08:22.418Z",
+      "generatedAt": "2026-10-13T09:24:47.731Z",
       "usage": {
-        "inputTokens": 1170,
-        "outputTokens": 1701,
-        "costUsd": 0.002275
+        "inputTokens": 1848,
+        "outputTokens": 2647,
+        "costUsd": 0.003546
       }
     }
   },
@@ -9516,54 +9562,54 @@
       }
     },
     "2026-10": {
-      "headline": "Unified RBAC access changes and Teams QR protection lead October’s Defender updates",
-      "overview": "October’s consequential changes centered on Defender for Office 365: the Microsoft Entra Security Operator role will lose default access to email threat policies and the Tenant/Allow Block List from November 2026 when Unified RBAC is enabled; Teams is gaining post-delivery protection for malicious QR-code URLs; and two email-submission hunting tables are moving from preview toward general availability. Sentinel also added SAP BTP application-vulnerability ingestion, while Defender Vulnerability Management announced a private preview for selected Node.js, Python, and Java packages on Windows. The remaining period was largely maintenance and metadata work.",
-      "adminImpact": "For tenants using Unified RBAC, manually assign the required Defender for Office 365 permissions to preserve Security Operator access after the November change. Review Teams URL-protection settings and investigation processes, track the new hunting tables as they move toward general availability, and prepare the SAP BTP connector prerequisites. Organizations considering the package-coverage preview should validate integrations and plan for increased data volume before enabling it.",
+      "headline": "Unified RBAC permission changes and Teams QR protection reshape Defender administration",
+      "overview": "October’s most consequential Defender changes affect access control, Teams protection, hunting, server management, and vulnerability coverage. From November 2026, the Microsoft Entra Security Operator role will lose default access to Defender for Office 365 email threat policies and the Tenant Allow/Block List when Unified RBAC is enabled. Microsoft also announced post-delivery detection of malicious QR-code URLs in Teams, new email-submission hunting tables, a combined server-security experience, and a private preview for expanded developer-package vulnerability coverage.",
+      "adminImpact": "Before the November RBAC change, review Security Operator assignments and manually grant the required email-policy and Tenant Allow/Block List permissions where continued access is needed. Review Teams URL-protection settings and investigation procedures as QR-code protection rolls out from October through November. Prepare hunting content and integrations for SubmissionEvents and SubmissionResults, and validate server RBAC and device-group workflows in the combined experience. Organizations considering the package-coverage preview should test integrations and plan for increased vulnerability-data volume.",
       "keyChanges": [
         {
-          "title": "Unified RBAC removes Security Operator defaults for Defender for Office 365",
-          "detail": "Beginning in November 2026, Microsoft Entra Security Operator will no longer have default access to email threat policies or the Tenant/Allow Block List when Unified RBAC is enabled. Continued access requires manual permission assignment.",
+          "title": "Security Operator loses default email-policy and Tenant Allow/Block List access",
+          "detail": "When Unified RBAC is enabled, the Microsoft Entra Security Operator role will no longer receive default access to Defender for Office 365 email threat policies or the Tenant Allow/Block List. The change starts in November 2026; administrators must assign the needed permissions manually to preserve access.",
           "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
           "title": "Teams URL protection expands to malicious QR codes after delivery",
-          "detail": "Defender for Office 365 will apply Teams URL protection post-delivery to malicious URLs embedded in QR codes, warn users, and enable security-team investigation through Advanced Hunting. Worldwide rollout is scheduled for October through November 2026, with no user action required.",
+          "detail": "Defender for Office 365 will inspect URLs embedded in Teams QR codes post-delivery, warn users, and make the activity available for security-team investigation through Advanced Hunting. Worldwide rollout is planned from October through November 2026, with no user action required.",
           "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "SubmissionEvents and SubmissionResults add email-submission hunting visibility",
-          "detail": "Two Advanced Hunting tables—SubmissionEvents and SubmissionResults—are being added to improve email-submission visibility and detection workflows. Public Preview starts in early October 2026, followed by General Availability in late October.",
+          "title": "SubmissionEvents and SubmissionResults add email-submission hunting data",
+          "detail": "Two new Advanced Hunting tables provide visibility into email submissions and their results. Public Preview began in early October 2026, with General Availability beginning in late October, extending detection and investigation workflows for submitted messages.",
           "product": "Defender for Office 365",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Sentinel adds SAP BTP vulnerability ingestion and tightens Corelight access",
-          "detail": "The Data Connectors Reference adds a connector for SAP BTP application vulnerability findings; using it requires API access and dedicated client credentials. Corelight deployments now additionally require Reader and Microsoft Graph access alongside Monitoring Metrics Publisher.",
-          "product": "Sentinel",
+          "title": "Sentinel adds SAP BTP vulnerability findings and tightens Corelight access",
+          "detail": "The Data Connectors Reference adds a connector for SAP BTP application vulnerability findings; using it requires API access and dedicated client credentials. The same update states that Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "product": "Microsoft Sentinel",
           "sourceId": "doc-2026-10-10-data-connectors-reference-01"
         },
         {
-          "title": "Private preview expands package vulnerability coverage on Windows",
-          "detail": "Defender Vulnerability Management is privately previewing coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage integrates with existing workflows, APIs, and exports; rollout is planned from September through December 2026, with increased data volume and integration validation expected before enabling it.",
-          "product": "Defender Vulnerability Management",
-          "sourceId": "MC1490909"
+          "title": "Defender brings server protection and investigation into one experience",
+          "detail": "The new server-security experience combines Defender for Endpoint and Defender for Servers in the Microsoft Defender portal for Azure and on-premises servers, covering asset views, investigations, hunting, RBAC, and device groups. Existing Defender for Endpoint servers require no onboarding, reinstallation, or migration.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-10-08-the-new-defender-server-security-experience-microsoft-defender-for-endpoint-microsoft-learn-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-12T22:08:22.418Z",
+      "generatedAt": "2026-10-13T09:24:47.731Z",
       "usage": {
-        "inputTokens": 6161,
-        "outputTokens": 3232,
-        "costUsd": 0.005111
+        "inputTokens": 6240,
+        "outputTokens": 1200,
+        "costUsd": 0.002688
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-12T22:08:22.418Z",
+  "generatedAt": "2026-10-13T09:24:47.731Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9664,18 +9710,24 @@
       "outputTokens": 19695,
       "requests": 6,
       "costUsd": 0.028766
+    },
+    "2026-10-13": {
+      "inputTokens": 9654,
+      "outputTokens": 5308,
+      "requests": 3,
+      "costUsd": 0.0083
     }
   },
   "lastRun": {
-    "inputTokens": 8691,
-    "outputTokens": 6407,
+    "inputTokens": 9654,
+    "outputTokens": 5308,
     "requests": 3,
-    "costUsd": 0.009427
+    "costUsd": 0.0083
   },
   "totalUsage": {
-    "inputTokens": 485194,
-    "outputTokens": 499567,
-    "requests": 114,
-    "costUsd": 0.696518
+    "inputTokens": 494848,
+    "outputTokens": 504875,
+    "requests": 117,
+    "costUsd": 0.704818
   }
 }
