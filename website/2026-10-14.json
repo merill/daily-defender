@@ -104,6 +104,162 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-identity/deploy/deploy-defender-identity.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/deploy-defender-identity.md b/defender-for-identity/deploy/deploy-defender-identity.md\nindex 913dec7..d48435f 100644\n--- a/defender-for-identity/deploy/deploy-defender-identity.md\n+++ b/defender-for-identity/deploy/deploy-defender-identity.md\n@@ -60,7 +60,7 @@ For eligible domain controllers running Windows Server 2019 or later, sensor v3.\n \r\n | Server configuration | Server operating system | Recommended deployment | Onboarding options |\r\n | --- | --- | --- | --- |\r\n-| Any supported server type | Windows Server 2019 or later with the July 2026 or later cumulative update | [Defender for Identity sensor v3.x](deploy-sensor-v3) | For servers onboarded to Defender for Endpoint, activate sensor v3.x directly. For domain controllers that aren't onboarded to Defender for Endpoint, use the sensor v3.x onboarding package. AD FS, AD CS, and Microsoft Entra Connect servers must be onboarded to Defender for Endpoint before activation. |\r\n+| Any supported server type | Windows Server 2019 or later with the September 2026 or later cumulative update | [Defender for Identity sensor v3.x](deploy-sensor-v3) | For servers onboarded to Defender for Endpoint, activate sensor v3.x directly. For domain controllers that aren't onboarded to Defender for Endpoint, use the sensor v3.x onboarding package. AD FS, AD CS, and Microsoft Entra Connect servers must be onboarded to Defender for Endpoint before activation. |\r\n | Any supported server type | Windows Server 2016 or earlier | [Defender for Identity sensor v2.x](prerequisites-sensor-version-2) | [Install the sensor v2.x package](install-sensor). |\r\n \r\n Defender for Identity supports sensor v3.x and sensor v2.x in the same workspace. For example, you might deploy sensor v3.x on servers running Windows Server 2019 or later and sensor v2.x on servers running Windows Server 2016 or earlier.\r\n",
+      "baseCommitSha": "c82f341771fadc05e2f760b0361cfba4b81146d0",
+      "commitSha": "4f72157504d0f8f73e0ea2b9df9793b4436b945a",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:03:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/deploy-defender-identity.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/deploy-defender-identity",
+      "eventId": "defender-docs:4f72157504d0f8f73e0ea2b9df9793b4436b945a:modified:defender-for-identity/deploy/deploy-defender-identity.md",
+      "firstSeenAt": "2026-10-14T13:40:37.087Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sensor v3.x now requires a September 2026 or later update",
+        "summary": "The documented prerequisite for Windows Server 2019 or later changed from the July 2026 cumulative update to the September 2026 cumulative update.",
+        "adminImpact": "Verify eligible servers meet the updated cumulative update requirement before deploying or activating Defender for Identity sensor v3.x.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/deploy-sensor-v3.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 7,
+      "changes": 22,
+      "patch": "diff --git a/defender-for-identity/deploy/deploy-sensor-v3.md b/defender-for-identity/deploy/deploy-sensor-v3.md\nindex 2a2c070..9fc9afd 100644\n--- a/defender-for-identity/deploy/deploy-sensor-v3.md\n+++ b/defender-for-identity/deploy/deploy-sensor-v3.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Learn the requirements and configuration steps to deploy the Defender for Identity sensor v3.x on eligible identity-role servers.\n-ms.date: 2026-09-23T00:00:00.0000000Z\n+ms.date: 2026-10-14T00:00:00.0000000Z\n ms.topic: how-to\n ms.custom: msecd-doc-authoring-1016\n ms.reviewer: rlitinsky\n@@ -35,12 +35,12 @@ item_type: Content\n source_path: defender-for-identity/deploy/deploy-sensor-v3.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/fc3f72c2-fb6f-4cea-95ee-b444e52254ee\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/57eae307-c3a1-4cac-b645-1a899934bac8\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/f12cf087-582d-48ac-a085-0c19adf1e391\n - https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ee561821-1ac7-45a8-9409-6ba5eb7a5b97\n platformId: 1d6f7caa-98cc-b973-667d-5b1673c51a02\n ---\n \n@@ -67,7 +67,15 @@ Make sure that the server on which you're activating the sensor:\n - Is onboarded to Defender for Endpoint. The Microsoft Defender Antivirus component can be in either active or passive mode. For eligible domain controllers, you can instead use [sensor v3.x onboarding without Defender for Endpoint deployment](activate-sensor#onboard-the-domain-controller-preview).\r\n - Doesn't have a Defender for Identity sensor v2.x already deployed.\r\n - Runs Windows Server 2019 or later.\r\n-- Has the Windows Server July 2026 or later cumulative update installed.\r\n+- Has the Windows Server September 2026 or later cumulative update installed (Defender for Identity sensor version 3.0.10 or later).\r\n+\r\n+Use the September 2026 cumulative update for your Windows Server version, or a later cumulative update:\r\n+\r\n+| Windows Server version | September 2026 cumulative update |\r\n+| --- | --- |\r\n+| Windows Server 2019 | [KB5122876](https://support.microsoft.com/en-us/servicing/os/windows-10/2026/09/kb5122876-windows-10-1809-security-update) |\r\n+| Windows Server 2022 | [KB5122882](https://support.microsoft.com/en-us/servicing/os/windows-server/2026/09/kb5122882-windows-server-2022-security-update) |\r\n+| Windows Server 2025 | [KB5122871](https://support.microsoft.com/en-us/servicing/os/windows-server/2026/09/kb5122871-windows-server-2025-security-update) |\r\n \r\n #### Supported server types\r\n \r\n@@ -138,7 +146,7 @@ The Defender for Identity sensor interacts with Active Directory in two ways:\n \r\n The v3.x sensor uses the local system identity of the server for both purposes. It doesn't use Directory Service Accounts (DSA) or group Managed Service Accounts (gMSA). LocalSystem is the only supported identity for v3.x.\r\n \r\n-If you're migrating from sensor v2.x and previously had a gMSA configured for [action accounts](manage-action-accounts), select **Automatically use the sensor's local system account** in the Microsoft Defender portal (**Settings** &gt; **Identities** &gt; **Microsoft Defender for Identity** &gt; **Manage action accounts**). The v3.x sensors don't use gMSA accounts configured for v2.x sensors.\r\n+Before migrating from sensor v2.x, select **Automatically use the sensor's local system account** in the Microsoft Defender portal (**Settings** &gt; **Identities** &gt; **Microsoft Defender for Identity** &gt; **Manage action accounts**). Migration doesn't change this [action account setting](manage-action-accounts) automatically. The v3.x sensors don't use gMSA accounts configured for v2.x sensors.\r\n \r\n Important\r\n \r\n@@ -148,7 +156,7 @@ If any of your sensors are v3.x, select **Automatically use the sensor's local s\n \r\n If your workspace still has a Directory Service Account (DSA) or group Managed Service Account (gMSA) configured because v2.x sensors on AD FS, AD CS, or Entra Connect servers still require it, DSA and gMSA credentials continue to be validated on all sensors in the workspace, including v3.x sensors. If DSA or gMSA credential validation fails, the **Directory services user credentials are incorrect** health alert appears. Workspace-level validation of DSA and gMSA credentials on all sensors is by design. Defender for Identity validates DSA and gMSA credentials at the workspace level for all sensors as long as those accounts exist, regardless of whether individual sensors use them for auditing or response actions.\r\n \r\n-Defender for Identity v3.x sensors ignore the DSA and gMSA for auditing and response actions, but they're still included in workspace-level credential validation. To stop receiving this health alert on v3.x sensors, remove the workspace-level DSA or gMSA after all sensors are fully migrated to v3.x and no v2.x sensors require it.\r\n+Defender for Identity v3.x sensors ignore the DSA and gMSA for auditing and response actions, but they're still included in workspace-level credential validation. Migration doesn't remove the workspace-level DSA or gMSA configuration automatically. To stop receiving this health alert on v3.x sensors, manually remove the configuration after all sensors are fully migrated to v3.x and no v2.x sensors require it. Removing the workspace configuration doesn't delete the gMSA account in Active Directory.\r\n \r\n ### Test your prerequisites\r\n \r\n@@ -172,7 +180,7 @@ If automatic auditing isn't available or you opted out, [configure auditing manu\n \r\n ### Configure RPC auditing\r\n \r\n-Install the July 2026 or later Windows Server cumulative update before you install or upgrade to Defender for Identity sensor version 3.0.8 or later. Starting with sensor version 3.0.8, RPC auditing is enabled automatically on domain controllers, so you no longer need to apply an RPC configuration tag. The related health alert clears shortly after the upgrade.\r\n+Install the September 2026 or later Windows Server cumulative update before you install or upgrade to Defender for Identity sensor version 3.0.10 or later. Starting with sensor version 3.0.8, RPC auditing is enabled automatically on domain controllers, so you no longer need to apply an RPC configuration tag. The related health alert clears shortly after the upgrade.\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "c82f341771fadc05e2f760b0361cfba4b81146d0",
+      "commitSha": "4f72157504d0f8f73e0ea2b9df9793b4436b945a",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:03:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/deploy-sensor-v3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/deploy-sensor-v3",
+      "eventId": "defender-docs:4f72157504d0f8f73e0ea2b9df9793b4436b945a:modified:defender-for-identity/deploy/deploy-sensor-v3.md",
+      "firstSeenAt": "2026-10-14T13:40:37.091Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Defender for Identity sensor v3 now requires September 2026 updates",
+        "summary": "The prerequisite changed from the July 2026 to the September 2026 Windows Server cumulative update for sensor version 3.0.10 or later. The guidance also clarifies v2 migration account settings and that migration does not automatically remove workspace DSA or gMSA configuration.",
+        "adminImpact": "Install the September 2026 cumulative update before installing or upgrading the sensor, and select the local system account option before migrating from sensor v2.x.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/migrate-to-sensor-v3.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 5,
+      "changes": 12,
+      "patch": "diff --git a/defender-for-identity/deploy/migrate-to-sensor-v3.md b/defender-for-identity/deploy/migrate-to-sensor-v3.md\nindex 9197103..62f2888 100644\n--- a/defender-for-identity/deploy/migrate-to-sensor-v3.md\n+++ b/defender-for-identity/deploy/migrate-to-sensor-v3.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Learn how to migrate from the Defender for Identity sensor v2.x to the sensor v3.x with no downtime using the Sensors page in the Microsoft Defender portal.\n-ms.date: 2026-09-14T00:00:00.0000000Z\n+ms.date: 2026-10-14T00:00:00.0000000Z\n ms.topic: how-to\n ms.custom: msecd-doc-authoring-1016\n ai-usage: ai-assisted\n@@ -60,7 +60,7 @@ To migrate, each server must meet the following requirements:\n - Domain controller, including a domain controller that also runs AD FS, AD CS, or Microsoft Entra Connect\r\n - Defender for Identity sensor v2.x (version 2.254.19112.470 or later)\r\n - Windows Server 2019 or later\r\n-- Microsoft Defender for Endpoint deployed, with the July 2026 or later Windows Server cumulative update installed.\r\n+- Microsoft Defender for Endpoint deployed, with the September 2026 or later Windows Server cumulative update installed.\r\n \r\n For the full list of v3.x requirements, see [Defender for Identity sensor v3.x prerequisites](deploy-sensor-v3).\r\n \r\n@@ -110,7 +110,7 @@ The following table lists each reason that can appear in the tooltip, how to ver\n | Reason shown in the tooltip | How to verify | Resolution |\r\n | --- | --- | --- |\r\n | Device isn't properly onboarded to Microsoft Defender for Endpoint. | Run the Microsoft Defender for Endpoint Client Analyzer and check `RegOnboardingInfoPolicy.Json` in the results ZIP. The connectivity log shows *\"OnboardingInfo could not be found in the registry\"* if the onboarding info is missing. | Re-onboard the server to Microsoft Defender for Endpoint. |\r\n-| Operating system version isn't supported. Requires Windows Server 2019 or later. | Run `winver` to confirm the operating system version and build number. | Upgrade the operating system to Windows Server 2019 or later and install the July 2026 or later cumulative update. |\r\n+| Operating system version isn't supported. Requires Windows Server 2019 or later. | Run `winver` to confirm the operating system version and build number. | Upgrade the operating system to Windows Server 2019 or later and install the September 2026 or later cumulative update. |\r\n | Microsoft Defender for Endpoint sensor version is outdated or unsupported. | In the Client Analyzer report, check the **Sense version** field. | Update the Microsoft Defender for Endpoint sensor to the latest version. |\r\n | Microsoft Defender for Endpoint (Sense) service isn't running. | In the Client Analyzer report, confirm the **Sense service Status** is **Running**. | Start the Sense service and verify Microsoft Defender for Endpoint onboarding is complete. |\r\n | Migration is currently supported only for domain controllers. | Confirm the server is a domain controller. | In-place migration is available only for domain controllers. |\r\n@@ -124,7 +124,9 @@ If a server shows a **Migration failed** status, run the [Microsoft Defender for\n \r\n ## Clean up the v2.x sensor\r\n \r\n-The migration disables the v2.x sensor service, but the v2.x sensor software remains installed on the server. Complete the following cleanup steps to fully clean your server from the v2.x sensor files:\r\n+The migration disables the v2.x sensor service, but the v2.x sensor software remains installed on the server. Complete the following cleanup steps after migration:\r\n \r\n - **Uninstall the v2.x sensor**: Remove the v2.x sensor software from the server. This step might require a server restart. For instructions, see [Delete and uninstall a sensor v2.x from a domain controller](../uninstall-sensor#delete-and-uninstall-a-sensor-v2x-from-a-domain-controller).\r\n-- **Remove Npcap**: Npcap was used by the v2.x sensor but isn't required by the v3.x sensor. If Npcap isn't used by other applications on the server, remove it. Leaving Npcap installed doesn't affect the v3.x sensor.\n\\ No newline at end of file\n+- **Remove Npcap**: Npcap was used by the v2.x sensor but isn't required by the v3.x sensor. If Npcap isn't used by other applications on the server, remove it. Leaving Npcap installed doesn't affect the v3.x sensor.\r\n+- **Remove workspace DSA or gMSA configuration**: Wait until all sensors are migrated to v3.x and no remaining v2.x sensors require the account. Then manually remove the workspace-level DSA or gMSA configuration. Migration doesn't remove this configuration automatically.\r\n+- **Retire unused gMSA accounts**: Removing the workspace configuration doesn't delete the gMSA account in Active Directory. Before retiring the account, verify that no other services use it. For guidance, see [Deprovision service accounts](/en-us/entra/architecture/service-accounts-govern-on-premises#deprovision-service-accounts).\n\\ No newline at end of file\n",
+      "baseCommitSha": "c82f341771fadc05e2f760b0361cfba4b81146d0",
+      "commitSha": "4f72157504d0f8f73e0ea2b9df9793b4436b945a",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:03:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/migrate-to-sensor-v3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/migrate-to-sensor-v3",
+      "eventId": "defender-docs:4f72157504d0f8f73e0ea2b9df9793b4436b945a:modified:defender-for-identity/deploy/migrate-to-sensor-v3.md",
+      "firstSeenAt": "2026-10-14T13:40:37.096Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sensor v3 migration now requires September 2026 cumulative updates",
+        "summary": "The prerequisite changed from the July 2026 to the September 2026 or later Windows Server cumulative update. Post-migration guidance now covers manually removing workspace DSA or gMSA configuration and retiring unused gMSA accounts after verifying they have no other users.",
+        "adminImpact": "Update eligible servers to the September 2026 or later cumulative update. After all v2.x sensors migrate, remove obsolete workspace configuration and retire only gMSA accounts confirmed to be unused.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/health-alerts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/health-alerts.md b/defender-for-identity/health-alerts.md\nindex 6940124..c34683e 100644\n--- a/defender-for-identity/health-alerts.md\n+++ b/defender-for-identity/health-alerts.md\n@@ -126,7 +126,7 @@ Each health issue table includes a **Displayed in** column that indicates whethe\n | **Radius accounting (VPN integration) data ingestion failures** | The listed Defender for Identity sensors have radius accounting (VPN integration) data ingestion failures. | Validate that the shared secret in the Defender for Identity configuration settings matches your VPN server, according to the guidance described [Configure VPN in Defender for Identity](vpn-integration#configure-vpn-in-defender-for-identity) section, in the [Defender for Identity VPN integration](vpn-integration) page. | Low | Health issues page | 2.x |\r\n | **Auditing for AD CS servers isn't enabled as required** | The Advanced Auditing Policy Configuration or AD CS auditing isn't enabled as required. (This configuration is validated once a day, per sensor.) | Enable the Advanced Auditing Policy Configuration and AD CS auditing according to the guidance as described in the [Configure auditing on AD CS](configure-windows-event-collection#configure-auditing-on-ad-cs) section, in the [Configure Windows Event collection](configure-windows-event-collection) page. | Medium | Sensors health issues tab | 2.x |\r\n | **Sensor failed to retrieve Microsoft Entra Connect service configuration** | The sensor is unable to retrieve the configuration from the Microsoft Entra Connect service (also known as Microsoft Azure AD sync). | Ensure that the Microsoft Entra connect service **(Microsoft Azure AD Sync)** is running and follow the instructions in [Configure permissions for the Microsoft Entra Connect (ADSync) database](deploy/active-directory-federation-services#configure-permissions-for-the-microsoft-entra-connect-adsync-database) to grant the sensor the necessary permissions. If the issue persists, follow the troubleshooting guidance at [SQL connectivity issues with Microsoft Entra Connect](/en-us/entra/identity/hybrid/connect/tshoot-connect-tshoot-sql-connectivity). | Medium | Sensors health issues tab | 2.x |\r\n-| **Sensor v3.x RPC Audit Misconfigured** | The sensor is missing the required Unified Sensor RPC Audit configuration tag, or the tag was not applied correctly. | To resolve this issue, do one of the following:- Verify that the Unified Sensor RPC Audit configuration is correctly applied to the relevant devices. Once the tag is applied, the configuration is enforced automatically on matching devices.- Install the July 2026 or later Windows cumulative update to upgrade the Defender for Identity sensor to version 3.0.8 or later. In sensor version 3.0.8 or later, RPC auditing is applied automatically, and the tag is no longer required.For more information, see [Configure RPC auditing](deploy/deploy-sensor-v3#configure-rpc-auditing). | Medium | Sensors health issues tab | 3.x |\r\n+| **Sensor v3.x RPC Audit Misconfigured** | The sensor is missing the required Unified Sensor RPC Audit configuration tag, or the tag was not applied correctly. | To resolve this issue, do one of the following:- Verify that the Unified Sensor RPC Audit configuration is correctly applied to the relevant devices. Once the tag is applied, the configuration is enforced automatically on matching devices.- Install the September 2026 or later Windows cumulative update to upgrade the Defender for Identity sensor to version 3.0.10 or later. In sensor version 3.0.8 or later, RPC auditing is applied automatically, and the tag is no longer required.For more information, see [Configure RPC auditing](deploy/deploy-sensor-v3#configure-rpc-auditing). | Medium | Sensors health issues tab | 3.x |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "c82f341771fadc05e2f760b0361cfba4b81146d0",
+      "commitSha": "4f72157504d0f8f73e0ea2b9df9793b4436b945a",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:03:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/health-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/health-alerts",
+      "eventId": "defender-docs:4f72157504d0f8f73e0ea2b9df9793b4436b945a:modified:defender-for-identity/health-alerts.md",
+      "firstSeenAt": "2026-10-14T13:40:37.101Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated guidance for Sensor v3.x RPC Audit Misconfigured alert",
+        "summary": "The health alerts page revises the entry describing a missing or incorrectly applied Unified Sensor RPC Audit configuration tag and its resolution steps.",
+        "adminImpact": "Administrators troubleshooting this alert should consult the revised verification guidance; no action is required solely because of this change.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/sensor-settings.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/sensor-settings.md b/defender-for-identity/sensor-settings.md\nindex 74dab02..7abcbab 100644\n--- a/defender-for-identity/sensor-settings.md\n+++ b/defender-for-identity/sensor-settings.md\n@@ -99,7 +99,7 @@ For a server to be eligible for migration, it must:\n - Be a domain controller, including a domain controller that also runs AD FS, AD CS, or Microsoft Entra Connect.\r\n - Run Defender for Identity sensor v2.x.\r\n - Run Windows Server 2019 or later.\r\n-- Have the July 2026 or later cumulative update installed.\r\n+- Have the September 2026 or later cumulative update installed.\r\n - Have Microsoft Defender for Endpoint deployed.\r\n \r\n For the full list of v3.x requirements, see [Defender for Identity sensor v3.x prerequisites](deploy/deploy-sensor-v3).\r\n",
+      "baseCommitSha": "c82f341771fadc05e2f760b0361cfba4b81146d0",
+      "commitSha": "4f72157504d0f8f73e0ea2b9df9793b4436b945a",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:03:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/sensor-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/sensor-settings",
+      "eventId": "defender-docs:4f72157504d0f8f73e0ea2b9df9793b4436b945a:modified:defender-for-identity/sensor-settings.md",
+      "firstSeenAt": "2026-10-14T13:40:37.106Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sensor settings now require the September 2026 cumulative update",
+        "summary": "The documented prerequisite changed from the July 2026 or later cumulative update to the September 2026 or later cumulative update.",
+        "adminImpact": "Ensure affected sensors have the September 2026 or later cumulative update installed.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/automation/create-playbooks.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 3,
+      "changes": 23,
+      "patch": "diff --git a/sentinel/automation/create-playbooks.md b/sentinel/automation/create-playbooks.md\nindex 71898a4..3a75bf2 100644\n--- a/sentinel/automation/create-playbooks.md\n+++ b/sentinel/automation/create-playbooks.md\n@@ -98,13 +98,30 @@ Follow these steps to create a new playbook in Microsoft Sentinel:\n 1. In the [Defender portal](https://security.microsoft.com/) or in the [Azure portal](https://portal.azure.com), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.\r\n \r\n # [Defender portal](#tab/defender-portal)\r\n-[![Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected.](../media/create-playbooks/add-new-playbook-defender.png)](../media/create-playbooks/add-new-playbook-defender.png#lightbox)\r\n+[![Screenshot showing the Logic App playbook creation menu in the Defender portal, including alert, case, blank, and legacy playbook options.](../media/create-playbooks/sentinel-logic-app-playbook-light-mode.png)](../media/create-playbooks/sentinel-logic-app-playbook-light-mode.png#lightbox)\r\n \r\n # [Azure portal](#tab/azure-portal)\r\n [![Screenshot shows Azure portal and Microsoft Sentinel Automation page with Create selected.](../media/create-playbooks/add-new-playbook.png)](../media/create-playbooks/add-new-playbook.png#lightbox)\r\n \r\n ---\r\n-2. From the top menu, select **Create**, and then select one of the following options:\r\n+2. From the top menu, select **Create** &gt; **Logic App playbook**, and then select one of the following options:\r\n+\r\n+    - If you're creating a **Consumption** playbook, select one of the following options, depending on the trigger you want to use, and then follow the steps to [prepare a **Consumption** logic app playbook](create-playbooks?tabs=consumption#prepare-playbook-logic-app):\r\n+\r\n+        - **Playbook with alert trigger**: Create a playbook that runs in response to an alert.\r\n+        - **Playbook with case trigger**: Create a playbook that runs in response to a case in Microsoft Defender.\r\n+        - **Playbook with incident trigger (Legacy)**: Create a playbook that uses the legacy incident trigger.\r\n+        - **Playbook with alert trigger (Legacy)**: Create a playbook that uses the legacy alert trigger.\r\n+        - **Playbook with entity trigger (Legacy)**: Create a playbook that uses the legacy entity trigger.\r\n+\r\n+        In this example, select **Playbook with entity trigger (Legacy)**.\r\n+    - If you're creating a **Standard** playbook, select **Blank playbook** and then [prepare a **Standard** logic app playbook](create-playbooks?tabs=standard#prepare-playbook-logic-app).\r\n+\r\n+    Note\r\n+\r\n+    Microsoft Defender uses the term **case**, while Azure Logic Apps uses **incident** terminology for the corresponding Microsoft Sentinel connector triggers and actions. When you create a playbook with a case trigger in Microsoft Defender, the corresponding trigger in Azure Logic Apps is called **Microsoft Sentinel incident**.\r\n+\r\n+    For more information, see [Supported logic app types](logic-apps-playbooks#supported-logic-app-types) and [Supported triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions).\r\n \r\n     - If you're creating a **Consumption** playbook, select one of the following options, depending on the trigger you want to use, and then follow the steps to [prepare a **Consumption** logic app playbook](create-playbooks?tabs=consumption#prepare-playbook-logic-app):\r\n \r\n@@ -128,7 +145,7 @@ If your playbooks need access to protected resources that are inside or connecte\n Standard workflows run in single-tenant Azure Logic Apps and support using private endpoints for inbound traffic so that your workflows can communicate privately and securely with virtual networks. Standard workflows also support virtual network integration for outbound traffic. For more information, see [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](/en-us/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint).\r\n \r\n # [Consumption](#tab/consumption)\r\n-After you select the trigger, which includes an incident, alert, or entity trigger, the **Create playbook** wizard appears, for example:\r\n+After you select a playbook trigger, the **Create playbook** wizard appears, for example:\r\n \r\n [![Screenshot shows Create playbook wizard and Basics tab for a Consumption workflow-based playbook.](../media/create-playbooks/create-playbook-basics-consumption.png)](../media/create-playbooks/create-playbook-basics-consumption.png#lightbox)\r\n \r\n",
+      "baseCommitSha": "c82f341771fadc05e2f760b0361cfba4b81146d0",
+      "commitSha": "4f72157504d0f8f73e0ea2b9df9793b4436b945a",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:03:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/automation/create-playbooks.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/automation/create-playbooks",
+      "eventId": "defender-docs:4f72157504d0f8f73e0ea2b9df9793b4436b945a:modified:sentinel/automation/create-playbooks.md",
+      "firstSeenAt": "2026-10-14T13:40:37.111Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Playbook creation guidance now separates Consumption and Standard options",
+        "summary": "The instructions now use Create > Logic App playbook and distinguish Consumption triggers—including alert, case, and legacy options—from Standard playbooks, which start with Blank playbook. The page also explains case-versus-incident terminology and adds supporting links.",
+        "adminImpact": "Administrators creating playbooks should follow the revised menu path and select the option matching the playbook type and trigger.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [
@@ -136,14 +292,14 @@
   ],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 5,
+    "totalCommits": 2,
+    "totalFiles": 11,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 4 updated, and 1 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 10 updated, and 1 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -156,6 +312,26 @@
           "defender-xdr/whats-new.md",
           "defender-xdr/advanced-hunting-aiagentsinfo-table.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Identity",
+        "summary": "The documented prerequisite for Windows Server 2019 or later changed from the July 2026 cumulative update to the September 2026 cumulative update. The prerequisite changed from the July 2026 to the September 2026 Windows Server cumulative update for sensor version 3.0.10 or later. The guidance also clarifies v2 migration account settings and that migration does not automatically remove workspace DSA or gMSA configuration. The prerequisite changed from the July 2026 to the September 2026 or later Windows Server cumulative update. Post-migration guidance now covers manually removing workspace DSA or gMSA configuration and retiring unused gMSA accounts after verifying they have no other users. ",
+        "sourceFiles": [
+          "defender-for-identity/deploy/deploy-defender-identity.md",
+          "defender-for-identity/deploy/deploy-sensor-v3.md",
+          "defender-for-identity/deploy/migrate-to-sensor-v3.md",
+          "defender-for-identity/health-alerts.md",
+          "defender-for-identity/sensor-settings.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The instructions now use Create > Logic App playbook and distinguish Consumption triggers—including alert, case, and legacy options—from Standard playbooks, which start with Blank playbook. The page also explains case-versus-incident terminology and adds supporting links.",
+        "sourceFiles": [
+          "sentinel/automation/create-playbooks.md"
+        ]
       }
     ],
     "highlights": [
@@ -163,6 +339,16 @@
         "category": "Doc update",
         "headline": "Defender XDR",
         "detail": "The page no longer includes the notice that some information concerns prereleased products subject to substantial change before commercial release. The documentation now describes the transition from `AIAgentsInfo` to the unified `AgentsInfo` table, which expands beyond Copilot Studio-specific columns. The schema page no longer labels AgentsInfo as Preview and no longer lists AIAgentsInfo. The What's new entries for the preview AgentsInfo and AIAgentsInfo advanced hunting tables now show table names as inline code instead of linked text. The AIAgentsInfo advanced hunting table is transitioning to AgentsInfo. AIAgentsInfo remains accessible until July 1, 2026, and its reference documentation "
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Identity",
+        "detail": "The documented prerequisite for Windows Server 2019 or later changed from the July 2026 cumulative update to the September 2026 cumulative update. The prerequisite changed from the July 2026 to the September 2026 Windows Server cumulative update for sensor version 3.0.10 or later. The guidance also clarifies v2 migration account settings and that migration does not automatically remove workspace DSA or gMSA configuration. The prerequisite changed from the July 2026 to the September 2026 or later Windows Server cumulative update. Post-migration guidance now covers manually removing workspace DSA or gMSA configuration and retiring unused gMSA accounts after verifying they have no other users. "
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The instructions now use Create > Logic App playbook and distinguish Consumption triggers—including alert, case, and legacy options—from Standard playbooks, which start with Blank playbook. The page also explains case-versus-incident terminology and adds supporting links."
       }
     ],
     "generatedBy": "fallback"
