@@ -7563,6 +7563,52 @@
         "outputTokens": 3078,
         "costUsd": 0.004496
       }
+    },
+    "2026-10-14": {
+      "headline": "Agent hunting guidance shifts from AIAgentsInfo to unified AgentsInfo in Defender XDR",
+      "overview": "The period’s main substantive update documents the transition from AIAgentsInfo to the unified AgentsInfo advanced hunting table, whose schema extends beyond Copilot Studio-specific columns. The AIAgentsInfo reference was removed, with the supplied entry stating that the table remains accessible until July 1, 2026. Related edits update the schema index and remove older preview wording, while smaller presentation changes replace inline links with code-formatted table names.",
+      "adminImpact": "Administrators maintaining agent-hunting queries should move affected AIAgentsInfo references to AgentsInfo and account for its broader schema. The listed July 1, 2026 accessibility cutoff falls before this reporting period, so remaining dependencies should be checked. Update schema references as needed and use surrounding documentation navigation where inline links were removed.",
+      "keyChanges": [
+        {
+          "title": "AIAgentsInfo reference documentation was removed",
+          "detail": "The AIAgentsInfo advanced hunting table reference was removed as the table transitions to AgentsInfo. The removal entry states that AIAgentsInfo remains accessible until July 1, 2026 and directs administrators to update affected queries to AgentsInfo before that date.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-advanced-hunting-aiagentsinfo-table-05"
+        },
+        {
+          "title": "AgentsInfo is documented as the unified agent-hunting table",
+          "detail": "The Advanced Hunting Schema Changes guidance now describes the transition from AIAgentsInfo to unified AgentsInfo, expanding beyond Copilot Studio-specific columns. Agent-data queries should follow the updated AgentsInfo schema guidance.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-advanced-hunting-schema-changes-02"
+        },
+        {
+          "title": "The schema index drops AIAgentsInfo and its AgentsInfo Preview label",
+          "detail": "The schema page no longer labels AgentsInfo as Preview and no longer lists AIAgentsInfo. Administrators maintaining schema references should align them with the revised table list.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-advanced-hunting-schema-tables-03"
+        },
+        {
+          "title": "The AgentsInfo page removes its prerelease warning",
+          "detail": "The AgentsInfo table page no longer includes the notice that some information concerns prereleased products subject to substantial change before commercial release. No administrator action is stated for this edit.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-advanced-hunting-agentsinfo-table-01"
+        },
+        {
+          "title": "What’s new entries replace inline table links with code formatting",
+          "detail": "The entries for the preview AgentsInfo and AIAgentsInfo advanced hunting tables now display table names as inline code instead of linked text. Administrators should use the surrounding documentation navigation to reach the relevant pages.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-whats-new-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-14T07:37:16.756Z",
+      "usage": {
+        "inputTokens": 1442,
+        "outputTokens": 3961,
+        "costUsd": 0.005042
+      }
     }
   },
   "weeks": {
@@ -9149,37 +9195,37 @@
       }
     },
     "2026-10-12": {
-      "headline": "Mobile TVM, custom-detection correlation, and machine-tag limits get sharper guidance",
-      "overview": "The week's meaningful administrator changes are concentrated in operational guidance: Mobile TVM now carries a Conditional Access exclusion warning, Defender XDR spells out default and per-rule custom-detection correlation, and separate pages clarify registry tag limits, Azure CSPM prerequisites for exemptions, and July 2026 bulk-mail routing. Most remaining updates refine wording, links, screenshots, and procedures.",
-      "adminImpact": "Prioritize reviews of Conditional Access scope for Mobile TVM, rule-level correlation choices for custom detections, the completeness of registry-based tag inventories, Azure CSPM assignment where exemptions are needed, and bulk-mail routing under Bulk moves enabled. The remaining edits mainly improve existing guidance and do not indicate broad configuration changes.",
+      "headline": "Defender advanced-hunting guidance shifts agent queries to unified AgentsInfo",
+      "overview": "Most updates were editorial maintenance, but several introduced concrete administrator guidance. Defender XDR documents the AIAgentsInfo-to-AgentsInfo transition and per-rule custom-detection correlation; Endpoint guidance warns that restrictive Conditional Access can disrupt Mobile TVM flows; Defender for Cloud ties recommendation exemptions to Azure CSPM assignment; and Office 365 specifies promotional bulk-mail routing when Bulk moves enabled is turned on.",
+      "adminImpact": "Update affected hunting queries to AgentsInfo, review custom-detection correlation rules, audit Conditional Access policies affecting Mobile TVM, assign Azure CSPM when exemptions are required, and validate anti-spam routing expectations. The AIAgentsInfo guidance cites July 1, 2026 as its accessibility cutoff.",
       "keyChanges": [
         {
-          "title": "Mobile TVM guidance now warns about restrictive Conditional Access",
-          "detail": "The updated page identifies onboarding, security reporting, and iOS TVM as Mobile TVM service uses. It warns that restrictive Conditional Access policies can disrupt those flows and recommends excluding the service from such policies. Review policies that apply to the Mobile TVM service.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-12-mobile-resources-defender-endpoint-02"
+          "title": "AIAgentsInfo reference gives way to unified AgentsInfo",
+          "detail": "The AIAgentsInfo reference page was removed as the documentation transitions to AgentsInfo. The guidance says AIAgentsInfo remains accessible until July 1, 2026 and directs administrators to update affected queries to AgentsInfo.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-advanced-hunting-aiagentsinfo-table-05"
         },
         {
-          "title": "Defender XDR makes custom-detection correlation explicitly per rule",
-          "detail": "Custom detections are included in correlation by default, while each rule can be included or excluded from Microsoft Defender XDR correlation. An excluded rule produces a predictable single-alert incident when no matching grouping rule applies. The guidance also states that no tenant-level custom-detection setting is available.",
+          "title": "Custom-detection correlation is documented as a per-rule choice",
+          "detail": "The updated Defender XDR guidance says custom detections are included in correlation by default. Administrators can include or exclude them per rule; there is no tenant-level custom-detection setting, and an exclusion can produce a predictable single-alert incident when no matching grouping rule applies.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-13-manage-detection-rule-correlation-settings-in-microsoft-defender-xdr-microsoft-defender-xdr-micr-22"
         },
         {
-          "title": "DeviceTagging’s Group registry value records only one tag",
-          "detail": "The Machine Tags guidance says the DeviceTagging registry key supports only one tag in the Group value. Tags assigned through other methods are not written there, so the registry value may not show every tag on a device. Use another supported tagging method for multiple tags and do not treat Group as a complete tag inventory.",
+          "title": "Mobile TVM guidance warns restrictive Conditional Access can disrupt flows",
+          "detail": "The Mobile TVM service is documented for onboarding, security reporting, and iOS TVM. The guidance warns that restrictive Conditional Access policies can disrupt these flows and recommends excluding the service from those policies.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-10-12-machine-tags-01"
+          "sourceId": "doc-2026-10-12-mobile-resources-defender-endpoint-02"
         },
         {
-          "title": "Azure CSPM assignment now determines exemption support for some recommendations",
-          "detail": "Some identity and access recommendations can appear without the Azure CSPM standard assigned, but those recommendations do not support exemptions unless the standard is assigned. Assign the Azure CSPM standard when exemption handling is required.",
+          "title": "Azure CSPM is required when Defender for Cloud exemptions are needed",
+          "detail": "Identity and access recommendations can appear without Azure CSPM Standard assigned, but the updated guidance says those recommendations don't support exemptions until the standard is assigned. Administrators needing exemptions should assign the Azure CSPM standard using the linked procedure.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-13-recommendations-reference-identity-access-18"
         },
         {
-          "title": "Bulk-mail guidance separates promotional routing from BCL handling",
-          "detail": "The anti-spam guidance says that, as of July 2026, messages identified as bulk receive the Promotions tag. When Bulk moves enabled is turned on, messages move from Inbox to the Promotions folder only when they are promotional in nature, regardless of BCL value. Review policy expectations against this routing behavior.",
+          "title": "Guidance specifies when promotional bulk mail moves to Promotions",
+          "detail": "The anti-spam guidance says that, as of July 2026, messages identified as bulk receive the Promotions tag. Promotional bulk messages move from Inbox to the Promotions folder only when Bulk moves enabled is turned on, regardless of BCL value.",
           "product": "Office 365",
           "sourceId": "doc-2026-10-13-anti-spam-bulk-complaint-level-bcl-about-19"
         }
@@ -9187,11 +9233,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-13T20:15:30.754Z",
+      "generatedAt": "2026-10-14T07:37:16.756Z",
       "usage": {
-        "inputTokens": 4288,
-        "outputTokens": 3267,
-        "costUsd": 0.004778
+        "inputTokens": 4833,
+        "outputTokens": 5315,
+        "costUsd": 0.007345
       }
     }
   },
@@ -9562,65 +9608,59 @@
       }
     },
     "2026-10": {
-      "headline": "Security Operator access changes and Teams QR protection reshape Defender administration",
-      "overview": "The month’s most consequential administrator change is a November Unified RBAC remap: Microsoft Entra Security Operator will lose default access to Defender for Office 365 email threat policies and the Tenant Allow/Block List when Unified RBAC is enabled. Alongside that deadline, Teams receives post-delivery malicious-QR URL protection, two Defender for Office 365 submission tables move from preview toward general availability, Sentinel connector guidance adds SAP BTP vulnerability ingestion, and Defender Vulnerability Management privately previews developer-package coverage. The remaining activity was largely documentation maintenance.",
-      "adminImpact": "Before the November Unified RBAC change, manually assign the required permissions to Security Operator users who still need access to email threat policies or the Tenant Allow/Block List. Review Teams URL-protection settings and investigation processes; no user action is required for the QR-code rollout. Track the SubmissionEvents and SubmissionResults preview-to-GA transition if adopting them. For Sentinel, enable SAP BTP API access and create dedicated client credentials; Corelight deployments additionally require Reader and Microsoft Graph access alongside Monitoring Metrics Publisher. For the private package-coverage preview, prepare for increased data volume and validate integrations before enabling it.",
+      "headline": "Security Operator will lose default threat-policy access as Defender adds Teams QR protection",
+      "overview": "October was dominated by documentation maintenance—165 of 174 entries were updates, including a conspicuous Exposure Management cluster that changed only author metadata. The administrator-relevant exceptions were a November Unified RBAC permission change, two Defender for Office 365 protection and telemetry rollouts, a Sentinel SAP BTP connector with revised Corelight prerequisites, and a private Defender Vulnerability Management preview for developer-package vulnerabilities.",
+      "adminImpact": "Before November, manually assign email threat-policy and Tenant Allow/Block List permissions to Security Operator users who need continued access when Unified RBAC is enabled. For Teams QR protection, review related settings and investigation processes; no user action is required. For SAP BTP, enable API access and create dedicated client credentials. Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher. For the developer-package preview, prepare for increased data volume and validate integrations before enabling it. The new email-submission hunting tables require no immediate action or compliance response according to the supplied notice.",
       "keyChanges": [
         {
-          "title": "Unified RBAC removes default Security Operator access in November",
-          "detail": "Microsoft is updating Defender for Office 365 Unified RBAC mapping for the Microsoft Entra Security Operator role. When Unified RBAC is enabled, the role will no longer have default access to email threat policies or the Tenant Allow/Block List; administrators must manually assign permissions for users who need continued access. The change starts in November 2026.",
+          "title": "Unified RBAC removes default Security Operator email-control access",
+          "detail": "Starting November 2026, Microsoft Defender for Office 365 will remove the Microsoft Entra Security Operator role’s default access to email threat policies and the Tenant Allow/Block List when Unified RBAC is enabled. Manual permission assignment is required to preserve access.",
           "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams QR-code URLs receive post-delivery protection",
-          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and support security-team investigation through Advanced Hunting. Worldwide rollout is planned from October through November 2026; administrators should review related settings and processes.",
+          "title": "Teams URL protection expands to malicious QR codes after delivery",
+          "detail": "Rolling out worldwide from October through November 2026, Defender for Office 365 will detect malicious URLs in QR codes delivered through Microsoft Teams, warn users, and make the activity available for investigation through Advanced Hunting.",
           "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "New Advanced Hunting tables expose email-submission activity",
-          "detail": "Defender for Office 365 is adding the SubmissionEvents and SubmissionResults tables to Advanced Hunting, improving visibility into email submissions and related detection workflows. Public preview starts in early October 2026, with general availability beginning in late October 2026.",
+          "title": "Email-submission telemetry arrives in Advanced Hunting",
+          "detail": "The new SubmissionEvents and SubmissionResults tables add visibility into email submissions. Public preview starts in early October 2026 and general availability begins in late October 2026; the notice states that no immediate action or compliance change is required.",
           "product": "Defender for Office 365",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Sentinel guidance adds SAP BTP ingestion and revises Corelight access",
-          "detail": "The Sentinel Data Connectors Reference now includes ingestion of SAP BTP application vulnerability findings, which requires API access and dedicated client credentials. The same update states that Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "title": "Sentinel adds SAP BTP vulnerability ingestion and tightens Corelight access",
+          "detail": "The Data Connectors Reference adds a connector for SAP BTP application vulnerability findings, which requires API access and dedicated client credentials. Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
           "product": "Microsoft Sentinel",
           "sourceId": "doc-2026-10-10-data-connectors-reference-01"
         },
         {
-          "title": "Defender Vulnerability Management previews developer-package coverage",
-          "detail": "A private preview expands vulnerability coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage integrates with existing workflows, APIs, and exports, with rollout planned from September through December 2026; organizations should expect increased data volume and validate integrations before enabling it.",
-          "product": "Microsoft Defender Vulnerability Management",
+          "title": "Developer-package vulnerability coverage enters private preview",
+          "detail": "Defender Vulnerability Management is privately previewing coverage for selected Node.js, Python, and Java packages on Windows devices. The coverage uses existing workflows, APIs, and exports, with rollout planned from September through December 2026.",
+          "product": "Defender Vulnerability Management",
           "sourceId": "MC1490909"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-13T20:15:30.754Z",
+      "generatedAt": "2026-10-14T07:37:16.756Z",
       "usage": {
-        "inputTokens": 6195,
-        "outputTokens": 4330,
-        "costUsd": 0.006435
+        "inputTokens": 6197,
+        "outputTokens": 6899,
+        "costUsd": 0.009518
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-13T20:15:30.754Z",
+  "generatedAt": "2026-10-14T07:37:16.756Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-08": {
-      "inputTokens": 10600,
-      "outputTokens": 12532,
-      "requests": 3,
-      "costUsd": 0.017158
-    },
     "2026-09-18": {
       "inputTokens": 8566,
       "outputTokens": 3852,
@@ -9716,18 +9756,24 @@
       "outputTokens": 15983,
       "requests": 6,
       "costUsd": 0.024009
+    },
+    "2026-10-14": {
+      "inputTokens": 12472,
+      "outputTokens": 16175,
+      "requests": 3,
+      "costUsd": 0.021904
     }
   },
   "lastRun": {
-    "inputTokens": 14497,
-    "outputTokens": 10675,
+    "inputTokens": 12472,
+    "outputTokens": 16175,
     "requests": 3,
-    "costUsd": 0.015709
+    "costUsd": 0.021904
   },
   "totalUsage": {
-    "inputTokens": 509345,
-    "outputTokens": 515550,
-    "requests": 120,
-    "costUsd": 0.720527
+    "inputTokens": 521817,
+    "outputTokens": 531725,
+    "requests": 123,
+    "costUsd": 0.742431
   }
 }
