@@ -1,0 +1,220 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 11,
+      "changes": 18,
+      "patch": "diff --git a/defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md b/defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md\nindex c68f634..ecbfa78 100644\n--- a/defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md\n+++ b/defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md\n@@ -12,9 +12,9 @@ ms.author: abbyweisberg\n ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n-ms.date: 2026-09-24T00:00:00.0000000Z\n+ms.date: 2026-10-15T00:00:00.0000000Z\n ms.topic: how-to\n-ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done, msecd-doc-authoring-1016\n+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done, msecd-doc-authoring-1028\n description: Learn how to investigate threat detection alerts from app governance in Microsoft Defender XDR with Microsoft Defender for Cloud Apps.\n ms.reviewer: shragar\n ai-usage: ai-assisted\n@@ -34,13 +34,9 @@ monikers: []\n item_type: Content\n source_path: defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/5fc61396-d075-4560-aece-fdbda73d243f\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/ad9437c1-8cda-4537-ad69-b4b263652e13\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: f2eb3b8d-96d7-cf47-2705-574122a4de11\n ---\n \n@@ -50,7 +46,7 @@ App governance provides security detections and alerts for malicious activities.\n \r\n Important\r\n \r\n-On October 15, 2026, Microsoft Defender for Cloud Apps will retire the Exchange Web Services (EWS)-based detections marked **Retiring soon** in this article. After that date, these detections will no longer generate alerts.\r\n+As of October 15, 2026, Microsoft Defender for Cloud Apps has retired the Exchange Web Services (EWS)-based detections marked **Retired** in this article. These detections no longer generate alerts.\r\n \r\n For more information, see [App governance in Microsoft Defender for Cloud Apps](app-governance-manage-app-governance)\r\n \r\n@@ -598,7 +594,7 @@ This detection verifies whether the API calls were made for mailbox rule creatio\n \r\n         Review consent grants to the application made by users and admins. Investigate all activities done by the app, especially access to mailbox of associated users and admin accounts. If you suspect that the app is suspicious, consider disabling the application and rotating credentials of all affected accounts.\r\n \r\n-### Suspicious OAuth app email activity through EWS API **(Retiring soon)**\r\n+### Suspicious OAuth app email activity through EWS API **(Retired)**\r\n \r\n **Severity**: High\r\n \r\n@@ -1131,7 +1127,7 @@ This detection generates alerts for non-Microsoft OAuth apps with metadata, such\n 2. Review the scopes granted to the app.\r\n 3. Review the user activity associated with the app.\r\n \r\n-### App with EWS application permissions accessing numerous emails **(Retiring soon)**\r\n+### App with EWS application permissions accessing numerous emails **(Retired)**\r\n \r\n **Severity**: Medium\r\n \r\n",
+      "baseCommitSha": "87fa726bd2c91af4f659d3fb95b5d0b5d22d4e6c",
+      "commitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 06:05:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-anomaly-detection-alerts",
+      "eventId": "defender-docs:8d7021b1688a1a7988015af52c5cfc51544443b9:modified:defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md",
+      "firstSeenAt": "2026-10-15T07:25:12.386Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Two EWS-based detections no longer generate alerts",
+        "summary": "The article now states that, as of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts.",
+        "adminImpact": "Administrators should not rely on these two detections for alerts after that date.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/caac-known-issues.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 5,
+      "changes": 18,
+      "patch": "diff --git a/defender-for-cloud-apps/caac-known-issues.md b/defender-for-cloud-apps/caac-known-issues.md\nindex 9456c33..237e7dc 100644\n--- a/defender-for-cloud-apps/caac-known-issues.md\n+++ b/defender-for-cloud-apps/caac-known-issues.md\n@@ -13,11 +13,11 @@ ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n description: Learn about known limitations for working with Conditional Access app control in Microsoft Defender for Cloud Apps.\n-ms.date: 2026-08-28T00:00:00.0000000Z\n+ms.date: 2026-10-14T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: AmitMishaeli\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1016\n+ms.custom: msecd-doc-authoring-1030\n locale: en-us\n document_id: 81db79b3-9a9b-e0eb-bdb1-bc97c64a0de1\n document_version_independent_id: 81db79b3-9a9b-e0eb-bdb1-bc97c64a0de1\n@@ -34,12 +34,12 @@ monikers: []\n item_type: Content\n source_path: defender-for-cloud-apps/caac-known-issues.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5287f575-02f0-405f-92b7-800456526b0c\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n - https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/06e86142-34c2-4b94-ab9c-9477c21f7152\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n - https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n platformId: 9e0fda27-87df-f894-c0ad-cd7f65820b61\n ---\n@@ -151,7 +151,7 @@ To work around this limitation, access Microsoft Teams directly rather than laun\n \r\n ## Limitations for sessions that are served with Microsoft Edge in-browser protection\r\n \r\n-The following Google Workspace, deep link, and outdated policy enforcement limitations apply only to sessions that are served with Microsoft Edge in-browser protection.\r\n+The following Google Workspace, deep link, cross-tenant session behavior, and outdated policy enforcement limitations apply only to sessions that are served with Microsoft Edge in-browser protection.\r\n \r\n ### Secure Microsoft Edge Session Controls can't be used with Google Workspace in Enterprise Microsoft Edge browsers\r\n \r\n@@ -169,6 +169,14 @@ A user who starts a session in Microsoft Edge with a profile other than their wo\n \r\n If the URL points to a resource within the secured application, the user is directed to the application's homepage in Microsoft Edge.\r\n \r\n+### Cross-tenant session behavior\r\n+\r\n+Microsoft Edge in-browser protection is applied at the browser session level. It doesn't provide a separate enforcement boundary for each tenant within the same Edge work-profile session.\r\n+\r\n+In B2B or cross-tenant scenarios, a protected session can be established while accessing a resource in one tenant. The protection can continue to apply when the user accesses resources in another tenant within the same Edge work-profile session.\r\n+\r\n+If separate session enforcement is required between tenants, use separate Microsoft Edge work profiles.\r\n+\r\n ### Outdated session policy enforcement with Microsoft Edge\r\n \r\n When a session policy is enforced using Microsoft Edge in-browser protection and the user is later removed from the corresponding Conditional Access (CA) policy, the original session enforcement may still persist.\r\n",
+      "baseCommitSha": "87fa726bd2c91af4f659d3fb95b5d0b5d22d4e6c",
+      "commitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 06:05:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/caac-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/caac-known-issues",
+      "eventId": "defender-docs:8d7021b1688a1a7988015af52c5cfc51544443b9:modified:defender-for-cloud-apps/caac-known-issues.md",
+      "firstSeenAt": "2026-10-15T07:25:12.390Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Cross-tenant session behavior added to Edge in-browser protection known issues",
+        "summary": "The documentation now explains that protection applies across tenants within the same Microsoft Edge work-profile session. Separate Edge work profiles provide separate session enforcement between tenants.",
+        "adminImpact": "Administrators managing B2B or cross-tenant access should use separate Edge work profiles when tenant-level session isolation is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/migrate-file-policies-to-purview.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 7,
+      "changes": 13,
+      "patch": "diff --git a/defender-for-cloud-apps/migrate-file-policies-to-purview.md b/defender-for-cloud-apps/migrate-file-policies-to-purview.md\nindex 27e6c25..10c0e76 100644\n--- a/defender-for-cloud-apps/migrate-file-policies-to-purview.md\n+++ b/defender-for-cloud-apps/migrate-file-policies-to-purview.md\n@@ -14,7 +14,7 @@ ms.service: defender-for-cloud-apps\n ms.suite: ems\n description: Migrate your Microsoft Defender for Cloud Apps file policies to Microsoft Purview DLP or auto-labeling policies before the January 6, 2027 retirement deadline.\n ms.topic: how-to\n-ms.custom: msecd-doc-authoring-106\n+ms.custom: msecd-doc-authoring-1030\n ms.date: 2026-08-28T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n@@ -78,12 +78,11 @@ Before you begin, confirm you meet the following requirements:\n \r\n ### What the tool supports\r\n \r\n-The migration tool supports SharePoint and OneDrive DLP file policies only. The following aren't supported yet:\r\n+The migration tool supports:\r\n \r\n-- Auto-labeling policy migration for Microsoft workloads.\r\n-- DLP and auto-labeling policy migration for non-Microsoft apps, including Google Workspace, Box, Dropbox, and Salesforce.\r\n-\r\n-The wizard shows these unsupported scenarios in a **Coming soon** callout in Step 1, so you can see what's planned for future releases.\r\n+1. DLP file policy migration for Microsoft workloads: SharePoint and OneDrive.\r\n+2. Auto-labeling policy migration for Microsoft workloads: SharePoint and OneDrive.\r\n+3. DLP file policy migration for non-Microsoft workloads, including Google Workspace, Box, Dropbox, and Salesforce.\r\n \r\n Tip\r\n \r\n@@ -181,7 +180,7 @@ No. Migration creates new equivalent policies in Purview. Review your source and\n \r\n #### What is the \"Coming soon\" section in Step 1?\r\n \r\n-It highlights migration capabilities planned for upcoming releases, including auto-labeling policy migration for Microsoft workloads and policy migration for Google Workspace, Box, Dropbox, and Salesforce.\r\n+It highlights migration capabilities planned for upcoming releases.\r\n \r\n ### Known issues with the migration tool\r\n \r\n",
+      "baseCommitSha": "87fa726bd2c91af4f659d3fb95b5d0b5d22d4e6c",
+      "commitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 06:05:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/migrate-file-policies-to-purview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/migrate-file-policies-to-purview",
+      "eventId": "defender-docs:8d7021b1688a1a7988015af52c5cfc51544443b9:modified:defender-for-cloud-apps/migrate-file-policies-to-purview.md",
+      "firstSeenAt": "2026-10-15T07:25:12.394Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Migration guide adds more supported policy migration scenarios",
+        "summary": "The guide now lists auto-labeling migration for SharePoint and OneDrive, plus DLP file-policy migration for Google Workspace, Box, Dropbox, and Salesforce. Previously, it listed only SharePoint and OneDrive DLP migration as supported.",
+        "adminImpact": "Administrators should use the updated support list when planning migrations. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/security-posture-assessments/group-policy.md",
+      "status": "modified",
+      "additions": 65,
+      "deletions": 2,
+      "changes": 67,
+      "patch": "diff --git a/defender-for-identity/security-posture-assessments/group-policy.md b/defender-for-identity/security-posture-assessments/group-policy.md\nindex 41db1bf..8b18ffa 100644\n--- a/defender-for-identity/security-posture-assessments/group-policy.md\n+++ b/defender-for-identity/security-posture-assessments/group-policy.md\n@@ -14,8 +14,9 @@ uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: This section provides security assessments related to Group Policy Objects (GPOs) in Active Directory environments.\n ms.topic: article\n-ms.date: 2025-09-15T00:00:00.0000000Z\n+ms.date: 2026-10-08T00:00:00.0000000Z\n ms.reviewer: LiorShapiraa\n+ai-usage: ai-generated\n locale: en-us\n document_id: 1e55d9fe-c33c-5cee-894f-d2ed2f24f127\n document_version_independent_id: 1e55d9fe-c33c-5cee-894f-d2ed2f24f127\n@@ -33,13 +34,38 @@ item_type: Content\n source_path: defender-for-identity/security-posture-assessments/group-policy.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 98f38c37-5d7a-a768-d259-a659347e27d5\n ---\n \n # Group policy security assessments - Microsoft Defender for Identity | Microsoft Learn\n \n+Group policy security assessments identify Group Policy Objects (GPOs) that grant excessive access or expose credentials in your Active Directory environment.\r\n+\r\n+## GPO assigns unprivileged identities to local groups with elevated privileges\r\n+\r\n+**Description**\r\n+\r\n+This recommendation identifies GPOs that grant unprivileged identities elevated access through membership in local groups.\r\n+\r\n+Using a GPO to add users or groups to a local group can introduce a security risk when the resulting access exceeds their business requirements. For example, granting **Authenticated Users** or **Everyone** membership in the local **Administrators** or **Remote Desktop Users** group can provide broad administrative privileges or remote access to affected devices.\r\n+\r\n+Attackers can exploit these group memberships to gain additional access and move laterally within the environment. Review the affected GPOs and restrict membership to identities that require the access.\r\n+\r\n+**User impact**\r\n+\r\n+Removing group memberships can prevent users, services, or applications from performing operations that depend on those memberships. Review business requirements and dependencies before making changes.\r\n+\r\n+**Implementation**\r\n+\r\n+1. Review the affected GPOs and the local group memberships they configure.\r\n+2. Identify unprivileged users or broadly scoped groups, such as **Authenticated Users** or **Everyone**, that receive unnecessary elevated privileges or remote access.\r\n+3. Modify the GPOs to remove unnecessary memberships. Retain only the users and groups that require access for their responsibilities.\r\n+4. Allow the updated policy to apply to affected devices, then verify that the resulting local group memberships meet your security and operational requirements.\r\n+\r\n ## GPO can be modified by unprivileged accounts\r\n \r\n **Description**\r\n@@ -54,4 +80,41 @@ A user, service or application that relies on these permissions may stop functio\n \r\n **Implementation**\r\n \r\n-Carefully review each assigned permission, identify any dangerous permission granted, and modify them to remove any unnecessary or excessive user rights.\n\\ No newline at end of file\n+Carefully review each assigned permission, identify any dangerous permission granted, and modify them to remove any unnecessary or excessive user rights. \r\n+\r\n+## Reversible passwords found in GPOs\r\n+\r\n+**Description**\r\n+\r\n+This recommendation identifies GPOs that contain password data in Group Policy Preferences (GPP).\r\n+\r\n+Group Policy Preferences previously allowed administrators to embed credentials in domain policies. [Security update MS14-025](/en-us/security-updates/securitybulletins/2014/ms14-025) removed the ability to configure and distribute passwords through the affected preference extensions because the passwords were stored insecurely.\r\n+\r\n+However, applying the update doesn't remove previously configured password data. Files containing these credentials can remain in the domain's `SYSVOL` folder, where domain users can read them. The passwords can be decrypted using a publicly available AES key.\r\n+\r\n+An attacker who obtains these credentials might use them to gain unauthorized access or elevate privileges. Remove existing preferences that contain embedded credentials.\r\n+\r\n+**User impact**\r\n+\r\n+Removing password-containing preferences can disrupt dependent configurations, such as mapped drives, scheduled tasks, services, local account management, or data source connections. Identify these dependencies and arrange an alternative that doesn't store passwords in Group Policy Preferences before removing the affected configuration.\r\n+\r\n+**Implementation**\r\n+\r\n+Use **Group Policy Management Console (GPMC)** on a domain controller or on a management computer with **Remote Server Administration Tools (RSAT)** installed.\r\n+\r\n+1. In the recommendation's **Exposed entities** tab, identify the affected GPOs.\r\n+2. In GPMC, edit each reported GPO and locate the preference items that contain password data.\r\n+3. Review the affected configuration and its dependencies. Replace any required functionality with a configuration that doesn't store passwords in Group Policy Preferences.\r\n+4. If you need to remove the configured item from clients, use the cleanup action supported by that preference type. For example, to remove a scheduled task deployed by a preference, open the preference's properties, set **Action** to **Delete**, and select **Apply** and **OK**.\r\n+\r\n+    [![Screenshot of a scheduled task preference with Delete highlighted in the Action list.](../media/reversible-passwords-group-policy/screenshot-of-group-policy-objects.png)](../media/reversible-passwords-group-policy/screenshot-of-group-policy-objects.png#lightbox)\r\n+5. Allow the policy changes to replicate and apply to affected clients. If you configured a cleanup action, verify that it completed on the affected clients before removing the preference item from the GPO.\r\n+6. Remove the password-containing preference items from the GPO. Verify that the password-containing preference data is no longer present in `SYSVOL` after replication.\r\n+7. Change the exposed account passwords and update legitimate dependencies. Removing the stored credentials doesn't invalidate passwords that might already have been obtained.\r\n+8. Repeat the procedure for all affected GPOs.\r\n+\r\n+Important\r\n+\r\n+Removing a preference item from a GPO doesn't necessarily remove settings that were previously applied to clients. The **Delete** action removes the configured item, such as a scheduled task or local user account, rather than just its stored password. Review the impact before applying a cleanup action. Don't delete an entire GPO when only individual preference items require remediation.\r\n+\r\n+For more information, see [MS14-025: Vulnerability in Group Policy Preferences could allow elevation of privilege](https://support.microsoft.com/kb/2962486).\n\\ No newline at end of file\n",
+      "baseCommitSha": "87fa726bd2c91af4f659d3fb95b5d0b5d22d4e6c",
+      "commitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 06:05:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/security-posture-assessments/group-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/security-posture-assessments/group-policy",
+      "eventId": "defender-docs:8d7021b1688a1a7988015af52c5cfc51544443b9:modified:defender-for-identity/security-posture-assessments/group-policy.md",
+      "firstSeenAt": "2026-10-15T07:25:12.398Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Group Policy assessment guidance expanded",
+        "summary": "The page now documents assessments for excessive local-group privileges granted by GPOs and reversible passwords stored in Group Policy Preferences, including risks, user impact, and remediation steps.",
+        "adminImpact": "Administrators can use the added guidance to review affected GPOs, address excessive access or exposed credentials, and check dependencies before making changes.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\nindex 32f626b..7016f1a 100644\n--- a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n+++ b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n@@ -18,7 +18,7 @@ ms.collection:\n - tier2\n description: Admins can learn about bulk email detection, including the bulk complain level (BCL) values that are used in Microsoft 365.\n ms.service: defender-office-365\n-ms.date: 2026-08-25T00:00:00.0000000Z\n+ms.date: 2026-10-15T00:00:00.0000000Z\n locale: en-us\n document_id: ca3bed41-6b2a-7917-f084-c920d4aaa0b6\n document_version_independent_id: ca3bed41-6b2a-7917-f084-c920d4aaa0b6\n@@ -134,6 +134,8 @@ To prevent mail *from specific senders* or *to specific recipients* from receivi\n \r\n For previous Preview customers, the rule that set `X-MS-Exchange-Organization-BulkStamping` to the value `1` to tag messages as **Bulk** is no longer required.\r\n \r\n+The `X-MS-Exchange-Organization-BulkStamping` header is an internal header that's used only during message transport. The header is removed before the message is delivered to the mailbox, so it isn't visible in the message headers that recipients see. This behavior is by design.\r\n+\r\n To enable bulk mail delivery to the **Promotions** folder, do the following steps:\r\n \r\n Tip\r\n",
+      "baseCommitSha": "87fa726bd2c91af4f659d3fb95b5d0b5d22d4e6c",
+      "commitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 06:05:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-complaint-level-bcl-about",
+      "eventId": "defender-docs:8d7021b1688a1a7988015af52c5cfc51544443b9:modified:defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "firstSeenAt": "2026-10-15T07:25:12.401Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation clarifies the BulkStamping header lifecycle",
+        "summary": "The page now explains that `X-MS-Exchange-Organization-BulkStamping` is used only during message transport and removed before delivery to the mailbox, so recipients cannot see it in message headers.",
+        "adminImpact": "Administrators should not expect this header to appear in delivered messages. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/safe-links-about.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/safe-links-about.md b/defender-office-365/safe-links-about.md\nindex 2b1feb0..b876744 100644\n--- a/defender-office-365/safe-links-about.md\n+++ b/defender-office-365/safe-links-about.md\n@@ -11,7 +11,7 @@ manager: bagol\n author: chrisda\n ms.author: chrisda\n ms.topic: overview\n-ms.date: 2026-05-22T00:00:00.0000000Z\n+ms.date: 2026-10-14T00:00:00.0000000Z\n ms.localizationpriority: medium\n ms.collection:\n - Strat_O365_IP\n@@ -136,7 +136,7 @@ For *automatic* forwarding by Inbox rules or SMTP forwarding, the URL isn't rewr\n - The recipient is also protected by Safe Links.\r\n - The URL was already rewritten in a previous communication.\r\n \r\n-As long as Safe Links protection is turned on, URLs are scanned prior to message delivery, regardless of whether the URLs are rewritten or not. If rewriting is enabled, links are scanned on click. If rewriting is disabled, unwrapped URLs are checked by a client-side Safe Links API call at the time of click in supported versions of Outlook (Windows, Mac, and Outlook on the web),\r\n+As long as Safe Links protection is turned on, URLs are scanned prior to message delivery, regardless of whether the URLs are rewritten or not. If rewriting is enabled, links are scanned on click. If rewriting is disabled, unwrapped URLs are checked by a client-side Safe Links API call at the time of click in supported versions of Outlook (Windows, Mac, iOS, Android, and Outlook on the web).\r\n \r\n The settings in Safe Links policies that apply to email messages are described in the following list:\r\n \r\n",
+      "baseCommitSha": "87fa726bd2c91af4f659d3fb95b5d0b5d22d4e6c",
+      "commitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 06:05:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/safe-links-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-about",
+      "eventId": "defender-docs:8d7021b1688a1a7988015af52c5cfc51544443b9:modified:defender-office-365/safe-links-about.md",
+      "firstSeenAt": "2026-10-15T07:25:12.405Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Safe Links scanning guidance refreshed",
+        "summary": "The Safe Links documentation date was updated, and its explanation of URL scanning before delivery, at click time, and through the client-side API was revised.",
+        "adminImpact": "Review the updated guidance when assessing Safe Links behavior. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 6,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Retirement",
+        "title": "Defender for Cloud Apps",
+        "summary": "The article now states that, as of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts. The documentation now explains that protection applies across tenants within the same Microsoft Edge work-profile session. Separate Edge work profiles provide separate session enforcement between tenants. The guide now lists auto-labeling migration for SharePoint and OneDrive, plus DLP file-policy migration for Google Workspace, Box, Dropbox, and Salesforce. Previously, it listed only SharePoint and OneDrive DLP migration as supported.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/app-governance-anomaly-detection-alerts.md",
+          "defender-for-cloud-apps/caac-known-issues.md",
+          "defender-for-cloud-apps/migrate-file-policies-to-purview.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The page now documents assessments for excessive local-group privileges granted by GPOs and reversible passwords stored in Group Policy Preferences, including risks, user impact, and remediation steps.",
+        "sourceFiles": [
+          "defender-for-identity/security-posture-assessments/group-policy.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The page now explains that `X-MS-Exchange-Organization-BulkStamping` is used only during message transport and removed before delivery to the mailbox, so recipients cannot see it in message headers. The Safe Links documentation date was updated, and its explanation of URL scanning before delivery, at click time, and through the client-side API was revised.",
+        "sourceFiles": [
+          "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+          "defender-office-365/safe-links-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Retirement",
+        "headline": "Defender for Cloud Apps",
+        "detail": "The article now states that, as of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts. The documentation now explains that protection applies across tenants within the same Microsoft Edge work-profile session. Separate Edge work profiles provide separate session enforcement between tenants. The guide now lists auto-labeling migration for SharePoint and OneDrive, plus DLP file-policy migration for Google Workspace, Box, Dropbox, and Salesforce. Previously, it listed only SharePoint and OneDrive DLP migration as supported."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The page now documents assessments for excessive local-group privileges granted by GPOs and reversible passwords stored in Group Policy Preferences, including risks, user impact, and remediation steps."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The page now explains that `X-MS-Exchange-Organization-BulkStamping` is used only during message transport and removed before delivery to the mailbox, so recipients cannot see it in message headers. The Safe Links documentation date was updated, and its explanation of URL scanning before delivery, at click time, and through the client-side API was revised."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
