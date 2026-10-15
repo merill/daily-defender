@@ -156,19 +156,71 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 3,
+      "changes": 11,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 4650113..dd470d9 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -12,10 +12,10 @@ description: This article describes new features available in Microsoft Defender\n ms.topic: whats-new\n ms.service: defender-endpoint\n author: lwainstein\n-ms.author: lwainstein\n+ms.author: yaronyahav\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 2026-09-16T00:00:00.0000000Z\n+ms.date: 2026-10-14T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.collection:\n - m365-security\n@@ -54,6 +54,12 @@ For recent releases of Microsoft Defender for Endpoint, including build numbers,\n \r\n Learn more about [Preview features](/en-us/defender-xdr/preview).\r\n \r\n+## October 2026\r\n+\r\n+| Type | Feature | Preview/GA | Description |\r\n+| --- | --- | --- | --- |\r\n+| Feature | [Vulnerability assessment for Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications) | GA | Vulnerability assessment for applications installed via the Microsoft Store is now generally available. Defender Vulnerability Management detects supported Microsoft Store applications, adds them to the software inventory, and assesses them for vulnerabilities. Coverage is currently limited to a select set of commonly used applications. Use the **Software evidence** area on the software page to view the file path for the vulnerable application, along with a suggested query showing the vulnerable app, version, and file location. |\r\n+\r\n ## September 2026\r\n \r\n | Type | Feature | Preview/GA | Description |\r\n@@ -73,7 +79,6 @@ Learn more about [Preview features](/en-us/defender-xdr/preview).\n | Feature | [Antivirus audit mode for Linux](linux-preferences#antivirus-antimalware-and-edr-settings-in-defender-for-endpoint-on-linux) | Preview | Provides real-time malware detection and alerting without automatically quarantining files or terminating processes. This enables organizations to evaluate Defender detection efficacy and performance on sensitive workloads before enabling enforcement.**Available in Microsoft Defender for Endpoint on Linux version 101.26062.0007 or later.** |\r\n | Feature | [Offboarding API support for Linux](api/offboard-machine-api) | GA | Enables organizations to automate the offboarding of Linux servers from Microsoft Defender for Endpoint through the Offboard machine API, simplifying device lifecycle management at scale.**Available in Microsoft Defender for Endpoint on Linux version 101.26062.0007 or later.** |\r\n | Release - macOS | Build 101.26062.0012 | GA | Release version 20.126062.12.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--august-2026--101260620012). |\r\n-| Feature | [Vulnerability assessment for Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications-preview) | Preview | You can now monitor vulnerabilities on devices running Microsoft Store applications, including Microsoft Teams, Mozilla Firefox, WhatsApp, Slack, Dropbox, DuckDuckGo, Dell Command | Update, HP Smart, NVIDIA Control Panel, 1Password, Beyond Compare, and Evernote (see [Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications-preview) for the full list). Use the **Software evidence** area in the software page to view the file path for the vulnerable application, along with a suggested query showing the vulnerable app, version, and file location. |\r\n | Release - macOS | Build 101.26062.0011 | GA | Release version 20.126062.11.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--august-2026--101260620011). |\r\n \r\n ## July 2026\r\n",
+      "baseCommitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitSha": "33875d2f78d4c39a80a1af2e6ff6a3533f2f584c",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 12:50:38 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "eventId": "defender-docs:33875d2f78d4c39a80a1af2e6ff6a3533f2f584c:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "firstSeenAt": "2026-10-15T13:22:47.316Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Microsoft Store application vulnerability assessment status updated",
+        "summary": "The October 2026 entry replaces the previous Preview listing for vulnerability assessment of applications installed via the Microsoft Store, including Microsoft Teams.",
+        "adminImpact": "Administrators can use the documented capability to monitor vulnerabilities in Microsoft Store applications. No action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/tvm-software-inventory.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 17,
+      "changes": 21,
+      "patch": "diff --git a/defender-vulnerability-management/tvm-software-inventory.md b/defender-vulnerability-management/tvm-software-inventory.md\nindex 1251179..e1c9bdc 100644\n--- a/defender-vulnerability-management/tvm-software-inventory.md\n+++ b/defender-vulnerability-management/tvm-software-inventory.md\n@@ -10,14 +10,14 @@ uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n description: The software inventory page for Microsoft Defender Vulnerability Management shows how many weaknesses and vulnerabilities were detected in software.\n ms.service: defender-vuln-mgmt\n-ms.author: lwainstein\n+ms.author: yaronyahav\n author: limwainstein\n ms.localizationpriority: medium\n ms.collection:\n - m365-security\n - Tier1\n ms.topic: article\n-ms.date: 2026-08-26T00:00:00.0000000Z\n+ms.date: 2026-10-14T00:00:00.0000000Z\n locale: en-us\n document_id: dcfe35dc-acbb-b948-8165-864982dba838\n document_version_independent_id: dcfe35dc-acbb-b948-8165-864982dba838\n@@ -121,7 +121,7 @@ Select a software name to open its flyout, and look for the section called **Sof\n \r\n [![Software evidence example of Microsoft Edge showing evidence registry path as seen on a device page](/en-us/defender/media/defender-vulnerability-management/tvm-sw-inventory-evidence-small.png)](/en-us/defender/media/defender-vulnerability-management/tvm-sw-inventory-evidence.png#lightbox)\r\n \r\n-### Microsoft Store applications (Preview)\r\n+### Microsoft Store applications\r\n \r\n Defender Vulnerability Management reports vulnerabilities detected on applications installed via the Microsoft Store. CVE evidence for these applications includes the **Microsoft Store** tag along with a suggested query showing the vulnerable application, version, and file location.\r\n \r\n@@ -129,20 +129,7 @@ Note\n \r\n You can manage application versions through the Microsoft Store. Don't directly access or manage app files via the file path in the WindowsApps directory, to prevent issues with the OS environment.\r\n \r\n-Supported applications include:\r\n-\r\n-- Microsoft Teams\r\n-- Mozilla Firefox\r\n-- WhatsApp\r\n-- Slack\r\n-- Dropbox\r\n-- DuckDuckGo\r\n-- Dell Command | Update\r\n-- HP Smart\r\n-- NVIDIA Control Panel\r\n-- 1Password\r\n-- Beyond Compare\r\n-- Evernote\r\n+Vulnerability assessment is currently available for a limited set of commonly used applications installed via the Microsoft Store.\r\n \r\n ## Software pages\r\n \r\n",
+      "baseCommitSha": "8d7021b1688a1a7988015af52c5cfc51544443b9",
+      "commitSha": "33875d2f78d4c39a80a1af2e6ff6a3533f2f584c",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 12:50:38 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-vulnerability-management/tvm-software-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-software-inventory",
+      "eventId": "defender-docs:33875d2f78d4c39a80a1af2e6ff6a3533f2f584c:modified:defender-vulnerability-management/tvm-software-inventory.md",
+      "firstSeenAt": "2026-10-15T13:22:47.319Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Microsoft Store application coverage is now described as limited",
+        "summary": "The page no longer labels Microsoft Store applications as Preview or lists individual supported apps. It now states that vulnerability assessment is available for a limited set of commonly used Microsoft Store applications.",
+        "adminImpact": "Administrators should use the updated description when assessing expected coverage for Microsoft Store applications. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 6,
+    "totalCommits": 2,
+    "totalFiles": 8,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Retirement",
@@ -196,6 +248,22 @@
           "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
           "defender-office-365/safe-links-about.md"
         ]
+      },
+      {
+        "category": "Generally available",
+        "title": "Defender for Endpoint",
+        "summary": "The October 2026 entry replaces the previous Preview listing for vulnerability assessment of applications installed via the Microsoft Store, including Microsoft Teams.",
+        "sourceFiles": [
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "The page no longer labels Microsoft Store applications as Preview or lists individual supported apps. It now states that vulnerability assessment is available for a limited set of commonly used Microsoft Store applications.",
+        "sourceFiles": [
+          "defender-vulnerability-management/tvm-software-inventory.md"
+        ]
       }
     ],
     "highlights": [
@@ -213,6 +281,16 @@
         "category": "Doc update",
         "headline": "Defender for Office 365",
         "detail": "The page now explains that `X-MS-Exchange-Organization-BulkStamping` is used only during message transport and removed before delivery to the mailbox, so recipients cannot see it in message headers. The Safe Links documentation date was updated, and its explanation of URL scanning before delivery, at click time, and through the client-side API was revised."
+      },
+      {
+        "category": "Generally available",
+        "headline": "Defender for Endpoint",
+        "detail": "The October 2026 entry replaces the previous Preview listing for vulnerability assessment of applications installed via the Microsoft Store, including Microsoft Teams."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "The page no longer labels Microsoft Store applications as Preview or lists individual supported apps. It now states that vulnerability assessment is available for a limited set of commonly used Microsoft Store applications."
       }
     ],
     "generatedBy": "fallback"

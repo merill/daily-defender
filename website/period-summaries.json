@@ -7611,49 +7611,49 @@
       }
     },
     "2026-10-15": {
-      "headline": "Two EWS anomaly detections retire on October 15, ending their alerts",
-      "overview": "The standout update is in Cloud Apps: as of October 15, 2026, two EWS-based anomaly detections are marked Retired and no longer generate alerts. Cloud Apps guidance also defines how cross-tenant protection behaves within an Edge work-profile session and expands the documented file-policy migration support list. Defender for Identity adds GPO security-assessment guidance, while Office 365 updates clarify message-header visibility and Safe Links scanning behavior.",
-      "adminImpact": "Administrators should no longer rely on the retired EWS detections for alert coverage, use separate Edge work profiles when tenant-level session isolation is required, and consult the revised Purview migration support list. Defender for Identity guidance supports reviewing affected GPOs and dependencies before remediation. The Office 365 clarifications state no administrator action.",
+      "headline": "Two EWS anomaly detections retire on October 15, ending their alert generation",
+      "overview": "The most consequential change is in App Governance: two EWS-based detections are marked Retired as of 15 October 2026 and no longer generate alerts. Other substantive updates clarify cross-tenant Edge session isolation, add Defender for Identity GPO risk-assessment guidance, broaden the migration scenarios listed for Cloud Apps, and set limited coverage expectations for Microsoft Store application vulnerability assessment.",
+      "adminImpact": "Review workflows that depend on the two retired detections and stop treating them as alert sources after 15 October. Use separate Microsoft Edge work profiles when tenant-level session isolation is required, apply the revised Cloud Apps migration list when planning migrations, and use the new Defender for Identity guidance to review affected GPOs and dependencies. For Vulnerability Management, do not assume that all Microsoft Store applications are covered.",
       "keyChanges": [
         {
-          "title": "Cloud Apps marks two EWS detections Retired",
-          "detail": "The App Governance guidance states that, as of October 15, 2026, two EWS-based anomaly detections are retired and no longer generate alerts. Administrators should not rely on them for detection coverage after that date.",
+          "title": "App Governance retires two EWS-based anomaly detections",
+          "detail": "As of 15 October 2026, two EWS-based detections are marked Retired and no longer generate alerts. Administrators should not rely on them for post-retirement detection coverage.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         },
         {
-          "title": "Defender for Identity adds GPO assessments for privilege and credential exposure",
-          "detail": "The updated guidance covers excessive local-group privileges granted through Group Policy Objects and reversible passwords stored in Group Policy Preferences, including associated risks, user impact, remediation steps, and dependency checks.",
-          "product": "Identity",
-          "sourceId": "doc-2026-10-15-group-policy-security-assessments-microsoft-defender-for-identity-microsoft-learn-04"
-        },
-        {
-          "title": "Edge work profiles define cross-tenant session isolation",
-          "detail": "Cloud Apps protection applies across tenants within the same Microsoft Edge work-profile session. Separate Edge work profiles provide separate session enforcement between tenants, giving administrators a documented approach when tenant-level isolation is required.",
+          "title": "CAAC guidance defines Edge work-profile isolation between tenants",
+          "detail": "Protection applies across tenants within the same Microsoft Edge work-profile session. Separate Edge work profiles provide separate session enforcement between tenants, which is the documented approach when tenant-level isolation is required.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-caac-known-issues-02"
         },
         {
-          "title": "Purview migration guidance expands documented file-policy coverage",
-          "detail": "The migration guide now lists auto-labeling migration for SharePoint and OneDrive, plus DLP file-policy migration for Google Workspace, Box, Dropbox, and Salesforce. The earlier support list covered only SharePoint and OneDrive DLP migration.",
+          "title": "Defender for Identity guidance adds two GPO security assessments",
+          "detail": "The updated guidance covers excessive local-group privileges granted by GPOs and reversible passwords stored in Group Policy Preferences. It includes the associated risks, user impact, remediation steps, and dependencies to check before changes are made.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-15-group-policy-security-assessments-microsoft-defender-for-identity-microsoft-learn-04"
+        },
+        {
+          "title": "Cloud Apps migration guidance lists additional migration scenarios",
+          "detail": "The guide now lists auto-labeling migration for SharePoint and OneDrive, plus DLP file-policy migration for Google Workspace, Box, Dropbox, and Salesforce. Previously, it listed only SharePoint and OneDrive DLP migration as supported.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-migrate-file-policies-to-purview-03"
         },
         {
-          "title": "BulkStamping header is removed before mailbox delivery",
-          "detail": "The Anti-Spam guidance specifies that X-MS-Exchange-Organization-BulkStamping is used during message transport and removed before delivery, so recipients cannot see it in delivered message headers.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-10-15-anti-spam-bulk-complaint-level-bcl-about-05"
+          "title": "TVM describes Microsoft Store vulnerability coverage as limited",
+          "detail": "The inventory guidance no longer labels Microsoft Store applications as Preview or lists individual supported apps. It now states that vulnerability assessment is available for a limited set of commonly used Microsoft Store applications.",
+          "product": "Vulnerability Management",
+          "sourceId": "doc-2026-10-15-tvm-software-inventory-08"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-15T07:25:28.912Z",
+      "generatedAt": "2026-10-15T13:23:00.509Z",
       "usage": {
-        "inputTokens": 1660,
-        "outputTokens": 2101,
-        "costUsd": 0.002853
+        "inputTokens": 1909,
+        "outputTokens": 3204,
+        "costUsd": 0.004227
       }
     }
   },
@@ -9241,49 +9241,49 @@
       }
     },
     "2026-10-12": {
-      "headline": "Defender for Identity sensor v3 now requires September cumulative updates",
-      "overview": "The most consequential update is a Defender for Identity deployment prerequisite change: sensor 3.0.10 or later now calls for the September 2026 Windows Server cumulative update instead of the July update. Cloud Apps also retired two EWS-based anomaly detections on October 15, while Defender for Cloud and Defender XDR added operationally important guidance on AWS scan suspension, agent-hunting schemas, and DLP investigation. Most other entries were documentation maintenance involving wording, formatting, links, and procedures.",
-      "adminImpact": "Patch eligible Defender for Identity sensor hosts with the September 2026 cumulative update before installation or upgrade, and review the documented account and workspace-configuration steps during v2 migration. Stop relying on the two retired EWS detections for alerts. For AWS agentless scanning, verify ec2:DeleteSnapshot authorization and clean up accumulated snapshots before the 250-snapshot threshold suspends new scans. Update AIAgentsInfo hunting queries to use AgentsInfo, and investigate DLP signals through advanced hunting rather than the alert or incident queues.",
+      "headline": "Defender for Identity shifts sensor v3.0.10+ to September 2026 cumulative updates",
+      "overview": "With no new entries, most of the week's 57 updates were wording, formatting, link, or procedure maintenance. The meaningful operational changes were a higher Defender for Identity sensor prerequisite, retirement of two App Governance detections, an AWS agentless-scanning safeguard, expanded identity alert coverage, and clarified Defender XDR correlation controls.",
+      "adminImpact": "Prioritize the September 2026 cumulative update for Defender for Identity sensor v3.0.10+ deployments and migrations. Stop relying on the two retired EWS detections after October 15, verify AWS snapshot-deletion permissions and cleanup, review the 19 identity alert scenarios, and check custom-detection correlation choices at the individual rule level.",
       "keyChanges": [
         {
-          "title": "Defender for Identity raises the sensor v3 deployment prerequisite",
-          "detail": "For sensor version 3.0.10 or later, the Deploy Sensor V3 guidance changed the prerequisite from the July 2026 to the September 2026 Windows Server cumulative update. It also clarifies the local system account choice before v2 migration and says migration does not automatically remove workspace DSA or gMSA configuration.",
-          "product": "Identity",
+          "title": "Sensor v3.0.10+ now requires the September 2026 Windows Server cumulative update",
+          "detail": "Defender for Identity deployment guidance moves the prerequisite from the July 2026 to the September 2026 cumulative update. It also clarifies that v2.x migration requires selecting the local system account and does not automatically remove workspace DSA or gMSA configuration.",
+          "product": "Defender for Identity",
           "sourceId": "doc-2026-10-14-deploy-sensor-v3-06"
         },
         {
-          "title": "App Governance retires two EWS anomaly detections",
-          "detail": "The App Governance Anomaly Detection Alerts guidance states that, as of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts.",
+          "title": "App Governance retires two EWS anomaly detections on October 15",
+          "detail": "The App Governance anomaly-detection guidance marks two EWS-based detections as Retired as of October 15, 2026. They no longer generate alerts, so administrators should not rely on them for monitoring.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         },
         {
-          "title": "AWS agentless scans suspend after 250 undeleted snapshots",
-          "detail": "Defender for Cloud now documents that deletion authorization failures involving 250 or more Defender-tagged snapshots suspend new scans for the affected AWS scope. The snapshots continue accruing storage charges until they are deleted.",
+          "title": "Defender for Cloud documents an AWS scan suspension threshold",
+          "detail": "When deletion authorization failures allow 250 or more Defender-tagged snapshots to accumulate, new scans suspend for the affected AWS scope. The snapshots continue accruing storage charges until deleted; the guidance calls for restoring ec2:DeleteSnapshot permission and verifying cleanup.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-14-enable-agentless-scanning-vms-12"
         },
         {
-          "title": "AIAgentsInfo transitions to the unified AgentsInfo table",
-          "detail": "Defender XDR's schema guidance describes the transition from AIAgentsInfo to the unified AgentsInfo table, whose coverage expands beyond Copilot Studio-specific columns. Hunting queries and references that depend on the older table should be updated.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-10-14-advanced-hunting-schema-changes-02"
+          "title": "Defender for Identity’s October announcement adds 19 identity alerts",
+          "detail": "The announcement lists 19 alerts covering Entra ID, Active Directory, and other identity providers, including Okta. Administrators can review the scenarios and assess their relevance to existing monitoring and response workflows.",
+          "product": "Defender for Identity",
+          "sourceId": "doc-2026-10-14-whats-new-16"
         },
         {
-          "title": "DLP signals remain in advanced hunting instead of alert queues",
-          "detail": "The DLP investigation guidance records that the built-in rule took effect in early October 2026. DLP signals are treated as behaviors, so they do not generate alerts or appear in the incident queue; they remain available in advanced hunting.",
+          "title": "Defender XDR custom detections gain documented per-rule correlation controls",
+          "detail": "Custom detections are included in Microsoft Defender XDR correlation by default and can be included or excluded on a per-rule basis. Exclusions produce predictable single-alert incidents when no matching grouping rule applies, and no tenant-level custom-detection setting is available.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-10-14-dlp-investigate-alerts-defender-21"
+          "sourceId": "doc-2026-10-13-manage-detection-rule-correlation-settings-in-microsoft-defender-xdr-microsoft-defender-xdr-micr-22"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-15T07:25:28.912Z",
+      "generatedAt": "2026-10-15T13:23:00.509Z",
       "usage": {
-        "inputTokens": 7728,
-        "outputTokens": 4090,
-        "costUsd": 0.006454
+        "inputTokens": 7969,
+        "outputTokens": 5841,
+        "costUsd": 0.008603
       }
     }
   },
@@ -9654,54 +9654,54 @@
       }
     },
     "2026-10": {
-      "headline": "Microsoft Defender for Office 365 RBAC drops default email-policy access as QR protection expands",
-      "overview": "October was dominated by maintenance: 189 updates versus three new items, including many Exposure Management pages that changed only author metadata. The substantive administrator-facing changes were a November Unified RBAC permission remap, worldwide Teams QR-code protection, new email-submission hunting tables, Sentinel connector and access changes, and the retirement of two Cloud Apps detections.",
-      "adminImpact": "Before the November RBAC change, review Unified RBAC assignments and manually grant required Security Operator permissions for email threat policies and the Tenant Allow/Block List. Review Teams protection settings and investigation processes; no user action is required. Track the SubmissionEvents and SubmissionResults rollout, although no immediate action is stated. For Sentinel, provision SAP BTP API access and dedicated client credentials, and update Corelight role grants. Do not rely on the two retired EWS detections for alerts after October 15.",
+      "headline": "Security Operator permissions tighten in November as Teams QR protection rolls out",
+      "overview": "October’s most consequential changes affect Defender for Office 365: Unified RBAC will remove default Security Operator access to email threat policies and the Tenant Allow/Block List from November, while Teams URL protection is expanding to malicious QR codes after delivery. New email-submission hunting tables are moving from public preview toward general availability. Other notable changes include the retirement of two App Governance detections and new Sentinel connector requirements. Much of the remaining period was maintenance-oriented, including a large batch of Exposure Management author-metadata updates.",
+      "adminImpact": "Before the November Unified RBAC change, manually assign the required permissions if Security Operator users must retain access to email threat policies or the Tenant Allow/Block List. Review Teams URL-protection settings and investigation processes during the October–November rollout; no user action is required. Incorporate SubmissionEvents and SubmissionResults into email-submission hunting workflows as they move from preview to general availability. Stop relying on the two retired EWS-based App Governance detections after October 15. For Sentinel, enable SAP BTP API access and create dedicated client credentials; Corelight deployments now also require Reader and Microsoft Graph access alongside Monitoring Metrics Publisher.",
       "keyChanges": [
         {
-          "title": "Unified RBAC removes default Security Operator access to email threat controls",
-          "detail": "Starting in November 2026, Microsoft Defender for Office 365's Unified RBAC mapping for the Microsoft Entra Security Operator role will no longer provide default access to email threat policies or the Tenant Allow/Block List. In tenants using Unified RBAC, administrators must manually assign the required permissions to preserve access.",
-          "product": "Defender XDR",
+          "title": "Unified RBAC removes Security Operator defaults from email threat controls",
+          "detail": "Starting in November 2026, the Microsoft Entra Security Operator role will no longer receive default access to email threat policies or the Tenant Allow/Block List when Unified RBAC is enabled. Administrators must assign the required permissions manually to preserve that access.",
+          "product": "Defender for Office 365 / Unified RBAC",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams protection begins scanning malicious QR-code URLs after delivery",
-          "detail": "Microsoft Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery, warn users, and expose the activity for Advanced Hunting investigation. Worldwide rollout is planned from October through November 2026, with no user action required.",
-          "product": "Defender XDR",
+          "title": "Teams URL protection expands to malicious QR codes after delivery",
+          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery, warn users, and support investigation through Advanced Hunting. Worldwide rollout is planned for October through November 2026.",
+          "product": "Defender for Office 365 / Microsoft Teams",
           "sourceId": "MC1490905"
         },
         {
-          "title": "SubmissionEvents and SubmissionResults add email-submission hunting data",
-          "detail": "Defender for Office 365 is adding the SubmissionEvents and SubmissionResults tables to Advanced Hunting. Public Preview starts in early October 2026 and General Availability begins in late October, adding visibility for email-submission and detection workflows; the notice states that no immediate action or compliance change is required.",
-          "product": "Defender XDR",
+          "title": "SubmissionEvents and SubmissionResults add email-submission hunting visibility",
+          "detail": "Microsoft is adding the SubmissionEvents and SubmissionResults tables to Advanced Hunting for improved email-submission visibility and detection workflows. Public Preview begins in early October 2026, with General Availability scheduled to begin in late October.",
+          "product": "Defender for Office 365 / Advanced Hunting",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Sentinel adds SAP BTP findings while changing Corelight prerequisites",
-          "detail": "The Sentinel Data Connectors Reference now includes a connector for SAP BTP application vulnerability findings. Using it requires API access and dedicated client credentials. Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
+          "title": "Two EWS App Governance detections stop generating alerts October 15",
+          "detail": "The App Governance guidance now marks two EWS-based anomaly detections as Retired and states that they no longer generate alerts as of October 15, 2026.",
+          "product": "Microsoft Defender for Cloud Apps / App Governance",
+          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         },
         {
-          "title": "Cloud Apps retires two EWS anomaly detections on October 15",
-          "detail": "As of October 15, 2026, two EWS-based anomaly detections are marked Retired and no longer generate alerts. Administrators should not rely on those detections for alert coverage after that date.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
+          "title": "Sentinel adds SAP BTP findings connector and changes Corelight access",
+          "detail": "The Sentinel connector reference adds ingestion for SAP BTP application vulnerability findings, which requires API access and dedicated client credentials. It also states that Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "product": "Microsoft Sentinel",
+          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-15T07:25:28.912Z",
+      "generatedAt": "2026-10-15T13:23:00.509Z",
       "usage": {
-        "inputTokens": 6333,
-        "outputTokens": 4764,
-        "costUsd": 0.006983
+        "inputTokens": 6268,
+        "outputTokens": 5860,
+        "costUsd": 0.008286
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-15T07:25:28.912Z",
+  "generatedAt": "2026-10-15T13:23:00.509Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9810,22 +9810,22 @@
       "costUsd": 0.079329
     },
     "2026-10-15": {
-      "inputTokens": 15721,
-      "outputTokens": 10955,
-      "requests": 3,
-      "costUsd": 0.01629
+      "inputTokens": 31867,
+      "outputTokens": 25860,
+      "requests": 6,
+      "costUsd": 0.037405
     }
   },
   "lastRun": {
-    "inputTokens": 15721,
-    "outputTokens": 10955,
+    "inputTokens": 16146,
+    "outputTokens": 14905,
     "requests": 3,
-    "costUsd": 0.01629
+    "costUsd": 0.021115
   },
   "totalUsage": {
-    "inputTokens": 568508,
-    "outputTokens": 585373,
-    "requests": 132,
-    "costUsd": 0.816146
+    "inputTokens": 584654,
+    "outputTokens": 600278,
+    "requests": 135,
+    "costUsd": 0.837261
   }
 }
