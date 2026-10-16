@@ -7657,43 +7657,43 @@
       }
     },
     "2026-10-16": {
-      "headline": "AI agent protection guidance maps threats to blocked request and response points",
-      "overview": "The most substantive update adds operational detail to Defender XDR AI agent real-time protection guidance, covering malicious content propagation, secret exfiltration, evasion techniques, and unsafe email domains. Defender for Cloud also changed the documented SQL protection query’s filtering logic and output. The remaining Defender XDR changes refresh RBAC references, add an example table, and remove “(Preview)” from several custom-role section headings.",
-      "adminImpact": "Administrators using the Defender for Cloud SQL query should review saved copies because the query now uses SQL Vulnerability Assessment records, filters by Log Analytics workspace IDs, and returns workspace ID, machine name, and machine UUID. AI agent administrators can use the expanded guidance to understand where blocking affects requests and responses. No administrator action is indicated for the RBAC page edits.",
+      "headline": "Endpoint release notes add Platform 4.18.26090.9 and ASR path-handling details",
+      "overview": "The most consequential update adds Endpoint platform, engine, and security intelligence release details alongside protection-engine, update-reliability, ASR, and policy-exclusion notes. Defender for Cloud also materially changes a SQL Server coverage query, while Defender XDR updates expand AI-agent blocking guidance and remove preview labels from several custom-role headings.",
+      "adminImpact": "Endpoint administrators should review automation using the renamed ConfigurationProtection PowerShell property and validate deployments against the documented protection and ASR behavior. Teams reusing the SQL Server query should review saved copies because its filters and output fields changed. AI-agent administrators can use the expanded guidance to identify where blocking rules affect interactions; the RBAC heading changes require no action.",
       "keyChanges": [
         {
-          "title": "AI agent protection guidance defines threat scenarios and enforcement points",
-          "detail": "Defender XDR guidance now covers malicious content propagation, secret exfiltration, evasion techniques, and unsafe email domains. It also explains how enabled blocking rules affect user requests, model responses, tool requests, and tool responses.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-10-16-ai-agent-real-time-protection-04"
+          "title": "Endpoint release documentation adds platform, engine, and intelligence versions",
+          "detail": "The page now lists Platform 4.18.26090.9, Engine 1.1.26090.9, and security intelligence 1.461.1.0. It also documents automatic protection-engine refresh, improved update reliability, ASR path handling, policy-exclusion retention, and the renamed PowerShell property ConfigurationProtection.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-16-microsoft-defender-endpoint-releases-05"
         },
         {
-          "title": "SQL protection query switches to workspace-based vulnerability assessment filtering",
-          "detail": "The Defender for Cloud query for SQL servers protected by the Monitor agent now queries SQL Vulnerability Assessment records, filters resources by Log Analytics workspace IDs, and returns the workspace ID, machine name, and machine UUID. The previous OnPremiseSql, subassessment, and 30-day scan-time filters were removed.",
+          "title": "SQL Server coverage KQL now filters through Log Analytics workspaces",
+          "detail": "The example now queries SQL Vulnerability Assessment records, filters resources by Log Analytics workspace IDs, and returns workspace ID, machine name, and machine UUID. The previous subassessment, OnPremiseSql, and 30-day scan-time filters were removed, so saved queries should be reviewed.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-16-identify-sql-servers-protected-by-monitor-agent-01"
         },
         {
-          "title": "Custom-role headings drop preview labels across role-management procedures",
-          "detail": "Defender XDR’s multitenant RBAC page no longer includes “(Preview)” in the headings for creating or editing custom roles, deleting roles, and importing roles.",
+          "title": "AI-agent protection guidance maps blocks across requests and responses",
+          "detail": "The guidance now covers malicious content propagation, secret exfiltration, evasion techniques, and unsafe email domains. It explains how enabled blocking rules affect user requests, model responses, tool requests, and tool responses.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-10-16-mto-urbac-03"
+          "sourceId": "doc-2026-10-16-ai-agent-real-time-protection-04"
         },
         {
-          "title": "RBAC management guidance gains refreshed references and a sample table",
-          "detail": "The Defender XDR Manage RBAC page adds two reference links, refreshes its Microsoft Sentinel table entry, and adds a sample two-column table.",
+          "title": "Custom RBAC role headings remove preview labels",
+          "detail": "The MTO URBAC page no longer includes “(Preview)” in headings for creating or editing custom roles, deleting roles, and importing roles. Reference links were also updated.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-10-16-manage-rbac-02"
+          "sourceId": "doc-2026-10-16-mto-urbac-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-16T07:08:17.401Z",
+      "generatedAt": "2026-10-16T13:13:29.870Z",
       "usage": {
-        "inputTokens": 1379,
-        "outputTokens": 1218,
-        "costUsd": 0.001737
+        "inputTokens": 1536,
+        "outputTokens": 2584,
+        "costUsd": 0.003408
       }
     }
   },
@@ -9281,49 +9281,49 @@
       }
     },
     "2026-10-12": {
-      "headline": "Defender for Identity Sensor v3 now requires September cumulative update",
-      "overview": "The highest-impact update raises the documented Windows Server prerequisite for Defender for Identity Sensor v3.0.10 or later from the July 2026 to the September 2026 cumulative update. App Governance also records two EWS-based detections as retired from October 15, while Defender for Cloud documents a 250-snapshot threshold that suspends affected AWS agentless scans. Other notable changes clarify limited Microsoft Store application vulnerability coverage and where DLP signals can be investigated. Most remaining updates were documentation maintenance involving wording, links, navigation, and screenshots.",
-      "adminImpact": "Prioritize the September 2026 cumulative update before deploying or upgrading Sensor v3, and select the local system account option before migrating from Sensor v2.x. Do not rely on the two retired EWS detections for alerts. For AWS agentless scanning, verify ec2:DeleteSnapshot permissions and monitor snapshot cleanup. Direct DLP investigations to Advanced Hunting, and set Microsoft Store application coverage expectations against the documented limited scope.",
+      "headline": "Defender for Identity raises Sensor v3 prerequisite to September 2026 update",
+      "overview": "Most of the period's updates were documentation maintenance, but several carry direct operational weight: Defender for Identity raised the Sensor v3 patch baseline, Defender for Cloud documented an AWS scan-suspension threshold, Cloud Apps retired two EWS detections, and Endpoint and Defender XDR published consequential release and schema guidance.",
+      "adminImpact": "Patch Sensor v3 servers before deployment or upgrade, verify AWS scanner deletion rights and snapshot cleanup, stop relying on the retired EWS detections, and review Endpoint automation and agent-related hunting queries. The remaining wording, formatting, navigation, and link changes generally require no broad administrative action.",
       "keyChanges": [
         {
-          "title": "Sensor v3 deployment prerequisite moves from July to September 2026",
-          "detail": "Defender for Identity now documents the September 2026 Windows Server cumulative update, rather than the July 2026 update, for sensor version 3.0.10 or later. The guidance also clarifies that v2 migration does not automatically remove workspace DSA or gMSA configuration and calls for the local system account option before migration.",
+          "title": "Sensor v3 deployment baseline moved to September 2026",
+          "detail": "Defender for Identity deployment guidance changed the prerequisite for sensor version 3.0.10 or later from the July 2026 to the September 2026 Windows Server cumulative update. It also clarifies v2 migration account settings and that migration does not automatically remove workspace DSA or gMSA configuration.",
           "product": "Identity",
           "sourceId": "doc-2026-10-14-deploy-sensor-v3-06"
         },
         {
-          "title": "Two App Governance EWS detections stop generating alerts October 15",
-          "detail": "The App Governance anomaly-detection page states that two EWS-based detections are Retired as of October 15, 2026, and no longer generate alerts. Monitoring and response workflows should not rely on those detections after that date.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
+          "title": "Endpoint release notes add new platform, engine, and intelligence versions",
+          "detail": "The Microsoft Defender for Endpoint releases page now lists Platform 4.18.26090.9, Engine 1.1.26090.9, and security intelligence 1.461.1.0. It documents automatic protection-engine refresh, improved update reliability, ASR path handling, policy-exclusion retention, and the renamed PowerShell property ConfigurationProtection.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-16-microsoft-defender-endpoint-releases-05"
         },
         {
-          "title": "AWS agentless scans can suspend after 250 undeletable snapshots",
-          "detail": "Defender for Cloud documents that 250 or more Defender-tagged snapshots accumulated after deletion-authorization failures suspend new scans for the affected AWS scope, while the snapshots continue accruing storage charges. The guidance calls for ec2:DeleteSnapshot permission on the scanner role and review of AWS policy restrictions.",
+          "title": "Agentless AWS scans can suspend after 250 undeletable snapshots",
+          "detail": "Defender for Cloud now documents that deletion-authorization failures involving 250 or more Defender-tagged snapshots suspend new scans for the affected AWS scope. The snapshots continue accruing storage charges until deleted.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-14-enable-agentless-scanning-vms-12"
         },
         {
-          "title": "DLP signals remain huntable but leave alerts and incidents",
-          "detail": "The Defender XDR guidance says the built-in rule took effect in early October 2026 and that DLP signals are treated as behaviors: they do not generate alerts or appear in the incident queue, but remain available in Advanced Hunting. Analysts should use Advanced Hunting for investigation.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-10-14-dlp-investigate-alerts-defender-21"
+          "title": "Two EWS anomaly detections retire and stop generating alerts",
+          "detail": "Defender for Cloud Apps states that, as of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         },
         {
-          "title": "Store app vulnerability coverage is now described as limited and available",
-          "detail": "The Vulnerability Management inventory page no longer labels Microsoft Store applications as Preview or lists individual supported apps. It now says vulnerability assessment is available for a limited set of commonly used Store applications, so administrators should use that scope when setting coverage expectations.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-10-15-tvm-software-inventory-08"
+          "title": "AIAgentsInfo reference is removed as hunting shifts to AgentsInfo",
+          "detail": "The AIAgentsInfo advanced-hunting reference documentation was removed as the table transitions to the unified AgentsInfo table. Administrators with affected hunting queries should update them to use AgentsInfo.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-14-advanced-hunting-aiagentsinfo-table-23"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-16T07:08:17.401Z",
+      "generatedAt": "2026-10-16T13:13:29.870Z",
       "usage": {
-        "inputTokens": 9581,
-        "outputTokens": 4877,
-        "costUsd": 0.007769
+        "inputTokens": 9730,
+        "outputTokens": 5281,
+        "costUsd": 0.008283
       }
     }
   },
@@ -9694,54 +9694,54 @@
       }
     },
     "2026-10": {
-      "headline": "Unified RBAC will remove default Security Operator access to Defender email policies",
-      "overview": "The most consequential October change is a November 2026 Unified RBAC permission shift for Defender for Office 365. The period also brings post-delivery protection for malicious Teams QR-code URLs, new email-submission hunting tables, SAP BTP vulnerability ingestion for Sentinel, and the retirement of two App Governance detections. Much of the remaining activity was routine documentation maintenance.",
-      "adminImpact": "Before November, review Microsoft Entra Security Operator assignments where Unified RBAC is enabled and manually grant the permissions needed for email threat policies and the Tenant Allow/Block List. Review Teams URL-protection settings and investigation procedures, and assess whether new submission tables should be incorporated into hunting workflows. For Sentinel, enable SAP BTP API access and create dedicated client credentials; Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher. Do not rely on the two retired EWS-based App Governance detections after October 15.",
+      "headline": "Unified RBAC permissions and Teams QR-code protection headline October’s Defender changes",
+      "overview": "October was dominated by documentation maintenance, including numerous Exposure Management author-metadata updates, but several changes carry direct operational significance. Defender for Office 365 is changing Unified RBAC access for the Microsoft Entra Security Operator role from November, while Teams is gaining post-delivery protection for malicious QR-code URLs. Advanced Hunting is also receiving new email-submission tables, and two Cloud Apps EWS detections are being retired.",
+      "adminImpact": "Before November, audit Unified RBAC assignments for administrators who need email threat-policy or Tenant/Allow Block List access. Review Teams URL-protection settings and investigation procedures, and update hunting workflows for the new submission tables as they move from preview to general availability. Stop relying on the retired Cloud Apps detections. For the documented SAP BTP Sentinel connector, prepare API access and dedicated client credentials; Corelight now also requires Reader and Microsoft Graph access alongside Monitoring Metrics Publisher.",
       "keyChanges": [
         {
-          "title": "Unified RBAC changes Entra Security Operator permissions",
-          "detail": "Starting in November 2026, Defender for Office 365 will remove default Unified RBAC access for the Microsoft Entra Security Operator role to email threat policies and the Tenant Allow/Block List. Organizations with Unified RBAC enabled must manually assign permissions to preserve that access.",
-          "product": "Defender XDR",
+          "title": "Entra Security Operator loses default Defender for Office 365 policy access",
+          "detail": "Starting in November 2026, Unified RBAC will remove the Microsoft Entra Security Operator role’s default access to email threat policies and the Tenant/Allow Block List. Administrators must manually assign the required permissions when Unified RBAC is enabled.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams gains post-delivery protection for malicious QR-code URLs",
-          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and make activity available for investigation through Advanced Hunting. Worldwide rollout runs from October through November 2026.",
-          "product": "Defender XDR",
+          "title": "Teams gains post-delivery malicious QR-code URL protection",
+          "detail": "During the October-to-November 2026 worldwide rollout, Defender for Office 365 will extend Teams URL protection to URLs embedded in QR codes after delivery, warn users, and make related activity available for Advanced Hunting. Admins should review related settings and investigation processes.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1490905"
         },
         {
-          "title": "New email-submission telemetry reaches Advanced Hunting",
-          "detail": "The SubmissionEvents and SubmissionResults tables are being added to Defender for Office 365 Advanced Hunting to improve email-submission visibility and detection workflows. Public Preview starts in early October 2026, with General Availability beginning in late October.",
-          "product": "Defender XDR",
+          "title": "New email-submission tables expand Defender hunting data",
+          "detail": "Advanced Hunting is adding the SubmissionEvents and SubmissionResults tables for email-submission visibility and detection workflows. Public preview began in early October 2026, with general availability scheduled to begin in late October.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Sentinel adds SAP BTP application-vulnerability ingestion",
-          "detail": "The Sentinel Data Connectors Reference now includes a connector for SAP BTP application vulnerability findings. Setup requires API access and dedicated client credentials; the same update states that Corelight deployments require Reader and Microsoft Graph access alongside Monitoring Metrics Publisher.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
-        },
-        {
-          "title": "Two App Governance EWS detections stop generating alerts",
-          "detail": "As of October 15, 2026, two EWS-based App Governance anomaly detections are marked Retired and no longer generate alerts. Administrators should not rely on those detections after that date.",
+          "title": "Two Cloud Apps EWS detections stop generating alerts",
+          "detail": "As of October 15, 2026, two EWS-based App Governance anomaly detections are marked Retired and no longer generate alerts. Alerting processes should not depend on those detections after that date.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
+        },
+        {
+          "title": "Sentinel reference adds SAP BTP vulnerability ingestion requirements",
+          "detail": "The data-connector reference now covers ingestion of SAP BTP application-vulnerability findings and specifies API access plus dedicated client credentials. It also states that Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-10-data-connectors-reference-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-16T07:08:17.401Z",
+      "generatedAt": "2026-10-16T13:13:29.870Z",
       "usage": {
-        "inputTokens": 6363,
-        "outputTokens": 3210,
-        "costUsd": 0.005125
+        "inputTokens": 6290,
+        "outputTokens": 2696,
+        "costUsd": 0.004493
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-16T07:08:17.401Z",
+  "generatedAt": "2026-10-16T13:13:29.870Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9856,22 +9856,22 @@
       "costUsd": 0.080661
     },
     "2026-10-16": {
-      "inputTokens": 17323,
-      "outputTokens": 9305,
-      "requests": 3,
-      "costUsd": 0.014631
+      "inputTokens": 34879,
+      "outputTokens": 19866,
+      "requests": 6,
+      "costUsd": 0.030815
     }
   },
   "lastRun": {
-    "inputTokens": 17323,
-    "outputTokens": 9305,
+    "inputTokens": 17556,
+    "outputTokens": 10561,
     "requests": 3,
-    "costUsd": 0.014631
+    "costUsd": 0.016184
   },
   "totalUsage": {
-    "inputTokens": 638687,
-    "outputTokens": 639511,
-    "requests": 144,
-    "costUsd": 0.895148
+    "inputTokens": 656243,
+    "outputTokens": 650072,
+    "requests": 147,
+    "costUsd": 0.911332
   }
 }
