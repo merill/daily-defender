@@ -1,0 +1,154 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 10,
+      "changes": 40,
+      "patch": "diff --git a/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md b/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md\nindex a61b3cc..e086eb4 100644\n--- a/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md\n+++ b/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md\n@@ -62,16 +62,36 @@ You can identify SQL servers onboarded to the Defender for SQL Server on Machine\n 3. Copy and paste the following query into the query window:\r\n \r\n     ```kusto\r\n-    securityresources \r\n-    | where type == \"microsoft.security/assessments/subassessments\" \r\n-    | extend assessmentKey = extract(@\"(?i)providers/Microsoft.Security/assessments/([^/]*)\", 1, id) \r\n-    | where assessmentKey == \"f97aa83c-9b63-4f9a-99f6-b22c4398f936\" \r\n-    | where tostring(properties.resourceDetails.source) == \"OnPremiseSql\" \r\n-    | extend lastScanTime = todatetime(properties.timeGenerated) \r\n-    | where lastScanTime > ago(30d) \r\n-    | extend machineName = tostring(properties.resourceDetails.machineName) \r\n-    | extend machineUuid = tostring(properties.resourceDetails.vmuuid) \r\n-    | distinct machineName, machineUuid\r\n+        securityresources\r\n+        | where type =~ \"microsoft.security/assessments\"\r\n+        | extend scanner = (// AssessmentsQueryBuilder.columnDefinitions.scanner\r\n+                (tostring(\r\n+            coalesce(bag_keys(parse_json(tostring(properties.additionalData.ScannersDetails)))[0], bag_keys(parse_json(tostring(properties.additionalData.ScannersDetails)))[0],\r\n+            properties.additionalData.scanner, properties.additionalData.scanner, \r\n+            properties.additionalData.Scanner, properties.additionalData.Scanner, \r\n+            properties.additionalData.SecretScannerName, properties.additionalData.SecretScannerName,\r\n+            properties.additionalData.ToolName, properties.additionalData.ToolName,\r\n+            properties.additionalData.ScannerName, properties.additionalData.ScannerName,\r\n+            \"N/A\"))))\r\n+                        | where scanner in~ (\"SQL Vulnerability Assessment\")\r\n+        | extend source = (// AssessmentsQueryBuilder.columnDefinitions.source\r\n+                (trim(' ', tolower(coalesce(tostring(properties.resourceDetails.Source), tostring(properties.resourceDetails.source))))))\r\n+        | extend resourceId = (// AssessmentsQueryBuilder.columnDefinitions.resourceId\r\n+                (tolower(trim(\" \", tostring(case(source =~ \"azure\", coalesce(properties.resourceDetails.Id, properties.resourceDetails.id),\r\n+            (// AssessmentsQueryBuilder.predicates.newAwsAssessmentIndicator\r\n+            (source =~ \"aws\" and isnotempty(tostring(properties.resourceDetails.ConnectorId)))), coalesce(properties.resourceDetails.Id, properties.resourceDetails.id),\r\n+            (// AssessmentsQueryBuilder.predicates.newGcpAssessmentIndicator\r\n+            (source =~ \"gcp\" and isnotempty(tostring(properties.resourceDetails.ConnectorId)))), coalesce(properties.resourceDetails.Id, properties.resourceDetails.id),\r\n+            source =~ \"aws\", properties.resourceDetails.AzureResourceId,\r\n+            source =~ \"gcp\", properties.resourceDetails.AzureResourceId,\r\n+            split(id, \"/providers/Microsoft.Security/assessments/\")[0]\r\n+            ))))))\r\n+        | where resourceId contains \"microsoft.operationalinsights\"\r\n+        | extend workspaceId = tostring(properties.resourceDetails.WorkspaceId) \r\n+        | extend machineName = tostring(properties.resourceDetails.MachineName) \r\n+        | extend machineUuid = tostring(properties.resourceDetails.VMUUID)\r\n+        | distinct workspaceId, machineName, machineUuid \r\n+    \r\n     ```\r\n 4. Select **Run query**.\r\n \r\n",
+      "baseCommitSha": "ca11cbfe3f7d02aad2117089737423db2ae6130e",
+      "commitSha": "e5db69094b35af9a4c533c377ffa0d426ef57992",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-16 06:04:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent",
+      "eventId": "defender-docs:e5db69094b35af9a4c533c377ffa0d426ef57992:modified:defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+      "firstSeenAt": "2026-10-16T07:08:06.360Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "SQL server identification query updated",
+        "summary": "The documented KQL now queries SQL Vulnerability Assessment records, filters resources by Log Analytics workspace IDs, and returns workspace ID, machine name, and machine UUID. The prior subassessment, OnPremiseSql, and 30-day scan-time filters were removed.",
+        "adminImpact": "Administrators using this query should review their saved version because its filtering logic and output fields have changed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/manage-rbac.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 1,
+      "changes": 9,
+      "patch": "diff --git a/defender-xdr/manage-rbac.md b/defender-xdr/manage-rbac.md\nindex 704612a..8f7fd91 100644\n--- a/defender-xdr/manage-rbac.md\n+++ b/defender-xdr/manage-rbac.md\n@@ -38,9 +38,11 @@ item_type: Content\n source_path: defender-xdr/manage-rbac.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n platformId: 017c3947-c12b-57c7-78e3-e49580098012\n ---\n@@ -83,7 +85,12 @@ Centralized permissions management is supported for the following services:\n | **Microsoft Defender for Cloud** | Support access management for all Defender for Cloud data that is available in Microsoft Defender portal. |\r\n | **Microsoft Security Exposure Management** | Full support for all Exposure Management data and actions, including Microsoft Secure Score data. |\r\n | **Microsoft Defender for Cloud Apps (Preview)** | **Note:** Once Unified RBAC is activated, some built-in scoped roles will no longer be supported. For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender unified RBAC permissions](compare-rbac-roles#microsoft-defender-for-cloud-apps). |\r\n-| **Microsoft Sentinel** | Supports unified access management for all Microsoft Sentinel workspaces onboarded to the Defender portal. Sentinel role assignments made in Unified RBAC sync with Azure RBAC and are visible there. However, unified RBAC becomes the source of permissions once enabled. When activating Sentinel in Unified RBAC, the *User Access Administrator* role is assigned to the MTP Unified RBAC app within the enabled workspace.Assigning permissions to a service principal or to a GDAP user group in Microsoft Sentinel isn't supported in unified RBAC. If you need either capability, keep using Azure RBAC for Microsoft Sentinel. For more information, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac). Sentinel experiences in the Defender portal continue to respect ARM roles and permissions in addition to URBAC. Therefore, users with more permissions in ARM than in URBAC may see more data in the Sentinel pages in the Defender portal than configured in their URBAC permissions. Supports permission management for the Microsoft Sentinel data lake default workspace, when Microsoft Sentinel is onboarded to both the Defender portal and the Microsoft Sentinel data lake. Microsoft Sentinel users with built-in Azure RBAC roles for their workspaces receive parallel permissions in the Microsoft Sentinel data lake experiences, such as the lake explorer and notebooks. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](/en-us/azure/sentinel/roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake). For row-level access to Sentinel data by using reusable scope tags, see [Configure Microsoft Sentinel scoping](scoping). To see which roles are supported, check the [unified RBAC roles mapping](compare-rbac-roles#microsoft-sentinel). |\r\n+| **Microsoft Sentinel** | Supports unified access management for all Microsoft Sentinel workspaces onboarded to the Defender portal. Sentinel role assignments made in Unified RBAC sync with Azure RBAC and are visible there. However, unified RBAC becomes the source of permissions once enabled. When activating Sentinel in Unified RBAC, the *User Access Administrator* role is assigned to the MTP Unified RBAC app within the enabled workspace.Assigning permissions to a GDAP user group in Microsoft Sentinel is supported in unified RBAC. For more information, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac).Assigning permissions to a service principal isn't supported in unified RBAC. If you need this capability, keep using Azure RBAC for Microsoft Sentinel. For more information, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac). Sentinel experiences in the Defender portal continue to respect ARM roles and permissions in addition to URBAC. Therefore, users with more permissions in ARM than in URBAC may see more data in the Sentinel pages in the Defender portal than configured in their URBAC permissions. Supports permission management for the Microsoft Sentinel data lake default workspace, when Microsoft Sentinel is onboarded to both the Defender portal and the Microsoft Sentinel data lake. Microsoft Sentinel users with built-in Azure RBAC roles for their workspaces receive parallel permissions in the Microsoft Sentinel data lake experiences, such as the lake explorer and notebooks. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](/en-us/azure/sentinel/roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake). For row-level access to Sentinel data by using reusable scope tags, see [Configure Microsoft Sentinel scoping](scoping). To see which roles are supported, check the [unified RBAC roles mapping](compare-rbac-roles#microsoft-sentinel). |\r\n+\r\n+| Header 1 | Header 2 |\r\n+| --- | --- |\r\n+| Cell 1 | Cell 2 |\r\n+| Cell 3 | Cell 4 |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "ca11cbfe3f7d02aad2117089737423db2ae6130e",
+      "commitSha": "e5db69094b35af9a4c533c377ffa0d426ef57992",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-16 06:04:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/manage-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-rbac",
+      "eventId": "defender-docs:e5db69094b35af9a4c533c377ffa0d426ef57992:modified:defender-xdr/manage-rbac.md",
+      "firstSeenAt": "2026-10-16T07:08:06.363Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated Defender RBAC documentation",
+        "summary": "The page adds two reference links, refreshes the Microsoft Sentinel table entry, and adds a sample two-column table.",
+        "adminImpact": "No administrator action is indicated; review the updated page when using its RBAC guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/mto-urbac.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/defender-xdr/mto-urbac.md b/defender-xdr/mto-urbac.md\nindex 5c3cdb4..bc72277 100644\n--- a/defender-xdr/mto-urbac.md\n+++ b/defender-xdr/mto-urbac.md\n@@ -36,11 +36,11 @@ monikers: []\n item_type: Content\n source_path: defender-xdr/mto-urbac.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n platformId: 9d35e865-ade4-0fe6-3431-59b024ec32cf\n ---\n \n@@ -56,7 +56,7 @@ In the multitenant portal, navigate to the **Permissions & roles page** by selec\n \r\n From the **Permissions & roles** page, you can create or edit a custom role. You can also import and delete roles. Use the **Search** function to find a specific role. To narrow results, filter roles by data source, permissions category, assignee type, or tenant name.\r\n \r\n-## Create or edit a custom role (Preview)\r\n+## Create or edit a custom role\r\n \r\n You can create a custom role to provide flexibility and control over access to specific data. To create a custom role, follow these steps:\r\n \r\n@@ -88,7 +88,7 @@ To edit an existing role, select the three dots beside the role name in the Perm\n \r\n ![Screenshot of the Edit option in the Permissions page](media/mto-urbac/urbac-edit-role.png)\r\n \r\n-## Delete roles (Preview)\r\n+## Delete roles\r\n \r\n Warning\r\n \r\n@@ -106,7 +106,7 @@ The **Delete role** option is also available when editing a specific role.\n \r\n ![Screenshot highlighting the Delete option in the Edit role pane](media/mto-urbac/urbac-delete-edit-pane.png)\r\n \r\n-## Import roles (Preview)\r\n+## Import roles\r\n \r\n You can import existing roles from a tenant’s workloads to migrate permissions and assignments. Imported roles become available in the Permissions and roles list.\r\n \r\n",
+      "baseCommitSha": "ca11cbfe3f7d02aad2117089737423db2ae6130e",
+      "commitSha": "e5db69094b35af9a4c533c377ffa0d426ef57992",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-16 06:04:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/mto-urbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/mto-urbac",
+      "eventId": "defender-docs:e5db69094b35af9a4c533c377ffa0d426ef57992:modified:defender-xdr/mto-urbac.md",
+      "firstSeenAt": "2026-10-16T07:08:06.366Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Role management documentation labels updated",
+        "summary": "Updated reference links and removed “(Preview)” from the headings for creating or editing custom roles, deleting roles, and importing roles.",
+        "adminImpact": "No administrator action is required; the page now presents these sections without preview labels.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 0,
+      "changes": 30,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\nindex ad22253..9cce93b 100644\n--- a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n+++ b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n@@ -36,9 +36,11 @@ source_path: defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/46e3c7c4-fe77-4a6e-b40a-44c569819fa5\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/d0c6fab8-2d7d-4bb0-bf40-589e08d7c132\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n platformId: 73fadc8f-aa21-1c5c-2ed6-d59cde94cfa5\n ---\n \n@@ -74,6 +76,34 @@ Note\n \r\n Block events from Microsoft Prompt Shields for Foundry and Microsoft Copilot Agent Builder are also recorded as behaviors. This isn't yet supported for agents built with Microsoft Copilot Studio.\r\n \r\n+## Supported threat scenarios for real-time protection\r\n+\r\n+Real-time protection inspects agent interactions for threats. When you enable a blocking rule for a threat scenario, interactions that match that scenario are blocked at the intervention point where the threat is detected.\r\n+\r\n+#### Malicious content propagation\r\n+\r\n+Malicious content propagation occurs when an agent receives, generates, or passes along content identified as malicious. For example, an attacker might include a malicious URL in a user request or tool response, which the agent could then share with a user or pass to another tool.\r\n+\r\n+**When blocking is enabled:** Interactions containing detected malicious content are blocked. Depending on where detection occurs, this prevents a user request from reaching the model, a model response from being delivered, a tool request from executing, or a tool response from being passed back to the model.\r\n+\r\n+#### Secret exfiltration\r\n+\r\n+Secret exfiltration occurs when an agent interaction exposes or attempts to transfer secrets, such as API keys, credentials, or access tokens. For example, an agent might retrieve a secret from a connected data source and include it in a response or pass it as an argument to a tool.\r\n+\r\n+**When blocking is enabled:** Interactions identified as secret exfiltration are blocked. This can stop a user request containing an exfiltration attempt, prevent a model response from disclosing a secret, stop a tool call that would transmit a secret, or prevent a tool response containing detected secret exfiltration from reaching the model.\r\n+\r\n+#### Evasion techniques\r\n+\r\n+Evasion techniques attempt to conceal malicious instructions or content to bypass security controls. For example, an attacker might encode or obfuscate content so that its intent is harder to detect.\r\n+\r\n+**When blocking is enabled:** Interactions containing detected evasion techniques are blocked. Protection applies to user requests, model responses, tool requests, and tool responses, preventing the detected content from proceeding through the interaction.\r\n+\r\n+#### Unsafe email domain\r\n+\r\n+An unsafe email domain scenario occurs when an agent attempts to send an email to a recipient whose domain is identified as unsafe or untrusted. For example, an attacker might instruct an agent to send information to an email address on an untrusted domain.\r\n+\r\n+**When blocking is enabled:** A tool call identified as sending email to an unsafe domain is blocked before the tool executes. This scenario is evaluated only at the tool request intervention point. An email address appearing in a user request, model response, or tool response does not, by itself, trigger blocking for this scenario.\r\n+\r\n ## Configure real-time protection rules\r\n \r\n To view and manage rules, go to **Settings** &gt; **Security for AI** &gt; **Policies & rules** &gt; **Real-time protection**. A built-in **Default** rule audits all agents. You can create custom rules to block specific detection types and scope them to specific agents.\r\n",
+      "baseCommitSha": "ca11cbfe3f7d02aad2117089737423db2ae6130e",
+      "commitSha": "e5db69094b35af9a4c533c377ffa0d426ef57992",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-16 06:04:32 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-real-time-protection",
+      "eventId": "defender-docs:e5db69094b35af9a4c533c377ffa0d426ef57992:modified:defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "firstSeenAt": "2026-10-16T07:08:06.368Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Real-time protection scenarios and blocking points are documented",
+        "summary": "The documentation now describes malicious content propagation, secret exfiltration, evasion techniques, and unsafe email domains, including how blocking affects user requests, model responses, tool requests, and tool responses.",
+        "adminImpact": "Administrators can use these details to understand supported threat scenarios and where interactions are blocked when blocking rules are enabled.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "The documented KQL now queries SQL Vulnerability Assessment records, filters resources by Log Analytics workspace IDs, and returns workspace ID, machine name, and machine UUID. The prior subassessment, OnPremiseSql, and 30-day scan-time filters were removed.",
+        "sourceFiles": [
+          "defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The page adds two reference links, refreshes the Microsoft Sentinel table entry, and adds a sample two-column table. Updated reference links and removed “(Preview)” from the headings for creating or editing custom roles, deleting roles, and importing roles. The documentation now describes malicious content propagation, secret exfiltration, evasion techniques, and unsafe email domains, including how blocking affects user requests, model responses, tool requests, and tool responses.",
+        "sourceFiles": [
+          "defender-xdr/manage-rbac.md",
+          "defender-xdr/mto-urbac.md",
+          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "The documented KQL now queries SQL Vulnerability Assessment records, filters resources by Log Analytics workspace IDs, and returns workspace ID, machine name, and machine UUID. The prior subassessment, OnPremiseSql, and 30-day scan-time filters were removed."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The page adds two reference links, refreshes the Microsoft Sentinel table entry, and adds a sample two-column table. Updated reference links and removed “(Preview)” from the headings for creating or editing custom roles, deleting roles, and importing roles. The documentation now describes malicious content propagation, secret exfiltration, evasion techniques, and unsafe email domains, including how blocking affects user requests, model responses, tool requests, and tool responses."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

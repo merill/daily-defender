@@ -1,9 +1,9 @@
 {
-  "lastCheckedAt": "2026-10-15T23:04:02.064Z",
-  "lastContentChangedAt": "2026-10-15T23:04:02.064Z",
-  "nextScheduledAt": "2026-10-16T02:15:00.000Z",
+  "lastCheckedAt": "2026-10-16T07:08:17.263Z",
+  "lastContentChangedAt": "2026-10-16T07:08:17.263Z",
+  "nextScheduledAt": "2026-10-16T08:15:00.000Z",
   "sourceChanges": {
-    "documentation": 0,
-    "messageCenter": 1
+    "documentation": 4,
+    "messageCenter": 0
   }
 }
