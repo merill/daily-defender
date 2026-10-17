@@ -52,19 +52,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\nindex 7016f1a..31997eb 100644\n--- a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n+++ b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n@@ -102,7 +102,7 @@ For more information, see [Bulk senders insight](anti-spam-bulk-senders-insight)\n \r\n Note\r\n \r\n-The features described in this section are rolling out, and should be available in all organizations by mid-September, including security operations center (SOC) experiences.\r\n+The features described in this section are rolling out, and should be available in all organizations by end of October, including security operations center (SOC) experiences.\r\n \r\n As previously described, the action for bulk mail that meets or exceeds the BCL threshold is defined in anti-spam policies. For example, deliver to the Junk Email folder or quarantine.\r\n \r\n",
+      "baseCommitSha": "52c9b6dc602e56a936899aeda062d9ebe10b7cf5",
+      "commitSha": "c60b2ae71a7fe7086d30a12dc285b1963cfcf5ce",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-17 11:47:23 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-complaint-level-bcl-about",
+      "eventId": "defender-docs:c60b2ae71a7fe7086d30a12dc285b1963cfcf5ce:modified:defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "firstSeenAt": "2026-10-17T12:09:30.965Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Rollout availability date updated",
+        "summary": "The documentation now says the features, including SOC experiences, should be available in all organizations by the end of October instead of mid-September.",
+        "adminImpact": "No administrator action is stated; update rollout expectations accordingly.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -74,6 +100,14 @@
           "sentinel/data-connectors-reference.md",
           "sentinel/sentinel-tables-connectors-reference.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The documentation now says the features, including SOC experiences, should be available in all organizations by the end of October instead of mid-September.",
+        "sourceFiles": [
+          "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md"
+        ]
       }
     ],
     "highlights": [
@@ -81,6 +115,11 @@
         "category": "Doc update",
         "headline": "Microsoft Sentinel",
         "detail": "The documentation now lists required CrowdStrike REST API scopes, links to upgrade notes, adds Pathlock deployment guidance, removes the Red Canary connector section, and adds SilentPush Feeds details. The table adds entries for SilentPush Feeds, Theom, and Theom via the Codeless Connector Framework, and removes the Red Canary Threat Detection entry."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The documentation now says the features, including SOC experiences, should be available in all organizations by the end of October instead of mid-September."
       }
     ],
     "generatedBy": "fallback"
