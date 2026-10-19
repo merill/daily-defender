@@ -7731,37 +7731,37 @@
       }
     },
     "2026-10-19": {
-      "headline": "Eligible Defender for Identity organizations get a 30-day opt-out before v3 activation",
-      "overview": "The central change is a sharper Defender for Identity v2.x/v3.x operating boundary. Eligible organizations with an active workspace are told to expect a 30-day banner before v3.x sensor activation and Windows auditing are enabled by default, while migration guidance now sets the local-system-account prerequisite, limits in-place v2-to-v3 migration to eligible domain controllers, and refreshes auditing instructions. Defender XDR also has a concrete hunting maintenance item: CloudDnsEvents column names and its request-filter example changed.",
-      "adminImpact": "Review the Sensor management banner and select Opt out within 30 days if current settings must be retained. Before migrating, select and verify “Automatically use the sensor's local system account,” and confirm that the server is an eligible domain controller for the in-place path. Use the revised v3 auditing instructions and update CloudDnsEvents queries to the new column names and filter example. Apply the version-specific connectivity, validation, and troubleshooting guidance when those workflows are used.",
+      "headline": "Defender for Identity sensor v3 activation and Windows auditing get a 30-day opt-out window",
+      "overview": "The main operational change affects eligible organizations with an active Defender for Identity workspace: a Sensor management banner precedes sensor v3.x activation and Windows auditing being enabled by default, including settings currently set to Off. Related guidance now separates v2.x and v3.x migration scope, account requirements, and auditing procedures. Defender XDR guidance also updates CloudDnsEvents query terminology.",
+      "adminImpact": "Eligible organizations should review the Sensor management banner and select Opt out within 30 days to retain current settings. Before migrating to v3, verify that the local system account option is selected, confirm the server role is eligible, and update affected CloudDnsEvents queries to use the current column names.",
       "keyChanges": [
         {
-          "title": "A 30-day banner precedes default v3 activation and auditing",
-          "detail": "For eligible organizations with an active Defender for Identity workspace, the updated notice says a Sensor management banner appears 30 days before sensor v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. Administrators who want to retain current settings can select Opt out within that window. The same notice records Windows Server 2025 sensor migration support as resolved.",
+          "title": "Sensor v3 defaults now come with a 30-day opt-out period",
+          "detail": "For eligible organizations with an active Defender for Identity workspace, the Sensor management banner gives 30 days before sensor v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. The update also documents Windows Server 2025 sensor migration support as resolved.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-whats-new-16"
         },
         {
-          "title": "Migration now requires an explicit local-system-account check",
-          "detail": "The v3 migration procedure now tells administrators to select “Automatically use the sensor's local system account” before migrating because migration does not change the setting automatically. It also says to verify that it remains selected rather than using gMSA for action accounts; leaving gMSA selected can affect response actions.",
+          "title": "v3 migration now requires explicit local-system account verification",
+          "detail": "The migration procedure says to select ‘Automatically use the sensor's local system account’ before migrating and verify that it remains selected. Migration does not change this setting automatically, and leaving gMSA selected can affect response actions.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-migrate-to-sensor-v3-09"
         },
         {
-          "title": "In-place sensor v2-to-v3 migration is limited to eligible domain controllers",
-          "detail": "The deployment guidance now states that in-place migration from sensor v2.x to v3.x is currently available only for eligible domain controllers, not other servers. It also links the v2.x server requirements and migration prerequisites, so non-domain-controller servers require a different migration approach.",
+          "title": "In-place sensor v3 migration is limited to eligible domain controllers",
+          "detail": "The deployment guidance states that in-place migration from sensor v2.x to v3.x is currently available only for eligible domain controllers, not other servers. Administrators must check server roles and migration prerequisites before planning the move.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-deploy-defender-identity-04"
         },
         {
-          "title": "v3 auditing guidance now lists event ID 4697 and Certification Authority",
-          "detail": "The auditing guidance now separates automatic Windows event auditing for v3.x sensors from automatic sensor activation, lists System event ID 4697 instead of 7045, and directs administrators to use Certification Authority for CA auditing. The listed auditing settings were also updated.",
+          "title": "Windows auditing guidance separates v3 activation from audit configuration",
+          "detail": "The revised guidance distinguishes automatic Windows auditing from automatic sensor activation, updates the listed auditing settings, changes the System event ID reference from 7045 to 4697, and directs administrators to use Certification Authority for CA auditing.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-configure-windows-event-auditing-microsoft-defender-for-identity-microsoft-learn-03"
         },
         {
-          "title": "CloudDnsEvents hunting queries need the renamed event columns",
-          "detail": "The Defender XDR table reference now uses EventType and EventSubType in place of DnsEventType and DnsEventSubType, and updates the request-filter example accordingly. Queries using the former names should be reviewed and adapted.",
+          "title": "CloudDnsEvents hunting guidance now uses EventType and EventSubType",
+          "detail": "The table reference replaces DnsEventType and DnsEventSubType with EventType and EventSubType and updates the request-filter example. Hunting queries that use the former names should be revised.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-19-advanced-hunting-clouddnsevents-table-17"
         }
@@ -7769,11 +7769,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-19T15:34:00.099Z",
+      "generatedAt": "2026-10-19T23:39:40.666Z",
       "usage": {
-        "inputTokens": 3278,
-        "outputTokens": 6961,
-        "costUsd": 0.009009
+        "inputTokens": 4010,
+        "outputTokens": 6252,
+        "costUsd": 0.008304
       }
     }
   },
@@ -9407,37 +9407,37 @@
       }
     },
     "2026-10-19": {
-      "headline": "Defender for Identity v3.x guidance highlights a 30-day opt-out window and migration checks",
-      "overview": "The period is centered on the Defender for Identity v2.x-to-v3.x transition. Updated guidance describes default v3.x activation and Windows auditing for eligible organizations, separates migration paths by server role, clarifies account and sizing requirements, and updates a Defender XDR hunting schema.",
-      "adminImpact": "Check the 30-day banner and opt out if current settings must be retained. Before migration, verify that the sensor uses its local system account and confirm whether the server qualifies for in-place migration. For v3.x deployments, follow the v3.x auditing guidance rather than v2.x sizing procedures, and update CloudDnsEvents queries to use the renamed columns.",
+      "headline": "Defender for Identity v3 guidance details a 30-day opt-out and migration checks",
+      "overview": "Defender for Identity guidance now documents a concrete sensor v3.x transition path: eligible organizations with an active workspace receive a 30-day banner before v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. Related updates separate v2.x and v3.x deployment, migration, auditing, and connectivity procedures. Defender XDR hunting guidance also renames two CloudDnsEvents columns.",
+      "adminImpact": "Identity administrators should verify sensor version and server role before following deployment or troubleshooting procedures. For v3.x migration, select and verify “Automatically use the sensor's local system account”; migration does not change the setting automatically, and gMSA selection can affect response actions. Review the 30-day banner and select Opt out if current settings must be retained. Update CloudDnsEvents queries to use EventType and EventSubType.",
       "keyChanges": [
         {
-          "title": "A 30-day banner precedes default v3.x activation and Windows auditing",
-          "detail": "The updated guidance says eligible organizations with an active Defender for Identity workspace receive a 30-day banner before sensor v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. Selecting Opt out within 30 days retains the current settings.",
+          "title": "A 30-day opt-out window precedes documented v3.x default activation",
+          "detail": "For eligible organizations with an active Defender for Identity workspace, the banner appears 30 days before sensor v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. Select Opt out within the 30-day window to retain current settings. The same update records Windows Server 2025 sensor migration support as resolved.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-whats-new-16"
         },
         {
-          "title": "Migration requires the local system account setting before sensor v3.x",
-          "detail": "Admins are told to select “Automatically use the sensor's local system account” before migration and verify that it remains selected. Migration does not change the setting automatically, and leaving gMSA selected can affect response actions.",
+          "title": "Sensor v3 migration requires the local system account setting",
+          "detail": "The migration guide instructs administrators to select “Automatically use the sensor's local system account” before migrating because migration does not change the setting automatically. It also directs them to verify that the setting remains selected rather than using gMSA for action accounts; leaving gMSA selected can affect response actions.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-migrate-to-sensor-v3-09"
         },
         {
-          "title": "In-place v2.x-to-v3.x migration is limited to eligible domain controllers",
-          "detail": "The deployment guidance now states that in-place migration is currently available only for eligible domain controllers, not other servers. Server roles and migration prerequisites therefore need to be checked before planning the transition.",
+          "title": "In-place sensor migration is limited to eligible domain controllers",
+          "detail": "Deployment guidance now states that in-place migration from sensor v2.x to v3.x is currently available only for eligible domain controllers, not other servers. Administrators should check server roles and migration prerequisites before planning the transition.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-deploy-defender-identity-04"
         },
         {
-          "title": "The v3.x deployment path makes the sizing tool v2.x-only",
-          "detail": "The sizing tool now applies only to v2.x sensors and is not required for v3.x. For v3.x, automatic auditing configures supported auditing settings, with additional auditing steps still specified in the deployment guidance.",
+          "title": "Automatic auditing guidance now points to System event ID 4697",
+          "detail": "The auditing guidance distinguishes automatic Windows auditing for v3.x sensors from automatic sensor activation, updates the listed auditing settings, replaces System event ID 7045 with 4697, and directs administrators to use Certification Authority for certificate-authority auditing.",
           "product": "Identity",
-          "sourceId": "doc-2026-10-19-deploy-sensor-v3-05"
+          "sourceId": "doc-2026-10-19-configure-windows-event-auditing-microsoft-defender-for-identity-microsoft-learn-03"
         },
         {
-          "title": "CloudDnsEvents queries now use EventType and EventSubType",
-          "detail": "The Defender XDR CloudDnsEvents reference replaces DnsEventType and DnsEventSubType with EventType and EventSubType, and updates the request-filter example. Existing hunting queries should be reviewed against the revised column names.",
+          "title": "CloudDnsEvents hunting queries now use EventType and EventSubType",
+          "detail": "The table reference replaces DnsEventType and DnsEventSubType with EventType and EventSubType and updates the request-filter example. Review existing CloudDnsEvents queries when adapting them to the revised column names.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-19-advanced-hunting-clouddnsevents-table-17"
         }
@@ -9445,11 +9445,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-19T15:34:00.099Z",
+      "generatedAt": "2026-10-19T23:39:40.666Z",
       "usage": {
-        "inputTokens": 3090,
-        "outputTokens": 5034,
-        "costUsd": 0.006659
+        "inputTokens": 3822,
+        "outputTokens": 4139,
+        "costUsd": 0.005731
       }
     }
   },
@@ -9820,37 +9820,37 @@
       }
     },
     "2026-10": {
-      "headline": "Unified RBAC access changes precede Teams QR protection and new hunting tables",
-      "overview": "October’s most consequential changes affect Defender for Office 365 administration and investigation. Beginning in November 2026, the Microsoft Entra Security Operator role will lose default access to email threat policies and the Tenant Allow/Block List when Unified RBAC is enabled. Teams post-delivery protection is expanding to malicious URLs in QR codes, while new submission-hunting tables move from preview toward general availability. Sentinel also adds SAP BTP vulnerability ingestion, and Cloud Apps retires two EWS-based detections.",
-      "adminImpact": "Review Unified RBAC assignments before November if Security Operator users need access to email threat policies or the Tenant Allow/Block List. Review Teams URL-protection settings and investigation processes; no user action is required for the QR-code rollout. Teams using email-submission hunting should assess the new tables as they move from preview to general availability. Configure SAP BTP API access and dedicated client credentials, update Corelight permissions, and stop relying on the two retired Cloud Apps detections after October 15.",
+      "headline": "Unified RBAC changes put Defender policy access behind manual permissions in November",
+      "overview": "October was largely documentation maintenance, but several administrator-facing changes carried operational weight. Microsoft Defender for Office 365 is changing the Microsoft Entra Security Operator mapping in November, while Teams QR-code protection and new email-submission hunting tables are rolling out. Sentinel added SAP BTP vulnerability ingestion guidance, and Cloud Apps retired two EWS-based detections.",
+      "adminImpact": "Before November, audit Unified RBAC assignments for the Microsoft Entra Security Operator role and manually grant continued access to email threat policies and the Tenant Allow/Block List where required. Review Teams URL-protection settings and investigation workflows; no end-user action is required for the QR-code rollout. Assess hunting content that could use SubmissionEvents and SubmissionResults as the tables move from preview to general availability. For Sentinel, enable SAP BTP API access and create dedicated client credentials; Corelight deployments need Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher. Do not rely on the two retired EWS-based Cloud Apps detections after October 15.",
       "keyChanges": [
         {
-          "title": "Unified RBAC removes default Security Operator access to key email controls",
-          "detail": "Starting in November 2026, Microsoft Defender for Office 365 will remove the Microsoft Entra Security Operator role’s default access to email threat policies and the Tenant Allow/Block List when Unified RBAC is enabled. Administrators must manually assign the required permissions to preserve that access.",
+          "title": "Security Operator loses default access to key Defender for Office 365 controls",
+          "detail": "Microsoft is changing Unified RBAC mapping for the Microsoft Entra Security Operator role beginning in November 2026. When Unified RBAC is enabled, the role will no longer have default access to email threat policies or the Tenant Allow/Block List; administrators must assign the required permissions manually for continued access.",
           "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams protection expands to malicious QR-code URLs after delivery",
-          "detail": "Defender for Office 365 is extending Teams URL protection to inspect QR codes after delivery, warn users about malicious URLs, and support investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026.",
+          "title": "Teams URL protection expands to malicious QR codes after delivery",
+          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery. Users can receive warnings, while security teams can investigate through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026.",
           "product": "Defender XDR",
           "sourceId": "MC1490905"
         },
         {
-          "title": "SubmissionEvents and SubmissionResults add email-submission hunting data",
-          "detail": "Two new Advanced Hunting tables will provide visibility into email submissions and results. Public Preview starts in early October 2026, with general availability beginning in late October.",
+          "title": "New SubmissionEvents and SubmissionResults tables improve email hunting visibility",
+          "detail": "Defender for Office 365 is adding SubmissionEvents and SubmissionResults to Advanced Hunting. Public Preview began in early October 2026, with General Availability beginning in late October, giving detection workflows visibility into email submission activity.",
           "product": "Defender XDR",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Sentinel adds SAP BTP vulnerability ingestion and changes Corelight access",
-          "detail": "The Data Connectors reference adds a connector for SAP BTP application vulnerability findings; using it requires API access and dedicated client credentials. Corelight deployments now require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
+          "title": "Sentinel adds SAP BTP vulnerability findings and tightens connector prerequisites",
+          "detail": "The Data Connectors Reference now includes a connector for ingesting SAP BTP application vulnerability findings into Microsoft Sentinel. Using it requires API access and dedicated client credentials. The same update states that Corelight deployments require Reader and Microsoft Graph access in addition to Monitoring Metrics Publisher.",
           "product": "Sentinel",
           "sourceId": "doc-2026-10-10-data-connectors-reference-01"
         },
         {
-          "title": "Cloud Apps retires two EWS-based anomaly detections",
-          "detail": "As of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts. Monitoring and response processes should not depend on those detections after that date.",
+          "title": "Two EWS-based Cloud Apps anomaly detections stop generating alerts",
+          "detail": "As of October 15, 2026, two EWS-based App Governance anomaly detections are marked Retired and no longer generate alerts. Monitoring and response processes that depend on those detections need alternative coverage.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         }
@@ -9858,16 +9858,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-19T15:34:00.099Z",
+      "generatedAt": "2026-10-19T23:39:40.666Z",
       "usage": {
-        "inputTokens": 6511,
-        "outputTokens": 2701,
-        "costUsd": 0.004543
+        "inputTokens": 6547,
+        "outputTokens": 2217,
+        "costUsd": 0.00397
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-19T15:34:00.099Z",
+  "generatedAt": "2026-10-19T23:39:40.666Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9994,22 +9994,22 @@
       "costUsd": 0.034598
     },
     "2026-10-19": {
-      "inputTokens": 25315,
-      "outputTokens": 32888,
-      "requests": 6,
-      "costUsd": 0.044529
+      "inputTokens": 39694,
+      "outputTokens": 45496,
+      "requests": 9,
+      "costUsd": 0.062534
     }
   },
   "lastRun": {
-    "inputTokens": 12879,
-    "outputTokens": 14696,
+    "inputTokens": 14379,
+    "outputTokens": 12608,
     "requests": 3,
-    "costUsd": 0.020211
+    "costUsd": 0.018005
   },
   "totalUsage": {
-    "inputTokens": 716754,
-    "outputTokens": 705926,
-    "requests": 159,
-    "costUsd": 0.990459
+    "inputTokens": 731133,
+    "outputTokens": 718534,
+    "requests": 162,
+    "costUsd": 1.008464
   }
 }
