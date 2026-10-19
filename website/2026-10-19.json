@@ -416,19 +416,71 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-clouddnsevents-table.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-clouddnsevents-table.md b/defender-xdr/advanced-hunting-clouddnsevents-table.md\nindex c420210..47ec71b 100644\n--- a/defender-xdr/advanced-hunting-clouddnsevents-table.md\n+++ b/defender-xdr/advanced-hunting-clouddnsevents-table.md\n@@ -76,8 +76,8 @@ For information on other tables in the advanced hunting schema, see [advanced hu\n | `ImageName` | `string` | Container image name or ID |\r\n | `ProcessName` | `string` | The name of the process that initiated the DNS query |\r\n | `ProcessId` | `long` | Process ID that initiated the DNS query |\r\n-| `DnsEventType` | `string` | Type of event associated with DNS operation (for example, query) |\r\n-| `DnsEventSubType` | `string` | Either request or response |\r\n+| `EventType` | `string` | Type of event associated with DNS operation (for example, query) |\r\n+| `EventSubType` | `string` | Either request or response |\r\n | `DnsQuery` | `string` | The domain that needs to be resolved |\r\n | `DnsQueryTypeName` | `string` | The DNS resource record type name as defined by the Internet Assigned Numbers Authority (IANA) |\r\n | `DnsResponseCodeName` | `string` | The DNS response code name as defined by the Internet Assigned Numbers Authority (IANA). |\r\n@@ -97,7 +97,7 @@ CloudDnsEvents\n | where AzureResourceId == \"<Azure resource ID>\"\r\n | where KubernetesNamespace == \"<namespace>\"\r\n | where KubernetesPodName == \"<pod name>\"\r\n-| where DnsEventSubType == \"request\"\r\n+| where EventSubType == \"request\"\r\n | summarize count() by DnsQuery\r\n | top 10 by count_ desc\r\n ```\n\\ No newline at end of file\n",
+      "baseCommitSha": "4bc268d46552f041e7c5ac1ebbaa00188c72b584",
+      "commitSha": "39bea35be0eb60d0845389376f473671ca1136a9",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-19 14:55:02 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-clouddnsevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-clouddnsevents-table",
+      "eventId": "defender-docs:39bea35be0eb60d0845389376f473671ca1136a9:modified:defender-xdr/advanced-hunting-clouddnsevents-table.md",
+      "firstSeenAt": "2026-10-19T15:33:49.624Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "CloudDnsEvents field names are now documented as EventType and EventSubType",
+        "summary": "The table reference replaces DnsEventType and DnsEventSubType with EventType and EventSubType, and updates the request-filter example accordingly.",
+        "adminImpact": "Review CloudDnsEvents hunting queries and use the updated column names when writing or adapting queries.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-alerts.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-xdr/investigate-alerts.md b/defender-xdr/investigate-alerts.md\nindex e51125a..a78fecc 100644\n--- a/defender-xdr/investigate-alerts.md\n+++ b/defender-xdr/investigate-alerts.md\n@@ -320,6 +320,10 @@ Use alert tuning with caution, for scenarios where known, internal business appl\n \r\n Create alert tuning rules from the Microsoft Defender XDR **Settings** area or from an alert details page. Select one of the following tabs to continue.\r\n \r\n+Note\r\n+\r\n+**Detection-source selection, available in preview, lets you choose specific detection sources within each service source** for more precise alert tuning. During the current preparation period, you can edit your existing rules to include or exclude detection sources. Your selections take effect on November 8, 2026. Rules that you don't update continue to apply to all detection sources under their selected service sources, **including custom detections**.\r\n+\r\n # [Create a rule from the Settings page](#tab/settings)\r\n To create an alert tuning rule from the Settings page, follow these steps:\r\n \r\n@@ -327,9 +331,9 @@ To create an alert tuning rule from the Settings page, follow these steps:\n \r\n     [![Screenshot of Alert tuning option in Microsoft Defender XDR's Settings page.](media/investigate-alerts/alert-tuning-settings.png)](media/investigate-alerts/alert-tuning-settings.png#lightbox)\r\n 2. Select **Add new rule** to tune a new alert, or select an existing rule row to make changes. Selecting the rule title opens a rule details page, where you can view a list of associated alerts, edit conditions, or turn the rule on and off.\r\n-3. In the **Tune alert** pane, under **Select service sources**, select the service sources where you want to the rule to apply. Only services where you have permissions are shown in the list. For example:\r\n+3. In the **Tune alert** pane, under **Select service sources**, select the service sources and detection sources where you want the rule to apply. Only services where you have permissions are shown in the list. For example:\r\n \r\n-    [![Screenshot of service source dropdown menu in Tune an alert page.](media/investigate-alerts/alert-tuning-select-service.png)](media/investigate-alerts/alert-tuning-select-service.png#lightbox)\r\n+    [![Screenshot of the Service/Detection sources area with detection sources expanded in the Tune alert pane.](media/investigate-alerts/alert-tuning-select-service.png)](media/investigate-alerts/alert-tuning-select-service.png#lightbox)\r\n 4. In the **Conditions** area, add a condition for the alert's triggers. For example, if you want to prevent an alert from being triggered when a specific file is created, define a condition for the **File:Custom** trigger, and define the file details:\r\n \r\n     [![Screenshot of the IOC menu in Tune an alert page.](media/investigate-alerts/alert-tuning-choose-ioc2.png)](media/investigate-alerts/alert-tuning-choose-ioc2.png#lightbox)\r\n@@ -349,9 +353,9 @@ To create an alert tuning rule from an alert details page, follow these steps:\n     The **Tune alert** pane opens on the side, where you can define conditions for the alert. For example:\r\n \r\n     ![Screenshot of the Tune alert pane from the Alerts page.](media/investigate-alerts/tune-alert-pane-alert-details.png)\r\n-2. In the **Alert types** area, select to apply the alert tuning rule only to alerts of the selected type, or any alert type based on the same conditions. If you select **Any alert type based on certain conditions**, also select the service sources where you want the rule to apply. Only services where you have permissions are shown in the list. For example:\r\n+2. In the **Alert types** area, select to apply the alert tuning rule only to alerts of the selected type, or any alert type based on the same conditions. If you select **Any alert type based on certain conditions**, also select the service sources and detection sources where you want the rule to apply. Only services where you have permissions are shown in the list. For example:\r\n \r\n-    ![Screenshot of the Service sources area showing in the Tune alert pane.](media/investigate-alerts/alert-tuning-alert-details-service-sources.png)\r\n+    ![Screenshot of the Service/Detection sources area with detection sources expanded in the Tune alert pane.](media/investigate-alerts/alert-tuning-alert-details-service-sources.png)\r\n 3. In the **Conditions** area, add a condition for the alert's triggers. For example, if you want to prevent an alert from being triggered when a specific file is created, define a condition for the **File:Custom** trigger, and define the file details:\r\n \r\n     ![Screenshot of the Conditions area in the Alert tuning pane.](media/investigate-alerts/alert-tuning-alert-details-conditions.png)\r\n@@ -368,10 +372,6 @@ Note\n \r\n The **alert title (Name)** is based on the **alert type (IoaDefinitionId)**, which decides the alert title. Two alerts that have the same alert type can change to a different alert title. The *Hide alert* feature is only available in Defender for Endpoint alerts.\r\n \r\n-Note\r\n-\r\n-Alert suppression is not compatible for custom detections. Make sure to fine-tune your custom detections to avoid false positives.\r\n-\r\n After creating your alert tuning rule from an alert details page, in the **Successful rule creation** page that appears, add any of the alert-related IOCs as indicators to an *allow list* to prevent them from being blocked in the future. IOCs that are configured as part of the alert tuning rule are selected by default. For example:\r\n \r\n 1. Add a file to the **Select evidence (IOC) to allow** list. By default, the file that triggered the alert is already selected.\r\n",
+      "baseCommitSha": "4bc268d46552f041e7c5ac1ebbaa00188c72b584",
+      "commitSha": "39bea35be0eb60d0845389376f473671ca1136a9",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-19 14:55:02 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/investigate-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-alerts",
+      "eventId": "defender-docs:39bea35be0eb60d0845389376f473671ca1136a9:modified:defender-xdr/investigate-alerts.md",
+      "firstSeenAt": "2026-10-19T15:33:49.628Z",
+      "englishSummary": {
+        "category": "Public preview",
+        "headline": "Alert tuning now supports detection-source selection",
+        "summary": "Administrators can select specific detection sources within service sources when creating or editing alert tuning rules, including include/exclude choices for existing rules.",
+        "adminImpact": "Enables more precise alert tuning by targeting individual detection sources; no required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 16,
+    "totalCommits": 2,
+    "totalFiles": 18,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 16 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 18 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -452,6 +504,15 @@
           "defender-for-identity/troubleshooting-known-issues.md",
           "defender-for-identity/whats-new.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The table reference replaces DnsEventType and DnsEventSubType with EventType and EventSubType, and updates the request-filter example accordingly. Administrators can select specific detection sources within service sources when creating or editing alert tuning rules, including include/exclude choices for existing rules.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-clouddnsevents-table.md",
+          "defender-xdr/investigate-alerts.md"
+        ]
       }
     ],
     "highlights": [
@@ -459,6 +520,11 @@
         "category": "Doc update",
         "headline": "Defender for Identity",
         "detail": "The article now applies its procedures and Directory Service Account requirement specifically to Defender for Identity v2.x sensors. Administrators using v3.x sensors are directed to separate deployment and configuration guidance. The page now covers configuration and validation for Defender for Identity v2.x sensors, while directing v3.x users to separate post-activation guidance and shared deployment validation steps. The documentation clarifies automatic Windows auditing for v3.x sensors, distinguishes it from automatic sensor activation, updates the listed auditing settings, changes the System event ID from 7045 to 4697, and directs administrators to use Certification Authority for CA au"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The table reference replaces DnsEventType and DnsEventSubType with EventType and EventSubType, and updates the request-filter example accordingly. Administrators can select specific detection sources within service sources when creating or editing alert tuning rules, including include/exclude choices for existing rules."
       }
     ],
     "generatedBy": "fallback"
