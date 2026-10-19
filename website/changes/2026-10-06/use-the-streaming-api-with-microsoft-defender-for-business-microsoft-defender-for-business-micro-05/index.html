@@ -6,8 +6,8 @@
 <li><a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction">Azure Storage</a>: Microsoft&#39;s cloud storage solution for modern data storage scenarios, with highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.</li>
 </ul>
 <p><del data-operation-index="11">With</del><ins data-operation-index="11">By using</ins> the<del data-operation-index="13"> Microsoft</del> Defender for Endpoint streaming API, you can use <a href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview">advanced hunting</a> and <a href="https://learn.microsoft.com/en-us/defender-endpoint/overview-endpoint-detection-response">attack detection</a> with Defender for Business and Microsoft 365 Business Premium. The streaming API enables security operations centers to view more data about devices, understand better how an attack occurred, and take steps to improve device security.</p>
-</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><h2>Use the streaming API with Microsoft Sentinel</h2>
-<p><a href="https://learn.microsoft.com/en-us/azure/sentinel/overview">Microsoft Sentinel</a> is a paid service. Several plans and pricing options are available. See <a href="https://www.microsoft.com/security/pricing/microsoft-sentinel/">Microsoft Sentinel pricing</a>.
+<h2>Use the streaming API with Microsoft Sentinel</h2>
+<p><a href="https://learn.microsoft.com/en-us/azure/sentinel/overview">Microsoft Sentinel</a> is a paid service. Several plans and pricing options are available. See <a href="https://www.microsoft.com/security/pricing/microsoft-sentinel/">Microsoft Sentinel pricing</a>.</p>
 <ol>
 <li><del data-operation-index="15">Make sure</del><ins data-operation-index="15">Ensure</ins> that <del data-operation-index="17">Defender for Business is</del><ins data-operation-index="17">you</ins> set up and <del data-operation-index="19">configured,</del><ins data-operation-index="19">configure Defender for Business,</ins> and that <del data-operation-index="21">devices are already onboarded.</del><ins data-operation-index="21">you onboard devices.</ins> See <a href="mdb-setup-configuration">Set up and configure Microsoft Defender for Business</a>.</li>
 <li>Create a Log Analytics workspace to use with Microsoft Sentinel. See <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal">Create a Log Analytics workspace</a>.</li>
@@ -15,32 +15,32 @@
 <li>Enable the Microsoft Defender connector. See <a href="https://learn.microsoft.com/en-us/azure/sentinel/connect-microsoft-365-defender?tabs=MDE">Connect data from Microsoft Defender to Microsoft Sentinel</a>.</li>
 </ol>
 <h2>Use the streaming API with Event Hubs</h2>
-<p><ins data-operation-index="23">To use </ins><a href="https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about">Azure Event Hubs</a><del data-operation-index="25"> requires</del><ins data-operation-index="25">, you need</ins> an Azure subscription. Before you begin, <del data-operation-index="27">make sure to</del><ins data-operation-index="27">ensure you</ins> create an <a href="https://learn.microsoft.com/en-us/azure/event-hubs/">event hub</a> in your organization. Then, sign in to the <a href="https://ms.portal.azure.com/">Azure portal</a>, go to <strong>Subscriptions</strong> &gt; <strong>Your subscription</strong> &gt; <strong>Resource Providers</strong> &gt; <strong>Register to Microsoft.insights</strong>.
-<p>To configure streaming to Azure Event Hubs, complete the following steps.
+<p><ins data-operation-index="23">To use </ins><a href="https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about">Azure Event Hubs</a><del data-operation-index="25"> requires</del><ins data-operation-index="25">, you need</ins> an Azure subscription. Before you begin, <del data-operation-index="27">make sure to</del><ins data-operation-index="27">ensure you</ins> create an <a href="https://learn.microsoft.com/en-us/azure/event-hubs/">event hub</a> in your organization. Then, sign in to the <a href="https://ms.portal.azure.com/">Azure portal</a>, go to <strong>Subscriptions</strong> &gt; <strong>Your subscription</strong> &gt; <strong>Resource Providers</strong> &gt; <strong>Register to Microsoft.insights</strong>.</p>
+<p>To configure streaming to Azure Event Hubs, complete the following steps.</p>
 <ol start="3">
-<li><p>Select <strong>Add data export settings</strong>.
+<li><p>Select <strong>Add data export settings</strong>.</p>
 </li>
-<li><p>Choose a name for your new settings.
+<li><p>Choose a name for your new settings.</p>
 </li>
-<li><p>Choose <strong>Forward events to Azure Event Hubs</strong>.
+<li><p>Choose <strong>Forward events to Azure Event Hubs</strong>.</p>
 </li>
-<li><p><del data-operation-index="29">Type</del><ins data-operation-index="29">Enter</ins> your <strong>Event Hubs name</strong> and your <strong>Event Hubs ID</strong>.
-<p> Note
-<p> <del data-operation-index="31">Leaving</del><ins data-operation-index="31">If you leave</ins> the Event Hubs name field <del data-operation-index="33">empty</del><ins data-operation-index="33">empty, the system</ins> creates an event hub for each category in the selected namespace. If you<ins data-operation-index="35"> don</ins>&#39;<del data-operation-index="37">re not using</del><ins data-operation-index="37">t use</ins> a <a href="https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-dedicated-overview">Dedicated Event Hubs Cluster</a><del data-operation-index="39"> (a</del><ins data-operation-index="39">, which is a</ins> single-tenant deployment with dedicated <del data-operation-index="41">capacity), keep in mind</del><ins data-operation-index="41">capacity, remember</ins> that there&#39;s a limit of 10 Event Hubs namespaces.
-<p> To get your <strong>Event Hubs ID</strong>, go to your<del data-operation-index="43"> Azure</del> Event Hubs namespace page in the <a href="https://ms.portal.azure.com/">Azure portal</a>. On the <strong>Properties</strong> tab, copy the text under <strong>ID</strong>.
+<li><p><del data-operation-index="29">Type</del><ins data-operation-index="29">Enter</ins> your <strong>Event Hubs name</strong> and your <strong>Event Hubs ID</strong>.</p>
+<p> Note</p>
+<p> <del data-operation-index="31">Leaving</del><ins data-operation-index="31">If you leave</ins> the Event Hubs name field <del data-operation-index="33">empty</del><ins data-operation-index="33">empty, the system</ins> creates an event hub for each category in the selected namespace. If you<ins data-operation-index="35"> don</ins>&#39;<del data-operation-index="37">re not using</del><ins data-operation-index="37">t use</ins> a <a href="https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-dedicated-overview">Dedicated Event Hubs Cluster</a><del data-operation-index="39"> (a</del><ins data-operation-index="39">, which is a</ins> single-tenant deployment with dedicated <del data-operation-index="41">capacity), keep in mind</del><ins data-operation-index="41">capacity, remember</ins> that there&#39;s a limit of 10 Event Hubs namespaces.</p>
+<p> To get your <strong>Event Hubs ID</strong>, go to your<del data-operation-index="43"> Azure</del> Event Hubs namespace page in the <a href="https://ms.portal.azure.com/">Azure portal</a>. On the <strong>Properties</strong> tab, copy the text under <strong>ID</strong>.</p>
 </li>
-<li><p>Choose the events you want to stream and then select <strong>Save</strong>.
+<li><p>Choose the events you want to stream and then select <strong>Save</strong>.</p>
 </li>
 </ol>
 <h3>View the event schema in Azure Event Hubs</h3>
-<p>The following JSON sample shows the format of each event hub message that<del data-operation-index="45"> Azure</del> Event Hubs receives when event forwarding is enabled. Each message contains a <code>records</code> array with one or more event entries:
+<p>The following JSON sample shows the format of each event hub message that<del data-operation-index="45"> Azure</del> Event Hubs receives when event forwarding is enabled. Each message contains a <code>records</code> array with one or more event entries:</p>
 <pre><code class="language-json">{
 }
 </code></pre>
-<p>Each event hub message in Azure Event Hubs contains a list of records. Each record contains the event name, the time Defender for Business received the event, the organization to which it belongs (you get events from your organization only), and the event in JSON format in a property called <del data-operation-index="47">&quot;</del><strong><code>properties</strong><del data-operation-index="49">&quot;</del></code>. For more information about the schema of Advanced Hunting events streamed to Azure Event Hubs, see <a href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview">Proactively hunt for threats with advanced hunting in Microsoft Defender</a>.
+<p>Each event hub message in Azure Event Hubs contains a list of records. Each record contains the event name, the time Defender for Business received the event, the organization to which it belongs (you get events from your organization only), and the event in JSON format in a property called <del data-operation-index="47">&quot;</del><strong><code>properties</strong><del data-operation-index="49">&quot;</del></code>. For more information about the schema of Advanced Hunting events streamed to Azure Event Hubs, see <a href="https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview">Proactively hunt for threats with advanced hunting in Microsoft Defender</a>.</p>
 <h2>Use the streaming API with Azure Storage</h2>
-<p>Note
-<p><a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction">Azure Storage</a> requires an Azure subscription. Before you begin, <del data-operation-index="51">make sure to</del><ins data-operation-index="51">ensure you</ins> create a <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview">Storage account</a> in your organization. Then, sign in to your <a href="https://ms.portal.azure.com/">Azure organization</a>, and go to <strong>Subscriptions</strong> &gt; <strong>Your subscription</strong> &gt; <strong>Resource Providers</strong> &gt; <strong>Register to Microsoft.insights</strong>.
+<p>Note</p>
+<p><a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction">Azure Storage</a> requires an Azure subscription. Before you begin, <del data-operation-index="51">make sure to</del><ins data-operation-index="51">ensure you</ins> create a <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview">Storage account</a> in your organization. Then, sign in to your <a href="https://ms.portal.azure.com/">Azure organization</a>, and go to <strong>Subscriptions</strong> &gt; <strong>Your subscription</strong> &gt; <strong>Resource Providers</strong> &gt; <strong>Register to Microsoft.insights</strong>.</p>
 <h3>Enable raw data streaming</h3>
 <ol start="3">
 <li>Select <strong>Add data export settings</strong>.</li>

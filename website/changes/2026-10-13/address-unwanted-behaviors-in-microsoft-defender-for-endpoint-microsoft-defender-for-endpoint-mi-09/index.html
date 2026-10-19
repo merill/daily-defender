@@ -2,10 +2,10 @@
 <p>Microsoft Defender for Endpoint helps prevent and detect malicious processes and files. It protects your organization from threats while keeping productivity intact. Sometimes, unwanted behaviors can occur, such as:</p>
 <p>Note</p>
 <p><del data-operation-index="3">Creating</del><ins data-operation-index="3">Create</ins> an indicator or an exclusion <del data-operation-index="5">should </del>only<del data-operation-index="7"> be considered</del> after thoroughly understanding the root cause of the unexpected behavior.</p>
-</p></p></p></p></p><h2>General process for addressing unwanted behaviors</h2>
-<p>At a high level, the process for addressing an unwanted behavior in Defender for Endpoint is as follows:
+<h2>General process for addressing unwanted behaviors</h2>
+<p>At a high level, the process for addressing an unwanted behavior in Defender for Endpoint is as follows:</p>
 <ol>
-<li><p>Identify which capability is causing the unwanted behavior. <del data-operation-index="9">To make your determination, determine</del><ins data-operation-index="9">Determine</ins> if there&#39;s a misconfiguration with Microsoft Defender Antivirus, endpoint detection and response, attack surface reduction (ASR) rules, or controlled folder access (CFA). Use information in the Microsoft Defender portal or on the device.
+<li><p>Identify which capability is causing the unwanted behavior. <del data-operation-index="9">To make your determination, determine</del><ins data-operation-index="9">Determine</ins> if there&#39;s a misconfiguration with Microsoft Defender Antivirus, endpoint detection and response, attack surface reduction (ASR) rules, or controlled folder access (CFA). Use information in the Microsoft Defender portal or on the device.</p>
 <table>
 <thead>
 <tr>
@@ -23,44 +23,44 @@
 </tr>
 </tbody></table>
 </li>
-<li><p>Depending on your findings about which capability is causing the unwanted behavior, <del data-operation-index="11">you might </del>take one or more of the following actions:
+<li><p>Depending on your findings about which capability is causing the unwanted behavior, <del data-operation-index="11">you might </del>take one or more of the following actions:</p>
 <ul>
 <li><a href="manage-suppression-rules">Suppress alerts in the Microsoft Defender portal</a></li>
 <li><a href="configure-remediation-microsoft-defender-antivirus">Define custom remediation actions</a></li>
 <li><a href="microsoft-defender-antivirus-exclusions-configure">Define exclusions for Microsoft Defender Antivirus</a></li>
 <li><a href="indicator-manage">Create indicators for Defender for Endpoint</a></li>
 </ul>
-<p> Tamper protection affects whether <del data-operation-index="13">exclusions</del><ins data-operation-index="13">you</ins> can <del data-operation-index="15">be modified</del><ins data-operation-index="15">modify</ins> or <del data-operation-index="17">added.</del><ins data-operation-index="17">add exclusions.</ins> See <a href="tamper-protection-overview#what-happens-when-tamper-protection-is-turned-on">What happens when tamper protection is turned on</a>.
+<p> Tamper protection affects whether <del data-operation-index="13">exclusions</del><ins data-operation-index="13">you</ins> can <del data-operation-index="15">be modified</del><ins data-operation-index="15">modify</ins> or <del data-operation-index="17">added.</del><ins data-operation-index="17">add exclusions.</ins> See <a href="tamper-protection-overview#what-happens-when-tamper-protection-is-turned-on">What happens when tamper protection is turned on</a>.</p>
 </li>
-<li><p>Verify that your changes addressed the issue.
+<li><p>Verify that your changes addressed the issue.</p>
 </li>
 </ol>
 <h2>Examples of unwanted behaviors</h2>
-</p></p></p></p></p></p></p></p></p></p></p></p><h3>An app is detected by Microsoft Defender Antivirus when the application runs</h3>
-<p>In this scenario, whenever a user runs a certain application, <ins data-operation-index="19">Defender Antivirus detects </ins>the application<del data-operation-index="21"> is detected by Microsoft Defender Antivirus</del> as a potential threat.
-<p><strong>How to address</strong>: Create an <del data-operation-index="23">&quot;</del><em>allow<del data-operation-index="25">&quot;</del></em> indicator for Microsoft Defender for Endpoint. For example, you can create an <del data-operation-index="27">&quot;</del><em>allow<del data-operation-index="29">&quot;</del></em> indicator for a file, such as an executable. See <a href="indicator-file">Create indicators for files</a>.
+<h3>An app is detected by Microsoft Defender Antivirus when the application runs</h3>
+<p>In this scenario, whenever a user runs a certain application, <ins data-operation-index="19">Defender Antivirus detects </ins>the application<del data-operation-index="21"> is detected by Microsoft Defender Antivirus</del> as a potential threat.</p>
+<p><strong>How to address</strong>: Create an <del data-operation-index="23">&quot;</del><em>allow<del data-operation-index="25">&quot;</del></em> indicator for Microsoft Defender for Endpoint. For example, you can create an <del data-operation-index="27">&quot;</del><em>allow<del data-operation-index="29">&quot;</del></em> indicator for a file, such as an executable. See <a href="indicator-file">Create indicators for files</a>.</p>
 <h3>A custom, self-signed app is detected by Microsoft Defender Antivirus when the application runs</h3>
-<p>In this scenario, Microsoft Defender Antivirus detects a custom app as a potential threat. The app is updated periodically and is self-signed.
-<p><strong>How to address</strong>: Create <del data-operation-index="31">&quot;</del><em>allow<del data-operation-index="33">&quot;</del></em> indicators for certificates or files. See the following articles:
+<p>In this scenario, Microsoft Defender Antivirus detects a custom app as a potential threat. The app is updated periodically and is self-signed.</p>
+<p><strong>How to address</strong>: Create <del data-operation-index="31">&quot;</del><em>allow<del data-operation-index="33">&quot;</del></em> indicators for certificates or files. See the following articles:</p>
 <ul>
 <li><a href="indicator-certificates">Create indicators based on certificates</a></li>
 <li><a href="indicator-file">Create indicators for files</a></li>
 </ul>
 <h3>A custom app accesses a set of file types that is detected as malicious when the application runs</h3>
-<p>In this scenario, a custom app accesses a set of file types, and <ins data-operation-index="35">Defender Antivirus detects </ins>the set <del data-operation-index="37">is detected </del>as malicious<del data-operation-index="39"> by Microsoft Defender Antivirus</del> whenever the application runs.
-<p><strong>How to observe</strong>: When the application is running, behavior monitoring in Microsoft Defender Antivirus detects it.
+<p>In this scenario, a custom app accesses a set of file types, and <ins data-operation-index="35">Defender Antivirus detects </ins>the set <del data-operation-index="37">is detected </del>as malicious<del data-operation-index="39"> by Microsoft Defender Antivirus</del> whenever the application runs.</p>
+<p><strong>How to observe</strong>: When the application is running, behavior monitoring in Microsoft Defender Antivirus detects it.</p>
 <ul>
 <li><a href="microsoft-defender-antivirus-exclusions-configure">Configure and validate exclusions based on file extension and folder location</a></li>
 <li><a href="microsoft-defender-antivirus-exclusions-configure">Configure exclusions for files opened by processes</a></li>
 </ul>
 <h3>An app is considered a potentially unwanted application<del data-operation-index="41"> (PUA)</del></h3>
-<p>In this scenario, an app is detected as <del data-operation-index="43">PUA,</del><ins data-operation-index="43">a potentially unwanted application (PUA),</ins> and you want to allow it to run.
-<p><strong>How to address</strong>: Define an exclusion for the app. See the following articles:
-<p>In this scenario, a legitimate app is blocked from writing to folders that are protected by controlled folder access.
-<p><strong>How to address</strong>: Add the app to the <del data-operation-index="45">&quot;</del><em>allowed<del data-operation-index="47">&quot;</del></em> list for controlled folder access. See <a href="controlled-folder-access-configure#allow-apps-to-modify-files-in-protected-folders-in-the-windows-security-app">Allow apps to modify files in protected folders</a>.
+<p>In this scenario, an app is detected as <del data-operation-index="43">PUA,</del><ins data-operation-index="43">a potentially unwanted application (PUA),</ins> and you want to allow it to run.</p>
+<p><strong>How to address</strong>: Define an exclusion for the app. See the following articles:</p>
+<p>In this scenario, a legitimate app is blocked from writing to folders that are protected by controlled folder access.</p>
+<p><strong>How to address</strong>: Add the app to the <del data-operation-index="45">&quot;</del><em>allowed<del data-operation-index="47">&quot;</del></em> list for controlled folder access. See <a href="controlled-folder-access-configure#allow-apps-to-modify-files-in-protected-folders-in-the-windows-security-app">Allow apps to modify files in protected folders</a>.</p>
 <h3>A third-party app is detected as malicious by Microsoft Defender Antivirus</h3>
-<p>In this scenario, <ins data-operation-index="49">Defender Antivirus detects </ins>a third-party app that isn&#39;t a threat <del data-operation-index="51">is detected and identified </del>as <del data-operation-index="53">malicious by Microsoft Defender Antivirus.</del><ins data-operation-index="53">malicious.</ins>
-<p><strong>How to address</strong>: Submit the app to Microsoft for analysis. See <a href="https://learn.microsoft.com/en-us/defender-xdr/submission-guide#how-do-i-submit-a-file-to-microsoft-for-analysis">How do I submit a file to Microsoft for analysis?</a><del data-operation-index="55">.</del>
+<p>In this scenario, <ins data-operation-index="49">Defender Antivirus detects </ins>a third-party app that isn&#39;t a threat <del data-operation-index="51">is detected and identified </del>as <del data-operation-index="53">malicious by Microsoft Defender Antivirus.</del><ins data-operation-index="53">malicious.</ins></p>
+<p><strong>How to address</strong>: Submit the app to Microsoft for analysis. See <a href="https://learn.microsoft.com/en-us/defender-xdr/submission-guide#how-do-i-submit-a-file-to-microsoft-for-analysis">How do I submit a file to Microsoft for analysis?</a><del data-operation-index="55">.</del></p>
 <h3>An app is incorrectly detected and identified as malicious by Defender for Endpoint</h3>
 <p>In this scenario, <ins data-operation-index="57">an <a href="attack-surface-reduction-rules-overview">attack surface reduction (ASR) rule</a> in Defender Antivirus detects </ins>a legitimate app <del data-operation-index="59">is detected and identified </del>as <del data-operation-index="61">malicious by an <a href="attack-surface-reduction-rules-overview">attack surface reduction (ASR) rule</a> in Microsoft Defender Antivirus.</del><ins data-operation-index="61">malicious.</ins> The ASR rule <a href="attack-surface-reduction-rules-reference#block-javascript-or-vbscript-from-launching-downloaded-executable-content">Block JavaScript or VBScript from launching downloaded executable content</a> blocks any downloaded content when the user tries to use the app.</p>
 <p>To learn how to view ASR rule detections in Defender for Endpoint, see <a href="attack-surface-reduction-rules-monitor">Monitor attack surface reduction (ASR) rule activity</a>.</p>

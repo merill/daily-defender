@@ -6,38 +6,38 @@
 </ul>
 <p>These types of attacks can be catastrophic to business <del data-operation-index="3">operations,</del><ins data-operation-index="3">operations. They</ins> tend to be difficult to <del data-operation-index="5">address,</del><ins data-operation-index="5">address</ins> and sometimes continue to threaten business operations after the initial encounter. For more information, see <a href="https://learn.microsoft.com/en-us/security/ransomware/human-operated-ransomware#human-operated-ransomware-attacks">Human-operated ransomware attacks</a>.</p>
 <p>Automatic attack disruption is designed to:</p>
-</p></p></p></p></p></p></p></p></p></p></p></p><h2>How automatic attack disruption works</h2>
-<p>Automatic attack disruption uses insights from Microsoft <del data-operation-index="7">security</del><ins data-operation-index="7">Security</ins> researchers and advanced AI models to counteract the complexities of advanced attacks. It limits<ins data-operation-index="9"> an</ins> attacker&#39;s progress early on and dramatically reduces the overall effect of an attack, from associated costs to loss of productivity. See some examples at the <a href="https://aka.ms/ContainUserSecBlog">Microsoft Security Blog</a>.
-<p><del data-operation-index="11">With</del><ins data-operation-index="11">By using</ins> automatic attack disruption, as soon as a human-operated attack is detected on a device, <ins data-operation-index="13">the system takes </ins>steps<del data-operation-index="15"> are taken immediately</del> to contain the affected device and user accounts on the device. <del data-operation-index="17">An</del><ins data-operation-index="17">The system creates an</ins> incident<del data-operation-index="19"> is created</del> in the Microsoft Defender <del data-operation-index="21">portal (</del><ins data-operation-index="21">portal: </ins><a href="https://security.microsoft.com">https://security.microsoft.com</a><del data-operation-index="23">)</del>. <del data-operation-index="25">There, your IT/</del><ins data-operation-index="25">Your IT or </ins>security team can view details about the risk and containment status of compromised assets during and after the process. An <strong>Incident</strong> page provides details about the attack and up-to-date status of affected assets.
-<p>Automated response actions include:
+<h2>How automatic attack disruption works</h2>
+<p>Automatic attack disruption uses insights from Microsoft <del data-operation-index="7">security</del><ins data-operation-index="7">Security</ins> researchers and advanced AI models to counteract the complexities of advanced attacks. It limits<ins data-operation-index="9"> an</ins> attacker&#39;s progress early on and dramatically reduces the overall effect of an attack, from associated costs to loss of productivity. See some examples at the <a href="https://aka.ms/ContainUserSecBlog">Microsoft Security Blog</a>.</p>
+<p><del data-operation-index="11">With</del><ins data-operation-index="11">By using</ins> automatic attack disruption, as soon as a human-operated attack is detected on a device, <ins data-operation-index="13">the system takes </ins>steps<del data-operation-index="15"> are taken immediately</del> to contain the affected device and user accounts on the device. <del data-operation-index="17">An</del><ins data-operation-index="17">The system creates an</ins> incident<del data-operation-index="19"> is created</del> in the Microsoft Defender <del data-operation-index="21">portal (</del><ins data-operation-index="21">portal: </ins><a href="https://security.microsoft.com">https://security.microsoft.com</a><del data-operation-index="23">)</del>. <del data-operation-index="25">There, your IT/</del><ins data-operation-index="25">Your IT or </ins>security team can view details about the risk and containment status of compromised assets during and after the process. An <strong>Incident</strong> page provides details about the attack and up-to-date status of affected assets.</p>
+<p>Automated response actions include:</p>
 <ul>
 <li>Containing a device by blocking <del data-operation-index="27">incoming/</del><ins data-operation-index="27">incoming or </ins>outgoing communication</li>
 <li>Containing a user account by disconnecting current user connections at the device level</li>
 </ul>
-<p>Important
+<p>Important</p>
 <ul>
 <li>To view information about a detected advanced attack, you must have an appropriate role, such as Security Reader or Security <del data-operation-index="29">Administrator assigned.</del><ins data-operation-index="29">Administrator.</ins></li>
 <li>To take remediation actions, release a contained device/user, or re-enable a user account, you must have the Security Administrator <del data-operation-index="31">role assigned.</del><ins data-operation-index="31">role.</ins></li>
-<li></ul><p>For more information, see <a href="mdb-roles-permissions">Security roles and permissions in Defender for Business</a>.</li></ul>
+<li></ul><p>For more information, see <a href="mdb-roles-permissions">Security roles and permissions in Defender for Business</a>.</li></ul></p>
 <h2>View details about an attack in the Microsoft Defender portal</h2>
 <ol>
-<li><p>In the Microsoft Defender portal, go to <strong>Incidents</strong>.
+<li><p>In the Microsoft Defender portal, go to <strong>Incidents</strong>.</p>
 </li>
-<li><p>Select an incident that<del data-operation-index="37"> is</del><ins data-operation-index="37">&#39;s</ins> tagged with <em>Attack Disruption</em>.
+<li><p>Select an incident that<del data-operation-index="37"> is</del><ins data-operation-index="37">&#39;s</ins> tagged with <em>Attack Disruption</em>.</p>
 </li>
-<li><p>Review the incident <del data-operation-index="39">graph, which enables you to</del><ins data-operation-index="39">graph. You can</ins> get the entire attack story and assess the attack disruption effect and status.
+<li><p>Review the incident <del data-operation-index="39">graph, which enables you to</del><ins data-operation-index="39">graph. You can</ins> get the entire attack story and assess the attack disruption effect and status.</p>
 </li>
-<li><p>When you&#39;re ready to release a contained device or user account, or re-enable a user account, take one of the following steps:
+<li><p>When you&#39;re ready to release a contained device or user account, or re-enable a user account, take one of the following steps:</p>
 <ul>
 <li>To release a contained device, select the device, and then <del data-operation-index="41">choose</del><ins data-operation-index="41">select</ins> <strong>Release from containment</strong>.</li>
 <li>To release a contained user, select the user account, and then, in the side pane, select <strong>Undo</strong>.</li>
 </ul>
 </li>
 </ol>
-<p>Disrupted incidents include a tag for <code>Attack Disruption</code> and the specific threat type <del data-operation-index="43">identified (such</del><ins data-operation-index="43">identified, such</ins> as <del data-operation-index="45">ransomware).</del><ins data-operation-index="45">ransomware.</ins> If your <del data-operation-index="47">IT/</del><ins data-operation-index="47">IT or </ins>security team receives <a href="mdb-email-notifications">incident email notifications</a>, these tags also appear in the emails.
-<p>When an incident is disrupted, highlighted text appears below the incident title. Contained devices or user accounts are listed with a label that indicates their status.
+<p>Disrupted incidents include a tag for <code>Attack Disruption</code> and the specific threat type <del data-operation-index="43">identified (such</del><ins data-operation-index="43">identified, such</ins> as <del data-operation-index="45">ransomware).</del><ins data-operation-index="45">ransomware.</ins> If your <del data-operation-index="47">IT/</del><ins data-operation-index="47">IT or </ins>security team receives <a href="mdb-email-notifications">incident email notifications</a>, these tags also appear in the emails.</p>
+<p>When an incident is disrupted, highlighted text appears below the incident title. Contained devices or user accounts are listed with a label that indicates their status.</p>
 <h2>Track attack disruption actions in the Action center</h2>
-<p>The <a href="mdb-review-remediation-actions">Action center</a> brings together all remediation and response actions, whether those actions were taken automatically or manually. You can view all automatic attack disruption actions in the Action center. <del data-operation-index="49">And, after</del><ins data-operation-index="49">After</ins> your <del data-operation-index="51">IT/</del><ins data-operation-index="51">IT or </ins>security team mitigates the risk and <del data-operation-index="53">completed</del><ins data-operation-index="53">completes</ins> the investigation of an incident, they can release contained assets.
+<p>The <a href="mdb-review-remediation-actions">Action center</a> brings together all remediation and response actions, whether those actions were taken automatically or manually. You can view all automatic attack disruption actions in the Action center. <del data-operation-index="49">And, after</del><ins data-operation-index="49">After</ins> your <del data-operation-index="51">IT/</del><ins data-operation-index="51">IT or </ins>security team mitigates the risk and <del data-operation-index="53">completed</del><ins data-operation-index="53">completes</ins> the investigation of an incident, they can release contained assets.</p>
 <ol>
 <li>In the Microsoft Defender portal, go to <strong>Actions &amp; submissions</strong> &gt; <strong>Action center</strong>.</li>
 <li>Select the <strong>History</strong> tab.</li>

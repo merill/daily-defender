@@ -11,36 +11,36 @@
 <li><p>If you import labels,<del data-operation-index="19"> you can</del> set sensitivity thresholds that determine the minimum threshold sensitivity level for a label to be marked as sensitive in Defender for Cloud.</p></li>
 </ul>
 <p>Customizing data sensitivity settings helps you focus on your critical sensitive resources and improve the accuracy of the sensitivity insights.</p>
-</p></p></p></p></p></p></p></p></p></p></p></p><h2><del data-operation-index="23">Before you start</del><ins data-operation-index="23">Prerequisites</ins></h2>
-<p>Before you customize data sensitivity settings, ensure the following requirements are met:
+<h2><del data-operation-index="23">Before you start</del><ins data-operation-index="23">Prerequisites</ins></h2>
+<p>Before you customize data sensitivity settings, ensure the following requirements are met:</p>
 <ul>
 <li><del data-operation-index="25">Make sure that you</del><ins data-operation-index="25">Review</ins> <a href="concept-data-security-posture-prepare#configure-data-sensitivity-settings">prerequisites and requirements for configuring data sensitivity settings</a>.</li>
 <li>In Defender for Cloud, enable sensitive data discovery capabilities in the <a href="data-security-posture-enable">Defender CSPM</a> <del data-operation-index="27">and/</del>or <a href="defender-for-storage-data-sensitivity">Defender for Storage</a> plans.</li>
 </ul>
-<p>Changes in sensitivity settings take effect the next time that resources are discovered.
+<p>Changes in sensitivity settings take effect the next time that resources are discovered.</p>
 <h2>Import custom sensitivity info types/labels</h2>
-<p><del data-operation-index="29">Custom</del><ins data-operation-index="29">Defender for Cloud automatically imports custom</ins> sensitivity <del data-operation-index="31">info</del><ins data-operation-index="31">information</ins> types and sensitivity <del data-operation-index="33">labels are automatically imported into Defender for Cloud.</del><ins data-operation-index="33">labels.</ins> If you have the Enterprise Mobility and Security E5/A5/G5 license, you don&#39;t need to manually provide consent in the Microsoft Defender XDR portal. For <del data-operation-index="35">licensing details,</del><ins data-operation-index="35">more information,</ins> see <a href="https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description#microsoft-purview-information-protection-sensitivity-labeling">Microsoft Purview sensitivity labeling licensing</a>.
-<p>Defender for Cloud only imports sensitivity labels with automatic labeling rules. Defender for Cloud ignores the <del data-operation-index="37">&quot;</del><em>location<del data-operation-index="39">&quot;</del></em> section in the automatic labeling rule and applies the label to all resource types and locations.
+<p><del data-operation-index="29">Custom</del><ins data-operation-index="29">Defender for Cloud automatically imports custom</ins> sensitivity <del data-operation-index="31">info</del><ins data-operation-index="31">information</ins> types and sensitivity <del data-operation-index="33">labels are automatically imported into Defender for Cloud.</del><ins data-operation-index="33">labels.</ins> If you have the Enterprise Mobility and Security E5/A5/G5 license, you don&#39;t need to manually provide consent in the Microsoft Defender XDR portal. For <del data-operation-index="35">licensing details,</del><ins data-operation-index="35">more information,</ins> see <a href="https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description#microsoft-purview-information-protection-sensitivity-labeling">Microsoft Purview sensitivity labeling licensing</a>.</p>
+<p>Defender for Cloud only imports sensitivity labels with automatic labeling rules. Defender for Cloud ignores the <del data-operation-index="37">&quot;</del><em>location<del data-operation-index="39">&quot;</del></em> section in the automatic labeling rule and applies the label to all resource types and locations.</p>
 <h2>Customize sensitive data categories/types</h2>
-<p>To customize data sensitivity settings in Defender for Cloud, <del data-operation-index="41">review the <a href="concept-data-security-posture-prepare#configure-data-sensitivity-settings">prerequisites for customizing data sensitivity settings</a>. Then do the following.</del><ins data-operation-index="41">follow these steps:</ins>
+<p>To customize data sensitivity settings in Defender for Cloud, <del data-operation-index="41">review the <a href="concept-data-security-posture-prepare#configure-data-sensitivity-settings">prerequisites for customizing data sensitivity settings</a>. Then do the following.</del><ins data-operation-index="41">follow these steps:</ins></p>
 <ol>
-<li><p>Sign in to the <a href="https://portal.azure.com">Azure portal</a>.
+<li><p>Sign in to the <a href="https://portal.azure.com">Azure portal</a>.</p>
 </li>
-<li><p><del data-operation-index="43">Navigate</del><ins data-operation-index="43">Go</ins> to <strong>Microsoft Defender for Cloud</strong> &gt; <strong>Environment settings</strong>.
+<li><p><del data-operation-index="43">Navigate</del><ins data-operation-index="43">Go</ins> to <strong>Microsoft Defender for Cloud</strong> &gt; <strong>Environment settings</strong>.</p>
 </li>
-<li><p>Select <strong>Data sensitivity</strong>.
+<li><p>Select <strong>Data sensitivity</strong>.</p>
 </li>
-<li><p>Select the info type category that you want to customize:
+<li><p>Select the info type category that you want to customize:</p>
 <ul>
 <li>The <strong>Finance</strong>, <strong>PII</strong>, and <strong>Credentials</strong> categories contain the default info type data that <del data-operation-index="45">are</del><ins data-operation-index="45">attackers</ins> typically <del data-operation-index="47">sought out by attackers.</del><ins data-operation-index="47">seek.</ins></li>
 <li>The <strong>Custom</strong> category contains custom info types from your Microsoft Purview portal configuration.</li>
 <li>The <strong>Other</strong> category contains all of the rest of the built-in available info types.</li>
 </ul>
 </li>
-<li><p>Select the info types that you want to <del data-operation-index="49">be marked</del><ins data-operation-index="49">mark</ins> as sensitive.
+<li><p>Select the info types that you want to <del data-operation-index="49">be marked</del><ins data-operation-index="49">mark</ins> as sensitive.</p>
 </li>
-<li><p>Select <strong>Apply</strong> and <strong>Save</strong>.
-<p> <img src="media/concept-data-security-posture/data-sensitivity.png" alt="Screenshot of the data sensitivity page, showing the sensitivity settings.">
+<li><p>Select <strong>Apply</strong> and <strong>Save</strong>.</p>
+<p> <img src="media/concept-data-security-posture/data-sensitivity.png" alt="Screenshot of the data sensitivity page, showing the sensitivity settings."></p>
 </li>
 </ol>
 <h2>Set the threshold for sensitive data labels</h2>

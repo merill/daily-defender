@@ -3,28 +3,28 @@
 <p>Microsoft Security DevOps uses the following open-source tools:</p>
 <p>Note</p>
 <p>As of September 20, 2023, the secrets scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps <del data-operation-index="7">has been</del><ins data-operation-index="7">is</ins> deprecated. MSDO secrets scanning is replaced <del data-operation-index="9">with</del><ins data-operation-index="9">by</ins> <a href="https://azure.microsoft.com/products/devops/github-advanced-security">GitHub Advanced Security for Azure DevOps</a>.</p>
-</p></p></p></p></p></p></p></p></p></p></p></p><h2>Prerequisites</h2>
-<p>Before you install the extension, <del data-operation-index="11">make sure</del><ins data-operation-index="11">ensure</ins> you meet the following prerequisite:
+<h2>Prerequisites</h2>
+<p>Before you install the extension, <del data-operation-index="11">make sure</del><ins data-operation-index="11">ensure</ins> you meet the following prerequisite:</p>
 <ul>
-<li><p>You need Project Collection Administrator privileges in your Azure DevOps organization to install the extension. If you don&#39;t have access, request these privileges from your Azure DevOps administrator.
-<p>  Note
-<p>  If you<del data-operation-index="13">&#39;ve</del> already <a href="https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops">installed the Microsoft Security DevOps extension</a>, it<del data-operation-index="15"> is</del><ins data-operation-index="15">&#39;s</ins> listed in the <strong>Installed</strong> tab.
+<li><p>You need Project Collection Administrator privileges in your Azure DevOps organization to install the extension. If you don&#39;t have access, request these privileges from your Azure DevOps administrator.</p>
+<p>  Note</p>
+<p>  If you<del data-operation-index="13">&#39;ve</del> already <a href="https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops">installed the Microsoft Security DevOps extension</a>, it<del data-operation-index="15"> is</del><ins data-operation-index="15">&#39;s</ins> listed in the <strong>Installed</strong> tab.</p>
 </li>
 </ul>
 <ol start="4">
-<li><p>Select <strong>Microsoft Security DevOps</strong>.
-<p> <img src="media/msdo-azure-devops-extension/marketplace-shared.png" alt="Screenshot that shows where to select Microsoft Security DevOps.">
+<li><p>Select <strong>Microsoft Security DevOps</strong>.</p>
+<p> <img src="media/msdo-azure-devops-extension/marketplace-shared.png" alt="Screenshot that shows where to select Microsoft Security DevOps."></p>
 </li>
 </ol>
-<p>To configure a pipeline with YAML:
+<p>To configure a pipeline with YAML:</p>
 <ol>
-<li><p>Sign <del data-operation-index="21">into</del><ins data-operation-index="21">in to</ins> <a href="https://dev.azure.com/">Azure DevOps</a>.
+<li><p>Sign <del data-operation-index="21">into</del><ins data-operation-index="21">in to</ins> <a href="https://dev.azure.com/">Azure DevOps</a>.</p>
 </li>
-<li><p>Select your project.
+<li><p>Select your project.</p>
 </li>
-<li><p>Go to <strong>Pipelines</strong> &gt; <strong>New pipeline</strong>.
-<p> Note
-<p> Install the SARIF SAST Scans Tab extension to automatically display SARIF analysis results in the <del data-operation-index="23">pipeline’</del><ins data-operation-index="23">pipeline&#39;</ins>s <strong>Scans</strong> tab.
+<li><p>Go to <strong>Pipelines</strong> &gt; <strong>New pipeline</strong>.</p>
+<p> Note</p>
+<p> Install the SARIF SAST Scans Tab extension to automatically display SARIF analysis results in the <del data-operation-index="23">pipeline’</del><ins data-operation-index="23">pipeline&#39;</ins>s <strong>Scans</strong> tab.</p>
 </li>
 </ol>
 <h2>Uploading findings from third-party security tools into Defender for Cloud</h2>

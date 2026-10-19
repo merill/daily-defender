@@ -7,70 +7,70 @@
 <li>In Intune, the <strong>Endpoint Security Manager</strong> role or equivalent permissions to manage Mobile Threat Defense settings.</li>
 <li>In Microsoft Entra ID, the <strong>Security Administrator</strong> role, or permission to manage security settings in Defender for Endpoint.</li>
 </ul>
-</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><h4><h3>Connect Defender for Endpoint to Intune</h4></h3>
-<p>For the complete connection procedure, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/protect/advanced-threat-protection-configure#connect-microsoft-defender-for-endpoint-to-intune">Connect Microsoft Defender for Endpoint to Intune</a>.
-<p>Verify the following settings:
+<h4><h3>Connect Defender for Endpoint to Intune</h4></h3>
+<p>For the complete connection procedure, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/protect/advanced-threat-protection-configure#connect-microsoft-defender-for-endpoint-to-intune">Connect Microsoft Defender for Endpoint to Intune</a>.</p>
+<p>Verify the following settings:</p>
 <ul>
-<li><del data-operation-index="11">On</del><p><ins data-operation-index="11">In the <a href="https://security.microsoft.com/securitysettings/endpoints/integration">Microsoft Defender portal</a>, on</ins> the <strong>Other options</strong> <del data-operation-index="13">page in the Microsoft Defender portal at <a href="https://security.microsoft.com/securitysettings/endpoints/integration">https://security.microsoft.com/securitysettings/endpoints/integration</a>,</del><ins data-operation-index="13">page, verify that</ins> <strong>Microsoft Intune Connection</strong> is <img src="media/toggle-on.png" alt=""><strong>On</strong>.</li>
-<li><del data-operation-index="17">On</del><p><ins data-operation-index="17">In the <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/%7E/atp">Microsoft Intune admin center</a>, on</ins> the <strong>Endpoint security | Microsoft Defender for Endpoint</strong> <del data-operation-index="19">page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/%7E/atp">https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/~/atp</a>,</del><ins data-operation-index="19">page,</ins> verify the following settings:<ul>
+<li><del data-operation-index="11">On</del><p><ins data-operation-index="11">In the <a href="https://security.microsoft.com/securitysettings/endpoints/integration">Microsoft Defender portal</a>, on</ins> the <strong>Other options</strong> <del data-operation-index="13">page in the Microsoft Defender portal at <a href="https://security.microsoft.com/securitysettings/endpoints/integration">https://security.microsoft.com/securitysettings/endpoints/integration</a>,</del><ins data-operation-index="13">page, verify that</ins> <strong>Microsoft Intune Connection</strong> is <img src="media/toggle-on.png" alt=""><strong>On</strong>.</p></li>
+<li><del data-operation-index="17">On</del><p><ins data-operation-index="17">In the <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/%7E/atp">Microsoft Intune admin center</a>, on</ins> the <strong>Endpoint security | Microsoft Defender for Endpoint</strong> <del data-operation-index="19">page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/%7E/atp">https://intune.microsoft.com/#view/Microsoft_Intune_Workflows/SecurityManagementMenu/~/atp</a>,</del><ins data-operation-index="19">page,</ins> verify the following settings:</p><ul>
 <li>At the top of the page, <strong>Connection status</strong> is <strong>Enabled</strong>.</li>
 <li><ins data-operation-index="23">In the </ins><strong>App protection policy evaluation</strong> <del data-operation-index="25">section:</del><ins data-operation-index="25">section,</ins> <strong>Connect Android devices to Defender for Endpoint</strong> is <strong>On</strong>.</li>
 </ul>
 </li>
 </ul>
 <h4><h3>Create an app protection policy</h4></h3>
-<p><em>App protection policies</em> are rules that protect organizational data in managed apps. An app integrated with the <a href="https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk">Intune App SDK</a> or wrapped by the <a href="https://learn.microsoft.com/en-us/intune/intune-service/developer/apps-prepare-mobile-application-management">Intune App Wrapping Tool</a> can be managed by Intune. For supported public apps, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-supported-intune-apps">Microsoft Intune protected apps</a>.
-<p>For the complete procedure to create and assign an Android app protection policy, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/apps/app-protection-policy">App protection policies overview</a><del data-operation-index="35"> (opens</del><ins data-operation-index="35">. This page opens</ins> in a new tab in the Intune <del data-operation-index="37">documentation).</del><ins data-operation-index="37">documentation.</ins>
-<p>When you create the policy, configure these Defender-specific settings:
+<p><em>App protection policies</em> are rules that protect organizational data in managed apps. An app integrated with the <a href="https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk">Intune App SDK</a> or wrapped by the <a href="https://learn.microsoft.com/en-us/intune/intune-service/developer/apps-prepare-mobile-application-management">Intune App Wrapping Tool</a> can be managed by Intune. For supported public apps, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-supported-intune-apps">Microsoft Intune protected apps</a>.</p>
+<p>For the complete procedure to create and assign an Android app protection policy, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/apps/app-protection-policy">App protection policies overview</a><del data-operation-index="35"> (opens</del><ins data-operation-index="35">. This page opens</ins> in a new tab in the Intune <del data-operation-index="37">documentation).</del><ins data-operation-index="37">documentation.</ins></p>
+<p>When you create the policy, configure these Defender-specific settings:</p>
 <ul>
-<li><p><strong>Policy type</strong>: <del data-operation-index="41">On</del><ins data-operation-index="41">In the <a href="https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/%7E/protection">Microsoft Intune admin center</a>, on</ins> the <strong>Apps | Protection</strong> <del data-operation-index="43">page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/%7E/protection">https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/~/protection</a>,</del><ins data-operation-index="43">page,</ins> select <img src="media/defender-portal-icon-create.png" alt=""><strong>Create</strong> &gt; <strong>Android</strong>.</li>
-<li><p><strong>Apps</strong> tab: Add at least one managed app. You can target apps on managed devices, unmanaged devices, or devices in any management state.</li>
-<li><p><strong>Conditional launch</strong> tab: In the <strong>Device conditions</strong> section, select <strong>Max allowed device threat level</strong>and then configure the following settings for it:<ul>
+<li><p><strong>Policy type</strong>: <del data-operation-index="41">On</del><ins data-operation-index="41">In the <a href="https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/%7E/protection">Microsoft Intune admin center</a>, on</ins> the <strong>Apps | Protection</strong> <del data-operation-index="43">page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/%7E/protection">https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/AppsMenu/~/protection</a>,</del><ins data-operation-index="43">page,</ins> select <img src="media/defender-portal-icon-create.png" alt=""><strong>Create</strong> &gt; <strong>Android</strong>.</p></li>
+<li><p><strong>Apps</strong> tab: Add at least one managed app. You can target apps on managed devices, unmanaged devices, or devices in any management state.</p></li>
+<li><p><strong>Conditional launch</strong> tab: In the <strong>Device conditions</strong> section, select <strong>Max allowed device threat level</strong>and then configure the following settings for it:</p><ul>
 <li><strong>Value</strong>: Select the maximum threat level your organization <del data-operation-index="57">allows (</del><ins data-operation-index="57">allows: </ins><strong>Secured</strong>, <strong>Low</strong>, <strong>Medium</strong>, or <strong>High</strong><del data-operation-index="59">)</del>.</li>
 <li><strong>Action</strong>: Select <strong>Block access</strong> or <strong>Wipe data</strong>.</li>
 </ul>
 </li>
 </ul>
-<p>Defender for Endpoint shares the device threat level with Intune. When users sign in to a targeted managed app, Intune evaluates the Defender device risk signal and applies the configured action.
-<p>The Defender settings in the remaining sections use an Intune <strong>Managed apps</strong> app configuration policy. You can add multiple Defender configuration keys to one policy when the keys apply to the same assignments. Create separate policies when you need different settings or assignments.
-<p>For the complete procedure, see <a href="https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-apps#add-an-app-configuration-policy-for-managed-apps-on-iosipados-and-android-devices">Add an app configuration policy for managed apps</a><del data-operation-index="61"> (opens</del><ins data-operation-index="61">. This page opens</ins> in a new tab in the Intune <del data-operation-index="63">documentation).</del><ins data-operation-index="63">documentation.</ins>
-<p>When you create the policy, use these <del data-operation-index="65">specific </del>settings:
+<p>Defender for Endpoint shares the device threat level with Intune. When users sign in to a targeted managed app, Intune evaluates the Defender device risk signal and applies the configured action.</p>
+<p>The Defender settings in the remaining sections use an Intune <strong>Managed apps</strong> app configuration policy. You can add multiple Defender configuration keys to one policy when the keys apply to the same assignments. Create separate policies when you need different settings or assignments.</p>
+<p>For the complete procedure, see <a href="https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-apps#add-an-app-configuration-policy-for-managed-apps-on-iosipados-and-android-devices">Add an app configuration policy for managed apps</a><del data-operation-index="61"> (opens</del><ins data-operation-index="61">. This page opens</ins> in a new tab in the Intune <del data-operation-index="63">documentation).</del><ins data-operation-index="63">documentation.</ins></p>
+<p>When you create the policy, use these <del data-operation-index="65">specific </del>settings:</p>
 <ul>
-<li><p><strong>Policy type</strong>: <del data-operation-index="69">On</del><ins data-operation-index="69">In the <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Apps/ConfigPoliciesMenu/%7E/appConfigurationPolicies">Microsoft Intune admin center</a>, on</ins> the <strong>Apps | Configuration</strong> <del data-operation-index="71">page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Apps/ConfigPoliciesMenu/%7E/appConfigurationPolicies">https://intune.microsoft.com/#view/Microsoft_Intune_Apps/ConfigPoliciesMenu/~/appConfigurationPolicies</a>,</del><ins data-operation-index="71">page,</ins> select <strong>Create</strong> &gt; <strong>Managed apps</strong>.</li>
-<li><p><strong>Basics</strong>tab: Configure the following settings:<ul>
+<li><p><strong>Policy type</strong>: <del data-operation-index="69">On</del><ins data-operation-index="69">In the <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Apps/ConfigPoliciesMenu/%7E/appConfigurationPolicies">Microsoft Intune admin center</a>, on</ins> the <strong>Apps | Configuration</strong> <del data-operation-index="71">page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com/#view/Microsoft_Intune_Apps/ConfigPoliciesMenu/%7E/appConfigurationPolicies">https://intune.microsoft.com/#view/Microsoft_Intune_Apps/ConfigPoliciesMenu/~/appConfigurationPolicies</a>,</del><ins data-operation-index="71">page,</ins> select <strong>Create</strong> &gt; <strong>Managed apps</strong>.</p></li>
+<li><p><strong>Basics</strong>tab: Configure the following settings:</p><ul>
 <li><strong>Target policy to</strong>: Verify <strong>Selected apps</strong> is selected.</li>
 <li><strong>Public apps</strong>: Select <strong>+ Select public apps</strong>, find and select <strong>Microsoft Defender Endpoint Android</strong>, and then select <strong>Select</strong>.</li>
 </ul>
 </li>
-<li><p><strong>Settings</strong> tab: In the <strong>General configuration settings</strong>section, do the following steps:<ul>
+<li><p><strong>Settings</strong> tab: In the <strong>General configuration settings</strong>section, do the following steps:</p><ul>
 <li>Add the names and values specified in the applicable sections of this article.</li>
 <li>Add <code>DefenderMAMConfigs</code> with a value of <code>1</code> to every <strong>Managed apps</strong> policy that configures Defender for Endpoint. The exception is a policy that disables end-user onboarding, where the value is <code>0</code>. Don&#39;t add this key to a <strong>Managed devices</strong> policy.</li>
 </ul>
 </li>
 </ul>
-<p><a href="web-protection-overview">Web protection</a> helps secure devices against web threats and phishing attacks. Anti-phishing and custom indicators for URLs and domains are supported. Web content filtering is currently not supported on mobile platforms.
-<p>Use the Managed apps app configuration policy <del data-operation-index="87">procedure, and add</del><ins data-operation-index="87">procedure. Add</ins> the following configuration keys in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:
+<p><a href="web-protection-overview">Web protection</a> helps secure devices against web threats and phishing attacks. Anti-phishing and custom indicators for URLs and domains are supported. Web content filtering is currently not supported on mobile platforms.</p>
+<p>Use the Managed apps app configuration policy <del data-operation-index="87">procedure, and add</del><ins data-operation-index="87">procedure. Add</ins> the following configuration keys in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:</p>
 <ul>
 <li><strong>Name</strong>: <code>antiphishing</code></li>
 <li><strong>Value</strong>:</li>
 </ul>
-<p>Network protection detects threats from rogue Wi-Fi networks and certificates. For an overview of the feature behavior, supported detection modes, privacy controls, and current event experience, see <a href="android-configure#configure-network-protection">Configure network protection</a>.
-<p>Use the Managed apps app configuration policy <del data-operation-index="89">procedure, and add</del><ins data-operation-index="89">procedure. Add</ins> the applicable configuration keys in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:
+<p>Network protection detects threats from rogue Wi-Fi networks and certificates. For an overview of the feature behavior, supported detection modes, privacy controls, and current event experience, see <a href="android-configure#configure-network-protection">Configure network protection</a>.</p>
+<p>Use the Managed apps app configuration policy <del data-operation-index="89">procedure, and add</del><ins data-operation-index="89">procedure. Add</ins> the applicable configuration keys in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:</p>
 <ul>
 <li><strong>Name</strong>: <code>DefenderNetworkProtectionEnable</code>. Enables or disables network protection. The remaining network protection keys take effect only when this key is set to <code>1</code>.</li>
 <li><strong>Value</strong>:</li>
 </ul>
-<p>Privacy controls can prevent Defender for Endpoint from collecting domain information in phishing reports and app details in malware reports. Network information is controlled separately by <code>DefenderNetworkProtectionPrivacy</code> in Configure network protection.
-<p>Use the Managed apps app configuration policy <del data-operation-index="91">procedure, and add</del><ins data-operation-index="91">procedure. Add</ins> one or both of the following configuration keys in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:
+<p>Privacy controls can prevent Defender for Endpoint from collecting domain information in phishing reports and app details in malware reports. Network information is controlled separately by <code>DefenderNetworkProtectionPrivacy</code> in Configure network protection.</p>
+<p>Use the Managed apps app configuration policy <del data-operation-index="91">procedure, and add</del><ins data-operation-index="91">procedure. Add</ins> one or both of the following configuration keys in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:</p>
 <ul>
 <li><strong>Name</strong>: <code>DefenderExcludeURLInReport</code></li>
 <li><strong>Value</strong>:</li>
 </ul>
-<p>In addition to scanning Android application packages (APK files), Defender for Endpoint on Android can scan non-APK files, such as documents, compressed archives, and scripts. Defender for Endpoint respects Android profile boundaries and can&#39;t access files in the user&#39;s personal profile.
-<p>Use the Managed apps app configuration policy <del data-operation-index="93">procedure, and add</del><ins data-operation-index="93">procedure. Add</ins> the following configuration key in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:
+<p>In addition to scanning Android application packages (APK files), Defender for Endpoint on Android can scan non-APK files, such as documents, compressed archives, and scripts. Defender for Endpoint respects Android profile boundaries and can&#39;t access files in the user&#39;s personal profile.</p>
+<p>Use the Managed apps app configuration policy <del data-operation-index="93">procedure, and add</del><ins data-operation-index="93">procedure. Add</ins> the following configuration key in the <strong>General configuration settings</strong> section on the <strong>Settings</strong> tab:</p>
 <ul>
-<li><p><strong>Name</strong>: <code>EnableNonAPKFileScan</code></li>
-<li><p><strong>Value</strong>:<ul>
+<li><p><strong>Name</strong>: <code>EnableNonAPKFileScan</code></p></li>
+<li><p><strong>Value</strong>:</p><ul>
 <li><code>1</code>: Enable non-APK file scanning.</li>
 <li><code>0</code>: Disable non-APK file scanning (default).</li>
 </ul>

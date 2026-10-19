@@ -36,59 +36,59 @@
 <p><del data-operation-index="17">Controlled configuration</del><ins data-operation-index="17">Configuration protection</ins> is a superset of tamper protection that provides policy-driven control over the full Microsoft Defender Antivirus configuration.</p>
 <p>Note</p>
 <p>Although tamper protection and <del data-operation-index="19">controlled </del>configuration<ins data-operation-index="21"> protection</ins> can technically be turned on at the same time, we recommend that your organization selects one or the other.</p>
-</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><h2>Prerequisites</h2>
+<h2>Prerequisites</h2>
 <ul>
 <li>Devices must run Microsoft Defender for Endpoint EDR Sensor version later than 10.8804 (September 2025).</li>
 <li>Devices must run Microsoft Defender Antivirus platform version 4.18.26060.3004 or later (June 2026).</li>
 </ul>
-<p><del data-operation-index="23">Controlled configuration</del><ins data-operation-index="23">Configuration protection</ins> doesn&#39;t currently support:
+<p><del data-operation-index="23">Controlled configuration</del><ins data-operation-index="23">Configuration protection</ins> doesn&#39;t currently support:</p>
 <ul>
 <li>Co-management (Configuration Manager + Intune) environments.</li>
 <li>GCC High environments.</li>
 </ul>
 <h2>What <del data-operation-index="25">controlled </del>configuration<ins data-operation-index="27"> protection</ins> covers</h2>
-<p>Currently, <del data-operation-index="29">controlled </del>configuration<ins data-operation-index="31"> protection</ins> provides protection and enforcement for Microsoft Defender Antivirus settings, including:
+<p>Currently, <del data-operation-index="29">controlled </del>configuration<ins data-operation-index="31"> protection</ins> provides protection and enforcement for Microsoft Defender Antivirus settings, including:</p>
 <ul>
 <li>Antivirus configuration (scan settings, exclusions, updates)</li>
 <li>Attack surface reduction (ASR) policies</li>
 <li>Defender Configuration Service Provider (CSP) and Policy CSP surface (broad set of antivirus-related controls)</li>
 <li>Local admin merge behavior</li>
 </ul>
-<p>Currently, <del data-operation-index="33">controlled </del>configuration<ins data-operation-index="35"> protection</ins> doesn&#39;t cover:
+<p>Currently, <del data-operation-index="33">controlled </del>configuration<ins data-operation-index="35"> protection</ins> doesn&#39;t cover:</p>
 <ul>
 <li>Microsoft Defender Device Control</li>
 <li>Endpoint detection and response (EDR) settings</li>
 <li>Windows operating system settings (such as Firewall)</li>
 </ul>
 <h2>How <del data-operation-index="37">controlled </del>configuration<ins data-operation-index="39"> protection</ins> enforcement works</h2>
-<p><del data-operation-index="41">Controlled configuration</del><ins data-operation-index="41">Configuration protection</ins> enforces cloud-managed policy through three mechanisms:
+<p><del data-operation-index="41">Controlled configuration</del><ins data-operation-index="41">Configuration protection</ins> enforces cloud-managed policy through three mechanisms:</p>
 <ul>
-<li><p><strong>Single-source enforcement</strong>: When <del data-operation-index="43">controlled </del>configuration<ins data-operation-index="45"> protection</ins> is enabled, the following enforcement rules apply:
+<li><p><strong>Single-source enforcement</strong>: When <del data-operation-index="43">controlled </del>configuration<ins data-operation-index="45"> protection</ins> is enabled, the following enforcement rules apply:</p>
 <ul>
 <li>Only Intune and Defender for Endpoint policies are honored for Defender Antivirus settings.</li>
 <li>Group Policy Object (GPO), scripts, Configuration Manager, and local admin changes are ignored.</li>
 <li>Microsoft Defender Antivirus doesn&#39;t honor local exclusions. Organizations can still choose to allow local administrator-defined exclusions by enabling the local administrator merge setting through policy. When local administrator merge is enabled, locally defined exclusions can be merged with centrally managed exclusions.</li>
 </ul>
 </li>
-<li><p><strong>Secure defaults</strong>: If a setting isn&#39;t explicitly configured in a policy, <del data-operation-index="47">controlled </del>configuration<ins data-operation-index="49"> protection</ins> applies Microsoft-defined defaults. This behavior ensures that devices maintain a strong security posture even when administrators haven&#39;t configured every available setting.
+<li><p><strong>Secure defaults</strong>: If a setting isn&#39;t explicitly configured in a policy, <del data-operation-index="47">controlled </del>configuration<ins data-operation-index="49"> protection</ins> applies Microsoft-defined defaults. This behavior ensures that devices maintain a strong security posture even when administrators haven&#39;t configured every available setting.</p>
 </li>
-<li><p><strong>Conflict resolution</strong>: <del data-operation-index="51">Controlled configuration</del><ins data-operation-index="51">Configuration protection</ins> uses a value-based precedence model rather than a last-write-wins model:
+<li><p><strong>Conflict resolution</strong>: <del data-operation-index="51">Controlled configuration</del><ins data-operation-index="51">Configuration protection</ins> uses a value-based precedence model rather than a last-write-wins model:</p>
 <ul>
 <li><strong>On</strong> takes precedence over <strong>Off</strong>. If one policy sets <del data-operation-index="53">controlled </del>configuration<ins data-operation-index="55"> protection</ins> to On and another sets it to Off, the feature stays enabled on the device.</li>
 <li>If multiple policies assign different values, a conflict is reported, but the On value is still enforced.</li>
 <li>If multiple policies assign the same value, the result is success with no conflict.</li>
 </ul>
-<p>  Important
-<p>  <strong>Not configured</strong> doesn&#39;t mean <strong>Off</strong>. To disable the feature, explicitly deploy a policy that sets <del data-operation-index="57">controlled </del>configuration<ins data-operation-index="59"> protection</ins> to <strong>Off</strong>.
+<p>  Important</p>
+<p>  <strong>Not configured</strong> doesn&#39;t mean <strong>Off</strong>. To disable the feature, explicitly deploy a policy that sets <del data-operation-index="57">controlled </del>configuration<ins data-operation-index="59"> protection</ins> to <strong>Off</strong>.</p>
 </li>
 </ul>
 <h2>Enable <del data-operation-index="61">controlled </del>configuration<ins data-operation-index="63"> protection</ins></h2>
-<p>You can enable <del data-operation-index="65">controlled </del>configuration<ins data-operation-index="67"> protection</ins> through either Microsoft Intune or <del data-operation-index="69"><a href="manage-security-policies">Microsoft Defender for Endpoint security settings management</a></del><ins data-operation-index="69"><a href="endpoint-security-policies-configure">Microsoft Defender for Endpoint security settings management</a></ins>.
+<p>You can enable <del data-operation-index="65">controlled </del>configuration<ins data-operation-index="67"> protection</ins> through either Microsoft Intune or <del data-operation-index="69"><a href="manage-security-policies">Microsoft Defender for Endpoint security settings management</a></del><ins data-operation-index="69"><a href="endpoint-security-policies-configure">Microsoft Defender for Endpoint security settings management</a></ins>.</p>
 <blockquote>
-<p>Microsoft Intune is the recommended tool for configuring and distributing Defender for Endpoint features to devices. However, Intune is a separate product that isn&#39;t part of Defender for Endpoint, and it isn&#39;t included in all subscriptions. To use Intune, you need a subscription that includes it, or you can buy it separately as a standalone subscription or add-on. If you don&#39;t have Intune, you can use any of the other methods in this article. For more information, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/licenses">Microsoft Intune licensing</a>.
+<p>Microsoft Intune is the recommended tool for configuring and distributing Defender for Endpoint features to devices. However, Intune is a separate product that isn&#39;t part of Defender for Endpoint, and it isn&#39;t included in all subscriptions. To use Intune, you need a subscription that includes it, or you can buy it separately as a standalone subscription or add-on. If you don&#39;t have Intune, you can use any of the other methods in this article. For more information, see <a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/licenses">Microsoft Intune licensing</a>.</p>
 </blockquote>
-<p><del data-operation-index="71">Controlled configuration</del><ins data-operation-index="71">Configuration protection</ins> is configured through the same policy surface as tamper protection. In the Windows Security Experience profile, Intune renames the tamper protection setting to <strong><del data-operation-index="73">Controlled </del>Configuration<ins data-operation-index="75"> protection</ins> (Device)</strong> when <del data-operation-index="77">controlled </del>configuration<ins data-operation-index="79"> protection</ins> is available. You can&#39;t enable <del data-operation-index="81">controlled </del>configuration<ins data-operation-index="83"> protection</ins> through the Settings Catalog or the Device Control v1 (DCv1) template.
-<p>Because <del data-operation-index="85">controlled </del>configuration<ins data-operation-index="87"> protection</ins> and tamper protection use the same policy setting, setting <strong><del data-operation-index="89">Controlled </del>Configuration<ins data-operation-index="91"> protection</ins> (On)</strong> supersedes the tamper protection value on that device. You don&#39;t deploy separate tamper protection and <del data-operation-index="93">controlled </del>configuration<ins data-operation-index="95"> protection</ins> policies for the same setting. To migrate existing tamper protection (DCv1) policies to <del data-operation-index="97">controlled configuration,</del><ins data-operation-index="97">configuration protection,</ins> create a Windows Security Experience policy with <strong><del data-operation-index="99">Controlled </del>Configuration<ins data-operation-index="101"> protection</ins> (On)</strong>, then remove the tamper protection setting from your DCv1 policies to avoid conflicts.
+<p><del data-operation-index="71">Controlled configuration</del><ins data-operation-index="71">Configuration protection</ins> is configured through the same policy surface as tamper protection. In the Windows Security Experience profile, Intune renames the tamper protection setting to <strong><del data-operation-index="73">Controlled </del>Configuration<ins data-operation-index="75"> protection</ins> (Device)</strong> when <del data-operation-index="77">controlled </del>configuration<ins data-operation-index="79"> protection</ins> is available. You can&#39;t enable <del data-operation-index="81">controlled </del>configuration<ins data-operation-index="83"> protection</ins> through the Settings Catalog or the Device Control v1 (DCv1) template.</p>
+<p>Because <del data-operation-index="85">controlled </del>configuration<ins data-operation-index="87"> protection</ins> and tamper protection use the same policy setting, setting <strong><del data-operation-index="89">Controlled </del>Configuration<ins data-operation-index="91"> protection</ins> (On)</strong> supersedes the tamper protection value on that device. You don&#39;t deploy separate tamper protection and <del data-operation-index="93">controlled </del>configuration<ins data-operation-index="95"> protection</ins> policies for the same setting. To migrate existing tamper protection (DCv1) policies to <del data-operation-index="97">controlled configuration,</del><ins data-operation-index="97">configuration protection,</ins> create a Windows Security Experience policy with <strong><del data-operation-index="99">Controlled </del>Configuration<ins data-operation-index="101"> protection</ins> (On)</strong>, then remove the tamper protection setting from your DCv1 policies to avoid conflicts.</p>
 <ol>
 <li>On the <strong>Endpoint security</strong> page in the Microsoft Intune admin center at <a href="https://intune.microsoft.com">https://intune.microsoft.com</a>, create a new Windows Security Experience profile or edit an existing one.</li>
 <li>Locate the <strong><del data-operation-index="103">Controlled </del>Configuration<ins data-operation-index="105"> protection</ins> (Device)</strong> setting (formerly <strong>Tamper Protection</strong>).</li>
@@ -96,21 +96,21 @@
 <li>Assign the policy to the appropriate device groups.</li>
 </ol>
 <h2>Minimum client version and rollback</h2>
-<p>Before you assign <strong><del data-operation-index="113">Controlled </del>Configuration<ins data-operation-index="115"> protection</ins> (On)</strong>, update devices to Microsoft Defender Antivirus platform version 4.18.26060.3004 or later, and validate the deployment with a pilot group.
-<p>On devices with earlier platform versions, Intune might send <strong><del data-operation-index="117">Controlled </del>Configuration<ins data-operation-index="119"> protection</ins> (On)</strong> and <strong>Tamper Protection (Off)</strong>, but the device might apply only the tamper protection setting. This behavior leaves both <del data-operation-index="121">controlled </del>configuration<ins data-operation-index="123"> protection</ins> and tamper protection turned off.
-<p>To roll back, change the Windows Security Experience policy from <strong><del data-operation-index="125">Controlled </del>Configuration<ins data-operation-index="127"> protection</ins> (On)</strong> to <strong>Tamper Protection (On)</strong>, redeploy the policy, sync the affected devices, and verify that tamper protection is enabled. Normal policy delivery latency applies.
+<p>Before you assign <strong><del data-operation-index="113">Controlled </del>Configuration<ins data-operation-index="115"> protection</ins> (On)</strong>, update devices to Microsoft Defender Antivirus platform version 4.18.26060.3004 or later, and validate the deployment with a pilot group.</p>
+<p>On devices with earlier platform versions, Intune might send <strong><del data-operation-index="117">Controlled </del>Configuration<ins data-operation-index="119"> protection</ins> (On)</strong> and <strong>Tamper Protection (Off)</strong>, but the device might apply only the tamper protection setting. This behavior leaves both <del data-operation-index="121">controlled </del>configuration<ins data-operation-index="123"> protection</ins> and tamper protection turned off.</p>
+<p>To roll back, change the Windows Security Experience policy from <strong><del data-operation-index="125">Controlled </del>Configuration<ins data-operation-index="127"> protection</ins> (On)</strong> to <strong>Tamper Protection (On)</strong>, redeploy the policy, sync the affected devices, and verify that tamper protection is enabled. Normal policy delivery latency applies.</p>
 <h2>Reporting and monitoring</h2>
-<p><del data-operation-index="129">Controlled configuration</del><ins data-operation-index="129">Configuration protection</ins> status is visible in both the Intune admin center and the Microsoft Defender portal, depending on how devices are managed.
+<p><del data-operation-index="129">Controlled configuration</del><ins data-operation-index="129">Configuration protection</ins> status is visible in both the Intune admin center and the Microsoft Defender portal, depending on how devices are managed.</p>
 <ul>
-<li><p><strong>Intune</strong>: For devices enrolled directly through Intune by using Mobile Device Management (MDM), you can view:
+<li><p><strong>Intune</strong>: For devices enrolled directly through Intune by using Mobile Device Management (MDM), you can view:</p>
 <ul>
 <li>Policy status (Success, Conflict, or Error)</li>
 <li>Device-level <del data-operation-index="131">controlled </del>configuration<ins data-operation-index="133"> protection</ins> status</li>
 </ul>
 </li>
-<li><p><strong>Microsoft Defender portal</strong>: For devices managed through Defender for Endpoint security settings management, check the Microsoft Defender portal for effective configuration state.
-<p>  Note
-<p>  These devices aren&#39;t visible in Intune reports. Use the Microsoft Defender portal to verify the effective <del data-operation-index="135">controlled </del>configuration<ins data-operation-index="137"> protection</ins> state.
+<li><p><strong>Microsoft Defender portal</strong>: For devices managed through Defender for Endpoint security settings management, check the Microsoft Defender portal for effective configuration state.</p>
+<p>  Note</p>
+<p>  These devices aren&#39;t visible in Intune reports. Use the Microsoft Defender portal to verify the effective <del data-operation-index="135">controlled </del>configuration<ins data-operation-index="137"> protection</ins> state.</p>
 </li>
 </ul>
 <h2>Verify <del data-operation-index="139">controlled </del>configuration<ins data-operation-index="141"> protection</ins> on a device</h2>

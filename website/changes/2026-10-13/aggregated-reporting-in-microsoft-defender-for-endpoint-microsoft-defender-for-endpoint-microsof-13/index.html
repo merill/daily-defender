@@ -11,19 +11,19 @@
 <li>Windows Server version 20H2 or Azure Stack HCI OS, version 23H2 and later</li>
 <li>Client version: Windows version 24H and later</li>
 </ul>
-</li></ul></p></p></p></p></p></p></p></p></p></p></p><h2>Turn on aggregated reporting</h2>
-<p>To turn aggregated reporting on, go to <strong>Settings</strong> &gt; <strong>Endpoints</strong> &gt; <strong>Advanced features</strong>. <del data-operation-index="21">Toggle</del><ins data-operation-index="21">Turn</ins> on the <strong>Aggregated reporting</strong> feature.
-<p><img src="media/reports/aggregated-reporting/aggregated-reporting-toggle.png" alt="Screenshot of the aggregated reporting toggle in the Microsoft Defender portal settings page.">
-<p><del data-operation-index="23">Once</del><ins data-operation-index="23">After</ins> aggregated reporting is turned on, it can take up to seven days for aggregated reports to become available. You can then begin to query new data after the feature is turned on.
-<p>When you turn off aggregated reporting, the changes take a few hours to be applied. All previously collected data remains.
-<p>To query new data with aggregated reports:
+</li></ul><h2>Turn on aggregated reporting</h2>
+<p>To turn aggregated reporting on, go to <strong>Settings</strong> &gt; <strong>Endpoints</strong> &gt; <strong>Advanced features</strong>. <del data-operation-index="21">Toggle</del><ins data-operation-index="21">Turn</ins> on the <strong>Aggregated reporting</strong> feature.</p>
+<p><img src="media/reports/aggregated-reporting/aggregated-reporting-toggle.png" alt="Screenshot of the aggregated reporting toggle in the Microsoft Defender portal settings page."></p>
+<p><del data-operation-index="23">Once</del><ins data-operation-index="23">After</ins> aggregated reporting is turned on, it can take up to seven days for aggregated reports to become available. You can then begin to query new data after the feature is turned on.</p>
+<p>When you turn off aggregated reporting, the changes take a few hours to be applied. All previously collected data remains.</p>
+<p>To query new data with aggregated reports:</p>
 <ol>
-<li><p>Go to <strong>Investigation &amp; response</strong> &gt; <strong>Hunting</strong> &gt; <strong>Custom detection rules</strong>.</li>
-<li><p>Review and modify <a href="https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules">existing rules and queries</a> that might be affected by aggregated reporting.</li>
-<li><p>When necessary, create new custom rules to incorporate new action types.</li>
-<li><p>Go to the <strong>Advanced Hunting</strong> page and query the new data.</li></ol>
-<p>Here is an example of advanced hunting query results with aggregated reports.
-<p><a href="media/reports/aggregated-reporting/sample-results-aggregated-reports.png#lightbox"><img src="media/reports/aggregated-reporting/sample-results-aggregated-reports-small.png" alt="Screenshot of advanced hunting query results with aggregated reports."></a></li></ol>
+<li><p>Go to <strong>Investigation &amp; response</strong> &gt; <strong>Hunting</strong> &gt; <strong>Custom detection rules</strong>.</p></li>
+<li><p>Review and modify <a href="https://learn.microsoft.com/en-us/defender-xdr/custom-detection-rules">existing rules and queries</a> that might be affected by aggregated reporting.</p></li>
+<li><p>When necessary, create new custom rules to incorporate new action types.</p></li>
+<li><p>Go to the <strong>Advanced Hunting</strong> page and query the new data.</p></li></ol>
+<p>Here is an example of advanced hunting query results with aggregated reports.</p>
+<p><a href="media/reports/aggregated-reporting/sample-results-aggregated-reports.png#lightbox"><img src="media/reports/aggregated-reporting/sample-results-aggregated-reports-small.png" alt="Screenshot of advanced hunting query results with aggregated reports."></a></p></li></ol>
 <h2>Sample advanced hunting queries</h2>
 <p>The following query highlights noisy process activity, which can be correlated with malicious signals.</p>
 <pre><code class="language-kusto">DeviceProcessEvents

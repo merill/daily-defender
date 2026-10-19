@@ -6,51 +6,51 @@
 <li>A virtual network and subnet where your workloads are deployed. If you need to create these networking resources first, see <a href="https://learn.microsoft.com/en-us/azure/virtual-network/quick-create-portal">Create a virtual network and subnet</a>. <del data-operation-index="7">The</del><ins data-operation-index="7">You create the</ins> private endpoint<del data-operation-index="9"> is created</del> in this subnet.</li>
 <li>You reviewed the required <a href="concept-private-links#roles-and-permissions">Security Private Link roles and permissions</a>.</li>
 </ul>
-</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><h2>Create a private endpoint using a Security Private Link resource (Azure portal)</h2>
-<p>You can create a private endpoint while creating a Security Private Link resource in the Azure portal.
-<p>If you already have a Security Private Link resource, skip this <del data-operation-index="11">procedure and follow the &quot;</del><ins data-operation-index="11">procedure. Go to </ins>Create a private endpoint for an existing Security Private Link resource <del data-operation-index="13">(Azure portal)&quot;</del><ins data-operation-index="13">later in this article. That</ins> section <del data-operation-index="15">later on this page, which walks</del><ins data-operation-index="15">shows</ins> you <del data-operation-index="17">through creating</del><ins data-operation-index="17">how to create</ins> a private endpoint separately and <del data-operation-index="19">connecting</del><ins data-operation-index="19">connect</ins> it to your existing resource.
-<p>To create a private endpoint while creating a Security Private Link resource:
+<h2>Create a private endpoint using a Security Private Link resource (Azure portal)</h2>
+<p>You can create a private endpoint while creating a Security Private Link resource in the Azure portal.</p>
+<p>If you already have a Security Private Link resource, skip this <del data-operation-index="11">procedure and follow the &quot;</del><ins data-operation-index="11">procedure. Go to </ins>Create a private endpoint for an existing Security Private Link resource <del data-operation-index="13">(Azure portal)&quot;</del><ins data-operation-index="13">later in this article. That</ins> section <del data-operation-index="15">later on this page, which walks</del><ins data-operation-index="15">shows</ins> you <del data-operation-index="17">through creating</del><ins data-operation-index="17">how to create</ins> a private endpoint separately and <del data-operation-index="19">connecting</del><ins data-operation-index="19">connect</ins> it to your existing resource.</p>
+<p>To create a private endpoint while creating a Security Private Link resource:</p>
 <pre><code>Note
 
 Microsoft Security Private Link currently supports the **containers** sub-resource, which <del data-operation-index="21">is used by </del>the<ins data-operation-index="23"> Microsoft</ins> Defender for Containers <del data-operation-index="25">plan.</del><ins data-operation-index="25">plan uses.</ins>
 </code></pre>
 <ol start="9">
-<li><p>Select <strong>Create a private endpoint</strong>.
+<li><p>Select <strong>Create a private endpoint</strong>.</p>
 </li>
-<li><p>Enter a name and a location.
+<li><p>Enter a name and a location.</p>
 </li>
-<li><p>Enable <strong>Private DNS integration</strong> to create a private DNS zone automatically.
+<li><p>Enable <strong>Private DNS integration</strong> to create a private DNS zone automatically.</p>
 </li>
-<li><p>Select <strong>Add</strong>.
+<li><p>Select <strong>Add</strong>.</p>
 </li>
-<li><p>Select <strong>Next: Tags</strong> and add any required tags.
+<li><p>Select <strong>Next: Tags</strong> and add any required tags.</p>
 </li>
-<li><p>Select <strong>Review + create</strong><ins data-operation-index="27">.</ins>
+<li><p>Select <strong>Review + create</strong><ins data-operation-index="27">.</ins></p>
 </li>
-<li><p>Select <strong>Create</strong>.
+<li><p>Select <strong>Create</strong>.</p>
 </li>
 </ol>
 <h2>Create a private endpoint for an existing Security Private Link resource (Azure portal)</h2>
-<p>To create a private endpoint for an existing Security Private Link resource:
+<p>To create a private endpoint for an existing Security Private Link resource:</p>
 <ol>
-<li><p>Sign in to the <a href="https://portal.azure.com">Azure portal</a>.
+<li><p>Sign in to the <a href="https://portal.azure.com">Azure portal</a>.</p>
 </li>
-<li><p><del data-operation-index="29">Navigate</del><ins data-operation-index="29">Go</ins> to <strong>Network foundation</strong> &gt; <strong>Private Link</strong> &gt; <strong>Private endpoints</strong>.
+<li><p><del data-operation-index="29">Navigate</del><ins data-operation-index="29">Go</ins> to <strong>Network foundation</strong> &gt; <strong>Private Link</strong> &gt; <strong>Private endpoints</strong>.</p>
 </li>
-<li><p>Select <strong>Create</strong>.
-<p> <a href="media/configure-private-endpoints/network-foundation-create-private-endpoint.png#lightbox"><img src="media/configure-private-endpoints/network-foundation-create-private-endpoint.png" alt="Screenshot of the Network foundation Private endpoints page, showing the Create button."></a>
-<p> Note
-<p> Microsoft Security Private Link currently supports the <strong>containers</strong> sub-resource, which <del data-operation-index="31">is used by </del>the<ins data-operation-index="33"> Microsoft</ins> Defender for Containers <del data-operation-index="35">plan.</del><ins data-operation-index="35">plan uses.</ins>
+<li><p>Select <strong>Create</strong>.</p>
+<p> <a href="media/configure-private-endpoints/network-foundation-create-private-endpoint.png#lightbox"><img src="media/configure-private-endpoints/network-foundation-create-private-endpoint.png" alt="Screenshot of the Network foundation Private endpoints page, showing the Create button."></a></p>
+<p> Note</p>
+<p> Microsoft Security Private Link currently supports the <strong>containers</strong> sub-resource, which <del data-operation-index="31">is used by </del>the<ins data-operation-index="33"> Microsoft</ins> Defender for Containers <del data-operation-index="35">plan.</del><ins data-operation-index="35">plan uses.</ins></p>
 </li>
-<li><p>Select <strong>Connect to an Azure resource in my directory</strong>.
+<li><p>Select <strong>Connect to an Azure resource in my directory</strong>.</p>
 </li>
-<li><p>Select a subscription.
+<li><p>Select a subscription.</p>
 </li>
-<li><p>Select <strong>Microsoft.Security/privateLinks</strong> as the resource type.
+<li><p>Select <strong>Microsoft.Security/privateLinks</strong> as the resource type.</p>
 </li>
 </ol>
 <h2>Approve the private endpoint connection</h2>
-<p>When <ins data-operation-index="37">you create </ins>the private <del data-operation-index="39">endpoint is created,</del><ins data-operation-index="39">endpoint, you send</ins> a connection request<del data-operation-index="41"> is sent</del> to the Security Private Link resource.
+<p>When <ins data-operation-index="37">you create </ins>the private <del data-operation-index="39">endpoint is created,</del><ins data-operation-index="39">endpoint, you send</ins> a connection request<del data-operation-index="41"> is sent</del> to the Security Private Link resource.</p>
 <ul>
 <li>If <del data-operation-index="43">the requester is</del><ins data-operation-index="43">you&#39;re</ins> an <strong>Owner</strong>, the connection is approved automatically.</li>
 <li>Otherwise, an <strong>Owner</strong> must approve the request from <strong>Private endpoint connections</strong> in the Azure portal.</li>

@@ -2,7 +2,7 @@
 <p><del data-operation-index="5">This article explains how to</del><ins data-operation-index="5">You can</ins> deploy the Microsoft Defender for Containers sensor and Azure Policy for Kubernetes to clusters by using Azure <del data-operation-index="7">CLI after</del><ins data-operation-index="7">CLI. First, enable</ins> <a href="defender-for-containers-enable-plan">the Defender for Containers plan in Microsoft Defender for Cloud</a>.</p>
 <p>For clusters that <del data-operation-index="9">aren’</del><ins data-operation-index="9">aren&#39;</ins>t running in Azure Kubernetes Service (AKS), Defender for Cloud uses Azure Arc-enabled Kubernetes to deploy the required extensions.</p>
 <p data-diff-node="del" data-operation-index="11"><del data-operation-index="11">Before you begin, review the prerequisites for your cluster type, including enabling the Defender for Containers plan, installing Azure CLI 2.40.0 or later, and meeting any Azure Arc connectivity requirements.</del></p><h1><a href="#tab/aks">Azure Kubernetes Service (AKS)</a></h1>
-</p></p></p></p></p></p></p></p></p></p><h2>Prerequisites</h2>
+<h2>Prerequisites</h2>
 <ul>
 <li><a href="defender-for-containers-enable-plan?tab=aks">Defender for Containers enabled on your Azure subscription</a>.</li>
 <li>Azure CLI version 2.40.0 or later.</li>
@@ -11,29 +11,29 @@
 <li><a href="https://learn.microsoft.com/en-us/azure/aks/use-oidc-issuer">An OpenId Connect (OIDC) issuer</a> enabled on your cluster.</li>
 </ul>
 <h2>Deploy the Defender sensor</h2>
-<p>If <ins data-operation-index="17">you enabled </ins>automatic provisioning<del data-operation-index="19"> was enabled</del> when you turned on the Defender for Containers plan, the Defender sensor might already be installed. <ins data-operation-index="21">Before you run the following command, </ins><a href="defender-for-containers-verify-deployment">verify whether the deployment is already complete</a><del data-operation-index="23"> before running this command.</del><ins data-operation-index="23">.</ins>
+<p>If <ins data-operation-index="17">you enabled </ins>automatic provisioning<del data-operation-index="19"> was enabled</del> when you turned on the Defender for Containers plan, the Defender sensor might already be installed. <ins data-operation-index="21">Before you run the following command, </ins><a href="defender-for-containers-verify-deployment">verify whether the deployment is already complete</a><del data-operation-index="23"> before running this command.</del><ins data-operation-index="23">.</ins></p>
 <ol>
-<li><p>Deploy the Defender sensor to a specific AKS cluster:
-<p>   --name <aks-cluster-name> <br>   --enable-defender
+<li><p>Deploy the Defender sensor to a specific AKS cluster:</p>
+<p>   --name <aks-cluster-name> <br>   --enable-defender</p>
 <pre><code>
 </code></pre>
 </li>
-<li><p>Enable Azure Policy for Kubernetes to assess and enforce configuration best practices:
+<li><p>Enable Azure Policy for Kubernetes to assess and enforce configuration best practices:</p>
 <pre><code class="language-azurecli">az aks enable-addons \
 </code></pre>
 </li>
 </ol>
 <h2>Deploy the Defender sensor</h2>
-<p>For EKS clusters, you deploy Defender components as Azure Arc Kubernetes extensions when you manually deploy them by using Azure CLI.
-<p>If you enabled automatic provisioning when you turned on the Defender for Containers plan, the Defender sensor might already be installed. Before you run the following command, <a href="defender-for-containers-verify-deployment">verify whether the deployment is already complete</a><del data-operation-index="25"> before running these commands.</del><ins data-operation-index="25">.</ins>
-<p>Run the following command to deploy the Defender sensor extension to your Arc-connected EKS cluster:
-<p>For Autopilot clusters:
+<p>For EKS clusters, you deploy Defender components as Azure Arc Kubernetes extensions when you manually deploy them by using Azure CLI.</p>
+<p>If you enabled automatic provisioning when you turned on the Defender for Containers plan, the Defender sensor might already be installed. Before you run the following command, <a href="defender-for-containers-verify-deployment">verify whether the deployment is already complete</a><del data-operation-index="25"> before running these commands.</del><ins data-operation-index="25">.</ins></p>
+<p>Run the following command to deploy the Defender sensor extension to your Arc-connected EKS cluster:</p>
+<p>For Autopilot clusters:</p>
 <ul>
 <li>The Defender sensor automatically adjusts resource requests.</li>
 <li><del data-operation-index="27">No manual configuration is needed for</del><ins data-operation-index="27">You don&#39;t need to configure</ins> resource limits.</li>
 </ul>
-<p>Important
-<p>In GKE Autopilot clusters, <ins data-operation-index="29">you can&#39;t manually configure </ins>resource requests and limits for the Defender <del data-operation-index="31">sensor</del><ins data-operation-index="31">sensor. GKE Autopilot controls resource management and you</ins> can&#39;t <del data-operation-index="33">be manually configured. Resource management is controlled by GKE Autopilot and can&#39;t be overridden.</del><ins data-operation-index="33">override it.</ins>
+<p>Important</p>
+<p>In GKE Autopilot clusters, <ins data-operation-index="29">you can&#39;t manually configure </ins>resource requests and limits for the Defender <del data-operation-index="31">sensor</del><ins data-operation-index="31">sensor. GKE Autopilot controls resource management and you</ins> can&#39;t <del data-operation-index="33">be manually configured. Resource management is controlled by GKE Autopilot and can&#39;t be overridden.</del><ins data-operation-index="33">override it.</ins></p>
 <h2>Deploy the Defender sensor</h2>
 <p>For GKE clusters, <ins data-operation-index="35">you deploy </ins>Defender components<del data-operation-index="37"> are deployed</del> as Azure Arc Kubernetes extensions when you <ins data-operation-index="39">manually </ins>deploy them <del data-operation-index="41">manually</del><ins data-operation-index="41">by</ins> using Azure CLI.</p>
 <p>If <ins data-operation-index="43">you enabled </ins>automatic provisioning<del data-operation-index="45"> was enabled</del> when you turned on the Defender for Containers plan, the Defender sensor might already be installed. <ins data-operation-index="47">Before you run the following command, </ins><a href="defender-for-containers-verify-deployment">verify whether the deployment is already complete</a><del data-operation-index="49"> before running this command.</del><ins data-operation-index="49">.</ins></p>
