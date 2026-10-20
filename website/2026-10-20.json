@@ -703,6 +703,162 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 2,
+      "changes": 20,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 109ec5d..ffff7f6 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -11,8 +11,8 @@ manager: bagol\n description: Find release details for Microsoft Defender for Endpoint on Windows, macOS, Linux, Android, and iOS from the past six months.\n ms.topic: whats-new\n ms.service: defender-endpoint\n-author: lwainstein\n-ms.author: lwainstein\n+author: abhisheksh\n+ms.author: abhisheksh\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n ms.date: 2026-10-12T00:00:00.0000000Z\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| Linux | 101.26091.0003 | October 2026 | - Release version: 30.126091.0003.0- Engine version: 1.1.26090.3000- Signature version: 1.461.35.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26090.9 / Engine 1.1.26090.9 | September 2026 | - Platform: 4.18.26090.9- Engine: 1.1.26090.9- Security intelligence: 1.461.1.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26080.4 / Engine 1.1.26080.3 | August 2026 | - Platform: 4.18.26080.4- Engine: 1.1.26080.3- Security intelligence: 1.159.11.0 | Release details and updates |\r\n | Android | 1.0.9330.0101 | Sep 2026 | - Build: 1.0.9330.0101- Release: Sep 30, 2026 | Release details and updates |\r\n@@ -610,6 +611,21 @@ If you have any concerns or need assistance during this transition, contact supp\n \r\n - **Intermittent issue during process scanning**: In version `101.26072.0004`, `wdavdaemon` might restart in rare cases while scanning running processes. The process recovers automatically, and no action is required. A fix will be available in an upcoming release. **Resolution**: Upgrade to platform version 101.26072.0005 or later.\r\n \r\n+### Linux | October 2026 | 101.26091.0003\r\n+\r\n+#### Release details\r\n+\r\n+| Release version | Engine version | Signature version |\r\n+| --- | --- | --- |\r\n+| 30.126091.0003.0 | 1.1.26090.3000 | 1.461.35.0 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature area | Update summary |\r\n+| --- | --- |\r\n+| Security | Upgraded libcurl to version 8.22.0 to address CVE-2026-9546. |\r\n+| Security | Hardened quarantine operations by enforcing authorization checks and protecting against file-path manipulation that could lead to privilege escalation. |\r\n+\r\n ### Linux | September 2026 | 101.26081.0010\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "81c877d1013dfa4c542b8bf3dddf262a5c85a649",
+      "commitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-20 18:09:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:07d7b3e723125a1fde22b87aae2d9bd8db715bc7:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-10-20T18:27:35.495Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Linux October 2026 release adds security enhancements",
+        "summary": "The documentation now lists Linux release 101.26091.0003, including updated release, engine, and signature versions. It also documents a libcurl 8.22.0 upgrade addressing CVE-2026-9546 and stronger quarantine authorization and path protections.",
+        "adminImpact": "Administrators can use these details to identify the release and assess its security improvements on Linux endpoints.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/cloud-scopes-unified-rbac.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 3,
+      "changes": 17,
+      "patch": "diff --git a/defender-for-cloud/cloud-scopes-unified-rbac.md b/defender-for-cloud/cloud-scopes-unified-rbac.md\nindex f2ae215..e87c199 100644\n--- a/defender-for-cloud/cloud-scopes-unified-rbac.md\n+++ b/defender-for-cloud/cloud-scopes-unified-rbac.md\n@@ -16,9 +16,9 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Learn how to configure cloud scopes and unified role-based access control for granular permissions management across your cloud environments.\n ms.topic: how-to\n-ms.date: 2026-07-03T00:00:00.0000000Z\n+ms.date: 2026-10-19T00:00:00.0000000Z\n zone_pivot_groups: defender-portal-experience\n-ms.custom: msecd-doc-authoring-1013\n+ms.custom: msecd-doc-authoring-1030\n ai-usage: ai-assisted\n locale: en-us\n document_id: 0e1c53e4-9393-37c1-409f-20fd13d2bf48\n@@ -35,9 +35,11 @@ monikers: []\n item_type: Content\n source_path: defender-for-cloud/cloud-scopes-unified-rbac.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n platformId: a1e37217-fb8f-5927-0ecf-21558927ac95\n@@ -114,7 +116,7 @@ Relationship to unified RBAC:\n \r\n - Unified RBAC roles reference one or more scopes (or \"All\").\r\n - A user’s effective cloud data visibility and permitted actions are the union of all scopes tied to their assigned roles.\r\n-- Scope changes (adding or removing environments) immediately alter access for users relying on that scope.\r\n+- Scope changes (adding or removing environments) alter access for users relying on that scope.\r\n - Least privilege: Granularity allows narrowing powerful permissions (for example, response or manage) to only the intended environments.\r\n \r\n Planning guidance:\r\n@@ -226,6 +228,14 @@ To access the Scope filter:\n 2. Select **Scope filter**. [![Screenshot of the Defender for Cloud Overview dashboard, with the 'Scope filter' action link highlighted.](media/cloud-scopes-unified-rbac/scope-filtering-1.png)](media/cloud-scopes-unified-rbac/scope-filtering-1.png#lightbox)\r\n 3. Apply your desired filters. [![Screenshot of contextual filtering behavior for scopes filter.](media/cloud-scopes-unified-rbac/scope-filtering-2.png)](media/cloud-scopes-unified-rbac/scope-filtering-2.png#lightbox)\r\n \r\n+### Cloud scope updates may take time to appear in filtering\r\n+\r\n+After you create or update a cloud scope, such as by adding or removing subscriptions, the change might not appear immediately in portal filters and scoped data views. In some cases, the refresh can take about 8–10 hours.\r\n+\r\n+During this time, filters might return incomplete or empty results even though the cloud scope configuration was saved successfully. If this happens, wait for the refresh to finish, and then try again.\r\n+\r\n+We're working to improve freshness for this experience.\r\n+\r\n ### Use the environment filter\r\n \r\n Purpose: The Environment filter enables deep investigation, mitigation, and remediation focus.\r\n@@ -306,6 +316,7 @@ These globally visible asset types appear in inventory, attack paths, maps, and\n | RBAC model separation | Unified RBAC is independent of Azure RBAC (must be configured separately). |\r\n | API support | Portal only today for scope CRUD & assignments; API coming soon. |\r\n | Dynamic selection | Conditional/dynamic inclusion rules not yet supported. |\r\n+| Cloud scope refresh | Cloud scope changes can take about 8–10 hours to appear in filters and scoped data views. For more information, see Cloud scope updates may take time to appear in filtering. |\r\n | Filtering in XDR (incidents/alerts) | Global scopes filter not fully integrated; partial table-level inheritance only. |\r\n | Cross-experience coverage | Some aggregated scores (for example: exposure score, Secure Score variants) may not fully scope-filter. |\r\n | Visualization constraints | Asset-rich views honor scoping but may limit related asset detail due to permission boundaries. |\r\n",
+      "baseCommitSha": "81c877d1013dfa4c542b8bf3dddf262a5c85a649",
+      "commitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-20 18:09:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/cloud-scopes-unified-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/cloud-scopes-unified-rbac",
+      "eventId": "defender-docs:07d7b3e723125a1fde22b87aae2d9bd8db715bc7:modified:defender-for-cloud/cloud-scopes-unified-rbac.md",
+      "firstSeenAt": "2026-10-20T18:27:35.498Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Cloud scope changes may take 8–10 hours to appear",
+        "summary": "The documentation now states that updates to cloud scopes, including subscription changes, may take about 8–10 hours to appear in portal filters and scoped data views. During the refresh, results may be incomplete or empty even when the configuration was saved.",
+        "adminImpact": "Administrators should allow time for refresh before troubleshooting apparently missing scoped data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 10,
+      "changes": 26,
+      "patch": "diff --git a/defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md b/defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md\nindex 04cbb78..e1349be 100644\n--- a/defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md\n+++ b/defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md\n@@ -15,7 +15,7 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Understand how billing, configuration scope, and cloud security plans change when you manage plans in the Microsoft Defender portal.\n ms.topic: concept-article\n-ms.date: 2026-07-28T00:00:00.0000000Z\n+ms.date: 2026-10-20T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 6bbdef1a-16bd-baa5-124e-d3d4dd3a658e\n@@ -50,6 +50,8 @@ This feature is in preview. For more information, see [Supplemental Terms of Use\n \r\n When you move Defender for Cloud plan management from the Azure portal to the Microsoft Defender portal, the way that plans are billed, configured, and applied changes.\r\n \r\n+[![Screenshot showing the Migrate to Defender dialog with billing changes, security management changes, and a comparison of legacy and new Defender for Cloud plans.](media/plan-management-changes-defender-portal/migrate-to-defender-plan-comparison.png)](media/plan-management-changes-defender-portal/migrate-to-defender-plan-comparison.png#lightbox)\r\n+\r\n Before moving an Azure environment, review the following changes:\r\n \r\n - Billing moves to the Defender Workload Unit model.\r\n@@ -97,20 +99,24 @@ After an environment moves to Defender portal management:\n \r\n Some existing plans are replaced, consolidated, or measured differently when they move to the Defender portal.\r\n \r\n-| Current plan | Updated plan or behavior |\r\n+| Legacy plan | New plan |\r\n | --- | --- |\r\n-| Defender for Key Vault billed by transaction | Defender for Key Vault billed per resource |\r\n-| Defender for Storage V1 billed by transaction | Defender for Storage V2 billed per resource |\r\n-| Defender for Resource Manager billed by transaction | Defender for Resource Manager billed per resource |\r\n-| Defender for Containers billed by vCPU | Defender for Containers billed by protected node |\r\n-| Defender for Azure SQL Databases, Defender for SQL Servers on Machines, and Defender for Open-Source Relational Databases | Consolidated Defender for Databases plan |\r\n-| Defender for DNS | Continue without DNS protection, or enable Defender for Servers Plan 2 |\r\n+| **Defender CSPM**. Serverless Protection and Serverless Containers were optional capabilities. | **Defender CSPM**. Serverless Protection and Serverless Containers are included by default with no opt-out. Eligible resources are protected and billed based on usage. |\r\n+| **Storage Accounts**. Billed by transaction. | **Storage**. Billed per resource. |\r\n+| **Containers**. Billed by vCPU. | **Containers**. Billed per node. |\r\n+| **Kubernetes Service**. Billed by vCores. | **Containers**. Billed per node. |\r\n+| **Container Registry**. Billed per image. | **Containers**. Billed per image. |\r\n+| **Defender for Azure SQL Databases**, **SQL Servers on Machines**, and **Open-Source Relational Databases**. | **Databases**. A single consolidated plan, billed per instance. |\r\n+| **Key Vaults**. Billed by transaction. | **Key Vaults**. Billed per resource. |\r\n+| **DNS**. Discontinued. | **None**. Manually enable Defender for Servers Plan 2 for equivalent coverage. |\r\n+| **ARM**. Billed by transaction. | **Resource Manager**. Billed per subscription. |\r\n+| **API**. P2, P3, P4, P5. | **API**. A single consolidated plan (P1). |\r\n \r\n Most supported plans are mapped automatically to the new model.\r\n \r\n-Defender for DNS isn't carried forward automatically. During migration, choose whether to:\r\n+Defender for DNS isn't carried forward automatically. After migration, you can:\r\n \r\n - Continue without DNS protection.\r\n-- Enable Defender for Servers Plan 2, which includes DNS protection and might result in additional charges.\r\n+- Manually enable Defender for Servers Plan 2 to maintain equivalent DNS protection. Additional charges might apply.\r\n \r\n Review the changes shown in the Defender portal before confirming the migration.\n\\ No newline at end of file\n",
+      "baseCommitSha": "81c877d1013dfa4c542b8bf3dddf262a5c85a649",
+      "commitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-20 18:09:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-portal/plan-management-changes-defender-portal",
+      "eventId": "defender-docs:07d7b3e723125a1fde22b87aae2d9bd8db715bc7:modified:defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md",
+      "firstSeenAt": "2026-10-20T18:27:35.501Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Defender plan migration guidance reflects consolidated plans and billing changes",
+        "summary": "The documentation now maps legacy plans to new plans, including default serverless protection in Defender CSPM, revised billing units, consolidated Databases and API plans, and discontinued DNS coverage. DNS protection can be maintained by manually enabling Defender for Servers Plan 2, with possible additional charges.",
+        "adminImpact": "Review plan mappings, billing changes, and DNS coverage during migration. No mandatory action or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/alerts-xdr.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "changes": 5,
+      "patch": "diff --git a/defender-for-identity/alerts-xdr.md b/defender-for-identity/alerts-xdr.md\nindex 09f702c..1e94aba 100644\n--- a/defender-for-identity/alerts-xdr.md\n+++ b/defender-for-identity/alerts-xdr.md\n@@ -32,13 +32,13 @@ monikers: []\n item_type: Content\n source_path: defender-for-identity/alerts-xdr.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/37da4cc9-0cfc-42a9-ba5e-805706b01ef8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/57eae307-c3a1-4cac-b645-1a899934bac8\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3661fb96-d414-4a4e-b7ad-9370637790dd\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ee561821-1ac7-45a8-9409-6ba5eb7a5b97\n platformId: 2d7db945-a5bf-40fc-86df-6433f315687c\n ---\n \n@@ -91,7 +91,6 @@ The following alerts indicate that a malicious actor might be attempting to stea\n | Security alert name | Severity | MITRE Technique | Detector ID |\r\n | --- | --- | --- | --- |\r\n | A compromised user account signed in<br>**Description**:Credential stuffing led to a successful sign in, confirming an account has been compromised and accessed by an unauthorized party. | High | [T1078](https://attack.mitre.org/techniques/T1078) | xdr\\_CredentialStuffingToolObserved |\r\n-| AADInternals private key extraction attempt<br>**Description**:AADInternals was used to decrypt a certificate's private key as an administrator. A successfully decrypted private key might be used to impersonate hybrid components such as Pass-through Authentication (PTA) and Microsoft Entra Cloud Sync, which might lead to lateral movement to the cloud. | High | [T1552.004](https://attack.mitre.org/techniques/T1552/004) | xdr\\_AADInternalsPrivateKeyExtractAttempt |\r\n | Anomalous OAuth device code authentication activity<br>**Description**:An OAuth device code authentication was detected in a context that deviates from the user’s typical behavior and sign-in patterns. Device code flow is generally associated with command-line tools, IoT devices, or non-browser-based applications. This anomalous activity may indicate a potential device code phishing attack and requires immediate investigation due to the risk of unauthorized token issuance or post-authentication token abuse. | Medium | [T1528](https://attack.mitre.org/techniques/T1528), [T1078.004](https://attack.mitre.org/techniques/T1078/004) | xdr\\_AnomalousDeviceCodeAuthV2 |\r\n | Anomalous OAuth device code authentication activity<br>**Description**:An OAuth device code authentication was detected in a context that deviates from the user’s typical behavior and sign-in patterns. Device code flow is generally associated with command-line tools, IoT devices, or non-browser-based applications. This anomalous activity may indicate a potential device code phishing attack and requires immediate investigation due to the risk of unauthorized token issuance or post-authentication token abuse. | Medium | [T1528](https://attack.mitre.org/techniques/T1528), [T1078.004](https://attack.mitre.org/techniques/T1078/004) | xdr\\_AnomalousDeviceCodeAuthV3 |\r\n | Anomalous token exchange following device code authentication<br>**Description**:An OAuth Device Code authentication was detected in an unusual context based on user behavior and sign-in patterns. Due to the design of Device Code flows, this activity requires immediate investigation as it may indicate unauthorized token issuance or post-authentication abuse. | High | [T1528](https://attack.mitre.org/techniques/T1528), [T1078.004](https://attack.mitre.org/techniques/T1078/004) | xdr\\_AnomalousDeviceCodeAuth |\r\n",
+      "baseCommitSha": "81c877d1013dfa4c542b8bf3dddf262a5c85a649",
+      "commitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-20 18:09:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/alerts-xdr.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/alerts-xdr",
+      "eventId": "defender-docs:07d7b3e723125a1fde22b87aae2d9bd8db715bc7:modified:defender-for-identity/alerts-xdr.md",
+      "firstSeenAt": "2026-10-20T18:27:35.504Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated Defender for Identity alert documentation",
+        "summary": "The page’s DevRel metadata links were updated, and the “AADInternals private key extraction attempt” alert entry was removed.",
+        "adminImpact": "Administrators who use this page as an alert reference should review the updated content.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex 392ffa8..499091e 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -78,6 +78,12 @@ The October announcement includes the following new alerts:\n \r\n **New alerts related to Entra ID**:\r\n \r\n+- [Malicious registration of a device with strong MFA](alerts-xdr#malicious-registration-of-a-device-with-strong-mfa)\r\n+- [Malicious registration of an attacker controlled MFA device](alerts-xdr#malicious-registration-of-an-attacker-controlled-mfa-device)\r\n+- [Newly created user performed organization branding change](alerts-xdr#newly-created-user-performed-organization-branding-change)\r\n+- [Suspicious registration of a new Authenticator MFA method](alerts-xdr#suspicious-registration-of-a-new-authenticator-mfa-method)\r\n+- [Suspicious registration of a new Email MFA method](alerts-xdr#suspicious-registration-of-a-new-email-mfa-method)\r\n+- [Suspicious registration of a new Phone MFA method](alerts-xdr#suspicious-registration-of-a-new-phone-mfa-method)\r\n - [Suspicious sign-in via Temporary Access Pass](alerts-xdr#suspicious-sign-in-via-temporary-access-pass)\r\n \r\n **New alerts related to Active Directory**:\r\n@@ -86,6 +92,7 @@ The October announcement includes the following new alerts:\n - [Malicious Kerberos activity and CVE-2025-33073 exploitation attempt](alerts-xdr#malicious-kerberos-activity-and-cve-2025-33073-exploitation-attempt)\r\n - [Malicious request of Data Protection API (DPAPI) master key](alerts-xdr#malicious-request-of-data-protection-api-dpapi-master-key)\r\n - [Possible data exfiltration over DNS](alerts-xdr#possible-data-exfiltration-over-dns)\r\n+- [Potential Certighost (CVE-2026-54121) AD CS abuse](alerts-xdr#potential-certighost-cve-2026-54121-ad-cs-abuse)\r\n - [Suspicious Active Directory Certificate Services (AD CS) certificate request](alerts-xdr#suspicious-active-directory-certificate-services-ad-cs-certificate-request)\r\n - [Suspicious Active Directory Certificate Services (AD CS) machine certificate issuance abuse (ESC8)](alerts-xdr#suspicious-active-directory-certificate-services-ad-cs-machine-certificate-issuance-abuse-esc8)\r\n - [Suspicious Active Directory Certificate Services (AD CS) machine certificate issuance over RPC (ESC11)](alerts-xdr#suspicious-active-directory-certificate-services-ad-cs-machine-certificate-issuance-over-rpc-esc11)\r\n",
+      "baseCommitSha": "81c877d1013dfa4c542b8bf3dddf262a5c85a649",
+      "commitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-20 18:09:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "eventId": "defender-docs:07d7b3e723125a1fde22b87aae2d9bd8db715bc7:modified:defender-for-identity/whats-new.md",
+      "firstSeenAt": "2026-10-20T18:27:35.507Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Identity What's new page adds seven alert topics",
+        "summary": "The page now links to entries covering malicious or suspicious MFA-device and method registration, organization branding changes by newly created users, and potential Certighost (CVE-2026-54121) AD CS abuse.",
+        "adminImpact": "Administrators can use the updated list to find documentation for these alert topics. No action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\nindex 9cce93b..64596c2 100644\n--- a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n+++ b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n@@ -74,7 +74,7 @@ When Microsoft Defender audits or blocks an action, it records the event as a be\n \r\n Note\r\n \r\n-Block events from Microsoft Prompt Shields for Foundry and Microsoft Copilot Agent Builder are also recorded as behaviors. This isn't yet supported for agents built with Microsoft Copilot Studio.\r\n+Block events from Microsoft Prompt Shields for Foundry, Copilot Studio and Microsoft Copilot Agent Builder are also recorded as behaviors.\r\n \r\n ## Supported threat scenarios for real-time protection\r\n \r\n",
+      "baseCommitSha": "81c877d1013dfa4c542b8bf3dddf262a5c85a649",
+      "commitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-20 18:09:01 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-real-time-protection",
+      "eventId": "defender-docs:07d7b3e723125a1fde22b87aae2d9bd8db715bc7:modified:defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "firstSeenAt": "2026-10-20T18:27:35.510Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Copilot Studio Prompt Shields block events are now recorded as behaviors",
+        "summary": "The documentation now states that block events from Microsoft Prompt Shields for Foundry, Copilot Studio, and Copilot Agent Builder are recorded as behaviors.",
+        "adminImpact": "Administrators can expect Prompt Shields block events from Copilot Studio agents to appear as recorded behaviors; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [
@@ -778,14 +934,14 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 28,
+    "totalCommits": 2,
+    "totalFiles": 34,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 4 new, 23 updated, and 1 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "overview": "Today's report includes 4 new, 29 updated, and 1 removed Microsoft Defender documentation files across 4 documentation areas.",
     "groups": [
       {
         "category": "New feature",
@@ -807,6 +963,8 @@
           "defender-for-cloud/onboard-machines-with-defender-for-endpoint.md",
           "defender-for-cloud/onboard-management-group.md",
           "defender-for-cloud/release-notes.md",
+          "defender-for-cloud/cloud-scopes-unified-rbac.md",
+          "defender-for-cloud/defender-portal/plan-management-changes-defender-portal.md",
           "defender-for-cloud/defender-portal/enable-preview-features.md"
         ]
       },
@@ -817,7 +975,8 @@
         "sourceFiles": [
           "defender-endpoint/azure-server-integration.md",
           "defender-endpoint/offboard-machines.md",
-          "defender-endpoint/onboard-server.md"
+          "defender-endpoint/onboard-server.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
         ]
       },
       {
@@ -829,18 +988,21 @@
           "defender-for-identity/deploy/deploy-defender-identity.md",
           "defender-for-identity/deploy/deploy-sensor-v3.md",
           "defender-for-identity/uninstall-sensor.md",
+          "defender-for-identity/whats-new.md",
+          "defender-for-identity/alerts-xdr.md",
           "defender-for-identity/whats-new.md"
         ]
       },
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "The document’s `ms.author` value changed from `pauloliveria` to `kschwabacher`. The page’s author metadata changed from EdB-MSFT (edbaynash) to Karinschwabacher13 (kschwabacher). The document’s listed author changed from monaberdugo to kschwabacher. The page now lists Crystal Typhoon and Storm-2380, Storm-2570, Storm-2634, Storm-2990, Storm-2992, Storm-3069, Storm-3119, Storm-3168, and Storm-3189, including available aliases, classifications, and reference links. The page date was also updated and two internal authoring links were removed.",
+        "summary": "The document’s `ms.author` value changed from `pauloliveria` to `kschwabacher`. The page’s author metadata changed from EdB-MSFT (edbaynash) to Karinschwabacher13 (kschwabacher). The document’s listed author changed from monaberdugo to kschwabacher. The page now lists Crystal Typhoon and Storm-2380, Storm-2570, Storm-2634, Storm-2990, Storm-2992, Storm-3069, Storm-3119, Storm-3168, and Storm-3189, including available aliases, classifications, and reference links. The page date was also updated and two internal authoring links were removed. The documentation now states that block events from Microsoft Prompt Shields for Foundry, Copilot Studio, and Copilot Agent Builder are recorded as behavi",
         "sourceFiles": [
           "defender-xdr/advanced-hunting-microsoft-defender.md",
           "defender-xdr/api-advanced-hunting.md",
           "defender-xdr/integrated-security-operations-data-billing-retention.md",
-          "defender-xdr/microsoft-threat-actor-naming.md"
+          "defender-xdr/microsoft-threat-actor-naming.md",
+          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md"
         ]
       }
     ],
@@ -863,7 +1025,7 @@
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "The document’s `ms.author` value changed from `pauloliveria` to `kschwabacher`. The page’s author metadata changed from EdB-MSFT (edbaynash) to Karinschwabacher13 (kschwabacher). The document’s listed author changed from monaberdugo to kschwabacher. The page now lists Crystal Typhoon and Storm-2380, Storm-2570, Storm-2634, Storm-2990, Storm-2992, Storm-3069, Storm-3119, Storm-3168, and Storm-3189, including available aliases, classifications, and reference links. The page date was also updated and two internal authoring links were removed."
+        "detail": "The document’s `ms.author` value changed from `pauloliveria` to `kschwabacher`. The page’s author metadata changed from EdB-MSFT (edbaynash) to Karinschwabacher13 (kschwabacher). The document’s listed author changed from monaberdugo to kschwabacher. The page now lists Crystal Typhoon and Storm-2380, Storm-2570, Storm-2634, Storm-2990, Storm-2992, Storm-3069, Storm-3119, Storm-3168, and Storm-3189, including available aliases, classifications, and reference links. The page date was also updated and two internal authoring links were removed. The documentation now states that block events from Microsoft Prompt Shields for Foundry, Copilot Studio, and Copilot Agent Builder are recorded as behavi"
       }
     ],
     "generatedBy": "fallback"
