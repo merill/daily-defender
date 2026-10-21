@@ -260,19 +260,201 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-antivirus-windows.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-antivirus-windows.md b/defender-endpoint/microsoft-defender-antivirus-windows.md\nindex 04e8f92..5588109 100644\n--- a/defender-endpoint/microsoft-defender-antivirus-windows.md\n+++ b/defender-endpoint/microsoft-defender-antivirus-windows.md\n@@ -11,11 +11,11 @@ manager: bagol\n description: Learn how to manage, configure, and use Microsoft Defender Antivirus, built-in anti-malware and antivirus protection.\n ms.service: defender-endpoint\n ms.localizationpriority: high\n-ms.date: 2025-10-20T00:00:00.0000000Z\n+ms.date: 2026-10-05T00:00:00.0000000Z\n ms.topic: overview\n author: chrisda\n ms.author: chrisda\n-ms.reviewer: mkaminska, yongrhee, pahuijbr\n+ms.reviewer: mkaminska, yongrhee, pahuijbr, ericlaw\n ms.custom: nextgen\n ms.subservice: ngp\n ms.collection:\n@@ -85,6 +85,7 @@ The following table summarizes Microsoft Defender Antivirus processes and servic\n | **Microsoft Defender Antivirus Core service**(`MdCoreSvc`) | - **Processes** tab: `Antimalware Core Service`<br>- **Details** tab: `MpDefenderCoreService.exe`<br>- **Services** tab: `Microsoft Defender Core Service` |\r\n | **Microsoft Defender Antivirus service**(`WinDefend`) | - **Processes** tab: `Antimalware Service Executable`<br>- **Details** tab: `MsMpEng.exe`<br>- **Services** tab: `Microsoft Defender Antivirus` |\r\n | **Microsoft Defender Antivirus Network Realtime Inspection service**(`WdNisSvc`) | - **Processes** tab: `Microsoft Network Realtime Inspection Service`<br>- **Details** tab: `NisSrv.exe`<br>- **Services** tab: `Microsoft Defender Antivirus Network Inspection Service` |\r\n+| **Microsoft Defender Clipboard Protection** | - **Processes** tab: N/A<br>- **Details** tab: `DefenderSessionHelper.exe`<br>- **Services** tab: N/A |\r\n | **Microsoft Defender Antivirus command-line utility** | - **Processes** tab: N/A<br>- **Details** tab: `MpCmdRun.exe`<br>- **Services** tab: N/A |\r\n | **Microsoft Security Client Policy Configuration Tool** | - **Processes** tab: N/A<br>- **Details** tab: `ConfigSecurityPolicy.exe`<br>- **Services** tab: N/A |\r\n \r\n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-antivirus-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-antivirus-windows",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-endpoint/microsoft-defender-antivirus-windows.md",
+      "firstSeenAt": "2026-10-21T18:37:28.074Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Microsoft Defender Clipboard Protection process details added",
+        "summary": "The Windows Defender Antivirus documentation now lists `DefenderSessionHelper.exe` in the Details tab for Microsoft Defender Clipboard Protection, with Processes and Services marked N/A. The page date and reviewer metadata were also updated.",
+        "adminImpact": "Administrators can use this entry to identify the related process during investigations; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/identity-inventory.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-identity/identity-inventory.md b/defender-for-identity/identity-inventory.md\nindex b3e932d..1b6cd64 100644\n--- a/defender-for-identity/identity-inventory.md\n+++ b/defender-for-identity/identity-inventory.md\n@@ -37,12 +37,12 @@ item_type: Content\n source_path: defender-for-identity/identity-inventory.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/37da4cc9-0cfc-42a9-ba5e-805706b01ef8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3661fb96-d414-4a4e-b7ad-9370637790dd\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n platformId: f514b218-b4d7-7a81-523f-78fc7425be9d\n ---\n \n@@ -132,7 +132,7 @@ The **Identities** list highlights key details for each human identity, includin\n | Domain | The Active Directory domain to which the identity belongs. |\r\n | Object ID | A unique identifier for the identity in Microsoft Entra ID. |\r\n | UPN (User Principal Name) | The unique sign-in name of the identity in an email-like format. |\r\n-| Identity environment | Indicates whether the identity is on-premises (originates from Active Directory), Cloud only (Entra ID) or Hybrid (synced from Azure Active Directory to Microsoft Entra ID). |\r\n+| Identity environment | Indicates whether the identity is on-premises (originates from Active Directory), Cloud only (Entra ID), or Hybrid (synced from on-premises Active Directory to Microsoft Entra ID). |\r\n | Identity provider | The name of the identity provider. |\r\n | Risk score | A score from 0 to 100 that's dynamically calculated for the identity. The score reflects how likely the identity is to be compromised and how much damage a compromise could cause. For details, see [Risk score tab](/en-us/defender-xdr/investigate-users#risk-score-tab). |\r\n | Criticality level | The criticality level assigned to the identity. |\r\n@@ -156,7 +156,7 @@ These statistics highlight non-human identities that might need prioritization.\n \r\n | Name | Description |\r\n | --- | --- |\r\n-| Risky | The number of non-human identities with a high risk score. Risk scores are based on factors described in the [Risk score tab of the identity](/en-us/defender-cloud-apps/app-governance-visibility-insights-view-apps#getting-detailed-information-on-an-app). |\r\n+| Risky | The number of non-human identities with a high risk score. Risk scores are based on factors described in the [Risk score tab of the identity](/en-us/defender-cloud-apps/app-governance-visibility-insights-view-apps#risk-score-tab). |\r\n | Highly privileged | The number of non-human identities that have at least one high-privilege API permission or high-privilege Microsoft Entra role. |\r\n | Overprivileged | The number of non-human identities with more permissions than they use. |\r\n | Unused | The number of non-human identities with no recent sign-in activity. |\r\n@@ -197,5 +197,5 @@ For Microsoft Entra ID identities, select **Create new policy** to set up a gove\n ### Related articles\r\n \r\n - [Investigate users in Microsoft Defender](/en-us/defender-xdr/investigate-users)\r\n-- [Investigate non-human identities in Microsoft Defender](/en-us/defender-xdr/investigate-users)\r\n+- [Investigate non-human identities in Microsoft Defender](/en-us/defender-xdr/investigate-non-human-identities)\r\n - [Investigate cloud application accounts](/en-us/defender-cloud-apps/accounts)\n\\ No newline at end of file\n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/identity-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/identity-inventory",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-for-identity/identity-inventory.md",
+      "firstSeenAt": "2026-10-21T18:37:28.078Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarified identity inventory definitions and links",
+        "summary": "The page updates the Hybrid identity description, corrects the Risk score link, and points investigation guidance to non-human identities.",
+        "adminImpact": "No administrator action is required; the updated wording and links improve navigation and interpretation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/service-account-discovery.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-identity/service-account-discovery.md b/defender-for-identity/service-account-discovery.md\nindex e483493..03b8a13 100644\n--- a/defender-for-identity/service-account-discovery.md\n+++ b/defender-for-identity/service-account-discovery.md\n@@ -34,11 +34,11 @@ source_path: defender-for-identity/service-account-discovery.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/37da4cc9-0cfc-42a9-ba5e-805706b01ef8\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3661fb96-d414-4a4e-b7ad-9370637790dd\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: a099cd2d-8689-1a31-e1b2-9755c0e07167\n ---\n \n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/service-account-discovery.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/service-account-discovery",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-for-identity/service-account-discovery.md",
+      "firstSeenAt": "2026-10-21T18:37:28.082Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Service-account discovery references updated",
+        "summary": "The article now points to two different authoring references.",
+        "adminImpact": "Administrators using the article should follow the current links; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/submissions-admin-review-user-reported-messages.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-office-365/submissions-admin-review-user-reported-messages.md b/defender-office-365/submissions-admin-review-user-reported-messages.md\nindex c3288dc..254f8a5 100644\n--- a/defender-office-365/submissions-admin-review-user-reported-messages.md\n+++ b/defender-office-365/submissions-admin-review-user-reported-messages.md\n@@ -16,11 +16,11 @@ ms.collection:\n - m365-security\n - tier2\n ms.custom:\n-- msecd-doc-authoring-1016\n+- msecd-doc-authoring-1030\n - sfi-ga-nochange\n description: Admins can learn how to review messages that were reported by users and give them feedback.\n ms.service: defender-office-365\n-ms.date: 2026-07-30T00:00:00.0000000Z\n+ms.date: 2026-10-20T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: b2212a7d-8193-2555-ba08-55f179ffbfd1\n@@ -117,6 +117,8 @@ The reported message is marked with the selected verdict, and an email message i\n \r\n When automatic notifications use the default template, users receive notification emails in their preferred language based on their Outlook language settings. Localized default templates are enabled automatically when automatic notifications are turned on. Localized templates don't change message verdicts, classification logic, or automated investigation behavior.\r\n \r\n+Localized default notification templates support the following languages: English, Japanese, Spanish, Chinese (Simplified), Chinese (Traditional, Taiwan), Korean, Portuguese, Russian, Dutch, Arabic, Catalan, Croatian, Finnish, Greek, Hungarian, Indonesian, Polish, Romanian, Slovak, Slovenian, Swedish, Thai, Turkish, Vietnamese, French, Italian, and German.\r\n+\r\n To customize the notification email, see Customize the messages used to notify users.\r\n \r\n Note\r\n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/submissions-admin-review-user-reported-messages.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/submissions-admin-review-user-reported-messages",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-office-365/submissions-admin-review-user-reported-messages.md",
+      "firstSeenAt": "2026-10-21T18:37:28.086Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Supported languages for default notification templates added",
+        "summary": "The documentation now lists the languages supported by localized default notification templates, including English, Japanese, Spanish, Chinese, Korean, Portuguese, and others.",
+        "adminImpact": "Administrators can use the documented language list when reviewing notification templates; no action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-schema-changes.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-schema-changes.md b/defender-xdr/advanced-hunting-schema-changes.md\nindex f13ad20..8ea9a8f 100644\n--- a/defender-xdr/advanced-hunting-schema-changes.md\n+++ b/defender-xdr/advanced-hunting-schema-changes.md\n@@ -84,7 +84,7 @@ Naming changes are automatically applied to queries that are saved in Microsoft\n \r\n ## September 2025\r\n \r\n-In the [AADSignInEventsBeta](advanced-hunting-aadspnsignineventsbeta-table) table, the `AadDeviceId` column is being replaced with a new column, called `EntraIdDeviceId`, to align with current product branding. The legacy `AadDeviceId` column will remain in the schema for 30 days to allow time for updating in your queries. After this period of 30 days, `AadDeviceId` will be removed from the schema.\r\n+In the [AADSignInEventsBeta](advanced-hunting-aadsignineventsbeta-table) table, the `AadDeviceId` column is being replaced with a new column, called `EntraIdDeviceId`, to align with current product branding. The legacy `AadDeviceId` column will remain in the schema for 30 days to allow time for updating in your queries. After this period of 30 days, `AadDeviceId` will be removed from the schema.\r\n \r\n ## May 2025\r\n \r\n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-schema-changes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-schema-changes",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-xdr/advanced-hunting-schema-changes.md",
+      "firstSeenAt": "2026-10-21T18:37:28.089Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "AADSignInEventsBeta device ID column is being replaced",
+        "summary": "The `AadDeviceId` column is being replaced by `EntraIdDeviceId`. `AadDeviceId` will remain available for 30 days to support query updates.",
+        "adminImpact": "Update hunting queries that reference `AadDeviceId` to use `EntraIdDeviceId` within the 30-day transition period.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-users.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/investigate-users.md b/defender-xdr/investigate-users.md\nindex a8d7d10..ae3e431 100644\n--- a/defender-xdr/investigate-users.md\n+++ b/defender-xdr/investigate-users.md\n@@ -34,12 +34,12 @@ item_type: Content\n source_path: defender-xdr/investigate-users.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n platformId: 4336783c-e0f3-cd37-4d0c-a66de5146f58\n ---\n \n@@ -183,7 +183,7 @@ The timeline draws from multiple advanced hunting tables and normalizes them int\n - CloudAppEvents\r\n - DeviceLogonEvents\r\n - EntraIdSignInEvents\r\n-- GraphApiAuditEvents\r\n+- GraphAPIAuditEvents\r\n \r\n ### Timeline schema\r\n \r\n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/investigate-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-users",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-xdr/investigate-users.md",
+      "firstSeenAt": "2026-10-21T18:37:28.093Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated reference links and Graph API event naming",
+        "summary": "The user investigation documentation revises its authoring reference links and changes `GraphApiAuditEvents` to `GraphAPIAuditEvents`.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/whats-new.md b/defender-xdr/whats-new.md\nindex 918ce79..0820450 100644\n--- a/defender-xdr/whats-new.md\n+++ b/defender-xdr/whats-new.md\n@@ -124,7 +124,7 @@ You can also get product updates and important notifications through the [messag\n     - The [`IdentityAccountInfo`](advanced-hunting-identityaccountinfo-table) table contains information about account information from various sources, including Microsoft Entra ID. It also includes information and link to the identity that owns the account.\r\n     - The [`EntraIdSignInEvents`](advanced-hunting-entraidsigninevents-table) table contains information about Microsoft Entra interactive and non-interactive sign-ins.\r\n     - The [`EntraIdSpnSignInEvents`](advanced-hunting-entraidspnsigninevents-table) table contains information about Microsoft Entra service principal and managed identity sign-ins.\r\n-    - The [`GraphApiAuditEvents`](advanced-hunting-graphapiauditevents-table) table provides information about Microsoft Entra ID API requests made to Microsoft Graph API for resources in the tenant.\r\n+    - The [`GraphAPIAuditEvents`](advanced-hunting-graphapiauditevents-table) table provides information about Microsoft Entra ID API requests made to Microsoft Graph API for resources in the tenant.\r\n \r\n ## January 2026\r\n \r\n",
+      "baseCommitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitSha": "ae8dae23a093154c3cc23cfbae75a5feb240c977",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 18:15:12 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/whats-new",
+      "eventId": "defender-docs:ae8dae23a093154c3cc23cfbae75a5feb240c977:modified:defender-xdr/whats-new.md",
+      "firstSeenAt": "2026-10-21T18:37:28.101Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected the GraphAPIAuditEvents table name",
+        "summary": "The what's new documentation now uses the table name `GraphAPIAuditEvents` when describing Microsoft Entra ID API requests to Microsoft Graph API.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 2,
-    "totalFiles": 10,
+    "totalCommits": 3,
+    "totalFiles": 17,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "overview": "Today's report includes 0 new, 17 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -283,15 +465,19 @@
           "defender-endpoint/microsoft-defender-endpoint-releases.md",
           "defender-endpoint/offboard-machines.md",
           "defender-endpoint/onboard-server.md",
-          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/microsoft-defender-antivirus-windows.md"
         ]
       },
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access.",
+        "summary": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access. The `AadDeviceId` column is being replaced by `EntraIdDeviceId`. `AadDeviceId` will remain available for 30 days to support query updates. The user investigation documentation revises its authoring reference links and changes `GraphApiAuditEvents` to `GraphAPIAuditEvents`. The what's new documentation now uses the table name `GraphAPIAuditEvents` when describing Microsoft Entra ID",
         "sourceFiles": [
-          "defender-xdr/governance-relationships.md"
+          "defender-xdr/governance-relationships.md",
+          "defender-xdr/advanced-hunting-schema-changes.md",
+          "defender-xdr/investigate-users.md",
+          "defender-xdr/whats-new.md"
         ]
       },
       {
@@ -304,6 +490,23 @@
           "sentinel/sap/sap-btp-solution-overview.md",
           "sentinel/whats-new.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The page updates the Hybrid identity description, corrects the Risk score link, and points investigation guidance to non-human identities. The article now points to two different authoring references.",
+        "sourceFiles": [
+          "defender-for-identity/identity-inventory.md",
+          "defender-for-identity/service-account-discovery.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The documentation now lists the languages supported by localized default notification templates, including English, Japanese, Spanish, Chinese, Korean, Portuguese, and others.",
+        "sourceFiles": [
+          "defender-office-365/submissions-admin-review-user-reported-messages.md"
+        ]
       }
     ],
     "highlights": [
@@ -315,12 +518,22 @@
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access."
+        "detail": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access. The `AadDeviceId` column is being replaced by `EntraIdDeviceId`. `AadDeviceId` will remain available for 30 days to support query updates. The user investigation documentation revises its authoring reference links and changes `GraphApiAuditEvents` to `GraphAPIAuditEvents`. The what's new documentation now uses the table name `GraphAPIAuditEvents` when describing Microsoft Entra ID"
       },
       {
         "category": "New feature",
         "headline": "Microsoft Sentinel",
         "detail": "The article now documents a connector that ingests SAP Application Vulnerability Report Service findings into Microsoft Sentinel, including setup prerequisites, credentials, polling and ingestion-delay settings, verification, and related analytics content. The documentation now describes an optional Application Vulnerabilities workbook tab and an analytics rule correlating SAP Application Vulnerability Report Service findings with BTP audit events. The rule detects custom apps with open high or critical vulnerabilities, using a default CVSS threshold of 7.0 and a 14-day evaluation window. The documentation adds a separate preview connector for SAP BTP Application Vulnerability Report Service"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The page updates the Hybrid identity description, corrects the Risk score link, and points investigation guidance to non-human identities. The article now points to two different authoring references."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The documentation now lists the languages supported by localized default notification templates, including English, Japanese, Spanish, Chinese, Korean, Portuguese, and others."
       }
     ],
     "generatedBy": "fallback"
