@@ -156,19 +156,123 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "sentinel/sap/deploy-sap-btp-solution.md",
+      "status": "modified",
+      "additions": 26,
+      "deletions": 3,
+      "changes": 29,
+      "patch": "diff --git a/sentinel/sap/deploy-sap-btp-solution.md b/sentinel/sap/deploy-sap-btp-solution.md\nindex 16b6029..5731a95 100644\n--- a/sentinel/sap/deploy-sap-btp-solution.md\n+++ b/sentinel/sap/deploy-sap-btp-solution.md\n@@ -23,11 +23,11 @@ ms.subservice: sentinel-siem\n search.appverid: met150\n ms.reviewer: mapankra\n description: Learn how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system.\n-ms.author: monaberdugo\n+ms.author: mapankra\n author: mberdugo\n ms.topic: how-to\n ms.custom: devx-track-azurepowershell, msecd-doc-authoring-1016\n-ms.date: 2026-07-01T00:00:00.0000000Z\n+ms.date: 2026-10-02T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 79dae81d-051f-7109-31d7-c6bbd696105a\n@@ -51,7 +51,7 @@ platformId: becf73c8-2cb1-670b-64b7-f982321c80bc\n \n # Deploy Microsoft Sentinel solution for SAP BTP | Microsoft Learn\n \n-This article describes how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [SAP BTP solution overview](sap-btp-solution-overview).\r\n+Deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) to collect audit and activity logs from BTP infrastructure and apps, detect suspicious activity, and investigate threats. For an overview, see [Microsoft Sentinel Solution for SAP BTP](sap-btp-solution-overview).\r\n \r\n Important\r\n \r\n@@ -66,6 +66,7 @@ Before you begin, verify that:\n - Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.\r\n - You have an SAP BTP Subaccount (which supports BTP Subaccounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).\r\n - You have the SAP BTP auditlog-management service and service key (see Set up the BTP Subaccount and solution).\r\n+- To ingest application vulnerability findings, you have the SAP Application Vulnerability Report Service enabled and a service key for it. This connector uses separate credentials from the SAP BTP audit-log connector.\r\n - You have the Microsoft Sentinel Contributor role on the target Microsoft Sentinel workspace.\r\n \r\n ## Set up the BTP subaccount and solution\r\n@@ -120,6 +121,28 @@ To set up the BTP subaccount and the solution manually from the SAP BTP cockpit\n     3. On the **SAP BTP** connector page, confirm that Microsoft Sentinel receives the BTP data, or query the **SAPBTPAuditLog\\_CL** table directly.\r\n 19. Enable the [SAP BTP workbook](sap-btp-security-content#sap-btp-workbook) and the [SAP BTP built-in analytics rules](sap-btp-security-content#built-in-analytics-rules) that are provided as part of the solution by following the [guidelines for deploying Microsoft Sentinel analytics rules](../sentinel-solutions-deploy#analytics-rule).\r\n \r\n+## Configure the Application Vulnerability Report connector (Preview)\r\n+\r\n+Important\r\n+\r\n+This connector is in Preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.\r\n+\r\n+Use this connector to ingest findings from the [SAP Application Vulnerability Report Service](https://community.sap.com/t5/technology-blog-posts-by-sap/from-blind-spot-to-threat-signal-feed-sap-application-vulnerability-report/ba-p/14508028). It can monitor SAP BTP apps in multiple subaccounts across regions. It doesn't share the service key or credentials used by the SAP BTP audit-log connector.\r\n+\r\n+1. In SAP BTP, configure the Application Vulnerability Report Service and create a dedicated service key. For more information, see the SAP [Finding Provider Service API](https://api.sap.com/api/sap-FindingProviderService-v1/resource/get_Findings).\r\n+2. From the service key, record the Finding Provider API URL (`url`), authorization server URL (`uaa.url`), client ID (`uaa.clientid`), and client secret (`uaa.clientsecret`). Also record the subaccount ID.\r\n+3. In your Microsoft Sentinel workspace, select **Data connectors** and search for **Application Vulnerability Report for SAP BTP**.\r\n+4. Open the connector page, select **Add account**, and enter the subaccount name and ID, client ID and secret, authorization server URL, and Finding Provider API URL.\r\n+5. Configure the advanced options if needed:\r\n+\r\n+    - **Polling Frequency**: The connector polls every 60 to 120 minutes. The default is 60 minutes.\r\n+    - **Log Ingest Delay**: The delay, in minutes, used to account for findings published late by SAP BTP. The supported range is 120 to 300 minutes. The default is 300 minutes.\r\n+6. Submit the account configuration to save the connection.\r\n+7. Verify that findings arrive in the `SAPBTPAVL_CL` table. Allow for the configured log-ingest delay before expecting recent findings.\r\n+8. Enable the **SAP BTP - Use of custom app with high or critical vulnerability** analytics rule and use the **Application Vulnerabilities** tab in the [SAP BTP workbook](sap-btp-security-content#sap-btp-workbook). For more information, see [SAP BTP security content](sap-btp-security-content#sap-application-vulnerability-report-service-preview).\r\n+\r\n+Learn more about the integration of SAP Application Vulnerability Report Service with Microsoft Sentinel for SAP in the [SAP community blog post](https://community.sap.com/t5/technology-blog-posts-by-sap/from-blind-spot-to-threat-signal-feed-sap-application-vulnerability-report/ba-p/14508028).\r\n+\r\n Note\r\n \r\n To onboard SAP BTP subaccounts at scale, API and CLI based approaches are recommended. Get started with the [SAP BTP onboarding script library](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP%20BTP/Tools/).\r\n",
+      "baseCommitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:07:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/sap/deploy-sap-btp-solution.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/sap/deploy-sap-btp-solution",
+      "eventId": "defender-docs:da1ef371226f741dd353d83261ecb3806e5fb76e:modified:sentinel/sap/deploy-sap-btp-solution.md",
+      "firstSeenAt": "2026-10-21T13:44:04.980Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "SAP BTP vulnerability findings connector documented",
+        "summary": "The article now documents a connector that ingests SAP Application Vulnerability Report Service findings into Microsoft Sentinel, including setup prerequisites, credentials, polling and ingestion-delay settings, verification, and related analytics content.",
+        "adminImpact": "SAP BTP administrators can integrate application vulnerability findings into Sentinel. No action is required unless they want to configure this integration.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/sap/sap-btp-security-content.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 8,
+      "changes": 31,
+      "patch": "diff --git a/sentinel/sap/sap-btp-security-content.md b/sentinel/sap/sap-btp-security-content.md\nindex d752d98..877f8ba 100644\n--- a/sentinel/sap/sap-btp-security-content.md\n+++ b/sentinel/sap/sap-btp-security-content.md\n@@ -23,11 +23,12 @@ ms.subservice: sentinel-siem\n search.appverid: met150\n ms.reviewer: mapankra\n description: Learn about the built-in security content provided by the  Microsoft Sentinel Solution for SAP BTP.\n-ms.author: monaberdugo\n+ms.author: mapankra\n author: mberdugo\n ms.topic: reference\n-ms.date: 2024-07-17T00:00:00.0000000Z\n+ms.date: 2026-10-02T00:00:00.0000000Z\n ms.custom: sfi-image-nochange\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 850d5195-1370-4d33-214e-e4b3b30f3be8\n document_version_independent_id: 9c85e476-f1d7-009f-c358-2dc1a8e06a9a\n@@ -42,21 +43,21 @@ monikers: []\n item_type: Content\n source_path: sentinel/sap/sap-btp-security-content.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/07bb3e10-d135-43ff-bc8b-360497cb39fa\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/12e559b9-eaf6-4aee-9af7-62334e15f863\n platformId: 5f1d8e74-3419-69c6-3a1b-bf3324d46308\n ---\n \n # Microsoft Sentinel Solution for SAP BTP - security content reference | Microsoft Learn\n \n-This article details the security content available for the Microsoft Sentinel Solution for SAP BTP.\r\n+Use this reference to review the security content available for the Microsoft Sentinel Solution for SAP BTP.\r\n \r\n-Available security content currently includes a built-in workbook and analytics rules. You can also add SAP-related [watchlists](../watchlists) to use in your search, detection rules, threat hunting, and response playbooks.\r\n+Available security content includes a built-in workbook and analytics rules. You can also add SAP-related [watchlists](../watchlists) to use in your search, detection rules, threat hunting, and response playbooks.\r\n \r\n [Learn more about the solution](sap-btp-solution-overview).\r\n \r\n@@ -76,6 +77,8 @@ The **Identity Management** tab shows a grid of identity management events, such\n \r\n [![Screenshot of the Identity Management tab of the SAP BTP workbook.](media/sap-btp-security-content/sap-btp-workbook-identity-management.png)](media/sap-btp-security-content/sap-btp-workbook-identity-management.png#lightbox)\r\n \r\n+The workbook also includes an optional **Application Vulnerabilities** tab for SAP Application Vulnerability Report Service findings. The **Overview** tab includes a vulnerability posture KPI to help you monitor these findings alongside BTP activity.\r\n+\r\n For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data) and [Deploy Microsoft Sentinel Solution for SAP BTP](deploy-sap-btp-solution).\r\n \r\n ## Built-in analytics rules\r\n@@ -106,7 +109,7 @@ These analytics rules detect suspicious activity using SAP BTP audit logs. The r\n \r\n | Rule name | Description | Source action | Tactics |\r\n | --- | --- | --- | --- |\r\n-| **BTP - Failed access attempts across multiple BAS subaccounts** | Detects reconnaissance activity or credential spray attacks targeting development environments across multiple subaccounts, indicating potential preparation for a broader compromise.Default threshold: 3 | Run failed sign-in attempts to BAS over the defined threshold number of subaccounts. | Discovery, Reconnaissance |\r\n+| **BTP - Failed access attempts across multiple BAS subaccounts** | Detects reconnaissance activity or credential spray attacks targeting development environments in multiple subaccounts, indicating potential preparation for a broader compromise.Default threshold: 3 | Run failed sign-in attempts to BAS over the defined threshold number of subaccounts. | Discovery, Reconnaissance |\r\n | **BTP - Malware detected in BAS dev space** | Detects malicious code in development workspaces that could be used to compromise the software supply chain, inject backdoors into applications, or establish persistence in the development environment. | Copy or create a malware file in a BAS developer space. | Execution, Persistence, Resource Development |\r\n \r\n ### SAP Build Work Zone\r\n@@ -122,4 +125,16 @@ These analytics rules detect suspicious activity using SAP BTP audit logs. The r\n | **BTP - Audit log service unavailable** | Detects potential tampering with audit logging that could indicate an attacker attempting to operate without detection by disabling security monitoring or hiding malicious activity. | Subaccount fails to report audit logs exceeding configured threshold (default: 60 minutes). | Defense Evasion |\r\n | **BTP - Mass user deletion in a subaccount** | Detects large-scale user deletion that could indicate a destructive attack, sabotage attempt, or effort to disrupt business operations by removing user access.Default threshold: 10 | Delete count of user accounts over the defined threshold. | Impact |\r\n | **BTP - Trust and authorization Identity Provider monitor** | Detects modifications to federation and authentication settings that could enable attackers to establish alternate authentication paths, bypass security controls, or gain unauthorized access through identity provider manipulation. | Change, read, update, or delete any of the identity provider settings within a subaccount. | Credential Access, Privilege Escalation |\r\n-| **BTP - User added to sensitive privileged role collection** | Detects privilege escalation attempts through assignment of powerful administrative roles that could enable full control over subaccounts, connectivity, and security configurations. | Assign one of the following role collections to a user: - `Subaccount Service Administrator`- `Subaccount Administrator`- `Connectivity and Destination Administrator`- `Destination Administrator`- `Cloud Connector Administrator` | Lateral Movement, Privilege Escalation |\n\\ No newline at end of file\n+| **BTP - User added to sensitive privileged role collection** | Detects privilege escalation attempts through assignment of powerful administrative roles that could enable full control over subaccounts, connectivity, and security configurations. | Assign one of the following role collections to a user: - `Subaccount Service Administrator`- `Subaccount Administrator`- `Connectivity and Destination Administrator`- `Destination Administrator`- `Cloud Connector Administrator` | Lateral Movement, Privilege Escalation |\r\n+\r\n+### SAP Application Vulnerability Report Service (Preview)\r\n+\r\n+This rule correlates SAP Application Vulnerability Report Service findings with SAP BTP audit events to identify use of custom apps with open high or critical vulnerabilities. It requires data from both the **SAP BTP AVL** connector and the **SAP BTP audit events** connector.\r\n+\r\n+**Data sources**: `SAPBTPAVL_CL`, `SAPBTPAuditLog_CL`\r\n+\r\n+| Rule name | Description | Source action | Tactics |\r\n+| --- | --- | --- | --- |\r\n+| **SAP BTP - Use of custom app with high or critical vulnerability** | Detects use of a custom app that has an open high or critical vulnerability finding. The default minimum CVSS score is 7.0. Findings are evaluated over 14 days to account for the weekly vulnerability scan cadence, and only findings from the app's latest scan are considered. Findings without observed app use don't generate alerts. | Detect interactive XSUAA logins through an OAuth client that matches a vulnerable app in the same subaccount, or named-user application audit events in the same subaccount, Cloud Foundry organization, and space as the app. The activity must occur in the past hour. | Initial Access |\r\n+\r\n+The rule has **Medium** severity and groups incidents by app and subaccount. Review the users, observed app activity, and vulnerability remediation recommendations when investigating an alert.\n\\ No newline at end of file\n",
+      "baseCommitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:07:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/sap/sap-btp-security-content.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/sap/sap-btp-security-content",
+      "eventId": "defender-docs:da1ef371226f741dd353d83261ecb3806e5fb76e:modified:sentinel/sap/sap-btp-security-content.md",
+      "firstSeenAt": "2026-10-21T13:44:04.983Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "SAP BTP content adds application vulnerability monitoring",
+        "summary": "The documentation now describes an optional Application Vulnerabilities workbook tab and an analytics rule correlating SAP Application Vulnerability Report Service findings with BTP audit events. The rule detects custom apps with open high or critical vulnerabilities, using a default CVSS threshold of 7.0 and a 14-day evaluation window.",
+        "adminImpact": "Administrators can monitor SAP application vulnerability posture alongside BTP activity. The rule requires data from both the SAP BTP AVL and SAP BTP audit events connectors.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/sap/sap-btp-solution-overview.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 3,
+      "changes": 13,
+      "patch": "diff --git a/sentinel/sap/sap-btp-solution-overview.md b/sentinel/sap/sap-btp-solution-overview.md\nindex 79d9192..21a6f7b 100644\n--- a/sentinel/sap/sap-btp-solution-overview.md\n+++ b/sentinel/sap/sap-btp-solution-overview.md\n@@ -23,10 +23,11 @@ ms.subservice: sentinel-siem\n search.appverid: met150\n ms.reviewer: mapankra\n description: This article introduces the Microsoft Sentinel Solution for SAP BTP.\n-ms.author: monaberdugo\n+ms.author: mapankra\n author: mberdugo\n ms.topic: concept-article\n-ms.date: 2024-08-08T00:00:00.0000000Z\n+ms.date: 2026-10-02T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: f7c30d40-a710-3f16-6115-ba7803c3a4de\n document_version_independent_id: fe353760-5e4a-0f41-2339-a135cba835d3\n@@ -42,8 +43,10 @@ item_type: Content\n source_path: sentinel/sap/sap-btp-solution-overview.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: f4b58eb3-a8af-ef7a-a91a-051d6123589d\n ---\n \n@@ -57,6 +60,8 @@ The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP Busin\n \r\n The Microsoft Sentinel Solution for SAP BTP covers all SAP BTP services that log security-relevant events to the [SAP Audit Log Management service](https://help.sap.com/docs/btp/sap-business-technology-platform/security-events-logged-by-cf-services). See [SAP's official documentation](https://help.sap.com/docs/btp/sap-business-technology-platform/security-events-logged-by-cf-services) for the latest list of supported services and logged events.\r\n \r\n+The solution also includes a separate preview connector for the SAP Application Vulnerability Report Service. It ingests vulnerability findings for custom apps deployed on SAP BTP. You can use these findings with BTP audit activity to investigate vulnerable applications and related security events.\r\n+\r\n Among the supported services are, but not limited to:\r\n \r\n - **SAP Cloud Integration - Integration Suite**: A service that enables you to connect different SAP applications and systems, both on-premises and in the cloud, to facilitate data exchange and integration processes.\r\n@@ -66,7 +71,7 @@ Among the supported services are, but not limited to:\n - **SAP Build Work Zone**: A unified point of access to SAP applications (such as SAP S/4HANA), custom-built, and third party applications and extensions, both on the cloud and on premise.\r\n - **SAP Datasphere - SAP Business Data Cloud**: A cloud-based data management and analytics platform that enables you to collect, store, process, and analyze large volumes of data from various sources, including SAP and non-SAP systems.\r\n - **SAP AI Core**: A service that allows you to build, deploy, and manage AI models and applications on SAP BTP, leveraging machine learning and deep learning techniques to enhance business processes and decision-making.\r\n-- **SAP Event Mesh**: A service that enables event-driven architecture and real-time data processing on SAP BTP, allowing you to create, publish, and subscribe to events across different applications and systems.\r\n+- **SAP Event Mesh**: A service that enables event-driven architecture and real-time data processing on SAP BTP, allowing you to create, publish, and subscribe to events between different applications and systems.\r\n \r\n ## Solution architecture\r\n \r\n@@ -108,4 +113,6 @@ The solution includes:\n \r\n - The **SAP BTP** connector, which allows you to connect your BTP subaccounts and global account to Microsoft Sentinel via the [Audit Log service for SAP BTP API](https://help.sap.com/docs/btp/sap-business-technology-platform/security-events-logged-by-cf-services). Learn how to [install the solution and data connector](deploy-sap-btp-solution).\r\n - **[Built-in analytics rules](sap-btp-security-content#built-in-analytics-rules)** for identity management and low-code application development scenarios using the Trust and Authorization Provider and Business Application Studio (BAS) event sources in BTP.\r\n+- The **Application Vulnerability Report for SAP BTP** connector (Preview), which ingests vulnerability findings from the SAP Application Vulnerability Report Service. Configure this connector separately from the audit log connector. Learn how to [configure the Application Vulnerability Report connector](deploy-sap-btp-solution#configure-the-application-vulnerability-report-connector-preview).\r\n+- A preview analytics rule that detects critical vulnerability findings in custom apps, and an **Application Vulnerabilities** workbook tab with a vulnerability posture KPI. For details, see the [security content reference](sap-btp-security-content#sap-application-vulnerability-report-service-preview).\r\n - The **[BTP activity workbook](sap-btp-security-content#sap-btp-workbook)**, which provides a dashboard overview of subaccounts and a grid of identity management events.\n\\ No newline at end of file\n",
+      "baseCommitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:07:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/sap/sap-btp-solution-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/sap/sap-btp-solution-overview",
+      "eventId": "defender-docs:da1ef371226f741dd353d83261ecb3806e5fb76e:modified:sentinel/sap/sap-btp-solution-overview.md",
+      "firstSeenAt": "2026-10-21T13:44:04.987Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "SAP BTP vulnerability reporting is now documented",
+        "summary": "The documentation adds a separate preview connector for SAP BTP Application Vulnerability Report Service findings, plus a preview analytics rule and an Application Vulnerabilities workbook tab with a vulnerability posture KPI.",
+        "adminImpact": "Administrators can use these findings with BTP audit activity to investigate vulnerable custom applications. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/whats-new.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "patch": "diff --git a/sentinel/whats-new.md b/sentinel/whats-new.md\nindex 2477f60..912fa33 100644\n--- a/sentinel/whats-new.md\n+++ b/sentinel/whats-new.md\n@@ -25,7 +25,7 @@ description: Learn about the latest new features and announcement in Microsoft S\n author: guywi-ms\n ms.author: guywild\n ms.topic: concept-article\n-ms.date: 2026-08-24T00:00:00.0000000Z\n+ms.date: 2026-10-21T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom:\n - build-2025\n@@ -62,6 +62,14 @@ Note\n \r\n For information about feature availability in US Government clouds, see the Microsoft Sentinel tables in [Cloud feature availability for US Government customers](/en-us/azure/security/fundamentals/feature-availability).\r\n \r\n+## October 2026\r\n+\r\n+- Detect use of vulnerable SAP BTP custom apps (Preview)\r\n+\r\n+### Detect use of vulnerable SAP BTP custom apps (Preview)\r\n+\r\n+The SAP BTP solution adds an analytics rule that correlates SAP Application Vulnerability Report findings with BTP audit logs to detect use of custom apps with open high or critical vulnerabilities. The rule identifies interactive XSUAA logins that match a vulnerable app and application audit events in the same subaccount, Cloud Foundry organization, and space. It uses a default CVSS threshold of 7.0 and a 14-day finding lookback. For details, see [SAP BTP security content](sap/sap-btp-security-content#sap-application-vulnerability-report-service-preview).\r\n+\r\n ## September 2026\r\n \r\n Customers onboarding after September 23rd, 2026, should follow the updated guidance below.\r\n",
+      "baseCommitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitSha": "da1ef371226f741dd353d83261ecb3806e5fb76e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:07:54 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/whats-new",
+      "eventId": "defender-docs:da1ef371226f741dd353d83261ecb3806e5fb76e:modified:sentinel/whats-new.md",
+      "firstSeenAt": "2026-10-21T13:44:04.991Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "SAP BTP solution adds vulnerable custom app detection",
+        "summary": "The October 2026 documentation adds an analytics rule that correlates SAP Application Vulnerability Report findings with BTP audit logs to detect interactive XSUAA logins involving custom apps with open high or critical vulnerabilities.",
+        "adminImpact": "Administrators can use this detection to identify use of vulnerable SAP BTP custom applications. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 6,
+    "totalCommits": 2,
+    "totalFiles": 10,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -189,6 +293,17 @@
         "sourceFiles": [
           "defender-xdr/governance-relationships.md"
         ]
+      },
+      {
+        "category": "New feature",
+        "title": "Microsoft Sentinel",
+        "summary": "The article now documents a connector that ingests SAP Application Vulnerability Report Service findings into Microsoft Sentinel, including setup prerequisites, credentials, polling and ingestion-delay settings, verification, and related analytics content. The documentation now describes an optional Application Vulnerabilities workbook tab and an analytics rule correlating SAP Application Vulnerability Report Service findings with BTP audit events. The rule detects custom apps with open high or critical vulnerabilities, using a default CVSS threshold of 7.0 and a 14-day evaluation window. The documentation adds a separate preview connector for SAP BTP Application Vulnerability Report Service",
+        "sourceFiles": [
+          "sentinel/sap/deploy-sap-btp-solution.md",
+          "sentinel/sap/sap-btp-security-content.md",
+          "sentinel/sap/sap-btp-solution-overview.md",
+          "sentinel/whats-new.md"
+        ]
       }
     ],
     "highlights": [
@@ -201,6 +316,11 @@
         "category": "Doc update",
         "headline": "Defender XDR",
         "detail": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access."
+      },
+      {
+        "category": "New feature",
+        "headline": "Microsoft Sentinel",
+        "detail": "The article now documents a connector that ingests SAP Application Vulnerability Report Service findings into Microsoft Sentinel, including setup prerequisites, credentials, polling and ingestion-delay settings, verification, and related analytics content. The documentation now describes an optional Application Vulnerabilities workbook tab and an analytics rule correlating SAP Application Vulnerability Report Service findings with BTP audit events. The rule detects custom apps with open high or critical vulnerabilities, using a default CVSS threshold of 7.0 and a 14-day evaluation window. The documentation adds a separate preview connector for SAP BTP Application Vulnerability Report Service"
       }
     ],
     "generatedBy": "fallback"

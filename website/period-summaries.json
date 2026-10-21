@@ -7823,43 +7823,49 @@
       }
     },
     "2026-10-21": {
-      "headline": "macOS Endpoint release notes add AI-agent runtime protection support",
-      "overview": "The most consequential updates cover Microsoft Defender for Endpoint’s macOS releases, expanded offboarding guidance, and Defender XDR instructions for granting Sentinel access through Defender URBAC. The remaining Endpoint edits are a corrected server-offboarding link and author metadata maintenance.",
-      "adminImpact": "Mac administrators should review the new EDR configuration support and antivirus health-reporting changes, alongside the GA listing for macOS version 20.126082.12.0. Offboarding runbooks should use the OS-specific procedures and distinguish Azure server offboarding from manual individual-server offboarding; offboarding does not uninstall the software. Teams configuring Sentinel access for delegated remote tenant groups should follow the Defender URBAC permission, role-assignment, and workspace steps and account separately for data-plane permissions.",
+      "headline": "Sentinel documents preview SAP BTP vulnerability integration alongside macOS 20.126082.12.0 GA",
+      "overview": "Sentinel’s SAP BTP material now documents a preview Application Vulnerability Report Service connector, a preview analytics rule, and an Application Vulnerabilities workbook tab; related rule guidance specifies a 7.0 default CVSS threshold and 14-day evaluation window. Separately, Defender for Endpoint’s What's New page lists macOS 20.126082.12.0 as GA, while release notes describe EDR support for configuring AI agent runtime protection in macOS 101.26082.0012. Defender XDR adds delegated remote-tenant URBAC guidance, and Endpoint offboarding content distinguishes automatic Azure server offboarding from manual server paths. Other supplied edits are navigation or metadata maintenance.",
+      "adminImpact": "Sentinel teams configuring the SAP BTP integration need both the SAP BTP Application Vulnerability Report Service and SAP BTP audit events connectors for the documented correlation rule; its stated defaults are CVSS 7.0 and a 14-day evaluation window. Endpoint administrators should review the macOS EDR capability and use the correct offboarding path: turning off Defender for Servers automatically offboards eligible Azure servers, while offboarding does not uninstall software. Administrators setting up delegated remote-tenant access can follow the Defender URBAC procedure and check for separate data-plane permissions. No action is indicated for the metadata or link-maintenance edits.",
       "keyChanges": [
         {
-          "title": "macOS 101.26082.0012 adds AI-agent runtime protection support",
-          "detail": "The release notes say macOS 101.26082.0012 adds EDR support for configuring AI agent runtime protection. They also list Bluetooth permission and antivirus health-reporting improvements, accessibility updates, and reliability and performance fixes.",
+          "title": "Sentinel’s preview SAP BTP connector covers application-vulnerability findings",
+          "detail": "The solution overview now documents a separate preview connector for SAP BTP Application Vulnerability Report Service findings, alongside a preview analytics rule and an Application Vulnerabilities workbook tab with a vulnerability-posture KPI. Administrators can use the findings with BTP audit activity to investigate vulnerable custom applications.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-21-sap-btp-solution-overview-09"
+        },
+        {
+          "title": "SAP BTP rule guidance sets a 7.0 CVSS threshold and 14-day window",
+          "detail": "The security-content reference describes an analytics rule that correlates Application Vulnerability Report Service findings with BTP audit events and detects custom applications with open high or critical vulnerabilities. The rule uses a default CVSS threshold of 7.0, evaluates a 14-day window, and requires both the SAP BTP AVL and SAP BTP audit events connectors.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-21-microsoft-sentinel-solution-for-sap-btp-security-content-reference-microsoft-learn-08"
+        },
+        {
+          "title": "macOS release notes add EDR control for AI agent runtime protection",
+          "detail": "The macOS 101.26082.0012 release adds EDR support for configuring AI agent runtime protection, along with Bluetooth permission and antivirus health-reporting improvements, accessibility updates, reliability fixes, and performance fixes. Administrators should review the new EDR configuration support and updated health reporting.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-21-microsoft-defender-endpoint-releases-02"
         },
         {
-          "title": "macOS 20.126082.12.0 is now listed as GA",
-          "detail": "The Defender for Endpoint What's New page now lists macOS release version 20.126082.12.0 as generally available and links to its enhancements and features.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-21-whats-new-in-microsoft-defender-endpoint-05"
-        },
-        {
-          "title": "Offboarding guidance separates Azure-wide and individual-server paths",
-          "detail": "The Offboard Machines page now covers Windows, Linux client and server, macOS, Android, and iOS. It distinguishes subscription-wide Azure server offboarding from manual individual-server offboarding, states that turning off Defender for Servers automatically offboards eligible Azure servers, and clarifies that offboarding does not uninstall the software.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-21-offboard-machines-03"
-        },
-        {
-          "title": "Defender URBAC guidance adds delegated-tenant Sentinel access steps",
-          "detail": "Governance Relationships now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It retains the resource-group assignment option and separates management-plane from data-plane access.",
+          "title": "Defender URBAC guidance adds delegated remote-tenant Sentinel access steps",
+          "detail": "Governance Relationships now explains granting Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It retains the resource-group assignment option and distinguishes management-plane from data-plane access so administrators can identify any separate data-plane permissions required.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-10-21-governance-relationships-06"
+        },
+        {
+          "title": "Endpoint guidance separates subscription-wide Azure and manual server offboarding",
+          "detail": "The Offboard Machines page now covers Windows, Linux client and server, macOS, Android, and iOS. It distinguishes subscription-wide Azure server offboarding—when Defender for Servers is turned off—from manual individual-server offboarding, and states that offboarding does not uninstall software; separate uninstall steps are required.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-21-offboard-machines-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-21T07:37:57.603Z",
+      "generatedAt": "2026-10-21T13:44:28.001Z",
       "usage": {
-        "inputTokens": 1645,
-        "outputTokens": 2621,
-        "costUsd": 0.003474
+        "inputTokens": 2224,
+        "outputTokens": 8614,
+        "costUsd": 0.010782
       }
     }
   },
@@ -9493,49 +9499,49 @@
       }
     },
     "2026-10-19": {
-      "headline": "Defender for Cloud previews Azure plan management with DWU billing in its portal",
-      "overview": "Defender for Cloud is the week's main operational story: a preview workflow now connects Azure subscriptions and management groups to the Defender portal and supports cloud security plan management there. The migration model changes configuration scope, introduces Defender Workload Unit billing, makes migrated settings view-only in Azure, and does not preserve resource-level configurations. Defender for Identity also documents automatic sensor v3.x activation and Windows auditing with a 30-day opt-out window, while Endpoint guidance makes Direct onboarding's tenant-wide reach explicit. Many other updates are deployment, troubleshooting, release, and documentation-maintenance changes.",
-      "adminImpact": "Before using Defender portal plan management, confirm Azure commercial eligibility, required permissions, scope and inheritance effects, resource-level settings that will not be preserved, and DWU cost implications. Continue using the Azure portal for unsupported environments and capabilities. Monitor the Defender for Identity sensor v3.x banner and opt out within 30 days if current settings must be retained. Treat Endpoint Direct onboarding as a tenant-wide change and verify telemetry, tenant alignment, and roles before enabling it.",
+      "headline": "Defender portal preview brings Azure plan management and DWU billing",
+      "overview": "Most of the week's volume was maintenance, but the important changes cluster around a Defender for Cloud preview that moves Azure commercial environment connection and plan administration into the Defender portal, introduces DWU cost tooling, and changes migration semantics. Defender for Identity documents a 30-day v3.x opt-out path, Direct onboarding guidance makes its tenant-wide scope explicit, and a Message Center notice sets a mid-November App Governance permission change.",
+      "adminImpact": "Treat the Defender for Cloud preview as both a scope and billing change: verify Azure commercial eligibility, review plan and resource-level configuration effects, and estimate DWUs before migration. Eligible Defender for Identity workspaces should watch for the 30-day banner and opt out if current auditing settings must remain. Before enabling Direct onboarding, confirm the tenant-wide population and prerequisites. Review affected Microsoft Entra role assignments before the mid-November App Governance change.",
       "keyChanges": [
         {
-          "title": "Defender for Cloud adds Azure environment connection in preview",
-          "detail": "New preview guidance describes connecting Azure subscriptions and management groups to Microsoft Defender for Cloud from the Defender portal, including tenant preparation, prerequisites, and connector setup. Administrators can use the documented workflow to connect environments before managing their cloud security plans there.",
+          "title": "Defender for Cloud plan management expands into a Defender portal preview",
+          "detail": "The preview documents global or scoped plan configuration across connected Azure commercial environments, with required permissions and migration behavior. Global enablement migrates current environments and applies to future ones; migrated settings become view-only in the Azure portal, and resource-level configurations are not preserved. Review scope and configuration before migration.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-20-connect-azure-environments-in-the-defender-portal-microsoft-defender-for-cloud-microsoft-learn-01"
+          "sourceId": "doc-2026-10-20-manage-cloud-security-plans-in-the-defender-portal-microsoft-learn-03"
         },
         {
-          "title": "Portal plan migration changes scope, billing, and retained configuration",
-          "detail": "Moving cloud security plan management from the Azure portal to the Defender portal shifts configuration to tenant, management-group, or subscription scope and changes billing to Defender Workload Units. Migrated settings become view-only in Azure, while resource-level configurations are not preserved; plans may also be replaced, consolidated, or measured differently.",
+          "title": "Defender Workload Units add cost estimation and post-adoption reporting",
+          "detail": "The new billing guidance introduces Defender Workload Units, a Cloud Security Cost Estimator, and a Cloud security cost report. It also changes workload measurements, consolidates plans, and documents DNS billing treatment, allowing administrators to map existing coverage and estimate spend before adopting the model.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-20-what-changes-when-managing-cloud-security-plans-in-the-defender-portal-microsoft-defender-for-cl-04"
+          "sourceId": "doc-2026-10-20-estimate-and-track-cost-with-new-cloud-security-billing-model-in-defender-portal-microsoft-defen-02"
         },
         {
-          "title": "Sensor v3.x activation and Windows auditing get a 30-day opt-out window",
-          "detail": "Eligible organizations with an active Defender for Identity workspace receive a 30-day banner before sensor v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. Selecting Opt out within that window retains the current settings.",
+          "title": "Eligible Defender for Identity tenants get a 30-day v3.x opt-out",
+          "detail": "The What's New guidance says organizations with an active Defender for Identity workspace receive a 30-day banner before sensor v3.x activation and Windows auditing are enabled by default, including settings currently set to Off. Select Opt out within 30 days to retain current settings.",
           "product": "Identity",
           "sourceId": "doc-2026-10-19-whats-new-16"
         },
         {
-          "title": "Defender for Identity extends documented sensor v3.x server coverage",
-          "detail": "The documented sensor v3.x activation path now includes eligible Windows Server 2019 or later AD FS, AD CS, and Microsoft Entra Connect servers, with or without Defender for Endpoint, in addition to eligible domain controllers. Administrators should check the server role and deployment prerequisites when selecting the onboarding method.",
-          "product": "Identity",
-          "sourceId": "doc-2026-10-20-whats-new-23"
-        },
-        {
-          "title": "Direct server onboarding applies tenant-wide, not by pilot group",
-          "detail": "The updated procedure states that Direct onboarding affects all eligible existing and future non-Azure servers in the same Microsoft Entra tenant, including Azure Arc-connected servers. Individual-server or pilot-group selection is unsupported; healthy Defender for Endpoint telemetry, a matching tenant, and the required roles are prerequisites.",
+          "title": "Direct onboarding guidance makes its tenant-wide scope explicit",
+          "detail": "The procedure states that Direct onboarding affects all eligible existing and future non-Azure servers in the same Microsoft Entra tenant. Individual-server or pilot-group selection isn't supported; administrators should verify healthy Defender for Endpoint telemetry, a matching tenant, and the required roles before enabling it.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-20-use-direct-onboarding-for-on-premises-servers-microsoft-defender-for-cloud-microsoft-learn-16"
+        },
+        {
+          "title": "Defender for Cloud Apps will realign App Governance permissions in mid-November",
+          "detail": "Microsoft's Message Center notice says permission changes begin in mid-November 2026 for select Microsoft Entra roles, aligning App Governance RBAC with Defender XDR and affecting Cloud App Security, Compliance Administrator, and Compliance Data Administrator. Review and update the affected role assignments before the change.",
+          "product": "Defender for Cloud Apps (Defender XDR)",
+          "sourceId": "MC1479503"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-21T07:37:57.603Z",
+      "generatedAt": "2026-10-21T13:44:28.001Z",
       "usage": {
-        "inputTokens": 9268,
-        "outputTokens": 5237,
-        "costUsd": 0.008138
+        "inputTokens": 9847,
+        "outputTokens": 7098,
+        "costUsd": 0.010487
       }
     }
   },
@@ -9906,37 +9912,37 @@
       }
     },
     "2026-10": {
-      "headline": "Defender for Cloud previews Azure plan management with DWU migration consequences",
-      "overview": "October’s main operational story was a Defender for Cloud preview workflow for connecting Azure environments and managing cloud security plans in the Defender portal. The guidance limits onboarding and plan management to Azure commercial environments; migrated settings become view-only in Azure, resource-level configurations are not preserved, and billing uses Defender Workload Units. Other substantive changes included post-delivery Teams QR-code protection, a November Unified RBAC access change for Defender for Office 365, and the retirement of two Cloud Apps EWS anomaly detections. Most remaining updates were documentation and procedure maintenance.",
-      "adminImpact": "Before adopting the Defender portal preview, verify Azure commercial eligibility, required permissions, migration scope, settings that will not be preserved, and DWU cost implications. Treat Endpoint Direct onboarding as tenant-wide. Before November 2026, review Unified RBAC assignments for Security Operator users who need email threat-policy or Tenant Allow/Block List access. Track the QR-code protection rollout and investigation workflow, and do not rely on the two retired EWS detections for alerts after October 15.",
+      "headline": "Defender portal plan management arrives with Azure DWU billing visibility",
+      "overview": "Defender for Cloud's plan-management preview is the month's clearest substantive change: October 20 release notes describe cloud-security plan management in the Defender portal with DWU cost tracking and eligible 30-day trials. Related guidance limits onboarding and plan management to Azure commercial environments; after migration, Azure portal settings become view-only, resource-level configurations are not preserved, and migrated subscriptions use DWU billing. Other concrete outcomes include an upcoming Defender for Office 365 permission change, post-delivery malicious-QR protection in Teams, clearer server-onboarding paths, and retirement of two EWS-based App Governance detections. Most other entries were documentation maintenance.",
+      "adminImpact": "Validate Azure commercial eligibility and required permissions before using the portal workflow. Model the migration impact: Azure portal settings become view-only, resource-level settings are not preserved, and billing uses DWUs. For servers, select an onboarding path only after checking whether they already report to Defender for Endpoint, and treat Direct onboarding as tenant-wide. Review Microsoft Entra Security Operator assignments before November when Unified RBAC is enabled, review Teams URL-protection processes, and stop relying on the retired EWS detections.",
       "keyChanges": [
         {
-          "title": "Defender for Cloud’s portal plan-management guidance sets Azure-only migration boundaries",
-          "detail": "The updated integration guidance says cloud security data supports Azure, AWS, and GCP, but onboarding and plan management currently support Azure commercial environments only. After migration, plan settings are view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
+          "title": "Defender for Cloud plan management moves into the portal with DWU billing",
+          "detail": "The October 20 release notes describe cloud-security plan management in the Defender portal, including DWU cost tracking and eligible 30-day trials. After migration, Azure portal settings are view-only and migrated subscriptions use DWU-based billing; existing Defender for Endpoint installations require no reinstallation or migration.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-20-integration-faq-12"
+          "sourceId": "doc-2026-10-20-release-notes-18"
         },
         {
-          "title": "Endpoint server onboarding guidance makes Direct onboarding tenant-wide",
-          "detail": "The updated guide separates automatic onboarding, manual deployment, and servers already reporting to Defender for Endpoint. Existing reporting servers need no onboarding, reinstallation, or migration. The guide also adds rollout prerequisites, antivirus coexistence guidance, and a warning that Direct onboarding applies across the tenant.",
+          "title": "Server onboarding guidance separates automatic, manual, and already-reporting paths",
+          "detail": "The updated Endpoint guide now distinguishes automatic onboarding, manual deployment, and servers already reporting to Defender for Endpoint. It adds prerequisites, rollout preparation, antivirus-coexistence considerations, and a warning that Direct onboarding has tenant-wide scope; already-reporting servers do not require onboarding, reinstallation, or migration.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-20-onboard-servers-to-microsoft-defender-microsoft-defender-for-endpoint-microsoft-learn-07"
         },
         {
-          "title": "Security Operator loses default Defender for Office 365 policy access in November",
-          "detail": "Starting in November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator role removes default access to email threat policies and the Tenant Allow/Block List. Where Unified RBAC is enabled, administrators must manually assign the required permissions to preserve that access.",
+          "title": "Security Operator loses default Office 365 threat-policy access in November",
+          "detail": "When Unified RBAC is enabled, the Microsoft Entra Security Operator role will lose default access to email threat policies and the Tenant Allow/Block List starting November 2026. Assign the permissions manually if the role must retain access.",
           "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams QR-code URLs gain post-delivery protection in Defender for Office 365",
-          "detail": "The October-to-November 2026 rollout extends Teams URL protection to malicious URLs embedded in QR codes after delivery. Users receive warnings, and security teams can investigate through Advanced Hunting; administrators should review related settings and investigation processes.",
+          "title": "Teams URL protection adds post-delivery malicious-QR detection",
+          "detail": "Microsoft Defender for Office 365 is extending Teams URL protection to detect malicious URLs embedded in QR codes after delivery, warn users, and expose the activity for investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026; administrators should review related settings and processes.",
           "product": "Defender XDR",
           "sourceId": "MC1490905"
         },
         {
-          "title": "Cloud Apps retires two EWS anomaly detections on October 15",
-          "detail": "Two EWS-based App Governance anomaly detections are marked Retired as of October 15, 2026, and no longer generate alerts. Monitoring and triage workflows should not depend on those detections after that date.",
+          "title": "Two EWS-based App Governance detections stop generating alerts",
+          "detail": "As of October 15, 2026, two EWS-based detections are marked Retired and no longer generate alerts. Monitoring workflows should no longer depend on those detections.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         }
@@ -9944,16 +9950,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-21T07:37:57.603Z",
+      "generatedAt": "2026-10-21T13:44:28.001Z",
       "usage": {
-        "inputTokens": 6832,
-        "outputTokens": 7804,
-        "costUsd": 0.010731
+        "inputTokens": 6900,
+        "outputTokens": 9698,
+        "costUsd": 0.013018
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-21T07:37:57.603Z",
+  "generatedAt": "2026-10-21T13:44:28.001Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10092,22 +10098,22 @@
       "costUsd": 0.12352
     },
     "2026-10-21": {
-      "inputTokens": 17745,
-      "outputTokens": 15662,
-      "requests": 3,
-      "costUsd": 0.022343
+      "inputTokens": 36716,
+      "outputTokens": 41072,
+      "requests": 6,
+      "costUsd": 0.056629
     }
   },
   "lastRun": {
-    "inputTokens": 17745,
-    "outputTokens": 15662,
+    "inputTokens": 18971,
+    "outputTokens": 25410,
     "requests": 3,
-    "costUsd": 0.022343
+    "costUsd": 0.034286
   },
   "totalUsage": {
-    "inputTokens": 830902,
-    "outputTokens": 823459,
-    "requests": 178,
-    "costUsd": 1.154327
+    "inputTokens": 849873,
+    "outputTokens": 848869,
+    "requests": 181,
+    "costUsd": 1.188613
   }
 }
