@@ -1,0 +1,208 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/mac-resources.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/mac-resources.md b/defender-endpoint/mac-resources.md\nindex 599196c..6a51128 100644\n--- a/defender-endpoint/mac-resources.md\n+++ b/defender-endpoint/mac-resources.md\n@@ -10,8 +10,8 @@ uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n description: Learn how to use Microsoft Defender for Endpoint commands on macOS, collect diagnostics, manage quarantine, enable autocompletion, and uninstall the app.\n ms.service: defender-endpoint\n-author: paulinbar\n-ms.author: painbar\n+author: limwainstein\n+ms.author: limwainstein\n ms.reviewer: joshbregman\n ms.localizationpriority: medium\n ms.collection:\n@@ -190,7 +190,7 @@ Defender for Endpoint stores quarantined files in `/Library/Application Support/\n \r\n ## Uninstall Defender for Endpoint\r\n \r\n-Before you uninstall Defender for Endpoint, offboard the device and remove or update the policies that manage it. For the optional device-retirement tags, tamper protection requirements, offboarding package, and system extension policy cleanup, see [Offboard Mac devices](offboard-machines#offboard-mac-devices).\r\n+Before you uninstall Defender for Endpoint, offboard the device and remove or update the policies that manage it. For the optional device-retirement tags, tamper protection requirements, offboarding package, and system extension policy cleanup, see [Offboard Mac devices](offboard-machines#offboard-macos-devices).\r\n \r\n You can uninstall the app interactively or from the command line. If you manage devices with Jamf Pro, deploy the offboarding profile before you remove the application. Centrally managed uninstallation isn't currently available in Microsoft Intune.\r\n \r\n",
+      "baseCommitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 06:15:03 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/mac-resources.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/mac-resources",
+      "eventId": "defender-docs:a2228105b7e562b30f2a11ec813ed4bc925070e3:modified:defender-endpoint/mac-resources.md",
+      "firstSeenAt": "2026-10-21T07:37:39.314Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated ownership metadata for Mac resources documentation",
+        "summary": "The page author metadata changed from paulinbar/painbar to limwainstein. The uninstall guidance continues to direct administrators to the Offboard Mac devices documentation for cleanup requirements.",
+        "adminImpact": "No administrator action is required based on this update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 1,
+      "changes": 24,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex ffff7f6..be09fd4 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -15,7 +15,7 @@ author: abhisheksh\n ms.author: abhisheksh\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 2026-10-12T00:00:00.0000000Z\n+ms.date: 2026-10-16T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: a82695da-2a19-ab7b-fd85-324ba1ae897f\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| macOS | 101.26082.0012 | October 2026 | - Release version: 20.126082.12.0- Engine version: 1.1.26100.3000- Signature version: 1.461.61.0 | Release details and updates |\r\n | Linux | 101.26091.0003 | October 2026 | - Release version: 30.126091.0003.0- Engine version: 1.1.26090.3000- Signature version: 1.461.35.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26090.9 / Engine 1.1.26090.9 | September 2026 | - Platform: 4.18.26090.9- Engine: 1.1.26090.9- Security intelligence: 1.461.1.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26080.4 / Engine 1.1.26080.3 | August 2026 | - Platform: 4.18.26080.4- Engine: 1.1.26080.3- Security intelligence: 1.159.11.0 | Release details and updates |\r\n@@ -274,6 +275,27 @@ To get latest features, configure your device for the Beta channel (formerly Ins\n \r\n For known issues, see macOS known issues.\r\n \r\n+### macOS | October-2026 | 101.26082.0012\r\n+\r\n+#### Versions\r\n+\r\n+| Release version | Engine version | Signature version |\r\n+| --- | --- | --- |\r\n+| 20.126082.12.0 | 1.1.26100.3000 | 1.461.61.0 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature area | Update summary |\r\n+| --- | --- |\r\n+| General | Device Control: Device health reporting now shows Bluetooth permission status. |\r\n+| General | UI: Improved keyboard accessibility in side panes by moving focus into the open pane and keeping Tab navigation within its controls. |\r\n+| General | UI: Improved accessibility of feedback rating controls so individual stars can receive focus without an extra group focus target. |\r\n+| General | Antivirus: Improved health reporting to indicate when the protection engine connection is unavailable. |\r\n+| General | Antivirus: Improved reliability by preventing a rare service crash. |\r\n+| General | EDR: Added support for configuring AI agent runtime protection on macOS. |\r\n+| General | EDR: Improved authentication reliability after startup and wake by waiting for network connectivity to recover before resuming cloud communication. |\r\n+| General | Bug and performance fixes. |\r\n+\r\n ### macOS | September-2026 | 101.26072.0017\r\n \r\n #### Versions\r\n",
+      "baseCommitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 06:15:03 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:a2228105b7e562b30f2a11ec813ed4bc925070e3:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-10-21T07:37:39.319Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "October 2026 macOS release adds AI agent runtime protection configuration",
+        "summary": "The macOS 101.26082.0012 release adds EDR support for configuring AI agent runtime protection, plus Bluetooth permission and antivirus health reporting improvements, accessibility updates, reliability fixes, and performance fixes.",
+        "adminImpact": "MacOS administrators should review the new EDR configuration support and updated health reporting when assessing this release.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/offboard-machines.md",
+      "status": "modified",
+      "additions": 58,
+      "deletions": 43,
+      "changes": 101,
+      "patch": "diff --git a/defender-endpoint/offboard-machines.md b/defender-endpoint/offboard-machines.md\nindex 0c0280e..42ba3cf 100644\n--- a/defender-endpoint/offboard-machines.md\n+++ b/defender-endpoint/offboard-machines.md\n@@ -53,17 +53,20 @@ Past data, such as alerts, vulnerabilities, and the device timeline, for an offb\n \r\n ## Prerequisites\r\n \r\n-### Supported operating systems\r\n+Offboarding is supported on devices running the following operating systems:\r\n \r\n-- Windows client devices\r\n+- Windows client operating systems\r\n - Windows Server 2012 R2 and later\r\n+- Linux (client and server)\r\n+- macOS\r\n+- Android and iOS\r\n - Azure Stack HCI OS, version 23H2 and later\r\n-- Mac devices\r\n-- Linux devices\r\n \r\n-For information about offboarding and uninstalling Microsoft Defender for Endpoint on Linux, see [Offboard Microsoft Defender for Endpoint on Linux](linux-off-board-endpoints).\r\n+## Offboard client devices\r\n \r\n-In the [Microsoft Defender portal](https://security.microsoft.com), in the navigation pane, select **Settings** &gt; **Offboard**, and then select an operating system to start the offboarding process.\r\n+### Offboard Windows client devices\r\n+\r\n+Navigate to [Microsoft Defender portal](https://security.microsoft.com), in the navigation pane, select **Settings** &gt; **Offboard**, and then select an operating system to start the offboarding process.\r\n \r\n You can also use other methods, such as:\r\n \r\n@@ -72,31 +75,58 @@ You can also use other methods, such as:\n - [Offboard devices using Mobile Device Management tools](configure-endpoints-mdm#offboard-devices-using-mobile-device-management-tools)\r\n - [Offboard devices using the API](api/offboard-machine-api)\r\n \r\n-## Offboard servers\r\n+### Offboard Linux client devices\r\n+\r\n+For information about offboarding and uninstalling Microsoft Defender for Endpoint on Linux clients, see [Offboard Microsoft Defender for Endpoint on Linux](linux-off-board-endpoints).\r\n+\r\n+### Offboard MacOS devices\r\n+\r\n+In the following procedure, steps 1 and 2 are optional if you do not want to see these devices as retired in the \"Device inventory\" for 180 days.\r\n+\r\n+1. Create a [device tag](machine-tags), and name the tag `decommissioned`. Assign the tag to the Mac devices that you want to offboard from Defender for Endpoint.\r\n+2. Create a [Device group](machine-groups) and name it something like, `Decommissioned Mac`. Assign this tag to an appropriate user group.\r\n+3. Remove policies for [Tamper Protection](tamper-protection-macos-configure). See [Set preferences on Mac: Tamper protection](mac-preferences#tamper-protection), or turn off tamper protection by using [local configuration](tamper-protection-macos-configure#configure-tamper-protection-locally).\r\n+4. In the [Microsoft Defender portal](https://security.microsoft.com), navigate to, **System** &gt; **Settings** &gt; **Endpoints** &gt; **Device management** &gt; **Offboarding**. Select **macOS** in Step 1, then choose your preferred deployment method, and select **Download package** to download the offboarding package.\r\n+\r\n+    Or, if you're using a non-Microsoft device management solution, disable integration with Defender for Endpoint.\r\n+5. Uninstall the Defender for Endpoint app on Mac devices.\r\n+6. Remove Mac devices from the group for system extension policies if an MDM was used to set them.\r\n+\r\n+### Offboard Android or iOS devices\r\n \r\n-Choose automatic Azure offboarding or manual endpoint offboarding based on the intended outcome. Verify plan coverage, endpoint reporting, and software removal separately.\r\n+To offboard an Android or iOS device, uninstall the Microsoft Defender app on the device.\r\n \r\n-### Choose the required outcome\r\n+## Offboard cloud and on-premises servers\r\n+\r\n+Offboard an Azure environment in one step by turning off Defender for Servers for the subscription. Eligible servers are offboarded automatically, without running an offboarding package on each server. To offboard only selected servers, use manual offboarding.\r\n+\r\n+### Choose an offboarding path\r\n+\r\n+Choose a path based on whether you want to offboard servers across an Azure subscription or only selected servers.\r\n \r\n | Outcome | What to do |\r\n | --- | --- |\r\n-| Offboard an Azure environment | Use automatic Azure offboarding. |\r\n-| Change Defender for Servers coverage | Use the [plan-change procedure](/en-us/azure/defender-for-cloud/tutorial-enable-servers-plan#disable-defender-for-servers-on-a-subscription). Review the affected subscription and resource settings first. |\r\n-| Offboard individual endpoints | Use manual endpoint offboarding. |\r\n-| Remove endpoint software | Use the supported uninstall procedure for that operating system. Don't assume a plan change or offboarding package removes it. |\r\n+| Offboard an Azure subscription and all servers in it | Turn off Defender for Servers for the subscription. Follow automatic Azure offboarding. |\r\n+| Offboard individual servers | Follow manual endpoint offboarding using a supported method for the operating system. |\r\n \r\n-### Prepare the change\r\n+Note\r\n+\r\n+- **Change active Defender for Servers plan:** Follow the [plan-change procedure](/en-us/azure/defender-for-cloud/tutorial-enable-servers-plan#disable-defender-for-servers-on-a-subscription). Review the subscription and resource settings before making changes.\r\n+- **Uninstall Microsoft Defender for Endpoint:** Follow the uninstall instructions for the server's operating system. Offboarding doesn't uninstall the software.\r\n+\r\n+### Prepare for server offboarding\r\n \r\n 1. Record affected servers, existing coverage, and deployment policies.\r\n 2. Review open investigations, evidence-retention needs, and any plans to onboard the server again or reinstall endpoint software.\r\n 3. Remove conflicting onboarding assignments so deployment tools don't reverse the change.\r\n 4. For Direct onboarding, review [who is affected](/en-us/azure/defender-for-cloud/onboard-machines-with-defender-for-endpoint#who-is-affected) before changing a shared setting.\r\n \r\n-### Automatic Azure offboarding\r\n+### Offboard servers in an Azure subscription\r\n \r\n-Turning off Defender for Servers for a subscription in the Azure portal automatically offboards eligible servers from Microsoft Defender for Endpoint. Changing from Plan 2 to Plan 1 or moving a machine between subscriptions doesn't trigger automatic offboarding.\r\n+To offboard an Azure environment, turn off Defender for Servers for its subscription in the Azure portal. This automatically offboards eligible servers from Defender for Endpoint. No need to run an offboarding package on each server.\r\n \r\n-Before starting, complete the steps in Prepare the change.\r\n+- Use the subscription's Defender for Servers plan setting, not deletion of the Azure environment connector.\r\n+- Changing from Plan 2 to Plan 1 or moving a server between subscriptions doesn't trigger automatic offboarding.\r\n \r\n To start offboarding and verify the result:\r\n \r\n@@ -112,21 +142,23 @@ Note\n \r\n If you turn the plan back on before offboarding completes, the offboarding and onboarding actions run asynchronously. Defender for Endpoint is onboarded again after a few hours. Turning the plan back on doesn't immediately cancel offboarding.\r\n \r\n-### Manual endpoint offboarding\r\n+### Offboard individual servers\r\n \r\n-Use a supported endpoint tool to offboard individual servers, including manually onboarded on-premises servers, or to complete an intended endpoint change after reviewing the automatic flow's result.\r\n+Use manual offboarding to stop selected servers from reporting to Defender for Endpoint. Follow the method below for your operating system and management tool.\r\n \r\n-Follow one of the methods below. Manual endpoint offboarding isn't a substitute for changing Defender for Servers coverage.\r\n+**Download an offboarding package (if required)**\r\n \r\n-#### Download an offboarding package\r\n+Navigate to [Microsoft Defender portal](https://security.microsoft.com), in the navigation pane, select **Settings** &gt; **Cloud Security** &gt; **Server security - Onboard and Manage** &gt; **Manage offboarding**, and then select an operating system to start the offboarding process.\r\n \r\n-Open the [Offboarding page](https://security.microsoft.com/securitysettings/endpoints/offboarding) in Microsoft Defender. Use an account authorized to download the package, and then follow the relevant method's operating-system and package selections.\r\n+Note\r\n+\r\n+Use an account authorized to download the package, and then follow the relevant method's operating-system and package instructions.\r\n \r\n Download a current package for the correct tenant, check its expiration, and store it securely. Package formats and validity periods differ by method.\r\n \r\n For local-script or Configuration Manager offboarding, select the Windows version group specified in that method's instructions. The generic **Windows** option opens the separate Defender deployment tool workflow, not the version-specific package workflow.\r\n \r\n-Choose the supported method for your operating system and management environment:\r\n+Choose a method for your operating system and management tool. Download an offboarding package only if the selected procedure requires one.\r\n \r\n | Method | Procedure |\r\n | --- | --- |\r\n@@ -137,7 +169,7 @@ Choose the supported method for your operating system and management environment\n | Mobile device management | [Mobile Device Management offboarding](configure-endpoints-mdm#offboard-devices-using-mobile-device-management-tools) |\r\n | API automation | [Offboard machine API](api/offboard-machine-api) |\r\n \r\n-### Verify each outcome\r\n+### Validate server offboarding\r\n \r\n | Intended change | Check |\r\n | --- | --- |\r\n@@ -146,23 +178,6 @@ Choose the supported method for your operating system and management environment\n | Software removal | Confirm the relevant application, package, or service is absent using operating-system tools. |\r\n | No automatic return | Recheck after the deployment system's policy refresh. |\r\n \r\n-### Historical records\r\n-\r\n-Past endpoint data can remain visible under the configured retention policy. A retained device record doesn't prove that protection or reporting is still active. See [data retention](data-storage-privacy#data-retention).\r\n-\r\n-## Offboard Mac devices\r\n-\r\n-In the following procedure, steps 1 and 2 are optional if you do not want to see these devices that are retired in the \"Device inventory\" for 180 days.\r\n-\r\n-1. Create a [device tag](machine-tags), and name the tag `decommissioned`. Assign the tag to the Mac devices that you want to offboard from Defender for Endpoint.\r\n-2. Create a [Device group](machine-groups) and name it something like, `Decommissioned Mac`. Assign this tag to an appropriate user group.\r\n-3. Remove policies for [Tamper Protection](tamper-protection-macos-configure). See [Set preferences on Mac: Tamper protection](mac-preferences#tamper-protection), or turn off tamper protection by using [local configuration](tamper-protection-macos-configure#configure-tamper-protection-locally).\r\n-4. In the [Microsoft Defender portal](https://security.microsoft.com), navigate to, **System** &gt; **Settings** &gt; **Endpoints** &gt; **Device management** &gt; **Offboarding**. Select **macOS** in Step 1, then choose your preferred deployment method, and select **Download package** to download the offboarding package.\r\n-\r\n-    Or, if you're using a non-Microsoft device management solution, disable integration with Defender for Endpoint.\r\n-5. Uninstall the Defender for Endpoint app on Mac devices.\r\n-6. Remove Mac devices from the group for system extension policies if an MDM was used to set them.\r\n-\r\n-## Offboard Android or iOS devices\r\n+### Historical records and retention\r\n \r\n-To offboard an Android or iOS device, uninstall the Microsoft Defender app on the device.\n\\ No newline at end of file\n+Past endpoint data can remain visible under the configured retention policy. A retained device record doesn't prove that protection or reporting is still active. See [data retention](data-storage-privacy#data-retention).\n\\ No newline at end of file\n",
+      "baseCommitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 06:15:03 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/offboard-machines.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/offboard-machines",
+      "eventId": "defender-docs:a2228105b7e562b30f2a11ec813ed4bc925070e3:modified:defender-endpoint/offboard-machines.md",
+      "firstSeenAt": "2026-10-21T07:37:39.324Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Offboarding guidance expands device and server coverage",
+        "summary": "The documentation now covers Windows, Linux client and server, macOS, Android, and iOS offboarding. It also distinguishes subscription-wide Azure server offboarding from manual individual-server offboarding and clarifies that offboarding does not uninstall software.",
+        "adminImpact": "Administrators can follow OS-specific procedures and should choose the correct server path. Turning off Defender for Servers offboards eligible Azure servers automatically, while software removal requires separate uninstall steps.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/onboard-server.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/onboard-server.md b/defender-endpoint/onboard-server.md\nindex 88867db..1c8326e 100644\n--- a/defender-endpoint/onboard-server.md\n+++ b/defender-endpoint/onboard-server.md\n@@ -258,7 +258,7 @@ Direct onboarding isn't required merely to keep an existing Defender for Endpoin\n \r\n ## Offboard Windows servers\r\n \r\n-For automatic Azure offboarding, manual endpoint offboarding, and separate software-removal checks, see [Offboard servers from Microsoft Defender](offboard-machines#offboard-servers).\r\n+For automatic Azure offboarding, manual endpoint offboarding, and separate software-removal checks, see [Offboard servers from Microsoft Defender](offboard-machines).\r\n \r\n You can manually offboard Windows servers by using the same methods that are available for Windows client devices:\r\n \r\n",
+      "baseCommitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 06:15:03 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/onboard-server.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/onboard-server",
+      "eventId": "defender-docs:a2228105b7e562b30f2a11ec813ed4bc925070e3:modified:defender-endpoint/onboard-server.md",
+      "firstSeenAt": "2026-10-21T07:37:39.327Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Corrected link to server offboarding guidance",
+        "summary": "The server onboarding page now links to `offboard-machines` instead of the `#offboard-servers` fragment.",
+        "adminImpact": "Administrators can use the corrected link to find automatic Azure offboarding, manual endpoint offboarding, and software-removal check guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex dd470d9..d3065f0 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -15,7 +15,7 @@ author: lwainstein\n ms.author: yaronyahav\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 2026-10-14T00:00:00.0000000Z\n+ms.date: 2026-10-16T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.collection:\n - m365-security\n@@ -58,6 +58,7 @@ Learn more about [Preview features](/en-us/defender-xdr/preview).\n \r\n | Type | Feature | Preview/GA | Description |\r\n | --- | --- | --- | --- |\r\n+| Release - macOS | Build 101.26082.0012 | GA | Release version 20.126082.12.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--october-2026--101260820012). |\r\n | Feature | [Vulnerability assessment for Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications) | GA | Vulnerability assessment for applications installed via the Microsoft Store is now generally available. Defender Vulnerability Management detects supported Microsoft Store applications, adds them to the software inventory, and assesses them for vulnerabilities. Coverage is currently limited to a select set of commonly used applications. Use the **Software evidence** area on the software page to view the file path for the vulnerable application, along with a suggested query showing the vulnerable app, version, and file location. |\r\n \r\n ## September 2026\r\n",
+      "baseCommitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 06:15:03 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "eventId": "defender-docs:a2228105b7e562b30f2a11ec813ed4bc925070e3:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "firstSeenAt": "2026-10-21T07:37:39.332Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MacOS build 101.26082.0012 added to release notes",
+        "summary": "The Defender for Endpoint What's New page now lists macOS release version 20.126082.12.0 as GA and links to its enhancements and features.",
+        "adminImpact": "Administrators can review the linked release details; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/governance-relationships.md",
+      "status": "modified",
+      "additions": 29,
+      "deletions": 7,
+      "changes": 36,
+      "patch": "diff --git a/defender-xdr/governance-relationships.md b/defender-xdr/governance-relationships.md\nindex a94ca60..f17e856 100644\n--- a/defender-xdr/governance-relationships.md\n+++ b/defender-xdr/governance-relationships.md\n@@ -10,8 +10,8 @@ uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: orspodek\n description: Configure governance relationships in the Microsoft Defender portal to delegate access across customer or organizational tenants for multitenant organizations and MSSPs.\n ms.service: defender-xdr\n-ms.author: monaberdugo\n-author: mberdugo\n+ms.author: saggiehaim\n+author: Saggiehaim\n ms.topic: how-to\n ms.date: 2026-08-07T00:00:00.0000000Z\n ai-usage: ai-assisted\n@@ -140,9 +140,7 @@ After the approval is complete, users in the specified security groups receive p\n \r\n ## Configure tenant governance permissions for Microsoft Sentinel\r\n \r\n-Security groups used in the relationship template are synchronized to the governed tenant as \"remote tenant groups.\" You can assign these groups to Microsoft Sentinel roles in the governed tenant to enable multitenant management capabilities. You can assign these groups to Azure Resource Manager (ARM) resources to enable Microsoft Sentinel management capabilities.\r\n-\r\n-The Microsoft Sentinel Azure RBAC assignments described in this section grant management-plane access to the selected resources. They don't automatically grant data-plane access, such as permission to read Azure Storage blob data or Azure Key Vault secrets. Assign any required data-plane roles separately and follow least-privilege principles.\r\n+Security groups used in the relationship template are synchronized to the governed tenant as \"remote tenant groups.\" You can assign these groups to Microsoft Sentinel roles in the governed tenant to enable multitenant management capabilities. You can assign these groups to Defender URBAC or Azure Resource Manager (ARM) resources to enable Microsoft Sentinel management capabilities.\r\n \r\n Assigning Microsoft Sentinel roles enables multitenant management features including:\r\n \r\n@@ -152,11 +150,35 @@ Assigning Microsoft Sentinel roles enables multitenant management features inclu\n - Content distribution\r\n - Direct management through the Defender portal\r\n \r\n-### Assign permissions to resource group\r\n+### Option 1 - Assign permissions with URBAC\r\n+\r\n+To create custom roles in Microsoft Defender unified RBAC, you must be assigned one of the following roles or permissions:\r\n+\r\n+- At least Security Administrator in Microsoft Entra ID.\r\n+- All Authorization permissions assigned in Microsoft Defender Unified RBAC.\r\n+\r\n+Follow these steps to grant Microsoft Sentinel permissions to your delegated remote tenant group.\r\n+\r\n+1. In the governed tenant, sign in to the [Defender Portal](https://security.microsoft.com)\r\n+2. Navigate to **Setup & Configuration** &gt; **Permissions**.\r\n+3. Select Roles.\r\n+4. Select or Create the role you want to assign ([Map Sentinel roles to Defender URBAC](/en-us/defender-xdr/compare-rbac-roles)).\r\n+5. Create a new assignment or edit an existing one.\r\n+\r\n+    ![Screenshot of the URBAC Sentinel Contributor role with Add new assignment highlighted in the Assignments section.](media/governance-relationships/new-role-assignment.png)\r\n+6. Add the Remote tenant groups you want to grant access to Sentinel.\r\n+7. On the **Data Collections** select the workspaces in scope.\r\n+\r\n+    ![Screenshot of the Add assignment pane with the assignment name, selected remote tenant group, and Microsoft Sentinel data collections highlighted.](media/governance-relationships/remote-tenant-group-selection.png)\r\n+8. Select **Add** to complete the assignment.\r\n+\r\n+### Option 2 - Assign permissions to a resource group\r\n+\r\n+The Microsoft Sentinel Azure RBAC assignments described in this section grant management-plane access to the selected resources. They don't automatically grant data-plane access, such as permission to read Azure Storage blob data or Azure Key Vault secrets. Assign any required data-plane roles separately and follow least-privilege principles.\r\n \r\n Before you assign permissions, ensure you have the [User Access Administrator](/en-us/azure/role-based-access-control/built-in-roles/privileged#user-access-administrator) role in Azure RBAC and at least the [User Administrator](/en-us/entra/identity/role-based-access-control/permissions-reference#user-administrator) role in Entra RBAC.\r\n \r\n-Follow these steps to grant Microsoft Sentinel permissions to your delegated access groups.\r\n+Follow these steps to grant Microsoft Sentinel permissions to your delegated remote tenant group.\r\n \r\n 1. In the governed tenant, sign in to the [Azure portal](https://portal.azure.com).\r\n 2. Navigate to your resource group.\r\n",
+      "baseCommitSha": "07d7b3e723125a1fde22b87aae2d9bd8db715bc7",
+      "commitSha": "a2228105b7e562b30f2a11ec813ed4bc925070e3",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 06:15:03 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/governance-relationships.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/governance-relationships",
+      "eventId": "defender-docs:a2228105b7e562b30f2a11ec813ed4bc925070e3:modified:defender-xdr/governance-relationships.md",
+      "firstSeenAt": "2026-10-21T07:37:39.335Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Governance guidance adds Defender URBAC assignment steps",
+        "summary": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access.",
+        "adminImpact": "Administrators can use the updated steps to configure Sentinel access through Defender URBAC and identify any separate data-plane permissions required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 6,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The page author metadata changed from paulinbar/painbar to limwainstein. The uninstall guidance continues to direct administrators to the Offboard Mac devices documentation for cleanup requirements. The macOS 101.26082.0012 release adds EDR support for configuring AI agent runtime protection, plus Bluetooth permission and antivirus health reporting improvements, accessibility updates, reliability fixes, and performance fixes. The documentation now covers Windows, Linux client and server, macOS, Android, and iOS offboarding. It also distinguishes subscription-wide Azure server offboarding from manual individual-server offboarding and clarifies that offboarding does not uninstall software. The",
+        "sourceFiles": [
+          "defender-endpoint/mac-resources.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/offboard-machines.md",
+          "defender-endpoint/onboard-server.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access.",
+        "sourceFiles": [
+          "defender-xdr/governance-relationships.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The page author metadata changed from paulinbar/painbar to limwainstein. The uninstall guidance continues to direct administrators to the Offboard Mac devices documentation for cleanup requirements. The macOS 101.26082.0012 release adds EDR support for configuring AI agent runtime protection, plus Bluetooth permission and antivirus health reporting improvements, accessibility updates, reliability fixes, and performance fixes. The documentation now covers Windows, Linux client and server, macOS, Android, and iOS offboarding. It also distinguishes subscription-wide Azure server offboarding from manual individual-server offboarding and clarifies that offboarding does not uninstall software. The"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The documentation now explains how to grant Microsoft Sentinel permissions to delegated remote tenant groups through Defender URBAC, including required permissions, role assignment, and workspace selection. It also retains the resource-group assignment option and clarifies management-plane versus data-plane access."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
