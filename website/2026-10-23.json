@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\nindex 31997eb..ffc60c0 100644\n--- a/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n+++ b/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n@@ -35,13 +35,13 @@ monikers: []\n item_type: Content\n source_path: defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n - https://authoring-docs-microsoft.poolparty.biz/devrel/3e34b70d-bca0-4369-a01b-71d1edfd427b\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ca32b3f-fa14-46df-b09a-9c4a591d6396\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: 52df21d8-6252-f809-99fc-9b89a2768418\n ---\n \n@@ -179,11 +179,11 @@ The only scenario that requires an opt-in group is if all users are included in\n \r\n After you complete the previous steps, members of the **opt-in** group (users who have the **opt-in** anti-spam policy applied) *currently* have the following experiences, based on their version of Outlook:\r\n \r\n-| Feature | Outlook onthe web | Outlook for Windows | Outlook foriOS and Android | Classic Outlook |\r\n-| --- | --- | --- | --- | --- |\r\n-| All messages identified as bulk have the **Promotions** tag applied, regardless of the message location. | ✔ | ✔ |  |  |\r\n-| The **Promotions** tag is available as a condition in [Inbox rules](https://support.microsoft.com/office/8400435c-f14e-4272-9004-1548bb1848f2). For example: [![Screenshot of the Inbox rule creation steps in Outlook on the web to use the Bulk tag as a condition to move messages into the Promotions folder.](media/promotions-folder-inbox-rules.png)](media/promotions-folder-inbox-rules.png#lightbox) | ✔ | ✔ |  |  |\r\n-| Bulk mail below the BCL threshold that invokes the bulk action in the anti-spam policy is delivered to the **Promotions** folder, and the system learns as the users moves messages into and out of the folder. | ✔ | ✔ | ✔ | ✔ |\r\n+| Feature | Outlook onthe web | Outlook for Windows | Outlook foriOS and Android | Classic Outlook | Outlook for MAC |\r\n+| --- | --- | --- | --- | --- | --- |\r\n+| All messages identified as bulk have the **Promotions** tag applied, regardless of the message location. | ✔ | ✔ |  |  |  |\r\n+| The **Promotions** tag is available as a condition in [Inbox rules](https://support.microsoft.com/office/8400435c-f14e-4272-9004-1548bb1848f2). For example: [![Screenshot of the Inbox rule creation steps in Outlook on the web to use the Bulk tag as a condition to move messages into the Promotions folder.](media/promotions-folder-inbox-rules.png)](media/promotions-folder-inbox-rules.png#lightbox) | ✔ | ✔ |  |  |  |\r\n+| Bulk mail below the BCL threshold that invokes the bulk action in the anti-spam policy is delivered to the **Promotions** folder, and the system learns as the users moves messages into and out of the folder. | ✔ | ✔ | ✔ | ✔ | ✔ |\r\n \r\n ### About the Promotions folder\r\n \r\n@@ -192,7 +192,7 @@ The **Promotions** folder in user mailboxes has the following characteristics:\n - **Promotions**is a regular folder, not a system folder.\r\n     - After the anti-spam policy is applied to a user, the **Promotions** folder is created in the mailbox when the first bulk message is delivered to the mailbox.\r\n     - If you soft delete the folder (available in **Deleted items**), bulk messages are delivered to the folder in **Deleted items**.\r\n-    - Currently, if you hard delete the folder (available in **Recoverable items**), future bulk messages are delivered to the Inbox.\r\n+    - Currently, if you hard delete the folder (available in **Recoverable items**), the folder will get recreated in a few minutes.\r\n     - If an unrelated **Promotions** folder already exists in the mailbox, a new folder named **Promotions(1)** is created and used.\r\n     - If you rename or move the **Promotions** folder, it continues to work (the name or location of the folder doesn't matter).\r\n - Bulk mail that would normally be delivered to the **Promotions**folder is delivered to the Inbox in the following scenarios:\r\n",
+      "baseCommitSha": "5d3c5cd45e2a9cf393f0c587e162793651db2e71",
+      "commitSha": "0c800ad308be5395777d3419d12aead727d2c6b0",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-23 06:13:29 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-bulk-complaint-level-bcl-about",
+      "eventId": "defender-docs:0c800ad308be5395777d3419d12aead727d2c6b0:modified:defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md",
+      "firstSeenAt": "2026-10-23T07:30:21.270Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Bulk-mail guidance now includes Outlook for Mac",
+        "summary": "The behavior matrix adds Outlook for Mac and indicates that bulk mail below the BCL threshold can be delivered to the Promotions folder there. It also states that deleting the folder permanently causes it to be recreated within a few minutes.",
+        "adminImpact": "No administrator action is stated. Consider this behavior when supporting Mac users or troubleshooting bulk-mail delivery.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Office 365",
+        "summary": "The behavior matrix adds Outlook for Mac and indicates that bulk mail below the BCL threshold can be delivered to the Promotions folder there. It also states that deleting the folder permanently causes it to be recreated within a few minutes.",
+        "sourceFiles": [
+          "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Office 365",
+        "detail": "The behavior matrix adds Outlook for Mac and indicates that bulk mail below the BCL threshold can be delivered to the Promotions folder there. It also states that deleting the folder permanently causes it to be recreated within a few minutes."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
