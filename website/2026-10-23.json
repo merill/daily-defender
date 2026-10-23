@@ -26,19 +26,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 2,
+      "changes": 20,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex be09fd4..cb95195 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -33,13 +33,13 @@ monikers: []\n item_type: Content\n source_path: defender-endpoint/microsoft-defender-endpoint-releases.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ec6774-09b8-473e-a17e-b17b518bbad7\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/e0ffb20c-01c6-407b-a9bd-29111652a1dc\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ade36b61-c646-4bd8-87ee-f3a843461962\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/3904bce4-d817-48cf-85fd-b6146fca83b7\n platformId: 489b2a93-728e-0a40-5b05-d494dd07e66f\n ---\n \n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| Android | 1.0.9406.0102 | Oct 2026 | - Build: 1.0.9406.0102- Release: Oct 23, 2026 | Release details and updates |\r\n | macOS | 101.26082.0012 | October 2026 | - Release version: 20.126082.12.0- Engine version: 1.1.26100.3000- Signature version: 1.461.61.0 | Release details and updates |\r\n | Linux | 101.26091.0003 | October 2026 | - Release version: 30.126091.0003.0- Engine version: 1.1.26090.3000- Signature version: 1.461.35.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26090.9 / Engine 1.1.26090.9 | September 2026 | - Platform: 4.18.26090.9- Engine: 1.1.26090.9- Security intelligence: 1.461.1.0 | Release details and updates |\r\n@@ -956,6 +957,21 @@ Fixed in platform version 101.26052.0011 and later. FIPS-enabled RHEL 8/9 device\n \r\n See the full list of [Android UX improvements](android-new-ux).\r\n \r\n+### Android | Oct 2026 | Platform: 1.0.9406.0102\r\n+\r\n+#### Release details\r\n+\r\n+| Platform version | Release Date |\r\n+| --- | --- |\r\n+| 1.0.9406.0102 | Oct 23, 2026 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature Area | Update Summary |\r\n+| --- | --- |\r\n+| Shared Device Management | Added **[Preview] Silent running mode** as a managed configuration for shared devices. Administrators can use `SilentRunMode` to enable (`1`) or disable (`0`, default) the setting. |\r\n+| General | Performance improvements and general bug fixes. |\r\n+\r\n ### Android | Sep 2026 | Platform: 1.0.9330.0101\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "0c800ad308be5395777d3419d12aead727d2c6b0",
+      "commitSha": "b6549b9b7fa05b3b54bbbcf36f5179ab7b2d0c5a",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-23 12:48:51 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:b6549b9b7fa05b3b54bbbcf36f5179ab7b2d0c5a:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-10-23T13:21:45.527Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Android shared devices add SilentRunMode configuration",
+        "summary": "The October 2026 Android release notes document Silent running mode for Shared Device Management. Administrators can set SilentRunMode to 1 to enable it or 0 (the default) to disable it.",
+        "adminImpact": "Administrators managing shared Android devices can configure this setting; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 2,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -47,6 +73,14 @@
         "sourceFiles": [
           "defender-office-365/anti-spam-bulk-complaint-level-bcl-about.md"
         ]
+      },
+      {
+        "category": "New feature",
+        "title": "Defender for Endpoint",
+        "summary": "The October 2026 Android release notes document Silent running mode for Shared Device Management. Administrators can set SilentRunMode to 1 to enable it or 0 (the default) to disable it.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
       }
     ],
     "highlights": [
@@ -54,6 +88,11 @@
         "category": "Feature update",
         "headline": "Defender for Office 365",
         "detail": "The behavior matrix adds Outlook for Mac and indicates that bulk mail below the BCL threshold can be delivered to the Promotions folder there. It also states that deleting the folder permanently causes it to be recreated within a few minutes."
+      },
+      {
+        "category": "New feature",
+        "headline": "Defender for Endpoint",
+        "detail": "The October 2026 Android release notes document Silent running mode for Shared Device Management. Administrators can set SilentRunMode to 1 to enable it or 0 (the default) to disable it."
       }
     ],
     "generatedBy": "fallback"
