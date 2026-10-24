@@ -1,0 +1,140 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/update-agent-mma-windows.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/update-agent-mma-windows.md b/defender-endpoint/update-agent-mma-windows.md\nindex b4b74cc..231b213 100644\n--- a/defender-endpoint/update-agent-mma-windows.md\n+++ b/defender-endpoint/update-agent-mma-windows.md\n@@ -39,12 +39,12 @@ item_type: Content\n source_path: defender-endpoint/update-agent-mma-windows.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/fc3f72c2-fb6f-4cea-95ee-b444e52254ee\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/fc3f72c2-fb6f-4cea-95ee-b444e52254ee\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/f12cf087-582d-48ac-a085-0c19adf1e391\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/f12cf087-582d-48ac-a085-0c19adf1e391\n platformId: d4ff7be2-2511-89be-bc9b-ae361b76f834\n ---\n \n@@ -52,7 +52,7 @@ platformId: d4ff7be2-2511-89be-bc9b-ae361b76f834\n \n Important\r\n \r\n-If you've arrived on this page as a result of clicking on a notification at the [Microsoft Defender portal](https://security.microsoft.com), you have devices in your environment with outdated agents, and you need to take action (described in this article) to avoid service disruption. For more details, please reference message center post MC598631 (requires access to [Message Center](/en-us/microsoft-365/admin/manage/message-center)).\r\n+If you've arrived on this page as a result of clicking on a notification at the [Microsoft Defender portal](https://security.microsoft.com), you have devices in your environment with outdated agents, and you need to take action (described in this article) to avoid service disruption. For more details, please reference message center post MC1465767 (requires access to [Message Center](/en-us/microsoft-365/admin/manage/message-center)).\r\n \r\n If you're using the Microsoft Monitoring Agent (MMA) on Windows devices, it's important to keep this agent updated. Microsoft recommends upgrading to the latest version of Defender for Endpoint. This article describes how to:\r\n \r\n@@ -63,7 +63,7 @@ If you're using the Microsoft Monitoring Agent (MMA) on Windows devices, it's im\n \r\n *This option applies to devices running Windows 8.1 Pro and Windows 8.1 Enterprise.*\r\n \r\n-- To help you identify older versions of the MMA inside of your organization, you can use the \"EOSDate\" column in advanced hunting. Or, follow the instructions in [Plan for end-of-support software and software versions](/en-us/defender-vulnerability-management/tvm-end-of-support-software) to use the vulnerability management feature inside of Microsoft Defender for Endpoint to track remediation.\r\n+- Follow the instructions in [Plan for end-of-support software and software versions](/en-us/defender-vulnerability-management/tvm-end-of-support-software) to use the vulnerability management feature inside of Microsoft Defender for Endpoint to track remediation.\r\n - See [Manage and maintain the Log Analytics agent for Windows and Linux](/en-us/azure/azure-monitor/agents/agent-manage?tabs=PowerShellLinux) for instructions on how to upgrade the agent using Azure Automation or a command-line approach to use with various deployment tools and methods.\r\n - Update MMA by using [Microsoft Update](/en-us/windows/deployment/update/how-windows-update-works), through [Windows Server Update Services](/en-us/windows/deployment/update/waas-manage-updates-wsus) or [Configuration Manager](/en-us/intune/configmgr/osd/deploy-use/manage-windows-as-a-service). Use the method that was configured when MMA was first installed on the device.\r\n - Download the MMA setup file:\r\n",
+      "baseCommitSha": "b6549b9b7fa05b3b54bbbcf36f5179ab7b2d0c5a",
+      "commitSha": "6158a14d52d3141d9b57bd38a543f882d02257c8",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-24 06:08:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/update-agent-mma-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/update-agent-mma-windows",
+      "eventId": "defender-docs:6158a14d52d3141d9b57bd38a543f882d02257c8:modified:defender-endpoint/update-agent-mma-windows.md",
+      "firstSeenAt": "2026-10-24T07:16:34.508Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MMA agent guidance now directs admins to vulnerability management",
+        "summary": "The article no longer recommends using the EOSDate column in Advanced Hunting. It now directs administrators to the end-of-support software guidance and Microsoft Defender for Endpoint vulnerability management to track remediation.",
+        "adminImpact": "Administrators with outdated agents should follow the updated remediation guidance to avoid service disruption.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/azure-storage-blob-connector-troubleshoot.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 1,
+      "changes": 17,
+      "patch": "diff --git a/sentinel/azure-storage-blob-connector-troubleshoot.md b/sentinel/azure-storage-blob-connector-troubleshoot.md\nindex ee0408e..b7dcb6c 100644\n--- a/sentinel/azure-storage-blob-connector-troubleshoot.md\n+++ b/sentinel/azure-storage-blob-connector-troubleshoot.md\n@@ -43,9 +43,11 @@ source_path: sentinel/azure-storage-blob-connector-troubleshoot.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/de8ce683-cbe1-461b-bae7-77db0888ec6d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/467aaae1-e916-4fcd-a463-5b27f9d4745c\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/a06cf482-4ca9-4582-a142-bcf842258d42\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fbd4eef5-2258-406b-95d3-2c68fa333b20\n platformId: f9488950-bfb1-b82a-f119-2d6239e83018\n ---\n \n@@ -120,6 +122,11 @@ Review the [Set up your Azure Storage connector](setup-azure-storage-connector)\n 2. Verify that the service principal has the **Storage Blob Data Reader** role on the storage accounts hosting the blob container.\r\n 3. Verify that the service principal has the **Storage Queue Data Contributor** role on the storage accounts hosting the message queues.\r\n \r\n+Steps to add roles to the service principal on the storage accounts:\r\n+\r\n+1. Select **Add Connection**. Under **Connection configuration**, copy **Sentinel azure storage enterprise application - service principal ID**.\r\n+2. On the storage account, open **Access Control (IAM)** → **Add role assignment**. Assign **Storage Blob Data Reader** and **Storage Queue Data Contributor** to that service principal.\r\n+\r\n Tip\r\n \r\n Clues to failures of this kind are exposed on connectivity check issues during installation and in the `SentinelHealth` table for active connectors.\r\n@@ -173,4 +180,12 @@ The Data Collection Rule (DCR) or Data Collection Endpoint (DCE) referenced by t\n 3. Verify that the `streamName` in the connector configuration matches the `streamDeclarations` defined in the DCR.\r\n 4. If the DCR uses a KQL transformation query, test the query independently in the Log Analytics workspace to ensure it's valid.\r\n 5. Verify that the destination table defined in the DCR exists in the Log Analytics workspace and has the expected schema.\r\n-6. For more information on configuring the DCR, see the [DCR configuration](data-connection-rules-reference-azure-storage#dcr-configuration) section in the API reference.\n\\ No newline at end of file\n+6. For more information on configuring the DCR, see the [DCR configuration](data-connection-rules-reference-azure-storage#dcr-configuration) section in the API reference.\r\n+\r\n+### Cause 6: Event Grid permissions aren't set properly\r\n+\r\n+**Managed Identity Authorization Error:**\r\n+\r\n+This error can happen when user pick \"Use an existing storage-account role assignment\" under **Event Grid Storage Queue Data Message Sender assignment**, however, the identity of Event Grid System Topic doesn't have Storage Queue Data Message Sender role on the storage account. To resolve the issue, select \"Create the required storage-account role assignment\" under **Event Grid Storage Queue Data Message Sender assignmen**t.**RoleAssignmentExists:**\r\n+\r\n+This error can happen when user pick \"Create the required storage-account role assignment\" under **Event Grid Storage Queue Data Message Sender assignmen**t, however, there is an existing Storage Queue Data Message Sender role on the Event Grid System Topic has been assigned on the storage account. To resolve the issue, pick \"Use an existing storage-account role assignment\" or delete the existing Storage Queue Data Message Sender role on the identity of the Event Grid System Topic from the storage account, then reconnect.\n\\ No newline at end of file\n",
+      "baseCommitSha": "b6549b9b7fa05b3b54bbbcf36f5179ab7b2d0c5a",
+      "commitSha": "6158a14d52d3141d9b57bd38a543f882d02257c8",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-24 06:08:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/azure-storage-blob-connector-troubleshoot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/azure-storage-blob-connector-troubleshoot",
+      "eventId": "defender-docs:6158a14d52d3141d9b57bd38a543f882d02257c8:modified:sentinel/azure-storage-blob-connector-troubleshoot.md",
+      "firstSeenAt": "2026-10-24T07:16:34.512Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Storage blob connector troubleshooting adds role and Event Grid guidance",
+        "summary": "The troubleshooting article now explains how to assign Storage Blob Data Reader and Storage Queue Data Contributor roles to the Sentinel service principal, and adds guidance for Event Grid storage queue permission errors.",
+        "adminImpact": "Administrators troubleshooting connector authorization failures can use the new role-assignment and Event Grid permission guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1523084",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-10-23",
+      "title": "Microsoft Defender for Office 365: Move email messages to quarantine with a new remediation action",
+      "summary": "Microsoft Defender for Office 365 Plan 2 introduces a new \"Move to Quarantine\" remediation action allowing admins to move suspicious emails from user mailboxes to Defender quarantine for safer investigation and management. It rolls out worldwide from November to December 2026, requiring no user action but recommended policy reviews and training updates.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "email",
+        "name": "Email and collaboration",
+        "icon": "/assets/topics/email.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1523084/",
+      "originalUrl": "https://mc.merill.net/message/MC1523084",
+      "body": "<p><b><b>What and why</b></b></p><p>We are introducing <b><i>Move to Quarantine</i></b>, a new remediation action in <i>Microsoft Defender for Office 365</i>. It enables security teams to move potentially malicious email messages from users' mailboxes directly to Microsoft Defender quarantine. This provides a safer and more flexible way to contain suspicious messages that bypassed initial detection while preserving the ability to investigate, release, or permanently delete them later.</p><p>This capability is available with Microsoft Defender for Office 365 Plan 2, including eligible Microsoft 365 subscriptions that include Plan 2.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide):</b> Beginning in <b>early November 2026</b> and expected to complete by <b>mid-December 2026</b></li></ul><p></p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations with Microsoft Defender for Office 365 Plan 2</li><li>Authorized security administrators who remediate email threats</li></ul><p><i>Platforms and services</i></p><p>Microsoft Defender for Office 365, including:</p><ul><li>Threat Explorer</li><li>Advanced Hunting</li><li>Custom detection rules for email results</li><li>Email entity and email summary experiences</li><li>Unified Action Center</li></ul><p><i>What will happen</i></p><p>Authorized administrators will see a new Move to Quarantine remediation action.</p><p>When an administrator selects <b><i>Move to Quarantine</i></b>:</p><ul><li>Selected email messages are removed from user-accessible mailbox locations and placed in <i>Microsoft Defender quarantine</i>.</li><li>Supported source locations include <b><i>Inbox</i></b>, <b><i>Junk Email</i></b>, <b><i>Deleted Items</i></b>, and recoverable soft-deleted locations.</li><li>Admins can select the <b>quarantine policy</b> when using the <b>Move to quarantine</b> action. The selected policy determines how end users can interact with the quarantined messages. By default, quarantined messages are accessible only to admins.</li><li>The remediation action and status are tracked in the <i>Unified Action Center</i> and related investigation experiences.</li><li>Quarantined messages are identified with the quarantine reason Admin triggered.</li><li>Authorized users can preview, release, or permanently delete quarantined messages according to the applicable quarantine policy.</li><li>Releasing a message from quarantine delivers the message to the user's Inbox.</li><li>The <b>Search and Purge</b> role is required to approve remediation actions.</li><li>If one or more messages cannot be moved, eligible messages continue processing and administrators can review the results for partial failures.</li></ul><p></p><p><i>Screenshot 1 - Move to Quarantine option in the Take Action wizard:</i></p><p><i>&nbsp;</i></p><p></p><p><i>Screenshot 2 - Admin-triggered message and action details displayed in Advanced Hunting:</i></p><p><i>&nbsp;</i></p><p></p><p>The following existing functionality is unchanged:</p><ul><li>Existing remediation actions, including <b><i>Move to Junk</i></b>, <b><i>Move to Deleted Items</i></b>, <b><i>Soft delete</i></b>, and <b><i>Hard delete</i></b></li><li>Threat verdict assignments</li><li>Existing remediation approval workflows and permissions</li><li>Automated Investigation and Response (AIR) actions</li><li>Microsoft Graph API capabilities</li><li>Messages in unsupported locations, including hard-deleted messages and messages hosted in on-premises or external mailboxes</li></ul><p></p><p><b><b>Action required and recommendations</b></b></p><p>No action is required to enable this capability.</p><p>We recommend that you:</p><ul><li>Review your organization's quarantine policies.</li><li>Verify that appropriate administrators have the required <b>Search and Purge</b> role.</li><li>Update incident response playbooks and security operations procedures to include <b><i>Move to Quarantine</i></b> as a remediation option.</li><li>Update internal training and operational documentation as appropriate.</li><li>Inform security analysts and responders about the new containment action.</li></ul><p><b>Learn more</b></p><ul><li>(To be updated during rollout) <a href=\"https://learn.microsoft.com/defender-office-365/remediate-malicious-email-delivered-office-365\" rel=\"noopener noreferrer\">Remediate malicious email that was delivered in Office 365 - Microsoft Defender for Office 365 | Microsoft Learn</a></li></ul><p></p><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td><b>Question</b></td><td><b>Answer</b></td></tr><tr><td>Does the change alter how existing customer data is processed, stored, or accessed?</td><td><b>Yes.</b> Authorized administrators can move selected email messages from supported user mailbox locations into Microsoft Defender quarantine.</td></tr><tr><td>Does the change modify how users can access, export, delete, or correct their personal data within Microsoft 365 services?</td><td><b>Yes.</b> Selected messages can be removed from user-accessible mailbox locations. Authorized users can later preview, release, or permanently delete quarantined messages according to the applicable quarantine policy.</td></tr></tbody></table>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-23T23:07:59Z",
+      "endDate": "2027-01-15T08:00:00Z",
+      "lastModifiedDateTime": "2026-10-23T23:08:12.34Z",
+      "version": "2026-10-23T23:08:12.34Z",
+      "eventId": "message-center:MC1523084:2026-10-23T23:08:12.34Z",
+      "firstSeenAt": "2026-10-24T07:16:42.356Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The article no longer recommends using the EOSDate column in Advanced Hunting. It now directs administrators to the end-of-support software guidance and Microsoft Defender for Endpoint vulnerability management to track remediation.",
+        "sourceFiles": [
+          "defender-endpoint/update-agent-mma-windows.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The troubleshooting article now explains how to assign Storage Blob Data Reader and Storage Queue Data Contributor roles to the Sentinel service principal, and adds guidance for Event Grid storage queue permission errors.",
+        "sourceFiles": [
+          "sentinel/azure-storage-blob-connector-troubleshoot.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The article no longer recommends using the EOSDate column in Advanced Hunting. It now directs administrators to the end-of-support software guidance and Microsoft Defender for Endpoint vulnerability management to track remediation."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The troubleshooting article now explains how to assign Storage Blob Data Reader and Storage Queue Data Contributor roles to the Sentinel service principal, and adds guidance for Event Grid storage queue permission errors."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
