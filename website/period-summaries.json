@@ -7991,6 +7991,52 @@
         "outputTokens": 3065,
         "costUsd": 0.003948
       }
+    },
+    "2026-10-26": {
+      "headline": "AKS Deny policies can block Defender for Cloud Security Gating provisioning",
+      "overview": "The most consequential update adds explicit Defender for Cloud guidance for AKS clusters: Deny policies can trigger RequestDisallowedByPolicy during Security Gating provisioning, even when clusters are compliant. The period also records an Endpoint Linux release, revised Sentinel residency guidance, Vulnerability Management detection and recommendation fixes, and four GA sensor entries.",
+      "adminImpact": "Before enabling Security Gating, review applicable Azure Policy assignments and coordinate any approved Audit or narrowly scoped exemption changes. Administrators can plan Azure Linux 4 coverage and investigate TCP socket binding after telemetry reaches their tenants; Sentinel residency and affected vulnerability reports should be assessed using the updated guidance.",
+      "keyChanges": [
+        {
+          "title": "AKS Deny policies are documented as a Security Gating provisioning blocker",
+          "detail": "The enablement guide now states that Deny policies targeting AKS managed clusters can cause RequestDisallowedByPolicy when Security Gating provisions resources, including on compliant clusters. It adds steps to identify the blocking assignment in the Activity Log and use Audit or a narrowly scoped exemption with the Azure Policy administrator.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-04"
+        },
+        {
+          "title": "Endpoint Linux 101.26091.0004 adds Azure Linux 4 and socket-bind telemetry",
+          "detail": "The October 2026 release notes list Linux version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-01"
+        },
+        {
+          "title": "Sentinel residency guidance maps data to onboarding or Defender XDR regions",
+          "detail": "The page now states that Sentinel processes and stores processed and configuration data in onboarding destination regions or applicable existing Defender XDR regions. It also expands the processed-data examples and removes the 21Vianet retirement notice.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
+        },
+        {
+          "title": "Vulnerability Management lists detection and recommendation fixes",
+          "detail": "The Fixed Reported Inaccuracies page now lists detection and recommendation fixes, revised Python end-of-support details, and MDVM support for Intel Endpoint Management Assistant and several Microsoft extensions, with entries dated September 7–23 and October 3–9, 2026. Reports and recommendations may change for affected products and vulnerabilities.",
+          "product": "Vulnerability Management",
+          "sourceId": "doc-2026-10-26-fixed-reported-inaccuracies-05"
+        },
+        {
+          "title": "Defender sensor changelog adds four October GA versions and CA trust removal",
+          "detail": "The changelog adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. Their images remove trust in affected certificate authorities; review these releases when planning sensor updates.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-defender-sensor-change-log-03"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-26T15:09:41.012Z",
+      "usage": {
+        "inputTokens": 2001,
+        "outputTokens": 3771,
+        "costUsd": 0.004925
+      }
     }
   },
   "weeks": {
@@ -9667,6 +9713,52 @@
         "outputTokens": 8879,
         "costUsd": 0.012762
       }
+    },
+    "2026-10-26": {
+      "headline": "Deny policies can block Defender for Cloud Security Gating on compliant AKS clusters",
+      "overview": "The most consequential update is new Defender for Cloud guidance around AKS policy conflicts: Deny assignments can prevent Security Gating provisioning with RequestDisallowedByPolicy even on compliant clusters, and troubleshooting guidance now explains how to locate the conflict. Endpoint release notes identify Azure Linux 4 support and TCP socket bind telemetry, while Sentinel residency guidance specifies where processed and configuration data are handled. Defender for Cloud’s sensor changelog also records October GA images that remove trust in affected certificate authorities.",
+      "adminImpact": "Before enabling Security Gating, review applicable Azure Policy assignments with the policy administrator. If provisioning fails, use the Activity Log to identify the blocking assignment and pursue an Audit setting or narrowly scoped exemption where approved. Administrators can also plan Azure Linux 4 coverage, account for the updated Sentinel residency description, and review the listed sensor releases.",
+      "keyChanges": [
+        {
+          "title": "Security Gating guidance exposes compliant-cluster policy failures",
+          "detail": "The enablement guide now states that `Deny` policies targeting AKS managed clusters can prevent Security Gating provisioning with `RequestDisallowedByPolicy`, even when the clusters are compliant. It adds steps to identify the blocking assignment in the Activity Log and use `Audit` or a narrowly scoped exemption.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-04"
+        },
+        {
+          "title": "Container troubleshooting adds the admission-controller failure path",
+          "detail": "The troubleshooting page now covers missing admission-controller resources and failed AKS writes with `RequestDisallowedByPolicy`, identifies policies that may conflict, and describes resolution through narrowly scoped changes or Microsoft Support.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-defender-for-containers-troubleshoot-02"
+        },
+        {
+          "title": "Linux release notes identify Azure Linux 4 and socket telemetry",
+          "detail": "The October 2026 Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the `DeviceNetworkEvents` table.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-01"
+        },
+        {
+          "title": "Sentinel residency guidance now specifies processing and storage regions",
+          "detail": "The page now states that Sentinel processes and stores processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also expands the processed-data examples and removes the 21Vianet retirement notice.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
+        },
+        {
+          "title": "Sensor changelog records October GA images with certificate distrust changes",
+          "detail": "The Defender for Cloud sensor changelog adds October 2026 GA entries for versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. The listed images remove trust in affected certificate authorities; review these releases when planning sensor updates.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-defender-sensor-change-log-03"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-26T15:09:41.012Z",
+      "usage": {
+        "inputTokens": 1806,
+        "outputTokens": 3262,
+        "costUsd": 0.004276
+      }
     }
   },
   "months": {
@@ -10036,54 +10128,54 @@
       }
     },
     "2026-10": {
-      "headline": "Defender portal preview adds migration consequences as Office 365 access and quarantine change",
-      "overview": "October's clearest operational story is a previewed Defender for Cloud portal workflow with real migration consequences: global plan enablement applies to current and future environments, resource-level configurations are not preserved, and migrated settings become view-only in the Azure portal; related guidance says onboarding and plan management currently support Azure commercial environments, with billing based on Defender Workload Units. Endpoint guidance makes Direct onboarding's tenant-wide scope explicit. Defender for Office 365 will remove default Security Operator access to email threat policies and the Tenant Allow/Block List in November when Unified RBAC is enabled, add Plan 2 Move to Quarantine in November–December, and roll out post-delivery Teams QR-code protection in October–November. Other entries were mostly guidance and reference maintenance.",
-      "adminImpact": "Before adopting portal-managed plans, confirm Azure commercial eligibility, required permissions, global versus scoped configuration, resource-level setting preservation, view-only Azure portal behavior, and DWU billing. Treat Direct onboarding as tenant-wide; servers already reporting to Defender for Endpoint need no onboarding, reinstallation, or migration. Where Unified RBAC is enabled, assign the required Security Operator permissions before November if continued access is needed. Review quarantine policies and training, plus Teams URL-protection settings and investigation processes, before their rollouts; QR protection itself requires no user action.",
+      "headline": "Defender for Cloud portal plan management enters preview with migration limits",
+      "overview": "October's strongest administrator-facing change was the Defender for Cloud portal plan-management preview: global or scoped configuration now has explicit Azure commercial scope, migration behavior, view-only Azure portal settings, lost resource-level configurations, and DWU billing. Defender for Office 365 also has a November Unified RBAC permission change, a November–December Plan 2 quarantine rollout, and October–November post-delivery Teams QR protection. Outside those rollouts, two Cloud Apps EWS anomaly detections stop generating alerts after October 15; much of the remaining period was procedural documentation maintenance.",
+      "adminImpact": "Before moving plan management, verify Azure commercial eligibility and required permissions; inventory resource-level settings that will not be preserved, prepare for Azure portal view-only controls, and account for Defender Workload Unit billing. Before November, review Unified RBAC grants for Microsoft Entra Security Operator users. For Plan 2, review policy and training impacts; for Teams, review related URL protection settings and investigation processes. Do not rely on the two retired EWS detections for alerts.",
       "keyChanges": [
         {
-          "title": "Defender for Cloud plan-management preview defines migration and setting loss",
-          "detail": "The new preview guidance covers global or scoped plan configuration across connected Azure commercial environments, required permissions, and migration behavior. Global enablement migrates current environments and applies to future ones; resource-level configurations are not preserved, and migrated settings become view-only in the Azure portal.",
+          "title": "Defender for Cloud portal plan management enters preview",
+          "detail": "New preview guidance covers global or scoped plan configuration across connected Azure commercial environments, required permissions, and migration behavior. Resource-level configurations are not preserved after migration, and migrated settings become view-only in the Azure portal.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-20-manage-cloud-security-plans-in-the-defender-portal-microsoft-defender-for-cloud-microsoft-learn-03"
         },
         {
-          "title": "Direct server onboarding is explicitly tenant-wide",
-          "detail": "Updated Endpoint guidance separates automatic onboarding, manual deployment, and servers already reporting to Defender for Endpoint, and adds prerequisites, rollout preparation, and antivirus-coexistence considerations. It warns that Direct onboarding has tenant-wide scope; servers already reporting do not need onboarding, reinstallation, or migration.",
-          "product": "Microsoft Defender for Endpoint",
-          "sourceId": "doc-2026-10-20-onboard-servers-to-microsoft-defender-microsoft-defender-for-endpoint-microsoft-learn-07"
-        },
-        {
-          "title": "Security Operator loses default Defender for Office 365 policy access in November",
-          "detail": "Starting November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List. Where Unified RBAC is enabled, administrators must manually assign permissions to preserve that access.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Security Operator loses default Defender for Office 365 policy access",
+          "detail": "Starting November 2026, Unified RBAC mapping removes the Microsoft Entra Security Operator role's default access to email threat policies and the Tenant Allow/Block List. Administrators must assign permissions manually to preserve access when Unified RBAC is enabled.",
+          "product": "Defender XDR (Defender for Office 365)",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Plan 2 adds the Move to Quarantine remediation action",
-          "detail": "The new remediation action can move suspicious email from user mailboxes into Defender quarantine. Worldwide rollout is scheduled for November–December 2026, with policy reviews and training updates recommended.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Plan 2 adds a Move to Quarantine remediation action",
+          "detail": "Defender for Office 365 Plan 2 will let administrators move suspicious messages from user mailboxes into Defender quarantine. Worldwide rollout is scheduled for November–December 2026; no user action is required, but policy reviews and training updates are recommended.",
+          "product": "Defender XDR (Defender for Office 365)",
           "sourceId": "MC1523084"
         },
         {
-          "title": "Teams URL protection expands to malicious QR codes after delivery",
-          "detail": "Defender for Office 365 will extend Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and expose activity for investigation through Advanced Hunting. Worldwide rollout is planned for October–November 2026, with no user action required.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Teams protection expands to malicious QR codes after delivery",
+          "detail": "Teams URL protection will detect malicious URLs embedded in QR codes post-delivery, warn users, and expose activity for security-team investigation through Advanced Hunting. Worldwide rollout runs from October through November 2026, with no user action required.",
+          "product": "Defender XDR (Defender for Office 365)",
           "sourceId": "MC1490905"
+        },
+        {
+          "title": "Two Cloud Apps EWS anomaly detections stop generating alerts",
+          "detail": "As of October 15, 2026, two EWS-based App Governance anomaly detections are marked Retired and no longer generate alerts. They should no longer be treated as active detection coverage.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-25T22:32:25.175Z",
+      "generatedAt": "2026-10-26T15:09:41.012Z",
       "usage": {
-        "inputTokens": 6928,
-        "outputTokens": 10406,
-        "costUsd": 0.013873
+        "inputTokens": 7143,
+        "outputTokens": 11264,
+        "costUsd": 0.014945
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-25T22:32:25.175Z",
+  "generatedAt": "2026-10-26T15:09:41.012Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10244,18 +10336,24 @@
       "outputTokens": 40739,
       "requests": 6,
       "costUsd": 0.05638
+    },
+    "2026-10-26": {
+      "inputTokens": 10950,
+      "outputTokens": 18297,
+      "requests": 3,
+      "costUsd": 0.024146
     }
   },
   "lastRun": {
-    "inputTokens": 18814,
-    "outputTokens": 22350,
+    "inputTokens": 10950,
+    "outputTokens": 18297,
     "requests": 3,
-    "costUsd": 0.030583
+    "costUsd": 0.024146
   },
   "totalUsage": {
-    "inputTokens": 1027615,
-    "outputTokens": 1039977,
-    "requests": 207,
-    "costUsd": 1.453492
+    "inputTokens": 1038565,
+    "outputTokens": 1058274,
+    "requests": 210,
+    "costUsd": 1.477638
   }
 }

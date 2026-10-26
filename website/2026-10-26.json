@@ -1,0 +1,298 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 3,
+      "changes": 22,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex cb95195..d493f17 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -11,11 +11,11 @@ manager: bagol\n description: Find release details for Microsoft Defender for Endpoint on Windows, macOS, Linux, Android, and iOS from the past six months.\n ms.topic: whats-new\n ms.service: defender-endpoint\n-author: abhisheksh\n-ms.author: abhisheksh\n+author: Vjindal\n+ms.author: vjindal\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 2026-10-16T00:00:00.0000000Z\n+ms.date: 2026-10-23T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: a82695da-2a19-ab7b-fd85-324ba1ae897f\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| Linux | 101.26091.0004 | October 2026 | - Release version: 30.126091.0004.0- Engine version: 1.1.26070.5001- Signature version: 1.457.364.0 | Release details and updates |\r\n | Android | 1.0.9406.0102 | Oct 2026 | - Build: 1.0.9406.0102- Release: Oct 23, 2026 | Release details and updates |\r\n | macOS | 101.26082.0012 | October 2026 | - Release version: 20.126082.12.0- Engine version: 1.1.26100.3000- Signature version: 1.461.61.0 | Release details and updates |\r\n | Linux | 101.26091.0003 | October 2026 | - Release version: 30.126091.0003.0- Engine version: 1.1.26090.3000- Signature version: 1.461.35.0 | Release details and updates |\r\n@@ -634,6 +635,21 @@ If you have any concerns or need assistance during this transition, contact supp\n \r\n - **Intermittent issue during process scanning**: In version `101.26072.0004`, `wdavdaemon` might restart in rare cases while scanning running processes. The process recovers automatically, and no action is required. A fix will be available in an upcoming release. **Resolution**: Upgrade to platform version 101.26072.0005 or later.\r\n \r\n+### Linux | October 2026 | 101.26091.0004\r\n+\r\n+#### Release details\r\n+\r\n+| Release version | Engine version | Signature version |\r\n+| --- | --- | --- |\r\n+| 30.126091.0004.0 | 1.1.26070.5001 | 1.457.364.0 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature area | Update summary |\r\n+| --- | --- |\r\n+| Platform Support | Added support for Azure Linux 4. |\r\n+| Visibility | Added TCP socket bind telemetry, improving visibility into processes binding to local network addresses and ports.The feature will roll out gradually to customers over the next month. Once enabled, these events will be available in Advanced Hunting in the `DeviceNetworkEvents` table with `ActionType` set to `ListeningConnectionCreated`. |\r\n+\r\n ### Linux | October 2026 | 101.26091.0003\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-10-26T15:09:17.238Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Linux release adds Azure Linux 4 support and TCP socket bind telemetry",
+        "summary": "The October 2026 Linux release notes now list version 101.26091.0004, support for Azure Linux 4, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
+        "adminImpact": "Administrators can plan Azure Linux 4 coverage and use the new network-binding telemetry for investigation once it reaches their tenants.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-for-containers-troubleshoot.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 4,
+      "changes": 24,
+      "patch": "diff --git a/defender-for-cloud/defender-for-containers-troubleshoot.md b/defender-for-cloud/defender-for-containers-troubleshoot.md\nindex 778dac2..22306bd 100644\n--- a/defender-for-cloud/defender-for-containers-troubleshoot.md\n+++ b/defender-for-cloud/defender-for-containers-troubleshoot.md\n@@ -32,13 +32,13 @@ monikers: []\n item_type: Content\n source_path: defender-for-cloud/defender-for-containers-troubleshoot.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/d44a5346-5de4-439c-b804-7b2a536cbb55\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d44a5346-5de4-439c-b804-7b2a536cbb55\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/da41a22b-b7a0-42d3-9c35-50da1c2b7b87\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/da41a22b-b7a0-42d3-9c35-50da1c2b7b87\n platformId: 6cf2543f-075f-2fe7-e688-67041cddff41\n ---\n \n@@ -60,9 +60,25 @@ This article provides troubleshooting guidance for common deployment and operati\n \r\n     - **Symptoms:** Clusters show as \"Healthy\" but specific recommendations like \"AKS clusters should have **Defender profile** enabled\" are missing.\r\n     - **Resolution:**\r\n+\r\n         - **Wait time:** Assessment scans can take up to 24 hours to reflect in the dashboard.\r\n         - **Exclusion tags:** Check if the resource has the tag `ms_defender_container_exclude_sensors` = `true`.\r\n         - **Policy Add-on:** Ensure the Azure Policy add-on is installed; without it, configuration-based recommendations will not trigger.\r\n+- Security Gating Fails to provision\r\n+\r\n+    - **Symptoms:** Security Gating is enabled, but its admission-controller resources are missing or Admission Monitoring shows no data.\r\n+    - **Diagnosis:** In the affected AKS cluster's **Activity log**, look for a failed `Microsoft.ContainerService/managedClusters/write` operation with the error `RequestDisallowedByPolicy`. Inspect the error details to identify the blocking policy assignment. A policy assignment using the `Deny` effect can reject provisioning even when the existing cluster is compliant.\r\n+    - Policies enforcing the following AKS settings can be involved:\r\n+\r\n+        - Disabled local authentication.\r\n+        - Customer-managed encryption keys for operating-system and data disks.\r\n+        - Encryption at host for temporary disks and agent-node-pool caches.\r\n+        - Private clusters.\r\n+    - **Resolution:**\r\n+\r\n+        - Work with your Azure Policy administrator to resolve the identified conflict using an approved, narrowly scoped change, such as an exemption for the affected cluster.\r\n+        - Preserve the cluster's required security configuration. Don't enable local authentication or disable policy enforcement at a broader scope to work around the failure.\r\n+        - If provisioning remains incomplete, contact Microsoft Support for the supported recovery procedure.\r\n \r\n ### Vulnerability scan issues\r\n \r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/defender-for-containers-troubleshoot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-troubleshoot",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-for-cloud/defender-for-containers-troubleshoot.md",
+      "firstSeenAt": "2026-10-26T15:09:17.241Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Troubleshooting guidance added for Security Gating provisioning failures",
+        "summary": "The page now explains missing admission-controller resources, how to diagnose failed AKS writes with RequestDisallowedByPolicy, which policies may conflict, and how to resolve the issue through narrowly scoped changes or Microsoft Support.",
+        "adminImpact": "For affected clusters, administrators should identify the blocking policy assignment and coordinate an approved resolution while preserving required security settings.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-sensor-change-log.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 4,
+      "changes": 34,
+      "patch": "diff --git a/defender-for-cloud/defender-sensor-change-log.md b/defender-for-cloud/defender-sensor-change-log.md\nindex 3592a33..fc27dac 100644\n--- a/defender-for-cloud/defender-sensor-change-log.md\n+++ b/defender-for-cloud/defender-sensor-change-log.md\n@@ -32,13 +32,11 @@ monikers: []\n item_type: Content\n source_path: defender-for-cloud/defender-sensor-change-log.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/d44a5346-5de4-439c-b804-7b2a536cbb55\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d44a5346-5de4-439c-b804-7b2a536cbb55\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/da41a22b-b7a0-42d3-9c35-50da1c2b7b87\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/da41a22b-b7a0-42d3-9c35-50da1c2b7b87\n platformId: 98e82ee6-a65f-0e14-34ab-06fc584820cd\n ---\n \n@@ -69,6 +67,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.11 (deployed by Helm or Arc for K8s)\r\n \r\n+**Sensor v0.11.9 — GA**\r\n+\r\n+- **Released:** October 2026\r\n+- **What's included:**\r\n+\r\n+    - Updated sensor images to remove trust in certificate authorities affected by the eMudhra compromise.\r\n+\r\n **Sensor v0.11.8 — GA**\r\n \r\n - **Released:** October 2026\r\n@@ -107,6 +112,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.10 (deployed by Helm or Arc for K8s)\r\n \r\n+**Sensor v0.10.12 — GA**\r\n+\r\n+- **Released:** October 2026\r\n+- **What's included:**\r\n+\r\n+    - Updated sensor images to remove trust in certificate authorities affected by the eMudhra compromise.\r\n+\r\n **Sensor v0.10.11 — GA**\r\n \r\n - **Released:** October 2026\r\n@@ -183,6 +195,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.9 (AKS 1.35 or by Helm)\r\n \r\n+**Sensor v0.9.70 — GA**\r\n+\r\n+- **Released:** October 2026\r\n+- **What's included:**\r\n+\r\n+    - Updated sensor images to remove trust in certificate authorities affected by the eMudhra compromise.\r\n+\r\n **Sensor v0.9.69 — GA**\r\n \r\n - **Released:** October 2026\r\n@@ -313,6 +332,13 @@ Each stable (GA) version is supported for 12 months from its GA release date. Af\n \r\n ### Sensor v0.8 (AKS versions 1.34 and below)\r\n \r\n+**Sensor v0.8.63 — GA**\r\n+\r\n+- **Released:** October 2026\r\n+- **What's included:**\r\n+\r\n+    - Updated sensor images to remove trust in certificate authorities affected by the eMudhra compromise.\r\n+\r\n **Sensor v0.8.62 — GA**\r\n \r\n - **Released:** October 2026\r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/defender-sensor-change-log.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-sensor-change-log",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-for-cloud/defender-sensor-change-log.md",
+      "firstSeenAt": "2026-10-26T15:09:17.244Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sensor images remove trust in CAs affected by the eMudhra compromise",
+        "summary": "The changelog adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. Their images remove trust in affected certificate authorities.",
+        "adminImpact": "Review these releases when planning sensor updates. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/enablement-guide-runtime-gated.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-cloud/enablement-guide-runtime-gated.md b/defender-for-cloud/enablement-guide-runtime-gated.md\nindex c84dc42..fa140d1 100644\n--- a/defender-for-cloud/enablement-guide-runtime-gated.md\n+++ b/defender-for-cloud/enablement-guide-runtime-gated.md\n@@ -31,12 +31,12 @@ monikers: []\n item_type: Content\n source_path: defender-for-cloud/enablement-guide-runtime-gated.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/cb49e66a-8528-497d-adaa-eade2d009d1b\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/472c9d15-157b-443c-afa2-e209c8fecf58\n platformId: 01dd134b-60c1-7135-98ab-04515f56b9c1\n ---\n@@ -60,7 +60,9 @@ Before you begin, make sure that:\n \r\n     Note\r\n \r\n-    If the Kubernetes cluster and container registry are in different environments, enable Defender for Containers and the required components for both environments.\r\n+    1. If the Kubernetes cluster and container registry are in different environments, enable Defender for Containers and the required components for both environments.\r\n+    2. Before enabling Security Gating on an AKS cluster, review Azure Policy assignments targeting `Microsoft.ContainerService/managedClusters`. Assignments using the `Deny` effect can block Security Gating provisioning with `RequestDisallowedByPolicy`, even when the existing cluster is compliant.\r\n+    3. Check the AKS Activity Log to identify the blocking assignment. Work with your Azure Policy administrator to use `Audit` or create a narrowly scoped exemption for the affected cluster. Don’t disable policies across a broader scope.\r\n - **AKS clusters:** The cluster has an [OpenID Connect (OIDC) issuer](/en-us/azure/aks/use-oidc-issuer) enabled.\r\n - Your Kubernetes environment and container registry are supported for gated deployment. See the [Defender for Containers support matrix](support-matrix-defender-for-containers#containers-software-supply-chain-protection-features).\r\n - Vulnerability scan results are available for the container images you want to evaluate. Gated deployment uses vulnerability assessment findings from supported registries.\r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/enablement-guide-runtime-gated.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/enablement-guide-runtime-gated",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-for-cloud/enablement-guide-runtime-gated.md",
+      "firstSeenAt": "2026-10-26T15:09:17.247Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Azure Policy can block Security Gating provisioning",
+        "summary": "The guide now explains that `Deny` policies targeting AKS managed clusters can prevent Security Gating provisioning with `RequestDisallowedByPolicy`, even for compliant clusters. It adds steps to identify the blocking assignment in the Activity Log and use `Audit` or a narrowly scoped exemption.",
+        "adminImpact": "Before enabling Security Gating, review applicable Azure Policy assignments and coordinate any required changes with the Azure Policy administrator.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "status": "modified",
+      "additions": 47,
+      "deletions": 0,
+      "changes": 47,
+      "patch": "diff --git a/defender-vulnerability-management/fixed-reported-inaccuracies.md b/defender-vulnerability-management/fixed-reported-inaccuracies.md\nindex 343f4fa..d6dc718 100644\n--- a/defender-vulnerability-management/fixed-reported-inaccuracies.md\n+++ b/defender-vulnerability-management/fixed-reported-inaccuracies.md\n@@ -68,6 +68,53 @@ The tables may also include updates based on vulnerability support queries or in\n \r\n The following tables present the relevant vulnerability assessment information organized by month.\r\n \r\n+## October 2026\r\n+\r\n+| Inaccuracy report ID | Description | Fix date |\r\n+| --- | --- | --- |\r\n+| - | Added accurate EOS details for Python | 03-October-26 |\r\n+| 145601 | Improved detection logic for Debian Cryptsetup | 04-October-26 |\r\n+| 148656 | Improved detection logic for Red hat Kernel-uek-virt | 04-October-26 |\r\n+| 149969 | Improved accuracy for Microsoft Remote Desktop Client | 04-October-26 |\r\n+| 150741 | Improved detection logic for MOBOTIX MxControlCenter | 04-October-26 |\r\n+| 148797 | Improved detection logic for Bitdefender Internet Security by excluding invalid path- \"wsccommunicator.exe\" | 04-October-26 |\r\n+| 150595 | Improved detection logic for WinSCP by excluding invalid path- \"setup.exe\" | 04-October-26 |\r\n+| 149860 | Improved accuracy for Postman by adding 1.0 as invalid version | 04-October-26 |\r\n+| 152246 | Fixed incorrect recommendations in Sonicwall NetExtender Vulnerabilities - CVE-2026-66152, CVE-2026-66153 | 04-October-26 |\r\n+| - | Fixed incorrect recommendations in Gimp Vulnerabilities - CVE-2026-59089, CVE-2026-59091, CVE-2026-66757 | 04-October-26 |\r\n+| - | Fixed incorrect recommendations in Zscaler Client connecter Vulnerability - CVE-2026-25687 | 04-October-26 |\r\n+| - | Improved detection logic for Office by correlating Office SAC audience aliases | 04-October-26 |\r\n+| 154833 | Improved detection logic for Debian Aom | 04-October-26 |\r\n+| 152058 | Added MDVM support for Intel Endpoint Management Assistant | 08-October-26 |\r\n+| - | Added MDVM support for Microsoft App Installer | 08-October-26 |\r\n+| - | Added MDVM support for Microsoft Raw Image Extensions | 08-October-26 |\r\n+| - | Added MDVM support for Microsoft Webp Image Extension | 08-October-26 |\r\n+| - | Added MDVM support for Microsoft HEIF image extension | 08-October-26 |\r\n+| - | Added MDVM support for Microsoft Web media extension | 08-October-26 |\r\n+| - | Fixed incorrect detections in DeepSeek | 08-October-26 |\r\n+| 153571 | Fixed incorrect RustDesk detections under HashiCorp Terraform | 08-October-26 |\r\n+| 153374 | Fixed incorrect MacPass detections under Keepassxc | 08-October-26 |\r\n+| 154932 | Fixed incorrect ShareX detections under Techsmith Snagit | 08-October-26 |\r\n+| 154333 | Fixed incorrect Learning Tools for OneNote detections under Microsoft OneNote | 08-October-26 |\r\n+| 155205 | Fixed incorrect Atera agents detections under Zoom Meetings | 08-October-26 |\r\n+| 150587 | Improved detection logic for Veeam one | 09-October-26 |\r\n+| 152146 | Fixed incorrect recommendations for Vulnerability - CVE-2026-70466 by excluding FortiOS CPE | 09-October-26 |\r\n+| 154594 | Fixed incorrect recommendations for Vulnerability - CVE-2014-0242 by excluding Apache HTTP Server CPE | 09-October-26 |\r\n+| 150245 | Fixed incorrect recommendations for Vulnerability - CVE-2021-44228 by excluding oracle weblogic server CPE | 09-October-26 |\r\n+| 152671 | Fixed incorrect recommendations in JMESPath (PHP) Vulnerability - CVE-2026-54133 | 09-October-26 |\r\n+| 153056 | Fixed incorrect recommendations for Vulnerability - CVE-2017-15097 by excluding PostgreSQL CPE | 09-October-26 |\r\n+| 152913 | Fixed incorrect recommendations for Hashi Corp Vulnerability - CVE-2022-42717 | 09-October-26 |\r\n+\r\n+## September 2026\r\n+\r\n+| Inaccuracy report ID | Description | Fix date |\r\n+| --- | --- | --- |\r\n+| 152264 | Fixed incorrect detections in Apple iMovie | 07-September-26 |\r\n+| 152487 | Fixed incorrect detections in Google Earth | 07-September-26 |\r\n+| 152303 | Added MDVM support for FastTrack Admin By Request | 07-September-26 |\r\n+| - | Improved version detection logic for Teams for Android | 12-September-26 |\r\n+| - | Fixed incorrect recommendations for Vulnerability - CVE-2024-47611 by excluding liblzma evidence | 23-September-26 |\r\n+\r\n ## August 2026\r\n \r\n | Inaccuracy report ID | Description | Fix date |\r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/fixed-reported-inaccuracies",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "firstSeenAt": "2026-10-26T15:09:17.250Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Defender Vulnerability Management adds September and October 2026 accuracy fixes",
+        "summary": "The page now lists detection and recommendation fixes, updated Python end-of-support details, and MDVM support for Intel Endpoint Management Assistant and several Microsoft extensions, dated September 7–23 and October 3–9, 2026.",
+        "adminImpact": "Reports and recommendations may change for affected products and vulnerabilities. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/onboard-isoc-workspace.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 3,
+      "changes": 13,
+      "patch": "diff --git a/defender-xdr/onboard-isoc-workspace.md b/defender-xdr/onboard-isoc-workspace.md\nindex 918e2b6..2e8ab1e 100644\n--- a/defender-xdr/onboard-isoc-workspace.md\n+++ b/defender-xdr/onboard-isoc-workspace.md\n@@ -9,8 +9,8 @@ feedback_product_url: https://techcommunity.microsoft.com/t5/microsoft-365-defen\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: orspodek\n description: Learn how to create an ISOC workspace in the Microsoft Defender portal for Integrated Security Operations Center (ISOC) capabilities that require a workspace.\n-author: mberdugo\n-ms.author: monaberdugo\n+author: CelesteDG\n+ms.author: CelesteD\n ms.localizationpriority: high\n ms.collection:\n - m365-security\n@@ -23,7 +23,7 @@ ms.collection:\n ms.topic: how-to\n ms.service: microsoft-sentinel\n ai-usage: ai-assisted\n-ms.date: 2026-09-14T00:00:00.0000000Z\n+ms.date: 2026-10-26T00:00:00.0000000Z\n ms.custom: msecd-doc-authoring-1014\n locale: en-us\n document_id: d4cd8f9f-a172-c40e-e447-98402fd7e6eb\n@@ -42,9 +42,11 @@ item_type: Content\n source_path: defender-xdr/onboard-isoc-workspace.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n - https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d\n platformId: 3c927217-7087-4c29-9f05-9e3aa5f2b7b7\n ---\n@@ -55,6 +57,11 @@ Use this procedure to create an Integrated Security Operations Center (ISOC) wor\n \r\n Before you begin, review the eligibility and workspace requirements in [ISOC in Microsoft Defender](isoc-overview).\r\n \r\n+An ISOC workspace follows the same data residency and retention behavior as an Azure Log Analytics workspace. For more information, see:\r\n+\r\n+- [Geographical availability and data residency in Microsoft Sentinel](/en-us/azure/sentinel/geographical-availability-data-residency#data-storage-location).\r\n+- [Manage data retention in a Log Analytics workspace](/en-us/azure/azure-monitor/logs/data-retention-configure#configure-the-default-analytics-retention-period-of-analytics-tables).\r\n+\r\n ## Prerequisites\r\n \r\n Before you begin, make sure the following requirements are met:\r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/onboard-isoc-workspace.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/onboard-isoc-workspace",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-xdr/onboard-isoc-workspace.md",
+      "firstSeenAt": "2026-10-26T15:09:17.253Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "ISOC workspace data residency and retention guidance added",
+        "summary": "The documentation now states that an ISOC workspace follows the same data residency and retention behavior as an Azure Log Analytics workspace and links to related Microsoft Sentinel and Log Analytics guidance.",
+        "adminImpact": "Administrators can use the linked guidance when reviewing ISOC workspace storage location and retention settings. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-risk-assessment.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 3,
+      "changes": 11,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-risk-assessment.md b/defender-xdr/security-for-ai/ai-agent-risk-assessment.md\nindex 85d8132..bb254a4 100644\n--- a/defender-xdr/security-for-ai/ai-agent-risk-assessment.md\n+++ b/defender-xdr/security-for-ai/ai-agent-risk-assessment.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: AI agent posture risk in Microsoft Defender (Preview) - Microsoft Defender XDR | Microsoft Learn\n+title: AI agent posture risk in Microsoft Defender - Microsoft Defender XDR | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-risk-assessment\n breadcrumb_path: /defender-xdr/breadcrumb/toc.json\n permissioned-type: public\n@@ -14,7 +14,8 @@ ms.author: guywild\n author: guywi-ms\n ms.reviewer: itaicohen\n ms.topic: concept-article\n-ms.date: 2026-07-14T00:00:00.0000000Z\n+ms.date: 2026-10-26T00:00:00.0000000Z\n+ms.custom: msecd-doc-authoring-1032\n audience: Admin\n ai-usage: ai-assisted\n locale: en-us\n@@ -34,12 +35,16 @@ item_type: Content\n source_path: defender-xdr/security-for-ai/ai-agent-risk-assessment.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n platformId: 3c35c4c3-f22a-d94a-ceb0-c45a8032ee6a\n ---\n \n-# AI agent posture risk in Microsoft Defender (Preview) - Microsoft Defender XDR | Microsoft Learn\n+# AI agent posture risk in Microsoft Defender - Microsoft Defender XDR | Microsoft Learn\n \n Microsoft Defender assesses posture risk for AI agents in your organization, including agents registered with [Microsoft Agent 365](/en-us/microsoft-agent-365/overview) and local agents discovered on endpoint devices. Each agent is evaluated against risk indicators and assigned an overall risk level based on the likelihood of compromise and the potential impact if compromised.\r\n \r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-risk-assessment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-risk-assessment",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:defender-xdr/security-for-ai/ai-agent-risk-assessment.md",
+      "firstSeenAt": "2026-10-26T15:09:17.264Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI agent posture risk article title updated",
+        "summary": "The article title no longer includes “(Preview)”; its publication date and documentation metadata were also updated.",
+        "adminImpact": "Administrators may notice the capability is presented without the Preview label when reviewing the article.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/geographical-availability-data-residency.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 9,
+      "changes": 12,
+      "patch": "diff --git a/sentinel/geographical-availability-data-residency.md b/sentinel/geographical-availability-data-residency.md\nindex 8d71b5c..f429d46 100644\n--- a/sentinel/geographical-availability-data-residency.md\n+++ b/sentinel/geographical-availability-data-residency.md\n@@ -26,7 +26,7 @@ ms.author: guywild\n author: guywi-ms\n ms.reviewer: noak\n ms.topic: concept-article\n-ms.date: 2026-08-18T00:00:00.0000000Z\n+ms.date: 2026-10-26T00:00:00.0000000Z\n ms.custom: references_regions\n locale: en-us\n document_id: 61e5a8c4-456d-cb08-452f-19bf7026b89d\n@@ -54,18 +54,12 @@ After your data is collected, stored, and processed, compliance can become an im\n \r\n This article can help you meet compliance requirements by describing where Microsoft Sentinel data is stored.\r\n \r\n-Important\r\n-\r\n-Microsoft Sentinel was retired in Azure operated by 21Vianet on August 18, 2026, as described in the [announcement posted by 21Vianet](https://aka.ms/sentinelretirementinchina). Microsoft Sentinel is no longer available in this region.\r\n-\r\n-We recommend that customers work with their account representatives for Microsoft Azure operated by 21Vianet to assess the impact of this retirement on their own operations.\r\n-\r\n ## Collected data\r\n \r\n Microsoft Sentinel collects the following types of data:\r\n \r\n - **Raw data**, such as event data collected from connected Microsoft services and partner systems. Data from multiple clouds and sources are streamed to the customer’s Azure Log Analytics workspace associated with Microsoft Sentinel, under the customer’s tenant’s subscription. This approach gives the customer the ability to choose region and retention and deletion policies.\r\n-- **Processed data**, such as incidents, alerts, behaviors, and so on.\r\n+- **Processed data**, such as incidents, alerts, behaviors, cases, and so on.\r\n - **Configuration data**, such as connector settings, rules, and so on.\r\n \r\n ## Data storage location\r\n@@ -78,7 +72,7 @@ Microsoft Sentinel processes data in one of the following locations:\n - For Log Analytics workspaces located in Israel, Microsoft Sentinel processes customer data in Israel.\r\n - For workspaces located in any other location, Microsoft Sentinel processes customer data in a US region.\r\n \r\n-When you onboard Microsoft Sentinel from the Defender portal, the service might process data in the destination regions specified during onboarding, or in the existing Microsoft Defender XDR regions if applicable. The raw data storage location, however, remains unchanged. For more information, see [Data security and retention in Microsoft Defender XDR](/en-us/defender-xdr/data-privacy).\r\n+When you onboard Microsoft Sentinel from the Defender portal, the service will process and store \"Processed data\" and \"Configuration data\" in the destination regions specified during onboarding, or in the existing Microsoft Defender XDR regions if applicable. The raw data storage location, however, remains unchanged. For more information, see [Data security and retention in Microsoft Defender XDR](/en-us/defender-xdr/data-privacy).\r\n \r\n ### Supported regions\r\n \r\n",
+      "baseCommitSha": "8e12954cc619d5fd0808858a431277063b2e1e9e",
+      "commitSha": "608b3b6d0de38a1272e1a7ff6bd444e16257cea6",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-26 14:32:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/geographical-availability-data-residency.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/geographical-availability-data-residency",
+      "eventId": "defender-docs:608b3b6d0de38a1272e1a7ff6bd444e16257cea6:modified:sentinel/geographical-availability-data-residency.md",
+      "firstSeenAt": "2026-10-26T15:09:17.267Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Data residency documentation now specifies processed and configuration data storage",
+        "summary": "The page now states that Sentinel will process and store processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also adds cases to the processed-data examples and removes the 21Vianet retirement notice.",
+        "adminImpact": "Use the updated data-residency description when assessing where Sentinel data is handled.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 8,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The October 2026 Linux release notes now list version 101.26091.0004, support for Azure Linux 4, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "The page now explains missing admission-controller resources, how to diagnose failed AKS writes with RequestDisallowedByPolicy, which policies may conflict, and how to resolve the issue through narrowly scoped changes or Microsoft Support. The changelog adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. Their images remove trust in affected certificate authorities. The guide now explains that `Deny` policies targeting AKS managed clusters can prevent Security Gating provisioning with `RequestDisallowedByPolicy`, even for compliant clusters. It adds steps to identify the blocking assignment in the Activity Log and use `Audit` or a narrowly scoped exemption.",
+        "sourceFiles": [
+          "defender-for-cloud/defender-for-containers-troubleshoot.md",
+          "defender-for-cloud/defender-sensor-change-log.md",
+          "defender-for-cloud/enablement-guide-runtime-gated.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender Vulnerability Management",
+        "summary": "The page now lists detection and recommendation fixes, updated Python end-of-support details, and MDVM support for Intel Endpoint Management Assistant and several Microsoft extensions, dated September 7–23 and October 3–9, 2026.",
+        "sourceFiles": [
+          "defender-vulnerability-management/fixed-reported-inaccuracies.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The documentation now states that an ISOC workspace follows the same data residency and retention behavior as an Azure Log Analytics workspace and links to related Microsoft Sentinel and Log Analytics guidance. The article title no longer includes “(Preview)”; its publication date and documentation metadata were also updated.",
+        "sourceFiles": [
+          "defender-xdr/onboard-isoc-workspace.md",
+          "defender-xdr/security-for-ai/ai-agent-risk-assessment.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Microsoft Sentinel",
+        "summary": "The page now states that Sentinel will process and store processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also adds cases to the processed-data examples and removes the 21Vianet retirement notice.",
+        "sourceFiles": [
+          "sentinel/geographical-availability-data-residency.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The October 2026 Linux release notes now list version 101.26091.0004, support for Azure Linux 4, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "The page now explains missing admission-controller resources, how to diagnose failed AKS writes with RequestDisallowedByPolicy, which policies may conflict, and how to resolve the issue through narrowly scoped changes or Microsoft Support. The changelog adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. Their images remove trust in affected certificate authorities. The guide now explains that `Deny` policies targeting AKS managed clusters can prevent Security Gating provisioning with `RequestDisallowedByPolicy`, even for compliant clusters. It adds steps to identify the blocking assignment in the Activity Log and use `Audit` or a narrowly scoped exemption."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "The page now lists detection and recommendation fixes, updated Python end-of-support details, and MDVM support for Intel Endpoint Management Assistant and several Microsoft extensions, dated September 7–23 and October 3–9, 2026."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The documentation now states that an ISOC workspace follows the same data residency and retention behavior as an Azure Log Analytics workspace and links to related Microsoft Sentinel and Log Analytics guidance. The article title no longer includes “(Preview)”; its publication date and documentation metadata were also updated."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The page now states that Sentinel will process and store processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also adds cases to the processed-data examples and removes the 21Vianet retirement notice."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
