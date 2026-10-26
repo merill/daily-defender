@@ -7993,49 +7993,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "Advanced Hunting APIs face February 2027 retirement; migrate workflows to Graph Security API",
-      "overview": "The clearest administrator deadline is the retirement of the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027; Microsoft requires manual migration to the Microsoft Graph Security API by January 31, 2027. Defender for Cloud guidance also documents an AKS Security Gating failure mode caused by Deny policies, while Endpoint release notes add Azure Linux 4 support and TCP socket bind telemetry. Sentinel and Defender for Cloud updates refine residency guidance and record new sensor images that remove trust in affected certificate authorities.",
-      "adminImpact": "Inventory workflows that use the retiring Advanced Hunting APIs and plan migration before January 31, 2027. Before enabling Security Gating, review AKS-related Azure Policy assignments and coordinate any Audit conversion or narrowly scoped exemption with the policy administrator. Endpoint teams can plan Azure Linux 4 coverage and monitor rollout of the new telemetry; sensor teams should review the October GA versions when planning updates. Use the revised Sentinel residency wording in storage and data-handling assessments.",
+      "headline": "Advanced Hunting API retirement sets January 2027 migration deadline",
+      "overview": "Microsoft will retire the Defender for Endpoint and Defender XDR Advanced Hunting APIs by February 1, 2027; workflows must be manually migrated to the Microsoft Graph Security API by January 31. The period also brings a rolling Teams message-content table, an Endpoint Linux release with Azure Linux 4 support and socket-bind telemetry, and clearer AKS policy guidance for Defender for Cloud Security Gating.",
+      "adminImpact": "Inventory integrations that use the retiring hunting APIs and schedule manual migration before January 31, 2027. During the MessageContents rollout, verify that analysts have the required permissions. Before enabling Security Gating, check AKS Deny policy assignments and coordinate any Audit-mode change or narrowly scoped exemption with the Azure Policy administrator. Plan Azure Linux 4 coverage and use the new telemetry once it reaches the tenant; use the revised Sentinel residency wording for data-handling assessments.",
       "keyChanges": [
         {
-          "title": "Advanced Hunting API retirement requires migration to Microsoft Graph Security API",
-          "detail": "Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs are scheduled to retire on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
+          "title": "Advanced Hunting APIs retire on February 1, 2027",
+          "detail": "Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs are scheduled for retirement by February 1, 2027. Existing workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027.",
           "product": "Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "AKS Deny policies can block Security Gating on compliant clusters",
-          "detail": "The enablement guidance now documents RequestDisallowedByPolicy failures when Deny policies target AKS managed clusters, even when the cluster is compliant. Administrators can identify the blocking assignment in the Activity Log and coordinate an Audit setting or narrowly scoped exemption.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-04"
+          "title": "Teams message snippets and metadata enter Advanced Hunting",
+          "detail": "The new MessageContents table is rolling out in Microsoft Defender for Office 365 Advanced Hunting from late September through mid-November 2026. Authorized analysts can query Teams message snippets and metadata for investigations, subject to specific permissions.",
+          "product": "Defender XDR",
+          "sourceId": "MC1474106"
         },
         {
-          "title": "Linux release adds Azure Linux 4 support and socket-bind telemetry",
-          "detail": "The October 2026 Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
+          "title": "AKS Deny policies can block Security Gating provisioning",
+          "detail": "Defender for Cloud guidance now documents that Deny policies targeting AKS managed clusters can produce RequestDisallowedByPolicy during Security Gating provisioning, even for compliant clusters. Administrators can identify the blocking assignment in the Activity Log and coordinate an Audit-mode change or narrowly scoped exemption.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-05"
+        },
+        {
+          "title": "October Linux release adds Azure Linux 4 and socket-bind telemetry",
+          "detail": "The October 2026 Microsoft Defender for Endpoint Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through DeviceNetworkEvents.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-01"
+          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-02"
         },
         {
-          "title": "October Defender sensor GA images remove trust in affected certificate authorities",
-          "detail": "The Defender Sensor Change Log adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63; their images remove trust in affected certificate authorities.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-26-defender-sensor-change-log-03"
-        },
-        {
-          "title": "Sentinel residency guidance ties data handling to deployment regions",
-          "detail": "The updated page states that Sentinel processes and stores processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also expands processed-data examples and removes the 21Vianet retirement notice.",
+          "title": "Sentinel residency guidance revises regional data handling",
+          "detail": "The Sentinel residency page now states that processed and configuration data are processed and stored in onboarding destination regions or applicable existing Defender XDR regions. It adds processed-data examples and removes the 21Vianet retirement notice.",
           "product": "Sentinel",
-          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
+          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-09"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T19:56:19.193Z",
+      "generatedAt": "2026-10-26T23:52:13.529Z",
       "usage": {
-        "inputTokens": 2128,
-        "outputTokens": 2398,
-        "costUsd": 0.003303
+        "inputTokens": 3284,
+        "outputTokens": 3225,
+        "costUsd": 0.004527
       }
     }
   },
@@ -9715,43 +9715,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "Advanced Hunting APIs retire in February 2027; Microsoft Graph Security migration due January 31",
-      "overview": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs by February 1, 2027, requiring manual migration to the Microsoft Graph Security API by January 31, 2027. Defender for Cloud guidance documents AKS provisioning failures caused by Deny policies, while Endpoint release notes add Azure Linux 4 support and TCP socket bind telemetry. Sentinel guidance also clarifies regional data processing and storage.",
-      "adminImpact": "Inventory MDE and XDR Advanced Hunting API workflows and schedule migration to Microsoft Graph Security API before January 31, 2027. Before enabling Defender for Cloud Security Gating, review Deny policies targeting AKS managed clusters and coordinate any approved Audit or narrowly scoped exemption changes with the Azure Policy administrator. Plan Azure Linux 4 coverage and use the new network-binding telemetry after rollout reaches the tenant. Use Sentinel’s updated residency guidance when assessing data location and retention.",
+      "headline": "Advanced Hunting API retirement creates January 2027 migration deadline for Defender administrators",
+      "overview": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027; workflows must be manually migrated to the Microsoft Graph Security API by January 31. Defender for Office 365 is also rolling out a new MessageContents table for Teams investigations from late September through mid-November 2026. Other significant updates cover the October Linux endpoint release, AKS policy blockers for Security Gating, and revised Sentinel data-residency guidance. Most remaining changes are documentation maintenance, troubleshooting guidance, or permission and catalog updates.",
+      "adminImpact": "Inventory workflows that use the retiring Advanced Hunting APIs and schedule migration before the January 31 deadline. Review access and investigation procedures for Teams message content, plan Azure Linux 4 coverage, check Azure Policy assignments before enabling Security Gating, and use the revised Sentinel residency wording in compliance assessments.",
       "keyChanges": [
         {
-          "title": "MDE and XDR Advanced Hunting APIs have a firm retirement deadline",
-          "detail": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs by February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
+          "title": "MDE and XDR Advanced Hunting APIs retire February 1, 2027",
+          "detail": "Microsoft’s Message Center notice sets a January 31, 2027 deadline for manually migrating Microsoft Defender for Endpoint and Defender XDR Advanced Hunting API workflows to the Microsoft Graph Security API, ahead of the February 1 retirement.",
           "product": "Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "AKS Deny policies can block Security Gating on compliant clusters",
-          "detail": "Deny policies targeting AKS managed clusters can prevent Security Gating provisioning with RequestDisallowedByPolicy, even when clusters are compliant. The guidance adds steps to identify the blocking policy assignment in the Activity Log and use Audit or a narrowly scoped exemption.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-04"
+          "title": "Teams MessageContents table adds Advanced Hunting data during staged rollout",
+          "detail": "Defender for Office 365 is introducing a MessageContents table for Teams messages. Authorized security analysts will be able to query message snippets and metadata; specific permissions are required. Rollout is scheduled from late September through mid-November 2026.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1474106"
         },
         {
-          "title": "Linux release notes add Azure Linux 4 and socket-bind telemetry",
-          "detail": "The October 2026 Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
+          "title": "October Linux release adds Azure Linux 4 and socket-bind telemetry",
+          "detail": "The October 2026 Microsoft Defender for Endpoint Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through DeviceNetworkEvents.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-01"
+          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-02"
         },
         {
-          "title": "Sentinel residency guidance ties storage to destination regions",
-          "detail": "The page now states that Sentinel processes and stores processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also expands processed-data examples and removes the 21Vianet retirement notice.",
+          "title": "Deny policies can block AKS Security Gating on compliant clusters",
+          "detail": "Defender for Cloud guidance documents that Deny policies targeting AKS managed clusters can cause Security Gating provisioning to fail with RequestDisallowedByPolicy, even when clusters are compliant. Administrators can identify the blocking assignment in the Activity Log and use Audit or a narrowly scoped exemption.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-05"
+        },
+        {
+          "title": "Sentinel residency guidance ties storage to onboarding and XDR regions",
+          "detail": "The updated Sentinel page states that processed and configuration data is processed and stored in the onboarding destination regions or applicable existing Defender XDR regions. It adds processed-data examples and removes the 21Vianet retirement notice.",
           "product": "Sentinel",
-          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
+          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-09"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T19:56:19.193Z",
+      "generatedAt": "2026-10-26T23:52:13.529Z",
       "usage": {
-        "inputTokens": 1933,
-        "outputTokens": 3068,
-        "costUsd": 0.004068
+        "inputTokens": 3089,
+        "outputTokens": 3466,
+        "costUsd": 0.004777
       }
     }
   },
@@ -10122,37 +10128,37 @@
       }
     },
     "2026-10": {
-      "headline": "Defender Advanced Hunting APIs set January 31 migration deadline before February retirement",
-      "overview": "October was documentation-heavy, but its clearest administrator deadline is the retirement of the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs: Microsoft requires manual migration to the Microsoft Graph Security API by January 31, 2027, ahead of retirement on February 1. Defender for Cloud’s preview portal workflows make migration scope and configuration loss explicit, while Defender for Office 365 adds an upcoming Unified RBAC access change and a Plan 2 quarantine remediation action.",
-      "adminImpact": "Inventory MDE and XDR Advanced Hunting API workflows and schedule the Graph migration before January 31, 2027. Before using Defender for Cloud’s preview plan management, verify connected Azure commercial scope and preserve any resource-level settings; review Security Operator assignments before the November RBAC change. For server onboarding, treat Direct onboarding as tenant-wide and do not re-onboard or reinstall servers already reporting to Defender for Endpoint. For Plan 2, review policies and training ahead of the Move to Quarantine rollout.",
+      "headline": "Advanced Hunting API retirement sets a January migration deadline for Defender administrators",
+      "overview": "October’s clearest operational deadline is Microsoft’s retirement of the Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027; workflows must move manually to the Microsoft Graph Security API by January 31. Defender for Cloud guidance defines the scope and migration consequences of portal-managed plans, while Defender for Office 365 adds Teams hunting data, changes Security Operator permissions, and schedules a new quarantine remediation action. Much of the remaining period consisted of documentation maintenance, but these changes require planning.",
+      "adminImpact": "Inventory integrations using the retiring Advanced Hunting APIs and complete migration by January 31. Before moving Defender for Cloud plan management, verify Azure commercial eligibility, determine whether affected resource-level settings must be recreated, and account for Defender Workload Unit billing. If Unified RBAC is enabled, manually assign the Microsoft Entra Security Operator permissions needed for email threat policies and the Tenant Allow/Block List. Validate access for Teams MessageContents investigations and prepare policy and training updates for the November–December Move to Quarantine rollout.",
       "keyChanges": [
         {
-          "title": "Advanced Hunting APIs retire February 1, 2027 after a January 31 migration deadline",
-          "detail": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs. Organizations must manually move workflows to the Microsoft Graph Security API by January 31, 2027, to ensure continued functionality.",
-          "product": "Defender XDR",
+          "title": "Defender for Endpoint and XDR Advanced Hunting APIs retire in February",
+          "detail": "Microsoft will retire both Advanced Hunting APIs on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
+          "product": "Defender XDR and Defender for Endpoint",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Defender for Cloud preview defines global and scoped plan management",
-          "detail": "The preview guidance covers global or scoped configuration across connected Azure commercial environments and required permissions. Global enablement migrates current environments and applies to future ones; resource-level configurations are not preserved, and migrated settings become view-only in the Azure portal.",
+          "title": "Defender for Cloud guidance defines portal plan-management scope and migration effects",
+          "detail": "Updated integration guidance says cloud security data supports Azure, AWS, and GCP, but onboarding and plan management currently support Azure commercial environments only. After migration, plan settings are view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-20-manage-cloud-security-plans-in-the-defender-portal-microsoft-defender-for-cloud-microsoft-learn-03"
+          "sourceId": "doc-2026-10-20-integration-faq-12"
         },
         {
-          "title": "Security Operator loses default access to Defender for Office 365 email controls",
-          "detail": "Starting November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator removes default access to email threat policies and the Tenant Allow/Block List. When Unified RBAC is enabled, administrators must manually assign permissions for continued access.",
+          "title": "Security Operator will lose default access to key Defender for Office 365 controls",
+          "detail": "Starting in November 2026, the Microsoft Entra Security Operator role will no longer have default access to email threat policies or the Tenant Allow/Block List when Unified RBAC is enabled. Administrators must assign the required permissions manually to preserve access.",
           "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Direct server onboarding carries tenant-wide scope, while existing reporting servers need no migration",
-          "detail": "Updated Defender for Endpoint guidance separates automatic onboarding, manual deployment, and servers already reporting. It adds prerequisites, rollout preparation, antivirus-coexistence guidance, and a tenant-wide warning for Direct onboarding. Already-reporting servers do not require onboarding, reinstallation, or migration.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-20-onboard-servers-to-microsoft-defender-microsoft-defender-for-endpoint-microsoft-learn-07"
+          "title": "Teams MessageContents table expands Defender for Office 365 hunting",
+          "detail": "A new MessageContents table in Advanced Hunting exposes Teams message snippets and metadata to authorized security analysts for threat investigations. Rollout runs from late September through mid-November 2026, and access requires specific permissions.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1474106"
         },
         {
-          "title": "Defender for Office 365 Plan 2 adds Move to Quarantine in November",
-          "detail": "The new remediation action is scheduled to roll out worldwide from November through December 2026, allowing administrators to move suspicious messages from user mailboxes to Defender quarantine for investigation and management. No user action is required; policy reviews and training updates are recommended.",
+          "title": "Plan 2 adds Move to Quarantine for suspicious mail",
+          "detail": "Defender for Office 365 Plan 2 is adding a remediation action that moves suspicious email from user mailboxes into Defender quarantine. Worldwide rollout is scheduled for November through December 2026, with policy reviews and training updates recommended.",
           "product": "Defender for Office 365",
           "sourceId": "MC1523084"
         }
@@ -10160,16 +10166,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T19:56:19.193Z",
+      "generatedAt": "2026-10-26T23:52:13.529Z",
       "usage": {
-        "inputTokens": 7159,
-        "outputTokens": 6399,
-        "costUsd": 0.009111
+        "inputTokens": 7154,
+        "outputTokens": 5583,
+        "costUsd": 0.00813
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-26T19:56:19.193Z",
+  "generatedAt": "2026-10-26T23:52:13.529Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10332,22 +10338,22 @@
       "costUsd": 0.05638
     },
     "2026-10-26": {
-      "inputTokens": 22170,
-      "outputTokens": 30162,
-      "requests": 6,
-      "costUsd": 0.040628
+      "inputTokens": 35697,
+      "outputTokens": 42436,
+      "requests": 9,
+      "costUsd": 0.058062
     }
   },
   "lastRun": {
-    "inputTokens": 11220,
-    "outputTokens": 11865,
+    "inputTokens": 13527,
+    "outputTokens": 12274,
     "requests": 3,
-    "costUsd": 0.016482
+    "costUsd": 0.017434
   },
   "totalUsage": {
-    "inputTokens": 1049785,
-    "outputTokens": 1070139,
-    "requests": 213,
-    "costUsd": 1.49412
+    "inputTokens": 1063312,
+    "outputTokens": 1082413,
+    "requests": 216,
+    "costUsd": 1.511554
   }
 }
