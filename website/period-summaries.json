@@ -7993,49 +7993,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "AKS Deny policies can block Defender for Cloud Security Gating provisioning",
-      "overview": "The most consequential update adds explicit Defender for Cloud guidance for AKS clusters: Deny policies can trigger RequestDisallowedByPolicy during Security Gating provisioning, even when clusters are compliant. The period also records an Endpoint Linux release, revised Sentinel residency guidance, Vulnerability Management detection and recommendation fixes, and four GA sensor entries.",
-      "adminImpact": "Before enabling Security Gating, review applicable Azure Policy assignments and coordinate any approved Audit or narrowly scoped exemption changes. Administrators can plan Azure Linux 4 coverage and investigate TCP socket binding after telemetry reaches their tenants; Sentinel residency and affected vulnerability reports should be assessed using the updated guidance.",
+      "headline": "Advanced Hunting APIs face February 2027 retirement; migrate workflows to Graph Security API",
+      "overview": "The clearest administrator deadline is the retirement of the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027; Microsoft requires manual migration to the Microsoft Graph Security API by January 31, 2027. Defender for Cloud guidance also documents an AKS Security Gating failure mode caused by Deny policies, while Endpoint release notes add Azure Linux 4 support and TCP socket bind telemetry. Sentinel and Defender for Cloud updates refine residency guidance and record new sensor images that remove trust in affected certificate authorities.",
+      "adminImpact": "Inventory workflows that use the retiring Advanced Hunting APIs and plan migration before January 31, 2027. Before enabling Security Gating, review AKS-related Azure Policy assignments and coordinate any Audit conversion or narrowly scoped exemption with the policy administrator. Endpoint teams can plan Azure Linux 4 coverage and monitor rollout of the new telemetry; sensor teams should review the October GA versions when planning updates. Use the revised Sentinel residency wording in storage and data-handling assessments.",
       "keyChanges": [
         {
-          "title": "AKS Deny policies are documented as a Security Gating provisioning blocker",
-          "detail": "The enablement guide now states that Deny policies targeting AKS managed clusters can cause RequestDisallowedByPolicy when Security Gating provisions resources, including on compliant clusters. It adds steps to identify the blocking assignment in the Activity Log and use Audit or a narrowly scoped exemption with the Azure Policy administrator.",
+          "title": "Advanced Hunting API retirement requires migration to Microsoft Graph Security API",
+          "detail": "Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs are scheduled to retire on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
+          "product": "Defender XDR",
+          "sourceId": "MC1220762"
+        },
+        {
+          "title": "AKS Deny policies can block Security Gating on compliant clusters",
+          "detail": "The enablement guidance now documents RequestDisallowedByPolicy failures when Deny policies target AKS managed clusters, even when the cluster is compliant. Administrators can identify the blocking assignment in the Activity Log and coordinate an Audit setting or narrowly scoped exemption.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-04"
         },
         {
-          "title": "Endpoint Linux 101.26091.0004 adds Azure Linux 4 and socket-bind telemetry",
-          "detail": "The October 2026 release notes list Linux version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
+          "title": "Linux release adds Azure Linux 4 support and socket-bind telemetry",
+          "detail": "The October 2026 Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-01"
         },
         {
-          "title": "Sentinel residency guidance maps data to onboarding or Defender XDR regions",
-          "detail": "The page now states that Sentinel processes and stores processed and configuration data in onboarding destination regions or applicable existing Defender XDR regions. It also expands the processed-data examples and removes the 21Vianet retirement notice.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
-        },
-        {
-          "title": "Vulnerability Management lists detection and recommendation fixes",
-          "detail": "The Fixed Reported Inaccuracies page now lists detection and recommendation fixes, revised Python end-of-support details, and MDVM support for Intel Endpoint Management Assistant and several Microsoft extensions, with entries dated September 7–23 and October 3–9, 2026. Reports and recommendations may change for affected products and vulnerabilities.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-10-26-fixed-reported-inaccuracies-05"
-        },
-        {
-          "title": "Defender sensor changelog adds four October GA versions and CA trust removal",
-          "detail": "The changelog adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. Their images remove trust in affected certificate authorities; review these releases when planning sensor updates.",
+          "title": "October Defender sensor GA images remove trust in affected certificate authorities",
+          "detail": "The Defender Sensor Change Log adds October 2026 GA entries for sensor versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63; their images remove trust in affected certificate authorities.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-26-defender-sensor-change-log-03"
+        },
+        {
+          "title": "Sentinel residency guidance ties data handling to deployment regions",
+          "detail": "The updated page states that Sentinel processes and stores processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also expands processed-data examples and removes the 21Vianet retirement notice.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T15:09:41.012Z",
+      "generatedAt": "2026-10-26T19:56:19.193Z",
       "usage": {
-        "inputTokens": 2001,
-        "outputTokens": 3771,
-        "costUsd": 0.004925
+        "inputTokens": 2128,
+        "outputTokens": 2398,
+        "costUsd": 0.003303
       }
     }
   },
@@ -9715,49 +9715,43 @@
       }
     },
     "2026-10-26": {
-      "headline": "Deny policies can block Defender for Cloud Security Gating on compliant AKS clusters",
-      "overview": "The most consequential update is new Defender for Cloud guidance around AKS policy conflicts: Deny assignments can prevent Security Gating provisioning with RequestDisallowedByPolicy even on compliant clusters, and troubleshooting guidance now explains how to locate the conflict. Endpoint release notes identify Azure Linux 4 support and TCP socket bind telemetry, while Sentinel residency guidance specifies where processed and configuration data are handled. Defender for Cloud’s sensor changelog also records October GA images that remove trust in affected certificate authorities.",
-      "adminImpact": "Before enabling Security Gating, review applicable Azure Policy assignments with the policy administrator. If provisioning fails, use the Activity Log to identify the blocking assignment and pursue an Audit setting or narrowly scoped exemption where approved. Administrators can also plan Azure Linux 4 coverage, account for the updated Sentinel residency description, and review the listed sensor releases.",
+      "headline": "Advanced Hunting APIs retire in February 2027; Microsoft Graph Security migration due January 31",
+      "overview": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs by February 1, 2027, requiring manual migration to the Microsoft Graph Security API by January 31, 2027. Defender for Cloud guidance documents AKS provisioning failures caused by Deny policies, while Endpoint release notes add Azure Linux 4 support and TCP socket bind telemetry. Sentinel guidance also clarifies regional data processing and storage.",
+      "adminImpact": "Inventory MDE and XDR Advanced Hunting API workflows and schedule migration to Microsoft Graph Security API before January 31, 2027. Before enabling Defender for Cloud Security Gating, review Deny policies targeting AKS managed clusters and coordinate any approved Audit or narrowly scoped exemption changes with the Azure Policy administrator. Plan Azure Linux 4 coverage and use the new network-binding telemetry after rollout reaches the tenant. Use Sentinel’s updated residency guidance when assessing data location and retention.",
       "keyChanges": [
         {
-          "title": "Security Gating guidance exposes compliant-cluster policy failures",
-          "detail": "The enablement guide now states that `Deny` policies targeting AKS managed clusters can prevent Security Gating provisioning with `RequestDisallowedByPolicy`, even when the clusters are compliant. It adds steps to identify the blocking assignment in the Activity Log and use `Audit` or a narrowly scoped exemption.",
+          "title": "MDE and XDR Advanced Hunting APIs have a firm retirement deadline",
+          "detail": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs by February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
+          "product": "Defender XDR",
+          "sourceId": "MC1220762"
+        },
+        {
+          "title": "AKS Deny policies can block Security Gating on compliant clusters",
+          "detail": "Deny policies targeting AKS managed clusters can prevent Security Gating provisioning with RequestDisallowedByPolicy, even when clusters are compliant. The guidance adds steps to identify the blocking policy assignment in the Activity Log and use Audit or a narrowly scoped exemption.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-04"
         },
         {
-          "title": "Container troubleshooting adds the admission-controller failure path",
-          "detail": "The troubleshooting page now covers missing admission-controller resources and failed AKS writes with `RequestDisallowedByPolicy`, identifies policies that may conflict, and describes resolution through narrowly scoped changes or Microsoft Support.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-26-defender-for-containers-troubleshoot-02"
-        },
-        {
-          "title": "Linux release notes identify Azure Linux 4 and socket telemetry",
-          "detail": "The October 2026 Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the `DeviceNetworkEvents` table.",
+          "title": "Linux release notes add Azure Linux 4 and socket-bind telemetry",
+          "detail": "The October 2026 Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through the DeviceNetworkEvents table.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-01"
         },
         {
-          "title": "Sentinel residency guidance now specifies processing and storage regions",
-          "detail": "The page now states that Sentinel processes and stores processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also expands the processed-data examples and removes the 21Vianet retirement notice.",
+          "title": "Sentinel residency guidance ties storage to destination regions",
+          "detail": "The page now states that Sentinel processes and stores processed and configuration data in the onboarding destination regions or applicable existing Defender XDR regions. It also expands processed-data examples and removes the 21Vianet retirement notice.",
           "product": "Sentinel",
           "sourceId": "doc-2026-10-26-geographical-availability-data-residency-08"
-        },
-        {
-          "title": "Sensor changelog records October GA images with certificate distrust changes",
-          "detail": "The Defender for Cloud sensor changelog adds October 2026 GA entries for versions 0.11.9, 0.10.12, 0.9.70, and 0.8.63. The listed images remove trust in affected certificate authorities; review these releases when planning sensor updates.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-26-defender-sensor-change-log-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T15:09:41.012Z",
+      "generatedAt": "2026-10-26T19:56:19.193Z",
       "usage": {
-        "inputTokens": 1806,
-        "outputTokens": 3262,
-        "costUsd": 0.004276
+        "inputTokens": 1933,
+        "outputTokens": 3068,
+        "costUsd": 0.004068
       }
     }
   },
@@ -10128,54 +10122,54 @@
       }
     },
     "2026-10": {
-      "headline": "Defender for Cloud portal plan management enters preview with migration limits",
-      "overview": "October's strongest administrator-facing change was the Defender for Cloud portal plan-management preview: global or scoped configuration now has explicit Azure commercial scope, migration behavior, view-only Azure portal settings, lost resource-level configurations, and DWU billing. Defender for Office 365 also has a November Unified RBAC permission change, a November–December Plan 2 quarantine rollout, and October–November post-delivery Teams QR protection. Outside those rollouts, two Cloud Apps EWS anomaly detections stop generating alerts after October 15; much of the remaining period was procedural documentation maintenance.",
-      "adminImpact": "Before moving plan management, verify Azure commercial eligibility and required permissions; inventory resource-level settings that will not be preserved, prepare for Azure portal view-only controls, and account for Defender Workload Unit billing. Before November, review Unified RBAC grants for Microsoft Entra Security Operator users. For Plan 2, review policy and training impacts; for Teams, review related URL protection settings and investigation processes. Do not rely on the two retired EWS detections for alerts.",
+      "headline": "Defender Advanced Hunting APIs set January 31 migration deadline before February retirement",
+      "overview": "October was documentation-heavy, but its clearest administrator deadline is the retirement of the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs: Microsoft requires manual migration to the Microsoft Graph Security API by January 31, 2027, ahead of retirement on February 1. Defender for Cloud’s preview portal workflows make migration scope and configuration loss explicit, while Defender for Office 365 adds an upcoming Unified RBAC access change and a Plan 2 quarantine remediation action.",
+      "adminImpact": "Inventory MDE and XDR Advanced Hunting API workflows and schedule the Graph migration before January 31, 2027. Before using Defender for Cloud’s preview plan management, verify connected Azure commercial scope and preserve any resource-level settings; review Security Operator assignments before the November RBAC change. For server onboarding, treat Direct onboarding as tenant-wide and do not re-onboard or reinstall servers already reporting to Defender for Endpoint. For Plan 2, review policies and training ahead of the Move to Quarantine rollout.",
       "keyChanges": [
         {
-          "title": "Defender for Cloud portal plan management enters preview",
-          "detail": "New preview guidance covers global or scoped plan configuration across connected Azure commercial environments, required permissions, and migration behavior. Resource-level configurations are not preserved after migration, and migrated settings become view-only in the Azure portal.",
+          "title": "Advanced Hunting APIs retire February 1, 2027 after a January 31 migration deadline",
+          "detail": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs. Organizations must manually move workflows to the Microsoft Graph Security API by January 31, 2027, to ensure continued functionality.",
+          "product": "Defender XDR",
+          "sourceId": "MC1220762"
+        },
+        {
+          "title": "Defender for Cloud preview defines global and scoped plan management",
+          "detail": "The preview guidance covers global or scoped configuration across connected Azure commercial environments and required permissions. Global enablement migrates current environments and applies to future ones; resource-level configurations are not preserved, and migrated settings become view-only in the Azure portal.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-20-manage-cloud-security-plans-in-the-defender-portal-microsoft-defender-for-cloud-microsoft-learn-03"
         },
         {
-          "title": "Security Operator loses default Defender for Office 365 policy access",
-          "detail": "Starting November 2026, Unified RBAC mapping removes the Microsoft Entra Security Operator role's default access to email threat policies and the Tenant Allow/Block List. Administrators must assign permissions manually to preserve access when Unified RBAC is enabled.",
-          "product": "Defender XDR (Defender for Office 365)",
+          "title": "Security Operator loses default access to Defender for Office 365 email controls",
+          "detail": "Starting November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator removes default access to email threat policies and the Tenant Allow/Block List. When Unified RBAC is enabled, administrators must manually assign permissions for continued access.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Plan 2 adds a Move to Quarantine remediation action",
-          "detail": "Defender for Office 365 Plan 2 will let administrators move suspicious messages from user mailboxes into Defender quarantine. Worldwide rollout is scheduled for November–December 2026; no user action is required, but policy reviews and training updates are recommended.",
-          "product": "Defender XDR (Defender for Office 365)",
+          "title": "Direct server onboarding carries tenant-wide scope, while existing reporting servers need no migration",
+          "detail": "Updated Defender for Endpoint guidance separates automatic onboarding, manual deployment, and servers already reporting. It adds prerequisites, rollout preparation, antivirus-coexistence guidance, and a tenant-wide warning for Direct onboarding. Already-reporting servers do not require onboarding, reinstallation, or migration.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-20-onboard-servers-to-microsoft-defender-microsoft-defender-for-endpoint-microsoft-learn-07"
+        },
+        {
+          "title": "Defender for Office 365 Plan 2 adds Move to Quarantine in November",
+          "detail": "The new remediation action is scheduled to roll out worldwide from November through December 2026, allowing administrators to move suspicious messages from user mailboxes to Defender quarantine for investigation and management. No user action is required; policy reviews and training updates are recommended.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1523084"
-        },
-        {
-          "title": "Teams protection expands to malicious QR codes after delivery",
-          "detail": "Teams URL protection will detect malicious URLs embedded in QR codes post-delivery, warn users, and expose activity for security-team investigation through Advanced Hunting. Worldwide rollout runs from October through November 2026, with no user action required.",
-          "product": "Defender XDR (Defender for Office 365)",
-          "sourceId": "MC1490905"
-        },
-        {
-          "title": "Two Cloud Apps EWS anomaly detections stop generating alerts",
-          "detail": "As of October 15, 2026, two EWS-based App Governance anomaly detections are marked Retired and no longer generate alerts. They should no longer be treated as active detection coverage.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T15:09:41.012Z",
+      "generatedAt": "2026-10-26T19:56:19.193Z",
       "usage": {
-        "inputTokens": 7143,
-        "outputTokens": 11264,
-        "costUsd": 0.014945
+        "inputTokens": 7159,
+        "outputTokens": 6399,
+        "costUsd": 0.009111
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-26T15:09:41.012Z",
+  "generatedAt": "2026-10-26T19:56:19.193Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10338,22 +10332,22 @@
       "costUsd": 0.05638
     },
     "2026-10-26": {
-      "inputTokens": 10950,
-      "outputTokens": 18297,
-      "requests": 3,
-      "costUsd": 0.024146
+      "inputTokens": 22170,
+      "outputTokens": 30162,
+      "requests": 6,
+      "costUsd": 0.040628
     }
   },
   "lastRun": {
-    "inputTokens": 10950,
-    "outputTokens": 18297,
+    "inputTokens": 11220,
+    "outputTokens": 11865,
     "requests": 3,
-    "costUsd": 0.024146
+    "costUsd": 0.016482
   },
   "totalUsage": {
-    "inputTokens": 1038565,
-    "outputTokens": 1058274,
-    "requests": 210,
-    "costUsd": 1.477638
+    "inputTokens": 1049785,
+    "outputTokens": 1070139,
+    "requests": 213,
+    "costUsd": 1.49412
   }
 }
