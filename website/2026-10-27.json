@@ -1,0 +1,247 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 28,
+      "deletions": 0,
+      "changes": 28,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex d493f17..43a821c 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| macOS | 101.26092.0009 | October 2026 | - Release version: 20.126092.9.0- Engine version: 1.1.26060.12000- Signature version: 1.453.151.0 | Release details and updates |\r\n | Linux | 101.26091.0004 | October 2026 | - Release version: 30.126091.0004.0- Engine version: 1.1.26070.5001- Signature version: 1.457.364.0 | Release details and updates |\r\n | Android | 1.0.9406.0102 | Oct 2026 | - Build: 1.0.9406.0102- Release: Oct 23, 2026 | Release details and updates |\r\n | macOS | 101.26082.0012 | October 2026 | - Release version: 20.126082.12.0- Engine version: 1.1.26100.3000- Signature version: 1.461.61.0 | Release details and updates |\r\n@@ -277,6 +278,33 @@ To get latest features, configure your device for the Beta channel (formerly Ins\n \r\n For known issues, see macOS known issues.\r\n \r\n+### macOS | October-2026 | 101.26092.0009\r\n+\r\n+#### Versions\r\n+\r\n+| Release version | Engine version c | Signature version |\r\n+| --- | --- | --- |\r\n+| 20.126092.9.0 | 1.1.26060.12000 | 1.453.151.0 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature area | Update summary |\r\n+| --- | --- |\r\n+| General | Agent Protection: Improved reliability when applying managed protection policies. |\r\n+| General | Antivirus: Reduced CPU usage during high-volume file activity by. |\r\n+| General | Antivirus: Improved service reliability. |\r\n+| General | Antivirus: Improved health reporting to indicate when the protection engine connection is unavailable. |\r\n+| General | Antivirus: Added health reporting to help administrators verify that managed configuration profiles are correctly set up for Microsoft Defender system extensions. |\r\n+| General | Antivirus: Review recent performance profile suggestions and apply or remove eligible profiles directly in the Defender app. |\r\n+| General | Device Control: Legacy Device Control v1 is retired. |\r\n+| General | Device Control: Device health reporting now shows Bluetooth permission status, helping administrators verify that Device Control is configured correctly. |\r\n+| General | EDR: Improved authentication reliability after startup and wake. |\r\n+| General | EDR: Added support for configuring AI agent runtime protection on macOS. |\r\n+| General | EDR: Improved macOS device isolation. |\r\n+| General | GUI: Improved accessibility. |\r\n+| General | TVM: Improved software inventory reporting for macOS applications that do not provide standard display-name metadata. |\r\n+| General | Bug and performance fixes |\r\n+\r\n ### macOS | October-2026 | 101.26082.0012\r\n \r\n #### Versions\r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-10-27T23:45:56.640Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "macOS October 2026 release notes document Device Control v1 retirement",
+        "summary": "The documentation adds macOS version 101.26092.0009 release notes, including improved policy reliability, antivirus performance and health reporting, EDR updates, and the retirement of Legacy Device Control v1.",
+        "adminImpact": "Administrators should account for the Device Control v1 retirement; new health reporting helps verify Bluetooth permissions and Microsoft Defender system-extension configuration. No required action or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex d3065f0..37e0d27 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -36,13 +36,13 @@ monikers: []\n item_type: Content\n source_path: defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: 53b2af8b-65e4-503a-c3f9-fc8305f396d4\n ---\n \n@@ -58,6 +58,7 @@ Learn more about [Preview features](/en-us/defender-xdr/preview).\n \r\n | Type | Feature | Preview/GA | Description |\r\n | --- | --- | --- | --- |\r\n+| Release - macOS | Build 101.26092.0009 | GA | Release version 20.126092.9.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--october-2026--101260920009). |\r\n | Release - macOS | Build 101.26082.0012 | GA | Release version 20.126082.12.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--october-2026--101260820012). |\r\n | Feature | [Vulnerability assessment for Microsoft Store applications](/en-us/defender-vulnerability-management/tvm-software-inventory#microsoft-store-applications) | GA | Vulnerability assessment for applications installed via the Microsoft Store is now generally available. Defender Vulnerability Management detects supported Microsoft Store applications, adds them to the software inventory, and assesses them for vulnerabilities. Coverage is currently limited to a select set of commonly used applications. Use the **Software evidence** area on the software page to view the file path for the vulnerable application, along with a suggested query showing the vulnerable app, version, and file location. |\r\n \r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "firstSeenAt": "2026-10-27T23:45:56.644Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "New macOS release entry added",
+        "summary": "The Defender for Endpoint release history now lists macOS build 101.26092.0009 and links to its enhancements and features.",
+        "adminImpact": "Administrators can use the updated release entry to identify the documented macOS build and review its changes.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/defend-against-threats-to-get-ready-for-ai.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 11,
+      "changes": 14,
+      "patch": "diff --git a/defender-xdr/defend-against-threats-to-get-ready-for-ai.md b/defender-xdr/defend-against-threats-to-get-ready-for-ai.md\nindex 1d575be..82746e3 100644\n--- a/defender-xdr/defend-against-threats-to-get-ready-for-ai.md\n+++ b/defender-xdr/defend-against-threats-to-get-ready-for-ai.md\n@@ -13,7 +13,7 @@ author: cjwoodling6\n ms.author: cjwoodling6\n ms.topic: how-to\n ms.service: defender-xdr\n-ms.date: 2026-10-23T00:00:00.0000000Z\n+ms.date: 2026-10-26T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1028\n locale: en-us\n@@ -33,24 +33,16 @@ item_type: Content\n source_path: defender-xdr/defend-against-threats-to-get-ready-for-ai.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n platformId: d6680523-98d0-291d-be22-d4563fe5d28f\n ---\n \n # Defend Against Threats - Microsoft Defender XDR | Microsoft Learn\n \n-Prepare your security operations for AI by connecting threat detection, investigation, and response in Microsoft Defender.\r\n+**Security imperative:** Get ready for AI\r\n \r\n-## Security imperative: Get ready for AI\r\n-\r\n-Defending against threats to get ready for AI starts with your existing security operations: bring signals, investigations, and response together, expand visibility across Microsoft and non-Microsoft sources, and automate repeatable work.\r\n-\r\n-### Job to be done: Defend against threats\r\n-\r\n-That foundation is what lets human defenders and AI agents investigate and respond together, while helping the organization keep pace with AI-accelerated attacks. Defender ISOC supports this by unifying SIEM and XDR in one operational experience built on shared data, analytics, threat intelligence, and workflows.\r\n+**Job to be done:** Defend against threats\r\n \r\n ## Context and problem\r\n \r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/defend-against-threats-to-get-ready-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/defend-against-threats-to-get-ready-for-ai",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:defender-xdr/defend-against-threats-to-get-ready-for-ai.md",
+      "firstSeenAt": "2026-10-27T23:45:56.648Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI readiness guidance page refreshed",
+        "summary": "The page was updated with a new security-imperative heading, revised introductory text, streamlined job-to-be-done formatting, removal of two ontology links, and a new update date.",
+        "adminImpact": "Administrators referencing this guidance should use the revised page and updated links; no action is stated as required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/ai-code-security-onboarding.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/exposure-management/ai-code-security-onboarding.md b/exposure-management/ai-code-security-onboarding.md\nindex b623226..711ce66 100644\n--- a/exposure-management/ai-code-security-onboarding.md\n+++ b/exposure-management/ai-code-security-onboarding.md\n@@ -34,11 +34,11 @@ source_path: exposure-management/ai-code-security-onboarding.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/de19c5b8-e208-412e-9238-db3f631dea5b\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/5bd2b3fa-c186-4b92-a3c8-09f22a249d37\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ea7bf5d6-7154-4ba9-8ebc-59117ccacd49\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/7eba7926-b7b2-4a7a-bf89-e6ac53b3e7f6\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 0a7a754f-2d1a-2e18-f9d1-43bfd0069a17\n ---\n \n@@ -121,7 +121,7 @@ Provide the required details to connect your Microsoft Foundry resource and vali\n 3. Select Validate to verify the connection.\r\n 4. Select **Save** to finish onboarding. You must successfully validate the resource before you can select Save.\r\n \r\n-***Note:** MDASH uses the **Standard** scan configuration by default. You can update the default configuration during onboarding or change it later*\r\n+***Note:*** MDASH uses the ***Standard*** scan configuration by default. MAI Cyber (Preview) is the recommended scan configuration. You can select MAI Cyber (Preview) during onboarding or change the scan configuration later.\r\n \r\n ## Step 4: Set up AI scanning\r\n \r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/ai-code-security-onboarding.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/ai-code-security-onboarding",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:exposure-management/ai-code-security-onboarding.md",
+      "firstSeenAt": "2026-10-27T23:45:56.651Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI code security onboarding guidance updated",
+        "summary": "The documentation now states that Standard remains the default MDASH scan configuration, while MAI Cyber (Preview) is recommended and can be selected during onboarding or changed later.",
+        "adminImpact": "Administrators should review the updated scan-configuration guidance when onboarding or managing MDASH settings. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/defender-cli.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "changes": 8,
+      "patch": "diff --git a/exposure-management/defender-cli.md b/exposure-management/defender-cli.md\nindex 97e688a..1c007f6 100644\n--- a/exposure-management/defender-cli.md\n+++ b/exposure-management/defender-cli.md\n@@ -31,12 +31,8 @@ monikers: []\n item_type: Content\n source_path: exposure-management/defender-cli.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: d12a27c5-2994-47ac-0173-6671d7b64406\n ---\n@@ -111,12 +107,12 @@ In the following commands, replace the `<TARGET_SOURCE>` placeholder with one of\n \r\n ### Scan with a scan configuration (Preview)\r\n \r\n-A **scan configuration** selects which AI models run your scan. Two configuations are available:\r\n+A **scan configuration** selects which AI models run your scan. Two configurations are available. MAI Cyber (Preview) is the recommended scan configuration.\r\n \r\n | Configuration | Models | Use when |\r\n | --- | --- | --- |\r\n | `Standard` | GPT-5.4, GPT-5.3-Codex, GPT-5.4-Mini | General-purpose agentic code scanning (the standard configuration). |\r\n-| `mai-cyber` (preview) | GPT-5.4, GPT-5.3-Codex, GPT-5.4-Mini + MAI-Cyber-1-Flash | You want the baseline models augmented with the cyber-specialized MAI-Cyber-1-Flash model. |\r\n+| `mai-cyber` (preview) | GPT-5.4, GPT-5.3-Codex, GPT-5.4-Mini + MAI-Cyber-1.1-Flash | You want the baseline models augmented with the cyber-specialized MAI-Cyber-1.1-Flash model. |\r\n \r\n See available configuraitons and the current default:\r\n \r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/defender-cli.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/defender-cli",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:exposure-management/defender-cli.md",
+      "firstSeenAt": "2026-10-27T23:45:56.654Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MAI Cyber scan configuration guidance updated",
+        "summary": "The `mai-cyber` configuration now lists MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash, and MAI Cyber (Preview) is identified as the recommended configuration.",
+        "adminImpact": "Administrators selecting a scan configuration should review the updated model list and recommendation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/mdash-foundry-integration.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/exposure-management/mdash-foundry-integration.md b/exposure-management/mdash-foundry-integration.md\nindex 623af2b..670d09a 100644\n--- a/exposure-management/mdash-foundry-integration.md\n+++ b/exposure-management/mdash-foundry-integration.md\n@@ -31,9 +31,13 @@ monikers: []\n item_type: Content\n source_path: exposure-management/mdash-foundry-integration.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/64b65f6c-101f-411a-9b83-9f577fab52d0\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/de19c5b8-e208-412e-9238-db3f631dea5b\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/1a667fd1-8145-4b11-af0f-9f5de205a6e5\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ea7bf5d6-7154-4ba9-8ebc-59117ccacd49\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: fa300fee-25bf-e572-1ee3-fd32d6d42e7d\n ---\n \n@@ -120,8 +124,8 @@ Deploy the models required for the agentic code security integration.\n     - `gpt-5.4`\r\n     - `gpt-5.3-codex`\r\n     - `gpt-5.4-mini`\r\n-    - **MAI Cyber** **(Preview)**: To use this configuration, deploy the three models listed previously and:\r\n-    - `MAI-Cyber-1-Flash`\r\n+    - **MAI Cyber** **(Preview)**: - Recommended: MAI Cyber (Preview) is the recommended scan configuration. To use this configuration, deploy the three models listed previously and:\r\n+    - `MAI-Cyber-1.1-Flash`\r\n \r\n Important\r\n \r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/mdash-foundry-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/mdash-foundry-integration",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:exposure-management/mdash-foundry-integration.md",
+      "firstSeenAt": "2026-10-27T23:45:56.658Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MAI Cyber now recommends MAI-Cyber-1.1-Flash",
+        "summary": "The integration documentation now labels MAI Cyber (Preview) as the recommended scan configuration and replaces MAI-Cyber-1-Flash with MAI-Cyber-1.1-Flash. Four additional reference links were also added.",
+        "adminImpact": "Administrators configuring MAI Cyber should use the newly listed model name and review the updated deployment guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/whats-new.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 2,
+      "changes": 14,
+      "patch": "diff --git a/exposure-management/whats-new.md b/exposure-management/whats-new.md\nindex 5b6411c..70c7d78 100644\n--- a/exposure-management/whats-new.md\n+++ b/exposure-management/whats-new.md\n@@ -32,12 +32,12 @@ item_type: Content\n source_path: exposure-management/whats-new.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/cd48b104-e308-4e08-a405-66f04a7df418\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/ac23bdb5-c078-4620-8ee2-60eba45e97f8\n platformId: d94ea0f3-e909-d861-920c-d8f484d56861\n ---\n \n@@ -55,6 +55,16 @@ Get notified when this page is updated by copying and pasting the following URL\n \r\n `https://aka.ms/msem/rss`\r\n \r\n+## October 2026\r\n+\r\n+### Codename MDASH - MAI Cyber configuration now uses MAI-Cyber-1.1-Flash\r\n+\r\n+The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash.\r\n+\r\n+If your Foundry already uses MAI-Cyber-1-Flash, it’s automatically upgraded in Foundry to MAI-Cyber-1.1-Flash.\r\n+\r\n+MAI Cyber (Preview) is now the recommended scan configuration for MDASH.\r\n+\r\n ## September 2026\r\n \r\n ### Improved onboarding experience for MDASH\r\n",
+      "baseCommitSha": "0f4d3be6352650c399e1ea54be11c4f6b300256a",
+      "commitSha": "04820293f6d4961f0938943842c4c6c538de7ad4",
+      "commitMessage": "Mirror Learn: 7 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 23:07:56 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/whats-new",
+      "eventId": "defender-docs:04820293f6d4961f0938943842c4c6c538de7ad4:modified:exposure-management/whats-new.md",
+      "firstSeenAt": "2026-10-27T23:45:56.670Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MAI Cyber scans move to MAI-Cyber-1.1-Flash",
+        "summary": "The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash. Existing Foundry configurations are upgraded automatically.",
+        "adminImpact": "Expect existing configurations to use the newer model; MAI Cyber is now the recommended MDASH scan configuration. No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 7,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Retirement",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation adds macOS version 101.26092.0009 release notes, including improved policy reliability, antivirus performance and health reporting, EDR updates, and the retirement of Legacy Device Control v1. The Defender for Endpoint release history now lists macOS build 101.26092.0009 and links to its enhancements and features.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The page was updated with a new security-imperative heading, revised introductory text, streamlined job-to-be-done formatting, removal of two ontology links, and a new update date.",
+        "sourceFiles": [
+          "defender-xdr/defend-against-threats-to-get-ready-for-ai.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The documentation now states that Standard remains the default MDASH scan configuration, while MAI Cyber (Preview) is recommended and can be selected during onboarding or changed later. The `mai-cyber` configuration now lists MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash, and MAI Cyber (Preview) is identified as the recommended configuration. The integration documentation now labels MAI Cyber (Preview) as the recommended scan configuration and replaces MAI-Cyber-1-Flash with MAI-Cyber-1.1-Flash. Four additional reference links were also added. The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash. Existing Foundry configurations are upgraded ",
+        "sourceFiles": [
+          "exposure-management/ai-code-security-onboarding.md",
+          "exposure-management/defender-cli.md",
+          "exposure-management/mdash-foundry-integration.md",
+          "exposure-management/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Retirement",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation adds macOS version 101.26092.0009 release notes, including improved policy reliability, antivirus performance and health reporting, EDR updates, and the retirement of Legacy Device Control v1. The Defender for Endpoint release history now lists macOS build 101.26092.0009 and links to its enhancements and features."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The page was updated with a new security-imperative heading, revised introductory text, streamlined job-to-be-done formatting, removal of two ontology links, and a new update date."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The documentation now states that Standard remains the default MDASH scan configuration, while MAI Cyber (Preview) is recommended and can be selected during onboarding or changed later. The `mai-cyber` configuration now lists MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash, and MAI Cyber (Preview) is identified as the recommended configuration. The integration documentation now labels MAI Cyber (Preview) as the recommended scan configuration and replaces MAI-Cyber-1-Flash with MAI-Cyber-1.1-Flash. Four additional reference links were also added. The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash. Existing Foundry configurations are upgraded "
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

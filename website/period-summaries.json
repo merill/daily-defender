@@ -8037,6 +8037,46 @@
         "outputTokens": 3225,
         "costUsd": 0.004527
       }
+    },
+    "2026-10-27": {
+      "headline": "MDASH guidance names MAI-Cyber-1.1-Flash and flags Device Control v1 retirement",
+      "overview": "Exposure Management updates identify MAI Cyber (Preview) as the recommended MDASH scan configuration and replace MAI-Cyber-1-Flash with MAI-Cyber-1.1-Flash. The updated guidance says existing Foundry configurations are upgraded automatically. Separately, Endpoint release notes for macOS version 101.26092.0009 document improved policy reliability, antivirus performance and health reporting, EDR updates, and Legacy Device Control v1 retirement. Defender XDR also received a structural and link refresh.",
+      "adminImpact": "Administrators configuring MDASH should use the updated model name. Standard remains the default scan configuration, while MAI Cyber can be selected during onboarding or changed later; existing Foundry configurations are described as upgrading automatically, with no required action stated. Endpoint administrators should account for Device Control v1 retirement. The new health reporting can help verify Bluetooth permissions and Microsoft Defender system-extension configuration.",
+      "keyChanges": [
+        {
+          "title": "MAI Cyber guidance adopts the newer scan model",
+          "detail": "The updated What's New entry says MAI Cyber (Preview) now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash, identifies MAI Cyber as the recommended MDASH scan configuration, and says existing Foundry configurations are upgraded automatically.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-10-27-whats-new-07"
+        },
+        {
+          "title": "Onboarding guidance keeps Standard as the default",
+          "detail": "The Ai Code Security Onboarding guidance states that Standard remains the default MDASH scan configuration. It recommends MAI Cyber (Preview), which can be selected during onboarding or changed later.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-10-27-ai-code-security-onboarding-04"
+        },
+        {
+          "title": "macOS release notes document Legacy Device Control v1 retirement",
+          "detail": "The notes for macOS version 101.26092.0009 cover improved policy reliability, antivirus performance and health reporting, EDR updates, and retirement of Legacy Device Control v1. The health reporting helps verify Bluetooth permissions and Microsoft Defender system-extension configuration.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-27-microsoft-defender-endpoint-releases-01"
+        },
+        {
+          "title": "Defender XDR threat guidance receives structural cleanup",
+          "detail": "The page now has a new security-imperative heading, revised introductory text, streamlined job-to-be-done formatting, two fewer ontology links, and an updated date. This is a page-organization and link change; no required administrator action is stated.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-27-defend-against-threats-microsoft-defender-xdr-microsoft-learn-03"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-27T23:46:17.852Z",
+      "usage": {
+        "inputTokens": 1821,
+        "outputTokens": 3699,
+        "costUsd": 0.004803
+      }
     }
   },
   "weeks": {
@@ -9715,49 +9755,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "Advanced Hunting API retirement creates January 2027 migration deadline for Defender administrators",
-      "overview": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027; workflows must be manually migrated to the Microsoft Graph Security API by January 31. Defender for Office 365 is also rolling out a new MessageContents table for Teams investigations from late September through mid-November 2026. Other significant updates cover the October Linux endpoint release, AKS policy blockers for Security Gating, and revised Sentinel data-residency guidance. Most remaining changes are documentation maintenance, troubleshooting guidance, or permission and catalog updates.",
-      "adminImpact": "Inventory workflows that use the retiring Advanced Hunting APIs and schedule migration before the January 31 deadline. Review access and investigation procedures for Teams message content, plan Azure Linux 4 coverage, check Azure Policy assignments before enabling Security Gating, and use the revised Sentinel residency wording in compliance assessments.",
+      "headline": "MDE and XDR Advanced Hunting APIs require migration by January 31, 2027",
+      "overview": "The week’s most consequential change is a retirement deadline for Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs, with Microsoft Graph Security API as the replacement. Other notable updates include a Teams message investigation table, documented Azure Policy blockers for Defender for Cloud Security Gating, a macOS Device Control v1 retirement, and an automatic MAI Cyber model upgrade.",
+      "adminImpact": "Inventory workflows using the MDE or Defender XDR Advanced Hunting APIs and complete the manual migration by January 31, 2027, ahead of retirement on February 1. Review permissions and investigation procedures for the new Teams MessageContents table. Before enabling Security Gating, check AKS-related Deny policy assignments and coordinate any narrowly scoped exemption or Audit change. Account for the macOS Legacy Device Control v1 retirement; existing MAI Cyber Foundry configurations are upgraded automatically.",
       "keyChanges": [
         {
-          "title": "MDE and XDR Advanced Hunting APIs retire February 1, 2027",
-          "detail": "Microsoft’s Message Center notice sets a January 31, 2027 deadline for manually migrating Microsoft Defender for Endpoint and Defender XDR Advanced Hunting API workflows to the Microsoft Graph Security API, ahead of the February 1 retirement.",
+          "title": "Advanced Hunting API retirement sets a firm migration deadline",
+          "detail": "Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs will retire by February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
           "product": "Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Teams MessageContents table adds Advanced Hunting data during staged rollout",
-          "detail": "Defender for Office 365 is introducing a MessageContents table for Teams messages. Authorized security analysts will be able to query message snippets and metadata; specific permissions are required. Rollout is scheduled from late September through mid-November 2026.",
-          "product": "Defender for Office 365",
+          "title": "Teams investigations gain the MessageContents Advanced Hunting table",
+          "detail": "Microsoft Defender for Office 365 is rolling out a new MessageContents table for Teams messages from late September through mid-November 2026. Authorized analysts can query message snippets and metadata, subject to specific permissions and related security-procedure considerations.",
+          "product": "Defender XDR",
           "sourceId": "MC1474106"
         },
         {
-          "title": "October Linux release adds Azure Linux 4 and socket-bind telemetry",
-          "detail": "The October 2026 Microsoft Defender for Endpoint Linux release notes list version 101.26091.0004, Azure Linux 4 support, and TCP socket bind telemetry. After gradual rollout, the telemetry will be available in Advanced Hunting through DeviceNetworkEvents.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-26-microsoft-defender-endpoint-releases-02"
-        },
-        {
-          "title": "Deny policies can block AKS Security Gating on compliant clusters",
-          "detail": "Defender for Cloud guidance documents that Deny policies targeting AKS managed clusters can cause Security Gating provisioning to fail with RequestDisallowedByPolicy, even when clusters are compliant. Administrators can identify the blocking assignment in the Activity Log and use Audit or a narrowly scoped exemption.",
+          "title": "Deny policies can block Security Gating on compliant AKS clusters",
+          "detail": "New guidance documents that Deny policies targeting AKS managed clusters can cause Security Gating provisioning to fail with RequestDisallowedByPolicy, even when clusters are compliant. It directs administrators to identify the blocking assignment in Activity Log and consider Audit or a narrowly scoped exemption.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-05"
         },
         {
-          "title": "Sentinel residency guidance ties storage to onboarding and XDR regions",
-          "detail": "The updated Sentinel page states that processed and configuration data is processed and stored in the onboarding destination regions or applicable existing Defender XDR regions. It adds processed-data examples and removes the 21Vianet retirement notice.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-10-26-geographical-availability-data-residency-09"
+          "title": "macOS release notes document Legacy Device Control v1 retirement",
+          "detail": "The macOS 101.26092.0009 release notes add policy-reliability, antivirus-performance, health-reporting, and EDR updates, while documenting the retirement of Legacy Device Control v1. The new health reporting helps verify Bluetooth permissions and Microsoft Defender system-extension configuration.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-10-27-microsoft-defender-endpoint-releases-01"
+        },
+        {
+          "title": "MAI Cyber switches Foundry configurations to the 1.1 Flash model",
+          "detail": "The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash. Existing Foundry configurations are upgraded automatically, and MAI Cyber is identified as the recommended MDASH scan configuration.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-10-27-whats-new-07"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T23:52:13.529Z",
+      "generatedAt": "2026-10-27T23:46:17.852Z",
       "usage": {
-        "inputTokens": 3089,
-        "outputTokens": 3466,
-        "costUsd": 0.004777
+        "inputTokens": 4000,
+        "outputTokens": 2924,
+        "costUsd": 0.004309
       }
     }
   },
@@ -10128,54 +10168,54 @@
       }
     },
     "2026-10": {
-      "headline": "Advanced Hunting API retirement sets a January migration deadline for Defender administrators",
-      "overview": "October’s clearest operational deadline is Microsoft’s retirement of the Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027; workflows must move manually to the Microsoft Graph Security API by January 31. Defender for Cloud guidance defines the scope and migration consequences of portal-managed plans, while Defender for Office 365 adds Teams hunting data, changes Security Operator permissions, and schedules a new quarantine remediation action. Much of the remaining period consisted of documentation maintenance, but these changes require planning.",
-      "adminImpact": "Inventory integrations using the retiring Advanced Hunting APIs and complete migration by January 31. Before moving Defender for Cloud plan management, verify Azure commercial eligibility, determine whether affected resource-level settings must be recreated, and account for Defender Workload Unit billing. If Unified RBAC is enabled, manually assign the Microsoft Entra Security Operator permissions needed for email threat policies and the Tenant Allow/Block List. Validate access for Teams MessageContents investigations and prepare policy and training updates for the November–December Move to Quarantine rollout.",
+      "headline": "Advanced Hunting API retirement sets a January 31, 2027 migration deadline",
+      "overview": "The clearest administrator deadline in October is Microsoft’s retirement of the Defender for Endpoint and Defender XDR Advanced Hunting APIs. Other consequential changes include preview guidance for Defender for Cloud plan management, a November Unified RBAC permission change for Defender for Office 365, and new Teams protections and investigation data in Defender for Office 365.",
+      "adminImpact": "Inventory workflows that use the MDE or Defender XDR Advanced Hunting APIs and manually migrate them to the Microsoft Graph Security API by January 31, 2027; the existing APIs retire February 1. Before using Defender for Cloud portal-based plan management, verify Azure commercial eligibility and account for lost resource-level settings, Azure portal view-only behavior, and DWU billing. Review Unified RBAC assignments before November if Security Operators need email threat policy or Tenant Allow/Block List access. Review Teams protection settings and investigation permissions as the QR-code protection and MessageContents rollouts proceed.",
       "keyChanges": [
         {
-          "title": "Defender for Endpoint and XDR Advanced Hunting APIs retire in February",
-          "detail": "Microsoft will retire both Advanced Hunting APIs on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
-          "product": "Defender XDR and Defender for Endpoint",
+          "title": "MDE and XDR Advanced Hunting APIs move to Microsoft Graph Security API",
+          "detail": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
+          "product": "Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Defender for Cloud guidance defines portal plan-management scope and migration effects",
-          "detail": "Updated integration guidance says cloud security data supports Azure, AWS, and GCP, but onboarding and plan management currently support Azure commercial environments only. After migration, plan settings are view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
+          "title": "Defender for Cloud preview guidance defines Azure plan-management boundaries",
+          "detail": "The updated guidance documents plan management for connected Azure commercial environments, including global or scoped configuration. After migration, plan settings become view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-20-integration-faq-12"
         },
         {
-          "title": "Security Operator will lose default access to key Defender for Office 365 controls",
-          "detail": "Starting in November 2026, the Microsoft Entra Security Operator role will no longer have default access to email threat policies or the Tenant Allow/Block List when Unified RBAC is enabled. Administrators must assign the required permissions manually to preserve access.",
-          "product": "Defender for Office 365",
+          "title": "Security Operator loses default access to key Defender for Office controls",
+          "detail": "Starting in November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List. Organizations using Unified RBAC must manually assign the needed permissions for continued access.",
+          "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams MessageContents table expands Defender for Office 365 hunting",
-          "detail": "A new MessageContents table in Advanced Hunting exposes Teams message snippets and metadata to authorized security analysts for threat investigations. Rollout runs from late September through mid-November 2026, and access requires specific permissions.",
-          "product": "Defender for Office 365",
-          "sourceId": "MC1474106"
+          "title": "Teams QR codes gain post-delivery malicious-URL protection",
+          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and support investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026.",
+          "product": "Defender XDR",
+          "sourceId": "MC1490905"
         },
         {
-          "title": "Plan 2 adds Move to Quarantine for suspicious mail",
-          "detail": "Defender for Office 365 Plan 2 is adding a remediation action that moves suspicious email from user mailboxes into Defender quarantine. Worldwide rollout is scheduled for November through December 2026, with policy reviews and training updates recommended.",
-          "product": "Defender for Office 365",
-          "sourceId": "MC1523084"
+          "title": "Advanced Hunting adds a MessageContents table for Teams investigations",
+          "detail": "The new MessageContents table lets authorized security analysts query Teams message snippets and metadata during threat investigations. Rollout runs from late September through mid-November 2026 and requires the specified permissions, which may affect investigation procedures.",
+          "product": "Defender XDR",
+          "sourceId": "MC1474106"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-26T23:52:13.529Z",
+      "generatedAt": "2026-10-27T23:46:17.852Z",
       "usage": {
-        "inputTokens": 7154,
-        "outputTokens": 5583,
-        "costUsd": 0.00813
+        "inputTokens": 7155,
+        "outputTokens": 2688,
+        "costUsd": 0.004657
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-26T23:52:13.529Z",
+  "generatedAt": "2026-10-27T23:46:17.852Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10342,18 +10382,24 @@
       "outputTokens": 42436,
       "requests": 9,
       "costUsd": 0.058062
+    },
+    "2026-10-27": {
+      "inputTokens": 12976,
+      "outputTokens": 9311,
+      "requests": 3,
+      "costUsd": 0.013768
     }
   },
   "lastRun": {
-    "inputTokens": 13527,
-    "outputTokens": 12274,
+    "inputTokens": 12976,
+    "outputTokens": 9311,
     "requests": 3,
-    "costUsd": 0.017434
+    "costUsd": 0.013768
   },
   "totalUsage": {
-    "inputTokens": 1063312,
-    "outputTokens": 1082413,
-    "requests": 216,
-    "costUsd": 1.511554
+    "inputTokens": 1076288,
+    "outputTokens": 1091724,
+    "requests": 219,
+    "costUsd": 1.525322
   }
 }
