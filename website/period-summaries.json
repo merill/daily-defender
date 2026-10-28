@@ -8077,6 +8077,52 @@
         "outputTokens": 3699,
         "costUsd": 0.004803
       }
+    },
+    "2026-10-28": {
+      "headline": "Defender for Identity guidance flags v3 government-cloud prerequisites and v2 sensor limits",
+      "overview": "Defender for Identity guidance now documents two deployment constraints: v3.x sensor activation without Microsoft Defender for Endpoint is temporarily unsupported in government clouds, while v2.x sensor installation in new workspaces created from October 2026 is restricted in preview. The period also adds the CloudKeyVaultEvents advanced-hunting table for Azure Key Vault activity, revises Sentinel connector status references, and expands Defender XDR role-permission guidance.",
+      "adminImpact": "Review identity sensor deployment plans for new workspaces: eligible Windows Server 2019 or later domain controllers are directed to the v3.x deployment guidance and onboarding package, while government-cloud v3.x activation requires Microsoft Defender for Endpoint. Hunting teams can use CloudKeyVaultEvents when Microsoft Defender for Cloud is available. Sentinel administrators should validate connector inventories and status references, and RBAC owners can reassess coverage for core cloud security settings.",
+      "keyChanges": [
+        {
+          "title": "Government-cloud v3.x sensor activation now carries a Defender for Endpoint prerequisite",
+          "detail": "The Defender for Identity What's New guidance states that activating the v3.x sensor without Microsoft Defender for Endpoint is temporarily unsupported in government cloud environments.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-28-whats-new-06"
+        },
+        {
+          "title": "New workspaces are directed to v3.x onboarding for eligible domain controllers",
+          "detail": "Install Sensor guidance marks the v2.x sensor restriction for new workspaces as preview. For workspaces created from October 2026, eligible Windows Server 2019 or later domain controllers are directed to the v3.x deployment guidance and onboarding package.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-28-install-sensor-04"
+        },
+        {
+          "title": "CloudKeyVaultEvents adds Azure Key Vault activity to advanced hunting",
+          "detail": "The new Defender XDR table documents Azure Key Vault operations, access identities, request details, and operation results, with schema fields and sample queries. Queries require Microsoft Defender for Cloud.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-28-cloudkeyvaultevents-table-in-the-advanced-hunting-schema-microsoft-defender-xdr-microsoft-learn-01"
+        },
+        {
+          "title": "Sentinel reference now labels Jira Audit and SecurityScorecard Factor deprecated",
+          "detail": "The Sentinel Tables Connectors Reference marks the Atlassian Jira Audit and SecurityScorecard Factor connectors as deprecated. It also updates connector names and links, removes GoogleCloudSCC, adds entries, and changes availability indicators for multiple connectors.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-10-28-sentinel-tables-connectors-reference-09"
+        },
+        {
+          "title": "Defender XDR RBAC guidance adds core cloud-security management permissions",
+          "detail": "The role comparison page now lists Management permissions for reading or managing environment connections, plan enablement, and policy configuration.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-10-28-compare-rbac-roles-07"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-28T15:04:40.435Z",
+      "usage": {
+        "inputTokens": 2071,
+        "outputTokens": 2999,
+        "costUsd": 0.004013
+      }
     }
   },
   "weeks": {
@@ -9755,36 +9801,36 @@
       }
     },
     "2026-10-26": {
-      "headline": "MDE and XDR Advanced Hunting APIs require migration by January 31, 2027",
-      "overview": "The week’s most consequential change is a retirement deadline for Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs, with Microsoft Graph Security API as the replacement. Other notable updates include a Teams message investigation table, documented Azure Policy blockers for Defender for Cloud Security Gating, a macOS Device Control v1 retirement, and an automatic MAI Cyber model upgrade.",
-      "adminImpact": "Inventory workflows using the MDE or Defender XDR Advanced Hunting APIs and complete the manual migration by January 31, 2027, ahead of retirement on February 1. Review permissions and investigation procedures for the new Teams MessageContents table. Before enabling Security Gating, check AKS-related Deny policy assignments and coordinate any narrowly scoped exemption or Audit change. Account for the macOS Legacy Device Control v1 retirement; existing MAI Cyber Foundry configurations are upgraded automatically.",
+      "headline": "Advanced Hunting APIs require migration by Jan 31 as Teams hunting expands",
+      "overview": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027, requiring manual migration to the Microsoft Graph Security API by January 31. In parallel, Defender for Office 365 is rolling out the MessageContents table for Teams investigations, while updated guidance records material Identity sensor, macOS Device Control, and Exposure Management configuration changes.",
+      "adminImpact": "Prioritize an inventory and migration plan for Advanced Hunting API workflows. Validate analyst permissions and investigation procedures for the MessageContents rollout. For Identity, plan supported v3.x onboarding for new workspaces and account for the Microsoft Defender for Endpoint requirement in government clouds. Review macOS dependencies on Legacy Device Control v1 and references to the retired MAI Cyber model name.",
       "keyChanges": [
         {
-          "title": "Advanced Hunting API retirement sets a firm migration deadline",
-          "detail": "Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs will retire by February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
+          "title": "MDE and Defender XDR Advanced Hunting APIs retire February 1, 2027",
+          "detail": "Microsoft says the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs will retire on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
           "product": "Defender XDR",
           "sourceId": "MC1220762"
         },
         {
           "title": "Teams investigations gain the MessageContents Advanced Hunting table",
-          "detail": "Microsoft Defender for Office 365 is rolling out a new MessageContents table for Teams messages from late September through mid-November 2026. Authorized analysts can query message snippets and metadata, subject to specific permissions and related security-procedure considerations.",
+          "detail": "Defender for Office 365 introduces a MessageContents table for Teams messages, allowing authorized analysts to query message snippets and metadata. Rollout runs from late September through mid-November 2026, and access requires specific permissions.",
           "product": "Defender XDR",
           "sourceId": "MC1474106"
         },
         {
-          "title": "Deny policies can block Security Gating on compliant AKS clusters",
-          "detail": "New guidance documents that Deny policies targeting AKS managed clusters can cause Security Gating provisioning to fail with RequestDisallowedByPolicy, even when clusters are compliant. It directs administrators to identify the blocking assignment in Activity Log and consider Audit or a narrowly scoped exemption.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-26-enablement-guide-runtime-gated-05"
+          "title": "Identity guidance sets new-workspace and government-cloud sensor limits",
+          "detail": "Updated guidance states that v3.x sensor activation without Microsoft Defender for Endpoint is temporarily unsupported in government clouds. It also documents a preview restriction on installing v2.x sensors in new workspaces beginning in October 2026.",
+          "product": "Identity",
+          "sourceId": "doc-2026-10-28-whats-new-06"
         },
         {
-          "title": "macOS release notes document Legacy Device Control v1 retirement",
-          "detail": "The macOS 101.26092.0009 release notes add policy-reliability, antivirus-performance, health-reporting, and EDR updates, while documenting the retirement of Legacy Device Control v1. The new health reporting helps verify Bluetooth permissions and Microsoft Defender system-extension configuration.",
+          "title": "macOS 101.26092.0009 release notes flag Legacy Device Control v1 retirement",
+          "detail": "The macOS release notes add improvements to policy reliability, antivirus performance and health reporting, and EDR, while recording the retirement of Legacy Device Control v1.",
           "product": "Endpoint",
           "sourceId": "doc-2026-10-27-microsoft-defender-endpoint-releases-01"
         },
         {
-          "title": "MAI Cyber switches Foundry configurations to the 1.1 Flash model",
+          "title": "MAI Cyber switches to MAI-Cyber-1.1-Flash",
           "detail": "The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead of MAI-Cyber-1-Flash. Existing Foundry configurations are upgraded automatically, and MAI Cyber is identified as the recommended MDASH scan configuration.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-10-27-whats-new-07"
@@ -9793,11 +9839,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-27T23:46:17.852Z",
+      "generatedAt": "2026-10-28T15:04:40.435Z",
       "usage": {
-        "inputTokens": 4000,
-        "outputTokens": 2924,
-        "costUsd": 0.004309
+        "inputTokens": 5127,
+        "outputTokens": 3715,
+        "costUsd": 0.005483
       }
     }
   },
@@ -10168,65 +10214,59 @@
       }
     },
     "2026-10": {
-      "headline": "Advanced Hunting API retirement sets a January 31, 2027 migration deadline",
-      "overview": "The clearest administrator deadline in October is Microsoft’s retirement of the Defender for Endpoint and Defender XDR Advanced Hunting APIs. Other consequential changes include preview guidance for Defender for Cloud plan management, a November Unified RBAC permission change for Defender for Office 365, and new Teams protections and investigation data in Defender for Office 365.",
-      "adminImpact": "Inventory workflows that use the MDE or Defender XDR Advanced Hunting APIs and manually migrate them to the Microsoft Graph Security API by January 31, 2027; the existing APIs retire February 1. Before using Defender for Cloud portal-based plan management, verify Azure commercial eligibility and account for lost resource-level settings, Azure portal view-only behavior, and DWU billing. Review Unified RBAC assignments before November if Security Operators need email threat policy or Tenant Allow/Block List access. Review Teams protection settings and investigation permissions as the QR-code protection and MessageContents rollouts proceed.",
+      "headline": "Advanced Hunting API retirement sets January migration deadline as Teams hunting expands",
+      "overview": "October was largely documentation maintenance, but several changes have direct operational weight. Microsoft set a January 31, 2027 deadline to move Microsoft Defender for Endpoint and Defender XDR Advanced Hunting API workflows to the Microsoft Graph Security API before the APIs retire. Defender for Office 365 also introduced Teams investigation data and scheduled a Unified RBAC access change, while Defender for Cloud guidance now spells out portal-plan scope, migration effects, and DWU billing.",
+      "adminImpact": "Inventory MDE and XDR Advanced Hunting API consumers and complete migration by January 31, 2027. For Defender for Cloud portal-managed plans, verify Azure commercial eligibility, account for non-preserved resource-level settings and Defender Workload Unit billing, and review the resulting Azure-portal view-only state. Before the November RBAC change, manually preserve Security Operator access where Unified RBAC is enabled; validate permissions and procedures for MessageContents and remove dependencies on the retired EWS detections.",
       "keyChanges": [
         {
-          "title": "MDE and XDR Advanced Hunting APIs move to Microsoft Graph Security API",
-          "detail": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
+          "title": "Advanced Hunting APIs have a firm Graph migration deadline",
+          "detail": "Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs are scheduled to retire on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027, to preserve functionality.",
           "product": "Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Defender for Cloud preview guidance defines Azure plan-management boundaries",
-          "detail": "The updated guidance documents plan management for connected Azure commercial environments, including global or scoped configuration. After migration, plan settings become view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
+          "title": "Defender for Cloud portal-plan guidance adds Azure scope and DWU billing",
+          "detail": "The updated guidance separates broad cloud-security data support for Azure, AWS, and GCP from onboarding and plan management, which currently support Azure commercial environments only. After migration, plan settings are view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-10-20-integration-faq-12"
         },
         {
-          "title": "Security Operator loses default access to key Defender for Office controls",
-          "detail": "Starting in November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List. Organizations using Unified RBAC must manually assign the needed permissions for continued access.",
+          "title": "Security Operator defaults lose Defender for Office 365 policy access",
+          "detail": "Starting in November 2026, the Unified RBAC mapping for the Microsoft Entra Security Operator role removes default access to email threat policies and the Tenant Allow/Block List when Unified RBAC is enabled. Manual permission assignment is required to retain access.",
           "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Teams QR codes gain post-delivery malicious-URL protection",
-          "detail": "Defender for Office 365 is extending Teams URL protection to detect malicious URLs in QR codes after delivery, warn users, and support investigation through Advanced Hunting. Worldwide rollout is scheduled from October through November 2026.",
-          "product": "Defender XDR",
-          "sourceId": "MC1490905"
-        },
-        {
-          "title": "Advanced Hunting adds a MessageContents table for Teams investigations",
-          "detail": "The new MessageContents table lets authorized security analysts query Teams message snippets and metadata during threat investigations. Rollout runs from late September through mid-November 2026 and requires the specified permissions, which may affect investigation procedures.",
+          "title": "MessageContents adds Teams snippets and metadata to Advanced Hunting",
+          "detail": "Defender for Office 365 is rolling out a new MessageContents table for Teams messages from late September through mid-November 2026. Authorized analysts can query message snippets and metadata for investigations, subject to specific permissions.",
           "product": "Defender XDR",
           "sourceId": "MC1474106"
+        },
+        {
+          "title": "Two EWS App Governance detections stop generating alerts",
+          "detail": "Cloud Apps guidance now states that, as of October 15, 2026, two EWS-based anomaly detections are retired and no longer generate alerts. Monitoring and triage processes that depend on those detections should be reviewed.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-10-15-app-governance-anomaly-detection-alerts-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-27T23:46:17.852Z",
+      "generatedAt": "2026-10-28T15:04:40.435Z",
       "usage": {
-        "inputTokens": 7155,
-        "outputTokens": 2688,
-        "costUsd": 0.004657
+        "inputTokens": 7123,
+        "outputTokens": 7528,
+        "costUsd": 0.010458
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-27T23:46:17.852Z",
+  "generatedAt": "2026-10-28T15:04:40.435Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-22": {
-      "inputTokens": 8682,
-      "outputTokens": 5516,
-      "requests": 3,
-      "costUsd": 0.008356
-    },
     "2026-09-28": {
       "inputTokens": 8789,
       "outputTokens": 9013,
@@ -10388,18 +10428,24 @@
       "outputTokens": 9311,
       "requests": 3,
       "costUsd": 0.013768
+    },
+    "2026-10-28": {
+      "inputTokens": 14321,
+      "outputTokens": 14242,
+      "requests": 3,
+      "costUsd": 0.019955
     }
   },
   "lastRun": {
-    "inputTokens": 12976,
-    "outputTokens": 9311,
+    "inputTokens": 14321,
+    "outputTokens": 14242,
     "requests": 3,
-    "costUsd": 0.013768
+    "costUsd": 0.019955
   },
   "totalUsage": {
-    "inputTokens": 1076288,
-    "outputTokens": 1091724,
-    "requests": 219,
-    "costUsd": 1.525322
+    "inputTokens": 1090609,
+    "outputTokens": 1105966,
+    "requests": 222,
+    "costUsd": 1.545277
   }
 }
