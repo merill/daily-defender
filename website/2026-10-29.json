@@ -1,0 +1,274 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 3,
+      "changes": 25,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex c272f63..55a5aea 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -34,12 +34,12 @@ item_type: Content\n source_path: defender-endpoint/microsoft-defender-endpoint-releases.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ec6774-09b8-473e-a17e-b17b518bbad7\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ec6774-09b8-473e-a17e-b17b518bbad7\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ade36b61-c646-4bd8-87ee-f3a843461962\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ade36b61-c646-4bd8-87ee-f3a843461962\n platformId: 489b2a93-728e-0a40-5b05-d494dd07e66f\n ---\n \n@@ -59,7 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n-| iOS | 1.1.82230103 | Oct 2026 | - Build: 1.1.82230103- Release: Oct 24, 2026 | Release details and updates |\r\n+| Windows Antivirus | Platform 4.18.26100.4 / Engine 1.1.26100.4 | October 2026 | - Platform: 4.18.26100.4- Engine: 1.1.26100.4- Security intelligence: 1.463.1.0 | Release details and updates |\r\n | macOS | 101.26092.0009 | October 2026 | - Release version: 20.126092.9.0- Engine version: 1.1.26060.12000- Signature version: 1.453.151.0 | Release details and updates |\r\n | Linux | 101.26091.0004 | October 2026 | - Release version: 30.126091.0004.0- Engine version: 1.1.26070.5001- Signature version: 1.457.364.0 | Release details and updates |\r\n | Android | 1.0.9406.0102 | Oct 2026 | - Build: 1.0.9406.0102- Release: Oct 23, 2026 | Release details and updates |\r\n@@ -1563,6 +1563,25 @@ For the latest UX improvements, see [iOS UX improvements](ios-new-ux).\n \r\n For more information about Microsoft Defender Antivirus updates, see [Microsoft Defender Antivirus security intelligence product updates and support](microsoft-defender-antivirus-updates).\r\n \r\n+### Windows Antivirus | October 2026 | Platform 4.18.26100.4 | Engine 1.1.26100.4\r\n+\r\n+#### Release details\r\n+\r\n+| Component | Version | Date |\r\n+| --- | --- | --- |\r\n+| Platform | 4.18.26100.4 | October 27, 2026 |\r\n+| Engine | 1.1.26100.4 | October 27, 2026 |\r\n+| Security intelligence^1^ | 1.463.1.0 | October 27, 2026 |\r\n+| Support phase | Security and Critical Updates | - |\r\n+\r\n+^1^The security intelligence version listed here is relevant to the listed engine release. Newer versions of security intelligence are released regularly. For more information, see [Security intelligence updates for Microsoft Defender Antivirus and other Microsoft anti-malware](https://www.microsoft.com/wdsi/defenderupdates).\r\n+\r\n+### Enhancements and features\r\n+\r\n+- Reduced CPU usage after full scans by avoiding repeated decompression of Windows image archives (WIM).\r\n+- Recognize devices configured using Defender for Endpoint security settings management as managed devices.\r\n+- Completed rollout of Microsoft Defender Clipboard Protection- DefenderSessionHelper.exe.\r\n+\r\n ### Windows Antivirus | September 2026 | Platform 4.18.26090.9 | Engine 1.1.26090.9\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-10-28T23:59:52.841Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "October 2026 Windows Antivirus release adds documented enhancements",
+        "summary": "The page now lists Windows Antivirus platform 4.18.26100.4, engine 1.1.26100.4, and security intelligence 1.463.1.0, released October 27, 2026. It documents lower CPU usage after full scans, recognition of security-settings-managed devices, and completed Clipboard Protection rollout.",
+        "adminImpact": "Administrators can use the version details to track deployment and review the documented behavior changes. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/defender-for-office-365-whats-new.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/defender-office-365/defender-for-office-365-whats-new.md b/defender-office-365/defender-for-office-365-whats-new.md\nindex beb4485..769c89c 100644\n--- a/defender-office-365/defender-for-office-365-whats-new.md\n+++ b/defender-office-365/defender-for-office-365-whats-new.md\n@@ -13,7 +13,7 @@ keywords: what's new in Microsoft Defender for Office 365, ga, generally availab\n author: chrisda\n ms.author: chrisda\n ms.localizationpriority: medium\n-ms.date: 2026-10-15T00:00:00.0000000Z\n+ms.date: 2026-10-28T00:00:00.0000000Z\n ms.collection:\n - m365-security\n - tier1\n@@ -43,11 +43,11 @@ source_path: defender-office-365/defender-for-office-365-whats-new.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n - https://authoring-docs-microsoft.poolparty.biz/devrel/609dad7f-61d2-4958-9386-e6e4bb38d61e\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/6ab06385-661e-4214-8870-bbe4071c960d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1af30562-083a-42e2-aad4-17ae29f4ad72\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/131ba09e-4280-4ae7-8622-1f9f1c0daad1\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: a8ee67f9-1346-7d44-f055-b3d2168bb53a\n ---\n \n@@ -72,6 +72,7 @@ For more information on what's new with other Microsoft Defender security produc\n \r\n ## October 2026\r\n \r\n+- **Hunt across activities in Microsoft Teams calls and meetings**: The [CallActivityEvents table](/en-us/defender-xdr/advanced-hunting-callactivityevents-table) in Microsoft Defender XDR advanced hunting contains details about activities performed during Microsoft Teams calls and meetings in your organization, helping security teams investigate suspicious call activity.\r\n - **New ApproverUpn field in the EmailPostDeliveryEvents table**: The [EmailPostDeliveryEvents table](/en-us/defender-xdr/advanced-hunting-emailpostdeliveryevents-table) in Microsoft Defender XDR Advanced Hunting now includes the **ApproverUpn** field. This field identifies the user or administrator who approved a remediation action, helping security teams investigate and audit post-delivery email actions more efficiently.\r\n - **Expanding user reporting in Teams to include meetings**: Users can report scheduled or Meet now [Microsoft Teams meetings](submissions-teams#report-meetings-in-teams) or individual meeting participants as a security concern during or after the meeting. Users can also report a meeting participant that was incorrectly identified as suspicious as not a security concern. Depending on [Teams user reported settings](submissions-teams#user-reporting-settings-for-teams-items), reported meeting and participant metadata is sent to the specified reporting mailbox, to Microsoft, or both.\r\n \r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/defender-for-office-365-whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/defender-for-office-365-whats-new",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-office-365/defender-for-office-365-whats-new.md",
+      "firstSeenAt": "2026-10-28T23:59:52.845Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Teams call and meeting activity is now documented for advanced hunting",
+        "summary": "The page now documents the Defender XDR CallActivityEvents table, which contains details about activities performed during Microsoft Teams calls and meetings. Page metadata and taxonomy links were also updated.",
+        "adminImpact": "Administrators can use CallActivityEvents to hunt and investigate Teams call and meeting activity.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-support-teams-about.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-about.md b/defender-office-365/mdo-support-teams-about.md\nindex 4618fc7..3694025 100644\n--- a/defender-office-365/mdo-support-teams-about.md\n+++ b/defender-office-365/mdo-support-teams-about.md\n@@ -17,7 +17,7 @@ ms.collection:\n - tier1\n description: Admins can learn about Microsoft Teams features in Microsoft Defender for Office 365.\n ms.service: defender-office-365\n-ms.date: 2026-10-05T00:00:00.0000000Z\n+ms.date: 2026-10-28T00:00:00.0000000Z\n locale: en-us\n document_id: d0b8c854-23d3-7deb-f05a-d3f0e1eaab7c\n document_version_independent_id: d0b8c854-23d3-7deb-f05a-d3f0e1eaab7c\n@@ -73,6 +73,7 @@ Microsoft 365 E5 and Defender for Office 365 Plan 2 extend Teams protection with\n \r\n - **Remove users from Teams chat**: To remediate malicious attacks, you can remove users from teams chats directly from the [Teams message entity panel](teams-message-entity-panel#remove-users-from-teams-chats-in-the-teams-message-entity-panel).\r\n - **Hunting on Teams messages with URLs**: You can hunt for Teams messages containing URL across three new advanced hunting tables: [MessageEvents](/en-us/defender-xdr/advanced-hunting-messageevents-table), [MessagePostDeliveryEvents](/en-us/defender-xdr/advanced-hunting-messagepostdeliveryevents-table), and [MessageURLInfo](/en-us/defender-xdr/advanced-hunting-messageurlinfo-table).\r\n+- **Hunting on Teams calls and meetings**: You can hunt across activities performed during Microsoft Teams calls and meetings using the [CallActivityEvents](/en-us/defender-xdr/advanced-hunting-callactivityevents-table) advanced hunting table.\r\n \r\n These features are summarized in the following table:\r\n \r\n@@ -91,6 +92,7 @@ These features are summarized in the following table:\n | User-reported Teams items (messages, calls, meetings, and meeting participants) |  | ![](media/feature_present_icon.png) | ![](media/feature_present_icon.png) |\r\n | Remove users from Teams chats (admin remediation) |  |  | ![](media/feature_present_icon.png) |\r\n | Advanced hunting on Teams messages |  |  | ![](media/feature_present_icon.png) |\r\n+| Advanced hunting on Teams calls and meetings |  |  | ![](media/feature_present_icon.png) |\r\n \r\n ## Configure ZAP for Teams protection in Defender for Office 365\r\n \r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/mdo-support-teams-about.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-office-365/mdo-support-teams-about.md",
+      "firstSeenAt": "2026-10-28T23:59:52.849Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Teams call and meeting hunting is now documented",
+        "summary": "The page now documents hunting across Microsoft Teams call and meeting activities with the CallActivityEvents advanced hunting table and marks the capability as supported.",
+        "adminImpact": "Administrators can use this documentation to investigate Teams call and meeting activity.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-support-teams-sec-ops-guide.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-office-365/mdo-support-teams-sec-ops-guide.md b/defender-office-365/mdo-support-teams-sec-ops-guide.md\nindex 53f484f..ec7c2ef 100644\n--- a/defender-office-365/mdo-support-teams-sec-ops-guide.md\n+++ b/defender-office-365/mdo-support-teams-sec-ops-guide.md\n@@ -17,7 +17,7 @@ ms.collection:\n - tier1\n description: A prescriptive playbook for SecOps personnel to manage Microsoft Teams protection in Microsoft Defender for Office 365.\n ms.service: defender-office-365\n-ms.date: 2026-10-05T00:00:00.0000000Z\n+ms.date: 2026-10-28T00:00:00.0000000Z\n locale: en-us\n document_id: 92aff1cd-08c4-9c50-3fe1-dd32992345be\n document_version_independent_id: 92aff1cd-08c4-9c50-3fe1-dd32992345be\n@@ -118,6 +118,7 @@ SecOps team members can proactively hunt for potentially malicious Teams message\n     - [MessagePostDeliveryEvents](/en-us/defender-xdr/advanced-hunting-messagepostdeliveryevents-table): Contains raw data about ZAP events on Teams messages.\r\n     - [MessageUrlInfo](/en-us/defender-xdr/advanced-hunting-messageurlinfo-table): Contains raw data about URLs in Teams messages.\r\n     - [UrlClickEvents](/en-us/defender-xdr/advanced-hunting-urlclickevents-table): Contains raw data about every allowed or blocked URL click by users in Teams clients.\r\n+    - [CallActivityEvents](/en-us/defender-xdr/advanced-hunting-callactivityevents-table): Contains raw data about activities performed during Microsoft Teams calls and meetings in your organization.\r\n \r\n     SecOps team members can join these hunting tables with other workload tables (for example, EmailEvents or Device-related tables) to gain insight into end to end user activities.\r\n \r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/mdo-support-teams-sec-ops-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-sec-ops-guide",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-office-365/mdo-support-teams-sec-ops-guide.md",
+      "firstSeenAt": "2026-10-28T23:59:52.852Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Teams security operations guide adds CallActivityEvents reference",
+        "summary": "The guide now links to the CallActivityEvents table, which contains raw data about activities during Microsoft Teams calls and meetings. The documentation date was also updated.",
+        "adminImpact": "Administrators can use the guide to locate Teams call and meeting activity data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-callactivityevents-table.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 6,
+      "changes": 28,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-callactivityevents-table.md b/defender-xdr/advanced-hunting-callactivityevents-table.md\nindex e1b9049..a7f0a94 100644\n--- a/defender-xdr/advanced-hunting-callactivityevents-table.md\n+++ b/defender-xdr/advanced-hunting-callactivityevents-table.md\n@@ -21,7 +21,7 @@ ms.custom:\n - cx-ti\n - cx-ah\n ms.topic: reference\n-ms.date: 2026-08-04T00:00:00.0000000Z\n+ms.date: 2026-10-28T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 87de4e2c-e3dd-515e-5a2a-d47f0fa355ac\n@@ -55,10 +55,6 @@ The `CallActivityEvents` table in the [advanced hunting](advanced-hunting-overvi\n \r\n This advanced hunting table is populated by records from Microsoft Defender for Office 365. If your organization hasn't deployed the service in Microsoft Defender, queries that use the table don't work or return any results. For more information about how to deploy Defender for Office 365 in the Defender portal, read [Deploy supported services](deploy-supported-services).\r\n \r\n-Note\r\n-\r\n-Support for the event streaming API, Microsoft Sentinel integration, and more attributes is planned for the coming weeks.\r\n-\r\n ## Schema\r\n \r\n For information on other tables in the advanced hunting schema, [see the advanced hunting reference](advanced-hunting-schema-tables).\r\n@@ -76,4 +72,24 @@ For information on other tables in the advanced hunting schema, [see the advance\n | `CallSchedulingType` | `string` | Type of scheduling for the call, such as `Adhoc`, `Scheduled`, or `Recurring` |\r\n | `CallJoinUrl` | `string` | Link that participants use to join the call |\r\n | `OriginatorUserDisplayName` | `string` | Display name of the caller who initiated the call |\r\n-| `OriginatorUpn` | `string` | User principal name of the caller who initiated the call |\n\\ No newline at end of file\n+| `OriginatorUpn` | `string` | User principal name of the caller who initiated the call |\r\n+| `CallType` | `string` | Type of call, for example, peer-to-peer (P2P) or group call (meeting, conference, or escalated call) |\r\n+| `CallName` | `string` | Name of the call as displayed in the calendar invite |\r\n+| `ActivityDetail` | `string` | Additional information about the activity performed |\r\n+| `ActivityStatus` | `string` | Success or failure of the activity performed |\r\n+| `IsPerformedOnSelf` | `boolean` | Indicates whether the activity initiator performed the action on themselves (`True`) or on another call participant (`False`) |\r\n+| `ActivityInitiatorPhoneNumber` | `string` | Third-party or Microsoft Teams phone number of the caller's account |\r\n+| `ActivityInitiatorAccountType` | `string` | Classification of how the activity initiator is provisioned in the organization; possible values: Entra, consumer, Azure Communication Services, Public Switched Telephone Network, Unauthenticated |\r\n+| `ActivityInitiatorMembershipType` | `string` | Membership type of the activity initiator relative to the tenant from which the activity is made |\r\n+| `ActivityInitiatorTenantDisplayName` | `string` | Name of the organization that the activity initiator belongs to |\r\n+| `ActivityInitiatorTenantRegion` | `string` | Geographical region of the tenant that the activity initiator belongs to |\r\n+| `ActivityInitiatorPlatformName` | `string` | Display name of the activity initiator's Teams client |\r\n+| `ActivityInitiatorPlatformCategory` | `string` | Category of the activity initiator's client platform; possible values: Desktop, Mobile, Web |\r\n+| `OriginatorObjectId` | `string` | Unique identifier for the user who organized the call or meeting invite |\r\n+| `OriginatorTenantId` | `string` | Unique identifier for the tenant of the user who organized the call or meeting invite |\r\n+| `ActivityRecipientId` | `string` | Unique identifier for the activity recipient |\r\n+| `ActivityRecipientUpn` | `string` | Unique identifier for the account of the activity recipient |\r\n+| `ActivityRecipientPhoneNumber` | `string` | Third-party or Microsoft Teams phone number of the activity recipient |\r\n+| `ActivityRecipientDisplayName` | `string` | Display name of the activity recipient's Teams client platform |\r\n+| `ActivityRecipientAccountType` | `string` | Classification of how the activity recipient is provisioned in the organization; possible values: Entra, consumer, Azure Communication Services, Public Switched Telephone Network, Unauthenticated |\r\n+| `ActivityRecipientTenantDisplayName` | `string` | Name of the organization that the activity recipient belongs to |\n\\ No newline at end of file\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-callactivityevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-callactivityevents-table",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-xdr/advanced-hunting-callactivityevents-table.md",
+      "firstSeenAt": "2026-10-28T23:59:52.856Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "CallActivityEvents documentation adds activity and participant fields",
+        "summary": "The table now documents fields for call type, activity details and status, initiators, recipients, tenants, account types, and client platforms. The page also removes a note about planned event streaming API, Microsoft Sentinel integration, and additional attributes.",
+        "adminImpact": "No administrator action is stated. Hunting queries can use the newly documented columns for more detailed call analysis.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-emailevents-table.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 8,
+      "changes": 15,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-emailevents-table.md b/defender-xdr/advanced-hunting-emailevents-table.md\nindex a40f7de..63aa9be 100644\n--- a/defender-xdr/advanced-hunting-emailevents-table.md\n+++ b/defender-xdr/advanced-hunting-emailevents-table.md\n@@ -40,13 +40,13 @@ monikers: []\n item_type: Content\n source_path: defender-xdr/advanced-hunting-emailevents-table.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/6ab06385-661e-4214-8870-bbe4071c960d\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/609dad7f-61d2-4958-9386-e6e4bb38d61e\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/131ba09e-4280-4ae7-8622-1f9f1c0daad1\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/1af30562-083a-42e2-aad4-17ae29f4ad72\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n platformId: 64d3cb1e-9710-b910-0184-abc7e00f5073\n ---\n \n@@ -119,8 +119,7 @@ Some information relates to prereleased product which may be substantially modif\n | `ThreatClassification` | `string` | Threat classification applied to the email |\r\n | `RecipientDomain` | `string` | Domain address of the recipient |\r\n | `EmailSize` | `long` | Size of the email message in bytes |\r\n-| `IsFirstContact` | `int` | Whether the email was the first contact between the sender and recipient (1 if yes, 0 if no) |\r\n-| `Topics` | `string` | Topics column provides granular, multi-label topic classifications that describe what an email is about. |\r\n+| `IsFirstContact` | `int` | Whether the email was the first contact between the sender and recipient (1 if yes, 0 if no). IsFirstContact is applicable to inbound email only |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-emailevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-emailevents-table",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-xdr/advanced-hunting-emailevents-table.md",
+      "firstSeenAt": "2026-10-28T23:59:52.860Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "EmailEvents documentation clarifies IsFirstContact applicability",
+        "summary": "The EmailEvents table documentation now states that IsFirstContact applies only to inbound email. The Topics column entry was removed, and related metadata links were updated.",
+        "adminImpact": "Administrators should interpret IsFirstContact only for inbound email and review references to the Topics column.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-schema-tables.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-schema-tables.md b/defender-xdr/advanced-hunting-schema-tables.md\nindex 9a29e31..58d0329 100644\n--- a/defender-xdr/advanced-hunting-schema-tables.md\n+++ b/defender-xdr/advanced-hunting-schema-tables.md\n@@ -22,7 +22,7 @@ ms.custom:\n - cx-ah\n - msecd-doc-authoring-1018\n ms.topic: reference\n-ms.date: 2026-07-27T00:00:00.0000000Z\n+ms.date: 2026-10-28T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 5ea94a55-ae13-98b1-1ded-bee037019f7a\n@@ -41,12 +41,12 @@ item_type: Content\n source_path: defender-xdr/advanced-hunting-schema-tables.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n platformId: dc25ecc3-7937-c18f-2325-c792835e763b\n ---\n \n@@ -93,6 +93,7 @@ The following reference lists all the tables in the schema. Each table name link\n | **[CloudAppEvents](advanced-hunting-cloudappevents-table)** | Events involving accounts and objects in Office 365 and other cloud apps and services |\r\n | **[CloudAuditEvents](advanced-hunting-cloudauditevents-table)** | Cloud audit events for various cloud platforms protected by the organization's Microsoft Defender for Cloud |\r\n | **[CloudDnsEvents](advanced-hunting-clouddnsevents-table)** | DNS activity events from cloud infrastructure environments |\r\n+| **[CloudKeyVaultEvents](advanced-hunting-cloudkeyvaultevents-table)** (Preview) | Operations performed against Azure Key Vault resources |\r\n | **[CloudPolicyEnforcementEvents](advanced-hunting-cloudpolicyenforcementevents-table)** (Preview) | Policy enforcement evaluation decisions and metadata of security gating events for various cloud platforms protected by the organization's Microsoft Defender for Cloud |\r\n | **[CloudProcessEvents](advanced-hunting-cloudprocessevents-table)** (Preview) | Cloud process events for various cloud platforms protected by the organization's Microsoft Defender for Containers |\r\n | **[CloudStorageAggregatedEvents](advanced-hunting-cloudstorageaggregatedevents-table)** (Preview) | Cloud storage activity and related events |\r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-schema-tables.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-schema-tables",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-xdr/advanced-hunting-schema-tables.md",
+      "firstSeenAt": "2026-10-28T23:59:52.867Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "CloudKeyVaultEvents added to the advanced hunting schema",
+        "summary": "The documentation now lists the CloudKeyVaultEvents table, marked Preview, for operations performed against Azure Key Vault resources.",
+        "adminImpact": "Administrators can review this table when investigating Azure Key Vault activity. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/defend-against-threats-to-get-ready-for-ai.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 50,
+      "changes": 58,
+      "patch": "diff --git a/defender-xdr/defend-against-threats-to-get-ready-for-ai.md b/defender-xdr/defend-against-threats-to-get-ready-for-ai.md\nindex 82746e3..1f3fc12 100644\n--- a/defender-xdr/defend-against-threats-to-get-ready-for-ai.md\n+++ b/defender-xdr/defend-against-threats-to-get-ready-for-ai.md\n@@ -40,9 +40,7 @@ platformId: d6680523-98d0-291d-be22-d4563fe5d28f\n \n # Defend Against Threats - Microsoft Defender XDR | Microsoft Learn\n \n-**Security imperative:** Get ready for AI\r\n-\r\n-**Job to be done:** Defend against threats\r\n+**Security imperative: Get ready for AI** **Job to be done: Defend against threats**\r\n \r\n ## Context and problem\r\n \r\n@@ -60,53 +58,13 @@ Five sequential steps can get you there: deploy comprehensive protection, set up\n \r\n Security practitioners, including SOC analysts, threat hunters, detection engineers, and incident responders, can strengthen threat defense by following this step-by-step guidance, implemented through Microsoft Defender.\r\n \r\n-### Step\r\n-\r\n-1. Deploy Defender workloads for comprehensive protection\r\n-\r\n-#### Recommended action\r\n-\r\n-    Deploy the Defender workloads relevant to your environment across endpoints, identities, email and collaboration, and cloud apps so Microsoft Defender can correlate threat signals and coordinate prevention, detection, investigation, and response across those domains.\r\n-\r\n-#### Resource\r\n-\r\n-    [Setup guides for Microsoft Defender](deploy-configure-m365-defender)\r\n-2. Set up attack disruption to detect and contain active attacks\r\n-\r\n-#### Recommended action\r\n-\r\n-    Review the licensing, permissions, and product-specific prerequisites for automatic attack disruption, then deploy and configure the required Defender workloads so compromised assets can be automatically contained during high-confidence attacks.\r\n-\r\n-#### Resource\r\n-\r\n-    [Configure automatic attack disruption in Microsoft Defender](configure-attack-disruption)\r\n-3. Respond to incidents and validate the threat containment\r\n-\r\n-#### Recommended action\r\n-\r\n-    Triage and investigate incidents in the Defender portal, contain and eradicate the threat, recover affected resources to a trusted state, and validate that the threat is no longer active before resolving the incident.\r\n-\r\n-#### Resource\r\n-\r\n-    [Plan an incident response workflow in the Microsoft Defender portal](plan-incident-response)\r\n-4. Hunt for related and recurring activity.\r\n-\r\n-#### Recommended action\r\n-\r\n-    Hunt across Defender data for related or recurring activity, then turn what you learn into custom detections that continuously identify and respond to suspected breach activity and other findings.\r\n-\r\n-#### Resource\r\n-\r\n-    [Advanced hunting overview in Microsoft Defender](advanced-hunting-overview)\r\n-5. Optimize protection to reduce exposure\r\n-\r\n-#### Recommended action\r\n-\r\n-    Use SOC optimization recommendations to identify gaps in security coverage and adjust controls and data as threats and business priorities change, helping continuously reduce exposure across the environment.\r\n-\r\n-#### Resource\r\n-\r\n-    [Optimize security operations](/en-us/azure/sentinel/soc-optimization/soc-optimization-access?tabs=defender-portal)\r\n+| Step | Recommended action | Resource |\r\n+| --- | --- | --- |\r\n+| 1. Deploy Defender workloads for comprehensive protection. | Deploy the Defender workloads relevant to your environment for endpoints, identities, email and collaboration, and cloud apps so Microsoft Defender can correlate threat signals and coordinate prevention, detection, investigation, and response for those domains. | [Setup guides for Microsoft Defender](deploy-configure-m365-defender) |\r\n+| 2. Set up attack disruption to detect and contain active attacks. | Review the licensing, permissions, and product-specific prerequisites for automatic attack disruption, then deploy and configure the required Defender workloads so compromised assets can be automatically contained during high-confidence attacks. | [Configure automatic attack disruption in Microsoft Defender](configure-attack-disruption) |\r\n+| 3. Respond to incidents and validate the threat containment. | Triage and investigate incidents in the Defender portal, contain and eradicate the threat, recover affected resources to a trusted state, and validate that the threat is no longer active before resolving the incident. | [Plan an incident response workflow in the Microsoft Defender portal](plan-incident-response) |\r\n+| 4. Hunt for related and recurring activity. | Hunt in Defender data for related or recurring activity, then turn what you learn into custom detections that continuously identify and respond to suspected breach activity and other findings. | [Advanced hunting overview in Microsoft Defender](advanced-hunting-overview) |\r\n+| 5. Optimize protection to reduce exposure. | Use SOC optimization recommendations to identify gaps in security coverage and adjust controls and data as threats and business priorities change, helping continuously reduce exposure throughout the environment. | [Optimize security operations](/en-us/azure/sentinel/soc-optimization/soc-optimization-access?tabs=defender-portal) |\r\n \r\n ## Outcomes\r\n \r\n",
+      "baseCommitSha": "e9a4fffc24cf5e9c0bb527d3cb70ab8e768d20c6",
+      "commitSha": "0c7ed0c6c45b64b24063d5bd88942d344d05bb54",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-28 23:27:43 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/defend-against-threats-to-get-ready-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/defend-against-threats-to-get-ready-for-ai",
+      "eventId": "defender-docs:0c7ed0c6c45b64b24063d5bd88942d344d05bb54:modified:defender-xdr/defend-against-threats-to-get-ready-for-ai.md",
+      "firstSeenAt": "2026-10-28T23:59:52.872Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender AI-readiness guidance is now presented in a table",
+        "summary": "The five-step guidance was reformatted from separate sections into a compact table, with minor wording edits and inline resource links.",
+        "adminImpact": "Administrators can scan the recommended actions and access setup, attack disruption, incident response, hunting, and optimization resources more easily.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 8,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The page now lists Windows Antivirus platform 4.18.26100.4, engine 1.1.26100.4, and security intelligence 1.463.1.0, released October 27, 2026. It documents lower CPU usage after full scans, recognition of security-settings-managed devices, and completed Clipboard Protection rollout.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
+      },
+      {
+        "category": "New feature",
+        "title": "Defender for Office 365",
+        "summary": "The page now documents the Defender XDR CallActivityEvents table, which contains details about activities performed during Microsoft Teams calls and meetings. Page metadata and taxonomy links were also updated. The page now documents hunting across Microsoft Teams call and meeting activities with the CallActivityEvents advanced hunting table and marks the capability as supported. The guide now links to the CallActivityEvents table, which contains raw data about activities during Microsoft Teams calls and meetings. The documentation date was also updated.",
+        "sourceFiles": [
+          "defender-office-365/defender-for-office-365-whats-new.md",
+          "defender-office-365/mdo-support-teams-about.md",
+          "defender-office-365/mdo-support-teams-sec-ops-guide.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The table now documents fields for call type, activity details and status, initiators, recipients, tenants, account types, and client platforms. The page also removes a note about planned event streaming API, Microsoft Sentinel integration, and additional attributes. The EmailEvents table documentation now states that IsFirstContact applies only to inbound email. The Topics column entry was removed, and related metadata links were updated. The documentation now lists the CloudKeyVaultEvents table, marked Preview, for operations performed against Azure Key Vault resources. The five-step guidance was reformatted from separate sections into a compact table, with minor wording edits and inline r",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-callactivityevents-table.md",
+          "defender-xdr/advanced-hunting-emailevents-table.md",
+          "defender-xdr/advanced-hunting-schema-tables.md",
+          "defender-xdr/defend-against-threats-to-get-ready-for-ai.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The page now lists Windows Antivirus platform 4.18.26100.4, engine 1.1.26100.4, and security intelligence 1.463.1.0, released October 27, 2026. It documents lower CPU usage after full scans, recognition of security-settings-managed devices, and completed Clipboard Protection rollout."
+      },
+      {
+        "category": "New feature",
+        "headline": "Defender for Office 365",
+        "detail": "The page now documents the Defender XDR CallActivityEvents table, which contains details about activities performed during Microsoft Teams calls and meetings. Page metadata and taxonomy links were also updated. The page now documents hunting across Microsoft Teams call and meeting activities with the CallActivityEvents advanced hunting table and marks the capability as supported. The guide now links to the CallActivityEvents table, which contains raw data about activities during Microsoft Teams calls and meetings. The documentation date was also updated."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The table now documents fields for call type, activity details and status, initiators, recipients, tenants, account types, and client platforms. The page also removes a note about planned event streaming API, Microsoft Sentinel integration, and additional attributes. The EmailEvents table documentation now states that IsFirstContact applies only to inbound email. The Topics column entry was removed, and related metadata links were updated. The documentation now lists the CloudKeyVaultEvents table, marked Preview, for operations performed against Azure Key Vault resources. The five-step guidance was reformatted from separate sections into a compact table, with minor wording edits and inline r"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
