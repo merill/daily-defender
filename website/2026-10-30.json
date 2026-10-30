@@ -32422,19 +32422,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-office-365/outbound-spam-restore-restricted-users.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-office-365/outbound-spam-restore-restricted-users.md b/defender-office-365/outbound-spam-restore-restricted-users.md\nindex 166f8fa..88e9552 100644\n--- a/defender-office-365/outbound-spam-restore-restricted-users.md\n+++ b/defender-office-365/outbound-spam-restore-restricted-users.md\n@@ -92,6 +92,7 @@ Before you begin, make sure you have access to the required tools and permission\n \r\n         ^\\*^ Microsoft strongly advocates for the principle of least privilege. Assigning accounts only the minimum permissions necessary to perform their tasks helps reduce security risks and strengthens your organization's overall protection. Global Administrator is a highly privileged role that you should limit to emergency scenarios or when you can't use a different role.\r\n - A sender exceeding the outbound email limits is an indicator of a compromised account. Before you follow the procedures in this article to remove a user from the **Restricted entities** page, be sure to follow the required steps to regain control of the account as described in [Responding to a compromised email account in Office 365](responding-to-a-compromised-email-account).\r\n+- Before you unblock a user, run the **Blocked Sender History** self-help diagnostic to review listing and delisting history and the sender's MFA status. This diagnostic is useful when investigating why Defender for Office 365 restricted a sender. Shortcut link: [Run Tests: Sender History](https://aka.ms/senderhistory).\r\n \r\n ## Remove a user from the Restricted entities page in the Microsoft Defender portal\r\n \r\n",
+      "baseCommitSha": "a944406f203464045957c923cef3fe8d2c52e84c",
+      "commitSha": "8855d1b0e5dde4d22c72e6144ed7241202fee0c2",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-30 14:28:57 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/outbound-spam-restore-restricted-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-restore-restricted-users",
+      "eventId": "defender-docs:8855d1b0e5dde4d22c72e6144ed7241202fee0c2:modified:defender-office-365/outbound-spam-restore-restricted-users.md",
+      "firstSeenAt": "2026-10-30T15:00:38.551Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Use Blocked Sender History before unblocking restricted users",
+        "summary": "The guidance now recommends running the Blocked Sender History self-help diagnostic before unblocking a user to review listing and delisting history and the sender’s MFA status.",
+        "adminImpact": "Administrators can use the diagnostic to investigate why Defender for Office 365 restricted a sender; no required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1247,
+    "totalCommits": 2,
+    "totalFiles": 1248,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1247 updated, and 0 removed Microsoft Defender documentation files across 10 documentation areas.",
+    "overview": "Today's report includes 0 new, 1248 updated, and 0 removed Microsoft Defender documentation files across 10 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -33459,7 +33485,8 @@
           "defender-office-365/trial-user-guide-defender-for-office-365.md",
           "defender-office-365/user-tags-about.md",
           "defender-office-365/zero-hour-auto-purge.md",
-          "defender-office-365/zero-trust-with-microsoft-365-defender-office-365.md"
+          "defender-office-365/zero-trust-with-microsoft-365-defender-office-365.md",
+          "defender-office-365/outbound-spam-restore-restricted-users.md"
         ]
       },
       {
