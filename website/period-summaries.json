@@ -8171,19 +8171,25 @@
       }
     },
     "2026-10-30": {
-      "headline": "Defender for Cloud posture controls enter preview while SAP guidance adds collection-health KQL queries",
-      "overview": "30 October was largely a documentation-maintenance day: all 1,248 recorded items were updates, and the representative changes are dominated by reordered, replaced, or added metadata links across Defender products. Two substantive exceptions stand out. Exposure Management and Defender for Cloud guidance identifies posture policies and recommendation exemptions as available in public preview for Azure environments. Separately, Sentinel’s SAP system health guidance now links to KQL queries covering incomplete collection windows, truncation markers, daily and projected monthly volume, hourly peaks, and high-volume accounts.",
-      "adminImpact": "Azure administrators can evaluate resources against the Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking. Sentinel administrators can use the linked queries to investigate SAP ingestion completeness and volume patterns. The representative metadata and reference-link updates do not indicate broader configuration or migration work.",
+      "headline": "Azure posture policies and exemptions preview as Teams call hunting arrives",
+      "overview": "The day’s meaningful changes are concentrated in two product developments: public-preview posture controls for Azure environments and a November 2026 Defender XDR capability for investigating suspicious Teams calls and meetings. Sentinel guidance also gained targeted SAP ingestion-health queries. With 1,248 updates and no new or removed pages, the remaining supplied changes are predominantly metadata and reference-link maintenance.",
+      "adminImpact": "Exposure Management and Defender for Cloud administrators can evaluate Azure resources against the Defender for Cloud baseline, create custom posture policies, and manage accepted-risk exemptions with lifecycle tracking. Teams using Defender for Office 365 Plan 2 can prepare advanced-hunting workflows around CallActivityEvents when worldwide availability begins in November 2026, with connections to the event streaming API and Microsoft Sentinel. Sentinel administrators monitoring SAP collection can use the linked KQL queries to investigate incomplete windows, truncation, volume trends, hourly peaks, and high-volume accounts. The many ontology and authoring-link updates do not indicate configuration changes.",
       "keyChanges": [
         {
           "title": "Azure posture policies and recommendation exemptions enter public preview",
-          "detail": "Exposure Management guidance says these capabilities are available in public preview for Azure environments. Administrators can evaluate Azure resources against the Microsoft Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
+          "detail": "Exposure Management guidance says administrators can evaluate Azure resources against the Microsoft Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking. The controls are available in public preview for Azure environments.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-10-30-whats-new-1241"
         },
         {
-          "title": "Sentinel SAP guidance adds queries for collection and volume analysis",
-          "detail": "The Monitor SAP system health article now links to KQL queries for detecting incomplete collection windows and analyzing truncation markers, daily and projected monthly volume, hourly peaks, and high-volume accounts.",
+          "title": "CallActivityEvents brings Teams call and meeting investigation to Defender XDR",
+          "detail": "Microsoft Defender XDR will provide the CallActivityEvents table for Defender for Office 365 Plan 2 teams to investigate suspicious Microsoft Teams calls and meetings, including activities, initiators, organizers, and related messages. The capability is scheduled for worldwide availability from November 2026 and integrates with advanced hunting, the event streaming API, and Microsoft Sentinel.",
+          "product": "Defender XDR",
+          "sourceId": "MC1532241"
+        },
+        {
+          "title": "Sentinel SAP health guidance adds targeted ingestion-analysis queries",
+          "detail": "The SAP system health article now links to KQL queries for detecting incomplete collection windows and truncation markers, and for analyzing daily and projected monthly volume, hourly peaks, and high-volume accounts. These queries support investigation of ingestion completeness and volume patterns.",
           "product": "Sentinel",
           "sourceId": "doc-2026-10-30-monitor-sap-system-health-1245"
         }
@@ -8191,11 +8197,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-30T15:00:46.046Z",
+      "generatedAt": "2026-10-31T08:24:54.140Z",
       "usage": {
-        "inputTokens": 4961,
-        "outputTokens": 2658,
-        "costUsd": 0.004182
+        "inputTokens": 5010,
+        "outputTokens": 2050,
+        "costUsd": 0.003462
       }
     }
   },
@@ -9875,49 +9881,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "Advanced Hunting API retirement sets January 2027 migration deadline for Defender admins",
-      "overview": "Most of this week’s 1,293 updates were routine reference and metadata maintenance. The consequential exceptions are a hard Advanced Hunting API migration deadline, two new Defender for Office 365 hunting datasets, an Exposure Management public preview, and a documented macOS Device Control v1 retirement.",
-      "adminImpact": "Prioritize inventorying Microsoft Defender for Endpoint and Defender XDR Advanced Hunting API consumers and manually migrating them to the Microsoft Graph Security API by January 31, 2027. Review permissions and hunting procedures for the Teams and email-submission data additions as they roll out. Exposure Management administrators can evaluate the Azure preview capabilities and verify documented plan and RBAC prerequisites. macOS administrators should assess dependencies on Legacy Device Control v1.",
+      "headline": "Defender Advanced Hunting API retirement sets January 2027 migration deadline",
+      "overview": "Microsoft has set a hard migration deadline for Defender for Endpoint and Defender XDR Advanced Hunting API users: the APIs retire on February 1, 2027, and workflows must be manually moved to the Microsoft Graph Security API by January 31. The week also adds and schedules Defender for Office 365 hunting data for Teams messages, Teams calls, and email submissions, alongside Azure posture-policy and recommendation-exemption previews in Exposure Management. Outside these items, the representative documentation changes are largely routine link, metadata, and reference maintenance.",
+      "adminImpact": "Inventory integrations that call the Microsoft Defender for Endpoint or Defender XDR Advanced Hunting APIs and plan the required manual migration before January 31, 2027. Review permissions and security procedures for Teams message-content hunting as MessageContents rolls out; CallActivityEvents is tied to Defender for Office 365 Plan 2, while SubmissionEvents and SubmissionResults have November preview and general-availability milestones with no immediate action stated. Azure administrators can assess the Exposure Management previews for baseline evaluation, custom posture policies, and lifecycle-managed recommendation exemptions.",
       "keyChanges": [
         {
-          "title": "MDE and XDR Advanced Hunting APIs face a February 2027 retirement",
-          "detail": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027.",
-          "product": "Defender XDR",
+          "title": "MDE and Defender XDR Advanced Hunting APIs retire February 1, 2027",
+          "detail": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to preserve continued functionality.",
+          "product": "Defender XDR and Defender for Endpoint",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Teams message snippets and metadata arrive in Advanced Hunting",
-          "detail": "Defender for Office 365 is introducing a MessageContents table for Microsoft Teams messages. The rollout runs from late September through mid-November 2026; authorized analysts need the specified permissions to query message snippets and metadata.",
+          "title": "MessageContents adds Teams message snippets and metadata to Advanced Hunting",
+          "detail": "Microsoft Defender for Office 365 is rolling out a new MessageContents table for Teams messages from late September through mid-November 2026. Authorized security analysts can query message snippets and metadata for investigations; access requires specific permissions and may affect security procedures.",
           "product": "Defender for Office 365",
           "sourceId": "MC1474106"
         },
         {
-          "title": "Email submission activity gets two new Advanced Hunting tables",
-          "detail": "SubmissionEvents and SubmissionResults will add visibility into email submission activity. Public Preview starts in mid-November 2026, followed by General Availability in late November; Microsoft states that no immediate action or compliance response is required.",
+          "title": "CallActivityEvents extends hunting to suspicious Teams calls and meetings",
+          "detail": "CallActivityEvents is scheduled for worldwide availability in November 2026 for security teams with Defender for Office 365 Plan 2. The table covers activities, initiators, organizers, and related messages, and integrates with Advanced Hunting, the event streaming API, and Microsoft Sentinel.",
+          "product": "Defender XDR",
+          "sourceId": "MC1532241"
+        },
+        {
+          "title": "Email submission tables receive November preview and GA milestones",
+          "detail": "Defender for Office 365 will add SubmissionEvents and SubmissionResults to Advanced Hunting. Public Preview starts in mid-November 2026 and General Availability begins in late November 2026; Microsoft states that no immediate action or compliance concern is required.",
           "product": "Defender for Office 365",
           "sourceId": "MC1484009"
         },
         {
           "title": "Azure posture policies and recommendation exemptions enter public preview",
-          "detail": "Exposure Management now documents public-preview capabilities for evaluating Azure resources against the Defender for Cloud baseline, creating custom posture policies, and centrally managing accepted-risk exemptions with lifecycle tracking.",
+          "detail": "Posture policies and recommendation exemptions are available in public preview for Azure environments. Administrators can evaluate Azure resources against the Microsoft Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
           "product": "Exposure Management",
-          "sourceId": "doc-2026-10-29-whats-new-1241"
-        },
-        {
-          "title": "macOS release notes record Legacy Device Control v1 retirement",
-          "detail": "The macOS 101.26092.0009 release notes document improved policy reliability, antivirus performance and health reporting, EDR updates, and the retirement of Legacy Device Control v1.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-27-microsoft-defender-endpoint-releases-01"
+          "sourceId": "doc-2026-10-30-whats-new-1241"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-30T15:00:46.046Z",
+      "generatedAt": "2026-10-31T08:24:54.140Z",
       "usage": {
-        "inputTokens": 8752,
-        "outputTokens": 2631,
-        "costUsd": 0.004908
+        "inputTokens": 8789,
+        "outputTokens": 5835,
+        "costUsd": 0.00876
       }
     }
   },
@@ -10288,37 +10294,37 @@
       }
     },
     "2026-10": {
-      "headline": "Advanced Hunting APIs face January 2027 retirement deadline for Defender administrators",
-      "overview": "October’s clearest administrator signal is a hard Advanced Hunting API migration deadline: Microsoft Defender for Endpoint and Defender XDR API consumers must move to the Microsoft Graph Security API by January 31, 2027. Other material changes span a preview of Azure plan management in the Defender portal, server-onboarding guidance with tenant-wide Direct onboarding scope, a November Defender for Office 365 RBAC permission change, and public-preview posture policies and exemptions in Exposure Management. Much of the remaining activity was reference and procedural maintenance.",
-      "adminImpact": "Inventory and schedule the Advanced Hunting API migration first. Before using Defender for Cloud portal plan management, confirm Azure commercial scope and permissions, and account for view-only Azure portal settings and lost resource-level configurations after migration. Treat Direct onboarding as a tenant-wide deployment decision; servers already reporting to Defender for Endpoint do not need onboarding, reinstallation, or migration. Before November, review Unified RBAC assignments for Security Operator access. For Exposure Management previews, use the documented Azure posture and exemption workflows to evaluate coverage and accepted risk.",
+      "headline": "Advanced Hunting API retirement sets February 2027 deadline as Azure plan migration scope clarifies",
+      "overview": "October’s most consequential Defender changes stand out from a largely maintenance-heavy update set: Microsoft is retiring the Defender for Endpoint and Defender XDR Advanced Hunting APIs, defining the scope and migration consequences of Defender for Cloud portal plan management, changing Unified RBAC access, adding Teams hunting data, and placing Azure posture and exemption workflows into public preview. The first three create migration or access-planning work; the latter two are staged capability rollouts.",
+      "adminImpact": "Prioritize identifying workflows that call the Defender for Endpoint or Defender XDR Advanced Hunting APIs and manually migrate them to the Microsoft Graph Security API by January 31, 2027. Before moving plan management to the Defender portal, confirm Azure commercial eligibility, understand that resource-level configurations are not preserved, and account for Defender Workload Unit billing. Review Microsoft Entra Security Operator assignments before the November RBAC change. During the MessageContents rollout, validate analyst permissions and investigation procedures. Teams evaluating Exposure Management can assess the Azure posture and recommendation-exemption previews against their baseline and accepted-risk governance needs.",
       "keyChanges": [
         {
-          "title": "Advanced Hunting API retirement sets a January 31, 2027 migration deadline",
-          "detail": "Microsoft will retire the Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027 to preserve functionality.",
-          "product": "Defender XDR",
+          "title": "Defender for Endpoint and XDR Advanced Hunting APIs require January migration",
+          "detail": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
+          "product": "Defender XDR / Defender for Endpoint",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Defender for Cloud preview brings Azure plan management into Defender portal",
-          "detail": "New guidance covers global or scoped plan configuration for connected Azure commercial environments, required permissions, and migration behavior. Global enablement migrates current environments and applies to future ones; after migration, plan settings are view-only in the Azure portal and resource-level configurations are not preserved.",
+          "title": "Defender for Cloud portal plan guidance sets Azure-commercial boundaries",
+          "detail": "Updated integration guidance separates cloud security data support for Azure, AWS, and GCP from environment onboarding and plan management, which currently support Azure commercial environments only. After migration, plan settings become view-only in the Azure portal, resource-level configurations are not preserved, and billing uses Defender Workload Units.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-10-20-manage-cloud-security-plans-in-the-defender-portal-microsoft-defender-for-cloud-microsoft-learn-03"
+          "sourceId": "doc-2026-10-20-integration-faq-12"
         },
         {
-          "title": "Server onboarding guidance makes Direct onboarding a tenant-wide decision",
-          "detail": "The updated Defender for Endpoint guide separates automatic onboarding, manual deployment, and servers already reporting to Defender for Endpoint. It adds prerequisites, rollout preparation, antivirus coexistence guidance, and a warning that Direct onboarding has tenant-wide scope. Servers already reporting do not require onboarding, reinstallation, or migration.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-10-20-onboard-servers-to-microsoft-defender-microsoft-defender-for-endpoint-microsoft-learn-07"
-        },
-        {
-          "title": "Security Operator loses default access to key Defender for Office 365 policies",
-          "detail": "Starting in November 2026, Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List. When Unified RBAC is enabled, administrators must manually assign permissions to preserve that access.",
-          "product": "Defender XDR",
+          "title": "November RBAC remap removes Security Operator defaults for email controls",
+          "detail": "Starting in November 2026, the Microsoft Entra Security Operator role will no longer receive default access to email threat policies or the Tenant Allow/Block List when Unified RBAC is enabled. Administrators must assign the required permissions manually to preserve access.",
+          "product": "Defender XDR / Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Exposure Management previews posture policies and lifecycle-managed exemptions",
-          "detail": "Posture policies and recommendation exemptions are available in public preview for Azure environments. Administrators can evaluate resources against the Microsoft Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
+          "title": "Teams MessageContents table adds message snippets to Advanced Hunting",
+          "detail": "Defender for Office 365 is rolling out a new MessageContents table from late September through mid-November 2026. Authorized security analysts can query snippets and metadata from Microsoft Teams messages, making permission and investigation-procedure reviews necessary as access arrives.",
+          "product": "Defender XDR / Defender for Office 365",
+          "sourceId": "MC1474106"
+        },
+        {
+          "title": "Azure posture policies and recommendation exemptions reach public preview",
+          "detail": "Exposure Management now offers public-preview posture policies and recommendation exemptions for Azure environments. Administrators can evaluate resources against the Microsoft Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-10-30-whats-new-1241"
         }
@@ -10326,16 +10332,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-30T15:00:46.046Z",
+      "generatedAt": "2026-10-31T08:24:54.140Z",
       "usage": {
-        "inputTokens": 7148,
-        "outputTokens": 5894,
-        "costUsd": 0.008502
+        "inputTokens": 7215,
+        "outputTokens": 8532,
+        "costUsd": 0.011681
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-30T15:00:46.046Z",
+  "generatedAt": "2026-10-31T08:24:54.140Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10520,18 +10526,24 @@
       "outputTokens": 18934,
       "requests": 6,
       "costUsd": 0.03107
+    },
+    "2026-10-31": {
+      "inputTokens": 21014,
+      "outputTokens": 16417,
+      "requests": 3,
+      "costUsd": 0.023903
     }
   },
   "lastRun": {
-    "inputTokens": 20861,
-    "outputTokens": 11183,
+    "inputTokens": 21014,
+    "outputTokens": 16417,
     "requests": 3,
-    "costUsd": 0.017592
+    "costUsd": 0.023903
   },
   "totalUsage": {
-    "inputTokens": 1180760,
-    "outputTokens": 1169404,
-    "requests": 237,
-    "costUsd": 1.639433
+    "inputTokens": 1201774,
+    "outputTokens": 1185821,
+    "requests": 240,
+    "costUsd": 1.663336
   }
 }
