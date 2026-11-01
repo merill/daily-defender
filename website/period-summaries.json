@@ -8225,6 +8225,28 @@
         "outputTokens": 689,
         "costUsd": 0.001031
       }
+    },
+    "2026-11-01": {
+      "headline": "Cloudstorageaggregatedevents guidance requires subscription-level Defender for Storage V2",
+      "overview": "The Advanced Hunting Cloudstorageaggregatedevents table guidance now specifies that data is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are unsupported.",
+      "adminImpact": "To populate this table, administrators must enable Defender for Storage V2 at the subscription level. Deployments using only storage-account-level enablement or the legacy plan will not provide data.",
+      "keyChanges": [
+        {
+          "title": "Subscription-level Defender for Storage V2 is required",
+          "detail": "The updated Defender XDR table guidance identifies subscription-level Defender for Storage V2 as the prerequisite for population and excludes storage-account-level and legacy-plan deployments.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-11-01-advanced-hunting-cloudstorageaggregatedevents-table-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-01T09:14:46.853Z",
+      "usage": {
+        "inputTokens": 1040,
+        "outputTokens": 647,
+        "costUsd": 0.000984
+      }
     }
   },
   "weeks": {
@@ -9903,37 +9925,37 @@
       }
     },
     "2026-10-26": {
-      "headline": "Advanced Hunting API retirement sets January 2027 migration deadline as Teams telemetry expands",
-      "overview": "The most consequential change is Microsoft’s retirement of the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027. Meanwhile, Defender for Office 365 is adding Teams message, call and meeting, and email-submission data to Advanced Hunting on staggered rollout, preview, and general-availability schedules. Exposure Management is also documenting public-preview Azure posture policies and recommendation exemptions. The period’s high update volume was otherwise dominated by documentation maintenance, including link, metadata, and reference changes.",
-      "adminImpact": "Treat the Advanced Hunting API retirement as the period’s hard deadline: identify affected MDE and XDR hunting workflows and complete the manual Graph Security API migration by January 31, 2027. For the new Teams data, verify the permissions required for MessageContents and the Defender for Office 365 Plan 2 prerequisite for CallActivityEvents. No immediate action is stated for the email-submission tables; Azure administrators can evaluate the preview posture and exemption capabilities without a mandatory action identified.",
+      "headline": "Advanced Hunting API retirement requires January 2027 Graph Security migration",
+      "overview": "The period was dominated by routine documentation maintenance, but several changes affect Defender operations directly. Microsoft set a January 31, 2027 deadline to manually migrate Microsoft Defender for Endpoint and Defender XDR Advanced Hunting API workflows before retirement on February 1. Defender for Office 365 is also expanding Advanced Hunting with Teams message, call, meeting, and email-submission telemetry, while Exposure Management introduced Azure posture policies and recommendation exemptions in public preview.",
+      "adminImpact": "Treat the API retirement as the required administrator task: manually migrate affected workflows to the Microsoft Graph Security API by January 31, 2027. For the Teams MessageContents rollout, verify required permissions and review any affected investigation procedures. Defender for Office 365 Plan 2 teams can use the forthcoming call and meeting telemetry, while the email-submission tables require no immediate action according to the notice. Azure security teams can evaluate the new Exposure Management preview capabilities.",
       "keyChanges": [
         {
-          "title": "MDE and XDR Advanced Hunting APIs will retire",
-          "detail": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027 to maintain functionality.",
-          "product": "Defender XDR",
+          "title": "MDE and XDR Advanced Hunting APIs retire February 1, 2027",
+          "detail": "Microsoft says the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs will retire on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027.",
+          "product": "Microsoft Defender for Endpoint and Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "MessageContents adds Teams message data to Advanced Hunting",
-          "detail": "Defender for Office 365 introduces the MessageContents table for Teams messages, allowing authorized security analysts to query message snippets and metadata during investigations. Rollout runs from late September through mid-November 2026, and the change may require review of permissions and security procedures.",
-          "product": "Defender XDR",
+          "title": "Teams MessageContents table brings message snippets into hunting",
+          "detail": "Defender for Office 365 is rolling out the MessageContents table for Microsoft Teams messages from late September through mid-November 2026. Authorized analysts can query message snippets and metadata for investigations; access requires specific permissions and may affect security procedures.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1474106"
         },
         {
-          "title": "CallActivityEvents brings Teams call investigations to Defender XDR",
-          "detail": "The CallActivityEvents table enables organizations with Defender for Office 365 Plan 2 to investigate suspicious Microsoft Teams calls and meetings using activity, initiator, organizer, and related-message data. Worldwide availability is scheduled from November 2026, with integration into Advanced Hunting, the event streaming API, and Microsoft Sentinel.",
-          "product": "Defender XDR",
+          "title": "CallActivityEvents adds Teams call and meeting investigations",
+          "detail": "Available worldwide from November 2026, CallActivityEvents will let Defender for Office 365 Plan 2 teams investigate Teams calls and meetings using activities, initiators, organizers, and related messages. The data integrates with Advanced Hunting, the event streaming API, and Microsoft Sentinel.",
+          "product": "Defender XDR and Defender for Office 365",
           "sourceId": "MC1532241"
         },
         {
-          "title": "SubmissionEvents and SubmissionResults add email-submission visibility",
-          "detail": "Microsoft Defender for Office 365 will add the SubmissionEvents and SubmissionResults Advanced Hunting tables. Public Preview starts in mid-November 2026 and General Availability begins in late November 2026; the supplied notice identifies no immediate action or compliance concern.",
-          "product": "Defender XDR",
+          "title": "Email submission telemetry gets two new hunting tables",
+          "detail": "SubmissionEvents and SubmissionResults are scheduled for Public Preview in mid-November 2026 and General Availability in late November. The tables add visibility into email submission activity; the notice states that no immediate action or compliance concerns are required.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Azure posture policies and recommendation exemptions enter public preview",
-          "detail": "Exposure Management now lists public-preview capabilities for Azure resources: evaluation against the Microsoft Defender for Cloud baseline, creation of custom posture policies, and centralized management of accepted-risk recommendation exemptions with lifecycle tracking.",
+          "title": "Exposure Management previews Azure posture policies and exemptions",
+          "detail": "For Azure environments, posture policies and recommendation exemptions are available in public preview. Administrators can evaluate resources against the Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-10-30-whats-new-1241"
         }
@@ -9941,11 +9963,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-31T14:30:17.783Z",
+      "generatedAt": "2026-11-01T09:14:46.853Z",
       "usage": {
         "inputTokens": 8789,
-        "outputTokens": 3720,
-        "costUsd": 0.006222
+        "outputTokens": 4440,
+        "costUsd": 0.007086
       }
     }
   },
@@ -10360,10 +10382,32 @@
         "outputTokens": 3925,
         "costUsd": 0.006155
       }
+    },
+    "2026-11": {
+      "headline": "Cloudstorageaggregatedevents guidance now specifies subscription-level Defender for Storage V2",
+      "overview": "The sole recorded November update tightens the documented prerequisite for the Defender XDR Cloudstorageaggregatedevents table: it is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are not supported.",
+      "adminImpact": "To populate this hunting table, enable Defender for Storage V2 at the subscription level. Deployments enabled only on individual storage accounts, or using the legacy plan, will not provide data.",
+      "keyChanges": [
+        {
+          "title": "Subscription-level Defender for Storage V2 is required",
+          "detail": "Updated guidance states that Cloudstorageaggregatedevents receives data only with Defender for Storage V2 enabled at the subscription level; storage-account-level enablement and the legacy plan are unsupported.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-11-01-advanced-hunting-cloudstorageaggregatedevents-table-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-01T09:14:46.853Z",
+      "usage": {
+        "inputTokens": 1059,
+        "outputTokens": 727,
+        "costUsd": 0.001084
+      }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-31T14:30:17.783Z",
+  "generatedAt": "2026-11-01T09:14:46.853Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10554,18 +10598,24 @@
       "outputTokens": 24751,
       "requests": 6,
       "costUsd": 0.037311
+    },
+    "2026-11-01": {
+      "inputTokens": 10888,
+      "outputTokens": 5814,
+      "requests": 3,
+      "costUsd": 0.009154
     }
   },
   "lastRun": {
-    "inputTokens": 17035,
-    "outputTokens": 8334,
+    "inputTokens": 10888,
+    "outputTokens": 5814,
     "requests": 3,
-    "costUsd": 0.013408
+    "costUsd": 0.009154
   },
   "totalUsage": {
-    "inputTokens": 1218809,
-    "outputTokens": 1194155,
-    "requests": 243,
-    "costUsd": 1.676744
+    "inputTokens": 1229697,
+    "outputTokens": 1199969,
+    "requests": 246,
+    "costUsd": 1.685898
   }
 }
