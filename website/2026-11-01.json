@@ -26,19 +26,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "sentinel/move-to-defender.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 4,
+      "changes": 22,
+      "patch": "diff --git a/sentinel/move-to-defender.md b/sentinel/move-to-defender.md\nindex 6de5b7b..e4d87f6 100644\n--- a/sentinel/move-to-defender.md\n+++ b/sentinel/move-to-defender.md\n@@ -22,8 +22,8 @@ ms.service: microsoft-sentinel\n ms.subservice: sentinel-siem\n search.appverid: met150\n description: Move Microsoft Sentinel operations from the Azure portal to the Microsoft Defender portal.\n-ms.author: guywild\n-author: guywi-ms\n+ms.author: soulisabag\n+author: robicz\n ms.reviewer: soulisabag\n ms.topic: how-to\n ms.date: 2026-09-10T00:00:00.0000000Z\n@@ -44,11 +44,13 @@ monikers: []\n item_type: Content\n source_path: sentinel/move-to-defender.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n platformId: 556efc75-a41a-43a1-c8c3-78721b7d6ea0\n ---\n \n@@ -115,6 +117,18 @@ Analytic rules and other Sentinel content, such as automation rules, also contin\n \r\n For more information about CMK, see [Set up Microsoft Sentinel customer-managed key](customer-managed-keys).\r\n \r\n+### Private Link support\r\n+\r\n+Azure Monitor Private Link Scope (AMPLS) provides private connectivity to Azure Monitor resources, including Log Analytics workspaces. For more information about configuring and using Private Link with Azure Monitor, see [Use Azure Private Link to connect networks to Azure Monitor](/en-us/azure/azure-monitor/fundamentals/private-link-security)\r\n+\r\n+For Microsoft Sentinel in the Defender portal, AMPLS supports private data ingestion, but it doesn't support querying Sentinel data through Defender portal experiences or Microsoft Defender APIs when Log Analytics query access is restricted to private endpoints.\r\n+\r\n+Specifically:\r\n+\r\n+- Supported: Microsoft Sentinel data ingestion into the Log Analytics workspace through AMPLS.\r\n+- Not supported: Querying that Sentinel data through Microsoft Defender portal experiences, such as Advanced Hunting, when Log Analytics query access is restricted to AMPLS/private endpoints.\r\n+- Customer impact: If public Log Analytics query access is disabled, Sentinel data in the Log Analytics workspace won't be available to Defender portal experiences that query Sentinel workspace data, including Advanced Hunting.\r\n+\r\n ### Configure multi-workspace and multitenant management\r\n \r\n Defender supports one or more workspaces across multiple tenants through the [Microsoft Defender multitenant portal](https://mto.security.microsoft.com), which serves as a central place to manage incidents and alerts, hunt for threats across tenants, and lets Managed Security Service Partners (MSSPs) see across customers.\r\n",
+      "baseCommitSha": "0976621f357c3738dd5246780e11576d24434329",
+      "commitSha": "51bc84408569d68c2cbbe7fc351f6f5a57a1fba7",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-01 23:02:24 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/move-to-defender.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/move-to-defender",
+      "eventId": "defender-docs:51bc84408569d68c2cbbe7fc351f6f5a57a1fba7:modified:sentinel/move-to-defender.md",
+      "firstSeenAt": "2026-11-01T23:34:25.414Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Private Link limitations for Sentinel data are now documented",
+        "summary": "The page now explains that Azure Monitor Private Link Scope supports Sentinel data ingestion into Log Analytics, but not querying through Defender portal experiences or Defender APIs when query access is restricted to private endpoints. Disabling public Log Analytics query access makes the data unavailable to experiences such as Advanced Hunting.",
+        "adminImpact": "Administrators using AMPLS should account for this query limitation when restricting Log Analytics access to private endpoints.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 2,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -47,6 +73,14 @@
         "sourceFiles": [
           "defender-xdr/advanced-hunting-cloudstorageaggregatedevents-table.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The page now explains that Azure Monitor Private Link Scope supports Sentinel data ingestion into Log Analytics, but not querying through Defender portal experiences or Defender APIs when query access is restricted to private endpoints. Disabling public Log Analytics query access makes the data unavailable to experiences such as Advanced Hunting.",
+        "sourceFiles": [
+          "sentinel/move-to-defender.md"
+        ]
       }
     ],
     "highlights": [
@@ -54,6 +88,11 @@
         "category": "Feature update",
         "headline": "Defender XDR",
         "detail": "The documentation now states that the table is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are not supported."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The page now explains that Azure Monitor Private Link Scope supports Sentinel data ingestion into Log Analytics, but not querying through Defender portal experiences or Defender APIs when query access is restricted to private endpoints. Disabling public Log Analytics query access makes the data unavailable to experiences such as Advanced Hunting."
       }
     ],
     "generatedBy": "fallback"

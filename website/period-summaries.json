@@ -8227,13 +8227,19 @@
       }
     },
     "2026-11-01": {
-      "headline": "Cloudstorageaggregatedevents guidance requires subscription-level Defender for Storage V2",
-      "overview": "The Advanced Hunting Cloudstorageaggregatedevents table guidance now specifies that data is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are unsupported.",
-      "adminImpact": "To populate this table, administrators must enable Defender for Storage V2 at the subscription level. Deployments using only storage-account-level enablement or the legacy plan will not provide data.",
+      "headline": "AMPLS query restrictions and Storage V2 prerequisites sharpen Sentinel hunting guidance",
+      "overview": "Two updated pages deliver concrete administrator guidance: private-endpoint restrictions can block Sentinel data queries through Defender experiences, while the CloudStorageAggregatedEvents table requires subscription-level Defender for Storage V2.",
+      "adminImpact": "Administrators using Azure Monitor Private Link Scope should preserve the required Log Analytics query access for Defender portal experiences, Defender APIs, and Advanced Hunting. Teams relying on CloudStorageAggregatedEvents must enable Defender for Storage V2 at the subscription level; storage-account-level enablement and the legacy plan will not populate the table.",
       "keyChanges": [
         {
-          "title": "Subscription-level Defender for Storage V2 is required",
-          "detail": "The updated Defender XDR table guidance identifies subscription-level Defender for Storage V2 as the prerequisite for population and excludes storage-account-level and legacy-plan deployments.",
+          "title": "AMPLS private endpoints limit Defender query access",
+          "detail": "Azure Monitor Private Link Scope supports Sentinel data ingestion into Log Analytics, but it does not support querying through Defender portal experiences or Defender APIs when query access is restricted to private endpoints. Disabling public Log Analytics query access also makes the data unavailable to experiences such as Advanced Hunting.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-11-01-move-to-defender-02"
+        },
+        {
+          "title": "CloudStorageAggregatedEvents requires subscription-level Storage V2",
+          "detail": "The table is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are not supported for populating the table.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-11-01-advanced-hunting-cloudstorageaggregatedevents-table-01"
         }
@@ -8241,11 +8247,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-01T09:14:46.853Z",
+      "generatedAt": "2026-11-01T23:34:33.213Z",
       "usage": {
-        "inputTokens": 1040,
-        "outputTokens": 647,
-        "costUsd": 0.000984
+        "inputTokens": 1186,
+        "outputTokens": 799,
+        "costUsd": 0.001196
       }
     }
   },
@@ -9925,37 +9931,37 @@
       }
     },
     "2026-10-26": {
-      "headline": "Advanced Hunting API retirement requires January 2027 Graph Security migration",
-      "overview": "The period was dominated by routine documentation maintenance, but several changes affect Defender operations directly. Microsoft set a January 31, 2027 deadline to manually migrate Microsoft Defender for Endpoint and Defender XDR Advanced Hunting API workflows before retirement on February 1. Defender for Office 365 is also expanding Advanced Hunting with Teams message, call, meeting, and email-submission telemetry, while Exposure Management introduced Azure posture policies and recommendation exemptions in public preview.",
-      "adminImpact": "Treat the API retirement as the required administrator task: manually migrate affected workflows to the Microsoft Graph Security API by January 31, 2027. For the Teams MessageContents rollout, verify required permissions and review any affected investigation procedures. Defender for Office 365 Plan 2 teams can use the forthcoming call and meeting telemetry, while the email-submission tables require no immediate action according to the notice. Azure security teams can evaluate the new Exposure Management preview capabilities.",
+      "headline": "Advanced Hunting API retirement sets January migration deadline as Teams telemetry expands",
+      "overview": "The week’s most consequential changes center on Advanced Hunting. Microsoft announced the retirement of the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs while adding Teams message, Teams call and meeting, and email-submission data sources in Defender for Office 365. Exposure Management also made Azure posture policies and recommendation exemptions available in public preview. Many other updates were reference, metadata, or terminology edits rather than operational changes.",
+      "adminImpact": "Prioritize an inventory of workflows using the MDE or XDR Advanced Hunting APIs and manually migrate them to the Microsoft Graph Security API by January 31, 2027, ahead of the February 1 retirement. For the new hunting data sources, review required permissions and Defender for Office 365 licensing, then assess whether analyst procedures or Sentinel and event-streaming workflows should use the new tables. Azure security teams can evaluate the Exposure Management preview capabilities as appropriate.",
       "keyChanges": [
         {
-          "title": "MDE and XDR Advanced Hunting APIs retire February 1, 2027",
-          "detail": "Microsoft says the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs will retire on February 1, 2027. Workflows must be manually migrated to the Microsoft Graph Security API by January 31, 2027.",
-          "product": "Microsoft Defender for Endpoint and Defender XDR",
+          "title": "Advanced Hunting APIs retire February 1, 2027",
+          "detail": "Microsoft will retire the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs on February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to maintain functionality.",
+          "product": "Defender for Endpoint and Defender XDR",
           "sourceId": "MC1220762"
         },
         {
-          "title": "Teams MessageContents table brings message snippets into hunting",
-          "detail": "Defender for Office 365 is rolling out the MessageContents table for Microsoft Teams messages from late September through mid-November 2026. Authorized analysts can query message snippets and metadata for investigations; access requires specific permissions and may affect security procedures.",
-          "product": "Defender for Office 365",
+          "title": "Teams MessageContents table adds message snippets to hunting",
+          "detail": "Defender for Office 365 is introducing a MessageContents Advanced Hunting table for Microsoft Teams messages. Authorized security analysts can query message snippets and metadata; rollout runs from late September through mid-November 2026, and access requires specific permissions.",
+          "product": "Defender for Office 365 / Defender XDR",
           "sourceId": "MC1474106"
         },
         {
-          "title": "CallActivityEvents adds Teams call and meeting investigations",
-          "detail": "Available worldwide from November 2026, CallActivityEvents will let Defender for Office 365 Plan 2 teams investigate Teams calls and meetings using activities, initiators, organizers, and related messages. The data integrates with Advanced Hunting, the event streaming API, and Microsoft Sentinel.",
-          "product": "Defender XDR and Defender for Office 365",
+          "title": "CallActivityEvents brings Teams calls and meetings into hunting",
+          "detail": "The new CallActivityEvents table enables Defender for Office 365 Plan 2 teams to investigate suspicious Microsoft Teams calls and meetings using activities, initiators, organizers, and related messages. It is scheduled for worldwide availability from November 2026 and integrates with Advanced Hunting, the event streaming API, and Microsoft Sentinel.",
+          "product": "Defender XDR and Defender for Office 365 Plan 2",
           "sourceId": "MC1532241"
         },
         {
-          "title": "Email submission telemetry gets two new hunting tables",
-          "detail": "SubmissionEvents and SubmissionResults are scheduled for Public Preview in mid-November 2026 and General Availability in late November. The tables add visibility into email submission activity; the notice states that no immediate action or compliance concerns are required.",
-          "product": "Defender for Office 365",
+          "title": "SubmissionEvents and SubmissionResults add email-submission visibility",
+          "detail": "Defender for Office 365 will add SubmissionEvents and SubmissionResults to Advanced Hunting. Public Preview begins in mid-November 2026, followed by General Availability in late November 2026.",
+          "product": "Defender for Office 365 / Defender XDR",
           "sourceId": "MC1484009"
         },
         {
-          "title": "Exposure Management previews Azure posture policies and exemptions",
-          "detail": "For Azure environments, posture policies and recommendation exemptions are available in public preview. Administrators can evaluate resources against the Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
+          "title": "Azure posture policies and recommendation exemptions enter public preview",
+          "detail": "Exposure Management now offers public-preview posture policies and recommendation exemptions for Azure environments. Administrators can evaluate Azure resources against the Microsoft Defender for Cloud baseline, create custom posture policies, and centrally manage accepted-risk exemptions with lifecycle tracking.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-10-30-whats-new-1241"
         }
@@ -9963,11 +9969,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-01T09:14:46.853Z",
+      "generatedAt": "2026-11-01T23:34:33.213Z",
       "usage": {
         "inputTokens": 8789,
-        "outputTokens": 4440,
-        "costUsd": 0.007086
+        "outputTokens": 2705,
+        "costUsd": 0.005004
       }
     }
   },
@@ -10384,13 +10390,19 @@
       }
     },
     "2026-11": {
-      "headline": "Cloudstorageaggregatedevents guidance now specifies subscription-level Defender for Storage V2",
-      "overview": "The sole recorded November update tightens the documented prerequisite for the Defender XDR Cloudstorageaggregatedevents table: it is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are not supported.",
-      "adminImpact": "To populate this hunting table, enable Defender for Storage V2 at the subscription level. Deployments enabled only on individual storage accounts, or using the legacy plan, will not provide data.",
+      "headline": "Advanced Hunting clarifies AMPLS query limits and Storage V2 table prerequisites",
+      "overview": "November brought two targeted guidance updates. Sentinel’s Move To Defender page now defines the boundary between AMPLS-supported data ingestion and query access, while the Defender XDR Cloudstorageaggregatedevents reference specifies the Defender for Storage plan and scope required to populate the table.",
+      "adminImpact": "Administrators using Azure Monitor Private Link Scope should account for the loss of Defender portal and Defender API query access when Log Analytics queries are restricted to private endpoints; disabling public Log Analytics query access also makes the data unavailable to experiences such as Advanced Hunting. For Cloudstorageaggregatedevents, enable Defender for Storage V2 at the subscription level—storage-account-level enablement and the legacy plan will not populate the table.",
       "keyChanges": [
         {
-          "title": "Subscription-level Defender for Storage V2 is required",
-          "detail": "Updated guidance states that Cloudstorageaggregatedevents receives data only with Defender for Storage V2 enabled at the subscription level; storage-account-level enablement and the legacy plan are unsupported.",
+          "title": "AMPLS guidance defines Sentinel query-access limitations",
+          "detail": "The updated Move To Defender guidance states that Azure Monitor Private Link Scope supports Sentinel data ingestion into Log Analytics, but not querying through Defender portal experiences or Defender APIs when query access is restricted to private endpoints. Disabling public Log Analytics query access makes the data unavailable to experiences such as Advanced Hunting.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-11-01-move-to-defender-02"
+        },
+        {
+          "title": "Cloudstorageaggregatedevents requires subscription-level Defender for Storage V2",
+          "detail": "The table reference now states that Cloudstorageaggregatedevents is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are not supported and will not provide table data.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-11-01-advanced-hunting-cloudstorageaggregatedevents-table-01"
         }
@@ -10398,16 +10410,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-01T09:14:46.853Z",
+      "generatedAt": "2026-11-01T23:34:33.213Z",
       "usage": {
-        "inputTokens": 1059,
-        "outputTokens": 727,
-        "costUsd": 0.001084
+        "inputTokens": 1200,
+        "outputTokens": 1400,
+        "costUsd": 0.00192
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-01T09:14:46.853Z",
+  "generatedAt": "2026-11-01T23:34:33.213Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10600,22 +10612,22 @@
       "costUsd": 0.037311
     },
     "2026-11-01": {
-      "inputTokens": 10888,
-      "outputTokens": 5814,
-      "requests": 3,
-      "costUsd": 0.009154
+      "inputTokens": 22063,
+      "outputTokens": 10718,
+      "requests": 6,
+      "costUsd": 0.017274
     }
   },
   "lastRun": {
-    "inputTokens": 10888,
-    "outputTokens": 5814,
+    "inputTokens": 11175,
+    "outputTokens": 4904,
     "requests": 3,
-    "costUsd": 0.009154
+    "costUsd": 0.00812
   },
   "totalUsage": {
-    "inputTokens": 1229697,
-    "outputTokens": 1199969,
-    "requests": 246,
-    "costUsd": 1.685898
+    "inputTokens": 1240872,
+    "outputTokens": 1204873,
+    "requests": 249,
+    "costUsd": 1.694018
   }
 }
