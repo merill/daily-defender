@@ -1,0 +1,88 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/create-custom-data-collection-rules.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/create-custom-data-collection-rules.md b/defender-endpoint/create-custom-data-collection-rules.md\nindex fd2a2f6..ac784f7 100644\n--- a/defender-endpoint/create-custom-data-collection-rules.md\n+++ b/defender-endpoint/create-custom-data-collection-rules.md\n@@ -10,8 +10,8 @@ uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n description: Learn how to create and manage custom data collection rules in Microsoft Defender for Endpoint to enhance your threat hunting capabilities.\n ms.service: defender-endpoint\n-ms.author: lwainstein\n-author: limwainstein\n+ms.author: mobani\n+author: moti-ba\n ms.localizationpriority: medium\n ms.collection:\n - m365-security\n@@ -49,10 +49,6 @@ platformId: d7f1a5bc-0a51-2315-f086-ebadcd077229\n \n # Create and manage custom data collection rules in Microsoft Defender for Endpoint - Microsoft Defender for Endpoint | Microsoft Learn\n \n-Important\r\n-\r\n-Some information in this article relates to a prereleased product which may be substantially modified before it's commercially released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.\r\n-\r\n Custom data collection rules let you capture specific endpoint events beyond default telemetry and send them to Microsoft Sentinel for advanced hunting and investigation. This article walks you through creating, editing, monitoring, and deleting these rules in the Microsoft Defender portal.\r\n \r\n Tip\r\n",
+      "baseCommitSha": "51bc84408569d68c2cbbe7fc351f6f5a57a1fba7",
+      "commitSha": "2271dae7a94931a8d647a5eee920b48c85d0e104",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-02 07:55:20 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/create-custom-data-collection-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/create-custom-data-collection-rules",
+      "eventId": "defender-docs:2271dae7a94931a8d647a5eee920b48c85d0e104:modified:defender-endpoint/create-custom-data-collection-rules.md",
+      "firstSeenAt": "2026-11-02T09:28:02.924Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated article authorship and prerelease notice",
+        "summary": "The article’s author and Microsoft author metadata were updated, and its prerelease product notice was removed.",
+        "adminImpact": "Administrators will see updated article attribution and release-status wording. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/custom-data-collection.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/custom-data-collection.md b/defender-endpoint/custom-data-collection.md\nindex 44e876d..d7a0140 100644\n--- a/defender-endpoint/custom-data-collection.md\n+++ b/defender-endpoint/custom-data-collection.md\n@@ -10,8 +10,8 @@ uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n description: Custom data collection allows organizations to tailor telemetry collection to their specific threat hunting needs with customizable filters and enhanced visibility.\n ms.service: defender-endpoint\n-ms.author: lwainstein\n-author: limwainstein\n+ms.author: mobani\n+author: moti-ba\n ms.localizationpriority: medium\n ms.collection:\n - m365-security\n@@ -48,10 +48,6 @@ platformId: 6e48b728-2def-d1dc-cb36-18b3dc4c46ad\n \n # Custom data collection in Microsoft Defender for Endpoint - Microsoft Defender for Endpoint | Microsoft Learn\n \n-Important\r\n-\r\n-Some information in this article relates to a prereleased product which may be substantially modified before it's commercially released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.\r\n-\r\n Custom data collection enables organizations to expand telemetry collection beyond default configurations to support specialized threat hunting and security monitoring needs. This feature allows security teams to define specific collection rules with tailored filters for event properties such as folder paths, process names, and network connections.\r\n \r\n ## Why use custom data collection?\r\n",
+      "baseCommitSha": "51bc84408569d68c2cbbe7fc351f6f5a57a1fba7",
+      "commitSha": "2271dae7a94931a8d647a5eee920b48c85d0e104",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-02 07:55:20 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/custom-data-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/custom-data-collection",
+      "eventId": "defender-docs:2271dae7a94931a8d647a5eee920b48c85d0e104:modified:defender-endpoint/custom-data-collection.md",
+      "firstSeenAt": "2026-11-02T09:28:02.928Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated authorship and prerelease notice",
+        "summary": "The article’s author metadata was updated, and its prerelease-product disclaimer was removed.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The article’s author and Microsoft author metadata were updated, and its prerelease product notice was removed. The article’s author metadata was updated, and its prerelease-product disclaimer was removed.",
+        "sourceFiles": [
+          "defender-endpoint/create-custom-data-collection-rules.md",
+          "defender-endpoint/custom-data-collection.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The article’s author and Microsoft author metadata were updated, and its prerelease product notice was removed. The article’s author metadata was updated, and its prerelease-product disclaimer was removed."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
