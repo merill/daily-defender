@@ -1,0 +1,57 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1536045",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-03",
+      "title": "Microsoft Defender: Expanded URBAC permission support for email content access",
+      "summary": "Microsoft Defender has expanded Unified role-based access control (URBAC) permissions for email content access to include alerts related to potentially malicious URL clicks. Security analysts with the appropriate permission can now preview and download emails from four alert types, ensuring consistent access across scenarios.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1536045/",
+      "originalUrl": "https://mc.merill.net/message/MC1536045",
+      "body": "<p><b><b>What and why</b></b></p><p>We’re expanding Unified role-based access control (URBAC) permission support for <b>Email &amp; collaboration content: Emails associated with alerts</b> in <i>Microsoft Defender</i>. This change provides more consistent email content access across alert investigation scenarios based on a user’s assigned permissions.</p><p></p><p>Previously, this permission applied to:</p><ul><li>Email reported by user as malware or phish</li><li>Email reported by user as junk</li></ul><p></p><p>With this rollout, the permission will also apply to:</p><ul><li>A potentially malicious URL click was detected</li><li>A user clicked through to a potentially malicious URL</li></ul><p></p><p><b><b>Rollout schedule</b></b></p><p><b>General Availability (Worldwide): </b>Available now</p><p></p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Security analysts who preview or download emails associated with the affected alerts</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Defender</li></ul><p><i>What will happen</i></p><p>Security analysts with the required permission will be able to preview and download emails associated with these four alerts:</p><ul><li>Email reported by user as malware or phish</li><li>Email reported by user as junk</li><li>A potentially malicious URL click was detected</li><li>A user clicked through to a potentially malicious URL</li></ul><p>Access is based on the user’s assigned <b>Email &amp; collaboration content: Emails associated with alerts</b> permission.</p><p></p><p><b><b>Action required and recommendations</b></b></p><p>Ensure that users who need to preview and download emails associated with these four alerts have the required<b> Email &amp; collaboration content: Emails associated with alerts</b> permission.</p><p></p><p><b>Learn more</b></p><ul><li><a href=\"https://learn.microsoft.com/defender-xdr/custom-permissions-details#security-operations--raw-data-email--collaboration\" rel=\"noopener noreferrer\">Permissions in Microsoft Defender unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn</a></li></ul><p></p><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified. Review as usual for your organization.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Feature update",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-11-03T00:04:15Z",
+      "endDate": "2026-12-03T00:04:15Z",
+      "lastModifiedDateTime": "2026-11-03T00:04:26.45Z",
+      "version": "2026-11-03T00:04:26.45Z",
+      "eventId": "message-center:MC1536045:2026-11-03T00:04:26.45Z",
+      "firstSeenAt": "2026-11-03T09:31:09.088Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Defender documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}

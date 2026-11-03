@@ -8287,6 +8287,28 @@
         "outputTokens": 1786,
         "costUsd": 0.002422
       }
+    },
+    "2026-11-03": {
+      "headline": "Defender expands URBAC email access to potentially malicious URL-click alerts",
+      "overview": "Microsoft Defender expanded Unified role-based access control (URBAC) support for email content access. Security analysts with the appropriate permission can now preview and download emails associated with four alert types, including alerts related to potentially malicious URL clicks, providing consistent access across those scenarios.",
+      "adminImpact": "The change affects analyst access governed by URBAC. The notice does not specify a new configuration step, permission name, or deadline; administrators should account for the expanded email-access scope when reviewing existing assignments.",
+      "keyChanges": [
+        {
+          "title": "URBAC now covers email access for URL-click alert investigations",
+          "detail": "Security analysts with the appropriate URBAC permission can preview and download emails from four alert types, with potentially malicious URL-click alerts now included in the supported email-content access scenarios.",
+          "product": "Defender XDR",
+          "sourceId": "MC1536045"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-03T09:31:09.311Z",
+      "usage": {
+        "inputTokens": 1015,
+        "outputTokens": 995,
+        "costUsd": 0.001397
+      }
     }
   },
   "weeks": {
@@ -10011,25 +10033,31 @@
       }
     },
     "2026-11-02": {
-      "headline": "Defender for Cloud guidance now separates staged and full portal management",
-      "overview": "The week’s substantive update was to Defender for Cloud’s plan-management guidance: it now explains DWU for moving plan enablement and billing to the Defender portal, an optional Management choice for moving all supported cloud security capabilities, and Managed in status values for checking the result. The remaining updates were documentation maintenance, including Endpoint author and prerelease wording changes and removal of a sample RBAC table.",
-      "adminImpact": "When transferring environments, administrators can choose staged or full management and verify the resulting configuration through the Managed in status. The Endpoint metadata changes require no action; teams relying on the removed RBAC example should use the revised page.",
+      "headline": "Defender expands URBAC email access as cloud-management guidance gains transfer controls",
+      "overview": "The week’s main substantive update is in Defender XDR: authorized analysts can now preview and download emails for four alert types, including potentially malicious URL-click alerts. Defender for Cloud guidance now explains staged or full moves into Defender portal management, while the remaining updates are documentation housekeeping affecting Endpoint metadata and RBAC examples.",
+      "adminImpact": "Defender XDR administrators should account for the expanded email-content access when assigning URBAC permissions; analysts still need the appropriate permission. For Defender for Cloud transfers, administrators can choose staged or full management and use the Managed in status to verify the resulting configuration. No action is required for the attribution, prerelease-label, or sample-table edits.",
       "keyChanges": [
         {
-          "title": "Defender for Cloud guidance documents staged versus full transfer",
-          "detail": "The page now describes selecting DWU to move plan enablement and billing to the Defender portal, while the optional Management selection moves all supported cloud security capabilities. Managed in status values show where each environment is managed.",
+          "title": "URBAC email-content access now includes malicious-URL-click alerts",
+          "detail": "Microsoft says Defender expanded URBAC permissions so security analysts with the appropriate permission can preview and download emails from four alert types, including alerts related to potentially malicious URL clicks.",
+          "product": "Defender XDR",
+          "sourceId": "MC1536045"
+        },
+        {
+          "title": "Defender for Cloud guidance defines staged and full management transfers",
+          "detail": "The updated guidance says selecting DWU moves plan enablement and billing to the Defender portal. An optional Management selection moves all supported cloud security capabilities, and Managed in status values show where each environment is managed.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-11-02-manage-plans-defender-portal-03"
         },
         {
-          "title": "Custom data collection guidance removes its prerelease notice",
-          "detail": "The article’s author and Microsoft author metadata were updated, and the prerelease product notice was removed. The supplied administrator impact calls for no action.",
+          "title": "Endpoint custom data collection guidance removes prerelease labeling",
+          "detail": "The article’s author and Microsoft author metadata were updated, and its prerelease product notice was removed. The supplied administrator impact says no action is required.",
           "product": "Endpoint",
           "sourceId": "doc-2026-11-02-create-and-manage-custom-data-collection-rules-in-microsoft-defender-for-endpoint-microsoft-defe-01"
         },
         {
-          "title": "Defender XDR’s RBAC page drops its sample table",
-          "detail": "The Manage RBAC page no longer includes the sample table containing two headers and two data rows. Administrators referencing that example should use the updated page.",
+          "title": "Manage RBAC page removes its two-by-two sample table",
+          "detail": "The updated page no longer includes the sample table with two headers and two data rows. Administrators referencing that table should use the revised page; no action is required.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-11-02-manage-rbac-04"
         }
@@ -10037,11 +10065,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-02T22:46:34.364Z",
+      "generatedAt": "2026-11-03T09:31:09.311Z",
       "usage": {
-        "inputTokens": 1207,
-        "outputTokens": 1751,
-        "costUsd": 0.002343
+        "inputTokens": 1320,
+        "outputTokens": 2529,
+        "costUsd": 0.003299
       }
     }
   },
@@ -10458,25 +10486,31 @@
       }
     },
     "2026-11": {
-      "headline": "Defender for Cloud transfer states, Sentinel query limits sharpen November guidance",
-      "overview": "November’s substantive updates clarify three administrator-sensitive areas. Defender for Cloud guidance now distinguishes DWU-based transfer of plan enablement and billing from optional full management of supported cloud security capabilities, with Managed in statuses for verification. Sentinel guidance specifies that Azure Monitor Private Link Scope supports data ingestion but not Defender portal or Defender API querying when Log Analytics query access is private-only. Defender XDR guidance documents the exact prerequisite for Cloudstorageaggregatedevents data. The remaining updates were maintenance edits to Endpoint attribution and prerelease wording, plus removal of a sample RBAC table.",
-      "adminImpact": "For Defender for Cloud transfers, choose staged or full management deliberately and verify the resulting Managed in status. When using AMPLS with Sentinel, account for the loss of Defender portal and API query access if public Log Analytics query access is disabled. To populate Cloudstorageaggregatedevents, use Defender for Storage V2 at subscription scope; storage-account-level enablement and the legacy plan are unsupported. The Endpoint metadata and RBAC table edits require no configuration change.",
+      "headline": "URBAC email access expands as Defender portal and hunting prerequisites sharpen",
+      "overview": "November’s most consequential change is a Defender XDR URBAC expansion: authorized analysts can now preview and download emails for four alert types, including potentially malicious URL-click alerts. The period also adds concrete Defender for Cloud transfer controls and documents two important data-access prerequisites: Sentinel queries are unavailable through Defender experiences when AMPLS restricts Log Analytics to private endpoints, and the CloudStorageAggregatedEvents table requires Defender for Storage V2 at subscription scope. The remaining three updates are housekeeping: Endpoint article attribution and prerelease wording, plus removal of a sample RBAC table.",
+      "adminImpact": "Review URBAC assignments for analysts who need email-content access across the newly covered alert types. For Defender for Cloud transfers, choose staged or full management as appropriate and verify the resulting environment with the Managed in status. Sentinel administrators using AMPLS should account for the loss of Defender portal, Defender API, and Advanced Hunting query access when public Log Analytics queries are disabled. To populate CloudStorageAggregatedEvents, enable Defender for Storage V2 at the subscription level; storage-account-level enablement and the legacy plan are unsupported. No action is required for the Endpoint metadata edits or removed RBAC sample table.",
       "keyChanges": [
         {
-          "title": "Defender for Cloud guidance separates plan transfer from full capability management",
-          "detail": "The updated guidance says selecting DWU moves plan enablement and billing to the Defender portal. An optional Management selection moves all supported cloud security capabilities, while Managed in status values identify where each environment is managed. Administrators can use these choices to perform staged or full transfers and verify the result.",
+          "title": "URBAC adds email access for potentially malicious URL-click alerts",
+          "detail": "Microsoft expanded Unified role-based access control permissions for email content access. Analysts with the appropriate permission can now preview and download emails from four alert types, including alerts for potentially malicious URL clicks.",
+          "product": "Defender XDR",
+          "sourceId": "MC1536045"
+        },
+        {
+          "title": "Defender portal plan transfers now support staged or full management",
+          "detail": "The Defender for Cloud guidance describes selecting DWU to move plan enablement and billing to the Defender portal, with an optional Management selection to move all supported cloud security capabilities. New status values show where each environment is managed.",
           "product": "Defender for Cloud",
           "sourceId": "doc-2026-11-02-manage-plans-defender-portal-03"
         },
         {
-          "title": "Sentinel AMPLS guidance documents ingestion without private-only query support",
-          "detail": "The page now states that Azure Monitor Private Link Scope supports Sentinel data ingestion into Log Analytics, but not querying through Defender portal experiences or Defender APIs when query access is restricted to private endpoints. Disabling public Log Analytics query access makes the data unavailable to experiences such as Advanced Hunting.",
+          "title": "AMPLS restrictions can block Sentinel queries through Defender experiences",
+          "detail": "Sentinel can still ingest data into Log Analytics through Azure Monitor Private Link Scope, but Defender portal experiences and Defender APIs cannot query the data when access is restricted to private endpoints. Disabling public Log Analytics query access also makes the data unavailable to Advanced Hunting.",
           "product": "Sentinel",
           "sourceId": "doc-2026-11-01-move-to-defender-02"
         },
         {
-          "title": "Cloudstorageaggregatedevents requires subscription-level Defender for Storage V2",
-          "detail": "The table documentation now specifies that data is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan are not supported, so those configurations will not provide table data.",
+          "title": "CloudStorageAggregatedEvents requires subscription-level Storage V2 protection",
+          "detail": "The Advanced Hunting table is populated only when Defender for Storage V2 is enabled at the subscription level. Storage-account-level enablement and the legacy plan do not populate the table.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-11-01-advanced-hunting-cloudstorageaggregatedevents-table-01"
         }
@@ -10484,27 +10518,21 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-02T22:46:34.364Z",
+      "generatedAt": "2026-11-03T09:31:09.311Z",
       "usage": {
-        "inputTokens": 1845,
-        "outputTokens": 2088,
-        "costUsd": 0.002875
+        "inputTokens": 1968,
+        "outputTokens": 1635,
+        "costUsd": 0.002356
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-02T22:46:34.364Z",
+  "generatedAt": "2026-11-03T09:31:09.311Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-28": {
-      "inputTokens": 8789,
-      "outputTokens": 9013,
-      "requests": 3,
-      "costUsd": 0.012573
-    },
     "2026-09-29": {
       "inputTokens": 44437,
       "outputTokens": 40283,
@@ -10696,18 +10724,24 @@
       "outputTokens": 9311,
       "requests": 6,
       "costUsd": 0.01279
+    },
+    "2026-11-03": {
+      "inputTokens": 4303,
+      "outputTokens": 5159,
+      "requests": 3,
+      "costUsd": 0.007051
     }
   },
   "lastRun": {
-    "inputTokens": 4445,
-    "outputTokens": 5625,
+    "inputTokens": 4303,
+    "outputTokens": 5159,
     "requests": 3,
-    "costUsd": 0.007639
+    "costUsd": 0.007051
   },
   "totalUsage": {
-    "inputTokens": 1248958,
-    "outputTokens": 1214184,
-    "requests": 255,
-    "costUsd": 1.706808
+    "inputTokens": 1253261,
+    "outputTokens": 1219343,
+    "requests": 258,
+    "costUsd": 1.713859
   }
 }
