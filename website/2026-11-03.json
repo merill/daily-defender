@@ -1,6 +1,241 @@
 {
   "newFiles": [],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/ai-agent-support-matrix.md",
+      "status": "modified",
+      "additions": 82,
+      "deletions": 66,
+      "changes": 148,
+      "patch": "diff --git a/defender-endpoint/ai-agent-support-matrix.md b/defender-endpoint/ai-agent-support-matrix.md\nindex e7057f2..9d20adb 100644\n--- a/defender-endpoint/ai-agent-support-matrix.md\n+++ b/defender-endpoint/ai-agent-support-matrix.md\n@@ -14,7 +14,7 @@ ms.author: joshbregman\n ms.service: defender-endpoint\n ms.topic: concept-article\n ms.custom: msecd-doc-authoring-1030\n-ms.date: 2026-10-07T00:00:00.0000000Z\n+ms.date: 2026-11-02T00:00:00.0000000Z\n ai-usage: ai-generated\n locale: en-us\n document_id: abe9e026-5716-699f-a004-f1f31a28907b\n@@ -33,12 +33,12 @@ item_type: Content\n source_path: defender-endpoint/ai-agent-support-matrix.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/341fdab2-4964-4759-8241-f5820b012a47\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cc1f92bb-c0d6-4d40-99ce-dabea3161a84\n platformId: fbba1eb6-4eb3-53ec-5a39-1699f4762ddc\n ---\n \n@@ -50,9 +50,11 @@ Only supported combinations appear in the matrix. If a combination isn't listed,\n \r\n ## AI agent discovery support\r\n \r\n+Local AI agent discovery is generally available on supported Windows and macOS devices, except for the preview scenarios identified in this section. For minimum Defender versions and other requirements, see [Discover local AI agents](discover-local-ai-agents#prerequisites).\r\n+\r\n AI agent discovery identifies local AI agents and their configured Model Context Protocol (MCP) servers on onboarded devices. The `Name` values in these tables correspond to the `Name` column in the [`AgentsInfo`](/en-us/defender-xdr/advanced-hunting-agentsinfo-table) advanced hunting table. The `Vendor` values correspond to `RawAgentInfo.localAgentMetadata.vendor`.\r\n \r\n-Discovery is activity based. Defender lists an agent after it observes agent activity on an onboarded device. Installing an agent doesn't by itself guarantee that the agent appears in the local AI agent inventory. For more information about how Defender observes agent activity and how this inventory differs from an inventory of installed software, see [Local AI agent discovery with Microsoft Defender for Endpoint](local-agent-discovery-overview).\r\n+Discovery depends on the agent type. Defender can identify a running agent process or use installed VS Code extension data that the client periodically collects on Windows and macOS. A running process doesn't imply that the user submitted prompts or successfully accessed an AI service. Extension inventory discovery doesn't require the extension to run. Installing an agent doesn't by itself guarantee an inventory entry. For details, see the [discovery prerequisites](discover-local-ai-agents#prerequisites).\r\n \r\n A checkmark in the **Discovers MCP** column indicates that Defender reports remote MCP server data in `McpServers` and local MCP server data in `RawAgentInfo.localAgentMetadata.localMcps`. A dash indicates that MCP server configuration discovery isn't documented for that combination.\r\n \r\n@@ -64,6 +66,8 @@ Note\n \r\n For runtime protection support, see AI agent runtime protection support.\r\n \r\n+^1^ The marked VS Code extensions on **Windows and macOS** use the onboarded Defender for Endpoint client for **agent inventory discovery**. The client must be running and reporting. It periodically collects installed extension data; the extension doesn't need to run, and antivirus active mode isn't required for this inventory collection. **MCP server configuration discovery** still requires antivirus active mode and real-time protection. This footnote doesn't indicate runtime protection support or change the preview status shown in the tables.\r\n+\r\n ### Windows\r\n \r\n | `Name` | `Vendor` | Discovers agent | Discovers MCP |\r\n@@ -117,13 +121,15 @@ For runtime protection support, see AI agent runtime protection support.\n | Qwen Code Desktop | - | ✓ | - |\r\n | Qwen Studio | Alibaba Cloud | ✓ | - |\r\n | Trae IDE | ByteDance | ✓ | - |\r\n-| VSCode Claude Code Extension | Anthropic | ✓ | ✓ |\r\n-| VSCode Cline Extension | Cline | ✓ | ✓ |\r\n-| VSCode Codex Extension | OpenAI | ✓ | ✓ |\r\n-| VSCode Gemini Code Assist Extension | Google | ✓ | ✓ |\r\n-| VSCode GitHub Copilot Extension | GitHub | ✓ | ✓ |\r\n-| VSCode Kimi Code Extension | Moonshot AI | ✓ | - |\r\n-| VSCode Roo Code Extension | Roo Code | ✓ | ✓ |\r\n+| VS Code AI Foundry Extension | Microsoft | ✓^1^ | - |\r\n+| VS Code Windows AI Studio Extension | Microsoft | ✓^1^ | ✓ |\r\n+| VSCode Claude Code Extension | Anthropic | ✓^1^ | ✓ |\r\n+| VSCode Cline Extension | Cline | ✓^1^ | ✓ |\r\n+| VSCode Codex Extension | OpenAI | ✓^1^ | ✓ |\r\n+| VSCode Gemini Code Assist Extension | Google | ✓^1^ | ✓ |\r\n+| VSCode GitHub Copilot Extension | GitHub | ✓^1^ | ✓ |\r\n+| VSCode Kimi Code Extension | Moonshot AI | ✓^1^ | - |\r\n+| VSCode Roo Code Extension | Roo Code | ✓^1^ | ✓ |\r\n | Warp | Warp | ✓ | ✓ |\r\n | Windsurf | Cognition | ✓ | ✓ |\r\n | ZCode | Z.ai | ✓ | - |\r\n@@ -139,61 +145,71 @@ The following local AI agents are supported when they run in Windows Subsystem f\n | Codex CLI | OpenAI | ✓ | - |\r\n | GitHub Copilot CLI | GitHub | ✓ | - |\r\n \r\n-### macOS (preview)\r\n-\r\n-| `Name` | `Vendor` | Discovers agent | Discovers MCP |\r\n-| --- | --- | --- | --- |\r\n-| Antigravity CLI | Google | ✓ | - |\r\n-| Antigravity Desktop | Google | ✓ | - |\r\n-| Antigravity IDE | Google | ✓ | - |\r\n-| ChatGPT Classic | OpenAI | ✓ | - |\r\n-| ChatGPT Desktop | OpenAI | ✓ | ✓ |\r\n-| Claude Code | Anthropic | ✓ | ✓ |\r\n-| Claude Desktop | Anthropic | ✓ | ✓ |\r\n-| Clawpilot | Microsoft | ✓ | - |\r\n-| Cline CLI | Cline | ✓ | - |\r\n-| CoCo Desktop | Snowflake | ✓ | - |\r\n-| Codex CLI | OpenAI | ✓ | ✓ |\r\n-| Codex Desktop | OpenAI | ✓ | ✓ |\r\n-| Cursor | Anysphere | ✓ | ✓ |\r\n-| Devin CLI | Cognition | ✓ | ✓ |\r\n-| Devin Desktop | Cognition | ✓ | - |\r\n-| Foundry Local | Microsoft | ✓ | - |\r\n-| Gemini CLI | Google | ✓ | ✓ |\r\n-| GitHub Copilot App | GitHub | ✓ | ✓ |\r\n-| GitHub Copilot CLI | GitHub | ✓ | ✓ |\r\n-| Goose CLI | Agentic AI Foundation | ✓ | - |\r\n-| Goose Desktop | Agentic AI Foundation | ✓ | - |\r\n-| Grok Build | SpaceXAI | ✓ | - |\r\n-| Hermes Agent | Nous Research | ✓ | - |\r\n-| Junie CLI | JetBrains | ✓ | - |\r\n-| Kimi Code CLI | Moonshot AI | ✓ | - |\r\n-| Kiro CLI | Amazon | ✓ | - |\r\n-| Kiro IDE | Amazon | ✓ | - |\r\n-| LM Studio | Element Labs | ✓ | - |\r\n-| LM Studio Bionic | Element Labs | ✓ | - |\r\n-| Microsoft Scout | Microsoft | ✓ | - |\r\n-| Nanobot | Claw | ✓ | - |\r\n-| Ollama Desktop | Ollama | ✓ | ✓ |\r\n-| OpenClaw | OpenClaw Foundation | ✓ | ✓ |\r\n-| OpenCode | Anomaly | ✓ | ✓ |\r\n-| Perplexity Desktop | Perplexity | ✓ | - |\r\n-| Pi Coder | Earendil Works | ✓ | - |\r\n-| Poe Desktop | Quora | ✓ | - |\r\n-| QClaw | Tencent | ✓ | - |\r\n-| Qwen Code | Alibaba Cloud | ✓ | - |\r\n-| Qwen Studio | Alibaba Cloud | ✓ | - |\r\n-| Trae IDE | ByteDance | ✓ | - |\r\n-| VSCode Claude Code Extension | Anthropic | ✓ | ✓ |\r\n-| VSCode Cline Extension | Cline | ✓ | ✓ |\r\n-| VSCode Codex Extension | OpenAI | ✓ | ✓ |\r\n-| VSCode Gemini Code Assist Extension | Google | ✓ | ✓ |\r\n-| VSCode GitHub Copilot Extension | GitHub | ✓ | ✓ |\r\n-| VSCode Kimi Code Extension | Moonshot AI | ✓ | - |\r\n-| VSCode Roo Code Extension | Roo Code | ✓ | - |\r\n-| Warp | Warp | ✓ | ✓ |\r\n-| Windsurf | Cognition | ✓ | - |\r\n-| ZeroClaw | Claw | ✓ | - |\r\n+### macOS\r\n+\r\n+A checkmark in **Preview** means discovery of that agent is in preview.\r\n+\r\n+| `Name` | `Vendor` | Discovers agent | Discovers MCP | Preview |\r\n+| --- | --- | --- | --- | --- |\r\n+| Amp CLI | Amp | ✓ | - | - |\r\n+| Antigravity CLI | Google | ✓ | ✓ | - |\r\n+| Antigravity Desktop | Google | ✓ | ✓ | - |\r\n+| Antigravity IDE | Google | ✓ | ✓ | - |\r\n+| Buzz | Block | ✓ | - | - |\r\n+| ChatGPT Classic | OpenAI | ✓ | - | - |\r\n+| ChatGPT Desktop | OpenAI | ✓ | ✓ | - |\r\n+| Claude Code | Anthropic | ✓ | ✓ | - |\r\n+| Claude Desktop | Anthropic | ✓ | ✓ | - |\r\n+| Clawpilot | Microsoft | ✓ | - | - |\r\n+| Cline CLI | Cline | ✓ | - | - |\r\n+| CoCo CLI | Snowflake | ✓ | - | - |\r\n+| CoCo Desktop | Snowflake | ✓ | - | - |\r\n+| Codex CLI | OpenAI | ✓ | ✓ | - |\r\n+| Codex Desktop | OpenAI | ✓ | ✓ | - |\r\n+| Cursor | Anysphere | ✓ | ✓ | - |\r\n+| DeepSeek Harness | DeepSeek | ✓ | - | - |\r\n+| Devin CLI | Cognition | ✓ | ✓ | - |\r\n+| Devin Desktop | Cognition | ✓ | ✓ | - |\r\n+| Foundry Local | Microsoft | ✓ | - | - |\r\n+| Gemini CLI | Google | ✓ | ✓ | - |\r\n+| GitHub Copilot App | GitHub | ✓ | ✓ | - |\r\n+| GitHub Copilot CLI | GitHub | ✓ | ✓ | - |\r\n+| Goose CLI | Agentic AI Foundation | ✓ | - | - |\r\n+| Goose Desktop | Agentic AI Foundation | ✓ | - | - |\r\n+| Grok Bot | SpaceXAI | ✓ | - | - |\r\n+| Grok Build | SpaceXAI | ✓ | - | - |\r\n+| Hermes Agent | Nous Research | ✓ | ✓ | - |\r\n+| Junie CLI | JetBrains | ✓ | ✓ | - |\r\n+| Kilo CLI | Kilo Code | ✓ | - | - |\r\n+| Kimi Code CLI | Moonshot AI | ✓ | - | - |\r\n+| Kiro CLI | Amazon | ✓ | ✓ | - |\r\n+| Kiro IDE | Amazon | ✓ | ✓ | - |\r\n+| LM Studio | Element Labs | ✓ | ✓ | - |\r\n+| LM Studio Bionic | Element Labs | ✓ | - | - |\r\n+| Microsoft Scout | Microsoft | ✓ | ✓ | - |\r\n+| Nanobot | Claw | ✓ | - | - |\r\n+| Oh My Pi | Stencil | ✓ | - | - |\r\n+| Ollama Desktop | Ollama | ✓ | ✓ | - |\r\n+| OpenClaw | OpenClaw Foundation | ✓ | ✓ | - |\r\n+| OpenCode | Anomaly | ✓ | ✓ | - |\r\n+| Perplexity Desktop | Perplexity | ✓ | - | - |\r\n+| Pi Coder | Earendil Works | ✓ | ✓ | - |\r\n+| Poe Desktop | Quora | ✓ | - | - |\r\n+| QClaw | Tencent | ✓ | - | - |\r\n+| Qwen Code | Alibaba Cloud | ✓ | - | - |\r\n+| Qwen Studio | Alibaba Cloud | ✓ | - | - |\r\n+| Trae IDE | ByteDance | ✓ | - | - |\r\n+| VSCode Claude Code Extension | Anthropic | ✓^1^ | ✓ | ✓ |\r\n+| VSCode Cline Extension | Cline | ✓^1^ | ✓ | ✓ |\r\n+| VSCode Codex Extension | OpenAI | ✓^1^ | ✓ | ✓ |\r\n+| VSCode Gemini Code Assist Extension | Google | ✓^1^ | ✓ | ✓ |\r\n+| VSCode GitHub Copilot Extension | GitHub | ✓^1^ | ✓ | ✓ |\r\n+| VSCode Kimi Code Extension | Moonshot AI | ✓^1^ | - | ✓ |\r\n+| VSCode Roo Code Extension | Roo Code | ✓^1^ | - | ✓ |\r\n+| Warp | Warp | ✓ | ✓ | - |\r\n+| Windsurf | Cognition | ✓ | ✓ | - |\r\n+| ZCode | Z.ai | ✓ | - | - |\r\n+| ZeroClaw | Claw | ✓ | - | - |\r\n \r\n ## AI agent runtime protection support\r\n \r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/ai-agent-support-matrix.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-support-matrix",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-endpoint/ai-agent-support-matrix.md",
+      "firstSeenAt": "2026-11-03T20:31:35.344Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Defender local AI agent support matrix revised",
+        "summary": "The documentation now covers local AI agent discovery on supported Windows and macOS devices, with specific preview exceptions. It updates discovery details, adds Microsoft VS Code extensions, revises MCP coverage, and expands macOS entries with preview indicators.",
+        "adminImpact": "Review the updated support matrix, prerequisites, and preview markings when assessing agent coverage. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/discover-local-ai-agents.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 10,
+      "changes": 41,
+      "patch": "diff --git a/defender-endpoint/discover-local-ai-agents.md b/defender-endpoint/discover-local-ai-agents.md\nindex 6e895b1..6401e86 100644\n--- a/defender-endpoint/discover-local-ai-agents.md\n+++ b/defender-endpoint/discover-local-ai-agents.md\n@@ -14,7 +14,7 @@ ms.author: lwainstein\n ms.service: defender-endpoint\n ms.topic: how-to\n ms.custom: msecd-doc-authoring-1030\n-ms.date: 2026-10-07T00:00:00.0000000Z\n+ms.date: 2026-11-02T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 3ab263d3-69ba-bccb-3caf-8a3d135be6b6\n@@ -34,23 +34,21 @@ source_path: defender-endpoint/discover-local-ai-agents.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n platformId: 02bd370a-d6ee-28a3-0704-0b8885819855\n ---\n \n # Discover local AI agents with Microsoft Defender for Endpoint - Microsoft Defender for Endpoint | Microsoft Learn\n \n-Microsoft Defender discovers supported AI agents and their MCP servers after it observes agent activity on onboarded devices and surfaces them in the AI agent inventory and advanced hunting. An installed agent might not appear until Defender observes agent activity. To learn more about local AI agent discovery, see [Local AI agent discovery with Microsoft Defender for Endpoint](local-agent-discovery-overview). For coverage by agent, operating system, and MCP server configuration, see [Microsoft Defender for Endpoint AI agent support matrix](ai-agent-support-matrix).\r\n+Microsoft Defender discovers supported AI agents and their MCP servers on onboarded devices. It surfaces these agents in the AI agent inventory and advanced hunting. To learn how discovery works, see the [discovery overview](local-agent-discovery-overview). For agent and MCP coverage by operating system, see the [support matrix](ai-agent-support-matrix).\r\n \r\n-In this article, you learn how to view discovered agents in the inventory, review their configuration and risk, explore their relationships with devices and identities, and investigate agent presence using advanced hunting.\r\n-\r\n-Note\r\n+For process-based discovery, observing the agent's process running can be enough for an inventory entry. The user doesn't need to submit a prompt or have permission to use the agent's service. Discovery doesn't prove active use or successful access to an AI service.\r\n \r\n-Local AI agent discovery on macOS is in preview.\r\n+In this article, you learn how to view discovered agents in the inventory, review their configuration and risk, explore their relationships with devices and identities, and investigate agent presence using advanced hunting.\r\n \r\n ## Prerequisites\r\n \r\n@@ -59,8 +57,19 @@ Before you can discover local AI agents on endpoints, make sure you meet the fol\n - Your environment is in the commercial cloud. Sovereign and national clouds aren't supported.\r\n - Your organization has a Microsoft Defender for Endpoint Plan 2 license. For more information, see Licensing.\r\n - Your devices are [onboarded to Microsoft Defender for Endpoint](onboard-configure).\r\n-- Your devices run a supported version of Windows or macOS, and Microsoft Defender Antivirus is updated with current monthly platform and engine updates.\r\n-- Microsoft Defender Antivirus is running in active mode on your devices, with real-time protection enabled.\r\n+- Your devices run a supported version of Windows or macOS and meet the minimum Defender version requirements in the following table.\r\n+- Microsoft Defender Antivirus is running in active mode on your devices, with real-time protection enabled, except for the Windows and macOS VS Code extension inventory entries described in the following note.\r\n+\r\n+| Operating system | Minimum Defender version |\r\n+| --- | --- |\r\n+| Windows | Microsoft Defender Antivirus platform version `4.18.26090.9` (2609) or later. |\r\n+| macOS | Microsoft Defender for Endpoint version `101.26072.0017` or later. |\r\n+\r\n+Note\r\n+\r\n+On Windows and macOS, agent inventory discovery for the VS Code extensions marked with footnote 1 in the [support matrix](ai-agent-support-matrix#ai-agent-discovery-support) uses an onboarded, running, and reporting Defender for Endpoint client. The client periodically collects installed extension data. This inventory collection doesn't require antivirus active mode or the extension to run. MCP server configuration discovery still requires antivirus active mode and real-time protection. This exception doesn't indicate runtime protection support. The macOS extension entries remain in preview.\r\n+\r\n+Keep Defender and its security intelligence up to date. On Windows, install current monthly platform and engine updates.\r\n \r\n You don't need additional deployment, configuration, or scripts beyond the device onboarding requirements. If the device meets all of the prerequisites, agent discovery begins automatically.\r\n \r\n@@ -76,6 +85,18 @@ Microsoft Defender for Endpoint Plan 2 is the minimum license for local AI agent\n \r\n Microsoft 365 E5 and Microsoft 365 E7 both include Microsoft Defender for Endpoint Plan 2. If your organization has Microsoft Defender for Endpoint Plan 2 without Microsoft 365 E7 or Microsoft Agent 365, you can discover local AI agents, view the inventory, and query agents in advanced hunting, but the risk level, risk indicators, and security recommendations aren't available.\r\n \r\n+### Permissions\r\n+\r\n+To view the local agent inventory with Microsoft Defender unified RBAC, make sure your role and its assignment include:\r\n+\r\n+- **Permission:** **Security operations** &gt; **Security data** &gt; **Security data basics (Read)**.\r\n+- **Users:** Your account, or a Microsoft Entra security group that includes your account.\r\n+- **Data source:** **Security for AI**.\r\n+\r\n+For role setup steps, see [Create custom roles with Microsoft Defender unified RBAC](/en-us/defender-xdr/create-custom-rbac-roles).\r\n+\r\n+To view the attack surface graph for discovered agents, your role must also include **Security posture** &gt; **Posture management** &gt; **Exposure Management (Read)**, with **Microsoft Security Exposure Management** selected as a data source.\r\n+\r\n ## View local AI agents in the inventory\r\n \r\n 1. Sign in to the [Microsoft Defender portal](https://security.microsoft.com/).\r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/discover-local-ai-agents.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/discover-local-ai-agents",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-endpoint/discover-local-ai-agents.md",
+      "firstSeenAt": "2026-11-03T20:31:35.349Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Local AI agent discovery has updated detection and access requirements",
+        "summary": "The documentation now states that observing an agent process can create an inventory entry without a prompt or service permission, and that discovery does not prove active use or successful access. It adds minimum Defender versions and unified RBAC permissions for viewing inventory and the attack surface graph.",
+        "adminImpact": "Update Defender to the documented minimum versions and verify the required Security for AI and Exposure Management permissions for administrators who need to view this data.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/local-agent-discovery-overview.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-endpoint/local-agent-discovery-overview.md b/defender-endpoint/local-agent-discovery-overview.md\nindex f67e6fb..d0fea6d 100644\n--- a/defender-endpoint/local-agent-discovery-overview.md\n+++ b/defender-endpoint/local-agent-discovery-overview.md\n@@ -14,7 +14,7 @@ ms.author: lwainstein\n ms.service: defender-endpoint\n ms.topic: overview\n ms.custom: msecd-doc-authoring-1030\n-ms.date: 2026-10-07T00:00:00.0000000Z\n+ms.date: 2026-11-02T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: d76258bb-b8c4-0e21-0c6a-94d5623ec4e6\n@@ -44,7 +44,7 @@ platformId: 5fbe46e6-1635-6e3d-c6d8-da353b0d5708\n \n Local AI agents run with user-level permissions and can access files, tools, and services on the devices where they operate. Without visibility into which agents are running and what they can reach, security teams can't assess exposure, enforce governance, or respond to agent-related incidents.\r\n \r\n-Microsoft Defender can discover local AI agents and their configured MCP servers after it observes agent activity on onboarded devices, then surfaces them in the Microsoft Defender portal. This gives security teams a centralized view of AI agents used in the organization.\r\n+Microsoft Defender discovers local AI agents and their configured MCP servers on onboarded devices. It surfaces these agents in the Microsoft Defender portal. This gives security teams a centralized view of AI agents present in the organization.\r\n \r\n [![Screenshot showing the local AI agents inventory in the Microsoft Defender portal with discovered agents listed.](media/local-agent-discovery-overview/discovery-overview.png)](media/local-agent-discovery-overview/discovery-overview.png#lightbox)\r\n \r\n@@ -56,9 +56,13 @@ Defender also provides **AI agent runtime protection** for local agents. When en\n \r\n ## Local AI agent discovery on endpoints\r\n \r\n-Defender lists a local AI agent after it observes agent activity on an onboarded device. Installing an agent doesn't by itself guarantee that the agent appears in the local AI agent inventory. An installed agent might not appear until Defender observes agent activity.\r\n+Discovery depends on the agent type. For process-based discovery, Defender identifies an agent when it observes the agent's process running. The user doesn't need to submit a prompt or have permission to use the agent's service. An inventory entry isn't proof of active use or successful access to an AI service.\r\n \r\n-Local AI agent discovery isn't a complete inventory of installed software. It provides security context for agents that Defender observes on endpoints, including the device and account associated with the activity. To review known software installed on devices, use [Software inventory in Microsoft Defender Vulnerability Management](/en-us/defender-vulnerability-management/tvm-software-inventory).\r\n+On Windows and macOS, the onboarded Defender for Endpoint client also periodically collects installed VS Code extension data on the endpoint. The client must be running and reporting. Agent inventory discovery through this collection doesn't require antivirus active mode or the extension to run. See the entries marked with footnote 1 and their preview status in the [support matrix](ai-agent-support-matrix#ai-agent-discovery-support).\r\n+\r\n+MCP server configuration discovery still requires antivirus active mode and real-time protection. For details and requirements, see the [local AI agent discovery prerequisites](discover-local-ai-agents#prerequisites).\r\n+\r\n+Local AI agent discovery isn't a complete inventory of installed software. It provides security context for agents that Defender observes on endpoints, including the device and account associated with the agent. To review known software installed on devices, use [Software inventory in Microsoft Defender Vulnerability Management](/en-us/defender-vulnerability-management/tvm-software-inventory).\r\n \r\n When Defender identifies a local AI agent, the agent is displayed as a discoverable asset in the Microsoft Defender portal with visibility into:\r\n \r\n@@ -66,10 +70,6 @@ When Defender identifies a local AI agent, the agent is displayed as a discovera\n - **Exposure map**: Visual relationships between local AI agents, devices, identities, and the resources those identities can access, to help assess potential impact.\r\n - **Advanced hunting**: Hunting for discovery data using Kusto Query Language (KQL) to investigate local AI agents and the resources they can access based on the permissions of the user running them.\r\n \r\n-Note\r\n-\r\n-Local AI agent discovery on macOS is in preview.\r\n-\r\n ## Supported local AI agents and MCP server configurations\r\n \r\n Defender defines an agent as a combination of a user, a device, and an agent type. For example, if Claude Code runs in 15 different project folders on the same device for the same user, it appears as a single agent entry in the inventory.\r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/local-agent-discovery-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/local-agent-discovery-overview",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-endpoint/local-agent-discovery-overview.md",
+      "firstSeenAt": "2026-11-03T20:31:35.353Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Local AI agent discovery requirements are now more specific",
+        "summary": "The documentation now distinguishes process-based discovery from VS Code extension collection on Windows and macOS. It also states that MCP server configuration discovery requires antivirus active mode and real-time protection, and removes the macOS preview note.",
+        "adminImpact": "Ensure onboarded clients are running and reporting. Enable antivirus active mode and real-time protection if MCP server configuration discovery is required.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "changes": 20,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex e32edc6..be73d38 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| Linux | 101.26101.0000 | November 2026 | - Release version: 30.126101.0000.0- Engine version: 1.1.26090.3000- Signature version: 1.459.148.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26100.4 / Engine 1.1.26100.4 | October 2026 | - Platform: 4.18.26100.4- Engine: 1.1.26100.4- Security intelligence: 1.463.1.0 | Release details and updates |\r\n | macOS | 101.26092.0009 | October 2026 | - Release version: 20.126092.9.0- Engine version: 1.1.26060.12000- Signature version: 1.453.151.0 | Release details and updates |\r\n | Linux | 101.26091.0004 | October 2026 | - Release version: 30.126091.0004.0- Engine version: 1.1.26070.5001- Signature version: 1.457.364.0 | Release details and updates |\r\n@@ -659,12 +660,29 @@ Starting with version `101.24082.0004`, Defender for Endpoint on Linux no longer\n - If you are on versions later than `101.24072.0000`, Defender for Endpoint on Linux relies on `netlink` as a backup supplementary event provider. If a fallback occurs, all operations continue to flow seamlessly.\r\n - Review your current Defender for Endpoint on Linux deployment, and begin planning your migration to the eBPF-supported build. For more information on eBPF and how it works, see [Use eBPF-based sensor for Microsoft Defender for Endpoint on Linux](linux-support-ebpf).\r\n \r\n-If you have any concerns or need assistance during this transition, contact support.\r\n+> \r\n+> If you have any concerns or need assistance during this transition, contact support.\r\n \r\n ### Linux known issues\r\n \r\n - **Intermittent issue during process scanning**: In version `101.26072.0004`, `wdavdaemon` might restart in rare cases while scanning running processes. The process recovers automatically, and no action is required. A fix will be available in an upcoming release. **Resolution**: Upgrade to platform version 101.26072.0005 or later.\r\n \r\n+### Linux | November 2026 | 101.26101.0000\r\n+\r\n+#### Release details\r\n+\r\n+| Release version | Engine version | Signature version |\r\n+| --- | --- | --- |\r\n+| 30.126101.0000.0 | 1.1.26090.3000 | 1.459.148.0 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature area | Update summary |\r\n+| --- | --- |\r\n+| Security | Upgraded OpenSSL version to 3.6.4 |\r\n+| Bug fix | Fixed missing CentOS minor patch version in the Defender portal |\r\n+| General |  |\r\n+\r\n ### Linux | October 2026 | 101.26091.0004\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-11-03T20:31:35.357Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Linux November 2026 release details added",
+        "summary": "The release notes now document Linux version 101.26101.0000, including an OpenSSL 3.6.4 upgrade and a fix for missing CentOS minor patch versions in the Defender portal.",
+        "adminImpact": "Administrators should review the updated release details; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex cc75acf..2b8c9ad 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -15,7 +15,7 @@ author: lwainstein\n ms.author: yaronyahav\n ms.reviewer: noamhadash, pahuijbr, yongrhee\n ms.localizationpriority: medium\n-ms.date: 2026-10-16T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.collection:\n - m365-security\n@@ -58,6 +58,7 @@ Learn more about [Preview features](/en-us/defender-xdr/preview).\n \r\n | Type | Feature | Preview/GA | Description |\r\n | --- | --- | --- | --- |\r\n+| Feature | [Local AI agent discovery on Windows and macOS](local-agent-discovery-overview) | GA | Discover supported local AI agents and their configured MCP servers on onboarded Windows and macOS devices, and investigate them in the AI agent inventory and advanced hunting. Windows requires Microsoft Defender Antivirus platform version 4.18.26090.9 (2609) or later. macOS requires Microsoft Defender for Endpoint version 101.26072.0017 or later. Discovery in WSL remains in preview. See the [discovery prerequisites](discover-local-ai-agents#prerequisites) and [support matrix](ai-agent-support-matrix). |\r\n | Feature | [Antivirus audit mode for Linux](linux-preferences#antivirus-antimalware-and-edr-settings-in-defender-for-endpoint-on-linux) | GA | Provides real-time malware detection and alerting without automatically quarantining files or terminating processes. This enables organizations to evaluate Defender detection efficacy and performance on sensitive workloads before enabling enforcement.**Available in Microsoft Defender for Endpoint on Linux version 101.26062.0007 or later.** |\r\n | Release - macOS | Build 101.26092.0009 | GA | Release version 20.126092.9.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--october-2026--101260920009). |\r\n | Release - macOS | Build 101.26082.0012 | GA | Release version 20.126082.12.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--october-2026--101260820012). |\r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "firstSeenAt": "2026-11-03T20:31:35.361Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Local AI agent discovery added to Defender Endpoint updates",
+        "summary": "The documentation now describes local AI agent discovery on onboarded Windows and macOS devices, including discovery of configured MCP servers and investigation through the AI agent inventory and advanced hunting.",
+        "adminImpact": "Administrators can use these documented investigation capabilities to identify local AI agents and their configured MCP servers.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-email-entity-page.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-office-365/mdo-email-entity-page.md b/defender-office-365/mdo-email-entity-page.md\nindex 27bd90d..4024819 100644\n--- a/defender-office-365/mdo-email-entity-page.md\n+++ b/defender-office-365/mdo-email-entity-page.md\n@@ -8,8 +8,8 @@ feedback_system: Standard\n feedback_product_url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/ct-p/MicrosoftSecurityandCompliance\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n-author: chrisda\n-ms.author: chrisda\n+author: ajaj-shaikh\n+ms.author: ajajshaikh\n ms.date: 2026-04-16T00:00:00.0000000Z\n ms.topic: article\n ms.service: defender-office-365\n@@ -534,7 +534,7 @@ The following actions are available at the top of the Email entity page:\n - The message was dropped before delivery or delivery failed.\r\n - The message was *soft deleted* or *hard deleted*.\r\n - The message has a delivery location of *On-prem/External*.\r\n-- ZAP moved the message to quarantine.\r\n+- ZAP moved the message to quarantine but message expires from quarantine.\r\n \r\n [![Screenshot of the available actions at the top of the Email entity page.](media/email-entity-available-actions.png)](media/email-entity-available-actions.png#lightbox)\r\n \r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/mdo-email-entity-page.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-email-entity-page",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-office-365/mdo-email-entity-page.md",
+      "firstSeenAt": "2026-11-03T20:31:35.366Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Email entity documentation clarifies ZAP quarantine expiration",
+        "summary": "Updated author metadata and revised the ZAP example to state that a message moved to quarantine expires from quarantine.",
+        "adminImpact": "No administrator action is required; administrators should note the updated quarantine wording when reviewing the documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-inventory.md b/defender-xdr/security-for-ai/ai-agent-inventory.md\nindex a491393..3f3cdb0 100644\n--- a/defender-xdr/security-for-ai/ai-agent-inventory.md\n+++ b/defender-xdr/security-for-ai/ai-agent-inventory.md\n@@ -14,7 +14,7 @@ ms.author: guywild\n author: guywi-ms\n ms.reviewer: itaicohen\n ms.topic: how-to\n-ms.date: 2026-07-14T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n audience: Admin\n ai-usage: ai-assisted\n locale: en-us\n@@ -52,8 +52,8 @@ Use the **AI Agents** page in the Microsoft Defender portal to review agent conf\n \r\n ## Prerequisites\r\n \r\n-- Enable security for AI agents, including the Microsoft 365 connector. See [Enable security for AI agents using Microsoft Defender](get-started-defender-security-for-ai).\r\n-- To discover local AI agents that run on endpoints, set up [AI agent runtime protection in Microsoft Defender for Endpoint](/en-us/defender-endpoint/configure-ai-agent-runtime-protection). Discovery requires Microsoft Defender for Endpoint and Microsoft Defender Antivirus in active mode. Local agents are onboarded separately.\r\n+- For cloud agents, enable security for AI agents, including the Microsoft 365 connector. See [Enable security for AI agents using Microsoft Defender](get-started-defender-security-for-ai).\r\n+- To discover local AI agents that run on endpoints, meet the [local AI agent discovery prerequisites](/en-us/defender-endpoint/discover-local-ai-agents#prerequisites). Local agents are onboarded separately, and discovery doesn't require you to enable AI agent runtime protection.\r\n \r\n ## Review AI agent risk and security posture\r\n \r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-inventory",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "firstSeenAt": "2026-11-03T20:31:35.369Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "AI agent discovery prerequisites are updated",
+        "summary": "The documentation now separates cloud-agent enablement from local-agent discovery. Local agents have separate onboarding and no longer require AI agent runtime protection for discovery.",
+        "adminImpact": "Review the local AI agent discovery prerequisites and onboarding process when configuring Defender.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/get-started-defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md b/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\nindex b7cfebb..5255af2 100644\n--- a/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\n@@ -12,7 +12,7 @@ ms.author: guywild\n author: guywi-ms\n ms.reviewer: itaicohen\n ms.service: microsoft-defender\n-ms.date: 2026-07-01T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n audience: Admin\n ms.topic: how-to\n ai-usage: ai-assisted\n@@ -51,10 +51,11 @@ Onboarding includes enabling data collection, connecting the Microsoft 365 app c\n \r\n ## Prerequisites\r\n \r\n-Before you start, make sure you have:\r\n+Local agents are onboarded separately from cloud agents. For local AI agent discovery, meet the [discovery prerequisites](/en-us/defender-endpoint/discover-local-ai-agents#prerequisites). Discovery doesn't require you to enable AI agent runtime protection. To configure runtime protection separately, see [Set up AI agent runtime protection](/en-us/defender-endpoint/configure-ai-agent-runtime-protection).\r\n+\r\n+Before you onboard cloud agents, make sure you have:\r\n \r\n - [Onboard to Microsoft Agent 365](/en-us/microsoft-agent-365/overview).\r\n-- Local agents are onboarded separately from cloud agents. To include local AI agents that run on endpoints, set up [AI agent runtime protection in Microsoft Defender for Endpoint](/en-us/defender-endpoint/configure-ai-agent-runtime-protection). Microsoft Defender for Endpoint must run in **active mode**.\r\n - Security Administrator role or higher in Microsoft Entra ID.\r\n - For Copilot Studio real-time protection, you need collaboration with a Power Platform administrator.\r\n \r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/get-started-defender-security-for-ai",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:defender-xdr/security-for-ai/get-started-defender-security-for-ai.md",
+      "firstSeenAt": "2026-11-03T20:31:35.373Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Local AI agent discovery prerequisites are clarified",
+        "summary": "The setup guidance now separates local and cloud agent onboarding. Local agent discovery follows separate prerequisites and does not require AI agent runtime protection; runtime protection can be configured independently.",
+        "adminImpact": "Admins onboarding local agents should follow the discovery prerequisites and configure runtime protection separately if needed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/whats-new.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/sentinel/whats-new.md b/sentinel/whats-new.md\nindex 912fa33..42f66a3 100644\n--- a/sentinel/whats-new.md\n+++ b/sentinel/whats-new.md\n@@ -22,8 +22,8 @@ ms.service: microsoft-sentinel\n ms.subservice: sentinel-siem\n search.appverid: met150\n description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.\n-author: guywi-ms\n-ms.author: guywild\n+author: oshezaf\n+ms.author: ofshezaf\n ms.topic: concept-article\n ms.date: 2026-10-21T00:00:00.0000000Z\n ai-usage: ai-assisted\n@@ -80,6 +80,7 @@ Customers onboarding after September 23rd, 2026, should follow the updated guida\n - Mirror the data lake tier to Microsoft Fabric OneLake\r\n - Use Microsoft Fabric for data federation\r\n - Use Microsoft Fabric for custom security analytics\r\n+- Use Sentinel MCP triage collection to query data\r\n \r\n Customers who have onboarded to Sentinel data lake, before September 23rd, 2026, can continue using existing documentation or choose to use the guidance below for Microsoft Fabric: Mirror the data lake tier to Microsoft Fabric OneLake, Use Microsoft Fabric for data federation, and Use Microsoft Fabric for custom security analytics.\r\n \r\n@@ -123,6 +124,10 @@ You can use Microsoft Fabric notebooks to run analytics on Microsoft Sentinel ta\n \r\n Microsoft [Fabric Graph](/en-us/fabric/graph/how-graph-works) now enables you to model and analyze relationships across Microsoft Sentinel data lake tier data. Using Sentinel tables made available through Azure Monitor mirroring and OneLake shortcuts, you can create graph models in a Microsoft Fabric Lakehouse and query them with Graph Query Language (GQL) to identify connected entities, activity patterns, and other relationships that can support security analysis and investigations. Learn more about [how to create your first graph in Microsoft Fabric](/en-us/fabric/graph/quickstart).\r\n \r\n+### Use Sentinel MCP triage collection to query data\r\n+\r\n+Use the [triage collection](datalake/sentinel-mcp-triage-tool) in the Microsoft Sentinel MCP server to discover and query data using MCP tools. Use the *list advanced hunting tables* tool to return a list of all available tables in the built-in data lake. Use the *run hunting query* tool to query 30 days of the Advanced Hunting analytic tier data.\r\n+\r\n ## August 2026\r\n \r\n - New data sources for UEBA behaviors and anomaly detection (Preview)\r\n",
+      "baseCommitSha": "8f43a54a8bb1503570557ea2376700c0939ad65d",
+      "commitSha": "70dd04597d42a625971a79af364f014b2b60af1d",
+      "commitMessage": "Mirror Learn: 9 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:17:11 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/whats-new",
+      "eventId": "defender-docs:70dd04597d42a625971a79af364f014b2b60af1d:modified:sentinel/whats-new.md",
+      "firstSeenAt": "2026-11-03T20:31:35.377Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Sentinel docs add MCP triage collection guidance",
+        "summary": "The Microsoft Sentinel What's New page now describes using the Sentinel MCP triage collection to discover data, list available Advanced Hunting tables, and run hunting queries in the built-in data lake.",
+        "adminImpact": "Administrators can use MCP tools to support data discovery and triage querying.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [
     {
@@ -41,17 +276,118 @@
       "version": "2026-11-03T00:04:26.45Z",
       "eventId": "message-center:MC1536045:2026-11-03T00:04:26.45Z",
       "firstSeenAt": "2026-11-03T09:31:09.088Z"
+    },
+    {
+      "id": "MC1486293",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-03",
+      "title": "Microsoft Defender for Office 365: Changes to Unified RBAC permission mapping for Microsoft Entra Security Operator role",
+      "summary": "Microsoft is updating the Microsoft Defender for Office 365 Unified RBAC mapping for the Microsoft Entra Security Operator role, removing default access to email threat policies and Tenant Allow/Block List. Rollout starts December 2026. Organizations must manually assign permissions if continued access is needed.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "email",
+        "name": "Email and collaboration",
+        "icon": "/assets/topics/email.svg"
+      },
+      "changeType": "Major update",
+      "url": "/message-center/MC1486293/",
+      "originalUrl": "https://mc.merill.net/message/MC1486293",
+      "body": "<p>Updated November 3, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>We are updating the Microsoft Defender unified role-based access control (Unified RBAC) permission mapping for Microsoft Defender for Office 365 (Email &amp; Collaboration). Currently, the Microsoft Entra Security Operator role includes the <i>Authorization and settings\\Security settings</i> permission through the default Unified RBAC mapping. As a result, users assigned this role can view and manage email threat policies and the Tenant Allow/Block List.</p><p>To align access with documented Microsoft Defender for Office 365 role expectations and least-privilege principles, we are updating the default mapping so that <i>Authorization and settings\\Security settings (All permissions)</i> is no longer included by default for the Microsoft Entra Security Operator role mapping for the Microsoft Defender for Office 365 workload. After this change, organizations that have Unified RBAC enabled and rely only on the Microsoft Entra Security Operator role for this access will need to manually assign the appropriate permissions or assign a role that includes those permissions.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide, GCC, GCC High, DoD):</b> Rollout begins in early December 2026 (previously early November) and is expected to complete by mid-January 2027 (previously early December 2026).</li></ul><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li><span>Organizations where both of the following conditions apply:</span><ol><li><span>Microsoft Defender XDR Unified RBAC is enabled, or will be enabled, for Microsoft Defender for Office 365 (Email &amp; Collaboration).</span></li><li><span>Users assigned the Microsoft Entra Security Operator role.</span></li></ol></li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Defender for Office 365 (Email &amp; Collaboration)</li><li>Microsoft Defender XDR Unified RBAC</li><li>Microsoft Entra ID</li></ul><p><i>What will happen</i></p><ul><li>The default Unified RBAC mapping for the Microsoft Entra Security Operator role will be updated to align with its documented Microsoft Defender for Office 365 scope and least-privilege principles.</li><li>When Unified RBAC is enabled for Microsoft Defender for Office 365, by default, the Security Operator role will no longer provide access to view, create, edit, or delete email threat policies, including anti-spam, anti-phishing, anti-malware, Safe Links, Safe Attachments, and preset security policies. The role will also no longer provide access to view, add, edit, or remove Tenant Allow/Block List entries.</li><li>This change applies only to Microsoft Defender for Office 365 when Unified RBAC is enabled. Tenants that have not enabled Unified RBAC are not affected.</li><li>Organizations that want operators to retain access can manually assign the appropriate Unified RBAC permissions, including Core security settings and Detection tuning, or assign a role that already includes those permissions, such as Security Administrator.</li><li>Other role mappings and existing Exchange Online PowerShell authorization are unchanged.</li></ul><p><b><b>Action required and recommendations</b></b></p><p>We recommend that you:</p><ul><li>Review users who are assigned the Microsoft Entra Security Operator role and determine whether they rely on that role to view or manage email threat policies or the Tenant Allow/Block List.</li><li>If continued access is required, assign an appropriate role or grant the required Unified RBAC permissions, including Core security settings and Detection tuning.</li><li>Update internal operational procedures, runbooks, and access-control documentation as needed.</li><li>Communicate this change to security operations teams and help desk staff.</li></ul><p><b><b>Learn more</b></b></p><ul><li><a href=\"https://learn.microsoft.com/defender-xdr/activate-defender-rbac\" rel=\"noopener noreferrer\">Activate Microsoft Defender unified role-based access control (URBAC) - Microsoft Defender XDR | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-xdr/create-custom-rbac-roles\" rel=\"noopener noreferrer\">Create custom roles with Microsoft Defender unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-xdr/compare-rbac-roles#microsoft-entra-global-roles-access\" rel=\"noopener noreferrer\">Map Microsoft Defender unified role-based access control (RBAC) permissions - Microsoft Defender XDR | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/defender-xdr/custom-permissions-details\" rel=\"noopener noreferrer\">Permissions in Microsoft Defender unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified. Review as appropriate for your organization.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Updated message",
+        "Feature update",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-02T22:22:36Z",
+      "endDate": "2027-02-22T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-03T17:23:50.023Z",
+      "version": "2026-11-03T17:23:50.023Z",
+      "eventId": "message-center:MC1486293:2026-11-03T17:23:50.023Z",
+      "firstSeenAt": "2026-11-03T20:32:01.034Z"
     }
   ],
   "summary": {
-    "totalCommits": 0,
-    "totalFiles": 0,
-    "authors": []
+    "totalCommits": 1,
+    "totalFiles": 9,
+    "authors": [
+      "github-actions[bot]"
+    ]
   },
   "englishSummary": {
-    "overview": "No substantive Microsoft Defender documentation changes were detected for this report.",
-    "groups": [],
-    "highlights": [],
+    "overview": "Today's report includes 0 new, 9 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Generally available",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation now covers local AI agent discovery on supported Windows and macOS devices, with specific preview exceptions. It updates discovery details, adds Microsoft VS Code extensions, revises MCP coverage, and expands macOS entries with preview indicators. The documentation now states that observing an agent process can create an inventory entry without a prompt or service permission, and that discovery does not prove active use or successful access. It adds minimum Defender versions and unified RBAC permissions for viewing inventory and the attack surface graph. The documentation now distinguishes process-based discovery from VS Code extension collection on Windows and macOS. It al",
+        "sourceFiles": [
+          "defender-endpoint/ai-agent-support-matrix.md",
+          "defender-endpoint/discover-local-ai-agents.md",
+          "defender-endpoint/local-agent-discovery-overview.md",
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "Updated author metadata and revised the ZAP example to state that a message moved to quarantine expires from quarantine.",
+        "sourceFiles": [
+          "defender-office-365/mdo-email-entity-page.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender XDR",
+        "summary": "The documentation now separates cloud-agent enablement from local-agent discovery. Local agents have separate onboarding and no longer require AI agent runtime protection for discovery. The setup guidance now separates local and cloud agent onboarding. Local agent discovery follows separate prerequisites and does not require AI agent runtime protection; runtime protection can be configured independently.",
+        "sourceFiles": [
+          "defender-xdr/security-for-ai/ai-agent-inventory.md",
+          "defender-xdr/security-for-ai/get-started-defender-security-for-ai.md"
+        ]
+      },
+      {
+        "category": "New feature",
+        "title": "Microsoft Sentinel",
+        "summary": "The Microsoft Sentinel What's New page now describes using the Sentinel MCP triage collection to discover data, list available Advanced Hunting tables, and run hunting queries in the built-in data lake.",
+        "sourceFiles": [
+          "sentinel/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Generally available",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation now covers local AI agent discovery on supported Windows and macOS devices, with specific preview exceptions. It updates discovery details, adds Microsoft VS Code extensions, revises MCP coverage, and expands macOS entries with preview indicators. The documentation now states that observing an agent process can create an inventory entry without a prompt or service permission, and that discovery does not prove active use or successful access. It adds minimum Defender versions and unified RBAC permissions for viewing inventory and the attack surface graph. The documentation now distinguishes process-based discovery from VS Code extension collection on Windows and macOS. It al"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "Updated author metadata and revised the ZAP example to state that a message moved to quarantine expires from quarantine."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender XDR",
+        "detail": "The documentation now separates cloud-agent enablement from local-agent discovery. Local agents have separate onboarding and no longer require AI agent runtime protection for discovery. The setup guidance now separates local and cloud agent onboarding. Local agent discovery follows separate prerequisites and does not require AI agent runtime protection; runtime protection can be configured independently."
+      },
+      {
+        "category": "New feature",
+        "headline": "Microsoft Sentinel",
+        "detail": "The Microsoft Sentinel What's New page now describes using the Sentinel MCP triage collection to discover data, list available Advanced Hunting tables, and run hunting queries in the built-in data lake."
+      }
+    ],
     "generatedBy": "fallback"
   }
 }
