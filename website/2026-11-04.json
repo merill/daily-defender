@@ -130,6 +130,162 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 1,
+      "changes": 17,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex be73d38..324be4c 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| macOS | 101.26092.0012 | November 2026 | - Release version: 20.126092.12.0- Engine version: 1.1.26100.3000- Signature version: 1.463.110.0 | Release details and updates |\r\n | Linux | 101.26101.0000 | November 2026 | - Release version: 30.126101.0000.0- Engine version: 1.1.26090.3000- Signature version: 1.459.148.0 | Release details and updates |\r\n | Windows Antivirus | Platform 4.18.26100.4 / Engine 1.1.26100.4 | October 2026 | - Platform: 4.18.26100.4- Engine: 1.1.26100.4- Security intelligence: 1.463.1.0 | Release details and updates |\r\n | macOS | 101.26092.0009 | October 2026 | - Release version: 20.126092.9.0- Engine version: 1.1.26060.12000- Signature version: 1.453.151.0 | Release details and updates |\r\n@@ -281,6 +282,20 @@ To get latest features, configure your device for the Beta channel (formerly Ins\n \r\n For known issues, see macOS known issues.\r\n \r\n+### macOS | November-2026 | 101.26092.0012\r\n+\r\n+#### Versions\r\n+\r\n+| Release version | Engine version | Signature version |\r\n+| --- | --- | --- |\r\n+| 20.126092.12.0 | 1.1.26100.3000 | 1.463.110.0 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature area | Update summary |\r\n+| --- | --- |\r\n+| General | Bug and performance fixes |\r\n+\r\n ### macOS | October-2026 | 101.26092.0009\r\n \r\n #### Versions\r\n@@ -681,7 +696,7 @@ Starting with version `101.24082.0004`, Defender for Endpoint on Linux no longer\n | --- | --- |\r\n | Security | Upgraded OpenSSL version to 3.6.4 |\r\n | Bug fix | Fixed missing CentOS minor patch version in the Defender portal |\r\n-| General |  |\r\n+| General | Optimized memory usage during package scanning |\r\n \r\n ### Linux | October 2026 | 101.26091.0004\r\n \r\n",
+      "baseCommitSha": "30ab99815a7219f3ae31ad29654bdd6414bf3478",
+      "commitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-04 20:34:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:e7fa632c670c78fb3e477c9a1764f26168627c65:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-11-04T20:49:25.135Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "November 2026 macOS release details added",
+        "summary": "The release notes now list macOS version 101.26092.0012, its release, engine, and signature versions, plus bug and performance fixes and optimized memory usage during package scanning.",
+        "adminImpact": "Administrators can use the updated version information to identify the release and its documented memory-usage improvement. No action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 2,
+      "changes": 10,
+      "patch": "diff --git a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\nindex 2b8c9ad..0fbf2a0 100644\n--- a/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n+++ b/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n@@ -36,12 +36,12 @@ monikers: []\n item_type: Content\n source_path: defender-endpoint/whats-new-in-microsoft-defender-endpoint.md\n cmProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n spProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n platformId: 53b2af8b-65e4-503a-c3f9-fc8305f396d4\n ---\n@@ -54,6 +54,12 @@ For recent releases of Microsoft Defender for Endpoint, including build numbers,\n \r\n Learn more about [Preview features](/en-us/defender-xdr/preview).\r\n \r\n+## November 2026\r\n+\r\n+| Type | Feature | Preview/GA | Description |\r\n+| --- | --- | --- | --- |\r\n+| Release - macOS | Build 101.26092.0012 | GA | Release version 20.126092.12.0 released: See [enhancements and features for this release](microsoft-defender-endpoint-releases#macos--november-2026--101260920012). |\r\n+\r\n ## October 2026\r\n \r\n | Type | Feature | Preview/GA | Description |\r\n",
+      "baseCommitSha": "30ab99815a7219f3ae31ad29654bdd6414bf3478",
+      "commitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-04 20:34:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/whats-new-in-microsoft-defender-endpoint",
+      "eventId": "defender-docs:e7fa632c670c78fb3e477c9a1764f26168627c65:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+      "firstSeenAt": "2026-11-04T20:49:25.138Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Defender for Endpoint macOS build 101.26092.0012 released",
+        "summary": "The November 2026 updates table now lists macOS build 101.26092.0012, release version 20.126092.12.0, with a link to its enhancements and features.",
+        "adminImpact": "Administrators can review the documented release details and enhancements.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/alerts-incidents-correlation.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 5,
+      "changes": 12,
+      "patch": "diff --git a/defender-xdr/alerts-incidents-correlation.md b/defender-xdr/alerts-incidents-correlation.md\nindex 6e9b48c..fb3e649 100644\n--- a/defender-xdr/alerts-incidents-correlation.md\n+++ b/defender-xdr/alerts-incidents-correlation.md\n@@ -19,7 +19,7 @@ ms.collection:\n - tier1\n - sentinel-only\n ms.topic: concept-article\n-ms.date: 2026-10-04T00:00:00.0000000Z\n+ms.date: 2026-11-04T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 11ef3ff8-0b63-1e8e-c5a3-837e19da4a14\n@@ -77,13 +77,15 @@ For step-by-step guidance, see one of the following articles:\n \r\n The Defender portal's correlation activities don't stop when incidents are created. Defender continues to detect commonalities and relationships between incidents and alerts in separate incidents. When multiple incidents are determined to be alike, Defender merges the incidents into a single incident.\r\n \r\n-### View associated incidents without changing correlation behavior\r\n+### View recommended correlations without changing correlation behavior\r\n \r\n-In the investigation experience, you can expand context by changing the associated incidents view from **This incident only** to **All associated incidents**.\r\n+In the attack story, use the **Recommended correlations** filter to select individual related incidents or **All recommended correlations** to view with the current incident.\r\n \r\n-This view helps analysts see additional related incidents and alerts in the investigation graph. It doesn't change incident grouping, correlation rules, or merge logic.\r\n+This view helps analysts see additional related incidents and alerts in the investigation graph. It includes incidents that weren't correlated into the current incident, so analysts can see the full attack story in one view. It doesn't change incident grouping, correlation rules, or merge logic.\r\n \r\n-Items shown in **All associated incidents** can remain separate incidents with their own owner, status, and lifecycle until an actual incident merge occurs.\r\n+Items shown in **Recommended correlations** can remain separate incidents with their own owner, status, and lifecycle until an actual incident merge occurs.\r\n+\r\n+On the **Summary** tab, the **Recommended correlations** card explains why some of these incidents might be part of the same attack.\r\n \r\n ### Criteria for merging incidents\r\n \r\n",
+      "baseCommitSha": "30ab99815a7219f3ae31ad29654bdd6414bf3478",
+      "commitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-04 20:34:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/alerts-incidents-correlation.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/alerts-incidents-correlation",
+      "eventId": "defender-docs:e7fa632c670c78fb3e477c9a1764f26168627c65:modified:defender-xdr/alerts-incidents-correlation.md",
+      "firstSeenAt": "2026-11-04T20:49:25.142Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Recommended correlations are now documented in the attack story",
+        "summary": "The article now describes the Recommended correlations filter, including incidents not correlated into the current incident, and a Summary-tab card explaining potential attack relationships.",
+        "adminImpact": "Administrators can review a broader attack story while related incidents retain their own ownership, status, and lifecycle until merged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-incident-cases.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 2,
+      "changes": 16,
+      "patch": "diff --git a/defender-xdr/investigate-incident-cases.md b/defender-xdr/investigate-incident-cases.md\nindex e7c40b6..50570fb 100644\n--- a/defender-xdr/investigate-incident-cases.md\n+++ b/defender-xdr/investigate-incident-cases.md\n@@ -13,13 +13,13 @@ ms.service: microsoft-defender\n ms.subservice: unified-security-operations\n author: guywi-ms\n ms.author: guywild\n-ms.date: 2026-07-15T00:00:00.0000000Z\n+ms.date: 2026-11-04T00:00:00.0000000Z\n ms.collection:\n - M365-security-compliance\n - tier1\n - usx-security\n ms.topic: how-to\n-ms.custom: sfi-image-nochange\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1018\n ai-usage: ai-assisted\n locale: en-us\n document_id: 8a731aa7-9bcc-75f1-29b0-6791890f3444\n@@ -297,6 +297,18 @@ To review activity history:\n 6. Filter the activity history as needed.\r\n 7. Select an activity item to review more details.\r\n \r\n+## Review similar cases\r\n+\r\n+Use the **Similar cases** page to view other incident cases that resemble the current case based on similar alerts or entities. These cases provide a larger context to help direct your investigation. You can review how similar cases were handled or look for recurring patterns.\r\n+\r\n+The **Similarity reason** column shows why each case appears in the list, including the number of shared alerts and entities.\r\n+\r\n+To review similar cases from an open incident case:\r\n+\r\n+1. Go to **Artifacts** &gt; **Similar cases**.\r\n+2. Review the **Similarity reason** column to see whether each case has shared alerts, shared entities, or both.\r\n+3. Hover over the similarity reason to see the shared alerts and entities.\r\n+\r\n ## Review attachments\r\n \r\n Use the **Attachments** tab to review files added to the incident case. Attachments can provide supporting context for investigation, handoff, or post-incident review.\r\n",
+      "baseCommitSha": "30ab99815a7219f3ae31ad29654bdd6414bf3478",
+      "commitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-04 20:34:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/investigate-incident-cases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-incident-cases",
+      "eventId": "defender-docs:e7fa632c670c78fb3e477c9a1764f26168627c65:modified:defender-xdr/investigate-incident-cases.md",
+      "firstSeenAt": "2026-11-04T20:49:25.145Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Incident case guidance now covers similar cases",
+        "summary": "The article now explains how to open the Similar cases page, review similarity reasons, and view shared alerts and entities.",
+        "adminImpact": "Investigators can use related cases to add context, compare handling, and identify recurring patterns.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-incidents.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/investigate-incidents.md b/defender-xdr/investigate-incidents.md\nindex 4fea75b..b027357 100644\n--- a/defender-xdr/investigate-incidents.md\n+++ b/defender-xdr/investigate-incidents.md\n@@ -17,7 +17,7 @@ ms.collection:\n - m365-security\n - tier1\n ms.topic: article\n-ms.date: 2026-09-09T00:00:00.0000000Z\n+ms.date: 2026-11-04T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom: sfi-image-nochange\n locale: en-us\n@@ -368,7 +368,9 @@ The information is organized into these sections.\n \r\n ## Similar incidents\r\n \r\n-Some incidents might have similar incidents listed on the **Similar incidents** page. This section shows incidents that have similar alerts, entities, and other properties. This similarity can help you understand the scope of the attack and identify other incidents that might be related.\r\n+Use the **Similar incidents** page to view other incidents that resemble the current incident based on similar alerts or entities. These incidents provide a larger context to help direct your investigation. You can review how similar incidents were handled or look for recurring patterns.\r\n+\r\n+The **Similarity reason** column shows why each incident appears in the list. Hover over the similarity reason to see the shared alerts and entities.\r\n \r\n [![Screenshot that shows the Similar incidents tab for an incident in the Microsoft Defender portal.](media/investigate-incidents/incident-similartab-small.png)](media/investigate-incidents/incident-similartab.png#lightbox)\r\n \r\n",
+      "baseCommitSha": "30ab99815a7219f3ae31ad29654bdd6414bf3478",
+      "commitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-04 20:34:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/investigate-incidents.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-incidents",
+      "eventId": "defender-docs:e7fa632c670c78fb3e477c9a1764f26168627c65:modified:defender-xdr/investigate-incidents.md",
+      "firstSeenAt": "2026-11-04T20:49:25.148Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Similar incidents guidance now explains similarity reasons",
+        "summary": "The article was updated to describe the Similar incidents page, including the Similarity reason column, which shows shared alerts and entities when hovered over.",
+        "adminImpact": "Investigators can use the additional context to understand related incidents, review prior handling, and identify recurring patterns.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 2,
+      "changes": 17,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-inventory.md b/defender-xdr/security-for-ai/ai-agent-inventory.md\nindex 3f3cdb0..22396b5 100644\n--- a/defender-xdr/security-for-ai/ai-agent-inventory.md\n+++ b/defender-xdr/security-for-ai/ai-agent-inventory.md\n@@ -14,7 +14,7 @@ ms.author: guywild\n author: guywi-ms\n ms.reviewer: itaicohen\n ms.topic: how-to\n-ms.date: 2026-10-30T00:00:00.0000000Z\n+ms.date: 2026-11-03T00:00:00.0000000Z\n audience: Admin\n ai-usage: ai-assisted\n locale: en-us\n@@ -145,4 +145,17 @@ The `AgentsInfo` table stores multiple snapshots of each agent over time. Use `a\n For more information:\r\n \r\n - To query local agents discovered on endpoint devices, see [Discover local AI agents in Microsoft Defender for Endpoint](/en-us/defender-endpoint/discover-local-ai-agents).\r\n-- For information about Advanced Hunting, see [Proactively hunt for threats with Advanced Hunting in Microsoft Defender](/en-us/defender-xdr/advanced-hunting-overview).\n\\ No newline at end of file\n+- For information about Advanced Hunting, see [Proactively hunt for threats with Advanced Hunting in Microsoft Defender](/en-us/defender-xdr/advanced-hunting-overview).\r\n+\r\n+## Feature availability for GCC customers\r\n+\r\n+Microsoft Defender security for AI capabilities differ between GCC and the commercial offering. The following table lists availability for AI agent discovery and security posture capabilities in GCC.\r\n+\r\n+| Capability | GCC |\r\n+| --- | --- |\r\n+| **Agent discovery and inventory** | Supported |\r\n+| **Agent risk assessment** | Not supported |\r\n+| **Security recommendations** | Not supported |\r\n+| **Attack surface graph** | Not supported |\r\n+\r\n+For general government environment requirements, see [Microsoft Defender XDR for US Government](../usgov).\n\\ No newline at end of file\n",
+      "baseCommitSha": "30ab99815a7219f3ae31ad29654bdd6414bf3478",
+      "commitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-04 20:34:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-inventory",
+      "eventId": "defender-docs:e7fa632c670c78fb3e477c9a1764f26168627c65:modified:defender-xdr/security-for-ai/ai-agent-inventory.md",
+      "firstSeenAt": "2026-11-04T20:49:25.151Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "GCC availability details added for AI agent security capabilities",
+        "summary": "The article now documents GCC support: agent discovery and inventory are supported, while agent risk assessment, security recommendations, and the attack surface graph are not supported.",
+        "adminImpact": "GCC administrators can use the table to determine which AI agent security capabilities are available in their environment.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -173,14 +329,14 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 5,
+    "totalCommits": 2,
+    "totalFiles": 11,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 11 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -200,6 +356,26 @@
         "sourceFiles": [
           "sentinel/whats-new.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The release notes now list macOS version 101.26092.0012, its release, engine, and signature versions, plus bug and performance fixes and optimized memory usage during package scanning. The November 2026 updates table now lists macOS build 101.26092.0012, release version 20.126092.12.0, with a link to its enhancements and features.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender XDR",
+        "summary": "The article now describes the Recommended correlations filter, including incidents not correlated into the current incident, and a Summary-tab card explaining potential attack relationships. The article now explains how to open the Similar cases page, review similarity reasons, and view shared alerts and entities. The article was updated to describe the Similar incidents page, including the Similarity reason column, which shows shared alerts and entities when hovered over. The article now documents GCC support: agent discovery and inventory are supported, while agent risk assessment, security recommendations, and the attack surface graph are not supported.",
+        "sourceFiles": [
+          "defender-xdr/alerts-incidents-correlation.md",
+          "defender-xdr/investigate-incident-cases.md",
+          "defender-xdr/investigate-incidents.md",
+          "defender-xdr/security-for-ai/ai-agent-inventory.md"
+        ]
       }
     ],
     "highlights": [
@@ -212,6 +388,16 @@
         "category": "Doc update",
         "headline": "Microsoft Sentinel",
         "detail": "The Microsoft Sentinel MCP server triage collection entry was revised, including wording for the run hunting query tool."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The release notes now list macOS version 101.26092.0012, its release, engine, and signature versions, plus bug and performance fixes and optimized memory usage during package scanning. The November 2026 updates table now lists macOS build 101.26092.0012, release version 20.126092.12.0, with a link to its enhancements and features."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender XDR",
+        "detail": "The article now describes the Recommended correlations filter, including incidents not correlated into the current incident, and a Summary-tab card explaining potential attack relationships. The article now explains how to open the Similar cases page, review similarity reasons, and view shared alerts and entities. The article was updated to describe the Similar incidents page, including the Similarity reason column, which shows shared alerts and entities when hovered over. The article now documents GCC support: agent discovery and inventory are supported, while agent risk assessment, security recommendations, and the attack surface graph are not supported."
       }
     ],
     "generatedBy": "fallback"
