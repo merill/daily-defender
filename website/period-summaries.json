@@ -8381,31 +8381,49 @@
       }
     },
     "2026-11-05": {
-      "headline": "Linux investigation packages now include Defender Client Analyzer diagnostics",
-      "overview": "Microsoft Defender for Endpoint guidance now documents that Linux investigation packages include Microsoft Defender for Endpoint Client Analyzer diagnostics covering installation, configuration, service health, logs, and connectivity. The companion procedure lists local command-line collection, remote collection through live response, and package collection from the device page.",
-      "adminImpact": "For Linux investigations, administrators can select the collection method that fits the workflow and use investigation packages for more complete diagnostic data. No configuration change is required.",
+      "headline": "Defender for Office 365 Plan 2 adds Move to Quarantine in late November",
+      "overview": "Microsoft Defender for Office 365 Plan 2 is scheduled to gain a remediation action that moves suspicious messages from user mailboxes into Defender quarantine. Defender for Cloud guidance also tightens the operational picture for Arc-enabled SQL Server: proxy support, extension versioning, manual updates, and resource exclusion procedures are now documented. Endpoint changes mainly improve Linux investigation guidance.",
+      "adminImpact": "Review Defender for Office 365 remediation policies and role assignments before the late-November rollout, although no action is required. For Arc-enabled SQL Server, verify the applicable extension version, network path, update procedure, and exclusion controls before expanding coverage. Linux investigators can use the documented Client Analyzer data in investigation packages.",
       "keyChanges": [
         {
-          "title": "Linux packages document Client Analyzer coverage",
-          "detail": "The Respond Machine Alerts guidance now says Linux investigation packages include Client Analyzer diagnostics for installation, configuration, service health, logs, and connectivity.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-11-05-respond-machine-alerts-01"
+          "title": "Move to Quarantine is coming to Defender for Office 365 Plan 2",
+          "detail": "A Microsoft 365 Message Center notice says Plan 2 will add a remediation action that moves suspicious email from user mailboxes into Defender quarantine. Rollout begins in late November 2026; no action is required, but policy and role reviews are recommended.",
+          "product": "Defender XDR",
+          "sourceId": "MC1523084"
         },
         {
-          "title": "Three Linux diagnostic collection paths are documented",
-          "detail": "Run Analyzer Linux now lists local command-line collection, remote collection through live response, and investigation-package collection from the device page; Linux packages include Client Analyzer diagnostics.",
+          "title": "Arc proxy SQL support is documented for Defender for SQL extension 2.0.3585.403",
+          "detail": "Defender for Cloud release notes state that Azure Arc SQL Server instances with Arc proxy enabled are supported with Defender for SQL extension version 2.0.3585.403. The version is available for manual update, automatic rollout has not started, and Arc proxy can route outbound communication for organizations without direct internet access.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-05-release-notes-08"
+        },
+        {
+          "title": "Defender for SQL gets documented manual update workflows across Azure management interfaces",
+          "detail": "A new procedure page covers updating the Defender for SQL extension on Azure Arc-enabled servers and Azure VMs through the Azure portal, Azure CLI, scripts, or REST APIs. It also documents prerequisites, version verification, and the extensions in scope, excluding the SQL IaaS extension and Azure Connected Machine agent from this update workflow.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-05-update-the-defender-for-sql-extension-manually-microsoft-defender-for-cloud-microsoft-learn-01"
+        },
+        {
+          "title": "SQL exclusion guidance separates Arc servers from Azure VMs",
+          "detail": "The updated guidance provides separate procedures for Arc-enabled servers and Azure VMs, including Arc extension block or allow lists and an Azure Policy deny assignment. It states that these controls do not uninstall existing extensions or change subscription-level Defender settings; administrators excluding a resource should configure the applicable restriction before uninstalling the extension.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-05-disable-sql-on-machines-07"
+        },
+        {
+          "title": "Linux investigation packages now include Defender for Endpoint Client Analyzer data",
+          "detail": "Updated Endpoint guidance says Linux investigation packages include Microsoft Defender for Endpoint Client Analyzer diagnostics alongside system information, covering installation, configuration, service health, logs, and connectivity.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-11-05-run-analyzer-linux-02"
+          "sourceId": "doc-2026-11-05-respond-machine-alerts-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-05T09:28:04.450Z",
+      "generatedAt": "2026-11-05T21:05:29.171Z",
       "usage": {
-        "inputTokens": 1120,
-        "outputTokens": 483,
-        "costUsd": 0.000804
+        "inputTokens": 2243,
+        "outputTokens": 3777,
+        "costUsd": 0.004981
       }
     }
   },
@@ -10131,49 +10149,49 @@
       }
     },
     "2026-11-02": {
-      "headline": "Defender RBAC auto-enablement will reshape Sentinel and email-policy access",
-      "overview": "Two November 3 Message Center notices prepare tenants for December 2026 RBAC changes: Defender RBAC will be auto-enabled across Defender and Sentinel, while the Microsoft Entra Security Operator mapping for Defender for Office 365 will lose default access to email threat policies and the Tenant Allow/Block List. A third notice expands Unified RBAC email-content access to alerts involving potentially malicious URL clicks. Documentation updates also add important operating limits and prerequisites for local AI-agent discovery; most remaining changes are procedural guidance, release notes, and troubleshooting detail.",
-      "adminImpact": "Before the December rollout, identify Security Operator users who need continued access to email threat policies or the Tenant Allow/Block List and manually assign the required permissions. Review imported Defender RBAC roles during the tenant notification window and adjust them as needed. Ensure analysts have the appropriate URBAC permission for email preview and download, and meet the documented Defender versions and Security for AI and Exposure Management permissions required to view local AI-agent data. For Defender for Cloud plan transfers, use the management status values to confirm whether each environment is managed in the intended location.",
+      "headline": "Defender RBAC auto-enablement and Office 365 permission changes start in December",
+      "overview": "Two access-control notices are the period’s main administrator issue: Microsoft says the new Defender RBAC model will be auto-enabled from December 2026, while the Microsoft Entra Security Operator mapping in Defender for Office 365 will lose default access to email threat policies and the Tenant Allow/Block List. A separate Defender for Office 365 Plan 2 remediation, Move to Quarantine, is scheduled for late November; the remaining meaningful updates mostly add operational detail for local AI-agent discovery and Arc-proxied Defender for SQL, alongside routine troubleshooting and release-note edits.",
+      "adminImpact": "Review the Defender and Sentinel roles that will be imported and adjust them before automatic activation. Assign Microsoft Defender for Office 365 permissions explicitly for Security Operator users who still need email-policy or Tenant Allow/Block List access. Before the late-November Move to Quarantine rollout, review relevant policy and role assignments. For the documented AI-agent and SQL scenarios, use the stated versions and Unified RBAC permissions, and verify SQL extension and network prerequisites before Arc-proxy management.",
       "keyChanges": [
         {
-          "title": "Defender RBAC will auto-enable across Defender and Sentinel",
-          "detail": "Microsoft says Defender RBAC will be auto-enabled in tenants starting December 2026, unifying access management for Defender and Sentinel. Existing roles will be imported for review before activation about 30 days after notification; administrators can adjust them as needed, and the notice says opt-out is available after activation. Permissions for other Microsoft services remain unchanged.",
+          "title": "Defender RBAC is set for automatic tenant activation",
+          "detail": "Microsoft says Defender RBAC will be auto-enabled in tenants starting December 2026, bringing Defender and Sentinel access management under one model. Existing roles will be imported for review; activation is expected about 30 days after notification, with role adjustments and a post-activation opt-out available. Permissions for other Microsoft services are unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Security Operator loses default Defender for Office 365 policy access",
-          "detail": "The Unified RBAC mapping for the Microsoft Entra Security Operator role is being updated for a December 2026 rollout. Default access to email threat policies and the Tenant Allow/Block List will be removed, so organizations that need continued access must assign permissions manually.",
+          "title": "Security Operator mapping removes default MDO policy access",
+          "detail": "Under the updated Unified RBAC mapping, the Microsoft Entra Security Operator role will no longer receive default access to Defender for Office 365 email threat policies or the Tenant Allow/Block List. The change starts rolling out in December 2026; organizations that need continued access must manually assign the permissions.",
           "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "URBAC email-content access now covers URL-click alerts",
-          "detail": "Expanded Unified RBAC permission support for email content now includes alerts related to potentially malicious URL clicks. Analysts with the appropriate permission can preview and download emails from four alert types, providing consistent email-content access across those scenarios.",
+          "title": "Plan 2 adds a Move to Quarantine remediation action",
+          "detail": "Defender for Office 365 Plan 2 is adding a Move to Quarantine action that moves suspicious messages from user mailboxes into Defender quarantine for investigation and management. Rollout begins in late November 2026; Microsoft says no action is required, while recommending policy and role reviews.",
           "product": "Defender XDR",
-          "sourceId": "MC1536045"
+          "sourceId": "MC1523084"
         },
         {
-          "title": "Local AI-agent discovery guidance adds evidence limits and prerequisites",
-          "detail": "Microsoft Defender for Endpoint guidance now states that observing an agent process can create an inventory entry without a prompt or service permission, but discovery does not prove active use or successful access. The guidance also adds minimum Defender versions and Unified RBAC permissions for viewing inventory and the attack surface graph.",
+          "title": "Local AI discovery can inventory a process without proving use",
+          "detail": "Endpoint guidance now says observing an agent process can create an inventory entry without a prompt or service permission, and that discovery alone does not prove active use or successful access. It also adds minimum Defender versions plus the Security for AI and Exposure Management Unified RBAC permissions needed to view inventory and the attack surface graph.",
           "product": "Endpoint",
           "sourceId": "doc-2026-11-03-discover-local-ai-agents-with-microsoft-defender-for-endpoint-microsoft-defender-for-endpoint-mi-02"
         },
         {
-          "title": "Defender for Cloud documents staged plan-management transfer",
-          "detail": "The management procedure now describes selecting DWU to move plan enablement and billing to the Defender portal, with an optional Management selection to move all supported cloud security capabilities. Status values show where each environment is managed, allowing administrators to confirm the resulting configuration.",
+          "title": "Arc-proxied Defender for SQL guidance sets extension version 2.0.3585.403",
+          "detail": "Updated Defender for SQL usage guidance covers Azure Arc SQL Server instances with Arc proxy when the Defender for SQL extension is version 2.0.3585.403 or later. It documents proxy, direct, and Azure Monitor Agent fallback communication, required outbound access, and a discovery script.",
           "product": "Defender for Cloud",
-          "sourceId": "doc-2026-11-02-manage-plans-defender-portal-03"
+          "sourceId": "doc-2026-11-05-defender-for-sql-usage-06"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-05T09:28:04.450Z",
+      "generatedAt": "2026-11-05T21:05:29.171Z",
       "usage": {
-        "inputTokens": 4163,
-        "outputTokens": 6410,
-        "costUsd": 0.008525
+        "inputTokens": 5264,
+        "outputTokens": 5871,
+        "costUsd": 0.008098
       }
     }
   },
@@ -10590,54 +10608,54 @@
       }
     },
     "2026-11": {
-      "headline": "December Defender RBAC rollout removes default email-policy access and unifies Defender-Sentinel access",
-      "overview": "November’s highest-impact change is a December 2026 Defender RBAC transition. The Microsoft Entra Security Operator mapping for Defender for Office 365 will no longer provide default access to email threat policies or the Tenant Allow/Block List, while Defender RBAC will be auto-enabled across Defender and Sentinel. Separately, Unified RBAC now covers email preview and download for alerts involving potentially malicious URL clicks. Other significant guidance additions clarify local AI-agent discovery limits and the effect of Azure Monitor Private Link Scope on Sentinel query access; most remaining edits are procedural guidance, release notes, or metadata cleanup.",
-      "adminImpact": "Before December, identify users who need continued Security Operator access and manually assign the required email threat-policy and Tenant Allow/Block List permissions. Review imported Defender RBAC roles before activation, expected about 30 days after notification, adjust them as needed, and consider the stated post-activation opt-out. For email-content investigations, verify that analysts have the appropriate Unified RBAC permission. For local-agent inventory, use the documented minimum Defender versions and required Security for AI and Exposure Management permissions; discovery alone does not prove active use or successful access. If Azure Monitor Private Link Scope restricts Log Analytics queries to private endpoints, account for the resulting loss of Defender portal/API query access,",
+      "headline": "Defender RBAC auto-enablement and Office 365 permission changes begin in December",
+      "overview": "November’s consequential changes center on access control and email response. Defender RBAC will auto-enable beginning in December 2026, the Entra Security Operator mapping will lose default access to Defender for Office 365 email threat policies and the Tenant Allow/Block List, and Plan 2 is gaining a Move to Quarantine remediation action in late November. The strongest documentation work adds operational boundaries for local AI-agent discovery and Arc-proxied Defender for SQL; other updates are primarily release, troubleshooting, or wording maintenance.",
+      "adminImpact": "Review the Defender and Sentinel roles that will be imported before Defender RBAC activation and adjust them as needed; Microsoft says opt-out is available after activation. Explicitly assign Defender for Office 365 permissions to Security Operator users who still need email-policy or Tenant Allow/Block List access. Before the Move to Quarantine rollout, review relevant policies and roles. For local AI-agent inventory, verify the documented minimum Defender versions and Security for AI and Exposure Management permissions. For Arc-proxied SQL Server coverage, verify the Defender for SQL extension version and outbound connectivity requirements; version 2.0.3585.403 is available for manual update and automatic rollout has not started.",
       "keyChanges": [
         {
-          "title": "Microsoft Entra Security Operator mapping drops default email-policy access",
-          "detail": "The December 2026 rollout removes default access to email threat policies and the Tenant Allow/Block List from the Unified RBAC mapping for the Microsoft Entra Security Operator role. Organizations retaining that access must manually assign permissions.",
-          "product": "Defender XDR",
-          "sourceId": "MC1486293"
-        },
-        {
-          "title": "Defender RBAC will auto-enable across Defender and Sentinel",
-          "detail": "Tenants will be auto-enabled starting December 2026. Existing roles are imported for review, with activation expected about 30 days after notification. Administrators can adjust roles and opt out after activation; permissions for other Microsoft services remain unchanged.",
+          "title": "Defender RBAC will auto-enable from December 2026",
+          "detail": "The unified Defender RBAC model will be enabled in the tenant starting in December and will unify access management for Defender and Sentinel. Existing roles will be imported for review, with activation occurring about 30 days after notification; other Microsoft service permissions remain unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Unified RBAC adds malicious URL-click alerts to email content access",
-          "detail": "Expanded permissions allow security analysts with the appropriate access to preview and download emails from four alert types, adding alerts related to potentially malicious URL clicks.",
+          "title": "Security Operator mapping loses default email-policy access",
+          "detail": "Microsoft is removing default access to Defender for Office 365 email threat policies and the Tenant Allow/Block List from the Microsoft Entra Security Operator mapping. The change begins rolling out in December 2026, so continued access requires manually assigned permissions.",
           "product": "Defender XDR",
-          "sourceId": "MC1536045"
+          "sourceId": "MC1486293"
         },
         {
-          "title": "Local-agent discovery guidance separates inventory from proof of use",
-          "detail": "The Endpoint guidance says observing an agent process can create an inventory entry without a prompt or service permission, and that discovery does not establish active use or successful access. It also adds minimum Defender versions and Unified RBAC permissions for viewing inventory and the attack surface graph.",
+          "title": "Plan 2 adds Move to Quarantine for suspicious email",
+          "detail": "Defender for Office 365 Plan 2 is introducing a remediation action that moves suspicious messages from user mailboxes into Defender quarantine for investigation and management. Rollout begins in late November 2026; Microsoft recommends reviewing relevant policies and roles.",
+          "product": "Defender XDR",
+          "sourceId": "MC1523084"
+        },
+        {
+          "title": "Local AI-agent discovery guidance defines inventory and access boundaries",
+          "detail": "The updated guidance says observing an agent process can create an inventory entry without a prompt or service permission, but discovery does not prove active use or successful access. It also documents minimum Defender versions and the Unified RBAC permissions needed to view inventory and the attack surface graph.",
           "product": "Endpoint",
           "sourceId": "doc-2026-11-03-discover-local-ai-agents-with-microsoft-defender-for-endpoint-microsoft-defender-for-endpoint-mi-02"
         },
         {
-          "title": "AMPLS private-endpoint restrictions block Sentinel query experiences",
-          "detail": "The Sentinel guidance says Azure Monitor Private Link Scope still supports Sentinel data ingestion into Log Analytics, but restricting query access to private endpoints prevents querying through Defender portal experiences or Defender APIs. Disabling public Log Analytics query access also makes the data unavailable to experiences such as Advanced Hunting.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-11-01-move-to-defender-02"
+          "title": "Defender for SQL guidance documents Arc-proxy support at version 2.0.3585.403",
+          "detail": "The release notes now document support for Azure Arc SQL Server instances with Arc proxy enabled when the Defender for SQL extension is version 2.0.3585.403. The version is available for manual update, while automatic rollout has not started; environments without direct internet access can use the Arc proxy for outbound communication.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-05-release-notes-08"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-05T09:28:04.450Z",
+      "generatedAt": "2026-11-05T21:05:29.171Z",
       "usage": {
-        "inputTokens": 4887,
-        "outputTokens": 5136,
-        "costUsd": 0.007141
+        "inputTokens": 5981,
+        "outputTokens": 4361,
+        "costUsd": 0.006429
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-05T09:28:04.450Z",
+  "generatedAt": "2026-11-05T21:05:29.171Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10836,22 +10854,22 @@
       "costUsd": 0.032465
     },
     "2026-11-05": {
-      "inputTokens": 10170,
-      "outputTokens": 12029,
-      "requests": 3,
-      "costUsd": 0.016469
+      "inputTokens": 23658,
+      "outputTokens": 26038,
+      "requests": 6,
+      "costUsd": 0.035977
     }
   },
   "lastRun": {
-    "inputTokens": 10170,
-    "outputTokens": 12029,
+    "inputTokens": 13488,
+    "outputTokens": 14009,
     "requests": 3,
-    "costUsd": 0.016469
+    "costUsd": 0.019508
   },
   "totalUsage": {
-    "inputTokens": 1290942,
-    "outputTokens": 1272024,
-    "requests": 270,
-    "costUsd": 1.784613
+    "inputTokens": 1304430,
+    "outputTokens": 1286033,
+    "requests": 273,
+    "costUsd": 1.804121
   }
 }
