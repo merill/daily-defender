@@ -1,0 +1,88 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/respond-machine-alerts.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/defender-endpoint/respond-machine-alerts.md b/defender-endpoint/respond-machine-alerts.md\nindex b29b2d3..322fecd 100644\n--- a/defender-endpoint/respond-machine-alerts.md\n+++ b/defender-endpoint/respond-machine-alerts.md\n@@ -186,6 +186,11 @@ The following table lists the contents of the collection packages for Mac and Li\n | Services and scheduled tasks | - Certificates- Configuration profiles- Hardware information | - CPU details- Hardware information- Operating system information |\r\n | System security information | - Extensible Firmware Interface (EFI) integrity information- Firewall status- Malware Removal Tool (MRT) information- System Integrity Protection (SIP) status | Not applicable |\r\n | Users and groups | - Sign-in history- Sudoers | - Sign-in history- Sudoers |\r\n+| Defender for Endpoint diagnostics | Not applicable | Client analyzer output including:- Installation details- Configuration details- Service health- Logs- Connectivity status |\r\n+\r\n+Important\r\n+\r\n+On Linux, the investigation package includes Microsoft Defender for Endpoint Client Analyzer diagnostics in addition to system information. The Client Analyzer collects diagnostic information about installation, configuration, service health, logs, and connectivity status, so you can get system and Defender for Endpoint troubleshooting details in a single package.\r\n \r\n ## Run Microsoft Defender Antivirus scan on devices\r\n \r\n",
+      "baseCommitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitSha": "0b50ced6422c037e89a95957ac368b8c8d4357d2",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05 08:05:41 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/respond-machine-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts",
+      "eventId": "defender-docs:0b50ced6422c037e89a95957ac368b8c8d4357d2:modified:defender-endpoint/respond-machine-alerts.md",
+      "firstSeenAt": "2026-11-05T09:27:58.921Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Linux investigation packages include Client Analyzer diagnostics",
+        "summary": "The guidance now states that Linux investigation packages include Microsoft Defender for Endpoint Client Analyzer diagnostics alongside system information, covering installation, configuration, service health, logs, and connectivity.",
+        "adminImpact": "Administrators can use the package to obtain more complete diagnostic data when investigating Linux devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/run-analyzer-linux.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/defender-endpoint/run-analyzer-linux.md b/defender-endpoint/run-analyzer-linux.md\nindex 36f52d7..276e4da 100644\n--- a/defender-endpoint/run-analyzer-linux.md\n+++ b/defender-endpoint/run-analyzer-linux.md\n@@ -51,7 +51,11 @@ platformId: 6d3562f9-f147-4f60-4a09-e39a73b208ca\n \n If you have issues with Microsoft Defender for Endpoint on Linux and need support, you might be asked to provide the output from the Client Analyzer tool. It's a diagnostic tool that helps administrators and support teams troubleshoot issues with Microsoft Defender for Endpoint. It collects detailed information about installation, configuration, service health, logs, connectivity status, etc. This tool is primarily used for checking system health, validating configurations, and helping troubleshoot potential issues.\r\n \r\n-This article explains how to use the tool on your device or with live response. You can use either a Python-based solution or a binary version that doesn't need Python.\r\n+You can collect Client Analyzer diagnostics in any of the following ways:\r\n+\r\n+1. **Command line**: Run the Client Analyzer locally on the device. See run-the-binary-version-of-the-client-analyzer or run-the-python-based-client-analyzer.\r\n+2. **Live response**: Run the Client Analyzer remotely during a live response session. See use-live-response-to-collect-diagnostics-log\r\n+3. **Investigation package**: Collect an investigation package from the device page in the Microsoft Defender portal. On Linux, the package includes Client Analyzer diagnostics. See [collect-investigation-package-from-devices](/en-us/defender-endpoint/respond-machine-alerts)\r\n \r\n Tip\r\n \r\n",
+      "baseCommitSha": "e7fa632c670c78fb3e477c9a1764f26168627c65",
+      "commitSha": "0b50ced6422c037e89a95957ac368b8c8d4357d2",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05 08:05:41 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/run-analyzer-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/run-analyzer-linux",
+      "eventId": "defender-docs:0b50ced6422c037e89a95957ac368b8c8d4357d2:modified:defender-endpoint/run-analyzer-linux.md",
+      "firstSeenAt": "2026-11-05T09:27:58.925Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Linux Client Analyzer guide adds investigation package collection",
+        "summary": "The guide now lists three ways to collect diagnostics: locally from the command line, remotely through live response, or through an investigation package from the device page. On Linux, investigation packages include Client Analyzer diagnostics.",
+        "adminImpact": "Administrators can use the documented collection method that best fits their investigation workflow; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The guidance now states that Linux investigation packages include Microsoft Defender for Endpoint Client Analyzer diagnostics alongside system information, covering installation, configuration, service health, logs, and connectivity. The guide now lists three ways to collect diagnostics: locally from the command line, remotely through live response, or through an investigation package from the device page. On Linux, investigation packages include Client Analyzer diagnostics.",
+        "sourceFiles": [
+          "defender-endpoint/respond-machine-alerts.md",
+          "defender-endpoint/run-analyzer-linux.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The guidance now states that Linux investigation packages include Microsoft Defender for Endpoint Client Analyzer diagnostics alongside system information, covering installation, configuration, service health, logs, and connectivity. The guide now lists three ways to collect diagnostics: locally from the command line, remotely through live response, or through an investigation package from the device page. On Linux, investigation packages include Client Analyzer diagnostics."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
