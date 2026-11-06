@@ -27,18 +27,45 @@
       }
     }
   ],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 2,
+      "changes": 18,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex 197cbf3..816413f 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| iOS | 1.1.82260102 | Nov 2026 | - Build: 1.1.82260102- Release: Nov 3, 2026 | Release details and updates |\r\n | Android | 1.0.9428.0102 | Oct 2026 | - Build: 1.0.9428.0102- Release: Oct 30, 2026 | Release details and updates |\r\n | macOS | 101.26092.0012 | November 2026 | - Release version: 20.126092.12.0- Engine version: 1.1.26100.3000- Signature version: 1.463.110.0 | Release details and updates |\r\n | Linux | 101.26101.0000 | November 2026 | - Release version: 30.126101.0000.0- Engine version: 1.1.26090.3000- Signature version: 1.459.148.0 | Release details and updates |\r\n@@ -309,7 +310,6 @@ For known issues, see macOS known issues.\n \r\n | Feature area | Update summary |\r\n | --- | --- |\r\n-| General | Agent Protection: Improved reliability when applying managed protection policies. |\r\n | General | Antivirus: Reduced CPU usage during high-volume file activity by. |\r\n | General | Antivirus: Improved service reliability. |\r\n | General | Antivirus: Improved health reporting to indicate when the protection engine connection is unavailable. |\r\n@@ -318,7 +318,6 @@ For known issues, see macOS known issues.\n | General | Device Control: Legacy Device Control v1 is retired. |\r\n | General | Device Control: Device health reporting now shows Bluetooth permission status, helping administrators verify that Device Control is configured correctly. |\r\n | General | EDR: Improved authentication reliability after startup and wake. |\r\n-| General | EDR: Added support for configuring AI agent runtime protection on macOS. |\r\n | General | EDR: Improved macOS device isolation. |\r\n | General | GUI: Improved accessibility. |\r\n | General | TVM: Improved software inventory reporting for macOS applications that do not provide standard display-name metadata. |\r\n@@ -1364,6 +1363,21 @@ See the full list of [Android UX improvements](android-new-ux).\n \r\n For the latest UX improvements, see [iOS UX improvements](ios-new-ux).\r\n \r\n+### iOS | Nov 2026 | Platform Version: 1.1.82260102\r\n+\r\n+#### Release details\r\n+\r\n+| Platform version | Release Date |\r\n+| --- | --- |\r\n+| 1.1.82260102 | Nov 3, 2026 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature Area | Update Summary |\r\n+| --- | --- |\r\n+| Connectivity | Improved reliability of redirected network connections on slow or low-bandwidth networks for a more consistent connectivity experience. |\r\n+| Localization | Updated translations for advanced diagnostic settings to make the option and its description clearer across supported languages. |\r\n+\r\n ### iOS | Oct 2026 | Platform Version: 1.1.82230103\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "1ffca0fae9f6f495c538987c0ff6ee9041e475a3",
+      "commitSha": "dbb2f35df0553117036cd13e974d284298750484",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-06 20:06:02 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:dbb2f35df0553117036cd13e974d284298750484:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-11-06T20:27:02.833Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "iOS November 2026 release details now include connectivity and localization enhancements",
+        "summary": "The documentation identifies iOS platform version 1.1.82260102, released November 3, 2026, with improved redirected-network reliability on slow or low-bandwidth networks and updated translations for advanced diagnostic settings.",
+        "adminImpact": "Administrators can use these details when tracking iOS deployments and troubleshooting connectivity or diagnostic settings. No action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 2,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 1 new, 0 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 1 new, 1 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "New feature",
@@ -47,6 +74,14 @@
         "sourceFiles": [
           "defender-for-cloud/defender-portal/move-environments-to-defender-portal.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation identifies iOS platform version 1.1.82260102, released November 3, 2026, with improved redirected-network reliability on slow or low-bandwidth networks and updated translations for advanced diagnostic settings.",
+        "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md"
+        ]
       }
     ],
     "highlights": [
@@ -54,6 +89,11 @@
         "category": "New feature",
         "headline": "Defender for Cloud",
         "detail": "New documentation describes transferring subscriptions or management groups from Azure portal management to full Defender portal management, including transition stages, prerequisites, and post-transfer behavior."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation identifies iOS platform version 1.1.82260102, released November 3, 2026, with improved redirected-network reliability on slow or low-bandwidth networks and updated translations for advanced diagnostic settings."
       }
     ],
     "generatedBy": "fallback"
