@@ -18,12 +18,13 @@
       "firstSeenAt": "2026-01-16T03:15:49.000Z",
       "eventId": "defender-docs:ec6316b89ee09994e2086732a8aaf136b8fe385b:modified:defender-endpoint/configure-endpoints-script.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update configure-endpoints-script.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Manual onboarding guidance now specifies a 10-device limit",
+        "summary": "The article now recommends using the local onboarding script for 10 devices or fewer. It also updates the Defender portal path, adds Standard and Streamlined connectivity choices, and revises the elevated command-prompt steps.",
+        "adminImpact": "Use other deployment methods for production environments or deployments exceeding 10 devices; follow the updated portal and command-line instructions for manual onboarding.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:07d4c9bfc107c2879ec090e633952b4bd9c28113:modified:defender-endpoint/microsoft-defender-antivirus-windows.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "(AzureCXP) fixes MicrosoftDocs/defender-docs-pr#545401",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-windows.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "headline": "Registry verification guidance added after Defender Antivirus updates",
+        "summary": "The documentation now notes that some registry entries may not update automatically after the latest Defender Antivirus platform or engine update.",
+        "adminImpact": "After updates, verify the relevant registry keys and update them manually if needed so they reflect the current version.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:34056824a2e3679724c53d3c2085513b6aedb6b3:modified:defender-endpoint/linux-whatsnew.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update linux-whatsnew.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Linux telemetry process change applies to earlier builds",
+        "summary": "The documentation now says removal of the dedicated telemetryd_v2 process applies to builds 101.24062.0001 and later, instead of 101.25102.0005 and later. Existing functionality and data collection are unchanged.",
+        "adminImpact": "Use the updated build threshold when reviewing Linux agent behavior. No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:8d0f3b30788d186cb5441afee93ffd9970ef91f1:modified:defender-endpoint/linux-whatsnew.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update linux-whatsnew.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Linux agent process change wording clarified",
+        "summary": "The documentation now describes the removal of the dedicated telemetryd_v2 process as having no impact on existing functionality or data collection behavior for builds 101.24062.0001 and later.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:52f071a1612fb7f8ed4a18d3bcc636349def65ef:modified:defender-xdr/manage-rbac.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "added \"Preview\" end of Sentinel",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Microsoft Sentinel link now shows Preview status",
+        "summary": "The Microsoft Sentinel link in the RBAC documentation was relabeled to “Microsoft Sentinel (Preview).”",
+        "adminImpact": "Administrators will see the updated Preview status when reviewing the linked Sentinel documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -144,11 +149,12 @@
       "eventId": "defender-docs:cb6e2aa586933accaec1bd409153db2dd5f629bc:modified:defender-xdr/activate-defender-rbac.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update permission prerequisites info for activating Sentinel workspaces",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Permission guidance now includes Sentinel workspace prerequisites",
+        "summary": "The permission prerequisites link now explicitly directs administrators to information about activating Sentinel workspaces.",
+        "adminImpact": "Administrators can use the linked guidance to review prerequisites when activating Sentinel workspaces; no required action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -169,11 +175,12 @@
       "eventId": "defender-docs:e6de4cca2f12dc7d0812ce65124a0f0ba0e82b1f:modified:defender-xdr/activate-defender-rbac.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Add Sentinel to appliesto list and fix URBAC capitalization",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Microsoft Sentinel added to Defender RBAC applicability list",
+        "summary": "The documentation now lists Microsoft Sentinel among the services covered by Defender RBAC and corrects URBAC capitalization.",
+        "adminImpact": "Administrators can use the updated list when determining whether Defender RBAC applies to Microsoft Sentinel.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -194,11 +201,12 @@
       "eventId": "defender-docs:e6de4cca2f12dc7d0812ce65124a0f0ba0e82b1f:modified:defender-xdr/whats-new-in-microsoft-defender-urbac.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Add Sentinel to appliesto list and fix URBAC capitalization",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Standardized URBAC capitalization",
+        "summary": "The documentation now uses “URBAC” instead of “uRBAC” in the Unified Role-Based Access Control description.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -219,11 +227,12 @@
       "eventId": "defender-docs:560674a8cab31d6e2e5ccb7b2c43228e186972fd:modified:defender-office-365/defender-for-office-365-whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Teams feature comparison and add cross-references",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Teams feature entries now link to detailed guidance",
+        "summary": "The Defender for Office 365 What's New page was updated with cross-references for blocking malicious Teams sender domains and email addresses, and for ZAP and Teams Admin quarantine. The page date was also updated.",
+        "adminImpact": "Administrators can use the new links to find configuration and management guidance more quickly; no required action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -244,11 +253,12 @@
       "eventId": "defender-docs:560674a8cab31d6e2e5ccb7b2c43228e186972fd:modified:defender-office-365/mdo-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Teams feature comparison and add cross-references",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Plan comparison now includes a Teams support cross-reference",
+        "summary": "The page clarifies that its Plan 1 and Plan 2 comparison covers email capabilities and adds a link to Teams support details. The publication date was also updated.",
+        "adminImpact": "Administrators can more easily distinguish email coverage from Teams capabilities and find the related Teams documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -269,11 +279,12 @@
       "eventId": "defender-docs:560674a8cab31d6e2e5ccb7b2c43228e186972fd:modified:defender-office-365/mdo-support-teams-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Teams feature comparison and add cross-references",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Teams feature comparison added",
+        "summary": "The documentation now includes a matrix comparing Teams security features across all Teams licenses, Microsoft Defender for Office 365 Plan 1, and Plan 2. It covers capabilities including Safe Links, Safe Attachments, quarantine, remediation, attack simulation training, and advanced hunting.",
+        "adminImpact": "Administrators can use the matrix to compare documented Teams security capabilities by license when evaluating their tenant configuration and licensing.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -294,11 +305,12 @@
       "eventId": "defender-docs:74c0953eef29838de5aaac9fc3e36acce262422e:modified:defender-office-365/defender-for-office-365-whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated wording for Teams quarantine administration",
+        "summary": "The Defender for Office 365 What's New entry now describes Teams Admin quarantine as “admin management of quarantined Teams messages” and updates the linked anchor text.",
+        "adminImpact": "No administrator action is indicated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -319,11 +331,12 @@
       "eventId": "defender-docs:74c0953eef29838de5aaac9fc3e36acce262422e:modified:defender-office-365/mdo-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified Plan 1 and Plan 2 comparison guidance",
+        "summary": "The page now explicitly labels the email comparison and directs administrators to the Microsoft Teams comparison using updated wording and a corrected relative link.",
+        "adminImpact": "Administrators can more easily find the relevant Plan 1 and Plan 2 capability comparison; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -344,11 +357,12 @@
       "eventId": "defender-docs:74c0953eef29838de5aaac9fc3e36acce262422e:modified:defender-office-365/mdo-support-teams-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Teams protection documentation adds a license comparison table",
+        "summary": "The article now explicitly covers Microsoft 365 and Defender for Office 365 protections for Microsoft Teams and organizes the listed capabilities by All Teams licenses, Defender for Office 365 Plan 1, and Plan 2.",
+        "adminImpact": "Administrators can use the table to identify which documented Teams protection features correspond to each license level. No action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -369,9 +383,9 @@
     "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-windows.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
+        "summary": "The article now recommends using the local onboarding script for 10 devices or fewer. It also updates the Defender portal path, adds Standard and Streamlined connectivity choices, and revises the elevated command-prompt steps. The documentation now notes that some registry entries may not update automatically after the latest Defender Antivirus platform or engine update. The documentation now says removal of the dedicated telemetryd_v2 process applies to builds 101.24062.0001 and later, instead of 101.25102.0005 and later. Existing functionality and data collection are unchanged. The documentation now describes the removal of the dedicated telemetryd_v2 process as having no impact on existin",
         "sourceFiles": [
           "defender-endpoint/configure-endpoints-script.md",
           "defender-endpoint/microsoft-defender-antivirus-windows.md",
@@ -382,7 +396,7 @@
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md.",
+        "summary": "The Microsoft Sentinel link in the RBAC documentation was relabeled to “Microsoft Sentinel (Preview).” The permission prerequisites link now explicitly directs administrators to information about activating Sentinel workspaces. The documentation now lists Microsoft Sentinel among the services covered by Defender RBAC and corrects URBAC capitalization. The documentation now uses “URBAC” instead of “uRBAC” in the Unified Role-Based Access Control description.",
         "sourceFiles": [
           "defender-xdr/manage-rbac.md",
           "defender-xdr/activate-defender-rbac.md",
@@ -393,7 +407,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Office 365",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+        "summary": "The Defender for Office 365 What's New page was updated with cross-references for blocking malicious Teams sender domains and email addresses, and for ZAP and Teams Admin quarantine. The page date was also updated. The page clarifies that its Plan 1 and Plan 2 comparison covers email capabilities and adds a link to Teams support details. The publication date was also updated. The documentation now includes a matrix comparing Teams security features across all Teams licenses, Microsoft Defender for Office 365 Plan 1, and Plan 2. It covers capabilities including Safe Links, Safe Attachments, quarantine, remediation, attack simulation training, and advanced hunting. The Defender for Office 365 ",
         "sourceFiles": [
           "defender-office-365/defender-for-office-365-whats-new.md",
           "defender-office-365/mdo-about.md",
@@ -406,19 +420,19 @@
     ],
     "highlights": [
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-antivirus-windows.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md."
+        "detail": "The article now recommends using the local onboarding script for 10 devices or fewer. It also updates the Defender portal path, adds Standard and Streamlined connectivity choices, and revises the elevated command-prompt steps. The documentation now notes that some registry entries may not update automatically after the latest Defender Antivirus platform or engine update. The documentation now says removal of the dedicated telemetryd_v2 process applies to builds 101.24062.0001 and later, instead of 101.25102.0005 and later. Existing functionality and data collection are unchanged. The documentation now describes the removal of the dedicated telemetryd_v2 process as having no impact on existin"
       },
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md. Updated Microsoft Defender documentation in defender-xdr/whats-new-in-microsoft-defender-urbac.md."
+        "detail": "The Microsoft Sentinel link in the RBAC documentation was relabeled to “Microsoft Sentinel (Preview).” The permission prerequisites link now explicitly directs administrators to information about activating Sentinel workspaces. The documentation now lists Microsoft Sentinel among the services covered by Defender RBAC and corrects URBAC capitalization. The documentation now uses “URBAC” instead of “uRBAC” in the Unified Role-Based Access Control description."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Office 365",
-        "detail": "Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/defender-for-office-365-whats-new.md. Updated Microsoft Defender documentation in defender-office-365/mdo-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md."
+        "detail": "The Defender for Office 365 What's New page was updated with cross-references for blocking malicious Teams sender domains and email addresses, and for ZAP and Teams Admin quarantine. The page date was also updated. The page clarifies that its Plan 1 and Plan 2 comparison covers email capabilities and adds a link to Teams support details. The publication date was also updated. The documentation now includes a matrix comparing Teams security features across all Teams licenses, Microsoft Defender for Office 365 Plan 1, and Plan 2. It covers capabilities including Safe Links, Safe Attachments, quarantine, remediation, attack simulation training, and advanced hunting. The Defender for Office 365 "
       }
     ],
     "generatedBy": "fallback"

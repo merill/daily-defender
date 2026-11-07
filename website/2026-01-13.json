@@ -17,12 +17,13 @@
       "firstSeenAt": "2026-01-13T09:38:23.000Z",
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:added:defender-for-identity/manage-related-identities-accounts.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Private preview",
+        "headline": "Manual account-to-identity linking is now documented",
+        "summary": "A new how-to article explains how to link or unlink accounts—including legacy, unused, and orphaned accounts—to identities through the Defender portal’s Identity Inventory. It also documents the required URBAC roles: Global Administrator or Security Data (Manage).",
+        "adminImpact": "Administrators can use this capability to improve identity visibility and investigations. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,12 +43,13 @@
       "firstSeenAt": "2026-01-13T22:10:23.000Z",
       "eventId": "defender-docs:e2acac00143bb2b63fdecd033b84a71b1d62ccea:added:defender-endpoint/troubleshoot-remotely-with-client-analyzer.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Client Analyzer via live response",
-        "summary": "Added Microsoft Defender documentation in defender-endpoint/troubleshoot-remotely-with-client-analyzer.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "New feature",
+        "headline": "Run MDE Client Analyzer traces remotely through live response",
+        "summary": "Admins can start and stop MDE Client Analyzer tracing on supported Windows devices through live response, including uploading the analyzer, verifying collection, reproducing an issue, and stopping the trace.",
+        "adminImpact": "This enables troubleshooting when users are signed out or direct device access is restricted. Live response must be enabled, and the latest analyzer package must be uploaded.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -70,11 +72,12 @@
       "eventId": "defender-docs:86835fec35a120c250abc6e53211add1256435b5:modified:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Managed security page date updated",
+        "summary": "The page metadata date changed from November 20, 2025, to December 20, 2025.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -95,11 +98,12 @@
       "eventId": "defender-docs:013014e3ca69aa320bd7ebb02964c3f30fcbccc7:modified:defender-xdr/advanced-hunting-entraidsigninevents-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Add new fields to EntraIdSignInEvents and GraphApiAuditEvents tables",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-entraidsigninevents-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Two fields added to EntraIdSignInEvents",
+        "summary": "The table now documents IsThroughGlobalSecureAccess and UniqueTokenId, identifying Global Secure Access sign-ins and correlating sign-ins with token requests.",
+        "adminImpact": "No action is required. Administrators can use these fields in advanced hunting queries.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -120,11 +124,12 @@
       "eventId": "defender-docs:013014e3ca69aa320bd7ebb02964c3f30fcbccc7:modified:defender-xdr/advanced-hunting-graphapiauditevents-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Add new fields to EntraIdSignInEvents and GraphApiAuditEvents tables",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "GraphApiAuditEvents documentation adds ResponseSize",
+        "summary": "The table documentation now lists the ResponseSize field as an integer containing the response size in bytes.",
+        "adminImpact": "Administrators using Advanced Hunting can update their schema references or queries to account for this documented field.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -145,11 +150,12 @@
       "eventId": "defender-docs:8f7536b93a98679d29c19f30fa36fdce4a36116e:modified:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Managed security guide wording updated",
+        "summary": "The guide now presents Defender multitenant management as a unified interface for MSSPs managing multiple customer tenants and more concisely describes setup, onboarding, and operational workflows.",
+        "adminImpact": "Administrators have clearer guidance for understanding and implementing multitenant management.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -170,11 +176,12 @@
       "eventId": "defender-docs:fd6c2dd2a5f927f1f9e8b3ad2aceab59f9e88661:modified:defender-xdr/advanced-hunting-entraidsigninevents-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Remove deprecated fields and update doc date",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-entraidsigninevents-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Deprecated Entra ID sign-in fields removed from documentation",
+        "summary": "The EntraIdSignInEvents table documentation no longer lists IsThroughGlobalSecureAccess or UniqueTokenId.",
+        "adminImpact": "Administrators consulting the schema should update references to these deprecated fields in their documentation or hunting queries.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -195,11 +202,12 @@
       "eventId": "defender-docs:fd6c2dd2a5f927f1f9e8b3ad2aceab59f9e88661:modified:defender-xdr/advanced-hunting-graphapiauditevents-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Remove deprecated fields and update doc date",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Advanced Hunting table documentation date updated",
+        "summary": "The page metadata date changed from December 26, 2025, to January 13, 2026.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -220,11 +228,12 @@
       "eventId": "defender-docs:dee0fb46aa0bb1d2dd84322e9c05f03a2a5af6fe:modified:unified-secops-platform/microsoft-threat-actor-naming.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update threat actor table with new entries and date",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Threat actor naming table updated",
+        "summary": "The page date changed to January 13, 2026, and entries were added for Clay Typhoon, Storm-0133, Storm-0156, Storm-0593, and Storm-1125, including their country associations and alternate names.",
+        "adminImpact": "Administrators can use the updated table as a current reference when identifying and tracking these threat actors.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -245,11 +254,12 @@
       "eventId": "defender-docs:54c1f208488086daace9678079cc274a6ea74d3b:modified:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP security operations playbook updated",
+        "summary": "The playbook now provides revised descriptions of Microsoft Defender’s multitenant capabilities and reorganizes the implementation guidance with prerequisite and step links.",
+        "adminImpact": "MSSPs can use the clearer navigation and updated guidance when preparing environments and onboarding customers.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -270,11 +280,12 @@
       "eventId": "defender-docs:65d8cf31c43efd57ca0ea181cb1093ed6ad2c8c4:modified:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated multitenant operations wording",
+        "summary": "The Step 3 table-of-contents entry and section heading now use consistent “multitenant” wording and capitalization, with the link anchor updated accordingly.",
+        "adminImpact": "Administrators will see clearer, consistent navigation in the managed security documentation; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -295,11 +306,12 @@
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:modified:defender-endpoint/device-discovery-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Non-onboarded device retention conditions documented",
+        "summary": "The FAQ now states that a non-onboarded device can remain in the Defender portal for more than 180 days when discovered by an onboarded endpoint on the same network or by an OT sensor.",
+        "adminImpact": "Administrators can use these conditions to understand why discovered devices may remain visible in the portal.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -319,12 +331,13 @@
       "firstSeenAt": "2026-01-13T09:38:23.000Z",
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:modified:defender-endpoint/mde-linux-prerequisites.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Ubuntu Pro prerequisites now specify versions",
+        "summary": "The Linux prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries.",
+        "adminImpact": "Administrators should verify that planned deployments use one of the documented Ubuntu Pro versions and architectures.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -345,11 +358,12 @@
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated guidance link for the Accounts tab",
+        "summary": "The Defender for Identity What's New page now links to “Manage related identities and accounts (Preview)” instead of “Link or Unlink an Account to an Identity (Preview).”",
+        "adminImpact": "Administrators should use the updated article when managing related identities and accounts.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -370,11 +384,12 @@
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:modified:defender-xdr/advanced-hunting-graphapiauditevents-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "GraphApiAuditEvents documents the ResponseSize field",
+        "summary": "The table documentation now lists `ResponseSize` as an integer containing the response size in bytes. The page date was also updated.",
+        "adminImpact": "Administrators can use this field when interpreting or querying GraphApiAuditEvents data; no configuration change is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -395,11 +410,12 @@
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:modified:unified-secops-platform/microsoft-threat-actor-naming.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Microsoft threat actor naming page adds five mappings",
+        "summary": "The page was updated with five threat-actor entries linking Storm names to countries and known aliases, and its publication date changed to January 13, 2026.",
+        "adminImpact": "Administrators can use the added mappings to interpret and correlate the different names used for these threat actors; no action is indicated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -420,11 +436,12 @@
       "eventId": "defender-docs:574368f4ef141dacd6b35508dec0057b3069067e:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Final edits",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Windows event collection guidance now details sensor-applied auditing changes",
+        "summary": "The documentation now recommends running `New-MDIConfigurationReport` before configuration and explains the auditing changes the sensor can apply, including directory services, NTLM, domain object, AD FS, and Windows audit policies. It also warns that Group Policy settings can conflict with sensor-applied local settings and removes the previous verification steps.",
+        "adminImpact": "Administrators can use the report and review existing Group Policy settings to identify configuration gaps or conflicts before enabling automatic Windows event collection.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -445,11 +462,12 @@
       "eventId": "defender-docs:f829653a3f097d40f72b4ddf3e577bde8f698f19:modified:defender-xdr/advanced-hunting-behaviorentities-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update UEBA behaviors links to new Sentinel docs",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated links to Sentinel UEBA behavior documentation",
+        "summary": "The article’s two links for UEBA behavior guidance now point to the Sentinel entity-behaviors-layer page and its enablement section.",
+        "adminImpact": "Administrators following these links will reach the updated Sentinel documentation locations.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -470,11 +488,12 @@
       "eventId": "defender-docs:f829653a3f097d40f72b4ddf3e577bde8f698f19:modified:defender-xdr/advanced-hunting-behaviorinfo-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update UEBA behaviors links to new Sentinel docs",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorinfo-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "UEBA behavior links updated",
+        "summary": "The advanced hunting BehaviorInfo table now links to the Sentinel entity behaviors layer page for UEBA behavior guidance and enablement instructions.",
+        "adminImpact": "No administrator action is required; use the updated links when accessing this guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -495,11 +514,12 @@
       "eventId": "defender-docs:f829653a3f097d40f72b4ddf3e577bde8f698f19:modified:defender-xdr/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update UEBA behaviors links to new Sentinel docs",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "UEBA behavior table links updated",
+        "summary": "The Defender XDR What's new entry now links the BehaviorInfo and BehaviorEntities advanced hunting tables to updated Sentinel documentation.",
+        "adminImpact": "Use the updated links when reviewing UEBA behavior data; no administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -520,11 +540,12 @@
       "eventId": "defender-docs:093e2c1f926e44bad9c4ae4f7f9a421eb1ed2eb7:modified:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Step 3 label updated to “Multitenant Security Operations”",
+        "summary": "The Step 3 heading and anchor changed from “multitenant operations” to “Multitenant Security Operations.” The description of running daily incident response, threat hunting, and investigations across customer tenants is unchanged.",
+        "adminImpact": "No administrator action is indicated; update any references to the old in-page anchor if needed.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -545,11 +566,12 @@
       "eventId": "defender-docs:8694272ec6a383ad91fc583ce1b1ad2a94892c75:modified:defender-endpoint/microsoft-defender-security-center-antivirus.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "(AzureCXP) fixes MicrosoftDocs/defender-docs-pr#544267",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-security-center-antivirus.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Terminology clarified for Microsoft Defender Antivirus versions",
+        "summary": "The documentation now explains that the security intelligence version shown in the Windows Security app was previously called the definition version.",
+        "adminImpact": "Administrators can use this clarification when interpreting version information in Windows Security.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -570,11 +592,12 @@
       "eventId": "defender-docs:489392972ceec7ca7d9eb3bdd795355ff3f05e73:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Renaming vulnerable components",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Vulnerable components page renamed to Software components",
+        "summary": "The page title, headings, navigation instructions, labels, and image text now use “Software components.” The documentation notes that “Vulnerable components” was the previous name.",
+        "adminImpact": "Use the Software components tab and page name when navigating Defender and following the documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -595,11 +618,12 @@
       "eventId": "defender-docs:ebd5f6ae1f576474e0da4aea1fdfce43e716a583:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update whats-new.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Sensor v3.x RPC audit health-alert entry removed",
+        "summary": "The What's new page no longer includes the entry describing a health alert for v3.x sensors with missing or incorrectly configured enhanced RPC auditing.",
+        "adminImpact": "Administrators will no longer find this alert description in the What's new page; the removed text identified RPC auditing as required for several advanced identity detections.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -620,11 +644,12 @@
       "eventId": "defender-docs:d8ae50d72ff3ab04d155a7249aef0a25d8cae37b:modified:defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "What's new",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Vulnerable components page renamed to Software components",
+        "summary": "The page was renamed to Software components to reflect visibility into all identified software components, including those without known vulnerabilities. The update also adds a Device vulnerabilities report updates section.",
+        "adminImpact": "Use the new page name when locating or referencing this documentation. No administrator action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -645,11 +670,12 @@
       "eventId": "defender-docs:3e34b5d8b0cb169684b1504774db0fd05f0fae3a:modified:defender-xdr/exclude-analytics-rules-correlation.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update correlation exclusion doc for clarity and accuracy",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/exclude-analytics-rules-correlation.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified analytics rule correlation exclusion guidance",
+        "summary": "The article updates its heading, wording, and setup steps; corrects numbering and formatting; and adds details about the `#DONT_CORR#` tag, correlation state, and differing incident titles in Defender and Sentinel.",
+        "adminImpact": "Administrators can use clearer instructions for configuring and validating correlation exclusions. No administrator action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -670,11 +696,12 @@
       "eventId": "defender-docs:78b0e6ffa38babf086a8307a7aab7f6d07b1f37c:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Screenshots",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated terminology for software component details",
+        "summary": "The documentation now refers to selecting a software component, rather than a vulnerable component, to open the flyout pane with more information.",
+        "adminImpact": "Administrators should use the updated terminology when following this procedure; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -695,11 +722,12 @@
       "eventId": "defender-docs:e3285dcc279e84cd48e843eb18b518018a754d94:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Naming",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Terminology updated to “software component”",
+        "summary": "The documentation replaces “vulnerable component” with “software component” throughout component navigation, tabs, recommendations, and remediation guidance.",
+        "adminImpact": "Administrators should use the updated terminology when following this guidance; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -720,11 +748,12 @@
       "eventId": "defender-docs:746ed8a9a4f8ab789b93acca579acb392cb1b848:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Errors",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Software components page references",
+        "summary": "The documentation now uses the renamed Software components page and updates the flyout-pane link to the correct section anchor.",
+        "adminImpact": "Administrators following the guidance will be directed to the correct documentation section.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -744,12 +773,13 @@
       "firstSeenAt": "2026-01-13T12:25:05.000Z",
       "eventId": "defender-docs:50da07bcf0480ebde8d3245ad1c056e61f0122d0:modified:defender-for-cloud-apps/protect-office-365.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Default values added when connecting to office 365 components",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-office-365.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "Microsoft 365 components are now selected by default",
+        "summary": "The documentation states that all Microsoft 365 components are selected by default for maximum protection. Required components support certain threat detection and response functions, while Microsoft 365 file protection still requires file monitoring.",
+        "adminImpact": "If the connector was configured before January 2026, select all default options and choose Connect again. Enable file monitoring to protect Microsoft 365 files.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -770,11 +800,12 @@
       "eventId": "defender-docs:48c89eb32372c4ded2bd998231f7b320c9559a78:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "What's new",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated tab name for viewing affected devices",
+        "summary": "The vulnerable components documentation now refers to the **Devices with components** tab instead of the **Installed devices** tab for viewing devices where a component is installed.",
+        "adminImpact": "Administrators should use the updated tab name when following the documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -795,11 +826,12 @@
       "eventId": "defender-docs:48c89eb32372c4ded2bd998231f7b320c9559a78:modified:defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "What's new",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Vulnerable components page renamed to Software components",
+        "summary": "The page name now reflects visibility into all software components identified in the organization, not only those with known vulnerabilities.",
+        "adminImpact": "Administrators should use the new page name when navigating or maintaining internal references.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -819,12 +851,13 @@
       "firstSeenAt": "2026-01-13T13:17:40.000Z",
       "eventId": "defender-docs:fe4eb9d4961cde2baa5f2ad9719514c1d7f2d519:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Frameworks",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Updated supported-component list for Defender Vulnerability Management",
+        "summary": "The page replaces its note with a Supported components section and updates the list to include additional entries such as Next.js, React Server DOM variants, Langflow, and Log4J components.",
+        "adminImpact": "Use the updated list when determining which software components are covered by Defender Vulnerability Management.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -845,11 +878,12 @@
       "eventId": "defender-docs:575ff9be24464cd5c922551c1edc324edf8e0e2a:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Label rename",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Security recommendation label renamed to “Owning app”",
+        "summary": "The documentation now refers to the security recommendation type as “Owning app” instead of “Attention required” in the flyout pane for software components.",
+        "adminImpact": "Administrators should look for the updated label when evaluating remediation impacts across the organization.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -870,11 +904,12 @@
       "eventId": "defender-docs:a2c4d69bc88ee1d5e10111ed9c58354df17c4bf1:modified:defender-vulnerability-management/tvm-vulnerable-components.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing sub components",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Vulnerable components list removes four Log4J entries",
+        "summary": "The documentation no longer lists Log4J Compatibility API, Log4J SLF4J Binding, Log4J JUL Adapter, or Log4J API. Apache Parquet Avro remains listed.",
+        "adminImpact": "Review the updated component list when using this page to track vulnerable components; no administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -895,11 +930,12 @@
       "eventId": "defender-docs:610d52c231149a542fe179e26a94770b116d26a0:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Apply suggestions from PR review",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected wording in Windows event collection guidance",
+        "summary": "Fixed a typo and added punctuation to the sentence describing sensor-applied manual configuration steps.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -920,11 +956,12 @@
       "eventId": "defender-docs:610d52c231149a542fe179e26a94770b116d26a0:modified:defender-for-identity/deploy/prerequisites-sensor-version-3.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Apply suggestions from PR review",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected PowerShell capitalization in auditing instructions",
+        "summary": "The prerequisite documentation now labels the manual command-line option as “PowerShell” instead of “Powershell.”",
+        "adminImpact": "No administrative action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -945,11 +982,12 @@
       "eventId": "defender-docs:88d9e3db0efcb05d3c7d442d272b64dc7774671e:modified:defender-for-cloud-apps/protect-office-365.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "pencil edit",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-office-365.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Microsoft 365 component selection guidance",
+        "summary": "Added final punctuation to the instruction for selecting Microsoft 365 components and connecting them. The guidance still states that all components are selected by default.",
+        "adminImpact": "Administrators can follow the clarified setup step when configuring protection.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -970,11 +1008,12 @@
       "eventId": "defender-docs:19ba89e6089a861269ec63ff6c87e515fa354232:modified:defender-office-365/mdo-support-teams-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Teams message entity panel documentation",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Teams message entity panel documentation highlights user removal",
+        "summary": "The page now separately documents removing users from Teams chats directly from the Teams message entity panel for malicious-attack remediation, with a link to instructions.",
+        "adminImpact": "Administrators can find the chat-remediation procedure more easily during SecOps review.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -994,12 +1033,13 @@
       "firstSeenAt": "2026-01-13T20:27:22.000Z",
       "eventId": "defender-docs:19ba89e6089a861269ec63ff6c87e515fa354232:modified:defender-office-365/teams-message-entity-panel.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update Teams message entity panel documentation",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/teams-message-entity-panel.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Teams message entity panel documentation now includes Plan 1",
+        "summary": "The documentation now states that the Teams message entity panel is available to organizations with Microsoft Defender for Office 365 Plan 1 and Plan 2, rather than Plan 2 only.",
+        "adminImpact": "Plan 1 administrators can use the updated eligibility guidance; no administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1020,11 +1060,12 @@
       "eventId": "defender-docs:16b576555361e6b4261ed80d43c6c9fe27af0f6c:modified:defender-office-365/mdo-support-teams-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update mdo-support-teams-about.md",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Teams message entity panel link text",
+        "summary": "The Teams message entity panel description now uses lowercase “the” in the linked reference text.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1045,11 +1086,12 @@
       "eventId": "defender-docs:8fecf76203de11c694e672e0323674aaa8b18ac4:modified:defender-office-365/quarantine-admin-manage-messages-files.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "made changes elsewhere",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated reference for the Teams message entity panel",
+        "summary": "The quarantine management documentation now links to the Microsoft Defender for Office 365 Teams message entity panel article without the “Plan 2” wording.",
+        "adminImpact": "Administrators reviewing Teams message details will be directed to the updated reference; no configuration change is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1070,11 +1112,12 @@
       "eventId": "defender-docs:8fecf76203de11c694e672e0323674aaa8b18ac4:modified:defender-office-365/submissions-admin.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "made changes elsewhere",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/submissions-admin.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Teams message entity panel reference",
+        "summary": "The submissions guidance now points to the Microsoft Defender for Office 365 Teams message entity panel article without the “Plan 2” qualifier.",
+        "adminImpact": "Administrators using the guidance will find the updated reference when reviewing Teams message details.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1094,12 +1137,13 @@
       "firstSeenAt": "2026-01-13T22:17:41.000Z",
       "eventId": "defender-docs:8fecf76203de11c694e672e0323674aaa8b18ac4:modified:defender-office-365/teams-message-entity-panel.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "made changes elsewhere",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/teams-message-entity-panel.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Teams message entity panel licensing is clarified",
+        "summary": "The documentation now lists Microsoft Defender for Office 365 Plan 1 or Plan 2 as eligible licensing, replacing the broader “Plan 1 and above” wording.",
+        "adminImpact": "No administrator action is stated; use the clarified licensing information when assessing access.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1120,11 +1164,12 @@
       "eventId": "defender-docs:1dec6f525b2812eaaaa7ff5697dd77e28abfc1af:modified:defender-endpoint/troubleshoot-remotely-with-client-analyzer.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update troubleshoot-remotely-with-client-analyzer.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-remotely-with-client-analyzer.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated title for remote MDE Client Analyzer traces",
+        "summary": "The documentation title now says “Run remote MDE Client Analyzer traces via live response” instead of “Start and Stop MDE Client Analyzer Trace via live response.”",
+        "adminImpact": "Administrators can use the updated title to find the guidance for running remote traces; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1147,11 +1192,12 @@
       "eventId": "defender-docs:54c1f208488086daace9678079cc274a6ea74d3b:removed:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP implementation guide removed",
+        "summary": "The Microsoft Defender portal implementation guide for MSSPs was deleted. It covered multitenant setup, customer onboarding, content management, and security operations.",
+        "adminImpact": "Administrators can no longer access this guide at its documented URL. No required action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1172,11 +1218,12 @@
       "eventId": "defender-docs:beb81d6ed9582f79de69fffbdc813531331ac426:removed:defender-for-identity/link-unlink-account-to-identity.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "merging from main",
-        "summary": "Removed Microsoft Defender documentation in defender-for-identity/link-unlink-account-to-identity.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Documentation for linking accounts to identities was removed",
+        "summary": "The 115-line how-to article documenting manual account linking and unlinking, prerequisites, and portal steps was deleted.",
+        "adminImpact": "Administrators lose this article as a reference for the documented workflow and required roles. No action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1201,9 +1248,9 @@
     "overview": "Today's report includes 2 new, 43 updated, and 2 removed Microsoft Defender documentation files across 7 documentation areas.",
     "groups": [
       {
-        "category": "Doc update",
+        "category": "Private preview",
         "title": "Defender for Identity",
-        "summary": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md. Removed Microsoft Defender documentation in defender-for-identity/link-unlink-account-to-identity.md.",
+        "summary": "A new how-to article explains how to link or unlink accounts—including legacy, unused, and orphaned accounts—to identities through the Defender portal’s Identity Inventory. It also documents the required URBAC roles: Global Administrator or Security Data (Manage). The Defender for Identity What's New page now links to “Manage related identities and accounts (Preview)” instead of “Link or Unlink an Account to an Identity (Preview).” The documentation now recommends running `New-MDIConfigurationReport` before configuration and explains the auditing changes the sensor can apply, including directory services, NTLM, domain object, AD FS, and Windows audit policies. It also warns that Group Policy",
         "sourceFiles": [
           "defender-for-identity/manage-related-identities-accounts.md",
           "defender-for-identity/whats-new.md",
@@ -1215,9 +1262,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "New feature",
         "title": "Defender for Endpoint",
-        "summary": "Added Microsoft Defender documentation in defender-endpoint/troubleshoot-remotely-with-client-analyzer.md. Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-security-center-antivirus.md. Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-remotely-with-client-analyzer.md.",
+        "summary": "Admins can start and stop MDE Client Analyzer tracing on supported Windows devices through live response, including uploading the analyzer, verifying collection, reproducing an issue, and stopping the trace. The FAQ now states that a non-onboarded device can remain in the Defender portal for more than 180 days when discovered by an onboarded endpoint on the same network or by an OT sensor. The Linux prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries. The documentation now explains that the security intelligence version shown in the Windows Security app was previously called the definition version. The documentation title n",
         "sourceFiles": [
           "defender-endpoint/troubleshoot-remotely-with-client-analyzer.md",
           "defender-endpoint/device-discovery-faq.md",
@@ -1229,7 +1276,7 @@
       {
         "category": "Doc update",
         "title": "Unified SecOps",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Remove",
+        "summary": "The page metadata date changed from November 20, 2025, to December 20, 2025. The guide now presents Defender multitenant management as a unified interface for MSSPs managing multiple customer tenants and more concisely describes setup, onboarding, and operational workflows. The page date changed to January 13, 2026, and entries were added for Clay Typhoon, Storm-0133, Storm-0156, Storm-0593, and Storm-1125, including their country associations and alternate names. The playbook now provides revised descriptions of Microsoft Defender’s multitenant capabilities and reorganizes the implementation guidance with prerequisite and step links. The Step 3 table-of-contents entry and section heading no",
         "sourceFiles": [
           "unified-secops-platform/playbook-managed-security.md",
           "unified-secops-platform/playbook-managed-security.md",
@@ -1244,7 +1291,7 @@
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-entraidsigninevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-entraidsigninevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behav",
+        "summary": "The table now documents IsThroughGlobalSecureAccess and UniqueTokenId, identifying Global Secure Access sign-ins and correlating sign-ins with token requests. The table documentation now lists the ResponseSize field as an integer containing the response size in bytes. The EntraIdSignInEvents table documentation no longer lists IsThroughGlobalSecureAccess or UniqueTokenId. The page metadata date changed from December 26, 2025, to January 13, 2026. The table documentation now lists `ResponseSize` as an integer containing the response size in bytes. The page date was also updated. The article’s two links for UEBA behavior guidance now point to the Sentinel entity-behaviors-layer page and its en",
         "sourceFiles": [
           "defender-xdr/advanced-hunting-entraidsigninevents-table.md",
           "defender-xdr/advanced-hunting-graphapiauditevents-table.md",
@@ -1260,7 +1307,7 @@
       {
         "category": "Doc update",
         "title": "Defender Vulnerability Management",
-        "summary": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Def",
+        "summary": "The page title, headings, navigation instructions, labels, and image text now use “Software components.” The documentation notes that “Vulnerable components” was the previous name. The page was renamed to Software components to reflect visibility into all identified software components, including those without known vulnerabilities. The update also adds a Device vulnerabilities report updates section. The documentation now refers to selecting a software component, rather than a vulnerable component, to open the flyout pane with more information. The documentation replaces “vulnerable component” with “software component” throughout component navigation, tabs, recommendations, and remediation ",
         "sourceFiles": [
           "defender-vulnerability-management/tvm-vulnerable-components.md",
           "defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md",
@@ -1275,9 +1322,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Defender for Cloud Apps",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-office-365.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-office-365.md.",
+        "summary": "The documentation states that all Microsoft 365 components are selected by default for maximum protection. Required components support certain threat detection and response functions, while Microsoft 365 file protection still requires file monitoring. Added final punctuation to the instruction for selecting Microsoft 365 components and connecting them. The guidance still states that all components are selected by default.",
         "sourceFiles": [
           "defender-for-cloud-apps/protect-office-365.md",
           "defender-for-cloud-apps/protect-office-365.md"
@@ -1286,7 +1333,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Office 365",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/teams-message-entity-panel.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md. Updated Microsoft Defender documentation in defender-office-365/submissions-admin.md. Updated Microsoft Defender documentation in defender-office-365/teams-message-entity-panel.md.",
+        "summary": "The page now separately documents removing users from Teams chats directly from the Teams message entity panel for malicious-attack remediation, with a link to instructions. The documentation now states that the Teams message entity panel is available to organizations with Microsoft Defender for Office 365 Plan 1 and Plan 2, rather than Plan 2 only. The Teams message entity panel description now uses lowercase “the” in the linked reference text. The quarantine management documentation now links to the Microsoft Defender for Office 365 Teams message entity panel article without the “Plan 2” wording. The submissions guidance now points to the Microsoft Defender for Office 365 Teams message ent",
         "sourceFiles": [
           "defender-office-365/mdo-support-teams-about.md",
           "defender-office-365/teams-message-entity-panel.md",
@@ -1299,39 +1346,39 @@
     ],
     "highlights": [
       {
-        "category": "Doc update",
+        "category": "Private preview",
         "headline": "Defender for Identity",
-        "detail": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md. Removed Microsoft Defender documentation in defender-for-identity/link-unlink-account-to-identity.md."
+        "detail": "A new how-to article explains how to link or unlink accounts—including legacy, unused, and orphaned accounts—to identities through the Defender portal’s Identity Inventory. It also documents the required URBAC roles: Global Administrator or Security Data (Manage). The Defender for Identity What's New page now links to “Manage related identities and accounts (Preview)” instead of “Link or Unlink an Account to an Identity (Preview).” The documentation now recommends running `New-MDIConfigurationReport` before configuration and explains the auditing changes the sensor can apply, including directory services, NTLM, domain object, AD FS, and Windows audit policies. It also warns that Group Policy"
       },
       {
-        "category": "Doc update",
+        "category": "New feature",
         "headline": "Defender for Endpoint",
-        "detail": "Added Microsoft Defender documentation in defender-endpoint/troubleshoot-remotely-with-client-analyzer.md. Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md. Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-security-center-antivirus.md. Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-remotely-with-client-analyzer.md."
+        "detail": "Admins can start and stop MDE Client Analyzer tracing on supported Windows devices through live response, including uploading the analyzer, verifying collection, reproducing an issue, and stopping the trace. The FAQ now states that a non-onboarded device can remain in the Defender portal for more than 180 days when discovered by an onboarded endpoint on the same network or by an OT sensor. The Linux prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries. The documentation now explains that the security intelligence version shown in the Windows Security app was previously called the definition version. The documentation title n"
       },
       {
         "category": "Doc update",
         "headline": "Unified SecOps",
-        "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Remove"
+        "detail": "The page metadata date changed from November 20, 2025, to December 20, 2025. The guide now presents Defender multitenant management as a unified interface for MSSPs managing multiple customer tenants and more concisely describes setup, onboarding, and operational workflows. The page date changed to January 13, 2026, and entries were added for Clay Typhoon, Storm-0133, Storm-0156, Storm-0593, and Storm-1125, including their country associations and alternate names. The playbook now provides revised descriptions of Microsoft Defender’s multitenant capabilities and reorganizes the implementation guidance with prerequisite and step links. The Step 3 table-of-contents entry and section heading no"
       },
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-entraidsigninevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-entraidsigninevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-graphapiauditevents-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behav"
+        "detail": "The table now documents IsThroughGlobalSecureAccess and UniqueTokenId, identifying Global Secure Access sign-ins and correlating sign-ins with token requests. The table documentation now lists the ResponseSize field as an integer containing the response size in bytes. The EntraIdSignInEvents table documentation no longer lists IsThroughGlobalSecureAccess or UniqueTokenId. The page metadata date changed from December 26, 2025, to January 13, 2026. The table documentation now lists `ResponseSize` as an integer containing the response size in bytes. The page date was also updated. The article’s two links for UEBA behavior guidance now point to the Sentinel entity-behaviors-layer page and its en"
       },
       {
         "category": "Doc update",
         "headline": "Defender Vulnerability Management",
-        "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/whats-new-in-microsoft-defender-vulnerability-management.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md. Updated Microsoft Def"
+        "detail": "The page title, headings, navigation instructions, labels, and image text now use “Software components.” The documentation notes that “Vulnerable components” was the previous name. The page was renamed to Software components to reflect visibility into all identified software components, including those without known vulnerabilities. The update also adds a Device vulnerabilities report updates section. The documentation now refers to selecting a software component, rather than a vulnerable component, to open the flyout pane with more information. The documentation replaces “vulnerable component” with “software component” throughout component navigation, tabs, recommendations, and remediation "
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Defender for Cloud Apps",
-        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-office-365.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-office-365.md."
+        "detail": "The documentation states that all Microsoft 365 components are selected by default for maximum protection. Required components support certain threat detection and response functions, while Microsoft 365 file protection still requires file monitoring. Added final punctuation to the instruction for selecting Microsoft 365 components and connecting them. The guidance still states that all components are selected by default."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Office 365",
-        "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/teams-message-entity-panel.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Updated Microsoft Defender documentation in defender-office-365/quarantine-admin-manage-messages-files.md. Updated Microsoft Defender documentation in defender-office-365/submissions-admin.md. Updated Microsoft Defender documentation in defender-office-365/teams-message-entity-panel.md."
+        "detail": "The page now separately documents removing users from Teams chats directly from the Teams message entity panel for malicious-attack remediation, with a link to instructions. The documentation now states that the Teams message entity panel is available to organizations with Microsoft Defender for Office 365 Plan 1 and Plan 2, rather than Plan 2 only. The Teams message entity panel description now uses lowercase “the” in the linked reference text. The quarantine management documentation now links to the Microsoft Defender for Office 365 Teams message entity panel article without the “Plan 2” wording. The submissions guidance now points to the Microsoft Defender for Office 365 Teams message ent"
       }
     ],
     "generatedBy": "fallback"

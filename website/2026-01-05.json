@@ -19,11 +19,12 @@
       "eventId": "defender-docs:9baf3f7b366b53e1e9090df6995fb35232d593a5:modified:defender-xdr/manage-rbac.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update RBAC details for Microsoft Defender for Office 365",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "RBAC documentation updated for Defender for Office 365",
+        "summary": "The Microsoft Defender for Office 365 RBAC entry now includes updated Exchange Online-related guidance. The existing Plan 2 licensing and no-trial requirement remains documented.",
+        "adminImpact": "Review the updated RBAC guidance when managing Defender for Office 365 permissions; no administrator action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:339e905c42875f5e85388fa6b2bec5d54f96b148:modified:defender-for-cloud-apps/protect-salesforce.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fix third party instructions",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Salesforce connector setup guidance",
+        "summary": "The documentation now provides a streamlined checklist covering the service admin account, REST API-supported editions, required profile permissions, and conditional Salesforce CRM Content settings.",
+        "adminImpact": "Administrators configuring the Salesforce connector can use the revised prerequisites and permission checklist to prepare the service account correctly.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:8c789807d27285e36a7c676d4498c11441867387:modified:defender-for-cloud-apps/protect-salesforce.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "fix numbering",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Salesforce Professional REST API requirement retained",
+        "summary": "The documentation update retains the statement that the Professional edition requires REST API access to be added separately.",
+        "adminImpact": "No change to administrator configuration or required action.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:148f4b4fa7be0efad51325972e83497733e4b9f4:modified:defender-for-cloud-apps/release-notes.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update incorrect links in December 2025 Whats New",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected RBAC mapping link in Defender for Cloud Apps release notes",
+        "summary": "The release notes metadata date was updated to January 5, 2026, and the RBAC permissions mapping link was changed from a GitHub URL to the Microsoft Learn page.",
+        "adminImpact": "Administrators can use the corrected link to access the RBAC mapping guidance. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:39cd98f18e9f5c37fa46414fc37219beb90bb0d4:modified:defender-for-cloud-apps/release-notes.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "update links",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated RBAC mapping link",
+        "summary": "The release notes now link to the updated Microsoft Defender XDR Unified RBAC mapping page and anchor for Defender for Cloud Apps permissions.",
+        "adminImpact": "Administrators using the release notes will be directed to the current permissions mapping guidance; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -144,11 +149,12 @@
       "eventId": "defender-docs:ffee767d5f028d53e29b4816aaa3519e77e0848c:modified:defender-endpoint/mac-resources.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update mac-resources.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-resources.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "EDR root exclusion listing entry removed",
+        "summary": "The macOS resources documentation no longer includes the EDR command for listing root exclusions.",
+        "adminImpact": "Administrators reviewing EDR exclusion commands should consult the updated documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -168,12 +174,13 @@
       "firstSeenAt": "2026-01-05T18:11:29.000Z",
       "eventId": "defender-docs:ecb66f10a28165454520a0cd1c277bb9d862c788:modified:defender-endpoint/enable-controlled-folders.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update enable-controlled-folders.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Controlled folder access support now includes additional Windows Server versions",
+        "summary": "The documentation now lists Windows 10 or later, Windows Server 2019 or later, and Windows Server 2016 and 2012 R2 through the modern unified Microsoft Defender for Endpoint solution.",
+        "adminImpact": "Administrators can verify controlled folder access support based on the server version and deployment method. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -194,11 +201,12 @@
       "eventId": "defender-docs:2fa0bc47b27e931bab13dd8cdd670420197a1197:modified:defender-endpoint/enable-controlled-folders.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update enable-controlled-folders.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated the Intune admin center section title",
+        "summary": "The documentation now labels the section and table-of-contents link as “Enable controlled folder access in the Microsoft Intune admin center.” The Windows label was also reformatted.",
+        "adminImpact": "Administrators can more easily find the Intune-specific instructions for enabling controlled folder access.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -219,11 +227,12 @@
       "eventId": "defender-docs:e6e96569c6d25a88b68108549889bb6c541bb581:modified:defender-endpoint/device-control-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "UUF 426109",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device Control FAQ clarifies troubleshooting and media identification",
+        "summary": "The FAQ adds explicit PowerShell formatting, expands Device Manager steps for finding a media device instance path, updates Microsoft Entra group Object ID guidance, and clarifies device-specific access requirements and screenshots.",
+        "adminImpact": "Administrators have clearer steps for validating certificates, collecting support files, identifying media, mapping groups, and diagnosing access behavior.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -244,11 +253,12 @@
       "eventId": "defender-docs:6b4798d7b2c3eb50ad1b69f256c8ab16a254bb5a:modified:defender-endpoint/device-control-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update device-control-faq.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device Control FAQ updates policy-template download guidance",
+        "summary": "The FAQ wording was refreshed and its source link for the required .adml and .admx files changed from GitHub raw files to Microsoft Administrative Templates for Windows 10 2022 Update (22H2).",
+        "adminImpact": "The FAQ still states that Group Policy has no configuration UX for device control policy groups and rules; administrators can use the updated link to obtain the related template files.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -268,12 +278,13 @@
       "firstSeenAt": "2026-01-05T20:10:47.000Z",
       "eventId": "defender-docs:1d36401d31e9da9fc5be309d5733b045f0c31001:modified:defender-endpoint/live-response.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update live-response.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/live-response.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Live response prerequisites and platform requirements were updated",
+        "summary": "The documentation now separates Windows 11 and Windows 10 support, reorganizes server requirements, and adds details for Windows Server 2012 R2 and 2016, including the Unified Agent, KB5005292, and a static-proxy limitation. It also clarifies requirements for enabling live response and unsigned scripts.",
+        "adminImpact": "Review device eligibility and legacy server prerequisites when deploying or troubleshooting live response, particularly where static proxies are used.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -294,11 +305,12 @@
       "eventId": "defender-docs:a23a039bdad399d3d52913662c7bf83a85bfb8e7:modified:defender-endpoint/gov.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update gov.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/gov.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Government URI guidance now links to the exposed APIs list",
+        "summary": "The page date was updated, table formatting was revised, and the URI guidance link changed to the exposed APIs list. Connectivity URL references remain included for Gov/GCC/DoD customers.",
+        "adminImpact": "Review the updated link when using the URI guidance; no configuration change or deadline is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -321,7 +333,7 @@
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
+        "summary": "The Microsoft Defender for Office 365 RBAC entry now includes updated Exchange Online-related guidance. The existing Plan 2 licensing and no-trial requirement remains documented.",
         "sourceFiles": [
           "defender-xdr/manage-rbac.md"
         ]
@@ -329,7 +341,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Cloud Apps",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "summary": "The documentation now provides a streamlined checklist covering the service admin account, REST API-supported editions, required profile permissions, and conditional Salesforce CRM Content settings. The documentation update retains the statement that the Professional edition requires REST API access to be added separately. The release notes metadata date was updated to January 5, 2026, and the RBAC permissions mapping link was changed from a GitHub URL to the Microsoft Learn page. The release notes now link to the updated Microsoft Defender XDR Unified RBAC mapping page and anchor for Defender for Cloud Apps permissions.",
         "sourceFiles": [
           "defender-for-cloud-apps/protect-salesforce.md",
           "defender-for-cloud-apps/protect-salesforce.md",
@@ -340,7 +352,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-resources.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/live-response.md. Updated Microsoft Defender documentation in defender-endpoint/gov.md.",
+        "summary": "The macOS resources documentation no longer includes the EDR command for listing root exclusions. The documentation now lists Windows 10 or later, Windows Server 2019 or later, and Windows Server 2016 and 2012 R2 through the modern unified Microsoft Defender for Endpoint solution. The documentation now labels the section and table-of-contents link as “Enable controlled folder access in the Microsoft Intune admin center.” The Windows label was also reformatted. The FAQ adds explicit PowerShell formatting, expands Device Manager steps for finding a media device instance path, updates Microsoft Entra group Object ID guidance, and clarifies device-specific access requirements and screenshots. Th",
         "sourceFiles": [
           "defender-endpoint/mac-resources.md",
           "defender-endpoint/enable-controlled-folders.md",
@@ -356,17 +368,17 @@
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md."
+        "detail": "The Microsoft Defender for Office 365 RBAC entry now includes updated Exchange Online-related guidance. The existing Plan 2 licensing and no-trial requirement remains documented."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Cloud Apps",
-        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md."
+        "detail": "The documentation now provides a streamlined checklist covering the service admin account, REST API-supported editions, required profile permissions, and conditional Salesforce CRM Content settings. The documentation update retains the statement that the Professional edition requires REST API access to be added separately. The release notes metadata date was updated to January 5, 2026, and the RBAC permissions mapping link was changed from a GitHub URL to the Microsoft Learn page. The release notes now link to the updated Microsoft Defender XDR Unified RBAC mapping page and anchor for Defender for Cloud Apps permissions."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-resources.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md. Updated Microsoft Defender documentation in defender-endpoint/live-response.md. Updated Microsoft Defender documentation in defender-endpoint/gov.md."
+        "detail": "The macOS resources documentation no longer includes the EDR command for listing root exclusions. The documentation now lists Windows 10 or later, Windows Server 2019 or later, and Windows Server 2016 and 2012 R2 through the modern unified Microsoft Defender for Endpoint solution. The documentation now labels the section and table-of-contents link as “Enable controlled folder access in the Microsoft Intune admin center.” The Windows label was also reformatted. The FAQ adds explicit PowerShell formatting, expands Device Manager steps for finding a media device instance path, updates Microsoft Entra group Object ID guidance, and clarifies device-specific access requirements and screenshots. Th"
       }
     ],
     "generatedBy": "fallback"

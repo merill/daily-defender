@@ -1,532 +1,606 @@
 {
   "days": {
     "2026-01-01": {
-      "headline": "Attack surface reduction rules reference leads 9 Defender updates",
-      "overview": "1 January 2026 recorded 9 updated Microsoft Defender documentation changes. The most active areas were Endpoint, Identity.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Per-rule ASR exclusions and privileged-account assessments sharpen Defender administration guidance",
+      "overview": "This was a documentation-led period with several operationally useful updates. Microsoft Defender for Endpoint guidance now documents per-rule ASR exclusions through Group Policy, PowerShell, and Intune. Defender for Identity release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, including direct, indirect, and nested membership. Endpoint procedures also clarify EDR testing, the TCP port 80 server prerequisite, the role required to undo contain-user actions, and the command-line process for restoring quarantined files.",
+      "adminImpact": "Review per-rule ASR exception workflows and use the platform-specific EDR test procedure. Identity administrators can use the new assessments to investigate elevated or unnecessary access. Operators who need to undo contain-user actions require Global Administrator membership in Microsoft Entra permissions, while server EDR tests require TCP port 80 to be listening. No deadline or broad rollout action is stated.",
       "keyChanges": [
         {
-          "title": "Attack surface reduction rules reference",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-01-attack-surface-reduction-rules-reference-05"
+          "title": "Defender for Identity adds privileged-access assessments",
+          "detail": "The January release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, covering direct, indirect, and nested membership. Administrators can use them to identify elevated or unnecessary access.",
+          "product": "Identity",
+          "sourceId": "doc-2026-01-01-whats-new-08"
         },
         {
-          "title": "Attack Surface Reduction Rules Reference",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-01-attack-surface-reduction-rules-reference-06"
-        },
-        {
-          "title": "Enable attack surface reduction rules",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md.",
+          "title": "ASR guidance documents exclusions for individual rules",
+          "detail": "The enablement guidance now states that Group Policy, PowerShell, and Intune can configure exclusions for specific attack surface reduction rules, supporting more targeted exceptions than applying them across all rules.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-01-enable-attack-surface-reduction-rules-03"
         },
         {
-          "title": "Attack Surface Reduction Rules Reference",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
+          "title": "EDR testing now separates client and server procedures",
+          "detail": "Windows client instructions use PowerShell to create and rename an EICAR test file. Windows server instructions retain the download-and-run test and add a TCP port 80 prerequisite with a connectivity check; verify the port before testing a server.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-01-01-attack-surface-reduction-rules-reference-07"
+          "sourceId": "doc-2026-01-01-edr-detection-01"
         },
         {
-          "title": "Whats New",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-          "product": "Identity",
-          "sourceId": "doc-2026-01-01-whats-new-08"
+          "title": "Undoing contain-user actions requires Global Administrator",
+          "detail": "The response-actions guidance now states that undoing contain-user actions requires membership in the Global Administrator role in Microsoft Entra permissions, alongside least-privilege guidance. Operators without that role cannot perform the operation.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-01-take-response-actions-on-a-device-02"
+        },
+        {
+          "title": "MpCmdRun steps clarify quarantined-file restoration",
+          "detail": "The Microsoft Defender Antivirus guidance now shows how to list all quarantined files with MpCmdRun in an elevated Command Prompt, followed by syntax for restoring a file.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-01-restore-quarantined-files-microsoft-defender-antivirus-04"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 1768,
+        "outputTokens": 2940,
+        "costUsd": 0.003882
+      }
     },
     "2026-01-04": {
-      "headline": "Caac Known Issues leads 5 Defender updates",
-      "overview": "4 January 2026 recorded 5 updated Microsoft Defender documentation changes. The most active areas were Cloud Apps.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Known-issues entry adds Google Workspace limits for Enterprise Edge protection and real-time DLP",
+      "overview": "Cloud Apps updates were concentrated in the known-issues guidance for Google Workspace in Enterprise Edge. The entry now documents unavailable in-browser protection, Secure Edge Session Controls, and real-time DLP file scans, with fallback authentication suffixes used instead of Secure Edge. A separate Asana setup step now specifies signing in with an admin account.",
+      "adminImpact": "Administrators planning Google Workspace access through Enterprise Edge should account for these documented protection and scanning limitations and the fallback authentication behavior. For Asana, the setup wording specifies an admin account; the supplied evidence identifies no separate remediation.",
       "keyChanges": [
         {
-          "title": "Caac Known Issues",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-04-caac-known-issues-02"
-        },
-        {
-          "title": "Caac Known Issues",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-04-caac-known-issues-03"
-        },
-        {
-          "title": "Caac Known Issues",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+          "title": "Google Workspace limitations documented for Enterprise Edge",
+          "detail": "The known-issues entry states that Google Workspace does not support in-browser protection, Secure Edge Session Controls, or real-time DLP file scans in Enterprise Edge. Browser sessions use fallback authentication suffixes instead of Secure Edge.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-01-04-caac-known-issues-04"
         },
         {
-          "title": "Caac Known Issues",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-04-caac-known-issues-05"
-        },
-        {
-          "title": "Protect Asana",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md.",
+          "title": "Asana setup step specifies an admin account",
+          "detail": "The Asana setup procedure now tells administrators to sign in to Asana with an admin account.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-01-04-protect-asana-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 1284,
+        "outputTokens": 1840,
+        "costUsd": 0.002465
+      }
     },
     "2026-01-05": {
-      "headline": "Investigate entities on devices using live response leads 12 Defender updates",
-      "overview": "5 January 2026 recorded 12 updated Microsoft Defender documentation changes. The most active areas were Endpoint, Cloud Apps, Defender XDR.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Live response eligibility and Salesforce connector prerequisites are clarified",
+      "overview": "The period’s most actionable guidance clarifies live response eligibility for Windows and legacy servers, adds a preparation checklist for the Salesforce connector, and expands Device Control troubleshooting. Controlled folder access guidance also now enumerates supported Windows and server paths, while several remaining edits mainly refresh links, labels, or release-note metadata.",
+      "adminImpact": "Review live response prerequisites before deployment or troubleshooting, especially on Windows Server 2012 R2 or 2016 and where static proxies are used. Use the Salesforce checklist to prepare the service account and permissions, verify controlled folder access against the operating system and deployment method, and use the expanded Device Control steps and current template source when troubleshooting or obtaining policy files.",
       "keyChanges": [
         {
-          "title": "Investigate entities on devices using live response",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/live-response.md.",
+          "title": "Live response guidance now separates Windows and legacy-server requirements",
+          "detail": "The page separates Windows 11 and Windows 10 support, reorganizes server requirements, and adds Windows Server 2012 R2 and 2016 details covering the Unified Agent, KB5005292, and a static-proxy limitation. Requirements for enabling live response and unsigned scripts are also clarified. Review these conditions before deployment or troubleshooting.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-05-investigate-entities-on-devices-using-live-response-11"
         },
         {
-          "title": "Protect your Salesforce environment | Microsoft Defender for Cloud Apps",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-salesforce.md.",
+          "title": "Salesforce connector setup gains a concrete administrator checklist",
+          "detail": "The revised checklist covers the service admin account, REST API-supported Salesforce editions, required profile permissions, and conditional Salesforce CRM Content settings. Administrators can use it to prepare the connector account and permissions.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-01-05-protect-your-salesforce-environment-microsoft-defender-for-cloud-apps-02"
         },
         {
-          "title": "Microsoft Defender for Endpoint Device Control frequently asked questions",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/device-control-faq.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-05-microsoft-defender-for-endpoint-device-control-frequently-asked-questions-09"
-        },
-        {
-          "title": "Enable controlled folder access",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/enable-controlled-folders.md.",
+          "title": "Controlled folder access guidance enumerates supported Windows paths",
+          "detail": "The guidance now lists Windows 10 or later, Windows Server 2019 or later, and Windows Server 2016 and 2012 R2 through the modern unified Microsoft Defender for Endpoint solution. Use the operating system and deployment method to verify applicability.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-05-enable-controlled-folder-access-07"
         },
         {
-          "title": "Manage Rbac",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/manage-rbac.md.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-01-05-manage-rbac-01"
+          "title": "Device Control FAQ expands media-device and access troubleshooting",
+          "detail": "The FAQ adds explicit PowerShell formatting, expanded Device Manager steps for finding a media device instance path, updated Microsoft Entra group Object ID guidance, and clearer device-specific access requirements and screenshots. These additions support certificate validation, support-file collection, device identification, group mapping, and access diagnosis.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-05-microsoft-defender-for-endpoint-device-control-frequently-asked-questions-09"
+        },
+        {
+          "title": "Device Control template downloads move to Microsoft Administrative Templates",
+          "detail": "The FAQ changes the source for required .adml and .admx files from GitHub raw files to Microsoft Administrative Templates for Windows 10 2022 Update (22H2). It continues to state that Group Policy has no configuration UX for Device Control policy groups and rules.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-05-device-control-faq-10"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 2205,
+        "outputTokens": 3238,
+        "costUsd": 0.004327
+      }
     },
     "2026-01-06": {
-      "headline": "Security Upload Guide leads 50 Defender updates",
-      "overview": "6 January 2026 recorded 48 updated, 1 removed Microsoft Defender documentation changes and 1 relevant Message Center announcement. The most active areas were Endpoint, Defender XDR, Office 365.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Opt-in automatic Windows event auditing is coming to Defender for Identity unified sensors",
+      "overview": "The period's most consequential item is a Message Center rollout: Defender for Identity unified sensors v3.x will offer opt-in automatic Windows event-auditing configuration from mid-January 2026, with rollout completion expected by the end of January. Most other updates are documentation-led, but several have concrete setup implications for Endpoint and Identity administrators, plus least-privilege agent configuration and cloud-software exposure assessment.",
+      "adminImpact": "When available, enable automatic auditing through the Defender for Identity UI or Graph API if the deployment requires it. Also update firewall rules for the workspace-specific sensor URL, use the revised Endpoint network-protection workflow for older or high-UDP Windows Server roles, and follow the least-privilege identity guidance for the threat-intelligence briefing agent.",
       "keyChanges": [
         {
-          "title": "Security Upload Guide",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/security-upload-guide.md.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-01-06-security-upload-guide-32"
+          "title": "Unified sensors receive an opt-in automatic auditing option",
+          "detail": "From mid-January 2026, Defender for Identity unified sensors v3.x will offer automatic configuration of Windows event-auditing settings. Administrators must enable the option through the UI or Graph API; rollout is scheduled to complete by the end of January.",
+          "product": "Defender for Identity",
+          "sourceId": "MC1193410"
         },
         {
-          "title": "Whats New",
-          "detail": "Updated Microsoft Defender documentation in exposure-management/whats-new.md.",
+          "title": "Network protection guidance names roles, modes, and server limitations",
+          "detail": "The updated Endpoint guidance uses the Endpoint Security Policies workflow, identifies the Security Administrator role as required, and documents the available network protection modes. It also covers downlevel settings for Windows Server 2012 R2 and 2016 and datagram-processing guidance for high-UDP server roles.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-01-06-turn-on-network-protection-01"
+        },
+        {
+          "title": "Defender for Identity sensor prerequisites now use a workspace-specific URL",
+          "detail": "The prerequisites specify that network or firewall rules must allow `*<your-workspace-name>*sensorapi.atp.azure.com`, with an example of the required sensor URL format. Administrators should apply the applicable workspace name when updating allow rules.",
+          "product": "Defender for Identity",
+          "sourceId": "doc-2026-01-06-prerequisites-sensor-version-2-20"
+        },
+        {
+          "title": "Threat intelligence briefing agent guidance adopts a least-privilege setup",
+          "detail": "The updated guide explains how to use a dedicated service-principal identity, links the configuration to Unified RBAC, and lists tenant-level administrator rights as a prerequisite for registering the identity and assigning roles.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-01-06-threat-intel-briefing-agent-defender-08"
+        },
+        {
+          "title": "Exposure Management guidance adds cloud-software inventory coverage",
+          "detail": "The January Exposure Management content now documents cloud software inventory, including cloud software, application versions, installed assets, and related vulnerabilities. Administrators can use those details to understand exposure and prioritize vulnerability assessments.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-01-06-whats-new-19"
-        },
-        {
-          "title": "Configure Conditional Access in Microsoft Defender for Endpoint",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-conditional-access.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-06-configure-conditional-access-in-microsoft-defender-for-endpoint-04"
-        },
-        {
-          "title": "Step 1 - Prepere your environmnet",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-          "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-06-step-1-prepere-your-environmnet-12"
-        },
-        {
-          "title": "Prerequisites Sensor Version 2",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md.",
-          "product": "Identity",
-          "sourceId": "doc-2026-01-06-prerequisites-sensor-version-2-20"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 5316,
+        "outputTokens": 5548,
+        "costUsd": 0.007721
+      }
     },
     "2026-01-07": {
-      "headline": "Tvm Vulnerable Devices Report leads 68 Defender updates",
-      "overview": "7 January 2026 recorded 68 updated Microsoft Defender documentation changes. The most active areas were Defender XDR, Endpoint, Cloud Apps.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Sentinel-backed near-real-time detection enters Microsoft Defender custom-rule preview",
+      "overview": "Microsoft Defender XDR’s January What's New entry records Near Real-Time configuration for custom detection rules using Microsoft Sentinel data, explicitly marked as preview. Other material administrator-facing changes include a narrower Vulnerability Management report model, clearer Device Discovery scan boundaries, deployment prerequisites for BehaviorEntities data, and a January Linux build with deeper React analysis. All 68 records were updates with none added or removed, so the period was primarily guidance and release-note maintenance rather than a broad product rollout.",
+      "adminImpact": "Treat the custom-rule Near Real-Time option as preview. For Vulnerability Management, account for the removed Windows 10/11 version-over-time section, Device group-only filtering, and 30-day history; government cloud customers are expected to see these changes in late January 2026. Device Discovery guidance now covers network-traffic and active-probing scans, exclusions, trusted networks, and the limitation that devices outside corporate networks are not discovered. BehaviorEntities queries depend on Defender for Cloud Apps and UEBA data; enable UEBA in Microsoft Sentinel and configure the documented Defender for Cloud Apps connection before relying on results. The Linux release entry states no required administrator action.",
       "keyChanges": [
         {
-          "title": "Tvm Vulnerable Devices Report",
-          "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-01-07-tvm-vulnerable-devices-report-47"
-        },
-        {
-          "title": "Custom Detection Rules",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/custom-detection-rules.md.",
+          "title": "Custom detection rules document Near Real-Time Sentinel configuration in preview",
+          "detail": "The Defender XDR January 2026 What's New entry says custom detection rules support Near Real-Time configuration for Microsoft Sentinel data and labels the capability as preview. Administrators can evaluate it for supported Sentinel data tables; no required action is stated.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-01-07-custom-detection-rules-23"
+          "sourceId": "doc-2026-01-07-whats-new-24"
         },
         {
-          "title": "Link/Unlink an account to an identity",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/link-unlink-account-to-identity.md.",
-          "product": "Identity",
-          "sourceId": "doc-2026-01-07-link-unlink-an-account-to-an-identity-66"
+          "title": "Vulnerability Management removes report history and filtering options",
+          "detail": "The updated What's New entry says the report removes the Windows 10/11 version-over-time section, limits filtering to Device group, and reduces history to the last 30 days. Government cloud customers are expected to see the changes in late January 2026.",
+          "product": "Vulnerability Management",
+          "sourceId": "doc-2026-01-07-whats-new-48"
         },
         {
-          "title": "Reports for Attack simulation training",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-insights.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-01-07-reports-for-attack-simulation-training-64"
-        },
-        {
-          "title": "Mtd",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mtd.md.",
+          "title": "Device Discovery clarifies scan coverage, onboarding, and network boundaries",
+          "detail": "The Endpoint guidance explains discovery through network traffic and active probing, how discovered devices are classified into inventory and can be onboarded, and how to configure scan modes, exclusions, trusted networks, and network scans. It also states that devices outside corporate networks are not discovered.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-01-07-mtd-08"
+          "sourceId": "doc-2026-01-07-device-discovery-38"
+        },
+        {
+          "title": "BehaviorEntities data depends on Defender for Cloud Apps and UEBA deployment",
+          "detail": "The advanced hunting guidance now says Defender for Cloud Apps and UEBA populate the BehaviorEntities table; without those services deployed in Defender XDR, queries may fail or return no results. To populate records, administrators must enable UEBA in Microsoft Sentinel and follow the documented Defender for Cloud Apps connection steps.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-01-07-advanced-hunting-behaviorentities-table-06"
+        },
+        {
+          "title": "Linux build adds deeper React analysis and CVE-2025-55182 telemetry",
+          "detail": "The Endpoint Linux release entry dated January 7, 2026 identifies build 101.25102.0005 and documents deeper React component analysis plus enhanced telemetry, including identification of CVE-2025-55182. The update provides more visibility into vulnerabilities in React-based applications; no required action is stated.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-07-linux-whatsnew-17"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 5475,
+        "outputTokens": 9363,
+        "costUsd": 0.012331
+      }
     },
     "2026-01-08": {
-      "headline": "Get Security Baselines Assessment Configurations leads 283 Defender updates",
-      "overview": "8 January 2026 recorded 1 new, 281 updated, 1 removed Microsoft Defender documentation changes. The most active areas were Endpoint, Defender XDR, Office 365.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Defender endpoint API guidance standardizes on `api.security.microsoft.com` across integration examples",
+      "overview": "The period’s most consequential update is a broad Endpoint API reference pass: documented request URLs, OData context and response links, and sample integrations replace `api.securitycenter.microsoft.com` with `api.security.microsoft.com`; one app-partner example also updates its resource URI and OAuth scope. Separately, Microsoft added Teams blocking guidance and made Unified SecOps onboarding prerequisites and guest limitations explicit. Most other supplied edits are formatting, navigation, terminology, or API-table cleanup.",
+      "adminImpact": "Review Defender for Endpoint scripts and integrations that copied the old host, and audit queries using API filter properties that are no longer listed. For Teams, check the documented roles, prerequisites, limits, and timing before applying domain or email blocks. For Unified SecOps, validate the Defender for Office 365 Plan 2 requirement for Unified RBAC, delegated access, and Azure B2B guest assumptions. No action is indicated for formatting-only edits.",
       "keyChanges": [
         {
-          "title": "Get Security Baselines Assessment Configurations",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/api/get-security-baselines-assessment-configurations.md.",
+          "title": "Endpoint API references adopt the `api.security.microsoft.com` hostname",
+          "detail": "Many Endpoint API reference pages now replace `api.securitycenter.microsoft.com` with `api.security.microsoft.com` in requests and OData examples. On the Get Machine Group Exposure Score page, both the GET endpoint and sample `@odata.context` URL changed; administrators maintaining scripts should update copied references.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-01-08-get-security-baselines-assessment-configurations-150"
+          "sourceId": "doc-2026-01-08-get-machine-group-exposure-score-246"
         },
         {
-          "title": "Security Copilot Agents Defender",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/security-copilot-agents-defender.md.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-01-08-security-copilot-agents-defender-14"
-        },
-        {
-          "title": "Block domains in Microsoft Teams using the Tenant Allow/Block List",
-          "detail": "Added Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-configure.md.",
+          "title": "Tenant Allow/Block List guidance now covers Teams domain blocking",
+          "detail": "New guidance explains how to use the Tenant Allow/Block List to block domains and email addresses in Microsoft Teams. It documents prerequisites, roles, limits, expected timing, and the resulting impact: existing communications can be removed and new meetings, chats, channels, and calls blocked.",
           "product": "Office 365",
           "sourceId": "doc-2026-01-08-block-domains-in-microsoft-teams-using-the-tenant-allow-block-list-01"
         },
         {
-          "title": "Step 1 - Prepre and onborad your customers",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
+          "title": "Unified SecOps onboarding adds Plan 2 and Azure B2B constraints",
+          "detail": "The revised playbook combines environment preparation and customer onboarding, renumbers the sequence into three steps, and revises delegated-access guidance. It explicitly documents Defender for Office 365 Plan 2 as a prerequisite for Unified RBAC and records limitations for Azure B2B guests.",
           "product": "Unified SecOps",
           "sourceId": "doc-2026-01-08-step-1-prepre-and-onborad-your-customers-03"
         },
         {
-          "title": "Protect Zendesk",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-zendesk.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-08-protect-zendesk-08"
+          "title": "Security-baseline API documentation no longer lists id and CCE filters",
+          "detail": "Get Security Baselines Assessment Configurations now links to OData guidance and examples and lists filtering on category and name; the previously displayed `id` and `CCE` filter properties are no longer shown. Review integrations that rely on those fields.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-08-get-security-baselines-assessment-configurations-150"
+        },
+        {
+          "title": "Security Copilot pages add dedicated Threat Hunting and Dynamic Detection guidance",
+          "detail": "The Security Copilot Agents Defender page now includes sections for the Threat Hunting Agent and Dynamic Threat Detection Agent, with a link and screenshot for threat-hunting workflows. The additions make natural-language investigations and adaptive detection guidance easier to locate across Defender and Microsoft Sentinel.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-01-08-security-copilot-agents-defender-14"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 5165,
+        "outputTokens": 7640,
+        "costUsd": 0.010201
+      }
     },
     "2026-01-09": {
-      "headline": "Block domains and addresses in Microsoft Teams using the Tenant Allow/Block List leads 9 Defender updates",
-      "overview": "9 January 2026 recorded 1 new, 6 updated, 1 removed Microsoft Defender documentation changes and 1 relevant Message Center announcement. The most active areas were Office 365, Endpoint, Defender XDR.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Defender for Office 365 quarantine adds per-recipient listings and per-user release",
+      "overview": "The period’s clearest behavior change is the Defender for Office 365 quarantine rollout: beginning in January 2026 and completing by March, admin quarantine will list messages by individual recipient and require release per user. Backend durability is also being improved, with no end-user change. A new Teams Tenant Allow/Block List article supplies concrete blocking prerequisites and limits. The remaining updates are chiefly documentation maintenance covering mobile onboarding order, antivirus repair guidance, React telemetry wording, Core service scope, Plan 1 terminology, and Tenant Allow/Block List link cleanup, including removal of the former Teams configuration page.",
+      "adminImpact": "Update quarantine runbooks and administrative documentation for recipient-specific listings and per-user release. Before configuring Teams blocks, check the documented Teams settings, permissions, and limits of 4,000 domain entries and 200 user entries. Use the revised Antivirus startup procedure when troubleshooting and follow the documented app-installation and profile-assignment order for Intune mobile onboarding; no broader action is stated for the other reference updates.",
       "keyChanges": [
         {
-          "title": "Block domains and addresses in Microsoft Teams using the Tenant Allow/Block List",
-          "detail": "Added Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md.",
+          "title": "Quarantine rollout changes administrator message handling",
+          "detail": "Microsoft says the January 2026 rollout, completing by March, will list quarantined messages by individual recipient, improve backend durability, and require message release separately for each user. End-user behavior is unchanged.",
+          "product": "Defender for Office 365 / Defender XDR",
+          "sourceId": "MC1171845"
+        },
+        {
+          "title": "Teams block-list guidance records prerequisites and entry limits",
+          "detail": "The new article explains how security administrators block Teams domains and email addresses from the Microsoft Defender portal. It documents required Teams settings and permissions, limits of 4,000 domain entries and 200 user entries, and the effects and timing of blocking.",
           "product": "Office 365",
           "sourceId": "doc-2026-01-09-block-domains-and-addresses-in-microsoft-teams-using-the-tenant-allow-block-list-01"
         },
         {
-          "title": "Microsoft Defender Core service overview",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-core-service-overview.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-09-microsoft-defender-core-service-overview-04"
-        },
-        {
-          "title": "Troubleshoot Microsoft Defender Antivirus service startup problems",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-service-startup-problems.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-09-troubleshoot-microsoft-defender-antivirus-service-startup-problems-03"
-        },
-        {
-          "title": "Microsoft Defender for Endpoint - Mobile Threat Defense",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mtd.md.",
+          "title": "Mobile Threat Defense onboarding order is explicit for Intune enrollments",
+          "detail": "The updated guidance places Defender app installation and assignment of configuration profiles or policies before automatic onboarding, including for supervised ADE and Apple Configurator enrollments.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-09-microsoft-defender-for-endpoint-mobile-threat-defense-07"
         },
         {
-          "title": "Microsoft Defender for Office 365: Enhancing the quarantine experience for administrators",
-          "detail": "Microsoft Defender for Office 365 is enhancing quarantine for admins by listing messages by individual recipients, improving backend durability, and requiring message release per user. Rollout begins January 2026, completing by March. No changes affect end users. Admins should update practices and documentation accordingly.",
-          "product": "Defender XDR",
-          "sourceId": "MC1171845"
+          "title": "Antivirus startup troubleshooting adds repair steps and corrected paths",
+          "detail": "The procedure now clarifies elevated command usage, updates MpCmdRun.exe paths, adds DISM and SFC repair commands, and revises the troubleshooting sequence and wording.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-09-troubleshoot-microsoft-defender-antivirus-service-startup-problems-03"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 1978,
+        "outputTokens": 6269,
+        "costUsd": 0.007918
+      }
     },
     "2026-01-10": {
-      "headline": "Safe Documents in Microsoft 365 A5/E5/G5 or Microsoft Defender Suite leads 2 Defender updates",
-      "overview": "10 January 2026 recorded 1 new, 1 updated Microsoft Defender documentation changes. The most active areas were Office 365.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Safe Documents guidance names included A5, E5, G5, and Defender Suite licenses",
+      "overview": "The period brought two Office 365 documentation changes: a new reference for US government deployments and updated Safe Documents licensing guidance. The government page covers GCC, GCC High, and DoD environments, while the licensing page identifies included suites and excludes Defender for Office 365 Plans 1 and 2.",
+      "adminImpact": "Government administrators can use the new page to verify applicable licensing and portal or sensor endpoints for their environment. Administrators assessing Safe Documents eligibility should verify users have Microsoft 365 A5, E5, GCC G5, GCC High G5, or Microsoft Defender Suite licensing; Defender for Office 365 Plan 1 and Plan 2 do not include Safe Documents.",
       "keyChanges": [
         {
-          "title": "Safe Documents in Microsoft 365 A5/E5/G5 or Microsoft Defender Suite",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-01-10-safe-documents-in-microsoft-365-a5-e5-g5-or-microsoft-defender-suite-02"
-        },
-        {
-          "title": "Microsoft Defender for Office 365 for US Government customers",
-          "detail": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md.",
+          "title": "US government deployment coverage added",
+          "detail": "A new Microsoft Learn page covers Microsoft Defender for Office 365 deployments in GCC, GCC High, and DoD, including licensing requirements, portal and sensor endpoints, and differences from the commercial offering.",
           "product": "Office 365",
           "sourceId": "doc-2026-01-10-microsoft-defender-for-office-365-for-us-government-customers-01"
+        },
+        {
+          "title": "Safe Documents service-plan eligibility specified",
+          "detail": "The updated page lists Microsoft 365 A5, E5, GCC G5, GCC High G5, and Microsoft Defender Suite as products that include the SafeDocs service plan. It also states that Defender for Office 365 Plan 1 and Plan 2 do not include Safe Documents.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-01-10-safe-documents-in-microsoft-365-a5-e5-g5-or-microsoft-defender-suite-02"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 1188,
+        "outputTokens": 1400,
+        "costUsd": 0.001918
+      }
     },
     "2026-01-11": {
-      "headline": "Playbook Mssps leads 8 Defender updates",
-      "overview": "11 January 2026 recorded 7 updated, 1 removed Microsoft Defender documentation changes. The most active areas were Endpoint, Unified SecOps, Identity.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Defender Identity sensor v3 preview automates required Windows auditing settings",
+      "overview": "The most consequential update adds documented automatic auditing for Defender for Identity sensor v3.x: required Windows event settings are applied to new sensors and misconfigurations are corrected on existing domain controllers. Endpoint guidance now clarifies Device Discovery network handling and names supported Ubuntu Pro versions and architectures. In Unified SecOps, the 1,385-line MSSP technical playbook was removed while a separate implementation guide received navigation and link repairs.",
+      "adminImpact": "Identity administrators can use the automatic configuration capability or manually configure auditing through the Defender portal or PowerShell. Linux administrators should check deployments against the explicitly listed Ubuntu Pro 22.04 and 24.04 versions, including ARM64 variants. Device Discovery guidance now makes the consequences of monitoring non-corporate networks or ignoring networks clearer. MSSPs can no longer access the removed playbook at its listed URL, while the implementation guide's corrected sequence and links require no action.",
       "keyChanges": [
         {
-          "title": "Playbook Mssps",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-          "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-11-playbook-mssps-06"
-        },
-        {
-          "title": "Configure audit policies for Windows event logs",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+          "title": "Sensor v3.x guidance adds automatic Windows event auditing",
+          "detail": "The Prerequisites Sensor Version 3 page now describes a preview capability that automatically applies required Windows event auditing settings to new sensors and fixes misconfigurations on existing domain controllers. Administrators can use the automatic configuration; otherwise, the documented alternative is manual configuration in the Defender portal or with PowerShell.",
           "product": "Identity",
-          "sourceId": "doc-2026-01-11-configure-audit-policies-for-windows-event-logs-04"
+          "sourceId": "doc-2026-01-11-prerequisites-sensor-version-3-05"
         },
         {
-          "title": "Configure Device Discovery",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
+          "title": "Device Discovery guidance details corporate-network monitoring and ignore effects",
+          "detail": "The Configure Device Discovery guidance now explains default monitoring for corporate networks, consolidates network actions and their effects in a table, and updates filtering instructions. It also clarifies the risks of monitoring non-corporate networks and the stale inventory details that can result from ignoring networks.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-11-configure-device-discovery-02"
         },
         {
-          "title": "Microsoft Defender portal implementation guide for MSSPs",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
+          "title": "MSSP technical playbook covering multitenant management was removed",
+          "detail": "The 1,385-line Microsoft Defender Technical Playbook for MSSPs was deleted from the documentation site. The removed material included guidance for multitenant Microsoft Defender and Microsoft Sentinel management, and it is no longer available at the listed documentation URL.",
           "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-11-microsoft-defender-portal-implementation-guide-for-mssps-07"
+          "sourceId": "doc-2026-01-11-playbook-mssps-before-dedupe-08"
         },
         {
-          "title": "Mde Linux Prerequisites",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
+          "title": "Defender for Endpoint Linux prerequisites now name Ubuntu Pro versions and ARM64",
+          "detail": "The MDE Linux prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries. Administrators should verify documented version and architecture coverage when assessing Linux deployments.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-11-mde-linux-prerequisites-01"
+        },
+        {
+          "title": "MSSP implementation guidance corrects links and the multitenant step sequence",
+          "detail": "The Microsoft Defender portal implementation guide for MSSPs now uses corrected links, moves Multi-Tenant operations from Step 4 to Step 3, updates image paths, and adds service metadata. The changes improve navigation and document accuracy; no administrator action is required.",
+          "product": "Unified SecOps",
+          "sourceId": "doc-2026-01-11-microsoft-defender-portal-implementation-guide-for-mssps-07"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 1818,
+        "outputTokens": 2251,
+        "costUsd": 0.003065
+      }
     },
     "2026-01-12": {
-      "headline": "Microsoft Defender portal implementation guide for Managed Security Service Providers (MSSPs) leads 62 Defender updates",
-      "overview": "12 January 2026 recorded 6 new, 52 updated, 4 removed Microsoft Defender documentation changes. The most active areas were Endpoint, Identity, Unified SecOps.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Defender device discovery guidance makes Standard scanning primary and flags Windows authenticated scan deprecation",
+      "overview": "The period was led by a substantial rewrite of Microsoft Defender for Endpoint device discovery guidance. Standard scan is presented as the default, with clearer comparisons of scan behavior, protocols, use cases, exclusions, and probe traffic; the material also states that Windows authenticated scan is deprecated from 18 December 2025. Microsoft Defender for Identity guidance clarifies automatic auditing interactions with local policy and GPO files, while new Unified SecOps and Identity articles add coverage for MSSP onboarding and account linking. Most changes are documentation additions or revisions, with the scan deprecation statement and audit-policy instructions carrying the clearest planning implications.",
+      "adminImpact": "Endpoint teams still using Windows authenticated scans should review the deprecation FAQs and scan guidance against the documented 18 December 2025 date. For Defender for Identity automatic auditing, account for the domain controller’s local policy, remove conflicting audit.csv files from the local GPO store, and verify the running process as described. MSSPs can use the new implementation guide for customer onboarding and Sentinel workspace transitions; administrators using account-linking features need the Global Administrator or Security Data (Manage) URBAC role. Other listed changes are primarily reference, navigation, and terminology updates.",
       "keyChanges": [
         {
-          "title": "Microsoft Defender portal implementation guide for Managed Security Service Providers (MSSPs)",
-          "detail": "Added Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
+          "title": "Standard discovery is now the documented default",
+          "detail": "The Device Discovery guidance presents Standard scan first as the default, followed by Basic scan, and organizes the comparison around how each scan works, considerations, and use cases. Administrators can use the revised comparison when selecting a mode for their network protocols and conditions.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-12-device-discovery-48"
+        },
+        {
+          "title": "Windows authenticated scanning receives an explicit deprecation date",
+          "detail": "The documentation describes authenticated network scans using designated onboarded Windows devices and read-only SNMPv2/v3 to discover network infrastructure, and states that Windows authenticated scan is deprecated from 18 December 2025. Administrators still using that path should review the deprecation FAQs and scan guidance.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-12-device-discovery-27"
+        },
+        {
+          "title": "Defender for Identity clarifies automatic auditing policy conflicts",
+          "detail": "The Windows event collection guidance says automatic auditing applies settings to the domain controller’s local policy and warns that domain GPO audit.csv files can conflict. It adds verification through process checks, KQL, or auditpol; administrators using automatic configuration should remove conflicting audit.csv files from the local GPO store and verify the running process.",
+          "product": "Identity",
+          "sourceId": "doc-2026-01-12-configure-windows-event-collection-44"
+        },
+        {
+          "title": "A new Unified SecOps guide structures MSSP onboarding",
+          "detail": "The new Microsoft Defender portal guide covers environment preparation, customer onboarding, content distribution, and daily multitenant security operations. It also highlights the need to transition Microsoft Sentinel workspaces when onboarding customers, giving MSSPs a reference for rollout planning and cross-tenant operations.",
           "product": "Unified SecOps",
           "sourceId": "doc-2026-01-12-microsoft-defender-portal-implementation-guide-for-managed-security-service-providers-mssps-02"
         },
         {
-          "title": "Microsoft Defender portal implementation guide for Managed Security Service Providers (MSSPs)",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-          "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-12-microsoft-defender-portal-implementation-guide-for-managed-security-service-providers-mssps-08"
-        },
-        {
-          "title": "Configure Windows event auditing | Microsoft Defender for Identity",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
+          "title": "Defender for Identity documents cross-provider account linking",
+          "detail": "A new article explains how to link or unlink legacy, orphaned, unused, and other related accounts across Active Directory, Microsoft Entra ID, and non-Microsoft identity providers. Using the capability requires the Global Administrator or Security Data (Manage) URBAC role.",
           "product": "Identity",
-          "sourceId": "doc-2026-01-12-configure-windows-event-auditing-microsoft-defender-for-identity-43"
-        },
-        {
-          "title": "Device discovery overview",
-          "detail": "Added Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-12-device-discovery-overview-05"
-        },
-        {
-          "title": "Enable Instant Visibility Protection And Governance Actions For Your Apps",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-12-enable-instant-visibility-protection-and-governance-actions-for-your-apps-09"
+          "sourceId": "doc-2026-01-12-link-unlink-an-account-to-an-identity-04"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 5758,
+        "outputTokens": 6972,
+        "costUsd": 0.009518
+      }
     },
     "2026-01-13": {
-      "headline": "Microsoft Defender portal implementation guide for MSSPs leads 47 Defender updates",
-      "overview": "13 January 2026 recorded 2 new, 43 updated, 2 removed Microsoft Defender documentation changes. The most active areas were Vulnerability Management, Defender XDR, Unified SecOps.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Live-response MDE tracing leads Defender guidance on connector and audit settings",
+      "overview": "The most actionable changes are administrator procedures rather than broad service announcements. A new Endpoint how-to documents MDE Client Analyzer tracing through live response; Cloud Apps guidance adds a reconfiguration step for connectors configured before January 2026; and Defender for Identity guidance adds a configuration report and Group Policy conflict check. Identity Inventory account linking and clearer Defender for Office 365 licensing guidance are also notable. Most other edits are terminology, links, schema, or page maintenance, including the Vulnerability Management shift from “vulnerable components” to “Software components.”",
+      "adminImpact": "For supported procedures, upload the latest analyzer package and enable live response before tracing; for Microsoft 365 connectors configured before January 2026, select all default components and choose Connect again, with file monitoring enabled for file protection; and run New-MDIConfigurationReport while reviewing Group Policy before automatic Windows event collection. Account linking requires the Global Administrator or Security Data (Manage) URBAC role. Use the explicit Plan 1 or Plan 2 eligibility wording when assessing access to the Teams message entity panel.",
       "keyChanges": [
         {
-          "title": "Microsoft Defender portal implementation guide for MSSPs",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-          "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-13-microsoft-defender-portal-implementation-guide-for-mssps-10"
-        },
-        {
-          "title": "Tvm Vulnerable Components",
-          "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-01-13-tvm-vulnerable-components-33"
-        },
-        {
-          "title": "Microsoft Defender Security Center Antivirus",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-security-center-antivirus.md.",
+          "title": "New Endpoint runbook documents live-response MDE tracing",
+          "detail": "A new how-to explains how to start and stop MDE Client Analyzer tracing on supported Windows devices through live response. The procedure requires live response to be enabled and the latest analyzer package uploaded, then covers verifying collection, reproducing an issue, and stopping the trace. It supports troubleshooting when users are signed out or direct device access is restricted.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-01-13-microsoft-defender-security-center-antivirus-22"
+          "sourceId": "doc-2026-01-13-start-and-stop-mde-client-analyzer-trace-via-live-response-02"
         },
         {
-          "title": "Advanced Hunting Behaviorentities Table",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-01-13-advanced-hunting-behaviorentities-table-18"
+          "title": "Cloud Apps guidance adds a January 2026 connector reconfiguration step",
+          "detail": "The Microsoft Defender for Cloud Apps guidance now says all Microsoft 365 components are selected by default for maximum protection. Required components support certain detection and response functions, while file protection still requires file monitoring. For connectors configured before January 2026, administrators should select all default options and choose Connect again.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-01-13-protect-your-microsoft-365-environment-microsoft-defender-for-cloud-apps-30"
         },
         {
-          "title": "Link/Unlink an account to an identity",
-          "detail": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md.",
+          "title": "Defender for Identity adds a preflight report to event-collection guidance",
+          "detail": "Configure Windows Event Collection now recommends running New-MDIConfigurationReport before configuration and describes sensor-applied auditing changes for directory services, NTLM, domain objects, AD FS, and Windows audit policies. It also warns that Group Policy can conflict with sensor-applied local settings, so administrators should review existing policies before enabling automatic collection.",
+          "product": "Identity",
+          "sourceId": "doc-2026-01-13-configure-windows-event-collection-17"
+        },
+        {
+          "title": "Identity Inventory gets account linking with explicit URBAC roles",
+          "detail": "A new how-to explains how to link or unlink legacy, unused, and orphaned accounts to identities through the Defender portal’s Identity Inventory. The documented roles are Global Administrator or Security Data (Manage).",
           "product": "Identity",
           "sourceId": "doc-2026-01-13-link-unlink-an-account-to-an-identity-01"
+        },
+        {
+          "title": "Teams message panel eligibility guidance now names Plan 1 and Plan 2",
+          "detail": "The Microsoft Defender for Office 365 guidance now states that the Teams message entity panel is available to organizations with Plan 1 and Plan 2, replacing wording that described Plan 2 only. Plan 1 administrators can use the updated eligibility guidance when assessing access.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-01-13-the-teams-message-entity-panel-in-microsoft-defender-for-office-365-40"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 5594,
+        "outputTokens": 8026,
+        "costUsd": 0.01075
+      }
     },
     "2026-01-14": {
-      "headline": "Fixed Reported Inaccuracies leads 396 Defender updates",
-      "overview": "14 January 2026 recorded 394 updated Microsoft Defender documentation changes and 2 relevant Message Center announcements. The most active areas were Endpoint, Identity, Defender XDR.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Endpoint DLP alerting retires in March as Defender for Identity automates auditing",
+      "overview": "The period was dominated by Endpoint documentation maintenance, including removal of legacy Tech Community references. The substantive administrator changes are a March retirement of endpoint-sensitive-data alerting, a required path for new macOS extension policies, an automatic Defender for Identity auditing rollout, clarified Unified RBAC role guidance, and a planned Cloud Apps connector configuration update.",
+      "adminImpact": "Prioritize moving endpoint-sensitive-data alerting, enforcement, and investigation to Microsoft Purview DLP before 23 March 2026. Use the Intune settings catalog for new macOS extension policies; no migration is stated for existing policies. Monitor Defender for Identity health alerts during the auditing rollout, apply the clarified Unified RBAC guidance when evaluating activation, and review Cloud Apps connector settings and required Entra permissions when the planned page update arrives.",
       "keyChanges": [
         {
-          "title": "Fixed Reported Inaccuracies",
-          "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/fixed-reported-inaccuracies.md.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-01-14-fixed-reported-inaccuracies-16"
+          "title": "Endpoint DLP sensitive-data alerting has a March 23 retirement deadline",
+          "detail": "Microsoft will retire endpoint-sensitive-data alerting in the Microsoft Defender portal by 23 March 2026. Existing Defender alert policies will stop generating alerts after that date; Microsoft directs organizations to Microsoft Purview DLP for endpoint alerting, enforcement, and investigation.",
+          "product": "Defender XDR and Microsoft Purview DLP",
+          "sourceId": "MC1217649"
         },
         {
-          "title": "Configure Machines Security Baseline",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-machines-security-baseline.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-14-configure-machines-security-baseline-85"
+          "title": "New macOS extension policies must use the Intune settings catalog",
+          "detail": "The guidance records that Intune policy support for creating macOS extension policies was deprecated in the August 2024 service release 2048. Existing policies continue to work, while new policies must use the settings catalog and configure the System Extension payload; no migration is stated for existing policies.",
+          "product": "Defender for Endpoint",
+          "sourceId": "doc-2026-01-14-manage-profiles-and-approve-extensions-using-intune-393"
         },
         {
-          "title": "Advanced Hunting Overview",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-overview.md.",
+          "title": "Defender for Identity rolls out automatic auditing correction for v3.x sensors",
+          "detail": "During the gradual rollout, required Windows event-auditing settings are applied to new version 3.x sensors and misconfigurations are corrected on existing sensors. Related health alerts identify auditing problems; administrators should understand the automatic behavior and monitor those alerts.",
+          "product": "Defender for Identity",
+          "sourceId": "doc-2026-01-14-whats-new-09"
+        },
+        {
+          "title": "Unified RBAC guidance now names Security Administrators as retaining privileges",
+          "detail": "The Manage RBAC guidance now says Security Administrators retain their assigned administrator privileges when Microsoft Defender XDR Unified RBAC is activated, replacing the previous reference to Global Administrators. The revised wording should be used when evaluating activation; no required action is stated.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-01-14-advanced-hunting-overview-29"
+          "sourceId": "doc-2026-01-14-manage-rbac-261"
         },
         {
-          "title": "Caac Known Issues",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-14-caac-known-issues-04"
-        },
-        {
-          "title": "Mdo Gov",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-gov.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-01-14-mdo-gov-391"
+          "title": "Cloud Apps connector updates add defaults for new Microsoft 365 connectors",
+          "detail": "Microsoft says the Microsoft 365 connector configuration page will receive clearer layouts and new default values for new connectors in January 2026. Existing connectors remain unchanged; administrators should review current settings and confirm that required Entra permissions are enabled.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "MC1217650"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 5287,
+        "outputTokens": 3679,
+        "costUsd": 0.005472
+      }
     },
     "2026-01-15": {
-      "headline": "Manage profiles and approve extensions using Intune leads 12 Defender updates",
-      "overview": "15 January 2026 recorded 12 updated Microsoft Defender documentation changes. The most active areas were Endpoint, Office 365, Defender XDR.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Teams ZAP unavailable across GCC, GCC High, and DoD as setup guidance sharpens",
+      "overview": "The clearest administrator-facing change is an explicit scope limit for Zero-hour Auto Purge in Teams: the guidance says it is unavailable in Microsoft 365 GCC, GCC High, and DoD. Other substantive updates tighten macOS System Extension profile instructions, consolidate Windows EDR detection testing around a TCP port 80 prerequisite, document partial Defender XDR query results above 64 MB, and record removal of telemetryd_v2 in Linux builds 101.25102.0005 and later. Most remaining edits are feedback, metadata, link, screenshot, or terminology maintenance.",
+      "adminImpact": "Administrators in the affected government clouds should not expect Teams ZAP protection. macOS profile authors should use the Intune Settings Catalog guidance, EDR test operators should verify TCP port 80 when required, and XDR query users should treat over-limit results as partial. The Linux update requires no administrator action.",
       "keyChanges": [
         {
-          "title": "Manage profiles and approve extensions using Intune",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-15-manage-profiles-and-approve-extensions-using-intune-07"
-        },
-        {
-          "title": "Provide feedback on the Microsoft Defender for Endpoint client analyzer tool",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-15-provide-feedback-on-the-microsoft-defender-for-endpoint-client-analyzer-tool-09"
-        },
-        {
-          "title": "Zero Hour Auto Purge",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+          "title": "Teams ZAP scope excludes GCC, GCC High, and DoD",
+          "detail": "The Zero Hour Auto Purge guidance now states that Zero-hour Auto Purge for Microsoft Teams isn't available in Microsoft 365 GCC, GCC High, or DoD.",
           "product": "Office 365",
           "sourceId": "doc-2026-01-15-zero-hour-auto-purge-11"
         },
         {
-          "title": "How Microsoft names threat actors",
-          "detail": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
-          "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-15-how-microsoft-names-threat-actors-02"
+          "title": "Intune macOS profiles specify System Extension settings",
+          "detail": "The article now directs administrators to the Intune Settings Catalog for Allowed System Extensions and Allowed System Extension Types, including the required bundle identifiers, extension types, and team identifier.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-15-manage-profiles-and-approve-extensions-using-intune-07"
         },
         {
-          "title": "Whats New",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+          "title": "EDR detection testing consolidates Windows prerequisites",
+          "detail": "Separate Windows client and server sections are replaced by one Windows section, client-specific PowerShell test steps are removed, and the TCP port 80 prerequisite applies to the Windows device.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-15-edr-detection-03"
+        },
+        {
+          "title": "Defender XDR identifies query results above 64 MB as partial",
+          "detail": "When query results exceed 64 MB, the portal returns the maximum number of records that fit and displays a message explaining that the results are partial.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-01-15-whats-new-01"
+        },
+        {
+          "title": "Linux builds remove the dedicated telemetryd_v2 process",
+          "detail": "For builds 101.25102.0005 and later, agent process handling is streamlined by removing telemetryd_v2 while preserving existing functionality and data collection.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-15-linux-whatsnew-04"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 2249,
+        "outputTokens": 3113,
+        "costUsd": 0.004185
+      }
     },
     "2026-01-16": {
-      "headline": "Onboard Windows devices using a local script leads 14 Defender updates",
-      "overview": "16 January 2026 recorded 14 updated Microsoft Defender documentation changes. The most active areas were Office 365, Endpoint, Defender XDR.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Windows local onboarding guidance recommends scripts for 10 devices or fewer",
+      "overview": "All 14 entries were documentation updates, with no new or removed items. The most consequential guidance concerns Windows onboarding scale, Defender Antivirus registry verification after updates, and the documented Linux telemetryd_v2 build threshold. Office 365 also added a license-based Teams protection matrix, while Defender RBAC guidance explicitly includes Microsoft Sentinel.",
+      "adminImpact": "Use the local onboarding script for 10 devices or fewer; use other deployment methods for production or larger deployments, following the revised portal, connectivity, and elevated-command-prompt steps. After Defender Antivirus platform or engine updates, verify relevant registry keys and update them manually if needed. Use the Teams matrix for license comparisons and build 101.24062.0001 as the documented Linux telemetryd_v2 threshold.",
       "keyChanges": [
         {
-          "title": "Onboard Windows devices using a local script",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/configure-endpoints-script.md.",
+          "title": "Local onboarding script guidance is set at 10 devices or fewer",
+          "detail": "The Windows local-script article now recommends this method for 10 devices or fewer, advises other deployment methods for production or larger deployments, and updates the Defender portal path, Standard and Streamlined connectivity choices, and elevated-command-prompt procedure.",
           "product": "Endpoint",
           "sourceId": "doc-2026-01-16-onboard-windows-devices-using-a-local-script-01"
         },
         {
-          "title": "Mdo Support Teams About",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-01-16-mdo-support-teams-about-14"
+          "title": "Defender Antivirus warns that registry entries may lag platform updates",
+          "detail": "The documentation now says some registry entries may not update automatically after the latest Defender Antivirus platform or engine update. Administrators should verify the relevant keys and update them manually if needed so they reflect the current version.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-16-microsoft-defender-antivirus-windows-02"
         },
         {
-          "title": "Mdo Support Teams About",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
+          "title": "Teams protection coverage is mapped across license levels",
+          "detail": "The Teams security article now includes a matrix covering all Teams licenses, Defender for Office 365 Plan 1, and Plan 2. The matrix includes Safe Links, Safe Attachments, quarantine, remediation, attack simulation training, and advanced hunting.",
           "product": "Office 365",
           "sourceId": "doc-2026-01-16-mdo-support-teams-about-11"
         },
         {
-          "title": "Mdo About",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/mdo-about.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-01-16-mdo-about-10"
+          "title": "Linux telemetryd_v2 removal is tied to build 101.24062.0001 and later",
+          "detail": "The documented threshold changed from build 101.25102.0005 and later to 101.24062.0001 and later. The article states that existing functionality and data collection are unchanged.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-16-linux-whatsnew-03"
         },
         {
-          "title": "Activate Defender Rbac",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/activate-defender-rbac.md.",
+          "title": "Defender RBAC guidance explicitly includes Microsoft Sentinel",
+          "detail": "The documentation now lists Microsoft Sentinel among the services covered by Defender RBAC and standardizes the capitalization of URBAC.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-01-16-activate-defender-rbac-06"
+          "sourceId": "doc-2026-01-16-activate-defender-rbac-07"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 2537,
+        "outputTokens": 3187,
+        "costUsd": 0.004332
+      }
     },
     "2026-01-17": {
       "headline": "Migrating Asr Rules leads 40 Defender updates",
@@ -8479,121 +8553,142 @@
   },
   "weeks": {
     "2025-12-29": {
-      "headline": "Attack surface reduction rules reference leads 14 Defender updates",
-      "overview": "Week of 29 December 2025 recorded 14 updated Microsoft Defender documentation changes. The most active areas were Endpoint, Cloud Apps, Identity.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Google Workspace lacks Enterprise Edge DLP scans while Defender for Identity adds assessments",
+      "overview": "The most consequential updates document a protection gap and expand identity-risk coverage. Cloud Apps guidance now says Google Workspace in the Enterprise Edge browser lacks in-browser protection, Secure Edge Session Controls, and real-time DLP file scans, while Defender for Identity’s January 2026 release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, including direct, indirect, and nested membership. Endpoint changes are mainly procedural: per-rule ASR exclusions, platform-specific EDR testing, and the permission requirement for undoing contain-user actions.",
+      "adminImpact": "Review whether Google Workspace users in Enterprise Edge require controls that are unavailable in that combination. Use the new Defender for Identity assessments to review privileged or unnecessary access. For Endpoint operations, follow the relevant EDR procedure and verify that TCP port 80 is available before server testing; use the documented per-rule ASR exclusion methods and confirm that operators who need to undo contain-user actions have the required Global Administrator role in Microsoft Entra.",
       "keyChanges": [
         {
-          "title": "Attack surface reduction rules reference",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-01-attack-surface-reduction-rules-reference-05"
+          "title": "Enterprise Edge guidance documents Google Workspace protection gaps",
+          "detail": "The Cloud Apps known-issues entry states that Google Workspace in Enterprise Edge does not support in-browser protection, Secure Edge Session Controls, or real-time DLP file scans. Browser sessions use fallback authentication suffixes instead of Secure Edge.",
+          "product": "Cloud Apps",
+          "sourceId": "doc-2026-01-04-caac-known-issues-04"
         },
         {
-          "title": "Attack Surface Reduction Rules Reference",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-01-attack-surface-reduction-rules-reference-06"
-        },
-        {
-          "title": "Enable attack surface reduction rules",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-01-enable-attack-surface-reduction-rules-03"
-        },
-        {
-          "title": "Whats New",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+          "title": "Defender for Identity adds privileged-access assessment coverage",
+          "detail": "The January 2026 release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, covering direct, indirect, and nested membership. Administrators can use them to identify elevated or unnecessary access and review exposure.",
           "product": "Identity",
           "sourceId": "doc-2026-01-01-whats-new-08"
         },
         {
-          "title": "Caac Known Issues",
-          "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-01-04-caac-known-issues-02"
+          "title": "ASR guidance states that exclusions can be configured per rule",
+          "detail": "The enablement guidance now states that Group Policy, PowerShell, and Intune can configure exclusions for specific attack surface reduction rules. Group Policy and PowerShell users can therefore use targeted per-rule exclusions rather than exclusions applied across all rules.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-01-enable-attack-surface-reduction-rules-03"
+        },
+        {
+          "title": "EDR detection testing now distinguishes client and server procedures",
+          "detail": "Windows client instructions use PowerShell to create and rename an EICAR test file. Windows server instructions retain the download-and-run test and add a TCP port 80 prerequisite with a connectivity check.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-01-edr-detection-01"
+        },
+        {
+          "title": "Undoing contain-user actions requires Global Administrator",
+          "detail": "Response-action guidance now states that undoing contain-user actions requires membership in the Global Administrator role in Microsoft Entra permissions, alongside least-privilege guidance. Operators without that role cannot perform the operation.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-01-01-take-response-actions-on-a-device-02"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 2324,
+        "outputTokens": 5201,
+        "costUsd": 0.006706
+      }
     },
     "2026-01-05": {
-      "headline": "Get Security Baselines Assessment Configurations leads 432 Defender updates",
-      "overview": "Week of 5 January 2026 recorded 3 new, 423 updated, 4 removed Microsoft Defender documentation changes and 2 relevant Message Center announcements. The most active areas were Endpoint, Defender XDR, Office 365.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Defender for Office 365 quarantine rollout brings recipient-level lists and per-user releases",
+      "overview": "The week’s clearest operational changes are a January–March 2026 Defender for Office 365 quarantine rollout and an opt-in Windows event-auditing setup feature for Defender for Identity unified sensors v3.x. Vulnerability Management reporting is also being narrowed, while Exposure Management content now covers cloud software inventory. A new Teams blocking procedure adds concrete limits and prerequisites. Most of the remaining update volume is documentation maintenance—especially Endpoint API URLs, OData examples, navigation, and table formatting—rather than broad feature announcements.",
+      "adminImpact": "Update quarantine runbooks for recipient-specific listings and per-user releases; no end-user change is stated. Decide whether to enable the unified-sensor auditing option through the UI or Graph API during the January rollout. Rebaseline expectations for Vulnerability Management reports, particularly the 30-day history and Device group-only filtering, with Government cloud timing in late January. For Teams blocks, validate settings, permissions, and entry limits before configuring. Integration owners should review affected Endpoint API references for the move from the old Security Center hostname to `api.security.microsoft.com`.",
       "keyChanges": [
         {
-          "title": "Get Security Baselines Assessment Configurations",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/api/get-security-baselines-assessment-configurations.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-08-get-security-baselines-assessment-configurations-150"
-        },
-        {
-          "title": "Safe Documents in Microsoft 365 A5/E5/G5 or Microsoft Defender Suite",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-01-10-safe-documents-in-microsoft-365-a5-e5-g5-or-microsoft-defender-suite-02"
-        },
-        {
-          "title": "Tvm Vulnerable Devices Report",
-          "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-devices-report.md.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-01-07-tvm-vulnerable-devices-report-47"
-        },
-        {
-          "title": "Security Copilot Agents Defender",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/security-copilot-agents-defender.md.",
+          "title": "Defender for Office 365 quarantine becomes recipient-specific for administrators",
+          "detail": "Message Center notice MC1171845 says the January–March 2026 rollout will list quarantined messages by individual recipient and require releases per user, alongside backend durability improvements. End-user behavior is unchanged.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-01-08-security-copilot-agents-defender-14"
+          "sourceId": "MC1171845"
         },
         {
-          "title": "Whats New",
-          "detail": "Updated Microsoft Defender documentation in exposure-management/whats-new.md.",
+          "title": "Unified sensors v3.x get opt-in automatic Windows event auditing",
+          "detail": "Defender for Identity unified sensors v3.x will offer automatic configuration of Windows event-auditing settings from mid-January 2026. Administrators can enable it in the UI or through Graph API; rollout is scheduled to complete by the end of January.",
+          "product": "Defender XDR",
+          "sourceId": "MC1193410"
+        },
+        {
+          "title": "Vulnerability Management report history and filters are reduced",
+          "detail": "The updated January What's New entry says the report removes the Windows 10/11 version-over-time section, limits filtering to Device group, and reduces history to the last 30 days. Government cloud customers are scheduled to see the changes in late January 2026.",
+          "product": "Vulnerability Management",
+          "sourceId": "doc-2026-01-07-whats-new-in-microsoft-defender-vulnerability-management-48"
+        },
+        {
+          "title": "Exposure Management documents cloud software inventory for exposure analysis",
+          "detail": "January 2026 Exposure Management content now covers cloud software inventory, including cloud software, application versions, installed assets, and related vulnerabilities. Administrators can use the inventory to understand exposure and prioritize vulnerability assessments.",
           "product": "Exposure Management",
           "sourceId": "doc-2026-01-06-whats-new-19"
+        },
+        {
+          "title": "Teams blocking guidance sets Tenant Allow/Block List limits",
+          "detail": "A new Office 365 procedure explains blocking Teams domains and email addresses from the Microsoft Defender portal. It identifies required Teams settings and permissions, caps the list at 4,000 domain entries and 200 user entries, and documents block effects and timing.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-01-09-block-domains-and-addresses-in-microsoft-teams-using-the-tenant-allow-block-list-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 8943,
+        "outputTokens": 9450,
+        "costUsd": 0.013129
+      }
     },
     "2026-01-12": {
-      "headline": "Microsoft Defender portal implementation guide for Managed Security Service Providers (MSSPs) leads 597 Defender updates",
-      "overview": "Week of 12 January 2026 recorded 11 new, 575 updated, 9 removed Microsoft Defender documentation changes and 2 relevant Message Center announcements. The most active areas were Endpoint, Identity, Cloud Apps.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Endpoint DLP alerting retires March 23 as macOS and ASR guidance shifts",
+      "overview": "Microsoft will retire endpoint-sensitive data alerting in the Defender portal on March 23, 2026. Existing Defender alert policies will stop generating alerts after that date, with Microsoft directing organizations to Microsoft Purview DLP for endpoint alerting, enforcement, and investigation. Other notable updates cover new macOS extension policy requirements, revised Microsoft 365 connector setup defaults, expanded Defender for Identity sensor guidance, and a reorganized attack surface reduction enablement path.",
+      "adminImpact": "Treat March 23 as the key migration deadline and move endpoint sensitive-data alerting, enforcement, and investigation to Microsoft Purview DLP. Use the Intune settings catalog and System Extension payload for new macOS extension policies; existing policies can continue working. Review Microsoft 365 connector settings and required Entra permissions, inspect Defender for Identity RPC-auditing alerts, and update ASR rollout runbooks against the new prerequisites and deployment methods.",
       "keyChanges": [
         {
-          "title": "Microsoft Defender portal implementation guide for Managed Security Service Providers (MSSPs)",
-          "detail": "Added Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-          "product": "Unified SecOps",
-          "sourceId": "doc-2026-01-12-microsoft-defender-portal-implementation-guide-for-managed-security-service-providers-mssps-02"
-        },
-        {
-          "title": "Tvm Vulnerable Components",
-          "detail": "Updated Microsoft Defender documentation in defender-vulnerability-management/tvm-vulnerable-components.md.",
-          "product": "Vulnerability Management",
-          "sourceId": "doc-2026-01-13-tvm-vulnerable-components-33"
-        },
-        {
-          "title": "Microsoft Defender Security Center Antivirus",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-security-center-antivirus.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-01-13-microsoft-defender-security-center-antivirus-22"
-        },
-        {
-          "title": "Advanced Hunting Overview",
-          "detail": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-overview.md.",
+          "title": "Endpoint DLP sensitive-data alerting has a March 23 retirement deadline",
+          "detail": "Microsoft will retire endpoint-sensitive data alerting in the Defender portal on March 23, 2026. Existing Defender alert policies will stop generating alerts after that date; Microsoft directs organizations to Microsoft Purview DLP for alerting, enforcement, and investigation of endpoint sensitive-data activity.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-01-14-advanced-hunting-overview-29"
+          "sourceId": "MC1217649"
         },
         {
-          "title": "Link/Unlink an account to an identity",
-          "detail": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md.",
-          "product": "Identity",
-          "sourceId": "doc-2026-01-13-link-unlink-an-account-to-an-identity-01"
+          "title": "Defender for Cloud Apps will change defaults for new Microsoft 365 connectors",
+          "detail": "Microsoft says the January 2026 Microsoft 365 connector configuration update will add a clearer layout and new default values for new connectors. Existing connectors remain unchanged; administrators should review current settings and verify that required Microsoft Entra permissions are enabled.",
+          "product": "Defender for Cloud Apps",
+          "sourceId": "MC1217650"
+        },
+        {
+          "title": "New macOS extension policies must use the Intune Settings Catalog",
+          "detail": "Updated guidance states that Intune policy support for creating new macOS extension policies was deprecated in August 2024, service release 2048. Existing policies continue to work, while new policies must use the Intune settings catalog and System Extension payload.",
+          "product": "Defender for Endpoint on macOS",
+          "sourceId": "doc-2026-01-14-manage-profiles-and-approve-extensions-using-intune-393"
+        },
+        {
+          "title": "Attack surface reduction guidance now specifies prerequisites and five deployment paths",
+          "detail": "The new enablement article covers Intune, mobile device management, Configuration Manager, Group Policy, and PowerShell. Using the full attack surface reduction rule feature set requires Defender Antivirus as the primary antivirus—not passive or disabled—along with real-time protection, cloud-delivered protection, and Cloud Protection network connectivity. Microsoft 365 E5 is recommended but not required.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-01-17-enable-attack-surface-reduction-rules-02"
+        },
+        {
+          "title": "Defender for Identity guidance adds RPC-auditing health and sensor configuration details",
+          "detail": "The updated What's New content adds a health alert for v3.x sensors with missing or incorrectly configured enhanced RPC auditing and describes a gradual rollout of automatic Windows event-auditing configuration for new and existing sensors.",
+          "product": "Defender for Identity",
+          "sourceId": "doc-2026-01-12-whats-new-41"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 14729,
+        "outputTokens": 4843,
+        "costUsd": 0.008757
+      }
     },
     "2026-01-19": {
       "headline": "Use Microsoft Defender for Endpoint sensitivity labels to protect your data and prioritize security incident response leads 510 Defender updates",
@@ -10261,43 +10356,50 @@
   },
   "months": {
     "2026-01": {
-      "headline": "Retirement notice: MDE and XDR Advanced Hunting APIs retiring; migrate to Microsoft Graph Security API leads 2303 Defender updates",
-      "overview": "January 2026 recorded 27 new, 2239 updated, 27 removed Microsoft Defender documentation changes and 10 relevant Message Center announcements. The most active areas were Endpoint, Defender XDR, Identity.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "March deadlines retire Defender endpoint DLP alerting and Android 10 support",
+      "overview": "January’s clearest administrator deadlines are March 23, when endpoint-sensitive data alerting in Microsoft Defender retires and existing Defender alert policies stop generating alerts, and March 31, when Defender for Android ends updates, security fixes, and support for Android 10. Microsoft directs endpoint DLP customers to Microsoft Purview DLP, while Android 10 fleets need upgrading or replacement. Defender XDR also introduced built-in alert-tuning rules for low-severity Office 365 alerts, with automated triage and reopening when needed; the rules become active February 5, with an opt-out window until then. Other meaningful changes include Exposure management navigation for Vulnerability Management preview customers and new onboarding-key and package-expiry controls in the Defender deployment tool. Much of the remaining supplied material is metadata, wording, or terminology maintenance rather than a broad capability rollout.",
+      "adminImpact": "Prioritize the two migrations: identify endpoint-sensitive-data alerting that still depends on the Defender portal and move it to Microsoft Purview DLP before March 23; identify Android 10 devices and upgrade or replace them before March 31. Review the Defender XDR alert-tuning rules and opt-out timing by February 5 if required. Preview Vulnerability Management customers should update portal navigation and runbooks, while deployment teams should incorporate portal-generated keys and package expiration into Defender onboarding automation.",
       "keyChanges": [
         {
-          "title": "Retirement notice: MDE and XDR Advanced Hunting APIs retiring; migrate to Microsoft Graph Security API",
-          "detail": "Microsoft is retiring the Microsoft Defender for Endpoint and Defender XDR Advanced Hunting APIs by February 1, 2027. Organizations must manually migrate workflows to the Microsoft Graph Security API by January 31, 2027, to ensure continued functionality and improved security integration.",
+          "title": "Endpoint DLP alerting moves to Microsoft Purview by March 23",
+          "detail": "Microsoft is retiring endpoint-sensitive data alerting in the Microsoft Defender portal on March 23, 2026. Existing Defender alert policies will stop generating alerts after that date. Microsoft directs organizations to Microsoft Purview DLP for endpoint alerting, enforcement, and investigation.",
           "product": "Defender XDR",
-          "sourceId": "MC1220762"
+          "sourceId": "MC1217649"
         },
         {
-          "title": "Microsoft Defender Vulnerability Management and Microsoft Security Exposure Management integration",
-          "detail": "Added Microsoft Defender documentation in defender-vulnerability-management/microsoft-defender-vulnerability-management-exposure-management.md.",
+          "title": "Defender for Android drops Android 10 support March 31",
+          "detail": "After March 31, 2026, Android 10 devices will no longer receive Microsoft Defender updates, security fixes, or support. Devices running Android 11 or later remain fully supported.",
+          "product": "Defender XDR",
+          "sourceId": "MC1222977"
+        },
+        {
+          "title": "Built-in Defender XDR rules change low-severity Office 365 triage",
+          "detail": "Defender XDR is introducing built-in alert-tuning rules for low-severity Office 365 alerts. The rules provide automated triage and can reopen alerts when needed; they are active from February 5, with an opt-out window until February 5 and support for multi-tenant management.",
+          "product": "Defender XDR",
+          "sourceId": "MC1222979"
+        },
+        {
+          "title": "Vulnerability Management moves under Exposure management for preview customers",
+          "detail": "For Microsoft Defender XDR plus Microsoft Defender for Endpoint preview customers, the Vulnerability Management section moves to Exposure management > Vulnerability management. The former Dashboard is renamed Overview, exposure metrics are integrated, and Misconfiguration and Devices secure score sections move to the new Recommendations page. Existing Microsoft Defender Vulnerability Management customers continue to see Vulnerability Management directly under the Defender portal navigation.",
           "product": "Vulnerability Management",
           "sourceId": "doc-2026-01-28-microsoft-defender-vulnerability-management-and-microsoft-security-exposure-management-integrati-03"
         },
         {
-          "title": "Predefined classifications - Microsoft Security Research",
-          "detail": "Updated Microsoft Defender documentation in exposure-management/predefined-classification-rules-and-levels.md.",
-          "product": "Exposure Management",
-          "sourceId": "doc-2026-01-28-predefined-classifications-microsoft-security-research-522"
-        },
-        {
-          "title": "Use Microsoft Defender for Endpoint sensitivity labels to protect your data and prioritize security incident response",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/information-protection-investigation.md.",
+          "title": "Defender deployment packages gain onboarding-key and expiry controls",
+          "detail": "The updated Defender deployment tool preview guidance specifies that administrators must enter a key generated on the portal onboarding page to prevent accidental onboarding. Deployment packages can be configured to expire at any point up to one year, and the guidance recommends keeping validity as short as practical; onboarding events also appear in the device timeline and advanced hunting.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-01-28-use-microsoft-defender-for-endpoint-sensitivity-labels-to-protect-your-data-and-prioritize-secur-345"
-        },
-        {
-          "title": "Microsoft Defender for Identity XDR security alerts",
-          "detail": "Updated Microsoft Defender documentation in defender-for-identity/alerts-xdr.md.",
-          "product": "Identity",
-          "sourceId": "doc-2026-01-28-microsoft-defender-for-identity-xdr-security-alerts-484"
+          "sourceId": "doc-2026-01-24-deploy-microsoft-defender-endpoint-security-to-windows-devices-using-the-defender-deployment-too-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T12:15:48.881Z",
+      "usage": {
+        "inputTokens": 18001,
+        "outputTokens": 3907,
+        "costUsd": 0.008289
+      }
     },
     "2026-02": {
       "headline": "Microsoft Defender coverage and maturity dashboard leads 868 Defender updates",
@@ -10719,7 +10821,7 @@
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-07T09:03:55.383Z",
+  "generatedAt": "2026-11-07T12:15:48.881Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10918,22 +11020,22 @@
       "costUsd": 0.025563
     },
     "2026-11-07": {
-      "inputTokens": 12813,
-      "outputTokens": 11216,
-      "requests": 7,
-      "costUsd": 0.016022
+      "inputTokens": 104432,
+      "outputTokens": 100083,
+      "requests": 25,
+      "costUsd": 0.140986
     }
   },
   "lastRun": {
-    "inputTokens": 12813,
-    "outputTokens": 11216,
-    "requests": 7,
-    "costUsd": 0.016022
+    "inputTokens": 91619,
+    "outputTokens": 88867,
+    "requests": 18,
+    "costUsd": 0.124964
   },
   "totalUsage": {
-    "inputTokens": 1342671,
-    "outputTokens": 1314314,
-    "requests": 286,
-    "costUsd": 1.845706
+    "inputTokens": 1434290,
+    "outputTokens": 1403181,
+    "requests": 304,
+    "costUsd": 1.97067
   }
 }

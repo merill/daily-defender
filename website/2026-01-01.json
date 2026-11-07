@@ -19,11 +19,12 @@
       "eventId": "defender-docs:878dc22a4b97070e153d15184dce89c12ea71cc1:modified:defender-endpoint/edr-detection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update edr-detection.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "headline": "Windows EDR detection test steps now differ for clients and servers",
+        "summary": "Windows client instructions now use PowerShell to create and rename an EICAR test file. Windows server instructions retain the download-and-run test and add a TCP port 80 prerequisite with a connectivity check.",
+        "adminImpact": "Use the procedure for the relevant Windows platform. Before testing a server, verify that TCP port 80 is listening.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -43,12 +44,13 @@
       "firstSeenAt": "2026-01-01T00:37:22.000Z",
       "eventId": "defender-docs:69fac372e71575e4719a54a32f9b94f9771df844:modified:defender-endpoint/respond-machine-alerts.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update respond-machine-alerts.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/respond-machine-alerts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "Global Administrator role required to undo contain-user actions",
+        "summary": "The documentation now states that undoing contain-user actions requires membership in the Global Administrator role in Microsoft Entra permissions, with least-privilege guidance.",
+        "adminImpact": "Ensure operators who need to undo these actions have the required role; otherwise, they cannot perform the operation.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -68,12 +70,13 @@
       "firstSeenAt": "2026-01-01T00:43:09.000Z",
       "eventId": "defender-docs:567599f141b0338b324f4bfc4ff102b5e064f8b1:modified:defender-endpoint/enable-attack-surface-reduction.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update enable-attack-surface-reduction.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Per-rule ASR exclusions are documented for all deployment methods",
+        "summary": "The documentation now states that Group Policy, PowerShell, and Intune can configure exclusions for specific attack surface reduction rules.",
+        "adminImpact": "Administrators using Group Policy or PowerShell can use more targeted per-rule exclusions instead of applying exclusions across all rules.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:829c10e2f69e4e9b60fbf28b88c9ce3b556b2178:modified:defender-endpoint/restore-quarantined-files-microsoft-defender-antivirus.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update restore-quarantined-files-microsoft-defender-antivirus.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/restore-quarantined-files-microsoft-defender-antivirus.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Quarantined-file restoration instructions clarified",
+        "summary": "The page now explicitly shows how to list all quarantined files with MpCmdRun in an elevated Command Prompt, then provides syntax for restoring a file. Section headings were also updated.",
+        "adminImpact": "No action is required; administrators can use the clearer command-line steps when restoring quarantined files.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:8a58e235fd3923477eefa491c04dd642d709fbda:modified:defender-endpoint/attack-surface-reduction-rules-reference.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update attack-surface-reduction-rules-reference.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "ASR rule reference table and exception guidance updated",
+        "summary": "The table was reformatted and footnote markers were added to several ASR rules. The sections listing Microsoft Defender Antivirus exclusion and Defender for Endpoint IOC exceptions were removed from the page content shown.",
+        "adminImpact": "Administrators using this reference to verify ASR exceptions should review the updated table and current page guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -144,11 +149,12 @@
       "eventId": "defender-docs:9e4b263f882f75281a37b267928ca3c781eb3170:modified:defender-endpoint/attack-surface-reduction-rules-reference.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update attack-surface-reduction-rules-reference.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "ASR rule reference refreshed",
+        "summary": "The page date was updated, terminology and wording were clarified, and ASR rule modes were reformatted into a table. The displayed table now lists Not configured/Disabled (0) and Block (1).",
+        "adminImpact": "Use the updated labels and mode-code table when consulting the ASR reference; no administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -169,11 +175,12 @@
       "eventId": "defender-docs:45803129ea6fecd0f7439cc13cdae1d2499b7810:modified:defender-endpoint/attack-surface-reduction-rules-reference.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update attack-surface-reduction-rules-reference.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected wording for standard protection rules",
+        "summary": "Changed “affect” to “effect” in the description of standard protection rules.",
+        "adminImpact": "Administrators can rely on clearer wording when reviewing ASR guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -193,12 +200,13 @@
       "firstSeenAt": "2026-01-01T11:07:31.000Z",
       "eventId": "defender-docs:74736d6f6eea011373961b523a6bc1d01d2b56b1:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "2 new ISPMs release notes",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "New feature",
+        "headline": "Two new security posture assessments are documented",
+        "summary": "The January 2026 Defender for Identity release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, including direct, indirect, and nested membership.",
+        "adminImpact": "Administrators can use these assessments to identify elevated or unnecessary access and review associated exposure.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -219,11 +227,12 @@
       "eventId": "defender-docs:f1954edd733e7013b86940cea7e264931971773f:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "reword release notes",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Defender for Identity release notes clarify security posture assessments",
+        "summary": "Two assessment entries now have “New” headings and clearer descriptions of accounts with privileged-group or built-in Operator Group membership. The automatic Windows event auditing note also received minor wording updates.",
+        "adminImpact": "Administrators can more easily understand which accounts the assessments identify. No required action or deadline is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -243,7 +252,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md. Updated Microsoft Defender documentation in defender-endpoint/respond-machine-alerts.md. Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md. Updated Microsoft Defender documentation in defender-endpoint/restore-quarantined-files-microsoft-defender-antivirus.md. Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md. Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md. Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-refer",
+        "summary": "Windows client instructions now use PowerShell to create and rename an EICAR test file. Windows server instructions retain the download-and-run test and add a TCP port 80 prerequisite with a connectivity check. The documentation now states that undoing contain-user actions requires membership in the Global Administrator role in Microsoft Entra permissions, with least-privilege guidance. The documentation now states that Group Policy, PowerShell, and Intune can configure exclusions for specific attack surface reduction rules. The page now explicitly shows how to list all quarantined files with MpCmdRun in an elevated Command Prompt, then provides syntax for restoring a file. Section headings ",
         "sourceFiles": [
           "defender-endpoint/edr-detection.md",
           "defender-endpoint/respond-machine-alerts.md",
@@ -255,9 +264,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "New feature",
         "title": "Defender for Identity",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
+        "summary": "The January 2026 Defender for Identity release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, including direct, indirect, and nested membership. Two assessment entries now have “New” headings and clearer descriptions of accounts with privileged-group or built-in Operator Group membership. The automatic Windows event auditing note also received minor wording updates.",
         "sourceFiles": [
           "defender-for-identity/whats-new.md",
           "defender-for-identity/whats-new.md"
@@ -268,12 +277,12 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md. Updated Microsoft Defender documentation in defender-endpoint/respond-machine-alerts.md. Updated Microsoft Defender documentation in defender-endpoint/enable-attack-surface-reduction.md. Updated Microsoft Defender documentation in defender-endpoint/restore-quarantined-files-microsoft-defender-antivirus.md. Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md. Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-reference.md. Updated Microsoft Defender documentation in defender-endpoint/attack-surface-reduction-rules-refer"
+        "detail": "Windows client instructions now use PowerShell to create and rename an EICAR test file. Windows server instructions retain the download-and-run test and add a TCP port 80 prerequisite with a connectivity check. The documentation now states that undoing contain-user actions requires membership in the Global Administrator role in Microsoft Entra permissions, with least-privilege guidance. The documentation now states that Group Policy, PowerShell, and Intune can configure exclusions for specific attack surface reduction rules. The page now explicitly shows how to list all quarantined files with MpCmdRun in an elevated Command Prompt, then provides syntax for restoring a file. Section headings "
       },
       {
-        "category": "Doc update",
+        "category": "New feature",
         "headline": "Defender for Identity",
-        "detail": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md."
+        "detail": "The January 2026 Defender for Identity release notes add assessments for service accounts in privileged groups and accounts in built-in Operator Groups, including direct, indirect, and nested membership. Two assessment entries now have “New” headings and clearer descriptions of accounts with privileged-group or built-in Operator Group membership. The automatic Windows event auditing note also received minor wording updates."
       }
     ],
     "generatedBy": "fallback"

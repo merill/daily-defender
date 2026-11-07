@@ -19,11 +19,12 @@
       "eventId": "defender-docs:fd89dbb9d01ef07036e2341ebd80f8205a9e917b:modified:defender-endpoint/mde-linux-prerequisites.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update mde-linux-prerequisites.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Ubuntu Pro prerequisites are now version-specific",
+        "summary": "The prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries.",
+        "adminImpact": "Administrators should verify Linux deployments against the documented Ubuntu Pro versions and architectures.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:d60782cda23ac69c74da0de8b5e19f9058d06f3c:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Updating networks section",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery network-management guidance was reorganized",
+        "summary": "The documentation now explains default monitoring for corporate networks, consolidates network actions and their effects in a table, and provides updated filtering instructions.",
+        "adminImpact": "Administrators have clearer guidance on the risks of monitoring non-corporate networks and the consequences of ignoring networks, including stale inventory details.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:933dad2b9636004a1d48b207d8f62899daf291b1:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fixing list",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery tip formatting updated",
+        "summary": "The tip explaining standard and basic discovery modes was updated while preserving its guidance and link.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -93,12 +96,13 @@
       "firstSeenAt": "2026-01-11T16:07:29.000Z",
       "eventId": "defender-docs:371416d4576bc8d05d32f6d035b781501650988a:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "windows event auditing",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Sensor v3.x adds automatic Windows event auditing configuration",
+        "summary": "The documentation now describes automatic application of required auditing settings to new sensors and correction of misconfigurations on existing domain controllers. It also separates v2.x manual configuration guidance.",
+        "adminImpact": "Administrators must either enable automatic auditing in the Defender portal or manually configure auditing through the portal or PowerShell to avoid detection coverage gaps.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -118,12 +122,13 @@
       "firstSeenAt": "2026-01-11T16:07:29.000Z",
       "eventId": "defender-docs:371416d4576bc8d05d32f6d035b781501650988a:modified:defender-for-identity/deploy/prerequisites-sensor-version-3.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "windows event auditing",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Automatic Windows event auditing configuration is documented",
+        "summary": "The documentation now describes a sensor v3.x preview capability that automatically applies required Windows event auditing settings to new sensors and fixes misconfigurations on existing domain controllers.",
+        "adminImpact": "Administrators can use automatic configuration; otherwise they must manually configure Windows event auditing in the Defender portal or with PowerShell.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -144,11 +149,12 @@
       "eventId": "defender-docs:aec4a5821955546819493af9c910a43d719d8625:modified:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fix formatting and improve clarity in playbook",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP playbook links and heading structure improved",
+        "summary": "The page fixes the agentic AI link, reorganizes heading levels, and makes minor wording and formatting updates.",
+        "adminImpact": "MSSP administrators can navigate the playbook more easily and follow the corrected link.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -169,11 +175,12 @@
       "eventId": "defender-docs:c1e0ba2d5449a2c2718b41fb8fd790f09947ba85:modified:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fix links and update step numbering in playbook",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP playbook links, numbering, and image paths updated",
+        "summary": "The playbook now uses corrected links, changes Multi-Tenant operations from Step 4 to Step 3, updates image paths, and adds service metadata.",
+        "adminImpact": "Administrators can follow the corrected navigation and step sequence; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -196,11 +203,12 @@
       "eventId": "defender-docs:88feb3ae7fc2eba1f9b6a252e8792477e8bae159:removed:unified-secops-platform/playbook-mssps-before-dedupe.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Delete unified-secops-platform/playbook-mssps-before-dedupe.md",
-        "summary": "Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps-before-dedupe.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP technical playbook removed",
+        "summary": "The 1,385-line Microsoft Defender Technical Playbook for MSSPs was deleted from the documentation site, including guidance on multitenant Defender and Sentinel management.",
+        "adminImpact": "MSSPs, partners, and SOC architects can no longer access this guidance at the listed documentation URL.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -221,7 +229,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md. Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
+        "summary": "The prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries. The documentation now explains default monitoring for corporate networks, consolidates network actions and their effects in a table, and provides updated filtering instructions. The tip explaining standard and basic discovery modes was updated while preserving its guidance and link.",
         "sourceFiles": [
           "defender-endpoint/mde-linux-prerequisites.md",
           "defender-endpoint/configure-device-discovery.md",
@@ -229,9 +237,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "New feature",
         "title": "Defender for Identity",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
+        "summary": "The documentation now describes automatic application of required auditing settings to new sensors and correction of misconfigurations on existing domain controllers. It also separates v2.x manual configuration guidance. The documentation now describes a sensor v3.x preview capability that automatically applies required Windows event auditing settings to new sensors and fixes misconfigurations on existing domain controllers.",
         "sourceFiles": [
           "defender-for-identity/deploy/configure-windows-event-collection.md",
           "defender-for-identity/deploy/prerequisites-sensor-version-3.md"
@@ -240,7 +248,7 @@
       {
         "category": "Doc update",
         "title": "Unified SecOps",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps-before-dedupe.md.",
+        "summary": "The page fixes the agentic AI link, reorganizes heading levels, and makes minor wording and formatting updates. The playbook now uses corrected links, changes Multi-Tenant operations from Step 4 to Step 3, updates image paths, and adds service metadata. The 1,385-line Microsoft Defender Technical Playbook for MSSPs was deleted from the documentation site, including guidance on multitenant Defender and Sentinel management.",
         "sourceFiles": [
           "unified-secops-platform/playbook-mssps.md",
           "unified-secops-platform/playbook-mssps.md",
@@ -252,17 +260,17 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mde-linux-prerequisites.md. Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md. Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md."
+        "detail": "The prerequisites now list Ubuntu Pro 22.04 and 24.04, including their ARM64 variants, instead of generic Ubuntu Pro entries. The documentation now explains default monitoring for corporate networks, consolidates network actions and their effects in a table, and provides updated filtering instructions. The tip explaining standard and basic discovery modes was updated while preserving its guidance and link."
       },
       {
-        "category": "Doc update",
+        "category": "New feature",
         "headline": "Defender for Identity",
-        "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md."
+        "detail": "The documentation now describes automatic application of required auditing settings to new sensors and correction of misconfigurations on existing domain controllers. It also separates v2.x manual configuration guidance. The documentation now describes a sensor v3.x preview capability that automatically applies required Windows event auditing settings to new sensors and fixes misconfigurations on existing domain controllers."
       },
       {
         "category": "Doc update",
         "headline": "Unified SecOps",
-        "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps-before-dedupe.md."
+        "detail": "The page fixes the agentic AI link, reorganizes heading levels, and makes minor wording and formatting updates. The playbook now uses corrected links, changes Multi-Tenant operations from Step 4 to Step 3, updates image paths, and adds service metadata. The 1,385-line Microsoft Defender Technical Playbook for MSSPs was deleted from the documentation site, including guidance on multitenant Defender and Sentinel management."
       }
     ],
     "generatedBy": "fallback"

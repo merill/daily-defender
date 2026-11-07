@@ -18,11 +18,12 @@
       "eventId": "defender-docs:4f5ee1776ffc060f2650dbce2f0e087fe7fb554a:added:defender-office-365/mdo-gov.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Create mdo-gov.md",
-        "summary": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "New overview for Defender for Office 365 US Government customers",
+        "summary": "The documentation now covers GCC, GCC High, and DoD deployments, including licensing requirements, portal and sensor endpoints, and differences from the commercial offering.",
+        "adminImpact": "Government administrators can use the page to verify applicable licensing and access endpoints for their environment.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -44,12 +45,13 @@
       "firstSeenAt": "2026-01-10T17:10:21.000Z",
       "eventId": "defender-docs:885b159cd4837fcf9960a2974ef99adf1f458399:modified:defender-office-365/safe-documents-in-e5-plus-security-about.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Modernization of Safe Docs",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Safe Documents licensing guidance expanded",
+        "summary": "The documentation now lists Microsoft 365 A5, E5, GCC G5, GCC High G5, and Microsoft Defender Suite as products that include the SafeDocs service plan. It also states that Defender for Office 365 Plan 1 and Plan 2 do not include Safe Documents.",
+        "adminImpact": "Administrators should use the updated product list to verify user licensing when enabling Safe Documents.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -68,7 +70,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Office 365",
-        "summary": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md. Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md.",
+        "summary": "The documentation now covers GCC, GCC High, and DoD deployments, including licensing requirements, portal and sensor endpoints, and differences from the commercial offering. The documentation now lists Microsoft 365 A5, E5, GCC G5, GCC High G5, and Microsoft Defender Suite as products that include the SafeDocs service plan. It also states that Defender for Office 365 Plan 1 and Plan 2 do not include Safe Documents.",
         "sourceFiles": [
           "defender-office-365/mdo-gov.md",
           "defender-office-365/safe-documents-in-e5-plus-security-about.md"
@@ -79,7 +81,7 @@
       {
         "category": "Doc update",
         "headline": "Defender for Office 365",
-        "detail": "Added Microsoft Defender documentation in defender-office-365/mdo-gov.md. Updated Microsoft Defender documentation in defender-office-365/safe-documents-in-e5-plus-security-about.md."
+        "detail": "The documentation now covers GCC, GCC High, and DoD deployments, including licensing requirements, portal and sensor endpoints, and differences from the commercial offering. The documentation now lists Microsoft 365 A5, E5, GCC G5, GCC High G5, and Microsoft Defender Suite as products that include the SafeDocs service plan. It also states that Defender for Office 365 Plan 1 and Plan 2 do not include Safe Documents."
       }
     ],
     "generatedBy": "fallback"

@@ -19,11 +19,12 @@
       "eventId": "defender-docs:6a33e2530a791fd8fdc408646ab1a3953452bf7d:modified:defender-endpoint/enable-network-protection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "UUF 500072",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Network protection setup guidance updated",
+        "summary": "The guide now reflects the current Endpoint Security Policies workflow, required Security Administrator role, available network protection modes, downlevel settings for older Windows Server versions, and datagram-processing guidance for high-UDP server roles.",
+        "adminImpact": "Administrators should use the updated portal path and review the listed settings when creating or managing network protection policies, especially for Windows Server 2012 R2 and 2016.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:912dbacfe98fd952f6ed6cc119e1b9898010793c:modified:defender-endpoint/enable-network-protection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update enable-network-protection.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Network protection setup navigation updated",
+        "summary": "The instructions now say to select **Next** after completing the **Assignments** tab instead of the **Create profile** tab.",
+        "adminImpact": "Admins following the procedure should use the updated tab sequence.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:0d528d129459619ec19234cf937dafbff7cb69c5:modified:defender-endpoint/web-content-filtering.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update web-content-filtering.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/web-content-filtering.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Web content filtering setup guidance refreshed",
+        "summary": "The page updates its requirements and category tables, revises the portal navigation path, adds a direct Advanced features link, and clarifies that the Web content filtering toggle should be verified as enabled.",
+        "adminImpact": "Use the updated portal path or direct link when locating the setting, and confirm the toggle is On.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:b0d9a97a7fd34f642edc7f032fab7245bd3deade:modified:defender-endpoint/configure-conditional-access.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update configure-conditional-access.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-conditional-access.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Conditional Access setup instructions refreshed",
+        "summary": "The article updates Microsoft Defender and Intune navigation paths, adds direct portal links, and consolidates the compliance policy creation and assignment steps with revised wizard settings.",
+        "adminImpact": "Administrators configuring Conditional Access should follow the updated navigation and links in the article.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:b176868edfedeb14af01838493a3ed7156663d6c:modified:defender-endpoint/indicator-file.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update indicator-file.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/indicator-file.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Linux file indicator support is documented",
+        "summary": "The documentation now states that Linux file indicators support script files and ELF files.",
+        "adminImpact": "Administrators can account for script and ELF files when configuring or reviewing Linux file indicators.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -144,11 +149,12 @@
       "eventId": "defender-docs:498e23b5a4db412f61b209d4165cc80c6a192052:modified:defender-endpoint/indicator-file.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update indicator-file.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/indicator-file.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Linux file indicator documentation specifies .sh script files",
+        "summary": "The documentation now clarifies that Linux file indicators support script files, specifically .sh files, and ELF files.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -169,11 +175,12 @@
       "eventId": "defender-docs:d85405daa9d05abf422b390a6fa981bb984dbe99:modified:defender-endpoint/linux-resources.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update linux-resources.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-resources.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Removed Linux EDR exclusion-list command from resources page",
+        "summary": "The Linux resources page no longer lists the root-level command for viewing EDR exclusions by process, path, extension, or all exclusions.",
+        "adminImpact": "Administrators using this page as a command reference will no longer find that command listed.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -194,11 +201,12 @@
       "eventId": "defender-docs:4e958398d4564c5f47f39a871c7ba17208059082:modified:defender-xdr/threat-intel-briefing-agent-defender.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Revise and expand Threat Intelligence Briefing Agent docs",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Threat Intelligence Briefing Agent documentation adds agent identity setup guidance",
+        "summary": "The article now explains how to use a dedicated least-privileged agent identity (service principal), links to Unified RBAC guidance, and lists tenant-level administrator rights as a prerequisite for registering the identity and assigning roles.",
+        "adminImpact": "Administrators can use the new guidance to configure the agent with a dedicated identity and minimal Defender read permissions.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -219,11 +227,12 @@
       "eventId": "defender-docs:b50d65c939aacc728fccf523f4ff8f676f9d29b4:modified:defender-xdr/threat-intel-briefing-agent-defender.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Specify Azure CLI syntax in code blocks",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Azure CLI syntax is now labeled in code blocks",
+        "summary": "The threat intelligence briefing agent documentation now marks three code blocks as Azure CLI.",
+        "adminImpact": "Administrators can more easily identify the commands’ intended syntax when following the documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -244,11 +253,12 @@
       "eventId": "defender-docs:c63fec97903f35cc1e7e1287fad5650533f889aa:modified:defender-xdr/threat-intel-briefing-agent-defender.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update threat-intel-briefing-agent-defender.md",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Azure CLI examples now use interactive syntax highlighting",
+        "summary": "Three code blocks changed from `Azure CLI` to `azurecli-interactive` formatting.",
+        "adminImpact": "No administrator action is required; the change improves how the documented CLI examples are displayed.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -268,12 +278,13 @@
       "firstSeenAt": "2026-01-06T06:35:19.000Z",
       "eventId": "defender-docs:7b74b898c34f47a82e9ea473482b4cff7058defc:modified:defender-office-365/attack-simulation-training-get-started.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update countries for Attack simulation training availability",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-get-started.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Attack simulation training availability regions updated",
+        "summary": "The documented list of regions where Attack simulation training is available was updated. The excerpt includes APC, EUR, and NAM.",
+        "adminImpact": "Administrators should review the regional availability list when planning or validating use. No required action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -294,11 +305,12 @@
       "eventId": "defender-docs:61839d9a3d3c6bcb8e3113d62213025eb517fe9f:modified:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "update the mssp playbook stracture",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP playbook reorganized around five operational steps",
+        "summary": "The guide now covers environment preparation, customer onboarding, content management, multitenant operations, and monitoring and auditing. It also adds guidance on content distribution options and repository architecture patterns.",
+        "adminImpact": "MSSP administrators can use the expanded guidance to plan onboarding and manage security content across customer tenants.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -318,12 +330,13 @@
       "firstSeenAt": "2026-01-06T08:12:42.000Z",
       "eventId": "defender-docs:17e199c94cb03d6e9ba5c9505c9ace7d71b6a504:modified:defender-xdr/advanced-hunting-behaviorentities-table.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update BehaviorInfo and BehaviorEntities tables with new columns",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "BehaviorEntities table adds cloud-resource fields",
+        "summary": "The documentation adds CloudPlatform, CloudResourceType, CloudResourceId, and CloudSubscriptionId columns. It also clarifies that Categories follows the MITRE ATT&CK framework and updates the NetworkMessageId description to reference Microsoft 365.",
+        "adminImpact": "Administrators relying on the BehaviorEntities schema can use the newly documented cloud-resource fields when reviewing or building hunting queries. No required action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -344,11 +357,12 @@
       "eventId": "defender-docs:17e199c94cb03d6e9ba5c9505c9ace7d71b6a504:modified:defender-xdr/advanced-hunting-behaviorinfo-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update BehaviorInfo and BehaviorEntities tables with new columns",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorinfo-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "BehaviorInfo table documentation adds a Title column",
+        "summary": "The documentation now lists a `Title` string column and clarifies that `Categories` are defined by the MITRE ATT&CK framework.",
+        "adminImpact": "Administrators using the BehaviorInfo table should account for the documented `Title` field and updated Categories description.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -368,12 +382,13 @@
       "firstSeenAt": "2026-01-06T08:12:42.000Z",
       "eventId": "defender-docs:17e199c94cb03d6e9ba5c9505c9ace7d71b6a504:modified:defender-xdr/whats-new.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update BehaviorInfo and BehaviorEntities tables with new columns",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Additional columns added to BehaviorInfo and BehaviorEntities",
+        "summary": "The January 2026 update documents additional columns in the advanced hunting BehaviorInfo and BehaviorEntities tables to provide more insight into relationships between identified behaviors.",
+        "adminImpact": "Review the added columns when using advanced hunting to investigate behavior relationships.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -394,11 +409,12 @@
       "eventId": "defender-docs:4a0fe09139bfa48942050c630195152fa97e1224:modified:defender-xdr/advanced-hunting-behaviorentities-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Cloud Apps integration instructions and remove April/March 2025 changelog",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "BehaviorEntities setup guidance clarified",
+        "summary": "The documentation revises the Defender for Cloud Apps integration wording and corrects the setup step numbering and link formatting.",
+        "adminImpact": "Administrators troubleshooting or configuring the table should review the updated guidance for deploying Defender for Cloud Apps and selecting Microsoft 365 activities.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -419,11 +435,12 @@
       "eventId": "defender-docs:4a0fe09139bfa48942050c630195152fa97e1224:modified:defender-xdr/advanced-hunting-behaviorinfo-table.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Cloud Apps integration instructions and remove April/March 2025 changelog",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorinfo-table.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated BehaviorInfo table integration instructions",
+        "summary": "The documentation now uses clearer wording about Microsoft Defender for Cloud Apps populating the BehaviorInfo table and corrects the setup step numbering. It retains the requirement to deploy the service in Defender XDR and select Microsoft 365 activities.",
+        "adminImpact": "Administrators configuring the integration should use the revised instructions to ensure BehaviorInfo receives Cloud Apps data.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -444,11 +461,12 @@
       "eventId": "defender-docs:4a0fe09139bfa48942050c630195152fa97e1224:modified:defender-xdr/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Cloud Apps integration instructions and remove April/March 2025 changelog",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "March and April 2025 entries removed from What's new",
+        "summary": "The Defender XDR What's new page no longer includes its March and April 2025 changelog entries, including listed preview features, advanced hunting updates, and alert policy changes.",
+        "adminImpact": "No administrator action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -468,12 +486,13 @@
       "firstSeenAt": "2026-01-06T09:42:58.000Z",
       "eventId": "defender-docs:9f59f7960dee8d173ebd73716c86511bd0743e5c:modified:exposure-management/whats-new.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Learn Editor: Update whats-new.md",
-        "summary": "Updated Microsoft Defender documentation in exposure-management/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Public preview",
+        "headline": "Cloud software inventory added to Vulnerability Management",
+        "summary": "The January 2026 documentation adds cloud software inventory, showing cloud software, application versions, installed assets, and related vulnerabilities.",
+        "adminImpact": "Administrators can use this information to understand exposure and prioritize vulnerability assessments.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -494,11 +513,12 @@
       "eventId": "defender-docs:022ea7fd68c33d28e76e4e4d1e54a699e59996dd:modified:defender-for-identity/deploy/prerequisites-sensor-version-2.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "add info about traffic access url",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "headline": "Sensor network access URL is now documented",
+        "summary": "The prerequisites now specify the workspace-specific sensor URL format that must be allowed: `*<your-workspace-name>*sensorapi.atp.azure.com`, with an example.",
+        "adminImpact": "Update network or firewall rules to allow traffic to the applicable sensor URL so sensors can access Defender for Identity.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -519,11 +539,12 @@
       "eventId": "defender-docs:730dd55382e465783171a03a268a33f84b25cdb0:modified:defender-for-identity/deploy/prerequisites-sensor-version-2.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "update info about url",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "headline": "Sensor URL guidance now specifies the HTTPS endpoint format",
+        "summary": "The prerequisites page now directs administrators to allow outbound HTTPS traffic to `https://<your-workspace-name>sensorapi.atp.azure.com`, replacing the previous wildcard-style URL format.",
+        "adminImpact": "Review and update firewall or proxy allowlists to use the specified workspace sensor API URL so sensors can communicate with the cloud service.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -544,11 +565,12 @@
       "eventId": "defender-docs:4940228afde1d67b7a39fe781d99c80050fe6c95:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing tabs",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Versions documentation headings updated",
+        "summary": "The page changed the “Versions” and “Enhancements and features” headings from tab-linked headings to level-four headings.",
+        "adminImpact": "The page’s presentation and navigation changed; no administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -569,11 +591,12 @@
       "eventId": "defender-docs:b2595359e01b62a7831ead51a29785a43a574ab7:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing tabs",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Defender Endpoint versions page replaces tabs with headings",
+        "summary": "The page changed repeated Versions and Enhancements and features tab links into level-four section headings across its platform and antivirus sections.",
+        "adminImpact": "No administrator action is indicated; expect a different page layout when locating version and feature information.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -594,11 +617,12 @@
       "eventId": "defender-docs:2efa207c1cd980b6677d31f5db0d516d057197c1:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing lines",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Defender update reliability entry refreshed",
+        "summary": "The versions documentation includes an entry explaining that non-admin processes can trigger shared signature updates, reducing unnecessary privilege requirements.",
+        "adminImpact": "Administrators can use this entry when reviewing documented Defender update reliability improvements; no action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -619,11 +643,12 @@
       "eventId": "defender-docs:7f1c704eb962caf4558bc5b30fddf3d6d4fa616e:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding iOS section",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "iOS release history and updates added",
+        "summary": "The Defender for Endpoint versions page now documents iOS builds released from May through November 2025, including UX, telemetry, performance, Global Secure Access integrations, and network protection changes.",
+        "adminImpact": "Admins can review iOS build history and understand related user experience, integration, and alerting changes. No administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -644,11 +669,12 @@
       "eventId": "defender-docs:6a0dfc6360f32bd9de2fdaf9219566ec507cd564:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing May",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "May 2025 iOS update removed from the versions documentation",
+        "summary": "The page no longer includes the May 2025 iOS enhancements section, including the Network protection update for open wireless connection activity and portal alert handling starting May 19, 2025.",
+        "adminImpact": "Administrators reviewing iOS release history will no longer find this May 2025 update on the page.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -669,11 +695,12 @@
       "eventId": "defender-docs:d319f442fd0d0dcde9dedd15d22c9a29596745ec:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding iOS versions to main table",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Defender version table updated with additional platform releases",
+        "summary": "The versions page now lists additional iOS, Android, macOS, Linux, Windows Antivirus, and Windows builds released from July through November 2025, with links to release details.",
+        "adminImpact": "Administrators can use the expanded table to reference current platform builds and release information. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -694,11 +721,12 @@
       "eventId": "defender-docs:6976892507c47e8356685481fd754d59b930fa4e:modified:defender-endpoint/microsoft-defender-endpoint-versions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Links and adding versions to what's new",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "iOS release links now use a shared details section",
+        "summary": "The versions page links both October 2025 iOS builds to a combined release-details section and removes the May 2025 event detection entry.",
+        "adminImpact": "Administrators tracking iOS releases should use the updated shared link for release information.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -719,11 +747,12 @@
       "eventId": "defender-docs:6976892507c47e8356685481fd754d59b930fa4e:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Links and adding versions to what's new",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "What's New adds iOS build entries and release links",
+        "summary": "The page now lists several iOS builds from July through November 2025, links them to release details, and notes that activity related to open wireless connections is detected as events.",
+        "adminImpact": "No administrator action is stated. Administrators can use the links to review iOS release details.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -744,11 +773,12 @@
       "eventId": "defender-docs:f61539bc1aab2121bee711fb8429fb856cb89afc:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Links",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "iOS release references updated",
+        "summary": "The page now uses a corrected anchor for iOS build 1.1.70230101 and removes the separate entry about open wireless connection activity alerts being detected as events.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -769,11 +799,12 @@
       "eventId": "defender-docs:e6ed7085823ff409f473123145e7742639d1c0ca:modified:defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Link",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/whats-new-in-microsoft-defender-endpoint.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected link for iOS build 1.1.69250104 release details",
+        "summary": "The iOS release entry now links to the updated section covering build 1.1.69250104 enhancements and features.",
+        "adminImpact": "Administrators can use the updated link to find the relevant release details; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -794,11 +825,12 @@
       "eventId": "defender-docs:8ba34acfc0757751f1242b294392be0f1cd718d3:modified:defender-xdr/security-upload-guide.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fixed intro",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/security-upload-guide.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Security Copilot upload guide introduction",
+        "summary": "The introduction now describes Copilot as providing guided responses to support incident response teams and says uploaded organizational guidelines improve guided response recommendations.",
+        "adminImpact": "Administrators receive a clearer explanation of the guide’s purpose.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -819,11 +851,12 @@
       "eventId": "defender-docs:3d33d4967d94ed3ee4d513bbef59a9b552eb0387:modified:defender-for-cloud-apps/release-notes.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update defender-for-cloud-apps/release-notes.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated link to Defender XDR Unified RBAC guidance",
+        "summary": "The release notes now use a locale-neutral URL for the guidance on mapping Defender for Cloud Apps permissions to Microsoft Defender XDR Unified RBAC permissions.",
+        "adminImpact": "Administrators following the permissions-mapping guidance will be directed to the updated link.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -844,11 +877,12 @@
       "eventId": "defender-docs:ff93db6606997c7c38f9cef94c311f7811f9adf7:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery guidance clarifies modes and network coverage",
+        "summary": "The article now explains passive and active discovery, adds mode use cases, describes scan customization, and notes that only devices connected to corporate networks appear in inventory. It also includes an overview video and an onboarding recommendation.",
+        "adminImpact": "Administrators can use the clarified guidance to select discovery modes and understand when active probes and network scope affect discovered assets.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -869,11 +903,12 @@
       "eventId": "defender-docs:a75fd46bd0a58cf834ec864fb5d5cb10d0eb579d:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery guidance now covers scan modes and authenticated scans",
+        "summary": "The page now explains Basic and Standard scans, identifies Standard as the default, shows where to select the mode, expands covered asset types, and documents authenticated agentless scans for preconfigured network devices.",
+        "adminImpact": "Admins can use the updated guidance to configure discovery and obtain deeper visibility into network infrastructure.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -894,11 +929,12 @@
       "eventId": "defender-docs:70ac497b5a158ec2d44be1a90edc214855072607:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery guidance was reorganized",
+        "summary": "The page now emphasizes active discovery as the out-of-the-box approach, adds a Basic discovery entry with an updated Defender portal path, and removes the separate network scans section and prior capability table entries.",
+        "adminImpact": "Use the revised terminology and portal navigation when consulting device discovery guidance. No administrator action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -918,12 +954,13 @@
       "firstSeenAt": "2026-01-06T16:47:40.000Z",
       "eventId": "defender-docs:8cea1abc5023a1b4d883548933f373afd31b9fd0:modified:defender-xdr/investigate-incidents.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "wi-542920-defender-activities-tab",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "New feature",
+        "headline": "Incident Activities tab documentation added",
+        "summary": "The incident investigation page now documents a unified Activities tab with chronological activity timelines, consistent activity fields, filtering, search, saved filters, and activity detail panels. It also covers activity types such as tag changes, AIR actions, disruption actions, and Copilot agent actions.",
+        "adminImpact": "Administrators can use these documented views and filters to better review incident actions, their triggers, providers, targets, and statuses. No administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -944,11 +981,12 @@
       "eventId": "defender-docs:8cea1abc5023a1b4d883548933f373afd31b9fd0:modified:defender-xdr/manage-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "wi-542920-defender-activities-tab",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Incident instructions now reference the Activities pane",
+        "summary": "The incident-management guidance now directs administrators to select **Activities** and then **Add comment** when reviewing activity history or adding comments. Portal navigation wording and list formatting were also updated.",
+        "adminImpact": "Use the updated labels and steps when reviewing incident audits or posting comments. No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -969,11 +1007,12 @@
       "eventId": "defender-docs:b7d0eb2151c17e74238b5d6f9f0b7964df5cee82:modified:defender-office-365/attack-simulation-training-get-started.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update date for attack simulation training document",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-get-started.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Attack Simulation Training documentation date updated",
+        "summary": "The document metadata date changed from February 4, 2025 to January 6, 2026.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -994,11 +1033,12 @@
       "eventId": "defender-docs:028a19e6e349dcdfa8e5f690eda44b3c2eec90bd:modified:defender-xdr/investigate-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Formatting",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Activities tab documentation streamlined",
+        "summary": "The page standardizes capitalization and terminology, bolds activity-field labels, consolidates explanatory text, and removes several detailed descriptions of activity modeling, search, and saved filters.",
+        "adminImpact": "Administrators can use the revised page for the current Activities tab reference; no action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1019,11 +1059,12 @@
       "eventId": "defender-docs:028a19e6e349dcdfa8e5f690eda44b3c2eec90bd:modified:defender-xdr/manage-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Formatting",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Incident activity log guidance expanded",
+        "summary": "The documentation now outlines activity-log uses for triage and investigation, including reviewing actions, metadata, comments, filters, and automated workflows. Image references were also updated to relative paths.",
+        "adminImpact": "Administrators and analysts have clearer guidance for reviewing incident history; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1044,11 +1085,12 @@
       "eventId": "defender-docs:37ba768bb35afede80a249af03cec3e89544eae7:modified:defender-endpoint/device-control-deploy-manage-intune.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Intune procedure consistency updates",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-control-deploy-manage-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Intune Device Control deployment steps updated",
+        "summary": "The procedure now uses the current Intune navigation, adds clearer policy-creation steps, and explains the default scope-tag selection and workflow progression.",
+        "adminImpact": "Administrators creating policies can follow the revised navigation and numbered steps more consistently.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1069,11 +1111,12 @@
       "eventId": "defender-docs:37ba768bb35afede80a249af03cec3e89544eae7:modified:defender-endpoint/manage-tamper-protection-intune.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Intune procedure consistency updates",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-tamper-protection-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Intune navigation steps formatted consistently",
+        "summary": "The procedure now consistently formats the “Endpoint security | Overview” and “Endpoint security | Antivirus” page names and related navigation references.",
+        "adminImpact": "Administrators can follow the Intune navigation steps more easily; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1094,11 +1137,12 @@
       "eventId": "defender-docs:be872aa6d2ad7b0e446ba0dd5286ede6672e9245:modified:defender-xdr/investigate-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "cross linking",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Incident documentation now links to the activity log",
+        "summary": "The Activities tab description now links to the activity log for a condensed side-panel view of the same incident information.",
+        "adminImpact": "Administrators can use the new link to access the activity log from the incident investigation documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1119,11 +1163,12 @@
       "eventId": "defender-docs:be872aa6d2ad7b0e446ba0dd5286ede6672e9245:modified:defender-xdr/manage-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "cross linking",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Incident management headings updated",
+        "summary": "The Triage and Investigation section headings in the incident management documentation were reformatted as bold text.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1144,11 +1189,12 @@
       "eventId": "defender-docs:caeda811e79c3ad332aac765d5bc7ae751492a87:modified:defender-xdr/manage-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update manage-incidents.md",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Incident management terminology updated",
+        "summary": "The incident management documentation changes the label “Investigation” to “Investigate.”",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1169,11 +1215,12 @@
       "eventId": "defender-docs:e0786a26710cc8e472b4fdfe3eec0c2750d8379a:modified:defender-xdr/investigate-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "took out bullet points from investigate",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/investigate-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Activities reference details removed from the incident investigation article",
+        "summary": "The article no longer includes bullet-point details for activity fields, activity types, timeline behavior, or filtering and search options.",
+        "adminImpact": "Administrators who rely on this article for Activities tab reference information should review the updated page; no action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1194,11 +1241,12 @@
       "eventId": "defender-docs:e0786a26710cc8e472b4fdfe3eec0c2750d8379a:modified:defender-xdr/manage-incidents.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "took out bullet points from investigate",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/manage-incidents.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Incident filter instructions no longer reference an example",
+        "summary": "The incident management documentation removes the sentence “Here’s an example” from the filter instructions; the filtering steps are unchanged.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1221,11 +1269,12 @@
       "eventId": "defender-docs:a94cf6595f9579dc676d739b23055cc23738f4b7:removed:defender-endpoint/manage-alerts.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "remove manage alerts and add redirect",
-        "summary": "Removed Microsoft Defender documentation in defender-endpoint/manage-alerts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "The Defender for Endpoint alert management article was removed",
+        "summary": "The documentation page covering alert management, assignment, incident linking, and suppression rules was deleted.",
+        "adminImpact": "Administrators using this article may need to locate the updated guidance through the page redirect.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1254,7 +1303,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md. Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md. Updated Microsoft Defender documentation in defender-endpoint/web-content-filtering.md. Updated Microsoft Defender documentation in defender-endpoint/configure-conditional-access.md. Updated Microsoft Defender documentation in defender-endpoint/indicator-file.md. Updated Microsoft Defender documentation in defender-endpoint/indicator-file.md. Updated Microsoft Defender documentation in defender-endpoint/linux-resources.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint",
+        "summary": "The guide now reflects the current Endpoint Security Policies workflow, required Security Administrator role, available network protection modes, downlevel settings for older Windows Server versions, and datagram-processing guidance for high-UDP server roles. The instructions now say to select **Next** after completing the **Assignments** tab instead of the **Create profile** tab. The page updates its requirements and category tables, revises the portal navigation path, adds a direct Advanced features link, and clarifies that the Web content filtering toggle should be verified as enabled. The article updates Microsoft Defender and Intune navigation paths, adds direct portal links, and consol",
         "sourceFiles": [
           "defender-endpoint/enable-network-protection.md",
           "defender-endpoint/enable-network-protection.md",
@@ -1284,7 +1333,7 @@
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md. Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md. Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/whats-new.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md. Updated Microsoft Defender documenta",
+        "summary": "The article now explains how to use a dedicated least-privileged agent identity (service principal), links to Unified RBAC guidance, and lists tenant-level administrator rights as a prerequisite for registering the identity and assigning roles. The threat intelligence briefing agent documentation now marks three code blocks as Azure CLI. Three code blocks changed from `Azure CLI` to `azurecli-interactive` formatting. The documentation adds CloudPlatform, CloudResourceType, CloudResourceId, and CloudSubscriptionId columns. It also clarifies that Categories follows the MITRE ATT&CK framework and updates the NetworkMessageId description to reference Microsoft 365. The documentation now lists a ",
         "sourceFiles": [
           "defender-xdr/threat-intel-briefing-agent-defender.md",
           "defender-xdr/threat-intel-briefing-agent-defender.md",
@@ -1308,9 +1357,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Defender for Office 365",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-get-started.md. Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-get-started.md.",
+        "summary": "The documented list of regions where Attack simulation training is available was updated. The excerpt includes APC, EUR, and NAM. The document metadata date changed from February 4, 2025 to January 6, 2026.",
         "sourceFiles": [
           "defender-office-365/attack-simulation-training-get-started.md",
           "defender-office-365/attack-simulation-training-get-started.md"
@@ -1319,15 +1368,15 @@
       {
         "category": "Doc update",
         "title": "Unified SecOps",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
+        "summary": "The guide now covers environment preparation, customer onboarding, content management, multitenant operations, and monitoring and auditing. It also adds guidance on content distribution options and repository architecture patterns.",
         "sourceFiles": [
           "unified-secops-platform/playbook-mssps.md"
         ]
       },
       {
-        "category": "Doc update",
+        "category": "Public preview",
         "title": "Exposure Management",
-        "summary": "Updated Microsoft Defender documentation in exposure-management/whats-new.md.",
+        "summary": "The January 2026 documentation adds cloud software inventory, showing cloud software, application versions, installed assets, and related vulnerabilities.",
         "sourceFiles": [
           "exposure-management/whats-new.md"
         ]
@@ -1335,7 +1384,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Identity",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md.",
+        "summary": "The prerequisites now specify the workspace-specific sensor URL format that must be allowed: `*<your-workspace-name>*sensorapi.atp.azure.com`, with an example. The prerequisites page now directs administrators to allow outbound HTTPS traffic to `https://<your-workspace-name>sensorapi.atp.azure.com`, replacing the previous wildcard-style URL format.",
         "sourceFiles": [
           "defender-for-identity/deploy/prerequisites-sensor-version-2.md",
           "defender-for-identity/deploy/prerequisites-sensor-version-2.md"
@@ -1344,7 +1393,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Cloud Apps",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md.",
+        "summary": "The release notes now use a locale-neutral URL for the guidance on mapping Defender for Cloud Apps permissions to Microsoft Defender XDR Unified RBAC permissions.",
         "sourceFiles": [
           "defender-for-cloud-apps/release-notes.md"
         ]
@@ -1354,37 +1403,37 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md. Updated Microsoft Defender documentation in defender-endpoint/enable-network-protection.md. Updated Microsoft Defender documentation in defender-endpoint/web-content-filtering.md. Updated Microsoft Defender documentation in defender-endpoint/configure-conditional-access.md. Updated Microsoft Defender documentation in defender-endpoint/indicator-file.md. Updated Microsoft Defender documentation in defender-endpoint/indicator-file.md. Updated Microsoft Defender documentation in defender-endpoint/linux-resources.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-endpoint"
+        "detail": "The guide now reflects the current Endpoint Security Policies workflow, required Security Administrator role, available network protection modes, downlevel settings for older Windows Server versions, and datagram-processing guidance for high-UDP server roles. The instructions now say to select **Next** after completing the **Assignments** tab instead of the **Create profile** tab. The page updates its requirements and category tables, revises the portal navigation path, adds a direct Advanced features link, and clarifies that the Web content filtering toggle should be verified as enabled. The article updates Microsoft Defender and Intune navigation paths, adds direct portal links, and consol"
       },
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md. Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md. Updated Microsoft Defender documentation in defender-xdr/threat-intel-briefing-agent-defender.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorinfo-table.md. Updated Microsoft Defender documentation in defender-xdr/whats-new.md. Updated Microsoft Defender documentation in defender-xdr/advanced-hunting-behaviorentities-table.md. Updated Microsoft Defender documenta"
+        "detail": "The article now explains how to use a dedicated least-privileged agent identity (service principal), links to Unified RBAC guidance, and lists tenant-level administrator rights as a prerequisite for registering the identity and assigning roles. The threat intelligence briefing agent documentation now marks three code blocks as Azure CLI. Three code blocks changed from `Azure CLI` to `azurecli-interactive` formatting. The documentation adds CloudPlatform, CloudResourceType, CloudResourceId, and CloudSubscriptionId columns. It also clarifies that Categories follows the MITRE ATT&CK framework and updates the NetworkMessageId description to reference Microsoft 365. The documentation now lists a "
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Defender for Office 365",
-        "detail": "Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-get-started.md. Updated Microsoft Defender documentation in defender-office-365/attack-simulation-training-get-started.md."
+        "detail": "The documented list of regions where Attack simulation training is available was updated. The excerpt includes APC, EUR, and NAM. The document metadata date changed from February 4, 2025 to January 6, 2026."
       },
       {
         "category": "Doc update",
         "headline": "Unified SecOps",
-        "detail": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md."
+        "detail": "The guide now covers environment preparation, customer onboarding, content management, multitenant operations, and monitoring and auditing. It also adds guidance on content distribution options and repository architecture patterns."
       },
       {
-        "category": "Doc update",
+        "category": "Public preview",
         "headline": "Exposure Management",
-        "detail": "Updated Microsoft Defender documentation in exposure-management/whats-new.md."
+        "detail": "The January 2026 documentation adds cloud software inventory, showing cloud software, application versions, installed assets, and related vulnerabilities."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Identity",
-        "detail": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-2.md."
+        "detail": "The prerequisites now specify the workspace-specific sensor URL format that must be allowed: `*<your-workspace-name>*sensorapi.atp.azure.com`, with an example. The prerequisites page now directs administrators to allow outbound HTTPS traffic to `https://<your-workspace-name>sensorapi.atp.azure.com`, replacing the previous wildcard-style URL format."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Cloud Apps",
-        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/release-notes.md."
+        "detail": "The release notes now use a locale-neutral URL for the guidance on mapping Defender for Cloud Apps permissions to Microsoft Defender XDR Unified RBAC permissions."
       }
     ],
     "generatedBy": "fallback"

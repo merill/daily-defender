@@ -18,11 +18,12 @@
       "eventId": "defender-docs:d78854d2ef1b7977abe263762cd5d194a21afe37:added:defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits and file rename back",
-        "summary": "Added Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Documentation adds Teams blocking through the Tenant Allow/Block List",
+        "summary": "The new article explains how security administrators can block Teams domains and email addresses from the Microsoft Defender portal. It documents required Teams settings and permissions, limits of 4,000 domain entries and 200 user entries, and the effects and timing of blocking.",
+        "adminImpact": "Administrators can review the prerequisites and limits before configuring Teams blocks.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -45,11 +46,12 @@
       "eventId": "defender-docs:c59ce60a8a2d00dd7a8d44b3a7cb20f4b31be742:modified:defender-office-365/tenant-allow-block-list-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update tenant-allow-block-list-about.md",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated links for Teams domain and address guidance",
+        "summary": "Links to the Teams domains and email addresses configuration guidance now point to `tenant-allow-block-list-teams-domains-configure.md`.",
+        "adminImpact": "Administrators following this guidance can use the updated links to reach the relevant configuration instructions.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -70,11 +72,12 @@
       "eventId": "defender-docs:f7e242f6dc3c65769a898effe6bfa2c6832d6f9b:modified:defender-endpoint/troubleshoot-service-startup-problems.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update troubleshoot-service-startup-problems.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-service-startup-problems.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Defender Antivirus startup troubleshooting steps revised",
+        "summary": "The article clarifies elevated command usage, updates MpCmdRun.exe paths, adds DISM and SFC repair commands, and revises the troubleshooting sequence and wording.",
+        "adminImpact": "Use the revised commands and sequence when troubleshooting Defender Antivirus service startup problems. No administrator action is required unless actively following the procedure.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -95,11 +98,12 @@
       "eventId": "defender-docs:d86287056d762b016c739a36bb4e1c8ed6f1e129:modified:defender-endpoint/microsoft-defender-core-service-overview.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update microsoft-defender-core-service-overview.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-core-service-overview.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Microsoft Defender Core service documentation expands coverage and policy guidance",
+        "summary": "The overview now lists supported Windows versions and Microsoft Defender offerings, links FAQ entries to configuration instructions, and clarifies Microsoft Defender Core service ECS policy behavior.",
+        "adminImpact": "Administrators can more easily determine applicability and locate configuration guidance. No administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -120,11 +124,12 @@
       "eventId": "defender-docs:82cc723198e1db70a883424e66f1e3e4796971f3:modified:defender-office-365/mdo-support-teams-about.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update Teams protection features and date in docs",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Teams protection documentation now specifies Plan 1 coverage",
+        "summary": "The page now attributes the listed Teams protection features to Microsoft Defender for Office 365 Plan 1 and describes Tenant Allow Block List support for domains and addresses, URLs, and files.",
+        "adminImpact": "Admins can use the updated plan scope and terminology when verifying Teams protection coverage. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -145,11 +150,12 @@
       "eventId": "defender-docs:b9f243e464bf39a76e334dfd80d6a451b4dbde12:modified:defender-endpoint/linux-whatsnew.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Refine vulnerability detection details",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Linux vulnerability detection documentation updates React coverage details",
+        "summary": "The documentation now describes improved telemetry for detecting React components and continues to reference CVE-2025-55182 and broader security coverage for React-based applications.",
+        "adminImpact": "Administrators should use the updated wording when reviewing React vulnerability detection coverage. No action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -170,11 +176,12 @@
       "eventId": "defender-docs:d09706fedc3175956cd47351fafab8976303464c:modified:defender-endpoint/mtd.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update mtd.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mtd.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified Mobile Threat Defense onboarding steps",
+        "summary": "The documentation now describes installing the Defender app and assigning configuration profiles or policies before automatic onboarding, including for supervised ADE and Apple Configurator enrollments.",
+        "adminImpact": "No action is required; administrators have clearer sequencing for onboarding Intune-enrolled devices.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -197,11 +204,12 @@
       "eventId": "defender-docs:d78854d2ef1b7977abe263762cd5d194a21afe37:removed:defender-office-365/tenant-allow-block-list-teams-configure.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits and file rename back",
-        "summary": "Removed Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-configure.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Teams Tenant Allow/Block List article removed",
+        "summary": "The article documenting how to block domains and addresses in Teams was deleted, including its procedures, prerequisites, limits, and permissions.",
+        "adminImpact": "Administrators can no longer use this page as a reference for configuring Teams block entries.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -221,7 +229,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Office 365",
-        "summary": "Added Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md. Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Removed Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-configure.md.",
+        "summary": "The new article explains how security administrators can block Teams domains and email addresses from the Microsoft Defender portal. It documents required Teams settings and permissions, limits of 4,000 domain entries and 200 user entries, and the effects and timing of blocking. Links to the Teams domains and email addresses configuration guidance now point to `tenant-allow-block-list-teams-domains-configure.md`. The page now attributes the listed Teams protection features to Microsoft Defender for Office 365 Plan 1 and describes Tenant Allow Block List support for domains and addresses, URLs, and files. The article documenting how to block domains and addresses in Teams was deleted, includi",
         "sourceFiles": [
           "defender-office-365/tenant-allow-block-list-teams-domains-configure.md",
           "defender-office-365/tenant-allow-block-list-about.md",
@@ -232,7 +240,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-service-startup-problems.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-core-service-overview.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/mtd.md.",
+        "summary": "The article clarifies elevated command usage, updates MpCmdRun.exe paths, adds DISM and SFC repair commands, and revises the troubleshooting sequence and wording. The overview now lists supported Windows versions and Microsoft Defender offerings, links FAQ entries to configuration instructions, and clarifies Microsoft Defender Core service ECS policy behavior. The documentation now describes improved telemetry for detecting React components and continues to reference CVE-2025-55182 and broader security coverage for React-based applications. The documentation now describes installing the Defender app and assigning configuration profiles or policies before automatic onboarding, including for s",
         "sourceFiles": [
           "defender-endpoint/troubleshoot-service-startup-problems.md",
           "defender-endpoint/microsoft-defender-core-service-overview.md",
@@ -245,12 +253,12 @@
       {
         "category": "Doc update",
         "headline": "Defender for Office 365",
-        "detail": "Added Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-domains-configure.md. Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-about.md. Updated Microsoft Defender documentation in defender-office-365/mdo-support-teams-about.md. Removed Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-teams-configure.md."
+        "detail": "The new article explains how security administrators can block Teams domains and email addresses from the Microsoft Defender portal. It documents required Teams settings and permissions, limits of 4,000 domain entries and 200 user entries, and the effects and timing of blocking. Links to the Teams domains and email addresses configuration guidance now point to `tenant-allow-block-list-teams-domains-configure.md`. The page now attributes the listed Teams protection features to Microsoft Defender for Office 365 Plan 1 and describes Tenant Allow Block List support for domains and addresses, URLs, and files. The article documenting how to block domains and addresses in Teams was deleted, includi"
       },
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-service-startup-problems.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-core-service-overview.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/mtd.md."
+        "detail": "The article clarifies elevated command usage, updates MpCmdRun.exe paths, adds DISM and SFC repair commands, and revises the troubleshooting sequence and wording. The overview now lists supported Windows versions and Microsoft Defender offerings, links FAQ entries to configuration instructions, and clarifies Microsoft Defender Core service ECS policy behavior. The documentation now describes improved telemetry for detecting React components and continues to reference CVE-2025-55182 and broader security coverage for React-based applications. The documentation now describes installing the Defender app and assigning configuration profiles or policies before automatic onboarding, including for s"
       }
     ],
     "generatedBy": "fallback"

@@ -18,12 +18,13 @@
       "firstSeenAt": "2026-01-15T03:57:36.000Z",
       "eventId": "defender-docs:256036077a5c5621845178750dce271b2be78f1e:modified:defender-xdr/whats-new.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update advanced hunting result handling in what's new",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Advanced hunting now indicates when results are partial",
+        "summary": "When query results exceed the 64-MB limit, the portal returns the maximum number of records that fit and displays a message explaining that the results are partial.",
+        "adminImpact": "No administrator action is required, but displayed results may not include every matching record.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:07546f8ccb3fce67f87d04e55423c26e873ff4df:modified:unified-secops-platform/microsoft-threat-actor-naming.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Add Storm-2470 to threat actor naming table",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Storm-2470 added to the threat actor naming table",
+        "summary": "The documentation now lists Storm-2470 as a “Group in development” and updates the page date to January 15, 2026.",
+        "adminImpact": "Administrators can use the updated table when identifying or reviewing this threat actor name.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:d8792c551f90af06a3809d8b25eb97e7cc761fd7:modified:defender-endpoint/edr-detection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Revise EDR detection instructions and update date",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "EDR detection guidance is consolidated under Windows",
+        "summary": "The documentation replaces separate Windows client and server sections with one Windows section, removes the client-specific PowerShell test steps, and applies the TCP port 80 prerequisite to the Windows device.",
+        "adminImpact": "Administrators should review the updated guidance before running EDR detection tests and verify the device is listening on TCP port 80 when required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:0863f0608fc8be095f7e0105a76ae12abdc3201d:modified:defender-endpoint/linux-whatsnew.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update linux-whatsnew.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Linux agent removes the dedicated telemetryd_v2 process",
+        "summary": "For builds 101.25102.0005 and later, agent process handling is streamlined by removing telemetryd_v2, supporting more efficient and consistent telemetry collection without affecting existing functionality or data collection.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:546155d04946aa33928edc1cab0f83beacd6251a:modified:defender-endpoint/linux-whatsnew.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Learn Editor: Update linux-whatsnew.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected wording for Linux agent process handling",
+        "summary": "Corrected a typo in the description of removing the dedicated telemetryd_v2 process for builds 101.25102.0005 and later.",
+        "adminImpact": "No administrator action is required; existing functionality and data collection are unchanged.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -144,11 +149,12 @@
       "eventId": "defender-docs:deed37443a87f07ecd7b6c87becbe1dccadc43be:modified:defender-endpoint/microsoft-defender-offline.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "site relative link",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-offline.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated the BitLocker guidance link",
+        "summary": "The Microsoft Defender Offline article now uses a site-relative link for “Suspend BitLocker protection”; the surrounding guidance is unchanged.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -169,11 +175,12 @@
       "eventId": "defender-docs:2041bdb84a96420cb37123c29039b99bd46b8613:modified:defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update manage-profiles-approve-sys-extensions-intune.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "macOS Intune system extension instructions updated",
+        "summary": "The article now explains how to use the Intune Settings Catalog to configure Allowed System Extensions and Allowed System Extension Types, including the required bundle identifiers, types, and team identifier.",
+        "adminImpact": "Administrators creating these macOS profiles have updated navigation steps and configuration guidance to follow.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -194,11 +201,12 @@
       "eventId": "defender-docs:eab93ae3e96d99d851ab89083e180f93349cfaaa:modified:defender-endpoint/manage-profiles-approve-sys-extensions-intune.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update manage-profiles-approve-sys-extensions-intune.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "macOS extension policy guidance was refreshed",
+        "summary": "The note reiterates that existing Intune macOS extension policies continue to work, while new policies should use the settings catalog to configure the System Extension payload.",
+        "adminImpact": "Use the Intune settings catalog when creating new macOS System Extension policies.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -219,11 +227,12 @@
       "eventId": "defender-docs:60e3ce1d8d89aa5933b2e718918bcccec66df062:modified:defender-endpoint/analyzer-feedback.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Updated feedback info for the defender portal",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Microsoft Defender feedback submission guidance",
+        "summary": "The guidance now directs users to submit feedback from the Feedback option in the Microsoft Defender portal or through the centralized Microsoft Defender XDR feedback page, with updated screenshots and a Tech Community link.",
+        "adminImpact": "Administrators have current instructions and links for sending feedback; no configuration changes are required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -244,11 +253,12 @@
       "eventId": "defender-docs:d177f36cc0936e38ac4eb9f4f3ba03c499b237e4:modified:defender-endpoint/analyzer-feedback.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update analyzer-feedback.md",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Cleaned up the analyzer feedback screenshot markup",
+        "summary": "The documentation now uses a single lightbox reference for the Microsoft Defender portal feedback screenshot.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -268,12 +278,13 @@
       "firstSeenAt": "2026-01-15T21:48:56.000Z",
       "eventId": "defender-docs:3443aa25fdbcf81f5b53a4401a86215d32d1fdc4:modified:defender-office-365/zero-hour-auto-purge.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update ZAP availability note for Microsoft Teams",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "ZAP for Microsoft Teams is unavailable in GCC environments",
+        "summary": "The documentation now states that Zero-hour Auto Purge (ZAP) for Microsoft Teams isn't available in Microsoft 365 GCC, GCC High, or DoD.",
+        "adminImpact": "Administrators in these environments should not expect ZAP protection for Microsoft Teams.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -294,11 +305,12 @@
       "eventId": "defender-docs:0b81b0abcd166ba141c4397924cc51efc7b36cf3:modified:defender-office-365/zero-hour-auto-purge.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update zero-hour-auto-purge.md",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Zero-hour auto purge documentation refreshed",
+        "summary": "The page date changed from December 16, 2025, to January 15, 2026, and a NOTE callout was removed.",
+        "adminImpact": "Administrators will see updated page metadata and note formatting when reviewing the guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -320,9 +332,9 @@
     "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Defender documentation files across 4 documentation areas.",
     "groups": [
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Defender XDR",
-        "summary": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md.",
+        "summary": "When query results exceed the 64-MB limit, the portal returns the maximum number of records that fit and displays a message explaining that the results are partial.",
         "sourceFiles": [
           "defender-xdr/whats-new.md"
         ]
@@ -330,7 +342,7 @@
       {
         "category": "Doc update",
         "title": "Unified SecOps",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md.",
+        "summary": "The documentation now lists Storm-2470 as a “Group in development” and updates the page date to January 15, 2026.",
         "sourceFiles": [
           "unified-secops-platform/microsoft-threat-actor-naming.md"
         ]
@@ -338,7 +350,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-offline.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md. Updated Microsoft Defender documentation in defender-endp",
+        "summary": "The documentation replaces separate Windows client and server sections with one Windows section, removes the client-specific PowerShell test steps, and applies the TCP port 80 prerequisite to the Windows device. For builds 101.25102.0005 and later, agent process handling is streamlined by removing telemetryd_v2, supporting more efficient and consistent telemetry collection without affecting existing functionality or data collection. Corrected a typo in the description of removing the dedicated telemetryd_v2 process for builds 101.25102.0005 and later. The Microsoft Defender Offline article now uses a site-relative link for “Suspend BitLocker protection”; the surrounding guidance is unchanged",
         "sourceFiles": [
           "defender-endpoint/edr-detection.md",
           "defender-endpoint/linux-whatsnew.md",
@@ -351,9 +363,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Defender for Office 365",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md. Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md.",
+        "summary": "The documentation now states that Zero-hour Auto Purge (ZAP) for Microsoft Teams isn't available in Microsoft 365 GCC, GCC High, or DoD. The page date changed from December 16, 2025, to January 15, 2026, and a NOTE callout was removed.",
         "sourceFiles": [
           "defender-office-365/zero-hour-auto-purge.md",
           "defender-office-365/zero-hour-auto-purge.md"
@@ -362,24 +374,24 @@
     ],
     "highlights": [
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Defender XDR",
-        "detail": "Updated Microsoft Defender documentation in defender-xdr/whats-new.md."
+        "detail": "When query results exceed the 64-MB limit, the portal returns the maximum number of records that fit and displays a message explaining that the results are partial."
       },
       {
         "category": "Doc update",
         "headline": "Unified SecOps",
-        "detail": "Updated Microsoft Defender documentation in unified-secops-platform/microsoft-threat-actor-naming.md."
+        "detail": "The documentation now lists Storm-2470 as a “Group in development” and updates the page date to January 15, 2026."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/edr-detection.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/microsoft-defender-offline.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/manage-profiles-approve-sys-extensions-intune.md. Updated Microsoft Defender documentation in defender-endpoint/analyzer-feedback.md. Updated Microsoft Defender documentation in defender-endp"
+        "detail": "The documentation replaces separate Windows client and server sections with one Windows section, removes the client-specific PowerShell test steps, and applies the TCP port 80 prerequisite to the Windows device. For builds 101.25102.0005 and later, agent process handling is streamlined by removing telemetryd_v2, supporting more efficient and consistent telemetry collection without affecting existing functionality or data collection. Corrected a typo in the description of removing the dedicated telemetryd_v2 process for builds 101.25102.0005 and later. The Microsoft Defender Offline article now uses a site-relative link for “Suspend BitLocker protection”; the surrounding guidance is unchanged"
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Defender for Office 365",
-        "detail": "Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md. Updated Microsoft Defender documentation in defender-office-365/zero-hour-auto-purge.md."
+        "detail": "The documentation now states that Zero-hour Auto Purge (ZAP) for Microsoft Teams isn't available in Microsoft 365 GCC, GCC High, or DoD. The page date changed from December 16, 2025, to January 15, 2026, and a NOTE callout was removed."
       }
     ],
     "generatedBy": "fallback"

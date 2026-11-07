@@ -18,11 +18,12 @@
       "eventId": "defender-docs:00aa86b74163918d5ceb740488165d615e950ea6:added:defender-endpoint/assess-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding assess page",
-        "summary": "Added Microsoft Defender documentation in defender-endpoint/assess-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "New guidance for assessing discovered devices",
+        "summary": "The documentation now explains how to review non-onboarded devices in the inventory, filter by onboarding status, and use Advanced Hunting with DeviceInfo and DeviceNetworkInfo to investigate discovered devices and their network context.",
+        "adminImpact": "Administrators can use this guidance to identify devices that can be onboarded, unsupported devices, and devices with insufficient discovery information. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -43,11 +44,12 @@
       "eventId": "defender-docs:78fd46fee186516d986470455d9c59de895d9f4f:added:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Added Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "New MSSP implementation guide for multitenant Defender management",
+        "summary": "Microsoft added a guide covering environment preparation, customer onboarding, content distribution, and multitenant security operations in the Microsoft Defender portal. It also highlights the need to transition Microsoft Sentinel workspaces when onboarding customers.",
+        "adminImpact": "MSSPs and SOC architects can use the guide to plan onboarding and standardize cross-tenant security operations. No administrator action is required by this update.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -68,11 +70,12 @@
       "eventId": "defender-docs:4c91860fc6cc4f3520bca2b3516704ca4972dd87:added:defender-endpoint/troubleshoot-device-discovery-network-scans.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Troubleshooting page",
-        "summary": "Added Microsoft Defender documentation in defender-endpoint/troubleshoot-device-discovery-network-scans.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "New troubleshooting guidance for device discovery and authenticated scans",
+        "summary": "A new Defender for Endpoint Plan 2 article covers scanner alerts and installation failures, connectivity and proxy requirements, missing inventory results, service issues, FIPS configuration, permissions, registration, and device health states.",
+        "adminImpact": "Administrators have centralized guidance for diagnosing failed scans, missing devices, and scanner registration problems.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -92,12 +95,13 @@
       "firstSeenAt": "2026-01-12T19:08:28.000Z",
       "eventId": "defender-docs:a7df2bc33438f4cde51fcdacad5d4eb4fbadb2a8:added:defender-for-identity/manage-related-identities-accounts.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "AEO updates",
-        "summary": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Private preview",
+        "headline": "Manual account linking and unlinking is documented",
+        "summary": "A new article explains how to link or unlink legacy, orphaned, unused, and other related accounts to identities in Microsoft Defender for Identity. It includes portal procedures and examples across Active Directory, Microsoft Entra ID, and non-Microsoft identity providers.",
+        "adminImpact": "No action is required. Administrators using the capability need the Global Administrator or Security Data (Manage) URBAC role.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -118,11 +122,12 @@
       "eventId": "defender-docs:be02ed94e1ad0cadbb3bd5e340a3f9583d0bdba4:added:defender-endpoint/device-discovery-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding back file",
-        "summary": "Added Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "New Device Discovery overview documentation",
+        "summary": "Adds an overview of Microsoft Defender for Endpoint device discovery, including how it identifies unmanaged endpoints, network devices, and IoT/OT assets; discovery modes; and scanning and configuration guidance.",
+        "adminImpact": "Administrators can use the new reference to understand discovered assets and configure discovery settings such as scan modes, exclusions, trusted networks, and network scans.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -143,11 +148,12 @@
       "eventId": "defender-docs:3c664c5a8d24ba7887854d3ec9f1beecdab328f6:added:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "typo and MTO setup link",
-        "summary": "Added Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "New MSSP implementation guide for Microsoft Defender multitenant management",
+        "summary": "The guide covers environment preparation, customer onboarding, content distribution, and daily multitenant security operations, with links to Sentinel transition guidance.",
+        "adminImpact": "MSSP administrators can use the guide to plan and operationalize security management across customer tenants.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -170,11 +176,12 @@
       "eventId": "defender-docs:9672cfb7489d4161585fb157ae14c71072af0d2f:modified:defender-endpoint/linux-whatsnew.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "(AzureCXP) fixes MicrosoftDocs/defender-docs-pr#544252",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Use release dates to identify the latest Linux build",
+        "summary": "The Linux release notes now explain that build numbers are not strictly sequential and that a later release may have a lower number due to a different servicing branch.",
+        "adminImpact": "When determining which Defender for Endpoint on Linux version is newest, administrators should use the release date rather than the numeric build number alone.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -195,11 +202,12 @@
       "eventId": "defender-docs:c58b73d2db2d9f820ee603606fa4ea720c5d38a4:modified:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP implementation guide links and metadata updated",
+        "summary": "The guide title now spells out Managed Security Service Providers (MSSPs), the service metadata was corrected, and several documentation links were normalized or updated.",
+        "adminImpact": "MSSP administrators get clearer page labeling and more reliable links to delegated access, RBAC, correlation, API, Intune, Defender for Cloud, and Sentinel guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -220,11 +228,12 @@
       "eventId": "defender-docs:b81db131d3790d385a9f16a47fb789e91bb9cb9e:modified:defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "(AzureCXP) fixes MicrosoftDocs/defender-docs-pr#544255",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "App connector setup steps added",
+        "summary": "The article now documents first-time app connector setup, including the required API connection, portal navigation, and app-specific permissions and authentication guidance.",
+        "adminImpact": "Administrators have a clearer process for connecting cloud apps through Cloud Apps > Connected apps.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -245,11 +254,12 @@
       "eventId": "defender-docs:c8f405b6ffcd969577b7cd8285cf98c4ad62dd28:modified:defender-endpoint/device-discovery-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Rephrasing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified retention of non-onboarded devices",
+        "summary": "The FAQ now states that non-onboarded devices remain in the Defender portal for more than 180 days when discovered by an onboarded endpoint on the same network or by an OT sensor.",
+        "adminImpact": "Administrators can more clearly understand when non-onboarded devices remain visible in the portal.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -270,11 +280,12 @@
       "eventId": "defender-docs:f361d2c5ab2051fc121ed4c2489cdaabfadadedb:modified:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated MSSP playbook metadata and links",
+        "summary": "The MSSP playbook now uses Microsoft Defender and Unified Security Operations metadata, with updated links for permissions mappings and Defender for Cloud content.",
+        "adminImpact": "Administrators can use the revised links to access the referenced guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -295,11 +306,12 @@
       "eventId": "defender-docs:00aa86b74163918d5ceb740488165d615e950ea6:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding assess page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery guidance is streamlined",
+        "summary": "The article now focuses on setting up and configuring device discovery and recommends standard mode, while noting that basic mode can be used if needed. Guidance for assessing non-onboarded devices and using Advanced Hunting queries has been removed.",
+        "adminImpact": "Administrators relying on this page for device assessment or hunting guidance should note that those instructions are no longer included.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -320,11 +332,12 @@
       "eventId": "defender-docs:00aa86b74163918d5ceb740488165d615e950ea6:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding assess page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery documentation adds an assessment guide",
+        "summary": "The device discovery page now links to “Review and assess devices” and removes the Microsoft Defender for Endpoint Tech Community include.",
+        "adminImpact": "Administrators can access device assessment guidance directly from the device discovery documentation.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -344,12 +357,13 @@
       "firstSeenAt": "2026-01-12T10:54:56.000Z",
       "eventId": "defender-docs:b97a32321e8b181d0f55371996a2f98678942bc5:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update whats-new.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "Defender for Identity adds a GCC DNS zone target",
+        "summary": "Version 2.254 documents sensor support for the *.aatp.gcc.azure.com DNS zone.",
+        "adminImpact": "Ensure GCC sensors can access this zone using the sensor DNS prefix.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -370,11 +384,12 @@
       "eventId": "defender-docs:779e2fb2fd275a8d198c8748844b6ce63886436e:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fix typos in whats-new.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Minor wording and link-text corrections in Defender for Identity updates",
+        "summary": "Corrected “dns perfix” to “dns prefix” and changed “on-prem” to “on-premises” in a security posture assessment title and its link text.",
+        "adminImpact": "No administrator action is required; the changes improve documentation clarity.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -395,11 +410,12 @@
       "eventId": "defender-docs:4a2044a17fef7337b04a245b1ea4d98449f93f18:modified:defender-endpoint/assess-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Moving FAQs",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/assess-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Documentation adds guidance on unmanaged-device visibility and onboarding",
+        "summary": "The article now explains when non-onboarded devices remain in the Defender portal, why device counts can differ across inventory, recommendations, and dashboard widgets, and how to manually onboard unmanaged devices or filter them in API queries.",
+        "adminImpact": "Use this guidance when reconciling device counts and identifying unmanaged devices for onboarding.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -420,11 +436,12 @@
       "eventId": "defender-docs:4a2044a17fef7337b04a245b1ea4d98449f93f18:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Moving FAQs",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery guidance expanded",
+        "summary": "The documentation now explains how to choose devices for standard discovery, what exclusion means, how to disable discovery, and how to handle alerts from Microsoft-signed probing scripts.",
+        "adminImpact": "Administrators can better scope active discovery, interpret inventory results, and troubleshoot related security alerts.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -445,11 +462,12 @@
       "eventId": "defender-docs:4a2044a17fef7337b04a245b1ea4d98449f93f18:modified:defender-endpoint/device-discovery-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Moving FAQs",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery FAQ content was moved from this page",
+        "summary": "The page no longer includes FAQs covering discovery modes, supported devices and protocols, exclusions, probing frequency, alerts, and traffic volume.",
+        "adminImpact": "Administrators using this page for device discovery guidance will need to consult the updated documentation location; no configuration change is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -470,11 +488,12 @@
       "eventId": "defender-docs:4a2044a17fef7337b04a245b1ea4d98449f93f18:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Moving FAQs",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery documentation adds coverage and protocol details",
+        "summary": "The page now includes a setup link, clarifies passive discovery and private-network behavior, and documents supported operating systems, discovery-capable devices, and protocols used for default capture and standard-mode probing.",
+        "adminImpact": "Administrators can use the documented platform and protocol lists to assess discovery coverage and understand which devices may appear in inventory. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -495,11 +514,12 @@
       "eventId": "defender-docs:2a276788c86f3c5d424424a653b2c345ef2475a2:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing FAQ",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery documentation clarifies alert wording and unmanaged device health state",
+        "summary": "The FAQ heading about UnicastScanner.ps1, PSScript_{GUID}.ps1, and port-scanning alerts was revised. The page now states that unmanaged device health remains “Active” during the standard device-inventory retention period, regardless of its actual state.",
+        "adminImpact": "Administrators should use the updated wording when reviewing these alerts and interpret “Active” as the temporary health state for retained unmanaged devices.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -520,11 +540,12 @@
       "eventId": "defender-docs:2a276788c86f3c5d424424a653b2c345ef2475a2:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing FAQ",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Standard discovery probing guidance expanded",
+        "summary": "The documentation now explains that probing is distributed across onboarded Windows devices, generates less than 50 KB of traffic for unmanaged devices at most once every three weeks, targets only unmanaged devices, and supports device or subnet exclusions.",
+        "adminImpact": "Administrators can assess the expected network impact and configure exclusions for network lures when needed.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -545,11 +566,12 @@
       "eventId": "defender-docs:9eb765fd55a28c347199916ffe65f86a36e14240:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Summarizing section",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Standard discovery security guidance is summarized",
+        "summary": "The page now concisely explains that probing unmanaged devices is infrequent and lightweight, uses standard Windows discovery methods, excludes onboarded devices, and supports exclusions for specific devices or subnets.",
+        "adminImpact": "Administrators can more easily assess discovery traffic and configure exclusions for network lures or sensitive devices. No required action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -570,11 +592,12 @@
       "eventId": "defender-docs:74ff1bf8d24a5d571e92353e19dca07c1c4926eb:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding table",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery protocols are now documented by discovery mode",
+        "summary": "The documentation adds a table showing whether each listed protocol is supported by Basic or Standard discovery, replacing separate protocol lists.",
+        "adminImpact": "Administrators can more easily determine which discovery mode supports the protocols relevant to their network.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -595,11 +618,12 @@
       "eventId": "defender-docs:987e900270776336c1cbb8aa37bb84f4b2f27bbf:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fixing errors",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Supported operating systems guidance centralized",
+        "summary": "The prerequisites section now links to the device discovery page for the supported operating systems instead of listing Windows 10 and later and Windows Server 2019 and later inline.",
+        "adminImpact": "Use the linked supported operating systems section when checking device discovery eligibility.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -620,11 +644,12 @@
       "eventId": "defender-docs:987e900270776336c1cbb8aa37bb84f4b2f27bbf:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fixing errors",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated device discovery documentation links",
+        "summary": "The device discovery page now points to updated sections for monitored networks, device inventory review, and advanced hunting. The Device discovery FAQs link was removed from the page list.",
+        "adminImpact": "Administrators may need to use the updated links to find the relevant guidance; no configuration changes are required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -645,11 +670,12 @@
       "eventId": "defender-docs:6b60556970dc82fdca13fb9973a0622312e66d80:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "merge updates",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Windows event collection guidance reorganized",
+        "summary": "The article now frames setup around Windows event collection, clarifies its use in detections and advanced hunting, and separates automatic sensor v3.x configuration from manual auditing, including a PowerShell subsection.",
+        "adminImpact": "Administrators can more easily identify the appropriate automatic or manual configuration path for domain controllers.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -669,12 +695,13 @@
       "firstSeenAt": "2026-01-12T13:38:10.000Z",
       "eventId": "defender-docs:6c67d63a05bcfa583f68d11e8cac6b7f1aadaab5:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Editing network scan page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Retirement",
+        "headline": "Windows authenticated scan deprecation added",
+        "summary": "The documentation now describes authenticated network scans using designated onboarded Windows devices and read-only SNMPv2/v3 to discover network infrastructure. It also states that Windows authenticated scan is deprecated from December 18, 2025.",
+        "adminImpact": "Administrators using Windows authenticated scans should review the deprecation FAQs and plan accordingly before December 18, 2025.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -695,11 +722,12 @@
       "eventId": "defender-docs:6c67d63a05bcfa583f68d11e8cac6b7f1aadaab5:modified:defender-endpoint/network-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing network scan page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Network device documentation now focuses on authenticated scan setup",
+        "summary": "The page was retitled and rewritten to explain discovering and onboarding routers, switches, firewalls, and other network devices through authenticated scans. It now includes prerequisites and links to detailed scan guidance.",
+        "adminImpact": "Administrators can use the revised page and linked guidance when configuring authenticated network scans.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -720,11 +748,12 @@
       "eventId": "defender-docs:4c91860fc6cc4f3520bca2b3516704ca4972dd87:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Troubleshooting page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery troubleshooting guidance moved to a dedicated page",
+        "summary": "The page now links issues with device discovery and authenticated network scans to a dedicated troubleshooting article. Inline guidance about security-tool alerts and unmanaged device health status was removed.",
+        "adminImpact": "Use the linked troubleshooting article when investigating device discovery or authenticated scan issues.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -745,11 +774,12 @@
       "eventId": "defender-docs:4c91860fc6cc4f3520bca2b3516704ca4972dd87:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Troubleshooting page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Network-device vulnerability-management guidance removed",
+        "summary": "The documentation no longer includes the section explaining that discovered and classified network devices receive security recommendations and vulnerability reviews.",
+        "adminImpact": "Administrators consulting this page will no longer find this guidance there; no action is specified.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -770,11 +800,12 @@
       "eventId": "defender-docs:4c91860fc6cc4f3520bca2b3516704ca4972dd87:modified:defender-endpoint/network-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Troubleshooting page",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Network scanner setup guidance reorganized",
+        "summary": "The page reorganizes scanner setup and registration instructions, clarifies Windows version support, documents the 40-scanner-per-tenant limit, and updates the Defender portal navigation path and permission guidance.",
+        "adminImpact": "No administrator action is required; use the updated prerequisites and navigation when configuring scanners.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -795,11 +826,12 @@
       "eventId": "defender-docs:0c4b79f22de6227777e86317b0055bc648050663:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fix links",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated device discovery troubleshooting link",
+        "summary": "The device discovery documentation now links to `troubleshoot-device-discovery.md` for device discovery and authenticated network scan issues.",
+        "adminImpact": "Administrators will be directed to the updated troubleshooting page; no configuration change is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -820,11 +852,12 @@
       "eventId": "defender-docs:0c4b79f22de6227777e86317b0055bc648050663:modified:defender-endpoint/network-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Fix links",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Corrected troubleshooting link for authenticated network scans",
+        "summary": "The troubleshooting link was updated to point to the correct device discovery and network scans article.",
+        "adminImpact": "Administrators can use the corrected link when troubleshooting authenticated network scan setup. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -845,11 +878,12 @@
       "eventId": "defender-docs:17bebd515c72df3e8ebf1861052533a0774e5169:modified:defender-endpoint/network-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Notes",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified network device registration instructions",
+        "summary": "The documentation now presents the same-tenant sign-in requirement as standard text and incorporates the command prompt copy guidance into the URL step.",
+        "adminImpact": "No administrator action is required; the registration requirements and guidance are unchanged.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -870,11 +904,12 @@
       "eventId": "defender-docs:da605dc2312fdb4e40d97090c2057974f8d93f9f:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Troubleshooting section heading updated",
+        "summary": "The heading “Troubleshoot device discovery” was changed to “Troubleshoot.”",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -895,11 +930,12 @@
       "eventId": "defender-docs:da605dc2312fdb4e40d97090c2057974f8d93f9f:modified:defender-endpoint/network-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/network-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Network device discovery description clarified",
+        "summary": "The page now describes authenticated network scans as an agentless way to discover and assess devices including switches, routers, WLAN controllers, firewalls, and VPN gateways. The “Troubleshooting” heading was shortened to “Troubleshoot.”",
+        "adminImpact": "Administrators get clearer information about the devices covered by authenticated scans; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -920,11 +956,12 @@
       "eventId": "defender-docs:c7a92b1720261c873eedcd1370d60a74b9018ccb:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Link",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated device discovery troubleshooting link",
+        "summary": "The article now links to `troubleshoot-device-discovery-network-scans.md` for device discovery and authenticated network scan issues, replacing the previous link.",
+        "adminImpact": "Use the updated link when troubleshooting these issues.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -945,11 +982,12 @@
       "eventId": "defender-docs:f8449cdb0bb5c33657c349ab516b6e6b8a5e0849:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Defender for IoT",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Documentation expands coverage of discovered IoT and OT devices",
+        "summary": "The page now includes a dedicated section explaining that Defender for Endpoint can discover IoT and OT devices such as printers, cameras, medical devices, and industrial control systems.",
+        "adminImpact": "Administrators have clearer guidance on the types of IoT and OT assets that device discovery can identify.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -970,11 +1008,12 @@
       "eventId": "defender-docs:b39297be81b82cee9b76fdd8a82d103dae6c90d1:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Tweaks",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Added guidance for assessing non-onboarded devices",
+        "summary": "The device discovery documentation now links to Review and assess devices for assessing non-onboarded devices and finding additional device details.",
+        "adminImpact": "Administrators can use the new link to access this assessment guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -995,11 +1034,12 @@
       "eventId": "defender-docs:b39297be81b82cee9b76fdd8a82d103dae6c90d1:modified:defender-endpoint/troubleshoot-device-discovery-network-scans.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Tweaks",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-device-discovery-network-scans.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Troubleshooting heading promoted to a top-level section",
+        "summary": "The “Text too small or can't copy text from command line” heading changed from level 3 to level 2.",
+        "adminImpact": "Improves documentation structure and navigation; no administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1019,12 +1059,13 @@
       "firstSeenAt": "2026-01-12T14:59:38.000Z",
       "eventId": "defender-docs:39353c3c2a8bc812fd3f6f34a0d71fa1acf0c775:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update whats-new.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "New feature",
+        "headline": "New health alert and automated auditing updates for v3.x sensors",
+        "summary": "The documentation adds a health alert for v3.x sensors with missing or incorrectly configured enhanced RPC auditing. It also describes the gradual rollout of automatic Windows event-auditing configuration for new and existing sensors.",
+        "adminImpact": "Admins can identify RPC auditing misconfigurations that may affect advanced identity detections, while automatic configuration can apply or correct required auditing settings.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1045,11 +1086,12 @@
       "eventId": "defender-docs:0658cc7d552626bf062e9864b516307b458cae47:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update whats-new.md with new health alert details",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated link for automatic event-auditing configuration",
+        "summary": "The What's new entry now presents the Learn more link directly after the description of automatic Windows event-auditing configuration and related health alerts.",
+        "adminImpact": "Administrators can use the updated link to access the configuration guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1070,11 +1112,12 @@
       "eventId": "defender-docs:480cbfd7f300da10ca3afbc768146a5818fd8877:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Restructure windows event auditing article",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Windows event auditing guidance adds a configuration report",
+        "summary": "The article now explains configuring Defender for Identity to collect Windows event logs and adds a preconfiguration workflow using New-MDIConfigurationReport, including reporting modes and output options. It also links to health alerts and notes minimal server-performance impact.",
+        "adminImpact": "Administrators can use the report to identify required domain or local auditing adjustments before configuration and use the health-alert guidance to troubleshoot misconfigurations.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1095,11 +1138,12 @@
       "eventId": "defender-docs:21aeffd62c5b7e63ee576409d7e2e76de473f093:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "headline": "Windows event auditing guidance adds GPO conflict and verification steps",
+        "summary": "The page clarifies that automatic auditing applies settings to the domain controller’s local policy, explains conflicts with domain GPO audit.csv files, and adds verification steps using process checks, KQL, or auditpol.",
+        "adminImpact": "If automatic auditing is disabled, configure auditing manually or with PowerShell. When using automatic configuration, remove conflicting audit.csv files from the local GPO store and verify the running process.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1120,11 +1164,12 @@
       "eventId": "defender-docs:21aeffd62c5b7e63ee576409d7e2e76de473f093:modified:defender-for-identity/deploy/prerequisites-sensor-version-3.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Edits",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/prerequisites-sensor-version-3.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Windows event collection guidance",
+        "summary": "The page now clarifies how Windows events support detections and advanced hunting, links to automatic event collection in preview, and provides separate links for manual and PowerShell configuration.",
+        "adminImpact": "Admins can more easily find the appropriate instructions for configuring Windows event collection.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1145,11 +1190,12 @@
       "eventId": "defender-docs:6fc000f387f2d9eded62d9658608ba3b8a29cfe2:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "edits",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Windows event collection guidance was updated",
+        "summary": "The page’s wording and formatting were edited, including the permission-assignment guidance and image markup.",
+        "adminImpact": "No administrator action is required; use the updated guidance when configuring Windows event collection.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1170,11 +1216,12 @@
       "eventId": "defender-docs:2922395377439ccd4d8af8bbd4473a0358546864:modified:unified-secops-platform/playbook-managed-security.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated links to role-mapping guidance",
+        "summary": "The managed security playbook now uses site-root links for the sample Microsoft Sentinel-to-Defender XDR Unified RBAC permission mappings, with and without an anchor.",
+        "adminImpact": "Administrators following the playbook will use the updated links to access the role-mapping guidance; no action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1195,11 +1242,12 @@
       "eventId": "defender-docs:f6d726dc23ca47fd7372c0a19ef0fd494a033ef3:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing table",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery modes table reorganized",
+        "summary": "The documentation expands the IoT and OT terms and restructures the discovery modes table with separate columns for how each scan works, considerations, and use cases. It now presents Standard scan first as the default, followed by Basic scan.",
+        "adminImpact": "Administrators can more easily compare active Standard scanning with passive Basic scanning and review the related considerations.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1220,11 +1268,12 @@
       "eventId": "defender-docs:a7df2bc33438f4cde51fcdacad5d4eb4fbadb2a8:modified:defender-for-identity/whats-new.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "AEO updates",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated guidance link for the Accounts tab",
+        "summary": "The Defender for Identity What's new entry now links to “Manage related identities and accounts (Preview)” instead of the previous article.",
+        "adminImpact": "Use the updated link for the relevant Accounts tab guidance; no administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1245,11 +1294,12 @@
       "eventId": "defender-docs:678ab90edc398caa149e465f1caad6f07a47a013:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery documentation adds standard-scan security guidance",
+        "summary": "The page now explains that standard discovery probes unmanaged devices infrequently and lightly, avoids devices already onboarded to Defender for Endpoint, and supports exclusions for specific devices or subnets. It also updates headings, links, and portal navigation paths.",
+        "adminImpact": "No action is required. Administrators can use the added guidance to assess standard discovery and locate management settings.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1270,11 +1320,12 @@
       "eventId": "defender-docs:580e38c0bd506056f7ace12c5fff8a050989486a:modified:defender-for-identity/manage-related-identities-accounts.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Renamed icons",
-        "summary": "Updated Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Link and Unlink icons in account-management steps",
+        "summary": "The documentation now references renamed image files for the Link and Unlink icons on the Accounts tab.",
+        "adminImpact": "The account-linking instructions are unchanged; administrators can follow the updated visuals without taking action.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1295,11 +1346,12 @@
       "eventId": "defender-docs:be02ed94e1ad0cadbb3bd5e340a3f9583d0bdba4:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Adding back file",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery article title and link wording updated",
+        "summary": "The article title changed from “Configure device discovery” to “Manage device discovery,” and the supported operating systems reference was reworded.",
+        "adminImpact": "Administrators should use the updated title when locating the article; no action is indicated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1320,11 +1372,12 @@
       "eventId": "defender-docs:c867df580c6f4756bf78fc529565daf5cbb2142c:modified:defender-endpoint/assess-devices.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/assess-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device inventory status definitions are now presented in a table",
+        "summary": "The documentation now uses a table for the Onboarded, Can be onboarded, Unsupported, and Insufficient info values, including guidance about differences in device counts. Several screenshots were removed.",
+        "adminImpact": "Administrators can use the updated table to interpret device inventory statuses and count differences more easily.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1345,11 +1398,12 @@
       "eventId": "defender-docs:c867df580c6f4756bf78fc529565daf5cbb2142c:modified:defender-endpoint/configure-device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery guidance updated",
+        "summary": "The documentation now instructs users to add an exclusion description, clarifies network list sorting and display limits, and defines automatic monitoring for corporate networks. The note describing PowerShell scripts and their location was removed.",
+        "adminImpact": "Administrators should follow the updated exclusion and network-monitoring guidance when configuring device discovery.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1370,11 +1424,12 @@
       "eventId": "defender-docs:c867df580c6f4756bf78fc529565daf5cbb2142c:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Editing",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Standard scan documentation updated",
+        "summary": "The Standard scan (default) description in Device discovery was revised, including its details on discovery protocols, multicast queries, and active probing.",
+        "adminImpact": "Administrators should use the updated description when reviewing device discovery scan behavior; no action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1395,11 +1450,12 @@
       "eventId": "defender-docs:fbd4ad17e2d54952b830d9847d7887386f10f1f3:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Link",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated IoT and OT device discovery documentation",
+        "summary": "The device discovery page updated its description of supported IoT and OT devices, including printers, cameras, medical devices, and industrial control systems.",
+        "adminImpact": "No administrator action is stated; consult the updated page when reviewing device discovery coverage.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1420,11 +1476,12 @@
       "eventId": "defender-docs:fbd4ad17e2d54952b830d9847d7887386f10f1f3:modified:defender-endpoint/troubleshoot-device-discovery-network-scans.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Link",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/troubleshoot-device-discovery-network-scans.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Removed the next-steps link from the network scans troubleshooting page",
+        "summary": "The page no longer includes the “Next steps” section or the link to “Review and assess devices.” It continues to state that unmanaged devices are temporarily shown as “Active” during the standard device-inventory retention period.",
+        "adminImpact": "Administrators will no longer find that cross-reference on this page; no configuration change is indicated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1445,11 +1502,12 @@
       "eventId": "defender-docs:923087f7dcbad86b704ba3332d15f8ae2bb216bc:modified:defender-endpoint/device-discovery.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Link",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated link in IoT and OT device discovery documentation",
+        "summary": "The device discovery page updates a link in its description of discovering IoT and OT devices.",
+        "adminImpact": "Administrators can use the updated link when reviewing device discovery guidance.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1472,11 +1530,12 @@
       "eventId": "defender-docs:78fd46fee186516d986470455d9c59de895d9f4f:removed:unified-secops-platform/playbook-mssps.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "mssp cleanup",
-        "summary": "Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "MSSP implementation guide removed",
+        "summary": "The Microsoft Defender portal implementation guide for Managed Security Service Providers was deleted, including guidance on multitenant setup, customer onboarding, content management, and cross-tenant operations.",
+        "adminImpact": "MSSP administrators who relied on this guide can no longer access its implementation guidance at this URL.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1497,11 +1556,12 @@
       "eventId": "defender-docs:2a276788c86f3c5d424424a653b2c345ef2475a2:removed:defender-endpoint/device-discovery-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing FAQ",
-        "summary": "Removed Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery FAQ page removed",
+        "summary": "The Microsoft Defender for Endpoint device discovery FAQ documentation was deleted, including guidance on unmanaged device onboarding, device health states, standard discovery probing, and probing exclusions.",
+        "adminImpact": "Administrators can no longer use this FAQ page as a reference for these device discovery questions. No administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1522,11 +1582,12 @@
       "eventId": "defender-docs:a7df2bc33438f4cde51fcdacad5d4eb4fbadb2a8:removed:defender-for-identity/link-unlink-account-to-identity.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "AEO updates",
-        "summary": "Removed Microsoft Defender documentation in defender-for-identity/link-unlink-account-to-identity.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Defender for Identity account-linking article deleted",
+        "summary": "The documentation page for manually linking and unlinking accounts to identities was deleted, including its preview notice, prerequisites, and procedural steps.",
+        "adminImpact": "Administrators will no longer have this documented guidance for managing related accounts in Defender for Identity.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1547,11 +1608,12 @@
       "eventId": "defender-docs:582334a88e3aa5ce985d22f5d271d9ee5dd7073e:removed:defender-endpoint/device-discovery-faq.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Removing page",
-        "summary": "Removed Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Device discovery overview documentation removed",
+        "summary": "The Defender for Endpoint Device discovery overview page was deleted. It covered unmanaged-device discovery, discovered assets, discovery modes, scans, and configuration guidance.",
+        "adminImpact": "Administrators can no longer rely on this page for those device discovery instructions.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1576,7 +1638,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Added Microsoft Defender documentation in defender-endpoint/assess-devices.md. Added Microsoft Defender documentation in defender-endpoint/troubleshoot-device-discovery-network-scans.md. Added Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md. Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md. Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md. Updated Microsoft Defender documentation in defender-endpoint/assess-devices.md. Upd",
+        "summary": "The documentation now explains how to review non-onboarded devices in the inventory, filter by onboarding status, and use Advanced Hunting with DeviceInfo and DeviceNetworkInfo to investigate discovered devices and their network context. A new Defender for Endpoint Plan 2 article covers scanner alerts and installation failures, connectivity and proxy requirements, missing inventory results, service issues, FIPS configuration, permissions, registration, and device health states. Adds an overview of Microsoft Defender for Endpoint device discovery, including how it identifies unmanaged endpoints, network devices, and IoT/OT assets; discovery modes; and scanning and configuration guidance. The ",
         "sourceFiles": [
           "defender-endpoint/assess-devices.md",
           "defender-endpoint/troubleshoot-device-discovery-network-scans.md",
@@ -1625,7 +1687,7 @@
       {
         "category": "Doc update",
         "title": "Unified SecOps",
-        "summary": "Added Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Added Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md.",
+        "summary": "Microsoft added a guide covering environment preparation, customer onboarding, content distribution, and multitenant security operations in the Microsoft Defender portal. It also highlights the need to transition Microsoft Sentinel workspaces when onboarding customers. The guide covers environment preparation, customer onboarding, content distribution, and daily multitenant security operations, with links to Sentinel transition guidance. The guide title now spells out Managed Security Service Providers (MSSPs), the service metadata was corrected, and several documentation links were normalized or updated. The MSSP playbook now uses Microsoft Defender and Unified Security Operations metadata,",
         "sourceFiles": [
           "unified-secops-platform/playbook-managed-security.md",
           "unified-secops-platform/playbook-mssps.md",
@@ -1636,9 +1698,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "Private preview",
         "title": "Defender for Identity",
-        "summary": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-",
+        "summary": "A new article explains how to link or unlink legacy, orphaned, unused, and other related accounts to identities in Microsoft Defender for Identity. It includes portal procedures and examples across Active Directory, Microsoft Entra ID, and non-Microsoft identity providers. Version 2.254 documents sensor support for the *.aatp.gcc.azure.com DNS zone. Corrected “dns perfix” to “dns prefix” and changed “on-prem” to “on-premises” in a security posture assessment title and its link text. The article now frames setup around Windows event collection, clarifies its use in detections and advanced hunting, and separates automatic sensor v3.x configuration from manual auditing, including a PowerShell s",
         "sourceFiles": [
           "defender-for-identity/manage-related-identities-accounts.md",
           "defender-for-identity/whats-new.md",
@@ -1658,7 +1720,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Cloud Apps",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md.",
+        "summary": "The article now documents first-time app connector setup, including the required API connection, portal navigation, and app-specific permissions and authentication guidance.",
         "sourceFiles": [
           "defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md"
         ]
@@ -1668,22 +1730,22 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Added Microsoft Defender documentation in defender-endpoint/assess-devices.md. Added Microsoft Defender documentation in defender-endpoint/troubleshoot-device-discovery-network-scans.md. Added Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md. Updated Microsoft Defender documentation in defender-endpoint/linux-whatsnew.md. Updated Microsoft Defender documentation in defender-endpoint/device-discovery-faq.md. Updated Microsoft Defender documentation in defender-endpoint/configure-device-discovery.md. Updated Microsoft Defender documentation in defender-endpoint/device-discovery.md. Updated Microsoft Defender documentation in defender-endpoint/assess-devices.md. Upd"
+        "detail": "The documentation now explains how to review non-onboarded devices in the inventory, filter by onboarding status, and use Advanced Hunting with DeviceInfo and DeviceNetworkInfo to investigate discovered devices and their network context. A new Defender for Endpoint Plan 2 article covers scanner alerts and installation failures, connectivity and proxy requirements, missing inventory results, service issues, FIPS configuration, permissions, registration, and device health states. Adds an overview of Microsoft Defender for Endpoint device discovery, including how it identifies unmanaged endpoints, network devices, and IoT/OT assets; discovery modes; and scanning and configuration guidance. The "
       },
       {
         "category": "Doc update",
         "headline": "Unified SecOps",
-        "detail": "Added Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Added Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md. Updated Microsoft Defender documentation in unified-secops-platform/playbook-managed-security.md. Removed Microsoft Defender documentation in unified-secops-platform/playbook-mssps.md."
+        "detail": "Microsoft added a guide covering environment preparation, customer onboarding, content distribution, and multitenant security operations in the Microsoft Defender portal. It also highlights the need to transition Microsoft Sentinel workspaces when onboarding customers. The guide covers environment preparation, customer onboarding, content distribution, and daily multitenant security operations, with links to Sentinel transition guidance. The guide title now spells out Managed Security Service Providers (MSSPs), the service metadata was corrected, and several documentation links were normalized or updated. The MSSP playbook now uses Microsoft Defender and Unified Security Operations metadata,"
       },
       {
-        "category": "Doc update",
+        "category": "Private preview",
         "headline": "Defender for Identity",
-        "detail": "Added Microsoft Defender documentation in defender-for-identity/manage-related-identities-accounts.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/whats-new.md. Updated Microsoft Defender documentation in defender-for-identity/deploy/configure-windows-event-collection.md. Updated Microsoft Defender documentation in defender-"
+        "detail": "A new article explains how to link or unlink legacy, orphaned, unused, and other related accounts to identities in Microsoft Defender for Identity. It includes portal procedures and examples across Active Directory, Microsoft Entra ID, and non-Microsoft identity providers. Version 2.254 documents sensor support for the *.aatp.gcc.azure.com DNS zone. Corrected “dns perfix” to “dns prefix” and changed “on-prem” to “on-premises” in a security posture assessment title and its link text. The article now frames setup around Windows event collection, clarifies its use in detections and advanced hunting, and separates automatic sensor v3.x configuration from manual auditing, including a PowerShell s"
       },
       {
         "category": "Doc update",
         "headline": "Defender for Cloud Apps",
-        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps.md."
+        "detail": "The article now documents first-time app connector setup, including the required API connection, portal navigation, and app-specific permissions and authentication guidance."
       }
     ],
     "generatedBy": "fallback"

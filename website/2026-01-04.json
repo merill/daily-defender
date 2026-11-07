@@ -19,11 +19,12 @@
       "eventId": "defender-docs:46837201208875a7174cac5fd0093c6d8ea6d0af:modified:defender-for-cloud-apps/protect-asana.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "fix step 1",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Asana sign-in instruction",
+        "summary": "The Asana setup step now says to sign in to Asana with an admin account.",
+        "adminImpact": "No administrator action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:0034d37a9a72d8d0573c179e3fe5537eaa016237:modified:defender-for-cloud-apps/caac-known-issues.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Document Google Workspace limitation for Edge protection",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Google Workspace limitation documented for Enterprise Edge protection",
+        "summary": "Google Workspace is not supported with in-browser protection in the Enterprise Edge browser, so real-time DLP file scans are unavailable in Google Workspace browser sessions.",
+        "adminImpact": "Administrators should account for the lack of in-browser protection and real-time DLP scanning when users access Google Workspace through Enterprise Edge.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:78ca4f95a0f878406c1a223d9e7d3dec9798d55e:modified:defender-for-cloud-apps/caac-known-issues.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update defender-for-cloud-apps/caac-known-issues.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Documentation clarifies Google Workspace incompatibility",
+        "summary": "The known-issues entry now states that Secure Edge Session Controls cannot be used with Google Workspace in Enterprise Edge browsers.",
+        "adminImpact": "Administrators should account for this limitation when planning Google Workspace protection in Enterprise Edge browsers.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:583ff1d02946babc5e87e52bed65278c9c00ae02:modified:defender-for-cloud-apps/caac-known-issues.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update defender-for-cloud-apps/caac-known-issues.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Known issue updated for Google Workspace in Enterprise Edge",
+        "summary": "The documentation now states that Google Workspace does not support in-browser protection, Secure Edge Session controls, or real-time DLP file scans in Enterprise Edge. Browser sessions use fallback authentication suffixes instead of Secure Edge.",
+        "adminImpact": "Administrators should expect these protections and scans to be unavailable for Google Workspace browser sessions.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:ba06beea647b43d8eed8da7e4190efa9dbc5df92:modified:defender-for-cloud-apps/caac-known-issues.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Update defender-for-cloud-apps/caac-known-issues.md",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Updated Google Workspace known-issues wording",
+        "summary": "The documentation now states that Google Workspace does not support in-browser protection in the Enterprise Edge browser, Secure Edge Session controls, or real-time DLP file scans, and that fallback authentication of suffixes is used.",
+        "adminImpact": "Administrators should review these documented limitations when using Google Workspace with Enterprise Edge.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -143,7 +148,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Cloud Apps",
-        "summary": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md.",
+        "summary": "The Asana setup step now says to sign in to Asana with an admin account. Google Workspace is not supported with in-browser protection in the Enterprise Edge browser, so real-time DLP file scans are unavailable in Google Workspace browser sessions. The known-issues entry now states that Secure Edge Session Controls cannot be used with Google Workspace in Enterprise Edge browsers. The documentation now states that Google Workspace does not support in-browser protection, Secure Edge Session controls, or real-time DLP file scans in Enterprise Edge. Browser sessions use fallback authentication suffixes instead of Secure Edge. The documentation now states that Google Workspace does not support in-",
         "sourceFiles": [
           "defender-for-cloud-apps/protect-asana.md",
           "defender-for-cloud-apps/caac-known-issues.md",
@@ -157,7 +162,7 @@
       {
         "category": "Doc update",
         "headline": "Defender for Cloud Apps",
-        "detail": "Updated Microsoft Defender documentation in defender-for-cloud-apps/protect-asana.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md. Updated Microsoft Defender documentation in defender-for-cloud-apps/caac-known-issues.md."
+        "detail": "The Asana setup step now says to sign in to Asana with an admin account. Google Workspace is not supported with in-browser protection in the Enterprise Edge browser, so real-time DLP file scans are unavailable in Google Workspace browser sessions. The known-issues entry now states that Secure Edge Session Controls cannot be used with Google Workspace in Enterprise Edge browsers. The documentation now states that Google Workspace does not support in-browser protection, Secure Edge Session controls, or real-time DLP file scans in Enterprise Edge. Browser sessions use fallback authentication suffixes instead of Secure Edge. The documentation now states that Google Workspace does not support in-"
       }
     ],
     "generatedBy": "fallback"
