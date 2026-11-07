@@ -19,11 +19,12 @@
       "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-exclusions.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Added macOS performance mitigation guidance",
+        "summary": "The page now maps affected Defender processes and workloads to recommended next steps, cautions against broad exclusions, and advises validating CPU, memory, scan counts, and elapsed time after exclusions.",
+        "adminImpact": "Administrators can use the guidance to choose narrower mitigations, collect diagnostics when exclusions are unlikely to help, and remove ineffective exclusions. No mandatory action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-support-perf-overview.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "macOS performance troubleshooting guidance was refined",
+        "summary": "The article now provides process-specific troubleshooting steps, recommends collecting performance data while the issue occurs, and clarifies that antivirus exclusions do not exclude EDR or other security event processing.",
+        "adminImpact": "Administrators can collect more targeted diagnostic data and avoid broadening antivirus exclusions when another Defender component is causing the performance issue.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-support-perf.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "macOS performance troubleshooting now covers Defender EDR processes",
+        "summary": "The article adds a workflow for high resource use by wdavdaemon or wdavdaemon_enterprise, including Activity Monitor or top checks, hot-event-source collection, Client Analyzer data, coexistence checks, and support information. It also clarifies that antivirus exclusions do not suppress EDR or other Endpoint Security events.",
+        "adminImpact": "Administrators have more specific diagnostic steps for persistent macOS performance issues and should avoid broad antivirus exclusions unless antivirus scanning is confirmed as a contributor.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -94,11 +97,12 @@
       "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-support-sys-ext.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "headline": "macOS profile troubleshooting guidance updated",
+        "summary": "The article now directs administrators to review profiles under System Settings > General > Device Management, deploy each Defender for Endpoint configuration as a separate payload, and use an updated profile-analysis command.",
+        "adminImpact": "Review macOS MDM deployments and separate any combined Defender payloads; use the revised navigation and diagnostic command when troubleshooting.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -119,11 +123,12 @@
       "eventId": "defender-docs:fd4d87d56d0475c77aa09dc5b799a6ee0cf0320d:modified:defender-endpoint/mac-troubleshoot-netext-mde.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Improve macOS performance, NetExt, exclusions, and profile troubleshooting (#574)",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "macOS NetExt troubleshooting guidance expanded",
+        "summary": "The guidance now distinguishes Network Protection enforcement issues from issues caused whenever NetExt runs. It adds health checks, a test matrix, diagnostic commands, information to collect, and a warning that disabling NetExt reduces network visibility and disables dependent capabilities.",
+        "adminImpact": "Administrators can isolate affected components more systematically and should use a small pilot group and restore the original configuration after testing.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -142,7 +147,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md. Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md.",
+        "summary": "The page now maps affected Defender processes and workloads to recommended next steps, cautions against broad exclusions, and advises validating CPU, memory, scan counts, and elapsed time after exclusions. The article now provides process-specific troubleshooting steps, recommends collecting performance data while the issue occurs, and clarifies that antivirus exclusions do not exclude EDR or other security event processing. The article adds a workflow for high resource use by wdavdaemon or wdavdaemon_enterprise, including Activity Monitor or top checks, hot-event-source collection, Client Analyzer data, coexistence checks, and support information. It also clarifies that antivirus exclusions",
         "sourceFiles": [
           "defender-endpoint/mac-exclusions.md",
           "defender-endpoint/mac-support-perf-overview.md",
@@ -156,7 +161,7 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md. Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md. Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md."
+        "detail": "The page now maps affected Defender processes and workloads to recommended next steps, cautions against broad exclusions, and advises validating CPU, memory, scan counts, and elapsed time after exclusions. The article now provides process-specific troubleshooting steps, recommends collecting performance data while the issue occurs, and clarifies that antivirus exclusions do not exclude EDR or other security event processing. The article adds a workflow for high resource use by wdavdaemon or wdavdaemon_enterprise, including Activity Monitor or top checks, hot-event-source collection, Client Analyzer data, coexistence checks, and support information. It also clarifies that antivirus exclusions"
       }
     ],
     "generatedBy": "fallback"

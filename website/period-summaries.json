@@ -6463,52 +6463,60 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08-03": {
-      "headline": "Microsoft Defender for Office 365: Enhancing how we handle promotional mail leads 2 Defender updates",
-      "overview": "3 August 2026 recorded 1 updated Microsoft Defender documentation changes and 1 relevant Message Center announcement. The most active areas were Office 365, Defender XDR.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Tenant Allow Block List guidance distinguishes domains from wildcard subdomains",
+      "overview": "Office 365 guidance now specifies the scope of Tenant Allow Block List block entries: `contoso.com` applies only to that domain, while `*.contoso.com` covers its subdomains but not the root domain itself.",
+      "adminImpact": "Review existing block-entry syntax to ensure it covers both the domain and any intended subdomains.",
       "keyChanges": [
         {
-          "title": "Microsoft Defender for Office 365: Enhancing how we handle promotional mail",
-          "detail": "Microsoft Defender for Office 365 will tag promotional emails as “promotions” and can auto-move them to a Promotions folder, learning user preferences over time. Public preview starts mid-April 2026; general availability begins late July 2026. Admins can configure settings, and users can train the system by moving messages.",
-          "product": "Defender XDR",
-          "sourceId": "MC1279093"
-        },
-        {
-          "title": "Tenant Allow Block List Email Spoof Configure",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md.",
+          "title": "Block-entry scope is explicitly documented",
+          "detail": "The updated guidance distinguishes `contoso.com` from `*.contoso.com`; administrators must use the appropriate entry, or both entries, depending on whether the root domain and subdomains should be blocked.",
           "product": "Office 365",
           "sourceId": "doc-2026-08-03-tenant-allow-block-list-email-spoof-configure-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
+      "usage": {
+        "inputTokens": 1016,
+        "outputTokens": 583,
+        "costUsd": 0.000903
+      }
     },
     "2026-08-05": {
-      "headline": "Microsoft Teams: Report security concerns in Teams meetings leads 3 Defender updates",
-      "overview": "5 August 2026 recorded 1 updated Microsoft Defender documentation changes and 2 relevant Message Center announcements. The most active areas were Defender XDR, Endpoint.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Teams adds default-on reporting for suspicious meetings and group calls",
+      "overview": "The period’s most consequential updates are two Microsoft Teams reporting capabilities tied to Defender XDR. Meeting reporting starts in August 2026, while group-call reporting rolls out from August through October; both are enabled by default. An Endpoint documentation update also clarifies how Intune represents Defender Antivirus update-source priority.",
+      "adminImpact": "Defender XDR administrators should expect user-submitted reports from Teams meetings and group calls to be reviewable in Teams admin center and Microsoft Defender, supporting security investigations. For Endpoint policy configuration, Intune administrators can use the clarified prioritized-list view to set the fallback order for Defender Antivirus update sources.",
       "keyChanges": [
         {
-          "title": "Microsoft Teams: Report security concerns in Teams meetings",
-          "detail": "Microsoft Teams will introduce a \"Report a meeting\" feature starting August 2026, allowing users to report suspicious or malicious activity during meetings. Reports help security teams investigate threats via Microsoft Defender and Teams admin center. The feature is enabled by default, with administrative controls and data collection for security investigations.",
+          "title": "Teams meeting reporting starts in August",
+          "detail": "Users will be able to report suspicious or malicious activity during Teams meetings. Reports support investigation through Microsoft Defender and Teams admin center, with the feature enabled by default and administrative controls and investigation-related data collection included.",
           "product": "Defender XDR",
           "sourceId": "MC1446794"
         },
         {
-          "title": "Microsoft Teams: Users can report security concerns in group calls",
-          "detail": "Microsoft Teams will introduce a \"Report a call\" feature for group calls, allowing users to report suspicious calls from call history. Administrators can review reports in Teams admin center and Microsoft Defender. The feature rolls out from August to October 2026 and is enabled by default.",
+          "title": "Group-call reporting rolls out through October",
+          "detail": "Users will be able to report suspicious calls from call history. The capability is enabled by default and rolls out from August through October 2026; administrators can review reports in Teams admin center and Microsoft Defender.",
           "product": "Defender XDR",
           "sourceId": "MC1447673"
         },
         {
-          "title": "Use Intune Config Manager Microsoft Defender Antivirus",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md.",
+          "title": "Intune guidance clarifies Defender Antivirus update-source ordering",
+          "detail": "The underlying policy uses a pipe-separated string, while Intune presents the setting as a prioritized list of update sources. Administrators can use that list to configure the desired fallback order.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-05-use-intune-config-manager-microsoft-defender-antivirus-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
+      "usage": {
+        "inputTokens": 1244,
+        "outputTokens": 888,
+        "costUsd": 0.001314
+      }
     },
     "2026-08-06": {
       "headline": "Microsoft Defender for Office 365: AIR Investigation Experience Improvements",
@@ -6526,58 +6534,72 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08-10": {
-      "headline": "Safe Links About",
-      "overview": "10 August 2026 recorded 1 updated Microsoft Defender documentation change. The most active areas were Office 365.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Safe Links warnings from pinned Teams tabs now open in new tabs",
+      "overview": "The period contained one Office 365 update. The Safe Links “About” guidance now says that warning pages for links clicked from pinned Teams tabs appear in a new browser tab instead of inside the Teams tab.",
+      "adminImpact": "Administrators should expect a different user experience when users access flagged links from pinned Teams tabs. The update states no administrator action or configuration change.",
       "keyChanges": [
         {
-          "title": "Safe Links About",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
+          "title": "Safe Links warning-page behavior is specified for pinned Teams tabs",
+          "detail": "The updated Safe Links guidance says the warning page opens in a new browser tab when a user clicks a flagged link from a pinned Teams tab, rather than appearing within the Teams tab.",
           "product": "Office 365",
           "sourceId": "doc-2026-08-10-safe-links-about-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
+      "usage": {
+        "inputTokens": 994,
+        "outputTokens": 605,
+        "costUsd": 0.000925
+      }
     },
     "2026-08-11": {
-      "headline": "Troubleshoot Network Extension (NetExt) issues in Defender for Endpoint on Mac leads 5 Defender updates",
-      "overview": "11 August 2026 recorded 5 updated Microsoft Defender documentation changes. The most active areas were Endpoint.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "macOS Defender troubleshooting adds process-specific diagnostics and safer exclusion guidance",
+      "overview": "Microsoft Defender for Endpoint on macOS received a focused troubleshooting guidance refresh. The updates add targeted workflows for high resource use, Network Extension failures, and system extension problems, while clarifying that antivirus exclusions do not suppress EDR or other Endpoint Security events.",
+      "adminImpact": "Use the new diagnostics before changing exclusions or disabling components. For performance issues, collect data while the problem occurs and check the specific Defender process or workload involved. Test NetExt changes with a small pilot and restore the original configuration afterward; review macOS MDM payload structure when investigating system extension issues.",
       "keyChanges": [
         {
-          "title": "Troubleshoot Network Extension (NetExt) issues in Defender for Endpoint on Mac",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-08-11-troubleshoot-network-extension-netext-issues-in-defender-for-endpoint-on-mac-05"
-        },
-        {
-          "title": "Troubleshoot performance issues for Microsoft Defender for Endpoint on macOS",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf.md.",
+          "title": "Performance guidance now targets wdavdaemon and wdavdaemon_enterprise",
+          "detail": "The performance workflow adds Activity Monitor or top checks, hot-event-source collection, Client Analyzer data, coexistence checks, and support information for persistent high resource use. It also states that antivirus exclusions do not suppress EDR or other Endpoint Security events, so broad exclusions may not address the cause.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-11-troubleshoot-performance-issues-for-microsoft-defender-for-endpoint-on-macos-03"
         },
         {
-          "title": "Configure and validate exclusions for Microsoft Defender for Endpoint on macOS",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-exclusions.md.",
+          "title": "Exclusion guidance maps workloads to narrower troubleshooting steps",
+          "detail": "The exclusions article now maps affected Defender processes and workloads to recommended next steps and advises validating CPU, memory, scan counts, and elapsed time after an exclusion is applied. Administrators are cautioned to avoid broad exclusions and remove exclusions that do not improve the measured issue.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-11-configure-and-validate-exclusions-for-microsoft-defender-for-endpoint-on-macos-01"
         },
         {
-          "title": "Overview for how to troubleshoot performance issues for Microsoft Defender for Endpoint on macOS",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-perf-overview.md.",
+          "title": "NetExt troubleshooting separates Network Protection from general NetExt failures",
+          "detail": "The revised workflow distinguishes enforcement problems in Network Protection from issues that occur whenever NetExt runs. It adds health checks, a test matrix, diagnostic commands, and information to collect, while warning that disabling NetExt reduces network visibility and disables dependent capabilities.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-08-11-overview-for-how-to-troubleshoot-performance-issues-for-microsoft-defender-for-endpoint-on-macos-02"
+          "sourceId": "doc-2026-08-11-troubleshoot-network-extension-netext-issues-in-defender-for-endpoint-on-mac-05"
         },
         {
-          "title": "Troubleshoot system extension issues in Microsoft Defender for Endpoint on macOS",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-support-sys-ext.md.",
+          "title": "System extension guidance adds MDM payload and profile checks",
+          "detail": "Administrators are directed to review profiles under System Settings > General > Device Management, deploy each Defender for Endpoint configuration as a separate payload, and use the updated profile-analysis command when diagnosing system extension issues.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-11-troubleshoot-system-extension-issues-in-microsoft-defender-for-endpoint-on-macos-04"
+        },
+        {
+          "title": "The macOS troubleshooting overview now emphasizes data collection during failures",
+          "detail": "The overview adds process-specific troubleshooting steps and recommends collecting performance data while the issue is occurring. It reiterates that antivirus exclusions do not exclude EDR or other security event processing, helping administrators avoid using exclusions for the wrong Defender component.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-08-11-overview-for-how-to-troubleshoot-performance-issues-for-microsoft-defender-for-endpoint-on-macos-02"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
+      "usage": {
+        "inputTokens": 1648,
+        "outputTokens": 1171,
+        "costUsd": 0.001735
+      }
     },
     "2026-08-13": {
       "headline": "Action required: Update Microsoft Defender for Endpoint Android App",
@@ -9654,82 +9676,96 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08-03": {
-      "headline": "Microsoft Defender for Office 365: Enhancing how we handle promotional mail leads 6 Defender updates",
-      "overview": "Week of 3 August 2026 recorded 2 updated Microsoft Defender documentation changes and 4 relevant Message Center announcements. The most active areas were Defender XDR, Office 365, Endpoint.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Teams is adding default security reporting for meetings and group calls",
+      "overview": "Microsoft Teams is set to add user reporting for suspicious activity in meetings and group calls, with reports reviewable through Teams admin center and Microsoft Defender. Microsoft Defender for Office 365 is also changing AIR navigation, while two documentation updates clarify email block scope and Defender Antivirus update-source ordering.",
+      "adminImpact": "Both Teams reporting features are enabled by default; security teams should be ready to review submissions in Teams admin center and Microsoft Defender. AIR users should update workflows for manual refreshes and renamed investigations. Administrators managing email blocks should verify domain and subdomain coverage, while Intune administrators can use the clarified prioritized list to set update-source fallback order.",
       "keyChanges": [
         {
-          "title": "Microsoft Defender for Office 365: Enhancing how we handle promotional mail",
-          "detail": "Microsoft Defender for Office 365 will tag promotional emails as “promotions” and can auto-move them to a Promotions folder, learning user preferences over time. Public preview starts mid-April 2026; general availability begins late July 2026. Admins can configure settings, and users can train the system by moving messages.",
-          "product": "Defender XDR",
-          "sourceId": "MC1279093"
-        },
-        {
-          "title": "Microsoft Teams: Report security concerns in Teams meetings",
-          "detail": "Microsoft Teams will introduce a \"Report a meeting\" feature starting August 2026, allowing users to report suspicious or malicious activity during meetings. Reports help security teams investigate threats via Microsoft Defender and Teams admin center. The feature is enabled by default, with administrative controls and data collection for security investigations.",
+          "title": "Teams meeting reporting arrives with default enablement",
+          "detail": "Starting in August 2026, users can select “Report a meeting” for suspicious or malicious activity during a meeting. Reports support investigation through Microsoft Defender and Teams admin center, and the feature is enabled by default with administrative controls and investigation-related data collection.",
           "product": "Defender XDR",
           "sourceId": "MC1446794"
         },
         {
-          "title": "Microsoft Teams: Users can report security concerns in group calls",
-          "detail": "Microsoft Teams will introduce a \"Report a call\" feature for group calls, allowing users to report suspicious calls from call history. Administrators can review reports in Teams admin center and Microsoft Defender. The feature rolls out from August to October 2026 and is enabled by default.",
+          "title": "Group-call reporting rolls out from August through October",
+          "detail": "Teams will let users report suspicious group calls from call history. Administrators can review reports in Teams admin center and Microsoft Defender; the feature is enabled by default and rolls out between August and October 2026.",
           "product": "Defender XDR",
           "sourceId": "MC1447673"
         },
         {
-          "title": "Tenant Allow Block List Email Spoof Configure",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/tenant-allow-block-list-email-spoof-configure.md.",
+          "title": "AIR replaces automatic refresh with a manual control",
+          "detail": "Microsoft Defender for Office 365’s AIR experience will add a manual refresh button in place of auto-refresh. Investigation names will also remove email subjects and UPNs, supporting lower network activity, better performance, and data minimization; workflow updates are recommended, but no administrator action is required.",
+          "product": "Defender XDR",
+          "sourceId": "MC1431377"
+        },
+        {
+          "title": "Tenant Allow Block List syntax now distinguishes domains from subdomains",
+          "detail": "A block entry for contoso.com applies only to that domain, while *.contoso.com applies to subdomains but not contoso.com itself. Administrators should include the appropriate entries when both the parent domain and subdomains must be covered.",
           "product": "Office 365",
           "sourceId": "doc-2026-08-03-tenant-allow-block-list-email-spoof-configure-01"
         },
         {
-          "title": "Use Intune Config Manager Microsoft Defender Antivirus",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md.",
+          "title": "Intune presents Defender update sources as a prioritized list",
+          "detail": "The underlying Defender Antivirus policy uses a pipe-separated string, while Intune presents the setting as a prioritized list of update sources. The clarified guidance supports configuring the desired fallback order in Intune.",
           "product": "Endpoint",
           "sourceId": "doc-2026-08-05-use-intune-config-manager-microsoft-defender-antivirus-01"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
+      "usage": {
+        "inputTokens": 1327,
+        "outputTokens": 1609,
+        "costUsd": 0.002196
+      }
     },
     "2026-08-10": {
-      "headline": "Action required: Update Microsoft Defender for Endpoint Android App leads 9 Defender updates",
-      "overview": "Week of 10 August 2026 recorded 6 updated Microsoft Defender documentation changes and 3 relevant Message Center announcements. The most active areas were Endpoint, Defender XDR, Office 365.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Update Defender for Endpoint Android by mid-September to avoid protection disruption",
+      "overview": "Microsoft requires Defender for Endpoint Android devices to reach version 1.0.9107.0101 or later by mid-September 2026 because of infrastructure changes. Defender for Identity adds two health signals for missing domain-controller traffic and Windows events, while updated macOS guidance gives administrators more targeted performance and Network Extension diagnostics.",
+      "adminImpact": "Prioritize the Android app update and communicate the deadline to users who manage their own updates. No configuration change is required for the Android rollout or the new Defender for Identity health signals. For macOS issues, use the narrower diagnostic workflows before applying broad antivirus exclusions or disabling Network Extension components.",
       "keyChanges": [
         {
-          "title": "Action required: Update Microsoft Defender for Endpoint Android App",
-          "detail": "Update Microsoft Defender for Endpoint Android to version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption in mobile threat protection due to infrastructure changes. Administrators should verify and update devices and inform users managing their own updates. No other configuration changes are needed.",
+          "title": "Android app update deadline",
+          "detail": "The Microsoft Defender for Endpoint Android app must be updated to version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption to mobile threat protection. Administrators should verify and update devices and notify users responsible for their own updates; no other configuration changes are required.",
           "product": "Defender XDR",
           "sourceId": "MC1454382"
         },
         {
-          "title": "Troubleshoot Network Extension (NetExt) issues in Defender for Endpoint on Mac",
-          "detail": "Updated Microsoft Defender documentation in defender-endpoint/mac-troubleshoot-netext-mde.md.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-08-11-troubleshoot-network-extension-netext-issues-in-defender-for-endpoint-on-mac-05"
-        },
-        {
-          "title": "Safe Links About",
-          "detail": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-08-10-safe-links-about-01"
-        },
-        {
-          "title": "New Defender for Identity health alert for missing domain controller network traffic",
-          "detail": "Microsoft Defender for Identity now includes a health alert for missing domain controller network traffic, helping administrators detect traffic collection issues affecting visibility. The alert appears in sensor health tabs, requires no pre-rollout action, and guides troubleshooting if triggered after rollout. No impact on end users or compliance.",
+          "title": "Defender for Identity adds a missing-traffic health alert",
+          "detail": "Defender for Identity now reports a health alert when expected domain-controller network traffic is missing. The alert appears in sensor health tabs and helps identify traffic-collection problems that can reduce visibility.",
           "product": "Defender XDR",
           "sourceId": "MC1455017"
         },
         {
-          "title": "New Defender for Identity health issue for missing Windows events from a domain controller",
-          "detail": "Microsoft Defender for Identity now includes a new sensor health issue, \"No Windows events received from domain controller,\" to alert administrators of missing Windows events. This improves visibility into event collection gaps affecting detections. It is available now, requires no pre-rollout action, and helps identify domain controller issues.",
+          "title": "A new health issue flags missing domain-controller Windows events",
+          "detail": "The new sensor health issue, \"No Windows events received from domain controller,\" identifies event-collection gaps that can affect detections. It is available now and requires no pre-rollout action.",
           "product": "Defender XDR",
           "sourceId": "MC1455016"
+        },
+        {
+          "title": "macOS performance guidance adds a process-specific investigation workflow",
+          "detail": "Updated Defender for Endpoint on macOS guidance covers high resource use by wdavdaemon or wdavdaemon_enterprise with Activity Monitor or top checks, hot-event-source collection, Client Analyzer data, coexistence checks, and support information. It also states that antivirus exclusions do not suppress EDR or other Endpoint Security events.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-08-11-troubleshoot-performance-issues-for-microsoft-defender-for-endpoint-on-macos-03"
+        },
+        {
+          "title": "NetExt troubleshooting separates enforcement from extension-wide failures",
+          "detail": "The revised macOS Network Extension guidance distinguishes Network Protection enforcement problems from issues occurring whenever NetExt runs, and adds health checks, a test matrix, diagnostic commands, and collection requirements. It warns that disabling NetExt reduces network visibility and disables dependent capabilities.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-08-11-troubleshoot-network-extension-netext-issues-in-defender-for-endpoint-on-mac-05"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-08-23T22:28:57.679Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
+      "usage": {
+        "inputTokens": 1974,
+        "outputTokens": 2666,
+        "costUsd": 0.003594
+      }
     },
     "2026-08-17": {
       "headline": "Microsoft Purview | Data Security Triage Agent Summaries for DLP Alerts in Microsoft Defender XDR leads 4 Defender updates",
@@ -10498,49 +10534,49 @@
       "generatedAt": "2026-08-23T22:28:57.679Z"
     },
     "2026-08": {
-      "headline": "Defender AIR moves into always-on protection ahead of September 1",
-      "overview": "August’s consequential Defender changes center on forced transitions: AIR’s manual and standalone workflow is being removed before September 1, Android clients need a minimum build by mid-September, and Unified RBAC plus Cloud Apps and Edge retirements follow through late September. Microsoft Learn updates were chiefly operational, with macOS guidance separating NetExt, antivirus, and EDR causes, adding health and hot-event diagnostics, and warning that antivirus exclusions do not suppress EDR event processing.",
-      "adminImpact": "Remediate AIR playbooks and scripts before September 1, 2026, and update Microsoft Defender for Endpoint Android devices to version 1.0.9107.0101 or later by mid-September. Track the Unified RBAC notification and activation window, review Cloud Application Administrator assignments by September 25, and migrate Windows 10 deployments using WIP or MDAG to Microsoft Purview solutions and Edge built-in security features. For macOS troubleshooting, use the revised process-specific diagnostics before broad exclusions or NetExt disablement.",
+      "headline": "Defender AIR shifts to always-on protection as September migration deadlines approach",
+      "overview": "Microsoft Defender for Endpoint is replacing manual, standalone AIR with always-on antivirus integration ahead of a September 1 automation deadline. Other material administrator changes cluster in September: the Android app needs a minimum version by mid-month, Edge retires WIP and MDAG by late month, and Defender Unified RBAC begins automatic tenant activation. Defender for Cloud Apps also ends App Governance support for the Cloud Application Administrator role on September 26.",
+      "adminImpact": "Remediate AIR playbooks and scripts before September 1; update Android devices to version 1.0.9107.0101 or later by mid-September; plan Windows 10 WIP and MDAG migration; use the 30-day Unified RBAC notice to review imported Defender and Sentinel roles; and reassign affected Cloud Application Administrator users by September 25.",
       "keyChanges": [
         {
-          "title": "AIR’s standalone and manual-triggered workflow ends September 1",
-          "detail": "Microsoft Defender for Endpoint will integrate automated investigation and response into always-on antivirus protection and remove manual triggering and the standalone AIR experience by early September 2026. Organizations using AIR in playbooks or scripts must update them before September 1, 2026.",
+          "title": "AIR manual triggering and the standalone experience are being removed",
+          "detail": "Microsoft Defender for Endpoint will integrate automated investigation and response into always-on antivirus protection by early September 2026. Manual triggering and the standalone AIR experience will be removed, so organizations using AIR in playbooks or scripts must update them before September 1, 2026.",
           "product": "Microsoft Defender for Endpoint",
           "sourceId": "MC1411577"
         },
         {
-          "title": "Android app must reach version 1.0.9107.0101",
-          "detail": "Infrastructure changes require Microsoft Defender for Endpoint Android version 1.0.9107.0101 or later by mid-September 2026 to avoid disruption in mobile threat protection. Administrators should verify and update devices and inform users who manage their own updates; no other configuration changes are required.",
-          "product": "Microsoft Defender for Endpoint Android",
+          "title": "Defender for Endpoint Android requires version 1.0.9107.0101 or later",
+          "detail": "Administrators must update Microsoft Defender for Endpoint Android by mid-September 2026 to avoid mobile threat-protection disruption caused by infrastructure changes. Device owners who manage their own updates should be notified; no other configuration changes are required.",
+          "product": "Microsoft Defender for Endpoint for Android",
           "sourceId": "MC1454382"
         },
         {
-          "title": "Unified RBAC auto-enables tenants from late September through December",
-          "detail": "Microsoft Defender Unified RBAC will begin auto-enabling tenants in late September 2026 and complete activation by December 2026, importing existing roles after a 30-day notification period. It unifies access management across Defender and Sentinel workloads; an opt-out is available after activation, while other Microsoft permissions remain unchanged.",
-          "product": "Microsoft Defender Unified RBAC",
+          "title": "Edge retires Windows Information Protection and Application Guard support",
+          "detail": "Microsoft Edge will retire support for Windows Information Protection and Microsoft Defender Application Guard by late September 2026. These capabilities are already removed in Windows 11 version 24H2; Windows 10 deployments using them must migrate to Microsoft Purview solutions and Edge built-in security features.",
+          "product": "Microsoft Edge and Defender Application Guard",
+          "sourceId": "MC1459132"
+        },
+        {
+          "title": "Defender Unified RBAC will automatically activate across tenants",
+          "detail": "Automatic enablement begins in late September 2026 and completes by December 2026. Unified RBAC brings access management together across Defender and Sentinel workloads, imports existing roles, and provides a 30-day notification period before activation. An opt-out is available after activation, while other Microsoft permissions remain unchanged.",
+          "product": "Microsoft Defender XDR and Microsoft Sentinel",
           "sourceId": "MC1457836"
         },
         {
-          "title": "Cloud Apps retires App Governance support for Cloud Application Administrator",
-          "detail": "Microsoft Defender for Cloud Apps App Governance support for the Cloud Application Administrator role retires on September 26, 2026. Review affected assignments by September 25 and reassign administrators to supported roles such as Security Administrator to maintain access when URBAC is enabled.",
+          "title": "App Governance drops Cloud Application Administrator role support",
+          "detail": "Microsoft Defender for Cloud Apps App Governance will stop supporting the Cloud Application Administrator role on September 26, 2026. Review assignments by September 25 and reassign affected administrators to supported roles such as Security Administrator to preserve access when Unified RBAC is enabled.",
           "product": "Microsoft Defender for Cloud Apps",
           "sourceId": "MC1462464"
-        },
-        {
-          "title": "Edge retires WIP and MDAG support by late September",
-          "detail": "Microsoft Edge will retire Windows Information Protection and Microsoft Defender Application Guard by late September 2026. Organizations still using these capabilities on Windows 10 must migrate to Microsoft Purview solutions and Edge built-in security features; both capabilities are already removed in Windows 11 version 24H2.",
-          "product": "Microsoft Edge, Windows Information Protection, and Microsoft Defender Application Guard",
-          "sourceId": "MC1459132"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-31T16:09:26.771Z",
+      "generatedAt": "2026-11-07T09:03:55.383Z",
       "usage": {
-        "inputTokens": 6951,
-        "outputTokens": 5873,
-        "costUsd": 0.008438
+        "inputTokens": 4610,
+        "outputTokens": 3694,
+        "costUsd": 0.005355
       }
     },
     "2026-09": {
@@ -10683,18 +10719,12 @@
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-06T20:27:15.611Z",
+  "generatedAt": "2026-11-07T09:03:55.383Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-02": {
-      "inputTokens": 17591,
-      "outputTokens": 13171,
-      "requests": 3,
-      "costUsd": 0.019323
-    },
     "2026-10-04": {
       "inputTokens": 37826,
       "outputTokens": 39212,
@@ -10886,18 +10916,24 @@
       "outputTokens": 17065,
       "requests": 6,
       "costUsd": 0.025563
+    },
+    "2026-11-07": {
+      "inputTokens": 12813,
+      "outputTokens": 11216,
+      "requests": 7,
+      "costUsd": 0.016022
     }
   },
   "lastRun": {
-    "inputTokens": 12879,
-    "outputTokens": 8683,
-    "requests": 3,
-    "costUsd": 0.012995
+    "inputTokens": 12813,
+    "outputTokens": 11216,
+    "requests": 7,
+    "costUsd": 0.016022
   },
   "totalUsage": {
-    "inputTokens": 1329858,
-    "outputTokens": 1303098,
-    "requests": 279,
-    "costUsd": 1.829684
+    "inputTokens": 1342671,
+    "outputTokens": 1314314,
+    "requests": 286,
+    "costUsd": 1.845706
   }
 }

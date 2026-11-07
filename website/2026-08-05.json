@@ -19,11 +19,12 @@
       "eventId": "defender-docs:23a594b316f365400290c15e397e911e476f09a1:modified:defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Enhance clarity on Signature Update Fallback Order (#567)",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified Intune signature update fallback configuration",
+        "summary": "The documentation now explains that the underlying policy uses a pipe-separated string, while Intune presents the setting as a prioritized list of update sources.",
+        "adminImpact": "Administrators can use the clarified guidance to configure the desired fallback order in Intune.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -42,7 +43,7 @@
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md.",
+        "summary": "The documentation now explains that the underlying policy uses a pipe-separated string, while Intune presents the setting as a prioritized list of update sources.",
         "sourceFiles": [
           "defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md"
         ]
@@ -52,7 +53,7 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "Updated Microsoft Defender documentation in defender-endpoint/use-intune-config-manager-microsoft-defender-antivirus.md."
+        "detail": "The documentation now explains that the underlying policy uses a pipe-separated string, while Intune presents the setting as a prioritized list of update sources."
       }
     ],
     "generatedBy": "fallback"

@@ -18,12 +18,13 @@
       "firstSeenAt": "2026-08-10T16:09:11.000Z",
       "eventId": "defender-docs:3761e451da9b4a3a0be0ca16ba1c515585000ab3:modified:defender-office-365/safe-links-about.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Update warning page behavior for pinned tabs in Teams (#573)",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Safe Links warnings from pinned Teams tabs now open in a browser tab",
+        "summary": "The warning page for links clicked from a pinned Teams tab now appears in a new browser tab instead of inside the Teams tab.",
+        "adminImpact": "Expect a different user experience when users access flagged links from pinned Teams tabs; no administrator action is stated.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -40,9 +41,9 @@
     "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Defender for Office 365",
-        "summary": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md.",
+        "summary": "The warning page for links clicked from a pinned Teams tab now appears in a new browser tab instead of inside the Teams tab.",
         "sourceFiles": [
           "defender-office-365/safe-links-about.md"
         ]
@@ -50,9 +51,9 @@
     ],
     "highlights": [
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Defender for Office 365",
-        "detail": "Updated Microsoft Defender documentation in defender-office-365/safe-links-about.md."
+        "detail": "The warning page for links clicked from a pinned Teams tab now appears in a new browser tab instead of inside the Teams tab."
       }
     ],
     "generatedBy": "fallback"
