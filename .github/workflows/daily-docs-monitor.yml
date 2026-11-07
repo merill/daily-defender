@@ -110,7 +110,7 @@ jobs:
         BACKFILL_PERIODS: ${{ inputs.backfill_period_summaries }}
       run: |
         if [ -n "$BACKFILL_DATES" ]; then
-          dailynews summaries --dates="$BACKFILL_DATES" --force
+          dailynews summaries --dates="$BACKFILL_DATES" --force --ignore-budget
         elif [ "$REGENERATE_CURRENT" = "true" ]; then
           dailynews summaries --current --force --ignore-budget
         elif [ "$BACKFILL_PERIODS" = "true" ]; then
