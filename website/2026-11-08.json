@@ -52,19 +52,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-xdr/threat-analytics.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 1,
+      "changes": 19,
+      "patch": "diff --git a/defender-xdr/threat-analytics.md b/defender-xdr/threat-analytics.md\nindex 14a7dfa..5ae4f9b 100644\n--- a/defender-xdr/threat-analytics.md\n+++ b/defender-xdr/threat-analytics.md\n@@ -24,7 +24,7 @@ ms.custom:\n - cx-ti\n - cx-ta\n - seo-marvel-apr2020\n-ms.date: 2026-05-26T00:00:00.0000000Z\n+ms.date: 2026-11-08T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 404ef180-7085-e1f1-a987-625979517952\n@@ -256,6 +256,23 @@ Important\n \r\n Only verified customers can access the information in the **Indicators** tab. If you don't have access to this information, you need to verify your tenant. [Learn more about getting access to IOCs](threat-analytics-indicators)\r\n \r\n+## Export a threat analytics report to PDF\r\n+\r\n+You can export threat analytics reports from the Microsoft Defender portal to PDF for offline review and sharing with stakeholders.\r\n+\r\n+The exported PDF includes the following information, when available:\r\n+\r\n+- **Threat context:** Threat actor aliases, origin, and targeted entities.\r\n+- **Analyst report:** Detailed threat analysis, assessments, attack techniques, images, and hyperlinks.\r\n+- **Related intelligence:** Links to related threat analytics reports and their update dates.\r\n+\r\n+To export a threat analytics report to PDF:\r\n+\r\n+1. Open the threat analytics report you want to export.\r\n+2. Select **Download as PDF**.\r\n+3. In the browser's print dialog, select **Microsoft Print to PDF** or **Save as PDF**, depending on your browser.\r\n+4. Select **Print** or **Save** to save the report as a PDF.\r\n+\r\n ## Stay updated with the latest reports and threat intelligence\r\n \r\n Threat analytics leverages and integrates various Microsoft Defender and [Microsoft Security Copilot](/en-us/copilot/security/microsoft-security-copilot) features to keep you and your SOC team updated whenever a new report or new piece of threat intelligence relevant to your environment becomes available.\r\n",
+      "baseCommitSha": "463dc036358d56880b4cf86244d53454124c70cb",
+      "commitSha": "37e012792761fbcfdc099f03c26c9c6397d5d08c",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-08 23:04:53 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/threat-analytics.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/threat-analytics",
+      "eventId": "defender-docs:37e012792761fbcfdc099f03c26c9c6397d5d08c:modified:defender-xdr/threat-analytics.md",
+      "firstSeenAt": "2026-11-08T23:41:51.635Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Threat analytics reports can be exported to PDF",
+        "summary": "The documentation now describes exporting reports from the Microsoft Defender portal to PDF, including threat context, analyst analysis, images, hyperlinks, and related intelligence when available.",
+        "adminImpact": "Administrators can save reports for offline review and sharing; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -74,6 +100,14 @@
           "defender-for-cloud/concept-data-security-posture-prepare.md",
           "defender-for-cloud/regional-availability.md"
         ]
+      },
+      {
+        "category": "New feature",
+        "title": "Defender XDR",
+        "summary": "The documentation now describes exporting reports from the Microsoft Defender portal to PDF, including threat context, analyst analysis, images, hyperlinks, and related intelligence when available.",
+        "sourceFiles": [
+          "defender-xdr/threat-analytics.md"
+        ]
       }
     ],
     "highlights": [
@@ -81,6 +115,11 @@
         "category": "Feature update",
         "headline": "Defender for Cloud",
         "detail": "The documentation updates the AWS S3 and GCP supported-region lists and adds explicit lists of unsupported AWS S3 and GCP regions. The regional availability page renames sensitivity scan sections to sensitive data discovery and revises supported and unsupported region lists for Azure, AWS, and Google Cloud scenarios."
+      },
+      {
+        "category": "New feature",
+        "headline": "Defender XDR",
+        "detail": "The documentation now describes exporting reports from the Microsoft Defender portal to PDF, including threat context, analyst analysis, images, hyperlinks, and related intelligence when available."
       }
     ],
     "generatedBy": "fallback"
