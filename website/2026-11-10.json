@@ -1,0 +1,179 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/respond-file-alerts.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 3,
+      "changes": 14,
+      "patch": "diff --git a/defender-endpoint/respond-file-alerts.md b/defender-endpoint/respond-file-alerts.md\nindex 96691db..a53af69 100644\n--- a/defender-endpoint/respond-file-alerts.md\n+++ b/defender-endpoint/respond-file-alerts.md\n@@ -38,12 +38,12 @@ monikers: []\n item_type: Content\n source_path: defender-endpoint/respond-file-alerts.md\n cmProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n - https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n - https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 7874b5f6-7ddf-3bf8-b29e-e23a288dc87f\n ---\n@@ -201,7 +201,9 @@ Starting February 16, 2025, new Microsoft Defender for Endpoint customers will o\n \r\n ### Download quarantined files\r\n \r\n-Files that were quarantined by Microsoft Defender Antivirus or your security team are saved in a compliant way according to your [sample submission configurations](cloud-protection-configure). Your security team can download the files directly from the file's detail page via the \"Download file\" button. **The Download file feature is turned on by default**.\r\n+Files that were quarantined by Microsoft Defender Antivirus or your security team can be backed up in a compliant way according to your [sample submission configurations](cloud-protection-configure). Your security team can download a backed-up file directly from the file's detail page via the **Download file** button. **The Download file feature is turned on by default**.\r\n+\r\n+The portal download uses the cloud-backed copy created when the file is quarantined. It doesn't retrieve the file from the device's local quarantine when you select **Download file**.\r\n \r\n The location depends on your organization's geo settings (either EU, UK, or US). A quarantined file is collected only once per organization. Learn more about Microsoft's data protection from the Service Trust Portal at https://aka.ms/STP.\r\n \r\n@@ -213,6 +215,10 @@ Users might be prompted to provide explicit consent before backing up the quaran\n \r\n The **Download quarantined files** feature doesn't work if sample submission is turned off. If automatic sample submission is set to request permission from the user, only samples that the user agrees to send are collected.\r\n \r\n+Note\r\n+\r\n+The maximum file size eligible for the standard cloud backup of a quarantined file is 100 MiB (104,857,600 bytes). Files larger than this size can still be quarantined on the device, but they aren't backed up to cloud storage and can't be downloaded from the Microsoft Defender portal.\r\n+\r\n Important\r\n \r\n Download quarantined file requirements:\r\n@@ -228,6 +234,8 @@ Download quarantined file requirements:\n \r\n If a file isn't already stored by Microsoft Defender for Endpoint, you can't download it. Instead, you see a **Collect file** button in the same location.\r\n \r\n+**Collect file** retrieves the file from its current path on the device; it doesn't retrieve a copy from Microsoft Defender Antivirus quarantine. If quarantine removed the original file, collection from the original path can fail.\r\n+\r\n The **Collect file** button can have the following states:\r\n \r\n - **Active** - You are able to collect the file.\r\n",
+      "baseCommitSha": "f49934a190ff399ae71eee5a224f9f5348ffff9d",
+      "commitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 08:37:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/respond-file-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/respond-file-alerts",
+      "eventId": "defender-docs:f83274613874a701c0188b7a47eb4d91e080443f:modified:defender-endpoint/respond-file-alerts.md",
+      "firstSeenAt": "2026-11-10T09:47:22.050Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarified retrieval limits for quarantined files",
+        "summary": "The documentation now states that portal downloads use a cloud-backed copy, not the device’s local quarantine. Cloud backup applies to files up to 100 MiB; larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and may fail if quarantine removed the original.",
+        "adminImpact": "Administrators should account for the 100 MiB limit and choose the appropriate retrieval method when investigating quarantined files.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-integrate-security-service.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/defender-office-365/mdo-integrate-security-service.md b/defender-office-365/mdo-integrate-security-service.md\nindex 886412a..c927f90 100644\n--- a/defender-office-365/mdo-integrate-security-service.md\n+++ b/defender-office-365/mdo-integrate-security-service.md\n@@ -109,12 +109,13 @@ For these reasons, we strongly recommend avoiding this configuration, and workin\n     Tip\r\n \r\n     Mail flow rules (transport rules) that look at original verdicts aren't ideal, because they can introduce other issues and lead to effectiveness challenges.\r\n-2. Minimize false positives by overriding spoof for email arriving from the non-Microsoft service. For example, if the non-Microsoft service has an IP address of 172.17.17.35, create two [allowed spoofed sender entries in the Tenant Allow/Block List](tenant-allow-block-list-email-spoof-configure#create-allow-entries-for-spoofed-senders): one External and one Internal as shown in the following screenshot:\r\n+2. When your MX record points to Microsoft 365, messages quarantined as malware or high confidence phishing (HPHISH) are protected by secure by default behavior. Resolve the malware or HPHISH verdict before you release the message from quarantine, because these verdicts can't be bypassed when the message returns from a non-Microsoft service. For more information, see [Secure by default in Office 365](secure-by-default).\r\n+3. Minimize false positives by overriding spoof for email arriving from the non-Microsoft service. For example, if the non-Microsoft service has an IP address of 172.17.17.35, create two [allowed spoofed sender entries in the Tenant Allow/Block List](tenant-allow-block-list-email-spoof-configure#create-allow-entries-for-spoofed-senders): one External and one Internal as shown in the following screenshot:\r\n \r\n     [![A screenshot of the allowed spoofed sender entries in the Tenant Allow/Block List.](media/mdo-allow-entries-additional-security-service.png)](media/mdo-allow-entries-additional-security-service.png#lightbox)\r\n \r\n     Be sure to remove these override entries if you ever leave the non-Microsoft protection service or change how it functions.\r\n-3. False negative (bad mail allowed) and false positive email submissions to Microsoft should come from the initial version of the message, not the one that returns from the non-Microsoft service. False positives attributed to the non-Microsoft service should be sent to the non-Microsoft service. This requirement can be complex to manage:\r\n+4. False negative (bad mail allowed) and false positive email submissions to Microsoft should come from the initial version of the message, not the one that returns from the non-Microsoft service. False positives attributed to the non-Microsoft service should be sent to the non-Microsoft service. This requirement can be complex to manage:\r\n \r\n     - **Microsoft false negative (missed at initial reception)**: You need a copy of the message before to delivery to the mailbox. Submit the copy in quarantine from the non-Microsoft service, if it's available.\r\n     - **Microsoft + non-Microsoft service false negative**: If both services miss it, we recommend reporting the original item to Microsoft and reporting the item in the recipient's mailbox to the non-Microsoft service. The item returned to Microsoft 365 from the non-Microsoft service includes details from the non-Microsoft service (for example, the non-Microsoft service's sending IP addresses, custom headers, etc.) which can lead to decreased machine learning effectiveness.\r\n",
+      "baseCommitSha": "f49934a190ff399ae71eee5a224f9f5348ffff9d",
+      "commitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 08:37:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/mdo-integrate-security-service.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-integrate-security-service",
+      "eventId": "defender-docs:f83274613874a701c0188b7a47eb4d91e080443f:modified:defender-office-365/mdo-integrate-security-service.md",
+      "firstSeenAt": "2026-11-10T09:47:22.074Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added secure-by-default quarantine guidance",
+        "summary": "The guidance now states that malware and high-confidence phishing messages quarantined when MX points to Microsoft 365 cannot bypass their verdict when released.",
+        "adminImpact": "Resolve the verdict before releasing these messages from quarantine.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/monitor-data-connector-health.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 1,
+      "changes": 31,
+      "patch": "diff --git a/sentinel/monitor-data-connector-health.md b/sentinel/monitor-data-connector-health.md\nindex 8ce94b8..1eb797c 100644\n--- a/sentinel/monitor-data-connector-health.md\n+++ b/sentinel/monitor-data-connector-health.md\n@@ -45,9 +45,11 @@ source_path: sentinel/monitor-data-connector-health.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/07bb3e10-d135-43ff-bc8b-360497cb39fa\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/12e559b9-eaf6-4aee-9af7-62334e15f863\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: 602cc80d-539b-b1f8-c766-a90d14495d99\n ---\n \n@@ -57,11 +59,38 @@ To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel s\n \r\n The following features allow you to perform this monitoring from within Microsoft Sentinel:\r\n \r\n+- **Data & connectors Overview tab (preview)**: In the Microsoft Defender portal, review connector counts, ingestion volume and growth, connector errors, table ingestion fluctuations, and ingestion latency in one workspace-level view.\r\n - **Data collection health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.\r\n - ***SentinelHealth* data table**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for selected data connectors, such as Amazon Web Services, Dynamics 365, Office 365, and others listed in the Supported data connectors section later in this article.\r\n - [**View the health and status of your connected SAP systems**](monitor-sap-system-health): Review health information for your SAP systems under the SAP data connector, and use an alert rule template to get information about the health of the SAP agent's data collection.\r\n \r\n-This article explains how to use the data collection health monitoring workbook and the *SentinelHealth* data table to monitor data connector health, run diagnostic queries, and configure automated alerts for health drifts.\r\n+This article explains how to use the Data & connectors Overview tab in the Defender portal, the data collection health monitoring workbook and the *SentinelHealth* data table to monitor data connector health, run diagnostic queries, and configure automated alerts for health drifts.\r\n+\r\n+## Monitor connector health and ingestion in the Defender portal (preview)\r\n+\r\n+Use the **Overview** tab on the **Data & connectors** page to review ingestion trends and identify connectors and tables that need attention. This experience is available in public preview in commercial cloud environments. Microsoft Sentinel must be onboarded to the Microsoft Defender portal, with unified role-based access control enabled. To view connector errors, [enable Microsoft Sentinel health monitoring](enable-monitoring) for the workspace and ensure that connector health events are being collected in the SentinelHealth table.\r\n+\r\n+1. In the Microsoft Defender portal, select **Setup & configuration** &gt; **Data & connectors**.\r\n+2. Select the **Overview** tab.\r\n+3. Select a time range and review the following information:\r\n+\r\n+    | **Information** | **What to review** |\r\n+    | --- | --- |\r\n+    | Connector counts | Total installed connectors, connected connectors, and connectors with errors. |\r\n+    | Total ingestion volume | Combined ingestion volume across the Analytics and Data Lake tiers for the selected time range. |\r\n+    | Month-over-month volume growth | Percentage change in combined Analytics and Data Lake ingestion volume over the last 30 days compared with the preceding 30 days. This comparison is independent of the selected time range. |\r\n+    | Ingestion volume and growth by tier | Ingestion volumes for the Analytics and Data Lake tiers, and their growth percentages for the selected time range. |\r\n+    | Ingestion volume trend | Daily ingestion volume with an average reference to help you compare daily volumes. |\r\n+    | Connectors that need attention | Connector errors reported in the SentinelHealth table, including error type, failure count, and last successful ingestion. |\r\n+    | Table ingestion fluctuations | Tables with unexpected ingestion-volume spikes or drops, with comfigurable thresholds. |\r\n+    | Data ingestion volume by table | Per-day volume trends of top ingesting tables, ranked by daily volume. |\r\n+    | Ingestion latency by table | Per-day trend of latency or time between data generation and availability for use. |\r\n+4. Review **Connectors that need attention** to identify reported connector failures. Use the **Connectors** tab to find the affected connector and review its configuration and health.\r\n+5. Review table ingestion fluctuations, volume, and latency to identify tables that need further investigation. Use the **Tables** tab to review table details.\r\n+\r\n+    [![Screenshot that shows monitor connector health, ingestion volumes, and trends in one view.](media/monitor-data-connector-health/data-connector-overview-1.png)](media/monitor-data-connector-health/data-connector-overview-1.png#lightbox)\r\n+\r\n+    [![Screenshot that shows investigate table-level ingestion volumes and latency to identify potential issues.](media/monitor-data-connector-health/data-connector-overview-2.png)](media/monitor-data-connector-health/data-connector-overview-2.png#lightbox)\r\n \r\n ## Use the health monitoring workbook\r\n \r\n",
+      "baseCommitSha": "f49934a190ff399ae71eee5a224f9f5348ffff9d",
+      "commitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 08:37:39 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/monitor-data-connector-health.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/monitor-data-connector-health",
+      "eventId": "defender-docs:f83274613874a701c0188b7a47eb4d91e080443f:modified:sentinel/monitor-data-connector-health.md",
+      "firstSeenAt": "2026-11-10T09:47:22.085Z",
+      "englishSummary": {
+        "category": "Public preview",
+        "headline": "Data & connectors Overview tab added to health-monitoring guidance",
+        "summary": "The documentation now explains how to use the Defender portal’s Data & connectors Overview tab to review connector counts, ingestion volume and growth, errors, table fluctuations, and ingestion latency, with links to connector and table details.",
+        "adminImpact": "Administrators can use one workspace-level view to identify connector failures and investigate table-level ingestion issues. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1546447",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-10",
+      "title": "Microsoft Defender for Office 365: Updated recipient inclusion logic for threat protection policies",
+      "summary": "Microsoft Defender for Office 365 will change recipient inclusion logic in threat protection policies from Match all (AND) to Match any (OR) when multiple recipient types are specified. This update, rolling out in December 2026, expands policy scope upon modification but does not auto-convert existing policies.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1546447/",
+      "originalUrl": "https://mc.merill.net/message/MC1546447",
+      "body": "<p><b><b>What and why</b></b></p><p>Microsoft Defender for Office 365 is updating how recipient inclusion conditions are evaluated when targeting threat protection policies. When a policy includes multiple recipient condition types, such as users, groups, and domains, policies will use Match any (OR) logic instead of Match all (AND) logic. This change simplifies policy targeting and reduces the risk that intended recipients are excluded because they do not satisfy every configured recipient condition.</p><p></p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide)</b>: We will begin rolling out in <b>early December 2026</b> and expect to complete by <b>early December 2026</b>.</li></ul><p></p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Administrators who create or modify Microsoft Defender for Office 365 threat protection policies that use recipient inclusion conditions</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Defender for Office 365, including policy changes made through the Microsoft Defender portal or Exchange Online PowerShell</li></ul><p><i>What will happen</i></p><ul><li>New policies created after rollout will use Match any (OR) logic by default.</li><li>Existing policies will not be automatically converted during rollout.</li><li>When an administrator modifies an existing policy, that policy will transition to the new recipient inclusion logic.</li><li>The transition from Match all (AND) to Match any (OR) can expand the population to which the policy applies.</li><li>The Microsoft Defender portal will provide warning and confirmation messaging during the transition.</li><li>For changes made through Exchange Online PowerShell, administrators will receive a warning when importing the PowerShell module.</li><li>Existing policies remain unchanged until they are modified, allowing organizations to transition progressively rather than through an automatic tenant-wide conversion.</li></ul><p></p><p><b><b>Action required and recommendations</b></b></p><p>Before modifying an existing policy that uses recipient inclusion conditions:</p><ul><li>Review the configured users, groups, and domains.</li><li>Review the resulting policy scope because transitioning from Match all (AND) to Match any (OR) can expand the population to which the policy applies.</li><li>Review the warning and confirmation messaging provided in the Microsoft Defender portal or Exchange Online PowerShell before completing the change.</li></ul><p>No action is required for existing policies that you do not modify.</p><p></p><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified. Review as appropriate for your organization.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Feature update",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-11-10T00:50:37Z",
+      "endDate": "2027-01-04T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-10T00:50:32.843Z",
+      "version": "2026-11-10T00:50:32.843Z",
+      "eventId": "message-center:MC1546447:2026-11-10T00:50:32.843Z",
+      "firstSeenAt": "2026-11-10T09:47:31.963Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation now states that portal downloads use a cloud-backed copy, not the device’s local quarantine. Cloud backup applies to files up to 100 MiB; larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and may fail if quarantine removed the original.",
+        "sourceFiles": [
+          "defender-endpoint/respond-file-alerts.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The guidance now states that malware and high-confidence phishing messages quarantined when MX points to Microsoft 365 cannot bypass their verdict when released.",
+        "sourceFiles": [
+          "defender-office-365/mdo-integrate-security-service.md"
+        ]
+      },
+      {
+        "category": "Public preview",
+        "title": "Microsoft Sentinel",
+        "summary": "The documentation now explains how to use the Defender portal’s Data & connectors Overview tab to review connector counts, ingestion volume and growth, errors, table fluctuations, and ingestion latency, with links to connector and table details.",
+        "sourceFiles": [
+          "sentinel/monitor-data-connector-health.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation now states that portal downloads use a cloud-backed copy, not the device’s local quarantine. Cloud backup applies to files up to 100 MiB; larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and may fail if quarantine removed the original."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The guidance now states that malware and high-confidence phishing messages quarantined when MX points to Microsoft 365 cannot bypass their verdict when released."
+      },
+      {
+        "category": "Public preview",
+        "headline": "Microsoft Sentinel",
+        "detail": "The documentation now explains how to use the Defender portal’s Data & connectors Overview tab to review connector counts, ingestion volume and growth, errors, table fluctuations, and ingestion latency, with links to connector and table details."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
