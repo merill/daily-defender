@@ -78,6 +78,370 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-cloud/azure-portal-vs-defender-portal-comparison.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-cloud/azure-portal-vs-defender-portal-comparison.md b/defender-for-cloud/azure-portal-vs-defender-portal-comparison.md\nindex e1b47d3..96742ab 100644\n--- a/defender-for-cloud/azure-portal-vs-defender-portal-comparison.md\n+++ b/defender-for-cloud/azure-portal-vs-defender-portal-comparison.md\n@@ -15,9 +15,9 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Compare Microsoft Defender for Cloud features and capabilities between the Azure portal and Defender portal experiences to understand the enhanced functionality available in each platform.\n ms.topic: article\n-ms.date: 2026-10-23T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1030\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: e69c729e-c7f4-30e1-a1f9-c785b703a4e8\n document_version_independent_id: 5a0aa775-6160-6b25-b1b1-7f8c6a258142\n@@ -75,7 +75,9 @@ This article provides a comprehensive comparison of Microsoft Defender for Cloud\n | **Data exporting** | Yes | No - Data export capabilities remain in the Azure portal |\r\n | **Workflow automation** | Yes | No |\r\n | **Tools for remediation (quick fixes)** | Yes | No |\r\n-| **Microsoft Cloud Security Benchmark** | Yes | Partial - Security recommendations appear but security policies management is only in Azure. You can see the results in the Defender portal. |\r\n+| **Microsoft Cloud Security Benchmark** | Yes | Yes (Preview) - The MDC security baseline is Microsoft's new default baseline. You can manage it for Azure environments in the Defender portal. |\r\n+| **Security policies** | Yes | Yes (Preview) - Manage security policies for Azure environments in the Defender portal. |\r\n+| **Exemptions** | Yes | Yes (Preview) - Manage exemptions for Azure environments in the Defender portal. |\r\n | **AI security posture management** | Yes | Yes |\r\n | **Agentless VM vulnerability scanning** | Yes | Yes |\r\n | **Agentless VM secrets scanning** | Yes | Yes |\r\n@@ -87,7 +89,7 @@ This article provides a comprehensive comparison of Microsoft Defender for Cloud\n | **PR annotations** | Yes | No |\r\n | **Internet exposure analysis** | Yes | Yes |\r\n | **External attack surface management** | Yes | Yes |\r\n-| **Regulatory compliance assessments** | Yes | Partial - Security recommendations appears but security policies management only in Azure |\r\n+| **Regulatory compliance assessments** | Yes | Yes (Preview) - Available for Azure environments. |\r\n | **ServiceNow Integration** | Yes | No |\r\n | **Critical assets protection** | Yes | Yes |\r\n | **Governance to drive remediation at scale** | Yes | No |\r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/azure-portal-vs-defender-portal-comparison.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/azure-portal-vs-defender-portal-comparison",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-for-cloud/azure-portal-vs-defender-portal-comparison.md",
+      "firstSeenAt": "2026-11-10T20:48:58.256Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Defender portal comparison adds preview support for Azure security management",
+        "summary": "The documentation now lists Microsoft Cloud Security Benchmark, security policies, exemptions, and regulatory compliance assessments as available in preview for Azure environments in the Defender portal.",
+        "adminImpact": "Administrators can use the updated comparison to identify Azure security tasks available in the Defender portal. No required action or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 6,
+      "changes": 16,
+      "patch": "diff --git a/defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md b/defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md\nindex fdf1d95..c33bd77 100644\n--- a/defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md\n+++ b/defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md\n@@ -15,8 +15,9 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Comprehensive overview of Microsoft Defender for Cloud in the Defender portal, including navigation hub, dashboard features, and unified security management capabilities.\n ms.topic: overview\n-ms.date: 2026-07-28T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: 97ec41ae-46fa-6726-04f0-7e8e3ae26734\n document_version_independent_id: de601629-1ec7-3a96-d9de-3bb1fd2fe3c1\n@@ -72,25 +73,28 @@ Continue to use the Azure portal to onboard and configure AWS, GCP, and unsuppor\n \r\n Cloud security data and signals can be accessed through several experiences. Some are exclusive to the cloud, while others are incorporated into broader Defender experiences like XDR and Exposure Management.\r\n \r\n-#### Cloud security\r\n+### Cloud security\r\n \r\n - [Cloud Overview dashboard](../cloud-infrastructure-dashboard?pivots=defender-portal)\r\n - [Cloud inventory](../asset-inventory?pivots=defender-portal)\r\n \r\n-#### Posture Management\r\n+### Posture Management\r\n \r\n - [Cloud Secure Score](../secure-score-access-and-track?pivots=defender-portal)\r\n - [Recommendations](../review-security-recommendations?pivots=defender-portal)\r\n - [Attack paths](../how-to-manage-attack-path?pivots=defender-portal)\r\n - [Cloud vulnerabilities](/en-us/security-exposure-management/vulnerability-management-integration)\r\n+- [Security policies](../security-policy-concept?pivots=defender-portal)\r\n+- [Regulatory compliance](../concept-regulatory-compliance-standards?pivots=defender-portal)\r\n+- [Exemptions](../exempt-resource?pivots=defender-portal)\r\n \r\n-#### Threat Detection & Response\r\n+### Threat Detection & Response\r\n \r\n - [Incidents and alerts](../concept-integration-365)\r\n - [Response actions](../continuous-export)\r\n - [Advanced hunting](../concept-integration-365#advanced-hunting-in-xdr)\r\n \r\n-#### Configuration\r\n+### Configuration\r\n \r\n - [Cloud scopes and Unified RBAC](../cloud-scopes-unified-rbac?pivots=defender-portal)\r\n - [Connect Azure environments](connect-azure-environments-defender-portal)\r\n@@ -103,7 +107,7 @@ Cloud security data and signals can be accessed through several experiences. Som\n \r\n **[Cloud asset inventory](../asset-inventory?pivots=defender-portal)**: A complete inventory offers a comprehensive view of cloud and code assets across Azure, AWS, and GCP. Assets are categorized by workload, criticality, and coverage, with integrated health data, asset actions, and risk signals. Information security and SOC teams can easily access resource-specific views, exposure map, and metadata to address security recommendations and respond quickly to threats.\r\n \r\n-**[Unified cloud security posture capabilities](/en-us/security-exposure-management/microsoft-security-exposure-management)**: All the cloud security posture management (CSPM) capabilities unified into Microsoft Security Exposure Management (MSEM). Security personas can view secure scores, prioritized recommendations, attack paths and vulnerabilities, all in a single pane of glass, empowering them to reduce risk and get a holistic view of all their posture end-to-end including devices, identities, SaaS apps and data. For more information, see [What's new in Microsoft Security Exposure Management](/en-us/security-exposure-management/whats-new).\r\n+**[Unified cloud security posture capabilities](/en-us/security-exposure-management/microsoft-security-exposure-management)**: All the cloud security posture management (CSPM) capabilities are unified into Microsoft Security Exposure Management (MSEM). Security personas can view secure scores, prioritized recommendations, attack paths and vulnerabilities, all in a single pane of glass, empowering them to reduce risk and get a holistic view of all their posture end-to-end including devices, identities, SaaS apps and data. Adapt the default evaluation to your organization's business, compliance and risk requirements, using scalable policy and exemption management. For more information, see [What's new in Microsoft Security Exposure Management](/en-us/security-exposure-management/whats-new).\r\n \r\n **[Granular access management](../cloud-scopes-unified-rbac?pivots=defender-portal)**: Security teams can now provide targeted access to security content, so only relevant users see necessary information. This allows users to view security insights without direct resource permissions, enhancing operational security and compliance. Using a new cloud scopes capability, cloud accounts like Azure subscriptions, AWS accounts, and GCP projects can be organized into logical groups for improved data pivoting and RBAC, supporting segmentation by business unit, region, or workload with persistent filtering across dashboards and workflows.\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-portal/defender-for-cloud-defender-portal",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md",
+      "firstSeenAt": "2026-11-10T20:48:58.265Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for Cloud portal documentation reorganized",
+        "summary": "The page now has clearer section headings, adds links for Security policies, Regulatory compliance, and Exemptions, and updates wording about CSPM capabilities being unified into Microsoft Security Exposure Management.",
+        "adminImpact": "Administrators have more direct links to relevant policy, compliance, and exemption guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/custom-account-correlation-rules.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/defender-for-identity/custom-account-correlation-rules.md b/defender-for-identity/custom-account-correlation-rules.md\nindex d00b78c..612737f 100644\n--- a/defender-for-identity/custom-account-correlation-rules.md\n+++ b/defender-for-identity/custom-account-correlation-rules.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Account correlation rules in Microsoft Defender for Identity (Preview) - Microsoft Defender for Identity | Microsoft Learn\n+title: Identity accounts correlation rules in Microsoft Defender (Preview) - Microsoft Defender for Identity | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-for-identity/custom-account-correlation-rules\n feedback_system: Standard\n feedback_product_url: https://aka.ms/MDIcommunity\n@@ -12,10 +12,10 @@ ms.collection: M365-security-compliance\n ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n-description: Learn how to add, edit, and remove account correlation rules in Microsoft Defender for Identity for accounts that don't share strong identifiers.\n+description: Learn how to add, edit, and remove identity account correlation rules in Microsoft Defender for identity accounts that don't share strong identifiers.\n ms.topic: how-to\n-ms.custom: msecd-doc-authoring-1017\n-ms.date: 2026-07-23T00:00:00.0000000Z\n+ms.custom: msecd-doc-authoring-1032\n+ms.date: 2026-11-09T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 0c0e045d-74a1-5762-01b7-33ee11a219e0\n@@ -34,18 +34,18 @@ item_type: Content\n source_path: defender-for-identity/custom-account-correlation-rules.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n platformId: 7171e3e5-64e8-976c-8cbd-bfb3e5a48f0e\n ---\n \n-# Account correlation rules in Microsoft Defender for Identity (Preview) - Microsoft Defender for Identity | Microsoft Learn\n+# Identity accounts correlation rules in Microsoft Defender (Preview) - Microsoft Defender for Identity | Microsoft Learn\n \n-Custom account correlation rules are a Microsoft Defender for Identity setting for accounts that don't share strong identifiers. These identifiers include account ID, SID, object ID, or UPN. The rules are especially useful for privileged accounts with unique naming conventions. By defining custom rules, you get full visibility and better protection for all accounts.\r\n+Use custom identity account correlation rules in Microsoft Defender to correlate identity accounts that don't share strong identifiers. These identifiers include account ID, SID, object ID, or UPN. The rules are especially useful for privileged accounts with unique naming conventions. By defining custom rules, you get full visibility and better protection for all identity accounts.\r\n \r\n [![Screenshot of the Account Correlation Rules settings page with rule management actions and configured rules.](media/account-correlation-rules-settings.png)](media/account-correlation-rules-settings.png#lightbox)\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/custom-account-correlation-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/custom-account-correlation-rules",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-for-identity/custom-account-correlation-rules.md",
+      "firstSeenAt": "2026-11-10T20:48:58.280Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Account correlation guidance updated with Microsoft Defender terminology",
+        "summary": "The page title, description, and introductory text were revised to refer to identity account correlation rules in Microsoft Defender.",
+        "adminImpact": "Administrators should use the updated terminology when locating or referencing this guidance. No action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/identity-inventory.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/defender-for-identity/identity-inventory.md b/defender-for-identity/identity-inventory.md\nindex 2ef3f1d..db81da0 100644\n--- a/defender-for-identity/identity-inventory.md\n+++ b/defender-for-identity/identity-inventory.md\n@@ -15,10 +15,11 @@ ms.suite: ems\n description: View and manage all identities across your organization from the Identity inventory page in Microsoft Defender. Investigate identity types, domains, and attributes.\n ms.topic: article\n ms.custom:\n-- msecd-doc-authoring-106\n+- msecd-doc-authoring-1032\n - sfi-ga-nochange\n - sfi-image-nochange\n-ms.date: 2026-06-22T00:00:00.0000000Z\n+ms.date: 2026-11-09T00:00:00.0000000Z\n+ai-usage: ai-assisted\n ms.reviewer: maelgami\n locale: en-us\n document_id: b70d63e9-d4f9-ef18-98b7-276e39e78bc3\n@@ -110,7 +111,7 @@ The top section of the Identity inventory page gives you quick insights into you\n Select a tab to view details and available actions for each identity type.\r\n \r\n # [Human identities](#tab/human-identities)\r\n-The **Human identities** tab consolidates all user identities from Active Directory and Microsoft Entra ID in one place, making it easier to view and manage user accounts. To investigate details about a specific user, see [Investigate users in Microsoft Defender XDR](/en-us/defender-xdr/investigate-users).\r\n+The **Human identities** tab consolidates all user identities from Active Directory and Microsoft Entra ID in one place, making it easier to view and manage user accounts. To investigate details about a specific user, see [Investigate users in Microsoft Defender](/en-us/defender-xdr/investigate-users).\r\n \r\n ### Human identity statistics\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/identity-inventory.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/identity-inventory",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-for-identity/identity-inventory.md",
+      "firstSeenAt": "2026-11-10T20:48:58.288Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "User investigation link and page metadata updated",
+        "summary": "The Identity Inventory page now links to “Investigate users in Microsoft Defender” instead of “Microsoft Defender XDR.” Authoring, publication date, and AI-usage metadata were also updated.",
+        "adminImpact": "No administrator action is indicated; use the updated investigation link when following the documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/manage-related-identities-accounts.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 10,
+      "changes": 24,
+      "patch": "diff --git a/defender-for-identity/manage-related-identities-accounts.md b/defender-for-identity/manage-related-identities-accounts.md\nindex 1eda30b..124b6a4 100644\n--- a/defender-for-identity/manage-related-identities-accounts.md\n+++ b/defender-for-identity/manage-related-identities-accounts.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Manage related identities and accounts in Microsoft Defender for Identity - Microsoft Defender for Identity | Microsoft Learn\n+title: Manage related identities and accounts in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-for-identity/manage-related-identities-accounts\n feedback_system: Standard\n feedback_product_url: https://aka.ms/MDIcommunity\n@@ -12,12 +12,12 @@ ms.collection: M365-security-compliance\n ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n-description: Learn how to correlate accounts manually or with account correlation rules in Microsoft Defender for Identity, and unlink accounts that are no longer needed.\n-ms.date: 2026-07-23T00:00:00.0000000Z\n+description: Learn how to correlate identity accounts manually or with account correlation rules in Microsoft Defender, and unlink accounts that are no longer needed.\n+ms.date: 2026-11-09T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: Almog Omrad\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1017\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: c68d99d9-12a5-b0e0-1794-1cab42436b80\n document_version_independent_id: c68d99d9-12a5-b0e0-1794-1cab42436b80\n@@ -34,13 +34,17 @@ monikers: []\n item_type: Content\n source_path: defender-for-identity/manage-related-identities-accounts.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n platformId: 02fde170-2c3b-517e-daef-f9e6bb8ae784\n ---\n \n-# Manage related identities and accounts in Microsoft Defender for Identity - Microsoft Defender for Identity | Microsoft Learn\n+# Manage related identities and accounts in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n \n In enterprise environments, identities are often fragmented. A single user might have multiple accounts across systems, including personal, privileged, legacy, cloud-based, or orphaned accounts. These accounts can cover on-premises Active Directory, Microsoft Entra ID, or non-Microsoft identity providers such as Okta and Ping.\r\n \r\n@@ -71,7 +75,7 @@ For example:\n     - `glaureano@contosolegacy.local`\r\n - **Accounts in multiple services**: A user might have a Microsoft Entra ID account, an Okta account, and a Ping account. Manually linking these accounts to the user's identity creates a consolidated view that supports identity-centric protection and investigation.\r\n \r\n-Use the procedures in this article to manually link accounts to identities and to manually unlink unused, legacy, or orphaned accounts from identities in Defender for Identity.\r\n+Use the procedures in this article to manually link accounts to identities and to manually unlink unused, legacy, or orphaned accounts from identities in Defender.\r\n \r\n Note\r\n \r\n@@ -94,9 +98,9 @@ Before you begin, ensure that you meet the following requirement:\n \r\n - You must have [Unified role-based access control (URBAC)](/en-us/defender-for-identity/role-groups) roles: Global Administrator or Security Data (Manage).\r\n \r\n-## Manually link accounts to an identity in Defender for Identity\r\n+## Manually link accounts to an identity in Defender\r\n \r\n-Use the following steps to manually link accounts to an identity in Defender for Identity.\r\n+Use the following steps to manually link accounts to an identity in Defender.\r\n \r\n 1. In the Microsoft Defender portal at https://security.microsoft.com, go to **Assets** &gt; **Identities**. Or, to go directly to the **Identity Inventory** page, use https://security.microsoft.com/identity-inventory.\r\n \r\n@@ -130,7 +134,7 @@ Use the following steps to manually link accounts to an identity in Defender for\n \r\n     After the account is successfully linked, select **Done**\r\n \r\n-## Manually unlink legacy, orphaned, or unused accounts from an identity in Defender for Identity\r\n+## Manually unlink legacy, orphaned, or unused accounts from an identity in Defender\r\n \r\n Use the following steps to manually unlink legacy, orphaned, or unused accounts from an identity.\r\n \r\n@@ -139,7 +143,7 @@ Use the following steps to manually unlink legacy, orphaned, or unused accounts\n 3. On the **Accounts** tab, select the account you want to unlink from the identity by selecting the check box next to the **Display name** column, and then select ![](media/unlink-accounts.png)**Unlink**.\r\n 4. In the **Unlink accounts from ...** confirmation dialog that opens, read the information, and then select **Unlink accounts**.\r\n \r\n-## What to expect after linking or unlinking an account in Defender for Identity\r\n+## What to expect after linking or unlinking an identity account in Defender\r\n \r\n After you link or unlink an account, the following changes occur:\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/manage-related-identities-accounts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/manage-related-identities-accounts",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-for-identity/manage-related-identities-accounts.md",
+      "firstSeenAt": "2026-11-10T20:48:58.296Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Account-management guidance now uses updated Defender terminology",
+        "summary": "The page title, description, headings, and references were revised from “Microsoft Defender for Identity” to “Microsoft Defender.” Metadata and ontology links were also refreshed.",
+        "adminImpact": "Administrators will see updated terminology when locating guidance for manually linking or unlinking identity accounts. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/remediation-actions.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 15,
+      "changes": 30,
+      "patch": "diff --git a/defender-for-identity/remediation-actions.md b/defender-for-identity/remediation-actions.md\nindex dfcdae5..5659e33 100644\n--- a/defender-for-identity/remediation-actions.md\n+++ b/defender-for-identity/remediation-actions.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Remediation Actions for Compromised Users in Microsoft Defender for Identity - Microsoft Defender for Identity | Microsoft Learn\n+title: Remediate compromised identities in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-for-identity/remediation-actions\n feedback_system: Standard\n feedback_product_url: https://aka.ms/MDIcommunity\n@@ -12,10 +12,10 @@ ms.collection: M365-security-compliance\n ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n-description: Learn how to respond to compromised users with remediation actions in Microsoft Defender for Identity\n-ms.date: 2026-07-22T00:00:00.0000000Z\n+description: Learn how to respond to compromised identities with remediation actions in Microsoft Defender.\n+ms.date: 2026-11-09T00:00:00.0000000Z\n ms.topic: how-to\n-ms.custom: sfi-ga-blocked, msecd-doc-authoring-1016\n+ms.custom: sfi-ga-blocked, msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: c5bc5b5c-c969-3ae4-121c-3a467c0db9d8\n@@ -33,26 +33,26 @@ monikers: []\n item_type: Content\n source_path: defender-for-identity/remediation-actions.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: 2f76b528-6f99-5127-cd8f-42178b1dfddd\n ---\n \n-# Remediation Actions for Compromised Users in Microsoft Defender for Identity - Microsoft Defender for Identity | Microsoft Learn\n+# Remediate compromised identities in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n \n Applies to:\r\n \r\n - Microsoft Defender for Identity\r\n - Microsoft Defender\r\n \r\n-Microsoft Defender for Identity lets you respond to compromised users with remediation actions that work consistently across your connected identity sources. The actions available for an identity depend on the connector that manages the account, and they span on-premises Active Directory and Microsoft Entra ID, identity providers such as Okta, CyberArk Identity, and SailPoint Identity Security Cloud, and applications connected through Microsoft Defender for Cloud Apps such as Google Workspace, Salesforce, and Box.\r\n+Microsoft Defender lets you respond to compromised identities with remediation actions that work consistently in your connected identity sources. The actions available for an identity depend on the connector that manages the account, and they span on-premises Active Directory and Microsoft Entra ID, identity providers such as Okta, CyberArk Identity, and SailPoint Identity Security Cloud, and applications connected through Microsoft Defender for Cloud Apps such as Google Workspace, Salesforce, and Box.\r\n \r\n-The response actions on users are available directly from the identity page, the identity side panel, the advanced hunting page, or in the action center. After you take action on a user, you can review the activity details in the action center.\r\n+Response actions are available directly from the identity page, the identity side panel, the advanced hunting page, or in the action center. After you take action on an identity, you can review the activity details in the action center.\r\n \r\n ## How remediation actions work\r\n \r\n@@ -75,11 +75,11 @@ Remediation actions are recorded by the identity system where the action is exec\n \r\n ## Remediation actions in Automatic Attack Disruption\r\n \r\n-Remediation actions can also be applied automatically by Microsoft Defender's automatic attack disruption. When an active attack is detected, attack disruption uses Defender for Identity remediation capabilities to contain the threat without manual intervention. For details, see [automatic attack disruption](/en-us/defender-xdr/automatic-attack-disruption).\r\n+Remediation actions can also be applied automatically by Microsoft Defender's automatic attack disruption. When an active attack is detected, attack disruption uses identity remediation capabilities to contain the threat without manual intervention. For details, see [automatic attack disruption](/en-us/defender-xdr/automatic-attack-disruption).\r\n \r\n ## Supported actions\r\n \r\n-The following Defender for Identity actions can be performed on Identities.\r\n+The following identity remediation actions can be performed on Identities.\r\n \r\n Depending on your Microsoft Entra ID roles, you might see additional Microsoft Entra ID actions, such as requiring users to sign in again and confirming a user as compromised. For more information, see [Remediate risks and unblock users](/en-us/entra/id-protection/howto-identity-protection-remediate-unblock).\r\n \r\n@@ -93,7 +93,7 @@ Depending on your Microsoft Entra ID roles, you might see additional Microsoft E\n \r\n ## Roles and permissions\r\n \r\n-The following table lists the remediation actions supported by Defender for Identity and the roles required to initiate each action.\r\n+The following table lists the identity remediation actions supported by Defender and the roles required to initiate each action.\r\n \r\n | Remediation Action | Active Directory | Microsoft Entra ID | Okta, SailPoint, CyberArk | Supported SaaS apps |\r\n | --- | --- | --- | --- | --- |\r\n@@ -112,7 +112,7 @@ There are some limitations for Microsoft Entra ID when performing certain action\n To perform any of the supported actions, you need to:\r\n \r\n - **Configure the account that Microsoft Defender for Identity uses to perform actions**: Make sure the **Automatically use the sensor's local system account** option is selected. In the [Microsoft Defender portal](https://security.microsoft.com), go to **Settings** &gt; **Identities** &gt; **Microsoft Defender for Identity** &gt; **Manage action accounts**. This setting is required if any of your sensors are v3.x. For more information, see [Manage action accounts](deploy/manage-action-accounts).\r\n-- **Sign in to the Microsoft Defender portal with the required permissions**: For Defender for Identity actions, you'll need a custom role with **Response (manage)** permissions. For more information, see [Create custom roles with Microsoft Defender unified RBAC](/en-us/microsoft-365/security/defender/create-custom-rbac-roles). For details on the specific roles required for each action, see Roles and permissions.\r\n+- **Sign in to the Microsoft Defender portal with the required permissions**: For identity remediation actions, you'll need a custom role with **Response (manage)** permissions. For more information, see [Create custom roles with Microsoft Defender unified RBAC](/en-us/microsoft-365/security/defender/create-custom-rbac-roles). For details on the specific roles required for each action, see Roles and permissions.\r\n \r\n To apply a remediation action to an identity, perform the following steps:\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/remediation-actions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/remediation-actions",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-for-identity/remediation-actions.md",
+      "firstSeenAt": "2026-11-10T20:48:58.304Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Remediation guidance adopts broader Microsoft Defender terminology",
+        "summary": "The page now describes remediating compromised identities in Microsoft Defender instead of compromised users in Defender for Identity. References to identity remediation actions, automatic attack disruption, and Response (manage) permissions were updated accordingly.",
+        "adminImpact": "Use the updated terminology when locating or sharing this guidance; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-identitylogonevents-table.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-identitylogonevents-table.md b/defender-xdr/advanced-hunting-identitylogonevents-table.md\nindex 797bf3b..4820e63 100644\n--- a/defender-xdr/advanced-hunting-identitylogonevents-table.md\n+++ b/defender-xdr/advanced-hunting-identitylogonevents-table.md\n@@ -20,8 +20,10 @@ ms.collection:\n ms.custom:\n - cx-ti\n - cx-ah\n+- msecd-doc-authoring-1032\n ms.topic: reference\n-ms.date: 2025-03-28T00:00:00.0000000Z\n+ms.date: 2026-11-09T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 61865333-ef75-fd38-6af3-bf08a4a51596\n document_version_independent_id: 61865333-ef75-fd38-6af3-bf08a4a51596\n@@ -38,13 +40,13 @@ monikers: []\n item_type: Content\n source_path: defender-xdr/advanced-hunting-identitylogonevents-table.md\n cmProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: 4eaee42b-d2f5-b979-41ff-66c8c912c877\n ---\n \n@@ -54,7 +56,7 @@ The `IdentityLogonEvents` table in the [advanced hunting](advanced-hunting-overv\n \r\n Tip\r\n \r\n-For detailed information about the events types (`ActionType` values) supported by a table, use the built-in schema reference available in Microsoft Defender XDR.\r\n+For detailed information about the events types (`ActionType` values) supported by a table, use the built-in schema reference available in Microsoft Defender.\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-identitylogonevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-identitylogonevents-table",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/advanced-hunting-identitylogonevents-table.md",
+      "firstSeenAt": "2026-11-10T20:48:58.312Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "IdentityLogonEvents documentation metadata and schema reference updated",
+        "summary": "The page metadata and ontology links were refreshed, and the schema-reference guidance now points to Microsoft Defender instead of Microsoft Defender XDR.",
+        "adminImpact": "No administrator action is indicated. Use the built-in Microsoft Defender schema reference for supported ActionType values.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-identityqueryevents-table.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 7,
+      "changes": 16,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-identityqueryevents-table.md b/defender-xdr/advanced-hunting-identityqueryevents-table.md\nindex 24bb53c..9991326 100644\n--- a/defender-xdr/advanced-hunting-identityqueryevents-table.md\n+++ b/defender-xdr/advanced-hunting-identityqueryevents-table.md\n@@ -20,8 +20,10 @@ ms.collection:\n ms.custom:\n - cx-ti\n - cx-ah\n+- msecd-doc-authoring-1032\n ms.topic: reference\n-ms.date: 2025-03-28T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: e2607768-6905-4420-a583-016b83f17b52\n document_version_independent_id: e2607768-6905-4420-a583-016b83f17b52\n@@ -38,13 +40,13 @@ monikers: []\n item_type: Content\n source_path: defender-xdr/advanced-hunting-identityqueryevents-table.md\n cmProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/37da4cc9-0cfc-42a9-ba5e-805706b01ef8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n spProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3661fb96-d414-4a4e-b7ad-9370637790dd\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n platformId: 8cde8a49-2c4e-390a-695d-8bebdf3e135e\n ---\n \n@@ -54,9 +56,9 @@ The `IdentityQueryEvents` table in the [advanced hunting](advanced-hunting-overv\n \r\n Tip\r\n \r\n-For detailed information about the events types (`ActionType` values) supported by a table, use the built-in schema reference available in Microsoft Defender XDR.\r\n+For detailed information about the events types (`ActionType` values) supported by a table, use the built-in schema reference available in Microsoft Defender.\r\n \r\n-This advanced hunting table is populated by records from Microsoft Defender for Identity or Microsoft Sentinel and Mirosoft Entra ID. If your organization hasn’t deployed the service in Microsoft Defender XDR, queries that use the table aren’t going to work or return any results. For more information about how to deploy Defender for Identity in Defender XDR, read [Deploy supported services](deploy-supported-services). For information on other tables in the advanced hunting schema, [see the advanced hunting reference](advanced-hunting-schema-tables).\r\n+This advanced hunting table is populated by records from Microsoft Defender for Identity or Microsoft Sentinel and Microsoft Entra ID. If your organization hasn’t deployed the service in Microsoft Defender, queries that use the table aren’t going to work or return any results. For more information about how to deploy Defender for Identity in the Defender portal, read [Deploy supported services](deploy-supported-services). For information on other tables in the advanced hunting schema, [see the advanced hunting reference](advanced-hunting-schema-tables).\r\n \r\n | Column name | Data type | Description |\r\n | --- | --- | --- |\r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-identityqueryevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-identityqueryevents-table",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/advanced-hunting-identityqueryevents-table.md",
+      "firstSeenAt": "2026-11-10T20:48:58.320Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "IdentityQueryEvents documentation updates product naming and metadata",
+        "summary": "The page now refers to Microsoft Defender instead of Microsoft Defender XDR, corrects a Microsoft Entra ID spelling error, and updates metadata and ontology links.",
+        "adminImpact": "Administrators should use the corrected product name and prerequisite wording when validating whether IdentityQueryEvents queries will return data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-overview.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 12,
+      "changes": 25,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-overview.md b/defender-xdr/advanced-hunting-overview.md\nindex 00d02bb..27363d0 100644\n--- a/defender-xdr/advanced-hunting-overview.md\n+++ b/defender-xdr/advanced-hunting-overview.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Advanced hunting overview in Microsoft Defender XDR - Microsoft Defender XDR | Microsoft Learn\n+title: Advanced hunting overview in Microsoft Defender - Microsoft Defender XDR | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview\n breadcrumb_path: /defender-xdr/breadcrumb/toc.json\n permissioned-type: public\n@@ -21,9 +21,10 @@ ms.custom:\n - cx-ti\n - cx-ah\n - seo-marvel-apr2020\n-- msecd-doc-authoring-1015\n+- msecd-doc-authoring-1032\n ms.topic: overview\n-ms.date: 2026-08-07T00:00:00.0000000Z\n+ms.date: 2026-11-09T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 24fc4809-527a-f593-b08e-7e5c3ce3a137\n document_version_independent_id: 24fc4809-527a-f593-b08e-7e5c3ce3a137\n@@ -40,19 +41,19 @@ monikers: []\n item_type: Content\n source_path: defender-xdr/advanced-hunting-overview.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n platformId: 7b9bc1d5-b45e-e7a1-b631-ac2cbe525251\n ---\n \n-# Advanced hunting overview in Microsoft Defender XDR - Microsoft Defender XDR | Microsoft Learn\n+# Advanced hunting overview in Microsoft Defender - Microsoft Defender XDR | Microsoft Learn\n \n-Advanced hunting is a query-based threat hunting tool that you use to explore up to 30 days of raw Defender XDR data. When you onboard a Microsoft Sentinel workspace, you can also query analytics-tier data according to the retention configured for the workspace. You can proactively inspect events in your network to locate threat indicators and entities. The flexible access to data enables unconstrained hunting for both known and potential threats.\r\n+Advanced hunting is a query-based threat hunting tool that you use to explore up to 30 days of raw Defender data. When you onboard a Microsoft Sentinel workspace, you can also query analytics-tier data according to the retention configured for the workspace. You can proactively inspect events in your network to locate threat indicators and entities. The flexible access to data enables unconstrained hunting for both known and potential threats.\r\n \r\n Advanced hunting supports two modes: guided and advanced. Use [guided mode](advanced-hunting-query-builder) if you're not yet familiar with Kusto Query Language (KQL) or if you prefer the convenience of a query builder. Use [advanced mode](advanced-hunting-query-language) if you're comfortable using KQL to create queries from scratch.\r\n \r\n@@ -68,7 +69,7 @@ Advanced hunting supports queries that check a broader data set coming from:\n - Microsoft Defender for Identity\r\n - Microsoft Sentinel\r\n \r\n-To use advanced hunting, [turn on Microsoft Defender XDR](m365d-enable). To use advanced hunting with Microsoft Sentinel, [connect Microsoft Sentinel to the Defender portal](/en-us/azure/sentinel/microsoft-sentinel-onboard).\r\n+To use advanced hunting, [turn on Microsoft Defender](m365d-enable). To use advanced hunting with Microsoft Sentinel, [connect Microsoft Sentinel to the Defender portal](/en-us/azure/sentinel/microsoft-sentinel-onboard).\r\n \r\n For more information on advanced hunting in Microsoft Defender for Cloud Apps data, see [Advanced hunting in Defender for Cloud Apps (video)](https://learn-video.azurefd.net/vod/player?id=ffdedc73-6edf-45a9-8c90-566296e8d4ec).\r\n \r\n@@ -76,7 +77,7 @@ For more information on advanced hunting in Microsoft Defender for Cloud Apps da\n \r\n You need to be assigned permissions before you can run advanced hunting queries. You have the following options:\r\n \r\n-- [Microsoft Defender XDR Unified role based access control (URBAC)](manage-rbac):\r\n+- [Microsoft Defender unified role-based access control (URBAC)](manage-rbac):\r\n \r\n     - **Advanced Hunting access (Email & Collaboration tables)**: Membership assigned with the **Security operations** &gt; **Raw data** &gt; **Email & collaboration metadata (read)**URBAC permission. This permission provides access to:\r\n         - **EmailEvents**\r\n@@ -133,7 +134,7 @@ The following table describes the available quotas and usage parameters.\n \r\n | Quota or parameter | Size | Refresh cycle | Description |\r\n | --- | --- | --- | --- |\r\n-| Date range | 30 days for native Defender XDR data. Microsoft Sentinel table retention depends on the configured analytics-tier retention. | Every query | Each query can look up native Defender XDR data from up to the past 30 days. When you onboard a Microsoft Sentinel workspace, the available date range for its tables depends on the configured analytics-tier retention. |\r\n+| Date range | 30 days for native Defender data. Microsoft Sentinel table retention depends on the configured analytics-tier retention. | Every query | Each query can look up native Defender data from up to the past 30 days. When you onboard a Microsoft Sentinel workspace, the available date range for its tables depends on the configured analytics-tier retention. |\r\n | Result set | 100,000 rows | Every query | Each query can return up to 100,000 records. |\r\n | Timeout | 10 minutes | Every query | Each query can run for up to 10 minutes. If it doesn't complete within 10 minutes, the service displays an error. |\r\n | CPU resources | Based on tenant size | Every 15 minutes | The portal displays a warning whenever a query runs and the tenant consumes over 10% of allocated resources. [Queries are blocked](advanced-hunting-errors) if the tenant reaches 100% until after the next 15-minute cycle. |\r\n@@ -163,9 +164,9 @@ Microsoft Defender converts advanced hunting results to the [timezone](m365d-tim\n \r\n ## Extend data retention\r\n \r\n-To retain supported Defender XDR hunting tables for more than 30 days, onboard a Microsoft Sentinel workspace and configure the tables' analytics-tier retention. For more information, see [Configure table settings in Microsoft Sentinel](/en-us/azure/sentinel/manage-table-tiers-retention).\r\n+To retain supported Defender hunting tables for more than 30 days, onboard a Microsoft Sentinel workspace and configure the tables' analytics-tier retention. For more information, see [Configure table settings in Microsoft Sentinel](/en-us/azure/sentinel/manage-table-tiers-retention).\r\n \r\n-You can also stream Defender XDR data to external services for longer retention. For more information, see:\r\n+You can also stream Defender data to external services for longer retention. For more information, see:\r\n \r\n - Microsoft Defender [Streaming API](/en-us/defender-xdr/streaming-api)\r\n - Microsoft Defender for Endpoint [Raw Data Streaming API](/en-us/defender-endpoint/api/raw-data-export)\r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/advanced-hunting-overview.md",
+      "firstSeenAt": "2026-11-10T20:48:58.329Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Advanced hunting documentation adopts Microsoft Defender terminology",
+        "summary": "The overview’s title, headings, setup instructions, RBAC label, and retention references now use “Microsoft Defender” instead of “Microsoft Defender XDR.” Metadata and ontology links were also updated.",
+        "adminImpact": "Use the updated terminology when locating or referencing this documentation. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-schema-tables.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-schema-tables.md b/defender-xdr/advanced-hunting-schema-tables.md\nindex 58d0329..7f9b360 100644\n--- a/defender-xdr/advanced-hunting-schema-tables.md\n+++ b/defender-xdr/advanced-hunting-schema-tables.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Data tables in the Microsoft Defender XDR advanced hunting schema - Microsoft Defender XDR | Microsoft Learn\n+title: Data tables in the Microsoft Defender advanced hunting schema - Microsoft Defender XDR | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-schema-tables\n breadcrumb_path: /defender-xdr/breadcrumb/toc.json\n permissioned-type: public\n@@ -20,9 +20,9 @@ ms.collection:\n ms.custom:\n - cx-ti\n - cx-ah\n-- msecd-doc-authoring-1018\n+- msecd-doc-authoring-1032\n ms.topic: reference\n-ms.date: 2026-10-28T00:00:00.0000000Z\n+ms.date: 2026-11-09T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 5ea94a55-ae13-98b1-1ded-bee037019f7a\n@@ -40,17 +40,17 @@ monikers: []\n item_type: Content\n source_path: defender-xdr/advanced-hunting-schema-tables.md\n cmProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1577a46d-8446-40bd-bfae-0578362f4d94\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n spProducts:\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/cdf3f22d-5420-4d59-a2bf-66d6b3d9c828\n - https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n platformId: dc25ecc3-7937-c18f-2325-c792835e763b\n ---\n \n-# Data tables in the Microsoft Defender XDR advanced hunting schema - Microsoft Defender XDR | Microsoft Learn\n+# Data tables in the Microsoft Defender advanced hunting schema - Microsoft Defender XDR | Microsoft Learn\n \n Important\r\n \r\n@@ -77,7 +77,7 @@ To quickly access the schema reference, select the **View reference** action nex\n \r\n ## Learn the schema tables\r\n \r\n-The following reference lists all the tables in the schema. Each table name links to a page describing the column names for that table. Table and column names are also listed in Microsoft Defender XDR as part of the schema representation on the advanced hunting screen.\r\n+The following reference lists all the tables in the schema. Each table name links to a page describing the column names for that table. Table and column names are also listed in Microsoft Defender as part of the schema representation on the advanced hunting screen.\r\n \r\n | Table name | Description |\r\n | --- | --- |\r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-schema-tables.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-schema-tables",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/advanced-hunting-schema-tables.md",
+      "firstSeenAt": "2026-11-10T20:48:58.337Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Advanced hunting schema documentation updates product naming",
+        "summary": "The page title, heading, and introductory text now refer to the Microsoft Defender advanced hunting schema instead of the Microsoft Defender XDR advanced hunting schema. Metadata was also refreshed.",
+        "adminImpact": "No administrator action is required. Use the updated terminology when locating or referencing this schema documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/investigate-users.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/defender-xdr/investigate-users.md b/defender-xdr/investigate-users.md\nindex d28fb4a..0471188 100644\n--- a/defender-xdr/investigate-users.md\n+++ b/defender-xdr/investigate-users.md\n@@ -12,10 +12,10 @@ description: Learn how to use the Identity page in Microsoft Defender. Investiga\n ms.author: abbyweisberg\n author: AbbyMSFT\n ms.reviewer: maelgami\n-ms.date: 2026-08-02T00:00:00.0000000Z\n+ms.date: 2026-11-09T00:00:00.0000000Z\n ms.topic: article\n ms.service: microsoft-defender\n-ms.custom: sfi-image-nochange, msecd-doc-authoring-1018\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: 4b1e7a38-ef24-4400-897e-75a2a076f4d1\n@@ -34,12 +34,12 @@ item_type: Content\n source_path: defender-xdr/investigate-users.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n platformId: 4336783c-e0f3-cd37-4d0c-a66de5146f58\n ---\n \n@@ -70,7 +70,7 @@ The Identity page is organized into a top section and a set of tabs. The top sec\n \r\n From the **Overview** page, use the **Actions** menu to trigger remediation actions on the identity. Actions apply to the accounts associated with the identity and depend on which connectors are enabled, spanning on-premises Active Directory, Microsoft Entra ID, identity and access management (IAM) systems, and SaaS apps. Available actions can include disabling or enabling accounts, revoking sessions, forcing a password change, and marking the user as compromised. You can also view the identity's account settings.\r\n \r\n-For the full list of remediation actions and the identity providers and connected apps that support them, see [Remediation actions in Microsoft Defender for Identity](/en-us/defender-for-identity/remediation-actions#supported-actions).\r\n+For the full list of remediation actions and the identity providers and connected apps that support them, see [Identity remediation actions in Microsoft Defender](/en-us/defender-for-identity/remediation-actions#supported-actions).\r\n \r\n [![Screenshot of the identity page with the identity actions menu showing.](media/investigate-users/identity-actions.png)](media/investigate-users/identity-actions.png#lightbox)\r\n \r\n@@ -146,11 +146,11 @@ The **Risk score** tab summarizes the identity's risk level by combining alert a\n | **Risk Trend** | A line chart that shows how the risk score changed over a configurable time period (for example, 30 days). Select **Go to timeline** to view the full activity timeline. |\r\n | **Likelihood of Compromise Details** | A bar chart that shows alert distribution across MITRE ATT&CK categories, with a filterable alert table. Use the **Active alerts only** toggle to focus on unresolved alerts. Filter by account set, status, or kill chain stage. |\r\n \r\n-The **Confirm safe** action now includes **Reset risk** for both the identity risk score and the Microsoft Entra risk level. For more information, see [Remediation actions in Microsoft Defender for Identity](/en-us/defender-for-identity/remediation-actions#supported-actions).\r\n+The **Confirm safe** action now includes **Reset risk** for both the identity risk score and the Microsoft Entra risk level. For more information, see [Identity remediation actions in Microsoft Defender](/en-us/defender-for-identity/remediation-actions#supported-actions).\r\n \r\n Note\r\n \r\n-Identity risk in Microsoft Defender for Identity uses automated decay logic to allow SOC prioritization. If no new risk factors are detected, the identity risk score decreases over time. Microsoft Entra ID maintains its own risk level independently and doesn't apply decay. As a result, you might see an Entra risk level with no corresponding identity risk score when the Entra risk update time is older than 30 days.\r\n+Identity risk in Microsoft Defender uses automated decay logic to allow SOC prioritization. If no new risk factors are detected, the identity risk score decreases over time. Microsoft Entra ID maintains its own risk level independently and doesn't apply decay. As a result, you might see an Entra risk level with no corresponding identity risk score when the Entra risk update time is older than 30 days.\r\n \r\n ## Timeline tab\r\n \r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/investigate-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-users",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/investigate-users.md",
+      "firstSeenAt": "2026-11-10T20:48:58.346Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated identity investigation terminology and links",
+        "summary": "The page now refers to identity remediation actions and identity risk in Microsoft Defender instead of Microsoft Defender for Identity, with corresponding link text and metadata updates.",
+        "adminImpact": "Administrators should use the updated Microsoft Defender remediation-actions link and terminology when consulting this guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/manage-case-templates.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/manage-case-templates.md b/defender-xdr/manage-case-templates.md\nindex 3f4b4db..6c4f392 100644\n--- a/defender-xdr/manage-case-templates.md\n+++ b/defender-xdr/manage-case-templates.md\n@@ -13,13 +13,13 @@ ms.service: microsoft-defender\n ms.subservice: unified-security-operations\n author: guywi-ms\n ms.author: guywild\n-ms.date: 2026-07-15T00:00:00.0000000Z\n+ms.date: 2026-10-22T00:00:00.0000000Z\n ms.collection:\n - M365-security-compliance\n - tier1\n - usx-security\n ms.topic: how-to\n-ms.custom: sfi-image-nochange\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1030\n ai-usage: ai-assisted\n locale: en-us\n document_id: 9800f63b-cde3-4d02-37fb-badeeae72858\n@@ -175,6 +175,8 @@ You can change the order of custom statuses within their lifecycle category.\n \r\n ### Delete a custom status\r\n \r\n+You can't delete a custom status that's currently assigned to any cases. Before you delete the status, update all cases that use it to a different status.\r\n+\r\n 1. On the **Custom statuses** page, find the custom status you want to delete.\r\n 2. Select **More options** (...).\r\n 3. Select **Delete**.\r\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/manage-case-templates.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-case-templates",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/manage-case-templates.md",
+      "firstSeenAt": "2026-11-10T20:48:58.354Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Custom statuses must be unassigned before deletion",
+        "summary": "The documentation now states that a custom status cannot be deleted while assigned to cases.",
+        "adminImpact": "Before deleting a custom status, administrators must move all associated cases to another status.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/get-started-defender-security-for-ai.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 28,
+      "changes": 31,
+      "patch": "diff --git a/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md b/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\nindex 5255af2..8183747 100644\n--- a/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\n+++ b/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\n@@ -34,12 +34,12 @@ item_type: Content\n source_path: defender-xdr/security-for-ai/get-started-defender-security-for-ai.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c389ea6b-b6a0-46df-93a1-1e21f25e19e7\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/302444b9-4a43-4841-8014-3d9e4251ff15\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c389ea6b-b6a0-46df-93a1-1e21f25e19e7\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ada1b6-705b-4ed7-aad0-bffd1bd03dfa\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/bebd8809-dac1-4c22-83e2-66d98af8a94d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ada1b6-705b-4ed7-aad0-bffd1bd03dfa\n platformId: 24cbe069-0c09-da8f-26ec-c530caa9c339\n ---\n \n@@ -69,8 +69,6 @@ To configure the data sources that Microsoft Defender uses to surface, investiga\n     When you onboard to Agent 365, security for AI agents is enabled automatically, including AI agent discovery, security posture assessment, and threat detection. The **Enable** toggle is on by default. To stop collecting data for AI agents, switch it to **Off**.\r\n \r\n     A setup checklist shows the status of required and optional data sources. **Agent 365** provides unified visibility into AI agents and is marked as **Done** automatically.\r\n-\r\n-    [![Screenshot of the Security for AI setup checklist showing Agent 365 marked Done, the Microsoft 365 connector marked Connected, Copilot Studio marked Not connected, and a list of identified Power Platform admins.](media/get-started-defender-security-for-ai/security-for-ai-setup-checklist.png)](media/get-started-defender-security-for-ai/security-for-ai-setup-checklist.png#lightbox)\r\n 3. Enable the Microsoft 365 connector to get [investigation and advanced hunting capabilities](ai-agent-detection-protection) for AI agent activity:\r\n \r\n     1. In the **Get started** page, select the **Microsoft 365 connector** step.\r\n@@ -82,31 +80,8 @@ To configure the data sources that Microsoft Defender uses to surface, investiga\n         **Microsoft Entra Users and groups** is a prerequisite for all monitoring capabilities and is selected by default.\r\n     3. Select **Connect Microsoft 365** to complete the connector setup.\r\n \r\n-        [![Screenshot of the Select Microsoft 365 components step with Microsoft Entra ID Management events, Sign-in events, Apps, and Microsoft 365 activities selected.](media/get-started-defender-security-for-ai/microsoft-365-connector-components.png)](media/get-started-defender-security-for-ai/microsoft-365-connector-components.png#lightbox)\r\n-\r\n     When the connector is active, its status shows as **Connected**.\r\n \r\n     Note\r\n \r\n-    For Copilot Studio agents, if the Microsoft 365 connector isn't connected, real-time protection continues to block suspicious activity during runtime, but alerts and incidents related to these actions don't appear in the Microsoft Defender portal.\r\n-4. Connect Copilot Studio to enable real-time protection for Copilot Studio agents:\r\n-\r\n-    1. In the **Get started** page, select the **Copilot Studio** step. The **Copilot Studio real-time protection** pane opens.\r\n-    2. Toggle **Real-time protection** to on.\r\n-\r\n-        This integration allows Microsoft Defender to scan agent tool invocations in real time, detect security risks (suspicious behavior or cross-prompt injection attacks), and block malicious actions. If suspicious behavior is detected, the response is blocked and an alert is triggered in the Microsoft Defender alerts and incidents queues.\r\n-\r\n-        [![Screenshot of the Copilot Studio real-time protection pane in the Microsoft Defender portal with the Real-time protection toggle on.](media/get-started-defender-security-for-ai/copilot-studio-real-time-protection.png)](media/get-started-defender-security-for-ai/copilot-studio-real-time-protection.png#lightbox)\r\n-    3. Under **Enable Power Platform Integration**, copy the URL provided and share it with your Power Platform administrator.\r\n-    4. Work with your Power Platform administrator to complete the onboarding steps in Power Platform. For detailed instructions, see [Enable external threat detection and protection for Copilot Studio custom agents](/en-us/microsoft-copilot-studio/external-security-provider#step-2-configure-the-threat-detection-system).\r\n-\r\n-        Make sure that the Power Platform administrator uses the same App ID as the App ID used in the [Microsoft Entra ID application](/en-us/microsoft-copilot-studio/external-security-provider#step-1-configure-microsoft-entra-application).\r\n-    5. Get the App ID from the Power Platform administrator, paste it into the **App ID** field in the Defender portal, then select **Save**.\r\n-\r\n-    Note\r\n-\r\n-    If you recently changed the App ID in Power Platform, it can take up to one minute for the update to propagate. If you encounter a validation error when saving the updated value, wait a short time and try again.\r\n-\r\n-    When the Power Platform administrator completes the onboarding steps, the Copilot Studio step shows a **Connected** status in the **Get started** page.\r\n-\r\n-    The **Get started** page also shows a list of **Identified Power Platform Admins** who have permission to complete the setup in Power Platform.\n\\ No newline at end of file\n+    For Copilot Studio agents, if the Microsoft 365 connector isn't connected, alerts and incidents related to these actions don't appear in the Microsoft Defender portal.\n\\ No newline at end of file\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/get-started-defender-security-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/get-started-defender-security-for-ai",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:defender-xdr/security-for-ai/get-started-defender-security-for-ai.md",
+      "firstSeenAt": "2026-11-10T20:48:58.363Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Copilot Studio setup guidance removed",
+        "summary": "The page removes Copilot Studio real-time protection setup instructions, Power Platform onboarding details, App ID guidance, and related screenshots. It retains the note that alerts and incidents do not appear when the Microsoft 365 connector is disconnected.",
+        "adminImpact": "Administrators using this page will no longer find the detailed Copilot Studio connection and configuration steps.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/microsoft-security-exposure-management.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 2,
+      "changes": 10,
+      "patch": "diff --git a/exposure-management/microsoft-security-exposure-management.md b/exposure-management/microsoft-security-exposure-management.md\nindex a5af409..4670e8c 100644\n--- a/exposure-management/microsoft-security-exposure-management.md\n+++ b/exposure-management/microsoft-security-exposure-management.md\n@@ -13,8 +13,9 @@ feedback_product_url: https://techcommunity.microsoft.com/t5/security-compliance\n uhfHeaderId: MSDocsHeader-Security\n description: Learn how Microsoft Security Exposure Management enhances and extends security posture management.\n ms.topic: overview\n-ms.date: 2025-07-30T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: b794f70f-a6d4-c17b-39e5-59d0e3e2a193\n document_version_independent_id: b794f70f-a6d4-c17b-39e5-59d0e3e2a193\n@@ -86,4 +87,9 @@ With Security Exposure Management you can:\n \r\n     - Consolidate security data from multiple sources including third-party tools (ServiceNow CMDB, Tenable, Qualys, Rapid7) into a single, unified view within the Exposure Management platform.\r\n     - Gain deeper insights into your security posture by integrating data from various environments and external sources.\r\n-    - Simplify the management of security data across different platforms and solutions through unified exposure management connectors.\n\\ No newline at end of file\n+    - Simplify the management of security data across different platforms and solutions through unified exposure management connectors.\r\n+- **Tailor posture evaluation to your organization**: Adapt Microsoft's default security evaluation to your organization's business, compliance and risk requirements, using scalable policy and exemption management.\r\n+\r\n+    - Use [posture policies](manage-posture-policies-defender) to define which security recommendations are evaluated and where they apply. Start with the Microsoft-managed MDC Baseline Policy, or create custom policies to apply stricter requirements to sensitive environments and reduce noise in lower-risk ones.\r\n+    - Use [exemptions](manage-exemptions-defender) to exclude findings that don't require remediation, such as false positives, risks covered by another control or accepted risks. Each exemption keeps a record of its scope, justification and review period for governance and audit.\r\n+    - Policies and exemptions are currently available for cloud resources in environments managed in Defender.\n\\ No newline at end of file\n",
+      "baseCommitSha": "f83274613874a701c0188b7a47eb4d91e080443f",
+      "commitSha": "423c6b87d1e7495e79220eafdedec3182d015da7",
+      "commitMessage": "Mirror Learn: 14 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 20:36:42 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/microsoft-security-exposure-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/microsoft-security-exposure-management",
+      "eventId": "defender-docs:423c6b87d1e7495e79220eafdedec3182d015da7:modified:exposure-management/microsoft-security-exposure-management.md",
+      "firstSeenAt": "2026-11-10T20:48:58.371Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Posture policies and exemptions are now documented",
+        "summary": "The page adds guidance on tailoring posture evaluations with policies and exemptions, including the Microsoft-managed MDC Baseline Policy, custom policies, exemption governance, and supported cloud-resource scope.",
+        "adminImpact": "Administrators can align evaluations with business, compliance, and risk requirements and reduce noise. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -123,14 +487,14 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 3,
+    "totalCommits": 2,
+    "totalFiles": 17,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
+    "overview": "Today's report includes 0 new, 17 updated, and 0 removed Microsoft Defender documentation files across 7 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -155,6 +519,48 @@
         "sourceFiles": [
           "sentinel/monitor-data-connector-health.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Cloud",
+        "summary": "The documentation now lists Microsoft Cloud Security Benchmark, security policies, exemptions, and regulatory compliance assessments as available in preview for Azure environments in the Defender portal. The page now has clearer section headings, adds links for Security policies, Regulatory compliance, and Exemptions, and updates wording about CSPM capabilities being unified into Microsoft Security Exposure Management.",
+        "sourceFiles": [
+          "defender-for-cloud/azure-portal-vs-defender-portal-comparison.md",
+          "defender-for-cloud/defender-portal/defender-for-cloud-defender-portal.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The page title, description, and introductory text were revised to refer to identity account correlation rules in Microsoft Defender. The Identity Inventory page now links to “Investigate users in Microsoft Defender” instead of “Microsoft Defender XDR.” Authoring, publication date, and AI-usage metadata were also updated. The page title, description, headings, and references were revised from “Microsoft Defender for Identity” to “Microsoft Defender.” Metadata and ontology links were also refreshed. The page now describes remediating compromised identities in Microsoft Defender instead of compromised users in Defender for Identity. References to identity remediation actions, automatic attack ",
+        "sourceFiles": [
+          "defender-for-identity/custom-account-correlation-rules.md",
+          "defender-for-identity/identity-inventory.md",
+          "defender-for-identity/manage-related-identities-accounts.md",
+          "defender-for-identity/remediation-actions.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The page metadata and ontology links were refreshed, and the schema-reference guidance now points to Microsoft Defender instead of Microsoft Defender XDR. The page now refers to Microsoft Defender instead of Microsoft Defender XDR, corrects a Microsoft Entra ID spelling error, and updates metadata and ontology links. The overview’s title, headings, setup instructions, RBAC label, and retention references now use “Microsoft Defender” instead of “Microsoft Defender XDR.” Metadata and ontology links were also updated. The page title, heading, and introductory text now refer to the Microsoft Defender advanced hunting schema instead of the Microsoft Defender XDR advanced hunting schema. Metadata ",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-identitylogonevents-table.md",
+          "defender-xdr/advanced-hunting-identityqueryevents-table.md",
+          "defender-xdr/advanced-hunting-overview.md",
+          "defender-xdr/advanced-hunting-schema-tables.md",
+          "defender-xdr/investigate-users.md",
+          "defender-xdr/manage-case-templates.md",
+          "defender-xdr/security-for-ai/get-started-defender-security-for-ai.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The page adds guidance on tailoring posture evaluations with policies and exemptions, including the Microsoft-managed MDC Baseline Policy, custom policies, exemption governance, and supported cloud-resource scope.",
+        "sourceFiles": [
+          "exposure-management/microsoft-security-exposure-management.md"
+        ]
       }
     ],
     "highlights": [
@@ -172,6 +578,26 @@
         "category": "Public preview",
         "headline": "Microsoft Sentinel",
         "detail": "The documentation now explains how to use the Defender portal’s Data & connectors Overview tab to review connector counts, ingestion volume and growth, errors, table fluctuations, and ingestion latency, with links to connector and table details."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Cloud",
+        "detail": "The documentation now lists Microsoft Cloud Security Benchmark, security policies, exemptions, and regulatory compliance assessments as available in preview for Azure environments in the Defender portal. The page now has clearer section headings, adds links for Security policies, Regulatory compliance, and Exemptions, and updates wording about CSPM capabilities being unified into Microsoft Security Exposure Management."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The page title, description, and introductory text were revised to refer to identity account correlation rules in Microsoft Defender. The Identity Inventory page now links to “Investigate users in Microsoft Defender” instead of “Microsoft Defender XDR.” Authoring, publication date, and AI-usage metadata were also updated. The page title, description, headings, and references were revised from “Microsoft Defender for Identity” to “Microsoft Defender.” Metadata and ontology links were also refreshed. The page now describes remediating compromised identities in Microsoft Defender instead of compromised users in Defender for Identity. References to identity remediation actions, automatic attack "
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The page metadata and ontology links were refreshed, and the schema-reference guidance now points to Microsoft Defender instead of Microsoft Defender XDR. The page now refers to Microsoft Defender instead of Microsoft Defender XDR, corrects a Microsoft Entra ID spelling error, and updates metadata and ontology links. The overview’s title, headings, setup instructions, RBAC label, and retention references now use “Microsoft Defender” instead of “Microsoft Defender XDR.” Metadata and ontology links were also updated. The page title, heading, and introductory text now refer to the Microsoft Defender advanced hunting schema instead of the Microsoft Defender XDR advanced hunting schema. Metadata "
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The page adds guidance on tailoring posture evaluations with policies and exemptions, including the Microsoft-managed MDC Baseline Policy, custom policies, exemption governance, and supported cloud-resource scope."
       }
     ],
     "generatedBy": "fallback"

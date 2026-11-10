@@ -8631,31 +8631,37 @@
       }
     },
     "2026-11-10": {
-      "headline": "Threat policy edits will switch recipient matching from AND to OR in December",
-      "overview": "The most consequential change is a December 2026 Microsoft Defender for Office 365 policy-behavior update: when multiple recipient types are specified, modified threat protection policies will use Match any (OR) instead of Match all (AND), expanding their scope. The remaining updates sharpen administrator guidance for quarantine release, file retrieval, and Sentinel data-connector monitoring.",
-      "adminImpact": "Account for broader policy scope when modifying threat protection policies after the December rollout; existing policies are not automatically converted. For Microsoft 365-quarantined malware and high-confidence phishing, resolve the verdict before release. During endpoint investigations, use the 100 MiB portal-download limit to select the appropriate retrieval method. Sentinel administrators can use the documented Data & connectors Overview workflow without a required configuration change.",
+      "headline": "Multi-recipient Defender for Office 365 policies switch to OR matching when modified",
+      "overview": "Microsoft Defender for Office 365 is scheduled to change multi-recipient threat-policy inclusion from Match all (AND) to Match any (OR) in December 2026 when an affected policy is modified. That can expand policy scope, while existing policies are not automatically converted. Other substantive guidance covers a 100 MiB limit for portal retrieval of quarantined files, verdict enforcement for certain quarantined mail, preview-scoped Azure security tasks in the Defender portal, and consolidated Sentinel connector-health monitoring. Most remaining updates refine terminology, headings, links, metadata, and navigation across Defender XDR and Identity.",
+      "adminImpact": "Review threat-protection policies that specify multiple recipient types before editing them in December; modifying one will apply OR logic and may broaden its scope. For file investigations, account for the 100 MiB portal-download limit and use Collect file when the current device path is needed. Resolve the verdict before releasing malware or high-confidence phishing messages covered by the updated Office 365 guidance. Use the updated Defender portal comparison to identify Azure tasks available in preview.",
       "keyChanges": [
         {
-          "title": "Recipient inclusion changes from Match all to Match any",
-          "detail": "Microsoft Defender for Office 365 will change threat protection policy recipient inclusion from AND to OR when multiple recipient types are specified. The change rolls out in December 2026, applies when policies are modified, expands policy scope, and does not automatically convert existing policies.",
-          "product": "Defender XDR",
+          "title": "Recipient matching changes from Match all to Match any on policy modification",
+          "detail": "Microsoft Defender for Office 365 is scheduled to interpret multiple specified recipient types with Match any (OR), instead of Match all (AND), when a threat-protection policy is modified in December 2026. Existing policies are not auto-converted, but modifying one can expand its scope.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1546447"
         },
         {
-          "title": "Quarantined malware and high-confidence phishing cannot bypass verdicts on release",
-          "detail": "Updated Microsoft 365 mail-flow guidance states that messages quarantined with those verdicts cannot bypass the verdict when released while MX points to Microsoft 365. Administrators must resolve the verdict before releasing the messages.",
-          "product": "Office 365",
-          "sourceId": "doc-2026-11-10-mdo-integrate-security-service-02"
-        },
-        {
-          "title": "Portal quarantine downloads are limited to cloud-backed files up to 100 MiB",
-          "detail": "The endpoint guidance specifies that portal downloads use a cloud-backed copy rather than the device’s local quarantine. Files larger than 100 MiB remain quarantined but cannot be downloaded from the portal; Collect file instead retrieves the current device path and may fail if quarantine removed the original.",
+          "title": "Endpoint guidance limits portal downloads to cloud-backed files up to 100 MiB",
+          "detail": "The updated Respond File Alerts guidance says portal downloads use a cloud-backed copy rather than the device’s local quarantine. Cloud backup covers files up to 100 MiB; larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and may fail if quarantine removed the original.",
           "product": "Endpoint",
           "sourceId": "doc-2026-11-10-respond-file-alerts-01"
         },
         {
-          "title": "Sentinel guidance maps connector and ingestion checks to one Overview tab",
-          "detail": "The updated procedure explains how to use the Defender portal’s Data & connectors Overview tab to review connector counts, ingestion volume and growth, errors, table fluctuations, and ingestion latency, with links to connector and table details. It provides a workspace-level investigation path and requires no action by itself.",
+          "title": "Quarantined malware and high-confidence phishing verdicts cannot be bypassed on release",
+          "detail": "When MX points to Microsoft 365, the updated guidance says malware and high-confidence phishing messages quarantined under that setup cannot bypass their verdict when released. Administrators must resolve the verdict before release.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-11-10-mdo-integrate-security-service-02"
+        },
+        {
+          "title": "Azure Defender portal comparison adds four preview-scoped security tasks",
+          "detail": "The updated comparison lists Microsoft Cloud Security Benchmark, security policies, exemptions, and regulatory compliance assessments as available in preview for Azure environments in the Defender portal.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-10-azure-portal-vs-defender-portal-comparison-04"
+        },
+        {
+          "title": "Sentinel guidance consolidates connector-health checks in Data & connectors",
+          "detail": "The updated guidance describes the Defender portal’s Data & connectors Overview tab for reviewing connector counts, ingestion volume and growth, errors, table fluctuations, and ingestion latency, with links to connector and table details.",
           "product": "Sentinel",
           "sourceId": "doc-2026-11-10-monitor-data-connector-health-03"
         }
@@ -8663,11 +8669,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-10T09:47:32.317Z",
+      "generatedAt": "2026-11-10T20:49:27.104Z",
       "usage": {
-        "inputTokens": 1439,
-        "outputTokens": 1585,
-        "costUsd": 0.00219
+        "inputTokens": 3242,
+        "outputTokens": 5667,
+        "costUsd": 0.007449
       }
     }
   },
@@ -10474,49 +10480,49 @@
       }
     },
     "2026-11-09": {
-      "headline": "December 2026 Defender for Office 365 change broadens recipient matching when policies are modified",
-      "overview": "The period’s clearest operational development is a planned Defender for Office 365 change: in December 2026, specifying multiple recipient types in a threat-protection policy will switch matching from Match all (AND) to Match any (OR). Existing policies will not be converted automatically, but modifying one will expand its scope. Most other updates are documentation maintenance, including Sentinel migration guidance, unified RBAC prerequisites across Office 365 policy pages, endpoint file-retrieval limits, and explicit preview labels for Exposure Management pages.",
-      "adminImpact": "Review threat-protection policies before modifying them and assess the broader recipient scope the OR logic will create. For Sentinel, use automation rules instead of direct analytics-rule invocation where automatic playbook execution is required. During endpoint investigations, account for the 100 MiB portal-download limit. When applying the updated Office 365 access guidance, verify that both the Defender for Office 365 and Exchange Online permissions toggles under Email & collaboration are Active.",
+      "headline": "December threat-policy edits will switch multiple recipient matching from AND to OR",
+      "overview": "Microsoft 365 Message Center notice MC1546447 says Defender for Office 365 will change how multiple recipient types are evaluated in threat protection policies during December 2026: Match all (AND) becomes Match any (OR). The broader scope applies when an existing policy is modified; existing policies are not automatically converted. Most of the other 44 changes were documentation updates, but Sentinel playbook migration guidance, Endpoint file-retrieval limits, and Office 365 RBAC prerequisites have direct operational relevance.",
+      "adminImpact": "Review threat protection policies that use multiple recipient types before modifying them during the December rollout. Move Sentinel playbook automation from direct analytics-rule invocation to automation rules, account for the 100 MiB portal-download ceiling for quarantined files, and verify both email permission toggles when applying the updated Unified RBAC guidance. For Sentinel data management in the Defender portal, verify the required permissions and commercial-cloud scope.",
       "keyChanges": [
         {
-          "title": "Recipient matching will move from AND to OR for multiple recipient types",
-          "detail": "Microsoft says the December 2026 rollout changes threat-protection policy logic from Match all (AND) to Match any (OR) when multiple recipient types are specified. The change expands scope when a policy is modified; existing policies are not auto-converted.",
-          "product": "Defender XDR",
+          "title": "Multiple recipient matching will broaden on modified threat policies",
+          "detail": "Defender for Office 365 will change multiple recipient-type evaluation from Match all (AND) to Match any (OR) when a threat protection policy is modified. The change rolls out in December 2026, expands policy scope, and does not automatically convert existing policies.",
+          "product": "Defender XDR / Defender for Office 365",
           "sourceId": "MC1546447"
         },
         {
-          "title": "Sentinel deprecates direct analytics-rule invocation for alert playbooks",
-          "detail": "Alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. The updated migration path is to use automation rules for alerts from one or multiple analytics rules.",
+          "title": "Sentinel guidance routes alert-trigger playbooks through automation rules",
+          "detail": "Alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. The updated procedure uses automation rules for alerts from one or multiple analytics rules.",
           "product": "Sentinel",
           "sourceId": "doc-2026-11-09-migrate-microsoft-sentinel-alert-trigger-playbooks-to-automation-rules-microsoft-learn-20"
         },
         {
-          "title": "Sentinel data-management guidance adds a unified Defender portal path",
-          "detail": "The revised article documents connector and table management, transformations, and ingestion-health monitoring through the Defender portal’s Overview, Connectors, and Tables tabs. It calls for unified RBAC, Data (manage), and equivalent workspace permissions; the experience is limited to commercial cloud and has table-management limitations.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-11-09-manage-data-tiers-and-retention-in-microsoft-sentinel-microsoft-learn-22"
-        },
-        {
-          "title": "Endpoint response guidance sets a 100 MiB portal limit for quarantined files",
-          "detail": "Portal downloads use a cloud-backed copy rather than the device’s local quarantine, with cloud backup covering files up to 100 MiB. Larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and may fail if quarantine removed the original.",
+          "title": "File-alert guidance sets a 100 MiB portal retrieval ceiling",
+          "detail": "The updated Endpoint guidance specifies that portal downloads use a cloud-backed copy rather than the device's local quarantine. Cloud backup applies to files up to 100 MiB; larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and can fail if quarantine removed the original.",
           "product": "Endpoint",
           "sourceId": "doc-2026-11-10-respond-file-alerts-01"
         },
         {
-          "title": "Office 365 anti-malware access now requires two Unified RBAC toggles",
-          "detail": "For the Microsoft Defender portal, the updated anti-malware policy guidance requires both the Defender for Office 365 and Exchange Online permissions toggles under Email & collaboration to be Active for Unified RBAC to apply.",
+          "title": "Email Unified RBAC guidance now requires both service toggles",
+          "detail": "The updated connection-filter policy guidance replaces the Defender for Office 365-only condition with a requirement that both the Defender for Office 365 and Exchange Online permissions toggles under Email & collaboration be Active. The same prerequisite is now reflected across several email-policy pages.",
           "product": "Office 365",
-          "sourceId": "doc-2026-11-09-anti-malware-policies-configure-04"
+          "sourceId": "doc-2026-11-09-connection-filter-policies-configure-08"
+        },
+        {
+          "title": "Sentinel documents a unified Defender portal workflow for data management",
+          "detail": "Updated guidance describes Overview, Connectors, and Tables tabs for connector and table management, transformations, and ingestion-health monitoring in the Defender portal. It calls for URBAC, Data (manage), and equivalent workspace permissions, applies to commercial cloud, and notes table-management limitations.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-11-09-manage-data-tiers-and-retention-in-microsoft-sentinel-microsoft-learn-22"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-10T09:47:32.317Z",
+      "generatedAt": "2026-11-10T20:49:27.104Z",
       "usage": {
-        "inputTokens": 4603,
-        "outputTokens": 4853,
-        "costUsd": 0.006744
+        "inputTokens": 6386,
+        "outputTokens": 6611,
+        "costUsd": 0.00921
       }
     }
   },
@@ -10940,54 +10946,54 @@
       }
     },
     "2026-11": {
-      "headline": "Defender RBAC auto-enablement and recipient matching changes set December priorities",
-      "overview": "November’s highest-impact changes center on Defender access control and email-policy behavior. Defender RBAC will auto-enable starting in December 2026, while the Microsoft Entra Security Operator mapping will lose default access to email threat policies and the Tenant/Allow Block List. Defender for Office 365 will also change multiple-recipient matching from AND to OR when affected policies are modified, and Plan 2 is adding a Move to Quarantine remediation action. Among the documentation changes, Microsoft Sentinel’s guidance makes automation rules the migration path for playbooks invoked directly by analytics rules.",
-      "adminImpact": "Review imported Defender RBAC roles before tenant activation and reassign Microsoft Entra Security Operator permissions where continued access is required. Assess recipient scope before modifying threat-protection policies. Review relevant Defender for Office 365 policies and roles for Move to Quarantine, and migrate Sentinel playbook automation to automation rules where direct analytics-rule invocation is used.",
+      "headline": "Defender RBAC auto-enablement and December policy-scope changes top November priorities",
+      "overview": "November’s most consequential Defender changes affect access control and email policy scope. Defender RBAC will begin auto-enabling in December 2026, while the Microsoft Entra Security Operator mapping will lose default access to email threat policies and the Tenant Allow/Block List. Defender for Office 365 will also change multiple-recipient matching from Match all (AND) to Match any (OR) when a policy is modified. Plan 2 adds Move to Quarantine, and updated Sentinel guidance directs administrators away from direct analytics-rule playbook invocation.",
+      "adminImpact": "Review imported Defender RBAC roles before tenant activation and manually restore Microsoft Entra Security Operator permissions where continued access to email threat policies or the Tenant Allow/Block List is required. Audit threat protection policies with multiple recipient types before modifying them during the December rollout, because modification can broaden their scope. For Defender for Office 365 Plan 2, review relevant policies and roles for Move to Quarantine; Microsoft says no rollout action is required. For Sentinel, configure automation rules for alerts from analytics rules rather than relying on direct playbook invocation.",
       "keyChanges": [
         {
-          "title": "Defender RBAC will auto-enable in December 2026",
-          "detail": "Microsoft Defender RBAC will be enabled automatically starting in December 2026, unifying access management for Defender and Sentinel. Existing roles will be imported for review, with activation expected about 30 days after notification; the notice says opt-out is available after activation. Review and adjust the imported roles before activation.",
+          "title": "Defender RBAC will auto-enable and unify Defender and Sentinel access",
+          "detail": "Microsoft says Defender RBAC will be auto-enabled in tenants starting in December 2026. Existing roles will be imported for review, with activation about 30 days after notification; administrators can adjust roles before activation, and the notice says opt-out remains available after activation. Permissions for other Microsoft services are unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Microsoft Entra Security Operator loses default access to key email controls",
-          "detail": "The Microsoft Defender for Office 365 Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant/Allow Block List as rollout begins in December 2026. Manually assign the required permissions where continued access is needed.",
-          "product": "Defender for Office 365",
+          "title": "Security Operator loses default access to key Defender for Office 365 controls",
+          "detail": "The updated Unified RBAC mapping for the Microsoft Entra Security Operator role removes default access to email threat policies and the Tenant Allow/Block List. Rollout starts in December 2026; administrators must manually assign the required permissions if that access must continue.",
+          "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Threat-policy recipient matching changes from AND to OR when modified",
-          "detail": "When multiple recipient types are specified, Defender for Office 365 will match any type rather than all types. Existing policies are not converted automatically, but modifying one will expand its scope under the new OR logic. Review the expected recipient scope before making changes.",
-          "product": "Defender for Office 365",
+          "title": "Multiple recipient conditions will broaden when threat policies are modified",
+          "detail": "Defender for Office 365 will evaluate multiple specified recipient types with Match any (OR) instead of Match all (AND). The December 2026 change does not automatically convert existing policies, but modifying one after the change can expand its scope.",
+          "product": "Defender XDR",
           "sourceId": "MC1546447"
         },
         {
-          "title": "Plan 2 adds a Move to Quarantine remediation action",
-          "detail": "The late-November rollout adds a Defender for Office 365 Plan 2 action that moves suspicious messages from user mailboxes into Defender quarantine for investigation and management. No rollout action is required, but Microsoft recommends reviewing relevant policies and roles.",
-          "product": "Defender for Office 365",
+          "title": "Plan 2 adds Move to Quarantine remediation",
+          "detail": "Microsoft Defender for Office 365 Plan 2 is adding a Move to Quarantine action that lets administrators move suspicious messages from user mailboxes into Defender quarantine for investigation and management. Rollout begins in late November 2026; Microsoft says no action is required, while recommending policy and role reviews.",
+          "product": "Defender XDR",
           "sourceId": "MC1523084"
         },
         {
-          "title": "Sentinel playbook automation should move to automation rules",
-          "detail": "Updated guidance says alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. Configure automation rules for alerts from one or multiple analytics rules to keep automatic playbook execution in place.",
-          "product": "Microsoft Sentinel",
+          "title": "Sentinel guidance shifts alert-trigger playbooks to automation rules",
+          "detail": "The updated migration guidance says alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. It directs administrators to configure automation rules for alerts created by one or multiple analytics rules.",
+          "product": "Sentinel",
           "sourceId": "doc-2026-11-09-migrate-microsoft-sentinel-alert-trigger-playbooks-to-automation-rules-microsoft-learn-20"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-10T09:47:32.317Z",
+      "generatedAt": "2026-11-10T20:49:27.104Z",
       "usage": {
-        "inputTokens": 6474,
-        "outputTokens": 3593,
-        "costUsd": 0.005606
+        "inputTokens": 6501,
+        "outputTokens": 3066,
+        "costUsd": 0.004979
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-10T09:47:32.317Z",
+  "generatedAt": "2026-11-10T20:49:27.104Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -11192,22 +11198,22 @@
       "costUsd": 0.027918
     },
     "2026-11-10": {
-      "inputTokens": 12516,
-      "outputTokens": 10031,
-      "requests": 3,
-      "costUsd": 0.01454
+      "inputTokens": 28645,
+      "outputTokens": 25375,
+      "requests": 6,
+      "costUsd": 0.036179
     }
   },
   "lastRun": {
-    "inputTokens": 12516,
-    "outputTokens": 10031,
+    "inputTokens": 16129,
+    "outputTokens": 15344,
     "requests": 3,
-    "costUsd": 0.01454
+    "costUsd": 0.021639
   },
   "totalUsage": {
-    "inputTokens": 1488026,
-    "outputTokens": 1459970,
-    "requests": 316,
-    "costUsd": 2.049563
+    "inputTokens": 1504155,
+    "outputTokens": 1475314,
+    "requests": 319,
+    "costUsd": 2.071202
   }
 }
