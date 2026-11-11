@@ -1,0 +1,244 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 2,
+      "changes": 18,
+      "patch": "diff --git a/defender-endpoint/ai-agent-runtime-protection-overview.md b/defender-endpoint/ai-agent-runtime-protection-overview.md\nindex 912860e..5b5c210 100644\n--- a/defender-endpoint/ai-agent-runtime-protection-overview.md\n+++ b/defender-endpoint/ai-agent-runtime-protection-overview.md\n@@ -9,8 +9,8 @@ feedback_product_url: https://techcommunity.microsoft.com/t5/security-compliance\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n description: Learn how Microsoft Defender for Endpoint provides runtime protection for local AI agents by detecting and blocking prompt injection attacks.\n-author: lwainstein\n-ms.author: lwainstein\n+author: j0shbregman\n+ms.author: joshbregman\n ms.service: defender-endpoint\n ms.topic: overview\n ms.custom: msecd-doc-authoring-1030\n@@ -102,6 +102,20 @@ Microsoft recommends starting in audit mode to observe detections and validate a\n \r\n For local PowerShell and organization-wide Microsoft Intune configuration options, see [Set up AI agent runtime protection with Microsoft Defender for Endpoint](configure-ai-agent-runtime-protection).\r\n \r\n+## Known issues (Preview)\r\n+\r\n+Important\r\n+\r\n+During preview, prompt injection alerts in the Microsoft Defender portal might incorrectly report **Suspicious AI prompt injection blocked** when AI agent runtime protection is configured in **Audit** mode. This is an alert-reporting issue. In Audit mode, runtime protection allows the action to continue and records the detection; the alert title doesn't mean that runtime protection blocked the action.\r\n+\r\n+Verify the runtime protection mode on the affected device as described in [Set up AI agent runtime protection](configure-ai-agent-runtime-protection#enable-runtime-protection). Don't rely on the alert title alone to determine whether an action was blocked. Continue investigating the detection to assess whether the activity is malicious.\r\n+\r\n+Important\r\n+\r\n+During preview, Claude Code might continue processing a tool response even when AI agent runtime protection is configured in **Block** mode and Defender reports a post-tool-response block. This is a blocking limitation, not just an alert-reporting issue. On affected devices, the block alert doesn't mean that runtime protection prevented the agent from processing the detected content.\r\n+\r\n+Don't rely on the alert title alone to determine whether a tool response was blocked. Continue investigating the detection to assess whether the activity is malicious. Post-tool-response inspection occurs after the tool runs and can't undo actions the tool has already completed.\r\n+\r\n ## Investigation\r\n \r\n When runtime protection detects prompt injection, Defender raises a **Suspicious AI prompt injection** alert and correlates related activity into incidents for investigation.\r\n",
+      "baseCommitSha": "8e113937e64c12b7729b181c101cc07c37fadbf4",
+      "commitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-11 20:22:19 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-runtime-protection-overview",
+      "eventId": "defender-docs:cfb33e37eedb49cd714bf5617baf67beedaa1ded:modified:defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "firstSeenAt": "2026-11-11T21:24:21.378Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI agent runtime protection documentation adds preview known issues",
+        "summary": "The page now documents inaccurate blocked-alert titles in Audit mode and a Claude Code limitation where tool responses may continue after a Block-mode alert.",
+        "adminImpact": "Check the configured protection mode and investigate detections rather than relying on alert titles. Post-tool-response blocks cannot undo actions already completed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/configure-ai-agent-runtime-protection.md b/defender-endpoint/configure-ai-agent-runtime-protection.md\nindex 1e03daa..112d10f 100644\n--- a/defender-endpoint/configure-ai-agent-runtime-protection.md\n+++ b/defender-endpoint/configure-ai-agent-runtime-protection.md\n@@ -9,8 +9,8 @@ feedback_product_url: https://techcommunity.microsoft.com/t5/security-compliance\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n manager: bagol\n description: Learn how to configure Microsoft Defender for Endpoint AI agent runtime protection to detect, audit, and block prompt injection on Windows devices.\n-author: lwainstein\n-ms.author: lwainstein\n+author: j0shbregman\n+ms.author: joshbregman\n ms.service: defender-endpoint\n ms.topic: how-to\n ms.date: 2026-09-25T00:00:00.0000000Z\n@@ -206,6 +206,10 @@ Close any terminal windows used to run agents, and then open a new terminal wind\n \r\n ## Review and investigate detections\r\n \r\n+Important\r\n+\r\n+During preview, a prompt injection alert might incorrectly report a block when runtime protection is configured in Audit mode. In Block mode, Claude Code might continue processing a tool response despite a reported post-tool-response block. See [Known issues (Preview)](ai-agent-runtime-protection-overview#known-issues-preview) for details.\r\n+\r\n After you enable runtime protection, review alerts to validate detection accuracy and tune your configuration before broadening enforcement. This step is critical during the audit phase because it helps you understand what agents are encountering and whether detections represent real threats.\r\n \r\n When runtime protection detects prompt injection, Defender raises a **Suspicious AI prompt injection** alert and takes action based on the configured mode. The alert appears on the device timeline, and related alerts are correlated into incidents for security operations center (SOC) investigation. In block mode, the alert severity is **Critical**, **High**, **Medium**, or **Low** based on assessed risk. In audit mode, the alert is **Informational**, so your team can review what would have been blocked without triaging it as an active threat.\r\n",
+      "baseCommitSha": "8e113937e64c12b7729b181c101cc07c37fadbf4",
+      "commitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-11 20:22:19 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-ai-agent-runtime-protection",
+      "eventId": "defender-docs:cfb33e37eedb49cd714bf5617baf67beedaa1ded:modified:defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "firstSeenAt": "2026-11-11T21:24:21.386Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Known preview issues added for AI agent runtime protection",
+        "summary": "The documentation now notes that Audit mode may incorrectly report a prompt injection block, and Claude Code may continue processing a tool response after a reported block in Block mode.",
+        "adminImpact": "Administrators evaluating the preview should interpret these alerts and runtime behaviors with these known issues in mind.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/manage-admins.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-cloud-apps/manage-admins.md b/defender-for-cloud-apps/manage-admins.md\nindex 434a45a..ace4a60 100644\n--- a/defender-for-cloud-apps/manage-admins.md\n+++ b/defender-for-cloud-apps/manage-admins.md\n@@ -13,7 +13,7 @@ ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n description: Set up role-based administrator access in Defender for Cloud Apps and understand how Microsoft Entra ID and Microsoft 365 roles affect permissions.\n-ms.date: 2026-10-04T00:00:00.0000000Z\n+ms.date: 2026-11-08T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: Naama-Goldbart\n ms.custom:\n@@ -123,7 +123,7 @@ The following specific admin roles can be configured in the Microsoft Defender p\n \r\n Note\r\n \r\n-The **App/instance admin** and **User group admin** role assignments are no longer available for new configurations as part of platform consolidation efforts. Existing configurations aren't affected and continue to be supported. If your organization requires these capabilities, contact Microsoft Support.\r\n+The **App/instance admin**, **User group admin**, **Cloud Discovery global admin**, and **Cloud Discovery report admin** role assignments are no longer available for new configurations as part of platform consolidation efforts. Existing configurations aren't affected and continue to be supported. If your organization requires these capabilities, contact Microsoft Support.\r\n \r\n Important\r\n \r\n",
+      "baseCommitSha": "8e113937e64c12b7729b181c101cc07c37fadbf4",
+      "commitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-11 20:22:19 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/manage-admins.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/manage-admins",
+      "eventId": "defender-docs:cfb33e37eedb49cd714bf5617baf67beedaa1ded:modified:defender-for-cloud-apps/manage-admins.md",
+      "firstSeenAt": "2026-11-11T21:24:21.402Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Four admin role assignments are unavailable for new configurations",
+        "summary": "The documentation now states that App/instance admin, User group admin, Cloud Discovery global admin, and Cloud Discovery report admin assignments cannot be used in new configurations. Existing configurations remain supported.",
+        "adminImpact": "Administrators planning new role configurations must account for these assignments being unavailable; existing configurations require no change.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/configure-windows-event-collection.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-identity/deploy/configure-windows-event-collection.md b/defender-for-identity/deploy/configure-windows-event-collection.md\nindex 32d02bb..07f4502 100644\n--- a/defender-for-identity/deploy/configure-windows-event-collection.md\n+++ b/defender-for-identity/deploy/configure-windows-event-collection.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Configure Windows event auditing for Defender for Identity sensors. Learn automatic, manual, and PowerShell methods to enable required audit policies.\n-ms.date: 2026-10-18T00:00:00.0000000Z\n+ms.date: 2026-11-11T00:00:00.0000000Z\n ms.topic: how-to\n ms.custom:\n - msecd-doc-authoring-1015\n@@ -89,7 +89,7 @@ When enabled, the v3.x sensor automatically:\n     - **Directory services advanced auditing**: Configures the required Windows advanced audit policies on the local system.\r\n     - **NTLM auditing**: Configures the required NTLM auditing settings.\r\n     - **Domain object auditing**: Adds audit entries to the domain root object's System Access Control List (SACL) to enable required directory service auditing.\r\n-    - **Configuration container auditing**: Modifies the SACL on the Configuration partition to capture changes to directory service configuration objects.\r\n+    - **Configuration container auditing**: For environments that currently have or previously had Microsoft Exchange, configures the Configuration partition's SACL to capture directory service configuration changes.\r\n     - **AD FS auditing**: Automatically configures the following settings:\r\n         - **Object-level auditing on the AD FS configuration container**: Adds audit entries to the object's System Access Control List (SACL) of the AD FS configuration container, to enable auditing of AD FS-related directory objects.\r\n         - **Group Policy for event auditing**: Configures the **Audit Application Generated** advanced audit policy (Success and Failure) on the local system.\r\n",
+      "baseCommitSha": "8e113937e64c12b7729b181c101cc07c37fadbf4",
+      "commitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-11 20:22:19 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/configure-windows-event-collection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection",
+      "eventId": "defender-docs:cfb33e37eedb49cd714bf5617baf67beedaa1ded:modified:defender-for-identity/deploy/configure-windows-event-collection.md",
+      "firstSeenAt": "2026-11-11T21:24:21.410Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Configuration auditing scope now specifies Exchange environments",
+        "summary": "The documentation now states that Configuration partition SACL auditing applies to environments that currently have or previously had Microsoft Exchange.",
+        "adminImpact": "Administrators should use Exchange presence or history when determining whether this auditing configuration applies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-office-365/mdo-integrate-security-service.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/defender-office-365/mdo-integrate-security-service.md b/defender-office-365/mdo-integrate-security-service.md\nindex c927f90..297fc46 100644\n--- a/defender-office-365/mdo-integrate-security-service.md\n+++ b/defender-office-365/mdo-integrate-security-service.md\n@@ -110,12 +110,13 @@ For these reasons, we strongly recommend avoiding this configuration, and workin\n \r\n     Mail flow rules (transport rules) that look at original verdicts aren't ideal, because they can introduce other issues and lead to effectiveness challenges.\r\n 2. When your MX record points to Microsoft 365, messages quarantined as malware or high confidence phishing (HPHISH) are protected by secure by default behavior. Resolve the malware or HPHISH verdict before you release the message from quarantine, because these verdicts can't be bypassed when the message returns from a non-Microsoft service. For more information, see [Secure by default in Office 365](secure-by-default).\r\n-3. Minimize false positives by overriding spoof for email arriving from the non-Microsoft service. For example, if the non-Microsoft service has an IP address of 172.17.17.35, create two [allowed spoofed sender entries in the Tenant Allow/Block List](tenant-allow-block-list-email-spoof-configure#create-allow-entries-for-spoofed-senders): one External and one Internal as shown in the following screenshot:\r\n+3. In this routing topology, messages quarantined by the [Common Attachments Filter](anti-malware-protection-about#common-attachments-filter-in-anti-malware-policies) can be quarantined again after release because of the return mail flow path. If repeated release is a requirement, a potential workaround is to move attachment-type blocking to [Exchange mail flow rules](/en-us/exchange/security-and-compliance/mail-flow-rules/inspect-message-attachments). However, this workaround reduces protection fidelity: mail flow rule-based attachment blocking doesn't provide the same true file-type protection as Common Attachments Filter detection in anti-malware policies and can increase false-negative risk.\r\n+4. Minimize false positives by overriding spoof for email arriving from the non-Microsoft service. For example, if the non-Microsoft service has an IP address of 172.17.17.35, create two [allowed spoofed sender entries in the Tenant Allow/Block List](tenant-allow-block-list-email-spoof-configure#create-allow-entries-for-spoofed-senders): one External and one Internal as shown in the following screenshot:\r\n \r\n     [![A screenshot of the allowed spoofed sender entries in the Tenant Allow/Block List.](media/mdo-allow-entries-additional-security-service.png)](media/mdo-allow-entries-additional-security-service.png#lightbox)\r\n \r\n     Be sure to remove these override entries if you ever leave the non-Microsoft protection service or change how it functions.\r\n-4. False negative (bad mail allowed) and false positive email submissions to Microsoft should come from the initial version of the message, not the one that returns from the non-Microsoft service. False positives attributed to the non-Microsoft service should be sent to the non-Microsoft service. This requirement can be complex to manage:\r\n+5. False negative (bad mail allowed) and false positive email submissions to Microsoft should come from the initial version of the message, not the one that returns from the non-Microsoft service. False positives attributed to the non-Microsoft service should be sent to the non-Microsoft service. This requirement can be complex to manage:\r\n \r\n     - **Microsoft false negative (missed at initial reception)**: You need a copy of the message before to delivery to the mailbox. Submit the copy in quarantine from the non-Microsoft service, if it's available.\r\n     - **Microsoft + non-Microsoft service false negative**: If both services miss it, we recommend reporting the original item to Microsoft and reporting the item in the recipient's mailbox to the non-Microsoft service. The item returned to Microsoft 365 from the non-Microsoft service includes details from the non-Microsoft service (for example, the non-Microsoft service's sending IP addresses, custom headers, etc.) which can lead to decreased machine learning effectiveness.\r\n",
+      "baseCommitSha": "8e113937e64c12b7729b181c101cc07c37fadbf4",
+      "commitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-11 20:22:19 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-office-365/mdo-integrate-security-service.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-office-365/mdo-integrate-security-service",
+      "eventId": "defender-docs:cfb33e37eedb49cd714bf5617baf67beedaa1ded:modified:defender-office-365/mdo-integrate-security-service.md",
+      "firstSeenAt": "2026-11-11T21:24:21.416Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation adds guidance on messages being quarantined again after release",
+        "summary": "The routing guidance now notes that messages quarantined by the Common Attachments Filter may be quarantined again after release because of the return mail-flow path. It also clarifies that submissions to Microsoft should use the initial message version.",
+        "adminImpact": "Administrators using this routing topology should account for possible repeat quarantine and follow the updated submission guidance; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/whats-new.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 2,
+      "changes": 2,
+      "patch": "diff --git a/exposure-management/whats-new.md b/exposure-management/whats-new.md\nindex 163338e..d67eb0c 100644\n--- a/exposure-management/whats-new.md\n+++ b/exposure-management/whats-new.md\n@@ -78,8 +78,6 @@ The MAI Cyber (Preview) scan configuration now uses MAI-Cyber-1.1-Flash instead\n \r\n If your Foundry already uses MAI-Cyber-1-Flash, it’s automatically upgraded in Foundry to MAI-Cyber-1.1-Flash.\r\n \r\n-MAI Cyber (Preview) is now the recommended scan configuration for MDASH.\r\n-\r\n ## September 2026\r\n \r\n ### Improved onboarding experience for MDASH\r\n",
+      "baseCommitSha": "8e113937e64c12b7729b181c101cc07c37fadbf4",
+      "commitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-11 20:22:19 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/whats-new",
+      "eventId": "defender-docs:cfb33e37eedb49cd714bf5617baf67beedaa1ded:modified:exposure-management/whats-new.md",
+      "firstSeenAt": "2026-11-11T21:24:21.424Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MAI Cyber (Preview) is now the recommended MDASH scan configuration",
+        "summary": "The exposure management documentation now recommends MAI Cyber (Preview) as the scan configuration for MDASH.",
+        "adminImpact": "Administrators reviewing MDASH scan configurations should note the updated recommendation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 6,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Endpoint",
+        "summary": "The page now documents inaccurate blocked-alert titles in Audit mode and a Claude Code limitation where tool responses may continue after a Block-mode alert. The documentation now notes that Audit mode may incorrectly report a prompt injection block, and Claude Code may continue processing a tool response after a reported block in Block mode.",
+        "sourceFiles": [
+          "defender-endpoint/ai-agent-runtime-protection-overview.md",
+          "defender-endpoint/configure-ai-agent-runtime-protection.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Cloud Apps",
+        "summary": "The documentation now states that App/instance admin, User group admin, Cloud Discovery global admin, and Cloud Discovery report admin assignments cannot be used in new configurations. Existing configurations remain supported.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/manage-admins.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Identity",
+        "summary": "The documentation now states that Configuration partition SACL auditing applies to environments that currently have or previously had Microsoft Exchange.",
+        "sourceFiles": [
+          "defender-for-identity/deploy/configure-windows-event-collection.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Office 365",
+        "summary": "The routing guidance now notes that messages quarantined by the Common Attachments Filter may be quarantined again after release because of the return mail-flow path. It also clarifies that submissions to Microsoft should use the initial message version.",
+        "sourceFiles": [
+          "defender-office-365/mdo-integrate-security-service.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The exposure management documentation now recommends MAI Cyber (Preview) as the scan configuration for MDASH.",
+        "sourceFiles": [
+          "exposure-management/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Endpoint",
+        "detail": "The page now documents inaccurate blocked-alert titles in Audit mode and a Claude Code limitation where tool responses may continue after a Block-mode alert. The documentation now notes that Audit mode may incorrectly report a prompt injection block, and Claude Code may continue processing a tool response after a reported block in Block mode."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "The documentation now states that App/instance admin, User group admin, Cloud Discovery global admin, and Cloud Discovery report admin assignments cannot be used in new configurations. Existing configurations remain supported."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Identity",
+        "detail": "The documentation now states that Configuration partition SACL auditing applies to environments that currently have or previously had Microsoft Exchange."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Office 365",
+        "detail": "The routing guidance now notes that messages quarantined by the Common Attachments Filter may be quarantined again after release because of the return mail-flow path. It also clarifies that submissions to Microsoft should use the initial message version."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The exposure management documentation now recommends MAI Cyber (Preview) as the scan configuration for MDASH."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
