@@ -1,0 +1,249 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-for-cloud-apps/app-governance-manage-alerts.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 7,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-cloud-apps/app-governance-manage-alerts.md b/defender-for-cloud-apps/app-governance-manage-alerts.md\nindex 9ecd55e..068fa97 100644\n--- a/defender-for-cloud-apps/app-governance-manage-alerts.md\n+++ b/defender-for-cloud-apps/app-governance-manage-alerts.md\n@@ -14,7 +14,7 @@ ms.service: defender-for-cloud-apps\n ms.suite: ems\n ms.date: 2026-07-03T00:00:00.0000000Z\n ms.topic: how-to\n-description: Investigate and manage app governance alerts in Microsoft Defender XDR to identify risky or malicious cloud apps and take remediation actions.\n+description: Investigate and manage app governance alerts in Microsoft Defender to identify risky or malicious cloud apps and take remediation actions.\n ms.reviewer: shragar\n ms.custom: sfi-image-nochange, msecd-doc-authoring-1016\n ai-usage: ai-assisted\n@@ -35,22 +35,18 @@ item_type: Content\n source_path: defender-for-cloud-apps/app-governance-manage-alerts.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n platformId: ef3bf31a-a4fe-4dab-aa5b-acea97547cbb\n ---\n \n # Remediate OAuth app threats with app governance alerts - Microsoft Defender for Cloud Apps | Microsoft Learn\n \n-You can investigate alerts about malicious cloud apps and apps that may present risks to your organization in the Defender portal **Alerts** or **Incidents** pages.\r\n+You can investigate alerts about malicious cloud apps and apps that may present risks to your organization on the **Alerts** or **Incidents** pages in the Microsoft Defender portal.\r\n \r\n For example:\r\n \r\n-[![Screenshot of the app governance alerts summary page in the Microsoft Defender XDR.](media/app-governance/mapg-cc-alerts.png)](media/app-governance/mapg-cc-alerts.png#lightbox)\r\n+[![Screenshot of the app governance alerts summary page.](media/app-governance/mapg-cc-alerts.png)](media/app-governance/mapg-cc-alerts.png#lightbox)\r\n \r\n ## View alert details\r\n \r\n",
+      "baseCommitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitSha": "1b59467f876b59ae201c1b2b7ea515741d8b4de6",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:05:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/app-governance-manage-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-manage-alerts",
+      "eventId": "defender-docs:1b59467f876b59ae201c1b2b7ea515741d8b4de6:modified:defender-for-cloud-apps/app-governance-manage-alerts.md",
+      "firstSeenAt": "2026-11-12T21:28:24.302Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated app governance alert documentation terminology",
+        "summary": "The article now refers to Microsoft Defender instead of Microsoft Defender XDR, clarifies that alerts and incidents are accessed in the Microsoft Defender portal, removes internal authoring links, and updates the screenshot description.",
+        "adminImpact": "Use the updated terminology and navigation wording when consulting the article.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/manage-admins.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/defender-for-cloud-apps/manage-admins.md b/defender-for-cloud-apps/manage-admins.md\nindex ace4a60..f61d42b 100644\n--- a/defender-for-cloud-apps/manage-admins.md\n+++ b/defender-for-cloud-apps/manage-admins.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Configure admin access - Microsoft Defender for Cloud Apps | Microsoft Learn\n+title: Configure SaaS security admin access in Microsoft Defender - Microsoft Defender for Cloud Apps | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-cloud-apps/manage-admins\n feedback_system: Standard\n feedback_product_url: https://docs.microsoft.com/cloud-app-security/support-and-ts\n@@ -12,7 +12,7 @@ ms.author: abbyweisberg\n ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n-description: Set up role-based administrator access in Defender for Cloud Apps and understand how Microsoft Entra ID and Microsoft 365 roles affect permissions.\n+description: Set up role-based administrator access for SaaS security in Microsoft Defender and understand how Microsoft Entra ID and Microsoft 365 roles affect permissions.\n ms.date: 2026-11-08T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: Naama-Goldbart\n@@ -45,11 +45,11 @@ spProducts:\n platformId: 9b9b9bfc-e2b3-6150-4e73-59369de1bfc6\n ---\n \n-# Configure admin access - Microsoft Defender for Cloud Apps | Microsoft Learn\n+# Configure SaaS security admin access in Microsoft Defender - Microsoft Defender for Cloud Apps | Microsoft Learn\n \n-Microsoft Defender for Cloud Apps supports role-based access control. This article provides instructions for setting access to Defender for Cloud Apps for your admins. For more information about assigning administrator roles, see the articles for [Microsoft Entra ID](/en-us/azure/active-directory/roles/permissions-reference) and [Microsoft 365](/en-us/microsoft-365/admin/add-users/assign-admin-roles).\r\n+SaaS security capabilities in Microsoft Defender support role-based access control. This article provides instructions for setting access to Microsoft Defender for Cloud Apps for your admins. For more information about assigning administrator roles, see the articles for [Microsoft Entra ID](/en-us/azure/active-directory/roles/permissions-reference) and [Microsoft 365](/en-us/microsoft-365/admin/add-users/assign-admin-roles).\r\n \r\n-## Microsoft 365 and Microsoft Entra roles with access to Defender for Cloud Apps\r\n+## Microsoft 365 and Microsoft Entra roles with access to SaaS security in Microsoft Defender\r\n \r\n Note\r\n \r\n@@ -61,7 +61,7 @@ Note\n \r\n As Microsoft Defender moves toward a fully unified identity platform, some Defender for Cloud Apps data pipelines remain separate. Defender for Cloud Apps RBAC scoping uses a separate data pipeline that isn't yet integrated with the [Identity inventory](/en-us/defender-for-identity/identity-inventory). Correlations defined in the Identity inventory don't affect Defender for Cloud Apps scoping. For a full list of affected features, see [Enable Identity inventory integration](/en-us/defender-cloud-apps/general-setup#enable-identity-inventory-integration).\r\n \r\n-By default, the following Microsoft 365 and [Microsoft Entra ID](/en-us/azure/active-directory/roles/permissions-reference) admin roles have access to Defender for Cloud Apps:\r\n+By default, the following Microsoft 365 and [Microsoft Entra ID](/en-us/azure/active-directory/roles/permissions-reference) admin roles have access to SaaS security capabilities in Microsoft Defender:\r\n \r\n | Role name | Description |\r\n | --- | --- |\r\n",
+      "baseCommitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitSha": "1b59467f876b59ae201c1b2b7ea515741d8b4de6",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:05:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/manage-admins.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/manage-admins",
+      "eventId": "defender-docs:1b59467f876b59ae201c1b2b7ea515741d8b4de6:modified:defender-for-cloud-apps/manage-admins.md",
+      "firstSeenAt": "2026-11-12T21:28:24.312Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Admin access guidance now uses SaaS security terminology",
+        "summary": "The article title, description, headings, and introductory text now refer to SaaS security capabilities in Microsoft Defender rather than only Defender for Cloud Apps.",
+        "adminImpact": "Administrators should use the updated SaaS security terminology when locating guidance about Microsoft 365 and Microsoft Entra administrator roles.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/configure-scoped-access.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/defender-for-identity/configure-scoped-access.md b/defender-for-identity/configure-scoped-access.md\nindex ab6c3e7..cb5954e 100644\n--- a/defender-for-identity/configure-scoped-access.md\n+++ b/defender-for-identity/configure-scoped-access.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Configure scoped access for Microsoft Defender for Identity - Microsoft Defender for Identity | Microsoft Learn\n+title: Configure scoped access for identity security in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-for-identity/configure-scoped-access\n feedback_system: Standard\n feedback_product_url: https://aka.ms/MDIcommunity\n@@ -12,7 +12,7 @@ ms.collection: M365-security-compliance\n ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n-description: Configure scoped access in Microsoft Defender for Identity by creating custom unified RBAC roles that limit visibility to specific Active Directory domains or organizational units.\n+description: Configure scoped access for identity security capabilities in Microsoft Defender by creating custom unified RBAC roles that limit visibility to specific Active Directory domains or organizational units.\n ms.date: 2026-07-02T00:00:00.0000000Z\n ms.topic: how-to\n ms. reviewer: LiorShapiraa\n@@ -34,21 +34,21 @@ monikers: []\n item_type: Content\n source_path: defender-for-identity/configure-scoped-access.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n - https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n platformId: 6a4c467d-55db-96ec-3f6e-73274c4ec8e1\n ---\n \n-# Configure scoped access for Microsoft Defender for Identity - Microsoft Defender for Identity | Microsoft Learn\n+# Configure scoped access for identity security in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n \n ## Overview\r\n \r\n-As your organization grows, you need to control who can access which resources. Microsoft Defender for Identity scoping lets you focus monitoring on specific Active Directory domains or organizational units. Scoping reduces noise from data you don't need and helps you focus on critical assets. You can also limit visibility to specific entities so that access matches each person's role. To set up scoped access, [create a custom role using Microsoft Defender unified RBAC](/en-us/defender-xdr/create-custom-rbac-roles). When you configure the role, you choose which users or Entra ID groups can access specific Active Directory domains or organizational units.\r\n+As your organization grows, you need to control who can access which resources. Identity security scoping in Microsoft Defender lets you focus monitoring on specific Active Directory domains or organizational units. Scoping reduces noise from data you don't need and helps you focus on critical assets. You can also limit visibility to specific entities so that access matches each person's role. To set up scoped access, [create a custom role using Microsoft Defender unified RBAC](/en-us/defender-xdr/create-custom-rbac-roles). When you configure the role, you choose which users or Entra ID groups can access specific Active Directory domains or organizational units.\r\n \r\n ## Prerequisites\r\n \r\n",
+      "baseCommitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitSha": "1b59467f876b59ae201c1b2b7ea515741d8b4de6",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:05:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/configure-scoped-access.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/configure-scoped-access",
+      "eventId": "defender-docs:1b59467f876b59ae201c1b2b7ea515741d8b4de6:modified:defender-for-identity/configure-scoped-access.md",
+      "firstSeenAt": "2026-11-12T21:28:24.330Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Scoped-access documentation updated to use broader identity security terminology",
+        "summary": "The page title, description, introduction, and metadata links now refer to identity security in Microsoft Defender rather than Microsoft Defender for Identity. The guidance still describes custom unified RBAC roles that limit visibility to Active Directory domains or organizational units.",
+        "adminImpact": "Administrators should use the updated title and terminology when locating this scoped-access guidance; no configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/deploy/manage-action-accounts.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-identity/deploy/manage-action-accounts.md b/defender-for-identity/deploy/manage-action-accounts.md\nindex b3f59f0..badeb61 100644\n--- a/defender-for-identity/deploy/manage-action-accounts.md\n+++ b/defender-for-identity/deploy/manage-action-accounts.md\n@@ -119,7 +119,7 @@ To create and configure a dedicated gMSA action account, perform the following s\n \r\n Use the Microsoft Defender portal to add the gMSA action account:\r\n \r\n-1. Go to the [Microsoft Defender portal](https://security.microsoft.com) and select **Settings** -&gt; **Identities** &gt; **Microsoft Defender for Identity** &gt; **Manage action accounts** &gt; **+Create new account**.\r\n+1. Go to the [Microsoft Defender portal](https://security.microsoft.com) and select **Settings** &gt; **Identities** &gt; **General** &gt; **Manage action accounts** &gt; **+ Create new account**.\r\n \r\n     For example:\r\n \r\n",
+      "baseCommitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitSha": "1b59467f876b59ae201c1b2b7ea515741d8b4de6",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:05:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/deploy/manage-action-accounts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/deploy/manage-action-accounts",
+      "eventId": "defender-docs:1b59467f876b59ae201c1b2b7ea515741d8b4de6:modified:defender-for-identity/deploy/manage-action-accounts.md",
+      "firstSeenAt": "2026-11-12T21:28:24.340Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated path for managing action accounts",
+        "summary": "The documented Microsoft Defender portal path now goes through Settings > Identities > General > Manage action accounts, with updated formatting for the Create new account button.",
+        "adminImpact": "Administrators creating action accounts should follow the updated navigation path.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/remediation-actions.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/defender-for-identity/remediation-actions.md b/defender-for-identity/remediation-actions.md\nindex 5659e33..973d4fe 100644\n--- a/defender-for-identity/remediation-actions.md\n+++ b/defender-for-identity/remediation-actions.md\n@@ -34,12 +34,12 @@ item_type: Content\n source_path: defender-for-identity/remediation-actions.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n platformId: 2f76b528-6f99-5127-cd8f-42178b1dfddd\n ---\n \n@@ -79,7 +79,7 @@ Remediation actions can also be applied automatically by Microsoft Defender's au\n \r\n ## Supported actions\r\n \r\n-The following identity remediation actions can be performed on Identities.\r\n+You can take the following remediation actions on identities in the Defender portal.\r\n \r\n Depending on your Microsoft Entra ID roles, you might see additional Microsoft Entra ID actions, such as requiring users to sign in again and confirming a user as compromised. For more information, see [Remediate risks and unblock users](/en-us/entra/id-protection/howto-identity-protection-remediate-unblock).\r\n \r\n@@ -97,11 +97,11 @@ The following table lists the identity remediation actions supported by Defender\n \r\n | Remediation Action | Active Directory | Microsoft Entra ID | Okta, SailPoint, CyberArk | Supported SaaS apps |\r\n | --- | --- | --- | --- | --- |\r\n-| Disable | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder, Security Operator | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n-| Enable | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder, Security Operator | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n-| Revoke session | N/A | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, Helpdesk Administrator, SOC Identity Responder, Security Operator | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | N/A |\r\n+| Disable | See [required permissions](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder, Security Operator | See [required permissions](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n+| Enable | See [required permissions](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, SOC Identity Responder, Security Operator | See [required permissions](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Security Administrator, Cloud App Security Administrator |\r\n+| Revoke session | N/A | Global Administrator, User Administrator, Authentication Administrator, Privileged Authentication Administrator, Directory Writers, Helpdesk Administrator, SOC Identity Responder, Security Operator | See [required permissions](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | N/A |\r\n | Mark as compromised | N/A | Global Administrator, Security Administrator, Security Operator, SOC Identity Responder | N/A | N/A |\r\n-| Force password change | See [Required permissions Defender for Identity in Microsoft Defender XDR](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Privileged Authentication Administrator, Authentication Administrator, User Administrator, Password Administrator, Helpdesk Administrator, SOC Identity Responder, Security Operator | N/A | N/A |\r\n+| Force password change | See [required permissions](/en-us/defender-for-identity/role-groups#required-permissions-defender-for-identity-in-microsoft-defender-xdr) | Global Administrator, Privileged Authentication Administrator, Authentication Administrator, User Administrator, Password Administrator, Helpdesk Administrator, SOC Identity Responder, Security Operator | N/A | N/A |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitSha": "1b59467f876b59ae201c1b2b7ea515741d8b4de6",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:05:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/remediation-actions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/remediation-actions",
+      "eventId": "defender-docs:1b59467f876b59ae201c1b2b7ea515741d8b4de6:modified:defender-for-identity/remediation-actions.md",
+      "firstSeenAt": "2026-11-12T21:28:24.349Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Remediation actions documentation has clearer portal wording and permission links",
+        "summary": "The page now states that identity remediation actions are performed in the Defender portal, updates ontology links, and uses shorter links to the required-permissions section for Disable, Enable, Revoke session, and Force password change.",
+        "adminImpact": "Administrators have clearer navigation to the relevant permissions information. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/role-groups.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 6,
+      "changes": 14,
+      "patch": "diff --git a/defender-for-identity/role-groups.md b/defender-for-identity/role-groups.md\nindex 6c91f82..ca6918f 100644\n--- a/defender-for-identity/role-groups.md\n+++ b/defender-for-identity/role-groups.md\n@@ -1,6 +1,6 @@\n ---\n layout: Conceptual\n-title: Role groups - Microsoft Defender for Identity | Microsoft Learn\n+title: Role groups for identity security in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/defender-for-identity/role-groups\n feedback_system: Standard\n feedback_product_url: https://aka.ms/MDIcommunity\n@@ -12,7 +12,7 @@ ms.collection: M365-security-compliance\n ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n-description: Learn about working with Microsoft Defender for Identity role groups.\n+description: Learn how role groups help manage access to identity security capabilities in Microsoft Defender.\n ms.date: 2024-01-15T00:00:00.0000000Z\n ms.topic: article\n ms.reviewer: LiorShapiraa\n@@ -35,21 +35,23 @@ source_path: defender-for-identity/role-groups.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5711eaa5-435f-4c40-8d89-924ef7945eec\n - https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ee4d551-d6c4-4e91-986e-0f1afd52559f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: be550c6c-ced5-6397-bfca-cd50e16bb225\n ---\n \n-# Role groups - Microsoft Defender for Identity | Microsoft Learn\n+# Role groups for identity security in Microsoft Defender - Microsoft Defender for Identity | Microsoft Learn\n \n-Microsoft Defender for Identity offers role-based security to safeguard data according to your organization's specific security and compliance needs. We recommend that you use role groups to manage access to Defender for Identity, segregating responsibilities across your security team and granting only the amount of access that users need to do their jobs.\r\n+Identity security capabilities in Microsoft Defender use role-based security to safeguard data according to your organization's specific security and compliance needs. We recommend that you use role groups to manage access to identity security capabilities in Microsoft Defender, segregating responsibilities across your security team and granting only the amount of access that users need to do their jobs.\r\n \r\n ## Unified role-based access control (RBAC)\r\n \r\n-Users that are already have the [Security Administrators](/en-us/entra/identity/role-based-access-control/permissions-reference) on your tenant's Microsoft Entra ID are also automatically Defender for Identity administrator. Microsoft Entra Security Administrators don't need extra permissions to access Defender for Identity.\r\n+Users that are already have the [Security Administrators](/en-us/entra/identity/role-based-access-control/permissions-reference) on your tenant's Microsoft Entra ID are also automatically Defender for Identity administrator. Microsoft Entra Security Administrators don't need extra permissions to access identity security capabilities in Microsoft Defender.\r\n \r\n-For other users, enable and use Microsoft 365 role-based access control (RBAC) to create custom roles and to support more Entra ID roles such as Security operator or Security Reader by default to manage access to Defender for Identity.\r\n+For other users, enable and use Microsoft 365 role-based access control (RBAC) to create custom roles and to support more Entra ID roles such as Security operator or Security Reader by default to manage access to identity security capabilities in Microsoft Defender.\r\n \r\n Important\r\n \r\n",
+      "baseCommitSha": "cfb33e37eedb49cd714bf5617baf67beedaa1ded",
+      "commitSha": "1b59467f876b59ae201c1b2b7ea515741d8b4de6",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:05:05 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/role-groups.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/role-groups",
+      "eventId": "defender-docs:1b59467f876b59ae201c1b2b7ea515741d8b4de6:modified:defender-for-identity/role-groups.md",
+      "firstSeenAt": "2026-11-12T21:28:24.357Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Role-group guidance now uses broader identity security terminology",
+        "summary": "The page title, description, and introductory guidance now refer to identity security capabilities in Microsoft Defender rather than only Defender for Identity. Two ontology links were also added.",
+        "adminImpact": "Administrators should use the updated terminology when applying the role-group and Microsoft 365 RBAC guidance. No action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1387578",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-12",
+      "title": "Microsoft Defender for Office 365: Localized default mark and notify email template",
+      "summary": "Microsoft Defender for Office 365 will localize the default \"Mark and notify\" email template based on users' Outlook language settings, improving clarity in user-reported message notifications. Rollout starts June 2026 globally, with no changes to message classification or custom templates. No action is required.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1387578/",
+      "originalUrl": "https://mc.merill.net/message/MC1387578",
+      "body": "<p>Updated November 12, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and Why</b></b></p><p><b>Microsoft Defender for Office 365</b> is introducing localization support for the default “Mark and notify” email template used in <i>admin review and automated notification flows</i> for user-reported messages.</p><p>This update ensures that users receive notification emails in their <i>preferred language</i> based on their Outlook settings, improving clarity and understanding of review outcomes. This helps improve engagement and supports stronger security practices.</p><p>This message is associated with <b>Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/microsoft-365/roadmap?filters=&amp;searchterms=557558\" rel=\"noopener noreferrer\">557558</a></b>.</p><p><b><b>Rollout Schedule</b></b></p><p><b>General Availability&nbsp;</b></p><ul><li><b>Worldwide:</b> Rollout begins in <b>June 2026</b> and is expected to complete by <b>end of September 2026</b> (previously late July).</li><li><b>GCC, GCC High, DoD: </b>Rollout begins in<b> late November 2026 </b>(previously mid-July) and is expected to complete by<b> end of December 2026 </b>(previously end of October).</li></ul><p><b><b>Impact on Your Organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Defender for Office 365</li><li>Admins and users participating in user-reported message workflows</li><li>Applies only when the default notification template is used</li></ul><p><i>Platforms/Services</i></p><ul><li>Microsoft Defender for Office 365</li><li>Microsoft 365 Defender portal (web)</li><li>Exchange Online</li></ul><p><i>What will happen</i></p><ul><li>Default “Mark and notify” email templates will be localized.</li><li>Notifications will be delivered in the <i>user’s preferred language </i>based on Outlook settings.</li><li>Feature is <b>enabled by default </b>when <b>auto-notification is turned on</b>.</li><li>Notifications will have consistent formatting and messaging across supported languages.</li><li>No changes to message verdicts or classification logic.</li><li>No changes to automated investigation behavior.</li><li>No changes to custom notification templates configured by admins in the user reported settings page.</li><li>Default 'safe' message template will also use softer, clearer wording while continuing to advise users to exercise caution:<ul><li>This email doesn’t appear harmful. But you should always handle suspicious emails with caution.</li><li>The safe-message template will also advise users to:<ul><li>Contact the sender through another channel to confirm the message’s validity.</li><li>Avoid links and attachments in unsolicited emails from unfamiliar senders.</li></ul></li></ul></li></ul><p><i>Screenshot 1 - Before localization view:&nbsp;</i></p><p></p><p><i>Screenshot 1 - Localized template view:</i></p><p><i>&nbsp;</i></p><p><i>Screenshot 2 - Default safe message:</i></p><p></p><p></p><p><b><b>Action Required/Recommendations</b></b></p><p>No action is required.</p><p>You may consider the following:</p><ul><li>Inform users that notification emails may now appear in their<i> preferred language</i>.</li><li>Review notification <a href=\"https://security.microsoft.com/securitysettings/userSubmission\" rel=\"noopener noreferrer\">settings</a> in <i>Microsoft Defender</i>: <b><i>Settings &gt; Email and collaboration &gt; User reported settings</i></b>.</li><li>Update internal documentation or helpdesk guidance if this workflow is documented.</li></ul><p><b>Learn more:</b> <a href=\"https://learn.microsoft.com/defender-office-365/submissions-admin#notify-users-about-admin-submitted-messages-to-microsoft\" rel=\"noopener noreferrer\">Notify users about admin submitted messages to Microsoft - Use the Submissions page to submit suspected spam, phish, URLs, legitimate email getting blocked, and email attachments to Microsoft | Microsoft Defender for Office 365 | Microsoft Defender | Microsoft Learn</a></p><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations identified. Review as appropriate for your organization.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-06-11T17:26:43Z",
+      "endDate": "2027-02-01T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-12T17:30:22.503Z",
+      "version": "2026-11-12T17:30:22.503Z",
+      "eventId": "message-center:MC1387578:2026-11-12T17:30:22.503Z",
+      "firstSeenAt": "2026-11-12T21:28:35.202Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 6,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "The article now refers to Microsoft Defender instead of Microsoft Defender XDR, clarifies that alerts and incidents are accessed in the Microsoft Defender portal, removes internal authoring links, and updates the screenshot description. The article title, description, headings, and introductory text now refer to SaaS security capabilities in Microsoft Defender rather than only Defender for Cloud Apps.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/app-governance-manage-alerts.md",
+          "defender-for-cloud-apps/manage-admins.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The page title, description, introduction, and metadata links now refer to identity security in Microsoft Defender rather than Microsoft Defender for Identity. The guidance still describes custom unified RBAC roles that limit visibility to Active Directory domains or organizational units. The documented Microsoft Defender portal path now goes through Settings > Identities > General > Manage action accounts, with updated formatting for the Create new account button. The page now states that identity remediation actions are performed in the Defender portal, updates ontology links, and uses shorter links to the required-permissions section for Disable, Enable, Revoke session, and Force password",
+        "sourceFiles": [
+          "defender-for-identity/configure-scoped-access.md",
+          "defender-for-identity/deploy/manage-action-accounts.md",
+          "defender-for-identity/remediation-actions.md",
+          "defender-for-identity/role-groups.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "The article now refers to Microsoft Defender instead of Microsoft Defender XDR, clarifies that alerts and incidents are accessed in the Microsoft Defender portal, removes internal authoring links, and updates the screenshot description. The article title, description, headings, and introductory text now refer to SaaS security capabilities in Microsoft Defender rather than only Defender for Cloud Apps."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The page title, description, introduction, and metadata links now refer to identity security in Microsoft Defender rather than Microsoft Defender for Identity. The guidance still describes custom unified RBAC roles that limit visibility to Active Directory domains or organizational units. The documented Microsoft Defender portal path now goes through Settings > Identities > General > Manage action accounts, with updated formatting for the Create new account button. The page now states that identity remediation actions are performed in the Defender portal, updates ontology links, and uses shorter links to the required-permissions section for Disable, Enable, Revoke session, and Force password"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
