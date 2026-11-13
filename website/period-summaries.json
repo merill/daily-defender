@@ -8769,25 +8769,49 @@
       }
     },
     "2026-11-13": {
-      "headline": "Threat actor naming table adds associations and revises classifications across Defender XDR",
-      "overview": "The Microsoft Threat Actor Naming table adds or revises aliases, affiliations, origins, and references for several actors, including new associations for Citrine Sleet, Midnight Blizzard, and Storm-2603; a new Storm-2195 entry; and updated classifications for Storm-1249, Storm-2227, and Storm-3069.",
-      "adminImpact": "Use the revised actor names, affiliations, and classifications when interpreting Defender threat intelligence and correlating related activity.",
+      "headline": "Defender XDR documents a Teams synthetic-media hunting table",
+      "overview": "The period's strongest addition is documentation for the SyntheticMediaDetectionEvents advanced-hunting table, covering Microsoft Teams synthetic-media detections and investigation fields. Endpoint's AI Agent Runtime Protection guidance is more operationally specific: it separates agent-native and network inspection, defines support-matrix requirements, and maps both settings to 0 (Disabled), 1 (Block), and 2 (Audit). Identity migration wording also removes a domain-controller-only limitation statement, while threat-actor naming entries were revised.",
+      "adminImpact": "Queries against the Teams synthetic-media table require Defender for Office 365 and an approved detection engine. Administrators testing AI Agent Runtime Protection should match the inspection method, agent mode, and minimum version to the support matrix and use the documented numeric values. Migration teams should review the revised Sensor V3 guidance; no configuration change or deadline is stated.",
       "keyChanges": [
         {
-          "title": "Actor aliases, affiliations, and classifications revised",
-          "detail": "The Defender XDR threat actor reference adds or revises aliases, affiliations, origins, and references. It adds new associations for Citrine Sleet, Midnight Blizzard, and Storm-2603, adds Storm-2195, and updates classifications for Storm-1249, Storm-2227, and Storm-3069.",
+          "title": "SyntheticMediaDetectionEvents documents Teams deepfake investigation fields",
+          "detail": "The new Defender XDR advanced-hunting table covers Microsoft Teams synthetic-media detection events and exposes severity, confidence, maliciousness, source, user, and detection-provider details. Results require Defender for Office 365 and an approved detection engine.",
           "product": "Defender XDR",
-          "sourceId": "doc-2026-11-13-microsoft-threat-actor-naming-01"
+          "sourceId": "doc-2026-11-13-syntheticmediadetectionevents-table-in-the-advanced-hunting-schema-microsoft-defender-microsoft--01"
+        },
+        {
+          "title": "AI Agent Runtime Protection now specifies numeric policy values",
+          "detail": "The configuration guidance states that both settings use 0 for Disabled, 1 for Block, and 2 for Audit.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-11-13-configure-ai-agent-runtime-protection-04"
+        },
+        {
+          "title": "Runtime-protection testing now separates agent-native and network inspection",
+          "detail": "The demonstration guide now uses a support matrix covering inspection methods, agent modes, and minimum versions. It distinguishes agent-native inspection (AiAgentProtection) from network inspection (AiAgentNetworkInspection), removes Beta Channel update-configuration steps, and adds known-issues guidance.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-11-13-defender-endpoint-demonstration-ai-agent-runtime-protection-05"
+        },
+        {
+          "title": "Threat-actor naming tables revise aliases and affiliations",
+          "detail": "The table adds or revises aliases, affiliations, origins, and references, including new associations for Citrine Sleet, Midnight Blizzard, and Storm-2603; an entry for Storm-2195; and updated classifications for Storm-1249, Storm-2227, and Storm-3069.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-11-13-microsoft-threat-actor-naming-02"
+        },
+        {
+          "title": "Sensor V3 migration guidance removes a domain-controller-only statement",
+          "detail": "Troubleshooting wording now refers to Defender for Endpoint sensor onboarding and removes the statement that in-place migration is supported only for domain controllers. Two ontology links were also updated.",
+          "product": "Identity",
+          "sourceId": "doc-2026-11-13-migrate-to-sensor-v3-06"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T16:16:17.571Z",
+      "generatedAt": "2026-11-13T20:54:10.263Z",
       "usage": {
-        "inputTokens": 1058,
-        "outputTokens": 573,
-        "costUsd": 0.000899
+        "inputTokens": 2061,
+        "outputTokens": 4336,
+        "costUsd": 0.005615
       }
     }
   },
@@ -10594,49 +10618,49 @@
       }
     },
     "2026-11-09": {
-      "headline": "Threat protection policies shift recipient matching from AND to OR in December",
-      "overview": "The week’s clearest administrator-facing change is a scheduled Microsoft Defender for Office 365 behavior update: when multiple recipient types are specified, threat-protection policies will move from Match all (AND) to Match any (OR). Microsoft says the broader scope applies when a policy is modified, while existing policies are not auto-converted. Most other updates were terminology, navigation, RBAC wording, or visual maintenance; the notable operational guidance covers Sentinel playbook migration, endpoint AI-agent limitations, quarantine retrieval, and Cloud Apps role setup.",
-      "adminImpact": "After the December 2026 rollout, edits to recipient-scoped threat protection policies can broaden their scope. Sentinel teams using direct analytics-rule invocation should configure automation rules for continued automatic playbook execution, while endpoint investigators should account for the documented AI-agent and quarantine-retrieval limitations.",
+      "headline": "Threat protection policies will switch recipient matching from AND to OR",
+      "overview": "The most consequential update is a planned Microsoft Defender for Office 365 behavior change: when multiple recipient types are specified, matching will move from Match all (AND) to Match any (OR) during the December 2026 rollout. Existing policies are not automatically converted, but their scope can broaden when modified. Most of the remaining 67 records were documentation maintenance involving terminology, links, screenshots, and navigation; the substantive exceptions include Sentinel playbook migration guidance, Teams synthetic-media hunting, and AI-agent runtime protection caveats.",
+      "adminImpact": "Ahead of the December 2026 rollout, review threat protection policies that specify multiple recipient types before modifying them. Configure Sentinel automation rules for playbooks currently invoked directly by analytics rules. For Teams synthetic-media investigations, confirm Defender for Office 365 and an approved detection engine. Treat AI-agent Audit and Block results in light of the documented limitations, and verify both required Unified RBAC permission toggles for anti-malware policy access.",
       "keyChanges": [
         {
-          "title": "December changes multiple-recipient policies from Match all to Match any",
-          "detail": "Microsoft Defender for Office 365 will change threat-protection recipient inclusion from Match all (AND) to Match any (OR) when multiple recipient types are specified. The update rolls out in December 2026, expands scope when a policy is modified, and does not auto-convert existing policies.",
+          "title": "Defender for Office 365 recipient matching will broaden on policy modification",
+          "detail": "Microsoft will change multiple-recipient matching from Match all (AND) to Match any (OR) in threat protection policies during the December 2026 rollout. Existing policies are not auto-converted, but modifying one can expand its policy scope.",
           "product": "Office 365",
           "sourceId": "MC1546447"
         },
         {
-          "title": "Sentinel deprecates direct analytics-rule invocation for alert-trigger playbooks",
-          "detail": "The migration guidance says alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. Administrators should configure automation rules for alerts from one or multiple analytics rules to keep automatic execution working.",
+          "title": "Sentinel direct alert-trigger playbook invocation is deprecated",
+          "detail": "Alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. The updated guidance directs administrators to use automation rules for alerts from one or multiple analytics rules.",
           "product": "Sentinel",
           "sourceId": "doc-2026-11-09-migrate-microsoft-sentinel-alert-trigger-playbooks-to-automation-rules-microsoft-learn-20"
         },
         {
-          "title": "AI-agent runtime guidance flags misleading Audit titles and Claude Code post-block processing",
-          "detail": "The Microsoft Defender for Endpoint overview now records that Audit mode can show inaccurate blocked-alert titles and that Claude Code may continue processing a tool response after a Block-mode alert. A post-tool-response block cannot undo actions already completed.",
+          "title": "SyntheticMediaDetectionEvents brings Teams deepfake events to advanced hunting",
+          "detail": "The new Microsoft Defender advanced hunting schema entry documents Teams synthetic-media detection events, including severity, confidence, maliciousness, source, user, and detection-provider fields. Results require Defender for Office 365 and an approved detection engine.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-11-13-syntheticmediadetectionevents-table-in-the-advanced-hunting-schema-microsoft-defender-microsoft--01"
+        },
+        {
+          "title": "AI-agent runtime protection guidance flags Audit and Block limitations",
+          "detail": "The guidance now warns that Audit mode can incorrectly report a prompt-injection block and that Claude Code can continue processing a tool response after a Block-mode alert. A post-tool-response block cannot undo actions that already completed.",
           "product": "Endpoint",
           "sourceId": "doc-2026-11-11-ai-agent-runtime-protection-overview-01"
         },
         {
-          "title": "Quarantined-file guidance sets a 100 MiB portal-download boundary",
-          "detail": "The Respond File Alerts guidance now says portal downloads use a cloud-backed copy rather than the device’s local quarantine. Files up to 100 MiB have cloud backup; larger files remain quarantined but cannot be downloaded from the portal. Collect file retrieves the current device path and may fail if quarantine removed the original.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-11-10-respond-file-alerts-01"
-        },
-        {
-          "title": "Cloud Apps guidance excludes four admin assignments from new configurations",
-          "detail": "The Manage Admins guidance now says App/instance admin, User group admin, Cloud Discovery global admin, and Cloud Discovery report admin assignments cannot be used in new configurations. Existing configurations remain supported.",
-          "product": "Cloud Apps",
-          "sourceId": "doc-2026-11-11-manage-admins-03"
+          "title": "Anti-malware portal guidance specifies two active RBAC toggles",
+          "detail": "The revised anti-malware policy guidance says the Defender for Office 365 and Exchange Online permissions toggles under Email & collaboration must both be Active, and that the documented requirement applies to the Microsoft Defender portal.",
+          "product": "Office 365",
+          "sourceId": "doc-2026-11-09-anti-malware-policies-configure-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T16:16:17.571Z",
+      "generatedAt": "2026-11-13T20:54:10.263Z",
       "usage": {
-        "inputTokens": 8154,
-        "outputTokens": 8940,
-        "costUsd": 0.012359
+        "inputTokens": 9131,
+        "outputTokens": 3640,
+        "costUsd": 0.006194
       }
     }
   },
@@ -11060,54 +11084,54 @@
       }
     },
     "2026-11": {
-      "headline": "Defender RBAC, recipient matching, and quarantine changes set December priorities",
-      "overview": "November was update-heavy rather than launch-heavy, but several changes have direct administrative consequences. Defender RBAC will auto-enable from December 2026, the Microsoft Entra Security Operator mapping will lose default access to key Defender for Office 365 controls, and edited threat-protection policies with multiple recipient types will change from AND to OR matching. Plan 2 also adds Move to Quarantine, while Sentinel guidance directs administrators away from direct analytics-rule playbook invocation toward automation rules.",
-      "adminImpact": "Review imported Defender RBAC roles before tenant activation and reassign permissions where Security Operator access to email threat policies or the Tenant Allow/Block List is required. Treat edits to multi-recipient threat-protection policies as potentially scope-expanding. Review relevant policies and roles for Move to Quarantine, and configure Sentinel automation rules wherever playbooks currently depend on direct analytics-rule invocation.",
+      "headline": "Defender RBAC auto-enablement and email policy scope changes demand December review",
+      "overview": "December brings two access changes with direct tenant impact: Defender RBAC will auto-enable for Defender and Sentinel, while the Microsoft Entra Security Operator mapping loses default access to email threat policies and the Tenant/Allow Block List. Defender for Office 365 will also change multiple-recipient matching from AND to OR when policies are modified, potentially broadening policy scope. Plan 2 adds a Move to Quarantine remediation action, and Sentinel administrators must migrate direct analytics-rule playbook invocation to automation rules.",
+      "adminImpact": "Review imported Defender RBAC roles before tenant activation and explicitly assign any permissions that the Microsoft Entra Security Operator role must retain. Before modifying Defender for Office 365 policies after the recipient-matching rollout, assess policies with multiple recipient types. Review relevant roles and policies for Move to Quarantine, and configure Sentinel automation rules for playbooks currently invoked directly by analytics rules.",
       "keyChanges": [
         {
-          "title": "Defender RBAC auto-enablement requires role review before activation",
-          "detail": "Microsoft Defender RBAC will be enabled automatically in tenants starting December 2026, unifying access management for Defender and Sentinel. Existing roles will be imported for review, with activation occurring about 30 days after notification; administrators can adjust roles and opt out after activation. Permissions for other Microsoft services are unchanged.",
+          "title": "Defender RBAC will auto-enable for Defender and Sentinel",
+          "detail": "Starting in December 2026, Microsoft Defender RBAC will be enabled automatically. Existing roles will be imported for review before activation, which is expected about 30 days after notification. Administrators can adjust roles as needed, and an opt-out is available after activation; permissions for other Microsoft services are unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Security Operator loses default access to key Defender for Office 365 controls",
-          "detail": "The Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List when rollout begins in December 2026. Administrators must manually assign the required permissions if that access should continue.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Microsoft Entra Security Operator loses default access to key Defender for Office 365 controls",
+          "detail": "The Unified RBAC mapping will remove the role’s default access to email threat policies and the Tenant/Allow Block List when rollout starts in December 2026. Administrators must manually assign the required permissions if the role should retain that access.",
+          "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Recipient matching changes from AND to OR when policies are modified",
-          "detail": "When multiple recipient types are specified in a Defender for Office 365 threat-protection policy, inclusion logic will change from Match all (AND) to Match any (OR) during the December 2026 rollout. Existing policies are not automatically converted, but modifying one can expand its scope.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Recipient matching will change from AND to OR when policies are modified",
+          "detail": "When multiple recipient types are specified in a threat protection policy, matching will change from Match all (AND) to Match any (OR) during the December 2026 rollout. Existing policies are not automatically converted, but their scope can expand when they are modified.",
+          "product": "Defender XDR",
           "sourceId": "MC1546447"
         },
         {
-          "title": "Plan 2 adds Move to Quarantine for suspicious mailbox messages",
-          "detail": "Microsoft Defender for Office 365 Plan 2 is introducing a Move to Quarantine remediation action in late November 2026. Administrators can move suspicious messages from user mailboxes into Defender quarantine for investigation and management; no rollout action is required, though policy and role reviews are recommended.",
-          "product": "Microsoft Defender for Office 365",
+          "title": "Plan 2 adds Move to Quarantine for suspicious email remediation",
+          "detail": "Beginning in late November 2026, Defender for Office 365 Plan 2 administrators can move suspicious messages from user mailboxes to Defender quarantine for investigation and management. No rollout action is required, but reviewing relevant policies and roles is recommended.",
+          "product": "Defender XDR",
           "sourceId": "MC1523084"
         },
         {
-          "title": "Sentinel playbooks should use automation rules for analytics-rule alerts",
-          "detail": "Alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. The updated guidance calls for automation rules to run playbooks when alerts are created by one or multiple analytics rules.",
-          "product": "Microsoft Sentinel",
+          "title": "Sentinel direct playbook invocation from analytics rules is deprecated",
+          "detail": "Alert-trigger playbooks and their Microsoft Sentinel Alert triggers remain supported, but direct invocation from analytics rules is deprecated. Configure automation rules to run these playbooks when alerts are created from one or more analytics rules.",
+          "product": "Sentinel",
           "sourceId": "doc-2026-11-09-migrate-microsoft-sentinel-alert-trigger-playbooks-to-automation-rules-microsoft-learn-20"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T16:16:17.571Z",
+      "generatedAt": "2026-11-13T20:54:10.263Z",
       "usage": {
-        "inputTokens": 6537,
-        "outputTokens": 2737,
-        "costUsd": 0.004592
+        "inputTokens": 6507,
+        "outputTokens": 2199,
+        "costUsd": 0.00394
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-13T16:16:17.571Z",
+  "generatedAt": "2026-11-13T20:54:10.263Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -11318,22 +11342,22 @@
       "costUsd": 0.018924
     },
     "2026-11-13": {
-      "inputTokens": 15749,
-      "outputTokens": 12250,
-      "requests": 3,
-      "costUsd": 0.01785
+      "inputTokens": 33448,
+      "outputTokens": 22425,
+      "requests": 6,
+      "costUsd": 0.0336
     }
   },
   "lastRun": {
-    "inputTokens": 15749,
-    "outputTokens": 12250,
+    "inputTokens": 17699,
+    "outputTokens": 10175,
     "requests": 3,
-    "costUsd": 0.01785
+    "costUsd": 0.01575
   },
   "totalUsage": {
-    "inputTokens": 1551499,
-    "outputTokens": 1511854,
-    "requests": 328,
-    "costUsd": 2.124519
+    "inputTokens": 1569198,
+    "outputTokens": 1522029,
+    "requests": 331,
+    "costUsd": 2.140269
   }
 }
