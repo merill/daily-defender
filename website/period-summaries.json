@@ -8859,6 +8859,28 @@
         "outputTokens": 4305,
         "costUsd": 0.005577
       }
+    },
+    "2026-11-16": {
+      "headline": "Advanced Hunting adds MessageContents table for Teams message investigations",
+      "overview": "Microsoft Defender for Office 365 is introducing the MessageContents table in Advanced Hunting for Teams messages. The table gives authorized security analysts access to Teams message snippets and metadata to support threat investigations, with rollout scheduled from late September through late November 2026.",
+      "adminImpact": "Administrators should account for the specific permissions controlling access when delegating Teams-message hunting and investigation work. The capability is rolling out during the stated window rather than becoming available everywhere at once.",
+      "keyChanges": [
+        {
+          "title": "MessageContents table arrives in Advanced Hunting",
+          "detail": "The new MessageContents table covers Microsoft Teams messages and exposes message snippets and metadata to authorized security analysts. Access is controlled by specific permissions, and rollout runs from late September to late November 2026.",
+          "product": "Defender XDR",
+          "sourceId": "MC1474106"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-16T23:23:19.076Z",
+      "usage": {
+        "inputTokens": 1023,
+        "outputTokens": 589,
+        "costUsd": 0.000911
+      }
     }
   },
   "weeks": {
@@ -10708,6 +10730,28 @@
         "outputTokens": 3205,
         "costUsd": 0.00588
       }
+    },
+    "2026-11-16": {
+      "headline": "Advanced Hunting adds Teams MessageContents data for Defender for Office 365 investigations",
+      "overview": "Microsoft Defender for Office 365 is rolling out a new Advanced Hunting table for Teams messages. The MessageContents table provides authorized security analysts with message snippets and metadata for threat investigations, with rollout running from late September through late November 2026.",
+      "adminImpact": "The capability is available only to authorized analysts through specific permissions. Administrators should account for permission-controlled access when planning Teams-message hunting workflows; the notice does not specify the permission names.",
+      "keyChanges": [
+        {
+          "title": "New MessageContents table covers Teams messages",
+          "detail": "Advanced Hunting now introduces the MessageContents table for Microsoft Teams messages, giving authorized security analysts access to message snippets and metadata for threat investigations. Rollout is scheduled from late September to late November 2026, with access controlled by specific permissions.",
+          "product": "Defender XDR",
+          "sourceId": "MC1474106"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-16T23:23:19.076Z",
+      "usage": {
+        "inputTokens": 840,
+        "outputTokens": 715,
+        "costUsd": 0.001026
+      }
     }
   },
   "months": {
@@ -11130,37 +11174,37 @@
       }
     },
     "2026-11": {
-      "headline": "Defender RBAC auto-enablement and email-permission remapping arrive in December",
-      "overview": "Most of November’s 121 entries were documentation maintenance or clarification. The consequential operational changes were the December 2026 auto-enablement of unified Defender RBAC, removal of default Microsoft Entra Security Operator access to key Defender for Office 365 controls, a change from AND to OR recipient matching when threat-protection policies are modified, and the retirement of two Defender for Identity classic alerts.",
-      "adminImpact": "Review imported Defender RBAC roles before tenant activation and reassign email-policy or Tenant/Allow Block List permissions where required. Inventory threat-protection policies with multiple recipient types before modifying them after the December rollout. Before the late-November alert retirement, create custom detection rules for remote code execution and use Defender for Endpoint monitoring for pass-the-hash activity.",
+      "headline": "Defender RBAC auto-enablement and recipient matching changes drive December reviews",
+      "overview": "November was largely documentation maintenance, but five operational changes warrant administrator attention: Defender RBAC auto-enablement and a narrower Microsoft Entra Security Operator mapping in December; a Match all-to-Match any recipient-scope change when policies are modified; retirement of two Defender for Identity classic alerts by late November; and a new Plan 2 Move to Quarantine response action.",
+      "adminImpact": "Prioritize Defender RBAC role reviews, restore explicitly required Security Operator permissions, and inspect recipient-scoped threat protection policies before modifying them after the December rollout. Replace the retiring Defender for Identity alert coverage by late November. Move to Quarantine requires no rollout action, but relevant policies and roles should be reviewed.",
       "keyChanges": [
         {
-          "title": "Unified Defender RBAC will auto-enable in December 2026",
-          "detail": "Microsoft will auto-enable the new Defender RBAC model starting in December 2026, unifying access management for Defender and Sentinel. Existing roles will be imported for review before activation, which occurs about 30 days after notification; administrators can adjust roles and opt out after activation.",
+          "title": "New Defender RBAC model will auto-enable from December 2026",
+          "detail": "Microsoft Defender RBAC will be enabled automatically, importing existing roles for review before activation roughly 30 days after notification. The model unifies access management for Defender and Sentinel; other Microsoft service permissions are unchanged, and an opt-out is available after activation.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Microsoft Entra Security Operator loses default email-control access",
-          "detail": "The Microsoft Defender for Office 365 Unified RBAC mapping will remove the Microsoft Entra Security Operator role’s default access to email threat policies and the Tenant/Allow Block List. Rollout starts in December 2026, and continued access requires manually assigned permissions.",
+          "title": "Security Operator loses default access to key Defender for Office 365 controls",
+          "detail": "The Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List as rollout starts in December 2026. Continued access requires manually assigned permissions.",
           "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Threat-policy recipient matching changes from AND to OR when policies change",
-          "detail": "When multiple recipient types are specified, threat-protection policies will change from Match all (AND) to Match any (OR) when modified. Existing policies are not automatically converted, but their scope can expand after modification during the December 2026 rollout.",
+          "title": "Recipient filters switch from AND to OR when modified",
+          "detail": "When multiple recipient types are specified, Defender for Office 365 will change inclusion logic from Match all (AND) to Match any (OR) during the December 2026 rollout. Existing policies are not auto-converted, but modifying them after the change expands their scope.",
           "product": "Defender XDR",
           "sourceId": "MC1546447"
         },
         {
           "title": "Two Defender for Identity classic alerts retire by late November",
-          "detail": "The Remote code execution attempt and pass-the-hash classic alerts will be retired by late November 2026. Microsoft directs administrators to create custom detection rules for remote code execution and rely on Defender for Endpoint for pass-the-hash monitoring.",
-          "product": "Identity",
+          "detail": "The Remote code execution attempt and pass-the-hash classic alerts will be retired. Microsoft directs administrators to create custom detection rules for remote code execution and use Defender for Endpoint for pass-the-hash monitoring.",
+          "product": "Defender XDR",
           "sourceId": "MC1552387"
         },
         {
-          "title": "Defender for Office 365 Plan 2 adds Move to Quarantine remediation",
-          "detail": "Plan 2 is gaining a Move to Quarantine action that moves suspicious messages from user mailboxes into Defender quarantine for investigation and management. Rollout begins in late November 2026; no rollout action is required, but reviewing relevant policies and roles is recommended.",
+          "title": "Plan 2 adds Move to Quarantine remediation for suspicious mail",
+          "detail": "Defender for Office 365 Plan 2 is adding a Move to Quarantine action from late November 2026, allowing administrators to move suspicious messages from user mailboxes into Defender quarantine for investigation and management.",
           "product": "Defender XDR",
           "sourceId": "MC1523084"
         }
@@ -11168,33 +11212,21 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-14T19:09:53.667Z",
+      "generatedAt": "2026-11-16T23:23:19.076Z",
       "usage": {
-        "inputTokens": 6503,
-        "outputTokens": 4379,
-        "costUsd": 0.006555
+        "inputTokens": 6614,
+        "outputTokens": 3667,
+        "costUsd": 0.005723
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-14T19:09:53.667Z",
+  "generatedAt": "2026-11-16T23:23:19.076Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-10": {
-      "inputTokens": 17028,
-      "outputTokens": 16595,
-      "requests": 3,
-      "costUsd": 0.02332
-    },
-    "2026-10-11": {
-      "inputTokens": 16892,
-      "outputTokens": 13298,
-      "requests": 3,
-      "costUsd": 0.019336
-    },
     "2026-10-12": {
       "inputTokens": 25657,
       "outputTokens": 19695,
@@ -11392,18 +11424,24 @@
       "outputTokens": 25293,
       "requests": 6,
       "costUsd": 0.037785
+    },
+    "2026-11-16": {
+      "inputTokens": 8477,
+      "outputTokens": 4971,
+      "requests": 3,
+      "costUsd": 0.007661
     }
   },
   "lastRun": {
-    "inputTokens": 18726,
-    "outputTokens": 11889,
+    "inputTokens": 8477,
+    "outputTokens": 4971,
     "requests": 3,
-    "costUsd": 0.018012
+    "costUsd": 0.007661
   },
   "totalUsage": {
-    "inputTokens": 1606366,
-    "outputTokens": 1547322,
-    "requests": 337,
-    "costUsd": 2.178054
+    "inputTokens": 1614843,
+    "outputTokens": 1552293,
+    "requests": 340,
+    "costUsd": 2.185715
   }
 }
