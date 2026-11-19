@@ -104,19 +104,267 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-cloud/integration-defender-for-endpoint.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 1,
+      "changes": 14,
+      "patch": "diff --git a/defender-for-cloud/integration-defender-for-endpoint.md b/defender-for-cloud/integration-defender-for-endpoint.md\nindex 39740cd..fa46958 100644\n--- a/defender-for-cloud/integration-defender-for-endpoint.md\n+++ b/defender-for-cloud/integration-defender-for-endpoint.md\n@@ -15,7 +15,7 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Learn about how Microsoft Defender for Endpoint and Microsoft Defender Vulnerability Management integrate with Defender for Cloud to enhance security.\n ms.topic: concept-article\n-ms.date: 2026-11-13T00:00:00.0000000Z\n+ms.date: 2026-11-18T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1032\n locale: en-us\n@@ -87,6 +87,18 @@ Machines that exist in Azure, Azure Arc–enabled environments, or connected mul\n \r\n In this state, devices may show Defender for Cloud as the discovery source and a status of **Can be onboarded**, indicating that the machine is known to Defender for Cloud but isn’t yet onboarded to Defender for Endpoint. Onboarding occurs only after the Defender for Endpoint sensor is deployed and successfully reports to the service.\r\n \r\n+## Extension behavior on machines already onboarded to Defender for Endpoint\r\n+\r\n+When a machine is already onboarded to Microsoft Defender for Endpoint, the Defender for Cloud extension behaves as follows:\r\n+\r\n+| Area | Behavior |\r\n+| --- | --- |\r\n+| Defender for Cloud integration | Ensures the machine's resource identification information is present and up to date for integration with Defender for Cloud. |\r\n+| Proxy configuration | Applies the machine's Azure Arc proxy configuration to Defender for Endpoint. |\r\n+| Defender for Endpoint version | **Windows:** Leaves the existing installation unchanged.**Linux:** Can upgrade the existing installation when automatic updates are enabled (default). |\r\n+| Onboarding and tenant association | Retains the existing onboarding and tenant association without repeating onboarding. |\r\n+| Other | Leaves existing settings, including antivirus mode (active/passive) and antivirus exclusions, unchanged. |\r\n+\r\n ## Move between subscriptions\r\n \r\n You can move Defender for Endpoint for servers between subscriptions in the same tenant or between different tenants.\r\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/integration-defender-for-endpoint.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/integration-defender-for-endpoint",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-for-cloud/integration-defender-for-endpoint.md",
+      "firstSeenAt": "2026-11-19T22:08:44.408Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation adds extension behavior for already onboarded machines",
+        "summary": "The page now explains that the Defender for Cloud extension updates integration information, applies Azure Arc proxy settings, retains onboarding and tenant association, and preserves existing settings. Windows installations remain unchanged; Linux installations can upgrade when automatic updates are enabled.",
+        "adminImpact": "Administrators can assess the extension’s impact before deployment, particularly the potential for Linux Defender for Endpoint upgrades under the default automatic-update setting.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/support-matrix-defender-for-containers.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud/support-matrix-defender-for-containers.md b/defender-for-cloud/support-matrix-defender-for-containers.md\nindex 9fb4953..4c4f052 100644\n--- a/defender-for-cloud/support-matrix-defender-for-containers.md\n+++ b/defender-for-cloud/support-matrix-defender-for-containers.md\n@@ -323,7 +323,7 @@ For additional requirements for Kubernetes workload protection, see [existing li\n \r\n ## Supported host operating systems\r\n \r\n-Defender for Containers relies on the Defender sensor for several features. The Defender sensor is supported only with Linux Kernel 5.4 and above, on the following host operating systems:\r\n+Defender for Containers relies on the Defender sensor for several features. The Defender sensor latest capabilities are supported with Linux Kernel 5.15 and above (Linux Kernel 5.4 and above is supported with limited functionality), on the following host operating systems:\r\n \r\n - Amazon Linux 2\r\n - AWS Bottlerocket (provisioning via Helm only)\r\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/support-matrix-defender-for-containers.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-containers",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-for-cloud/support-matrix-defender-for-containers.md",
+      "firstSeenAt": "2026-11-19T22:08:44.421Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Defender sensor support now distinguishes Linux kernel capability levels",
+        "summary": "The support matrix states that the latest Defender sensor capabilities require Linux Kernel 5.15 or later, while Kernel 5.4 or later supports limited functionality.",
+        "adminImpact": "Clusters using Linux Kernel 5.4–5.14 may not receive the latest Defender for Containers capabilities.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/troubleshooting-known-issues.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-identity/troubleshooting-known-issues.md b/defender-for-identity/troubleshooting-known-issues.md\nindex e06e2d6..4e7f2d9 100644\n--- a/defender-for-identity/troubleshooting-known-issues.md\n+++ b/defender-for-identity/troubleshooting-known-issues.md\n@@ -13,11 +13,11 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Describes how you can troubleshoot issues in Microsoft Defender for Identity.\n-ms.date: 2026-10-28T00:00:00.0000000Z\n+ms.date: 2026-11-19T00:00:00.0000000Z\n ms.topic: troubleshooting\n ms.reviewer: rlitinsky\n ms.custom:\n-- msecd-doc-authoring-1015\n+- msecd-doc-authoring-1032\n - sfi-image-nochange\n - sfi-ropc-nochange\n locale: en-us\n@@ -50,10 +50,6 @@ platformId: 6c06c105-31b2-b7f7-48cf-4ddaeb0100f3\n \n This article describes how to troubleshoot known issues in Microsoft Defender for Identity.\r\n \r\n-## Sensor v3.x activation without Defender for Endpoint isn't supported in government clouds\r\n-\r\n-Activating the Defender for Identity v3.x sensor on servers without Microsoft Defender for Endpoint deployment is temporarily not supported in government cloud environments.\r\n-\r\n ## Sensor migration isn't supported between different Microsoft tenants\r\n \r\n Migration from sensor v2.x to sensor v3.x isn't supported when the Defender for Identity workspace and Defender for Endpoint onboarding for the same server are associated with different Microsoft tenants. The server might appear **Ready for migration**, but sensor v3.x activation fails. Sensor v2.x continues reporting, and the unsuccessful migration eventually rolls back.\r\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/troubleshooting-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/troubleshooting-known-issues",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-for-identity/troubleshooting-known-issues.md",
+      "firstSeenAt": "2026-11-19T22:08:44.435Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Removed a government-cloud sensor activation known-issue entry",
+        "summary": "The troubleshooting page no longer includes the note that activating Defender for Identity v3.x sensors without Defender for Endpoint was temporarily unsupported in government cloud environments. The page date and authoring metadata were also updated.",
+        "adminImpact": "Government-cloud administrators will no longer find this limitation in the known-issues guidance and should review the current page when planning sensor activation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 2,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex f45b02e..c0a21cc 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -13,10 +13,10 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n description: Learn about the latest Microsoft Defender for Identity features, sensor updates, security alerts, enhancements, and preview capabilities.\n-ms.date: 2026-10-28T00:00:00.0000000Z\n+ms.date: 2026-11-19T00:00:00.0000000Z\n ms.topic: overview\n ms.reviewer: AbbyMSFT\n-ms.custom: sfi-image-nochange, msecd-doc-authoring-1015\n+ms.custom: sfi-image-nochange, msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: e601dfee-5ce8-ca02-7614-89981fc949a2\n@@ -60,6 +60,12 @@ For more information, see also:\n \r\n For updates about versions and features released six months ago or earlier, see the [What's new archive for Microsoft Defender for Identity](whats-new-archive).\r\n \r\n+## November 2026\r\n+\r\n+### Sensor v3.x activation without Defender for Endpoint is now supported in government clouds\r\n+\r\n+The known limitation announced in the October 2026 update is now resolved for government cloud environments. For more information, see [Activate the Defender for Identity sensor](deploy/activate-sensor#onboard-a-server-without-defender-for-endpoint-deployment).\r\n+\r\n ## October 2026\r\n \r\n ### Automatic sensor v3.x activation and Windows auditing for existing customers\r\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-for-identity/whats-new.md",
+      "firstSeenAt": "2026-11-19T22:08:44.446Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sensor v3.x activation now supported in government clouds",
+        "summary": "The previous limitation has been resolved, allowing Defender for Identity Sensor v3.x activation without Defender for Endpoint in government cloud environments.",
+        "adminImpact": "Government cloud administrators can use the updated activation guidance; no required action or deadline is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-identityaccountinfo-table.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 9,
+      "changes": 21,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-identityaccountinfo-table.md b/defender-xdr/advanced-hunting-identityaccountinfo-table.md\nindex 75d56ae..3612b17 100644\n--- a/defender-xdr/advanced-hunting-identityaccountinfo-table.md\n+++ b/defender-xdr/advanced-hunting-identityaccountinfo-table.md\n@@ -20,8 +20,10 @@ ms.collection:\n ms.custom:\n - cx-ti\n - cx-ah\n+- msecd-doc-authoring-1032\n ms.topic: reference\n-ms.date: 2026-02-04T00:00:00.0000000Z\n+ms.date: 2026-11-19T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 668172cc-f654-de43-3c93-8e63359d0742\n document_version_independent_id: 668172cc-f654-de43-3c93-8e63359d0742\n@@ -56,12 +58,12 @@ For information on other tables in the advanced hunting schema, [see the advance\n \r\n | Column name | Data type | Description |\r\n | --- | --- | --- |\r\n-| `Timestamp` | `datetime` | The date and time that the line was written to the database.This is used when there are multiple lines for each identity, such as when a change is detected, or if 24 hours have passed since the last database line was added. |\r\n+| `Timestamp` | `datetime` | Date and time when the record was generated |\r\n | `ReportId` | `string` | Unique identifier for the event |\r\n | `SourceProviderAccountId` | `string` | Identifier for the account in the source provider (for example, object ID for a Microsoft Entra ID account) |\r\n | `AccountId` | `string` | Internal identifier for the account |\r\n | `IdentityId` | `string` | Identifier for the identity that the account is linked to |\r\n-| `IsPrimary ` | `bool` | Indicates if this account is considered as primary account for the linked identity |\r\n+| `IsPrimary` | `bool` | Indicates if this account is considered as primary account for the linked identity |\r\n | `IdentityLinkType` | `string` | Type of linkage between the account and identity; possible values: Manual, Strong identifiers |\r\n | `IdentityLinkReason` | `string` | Reason for linking the account and identity. If the linkage type is manual, the value will be the justification comment added by the user. |\r\n | `IdentityLinkTime` | `datetime` | Date and time the account was linked to the identity |\r\n@@ -70,8 +72,6 @@ For information on other tables in the advanced hunting schema, [see the advance\n | `AccountUpn` | `string` | User principal name (UPN) of the account |\r\n | `EmailAddress` | `string` | SMTP address of the account |\r\n | `CriticalityLevel` | `int` | The criticality score of the account |\r\n-| `DefenderRiskLevel` | `int` | The risk level of the account as calculated by Microsoft Defender |\r\n-| `DefenderRiskUpdateTime` | `datetime` | Date and time Microsoft Defender last updated the risk level of the account |\r\n | `Type` | `string` | Type of identity; possible values: User, ServiceAccount |\r\n | `GivenName` | `string` | Given name or first name of the account user |\r\n | `Surname` | `string` | Surname, family name, or last name of the account user |\r\n@@ -89,16 +89,19 @@ For information on other tables in the advanced hunting schema, [see the advance\n | `SourceProviderInstanceId` | `string` | The identifier of the source application or service of the account. For example, in Microsoft Entra ID, this is the organization Globally Unique Identifier (GUID). |\r\n | `SourceProviderInstanceDisplayName` | `string` | The display name of the source application or service of the account |\r\n | `AuthenticationMethod` | `string` | Authentication method used to allow the account user to sign into the account; possible values: Credentials, Federated, Hybrid |\r\n-| `AuthenticationSourceAcccountId` | `string` | The identifier of the federating account, if the authentication method is Federated |\r\n+| `AuthenticationSourceAccountId` | `string` | The identifier of the federating account, if the authentication method is Federated |\r\n | `EnrolledMfas` | `dynamic` | Types of multifactor authentication methods configured for the account user and their status |\r\n | `LastPasswordChangeTime` | `datetime` | Date and time the account password was last changed |\r\n | `GroupMembership` | `dynamic` | Group identifiers assigned to the account |\r\n | `AssignedRoles` | `dynamic` | Role identifiers assigned to the account |\r\n | `EligibleRoles` | `dynamic` | Identifiers for roles the account are eligible to use (for example, Microsoft Entra Privileged Identity Management roles) |\r\n | `TenantMembershipType` | `string` | User type; possible values: Guest, Member |\r\n-| `CreatedDateTime ` | `datetime` | Date and time when the user account was created |\r\n+| `CreatedDateTime` | `datetime` | Date and time when the user account was created |\r\n | `DeletedDateTime` | `datetime` | Date and time when the user account was deleted |\r\n | `Tags` | `dynamic` | Tags assigned to the account by Defender for Identity |\r\n-| `SourceProvderRiskLevel` | `dynamic` | Risk level of the account as it appears in the source provider; possible values: Low, Medium, High |\r\n+| `SourceProviderRiskLevel` | `string` | Risk level of the account as it appears in the source provider; possible values: Low, Medium, High |\r\n+| `SourceProviderRiskLevelDetails` | `string` | Details regarding the risk level in the source provider |\r\n | `AdditionalFields` | `dynamic` | Additional information about the entity or event |\r\n-| `TenantId` | `string` | Universally unique identifier (UUID) for the tenant |\n\\ No newline at end of file\n+| `TenantId` | `string` | Universally unique identifier (UUID) for the tenant |\r\n+| `SourceSystem` | `string` | The source system for the record |\r\n+| `TimeGenerated` | `datetime` | Time when the event was generated (UTC) |\n\\ No newline at end of file\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-identityaccountinfo-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-identityaccountinfo-table",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-xdr/advanced-hunting-identityaccountinfo-table.md",
+      "firstSeenAt": "2026-11-19T22:08:44.455Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "IdentityAccountInfo schema documentation updated",
+        "summary": "The table now removes two Defender risk fields, adds SourceProviderRiskLevelDetails, SourceSystem, and TimeGenerated, corrects field names, and changes SourceProviderRiskLevel from dynamic to string.",
+        "adminImpact": "Review hunting queries or integrations that reference the changed, removed, or newly typed fields.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-identityinfo-table.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 7,
+      "changes": 21,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-identityinfo-table.md b/defender-xdr/advanced-hunting-identityinfo-table.md\nindex 7f876af..914cb5c 100644\n--- a/defender-xdr/advanced-hunting-identityinfo-table.md\n+++ b/defender-xdr/advanced-hunting-identityinfo-table.md\n@@ -21,8 +21,10 @@ ms.collection:\n ms.custom:\n - cx-ti\n - cx-ah\n+- msecd-doc-authoring-1032\n ms.topic: reference\n-ms.date: 2025-12-22T00:00:00.0000000Z\n+ms.date: 2026-11-19T00:00:00.0000000Z\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 4855ee67-f79f-16c5-58c7-562dc836239c\n document_version_independent_id: 4855ee67-f79f-16c5-58c7-562dc836239c\n@@ -40,12 +42,12 @@ item_type: Content\n source_path: defender-xdr/advanced-hunting-identityinfo-table.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8a94907f-2511-4271-b5ca-ec7f2e75067c\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/b1cfdec6-b0c3-4209-818c-736879856e0e\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bffa8e88-f633-409d-a24d-083bdbc68872\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/2d0723c1-cf38-4c30-ab3d-5df787b33270\n platformId: 4c3acf5c-d121-efba-212b-514270f9d181\n ---\n \n@@ -67,8 +69,9 @@ This advanced hunting table is populated by records from Microsoft Defender for\n \r\n | Column name | Data type | Description |\r\n | --- | --- | --- |\r\n-| `Timestamp`* | `datetime` | The date and time that the line was written to the database. This is used when there are multiple lines for each identity, such as when a change is detected, or if 24 hours have passed since the last database line was added. |\r\n+| `Timestamp`* | `datetime` | Date and time when the record was generated |\r\n | `ReportId`* | `string` | Unique identifier for the event |\r\n+| `IdentityId` | `string` | Unique identifier for the identity |\r\n | `AccountObjectId` | `string` | Unique identifier for the account in Microsoft Entra ID |\r\n | `AccountUpn` | `string` | User principal name (UPN) of the account |\r\n | `OnPremSid` | `string` | On-premises security identifier (SID) of the account |\r\n@@ -77,7 +80,7 @@ This advanced hunting table is populated by records from Microsoft Defender for\n | `AccountDomain`* | `string` | Domain of the account |\r\n | `CriticalityLevel` | `int` | The criticality score of the account |\r\n | `Type`* | `string` | Type of identity; possible values: User, ServiceAccount |\r\n-| `DistinguishedName`* | string | The user's [distinguished name](/en-us/previous-versions/windows/desktop/ldap/distinguished-names) |\r\n+| `DistinguishedName`* | `string` | The user's [distinguished name](/en-us/previous-versions/windows/desktop/ldap/distinguished-names) |\r\n | `CloudSid` | `string` | Cloud security identifier of the account |\r\n | `GivenName` | `string` | Given name or first name of the account user |\r\n | `Surname` | `string` | Surname, family name, or last name of the account user |\r\n@@ -92,24 +95,28 @@ This advanced hunting table is populated by records from Microsoft Defender for\n | `Manager`* | `string` | The listed manager of the account user |\r\n | `Phone`* | `string` | The listed phone number of the account user |\r\n | `CreatedDateTime`* | `datetime` | Date and time when the account user was created |\r\n+| `SourceProvider` | `string` | Primary identity provider of the account user |\r\n | `ChangeSource`* | `string` | Identifies which identity provider or process triggered the addition of the new row. For example, the `System-UserPersistence` value is used for any rows added by an automated process. |\r\n | `BlastRadius`** | `string` | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions; possible values: Low, Medium, High |\r\n | `CompanyName`** | `string` | Name of the company for which the user works |\r\n | `DeletedDateTime`** | `datetime` | Date and time when the user account was deleted |\r\n | `EmployeeId`** | `string` | Employee identifier assigned to the user by the organization |\r\n | `OtherMailAddresses`** | `dynamic` | Additional email addresses of the user account |\r\n+| `RiskScore` | `int` | Risk score of the identity as calculated by Microsoft Defender |\r\n+| `RiskScoreUpdateTime` | `datetime` | Date and time Microsoft Defender last updated the risk score of the identity |\r\n | `RiskLevel` | `string` | Microsoft Entra ID risk level of the user account; possible values: Low, Medium, High |\r\n | `RiskLevelDetails` | `string` | Details regarding the Microsoft Entra ID risk level |\r\n-| `State`** | `string` | State where the sign-in occurred, if available |\r\n+| `State`** | `string` | Geographical state of the user account as defined in Microsoft Entra ID |\r\n | `Tags`* | `dynamic` | Tags assigned to the account user by Defender for Identity |\r\n | `AssignedRoles`* | `dynamic` | For identities from Microsoft Entra-only, the roles assigned to the account user |\r\n | `PrivilegedEntraPimRoles` (Preview) *** | `dynamic` | A snapshot of privileged role assignment schedules and eligibility schedules for the account as maintained by Microsoft Entra Privileged Identity Management (excluding activated assignments) |\r\n | `TenantId` | `string` | Unique identifier representing your organization's instance of Microsoft Entra ID |\r\n | `SourceSystem`* | `string` | The source system for the record |\r\n+| `TimeGenerated` | `datetime` | Time when the event was generated (UTC) |\r\n | `OnPremObjectId` | `string` | Active Directory object ID of the user |\r\n | `TenantMembershipType` | `string` | User type in Microsoft Entra ID; possible values: Guest, Member |\r\n | `RiskStatus`** | `string` | Status of the user's risk; possible values: None, ConfirmedSafe, Remediated, Dismissed, AtRisk, ConfirmedCompromised, UnknownFutureValue |\r\n-| `UserAccountControl` | `string` | Security attributes of the user account in the Active Directory domain |\r\n+| `UserAccountControl` | `dynamic` | Security attributes of the user account in the Active Directory domain |\r\n | `IdentityEnvironment` | `string` | Environment where the identity is used; possible values: CloudOnly, Hybrid, On-premises |\r\n | `SourceProviders` | `dynamic` | Source providers of the accounts for the identity; possible values: ActiveDirectory, EntraID, Okta |\r\n | `GroupMembership`** | `dynamic` | Microsoft Entra ID groups where the user account is a member |\r\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-identityinfo-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-identityinfo-table",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-xdr/advanced-hunting-identityinfo-table.md",
+      "firstSeenAt": "2026-11-19T22:08:44.465Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "IdentityInfo table reference adds identity risk and provider fields",
+        "summary": "The documentation now lists IdentityId, SourceProvider, RiskScore, RiskScoreUpdateTime, and TimeGenerated, and updates descriptions or data types for Timestamp, State, and UserAccountControl.",
+        "adminImpact": "Administrators using IdentityInfo advanced-hunting queries should account for the added fields and updated schemas when interpreting or writing queries. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\nindex 4e0493c..d2d3c92 100644\n--- a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n+++ b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n@@ -35,12 +35,12 @@ item_type: Content\n source_path: defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/302444b9-4a43-4841-8014-3d9e4251ff15\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c389ea6b-b6a0-46df-93a1-1e21f25e19e7\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/302444b9-4a43-4841-8014-3d9e4251ff15\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/bebd8809-dac1-4c22-83e2-66d98af8a94d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ada1b6-705b-4ed7-aad0-bffd1bd03dfa\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/bebd8809-dac1-4c22-83e2-66d98af8a94d\n platformId: 73fadc8f-aa21-1c5c-2ed6-d59cde94cfa5\n ---\n \n@@ -54,6 +54,10 @@ Note\n \r\n Real-time protection policies currently support Microsoft Foundry agents, Microsoft Copilot Studio agents, and Agent 365 Tooling Servers (WorkIQ and Custom MCP) only. Support for additional agent types is not yet available.\r\n \r\n+Important\r\n+\r\n+**Action required by December 23, 2026 to keep real-time protection for Copilot Studio agents enabled** If you set up Microsoft Defender real-time protection for Copilot Studio through the existing onboarding experience, your blocking settings won’t migrate when that experience retires on December 23, 2026. To keep blocking enabled, first disable the existing onboarding under **Settings &gt; Security for AI &gt; Get started &gt; Copilot Studio**, then re-create and enable your blocking rules before December 23. See **Configure real-time protection rules** on this page. Automatic tenant-level onboarding begins rolling out in public preview on November 22, 2026, for supported Copilot Studio agents in tenants with Security for AI agents enabled. After retirement, agents without an enabled blocking rule operate in audit mode, which generates security alerts without blocking actions.\r\n+\r\n ## Prerequisites\r\n \r\n - Enable security for AI agents, including the Microsoft 365 app connector. See [Enable security for AI agents using Microsoft Defender](get-started-defender-security-for-ai).\r\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-real-time-protection",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "firstSeenAt": "2026-11-19T22:08:44.475Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Action required to preserve Copilot Studio agent real-time protection",
+        "summary": "The documentation now states that administrators using the existing onboarding experience must act by December 23, 2026 because their blocking settings will not migrate when that experience ends on December 2.",
+        "adminImpact": "Affected administrators should complete the documented steps before the deadline to keep real-time protection enabled.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/ai-code-security-overview.md",
+      "status": "modified",
+      "additions": 44,
+      "deletions": 10,
+      "changes": 54,
+      "patch": "diff --git a/exposure-management/ai-code-security-overview.md b/exposure-management/ai-code-security-overview.md\nindex 16e5dd9..2361879 100644\n--- a/exposure-management/ai-code-security-overview.md\n+++ b/exposure-management/ai-code-security-overview.md\n@@ -137,13 +137,47 @@ The following domains must be reachable from the machine or pipeline running the\n \r\n ## Cloud and region support\r\n \r\n-Codename MDASH - Agentic code scanner is available in the Azure commercial cloud in the following regions:\r\n-\r\n-- US (United States)\r\n-- EU (Europe)\r\n-- UK (United Kingdom)\r\n-- AUS (Australia)\r\n-- IND (India)\r\n-- CH (Switzerland)\r\n-- UAE (United Arab Emirates)\r\n-    - UAE currently supports MDASH CLI scans only.\n\\ No newline at end of file\n+Although Codename MDASH is available in the Azure commercial cloud in the following geographic regions listed below, **Microsoft Foundry integration is supported only in Azure regions that also support the Azure OpenAI Responses API.** Before configuring Microsoft Foundry integration with Codename MDASH, verify that your selected Azure region supports the Responses API. For the latest list of supported regions, also see [Use the Azure OpenAI Responses API](/en-us/azure/foundry/openai/how-to/responses?tabs=python#supported-regions).\r\n+\r\n+| Geography | Region | Azure region identifiers |\r\n+| --- | --- | --- |\r\n+| US | United States | `westus`, `centralus`, `eastus`, `eastus2`, `westus3`, `northcentralus`, `southcentralus` |\r\n+| EU | Europe | `swedencentral`, `francecentral`, `westeurope`, `germanywestcentral`, `italynorth`, `spaincentral`, `polandcentral`, `norwayeast` |\r\n+| UK | United Kingdom | `uksouth` |\r\n+| AUS | Australia | `australiaeast` |\r\n+| IND | India | `southindia` |\r\n+| CH | Switzerland | `switzerlandnorth`, `switzerlandwest` |\r\n+| UAE | United Arab Emirates | `uaenorth` |\r\n+\r\n+Note\r\n+\r\n+UAE currently supports MDASH CLI scans only.\r\n+\r\n+### Optional MAI Cyber model integration\r\n+\r\n+Codename MDASH supports optional integration with the **MAI Cyber model** through Microsoft Foundry.\r\n+\r\n+**The MAI Cyber model is not required to use Codename MDASH.** Customers can use standard codename MDASH scanning capabilities without deploying or configuring the MAI Cyber model.\r\n+\r\n+For customers who choose to enable MAI Cyber integration, the model is available in the following Microsoft Foundry regions:\r\n+\r\n+- Australia\r\n+- Brazil\r\n+- Canada\r\n+- France\r\n+- Germany\r\n+- India\r\n+- Italy\r\n+- Japan\r\n+- Korea\r\n+- Norway\r\n+- Poland\r\n+- Singapore\r\n+- South Africa\r\n+- Spain\r\n+- Sweden\r\n+- Switzerland\r\n+- United Arab Emirates\r\n+- United Kingdom\r\n+- United States\r\n+- Western Europe\n\\ No newline at end of file\n",
+      "baseCommitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitMessage": "Mirror Learn: 8 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:47:49 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/ai-code-security-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/ai-code-security-overview",
+      "eventId": "defender-docs:8a8dd76835130ca14da5a7e78fcdde57b38a541b:modified:exposure-management/ai-code-security-overview.md",
+      "firstSeenAt": "2026-11-19T22:08:44.487Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MDASH documentation adds Foundry region and MAI Cyber details",
+        "summary": "The page now lists Azure region identifiers, notes that Microsoft Foundry integration requires Azure OpenAI Responses API support, and identifies UAE as CLI-only. It also documents optional MAI Cyber model integration and its available Foundry regions.",
+        "adminImpact": "Admins planning Foundry integration should verify regional support. MAI Cyber is optional for standard MDASH scans.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
-  "messageCenterItems": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1479503",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-19",
+      "title": "Microsoft Defender for Cloud Apps: Permission changes for select App Governance Entra roles",
+      "summary": "Microsoft Defender for Cloud Apps is updating App Governance permissions for select Microsoft Entra roles with Unified RBAC support, rolling out December 2026. Cloud App Security Administrators gain policy management rights; Compliance Administrators and Compliance Data Administrators lose some permissions. Admins should review and update role assignments accordingly.",
+      "product": {
+        "slug": "defender-xdr",
+        "name": "Microsoft Defender XDR",
+        "short": "Defender XDR",
+        "learn": "https://learn.microsoft.com/en-us/defender-xdr/",
+        "icon": "defender-xdr.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1479503/",
+      "originalUrl": "https://mc.merill.net/message/MC1479503",
+      "body": "<p>Updated November 19, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and Why:</b></b></p><p>We are introducing Microsoft Defender XDR Unified role-based access control (Unified RBAC) support for App Governance. As part of this rollout, App Governance permissions associated with select Microsoft Entra roles will change.</p><p>This update helps align App Governance access with Defender XDR role management and provides more consistent permission handling for organizations using Microsoft Defender for Cloud Apps.</p><p><b><b>Rollout Schedule:</b></b></p><p>General Availability (Worldwide): We will begin rolling out in early December 2026 (previously mid-November) and expect to complete by late December 2026 (previously late November).</p><p><b><b>Impact on Your Organization:</b></b></p><p><b>Who is affected:</b></p><ul><li>Admins who manage App Governance in Microsoft Defender for Cloud Apps.</li><li>Users assigned Cloud App Security Administrator, Compliance Administrator, Compliance Data Administrator, or custom Microsoft Defender XDR Unified RBAC roles for Microsoft Defender for Cloud Apps.</li></ul><p><b>Platforms/Services:</b></p><ul><li>Microsoft Defender XDR.</li><li>Microsoft Defender for Cloud Apps.</li><li>App Governance.</li></ul><p><b>What will happen:</b></p><ul><li><b>Cloud App Security Administrator:</b> Users with this Microsoft Entra role will gain permission to view and manage App Governance policies.</li><li><b>Compliance Administrator:</b> Users with this Microsoft Entra role will no longer be able to manage App Governance policies or enable and disable App Governance in Settings.</li><li><b>Compliance Data Administrator:</b> Users with this Microsoft Entra role will no longer be able to enable and disable App Governance in Settings.</li><li><b>Custom Defender XDR Unified RBAC roles:</b> Users assigned a custom role in Defender XDR Unified RBAC for Microsoft Defender for Cloud Apps will also get access to App Governance features.</li></ul><p><b><b>Action Required/Recommendations:</b></b></p><p>Before the enforcement date, we recommend that admins:</p><ul><li>Review users who access App Governance through the Compliance Administrator, Compliance Data Administrator, or Cloud App Security Administrator role.</li><li>Review custom roles in Microsoft Defender XDR Unified RBAC for Microsoft Defender for Cloud Apps.</li><li>Assign another supported Microsoft Entra role or a custom Defender XDR Unified RBAC role to affected users, following least-privilege principles.</li><li>Update internal role assignment guidance and administrator documentation as needed.</li></ul><p><b><b>Compliance considerations:</b></b></p><table><tbody><tr><td>Does the change include an admin control, and can it be controlled through Entra ID group membership?</td><td>This change affects App Governance permissions for selected Microsoft Entra roles and custom Microsoft Defender XDR Unified RBAC roles. Admins should review affected role assignments and update them as needed.</td></tr><tr><td>Does the change alter how admins can monitor, report on, or demonstrate compliance activities?</td><td>The change affects which admin roles can access and manage App Governance policies and settings.</td></tr></tbody></table>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Defender XDR"
+      ],
+      "tags": [
+        "Updated message",
+        "Feature update",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-25T21:33:11Z",
+      "endDate": "2027-02-01T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-19T17:17:03.81Z",
+      "version": "2026-11-19T17:17:03.81Z",
+      "eventId": "message-center:MC1479503:2026-11-19T17:17:03.81Z",
+      "firstSeenAt": "2026-11-19T22:09:05.852Z"
+    }
+  ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 4,
+    "totalCommits": 2,
+    "totalFiles": 12,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -130,10 +378,39 @@
       {
         "category": "Doc update",
         "title": "Defender XDR",
-        "summary": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine. The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata.",
+        "summary": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine. The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata. The table now removes two Defender risk fields, adds SourceProviderRiskLevelDetails, SourceSystem, and TimeGenerated, corrects field names, and changes SourceProviderRiskLevel from dynamic to string. The documentation now lists IdentityId, SourceProvider, RiskScore, RiskScoreUpdateTime, and TimeGenerated, and updates descriptions or data types for Timestamp, State, and UserAccountContr",
         "sourceFiles": [
           "defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
-          "defender-xdr/security-alert-triage-agent.md"
+          "defender-xdr/security-alert-triage-agent.md",
+          "defender-xdr/advanced-hunting-identityaccountinfo-table.md",
+          "defender-xdr/advanced-hunting-identityinfo-table.md",
+          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "The page now explains that the Defender for Cloud extension updates integration information, applies Azure Arc proxy settings, retains onboarding and tenant association, and preserves existing settings. Windows installations remain unchanged; Linux installations can upgrade when automatic updates are enabled. The support matrix states that the latest Defender sensor capabilities require Linux Kernel 5.15 or later, while Kernel 5.4 or later supports limited functionality.",
+        "sourceFiles": [
+          "defender-for-cloud/integration-defender-for-endpoint.md",
+          "defender-for-cloud/support-matrix-defender-for-containers.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Identity",
+        "summary": "The troubleshooting page no longer includes the note that activating Defender for Identity v3.x sensors without Defender for Endpoint was temporarily unsupported in government cloud environments. The page date and authoring metadata were also updated. The previous limitation has been resolved, allowing Defender for Identity Sensor v3.x activation without Defender for Endpoint in government cloud environments.",
+        "sourceFiles": [
+          "defender-for-identity/troubleshooting-known-issues.md",
+          "defender-for-identity/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The page now lists Azure region identifiers, notes that Microsoft Foundry integration requires Azure OpenAI Responses API support, and identifies UAE as CLI-only. It also documents optional MAI Cyber model integration and its available Foundry regions.",
+        "sourceFiles": [
+          "exposure-management/ai-code-security-overview.md"
         ]
       }
     ],
@@ -146,7 +423,22 @@
       {
         "category": "Doc update",
         "headline": "Defender XDR",
-        "detail": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine. The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata."
+        "detail": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine. The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata. The table now removes two Defender risk fields, adds SourceProviderRiskLevelDetails, SourceSystem, and TimeGenerated, corrects field names, and changes SourceProviderRiskLevel from dynamic to string. The documentation now lists IdentityId, SourceProvider, RiskScore, RiskScoreUpdateTime, and TimeGenerated, and updates descriptions or data types for Timestamp, State, and UserAccountContr"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "The page now explains that the Defender for Cloud extension updates integration information, applies Azure Arc proxy settings, retains onboarding and tenant association, and preserves existing settings. Windows installations remain unchanged; Linux installations can upgrade when automatic updates are enabled. The support matrix states that the latest Defender sensor capabilities require Linux Kernel 5.15 or later, while Kernel 5.4 or later supports limited functionality."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Identity",
+        "detail": "The troubleshooting page no longer includes the note that activating Defender for Identity v3.x sensors without Defender for Endpoint was temporarily unsupported in government cloud environments. The page date and authoring metadata were also updated. The previous limitation has been resolved, allowing Defender for Identity Sensor v3.x activation without Defender for Endpoint in government cloud environments."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The page now lists Azure region identifiers, notes that Microsoft Foundry integration requires Azure OpenAI Responses API support, and identifies UAE as CLI-only. It also documents optional MAI Cyber model integration and its available Foundry regions."
       }
     ],
     "generatedBy": "fallback"
