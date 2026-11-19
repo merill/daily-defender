@@ -1,0 +1,154 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/ai-agent-runtime-protection-overview.md b/defender-endpoint/ai-agent-runtime-protection-overview.md\nindex 2c63f85..cbe2505 100644\n--- a/defender-endpoint/ai-agent-runtime-protection-overview.md\n+++ b/defender-endpoint/ai-agent-runtime-protection-overview.md\n@@ -112,7 +112,7 @@ An upcoming Microsoft Defender Antivirus platform release will enable prompt evi\n \r\n Important\r\n \r\n-Sensitive data and secrets are redacted from prompt snippets shown in alerts, but customer conversations might still be sensitive in nature. Review your organization's privacy and data-handling requirements before you enable collection. Evidence included in security alerts is retained according to the [Microsoft Defender XDR data retention policy](/en-us/defender-xdr/data-privacy).\r\n+Sensitive data and secrets **aren't redacted** from prompt snippets shown in alerts. These snippets can contain users' conversations, sensitive data, and secrets. Review your organization's privacy and data-handling requirements before you enable collection. Evidence included in security alerts is retained according to the [Microsoft Defender XDR data retention policy](/en-us/defender-xdr/data-privacy).\r\n \r\n Disabling device-level collection doesn't disable runtime protection. Content associated with activity that Defender blocks can still appear in the associated security alert.\r\n \r\n",
+      "baseCommitSha": "4ec7535a4f196ddfdd8c06c2438454aaa71d818a",
+      "commitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 09:02:21 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-runtime-protection-overview",
+      "eventId": "defender-docs:f9b822bea8e2c1b9404c02487b40cdc3de21af3a:modified:defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "firstSeenAt": "2026-11-19T10:18:50.983Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Alert prompt snippets may include unredacted sensitive content",
+        "summary": "The documentation now states that prompt snippets in alerts are not redacted and may contain conversations, sensitive data, and secrets.",
+        "adminImpact": "Review your organization’s privacy and data-handling requirements before enabling collection.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/defender-endpoint/configure-ai-agent-runtime-protection.md b/defender-endpoint/configure-ai-agent-runtime-protection.md\nindex b835e6c..4378282 100644\n--- a/defender-endpoint/configure-ai-agent-runtime-protection.md\n+++ b/defender-endpoint/configure-ai-agent-runtime-protection.md\n@@ -33,12 +33,12 @@ item_type: Content\n source_path: defender-endpoint/configure-ai-agent-runtime-protection.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n platformId: e109d355-caac-bd16-3663-619ad9e9dd83\n ---\n \n@@ -179,6 +179,10 @@ On the **Configuration settings** page, configure the settings you need:\n | **Ai Agent Network Inspection** (`AiAgentNetworkInspection`) | Inspect supported agent-to-LLM network traffic. | Choose audit or block mode independently of agent-native event inspection. The default is disabled. |\r\n | **Prompt Evidence Collection** (`PromptEvidenceCollection`) | Collect prompt evidence when AI agent runtime protection is configured. | Enable or disable collection. |\r\n \r\n+Important\r\n+\r\n+Sensitive data and secrets **aren't redacted** from prompt snippets shown in alerts. During preview, the help text in the Intune template is being finalized. For current details about **Prompt Evidence Collection**, see [Prompt evidence collection](ai-agent-runtime-protection-overview#prompt-evidence-collection).\r\n+\r\n For each inspection method, **Audit** detects and reports prompt injection while allowing the action to continue, and **Block** blocks detected threats at supported inspection points. Leave a method disabled if you don't need it. You can enable either inspection method or both.\r\n \r\n Microsoft recommends that you initially assign the policy in audit mode to a limited device group. Review detections, and then change the inspection settings to block mode when you're ready to enforce protection. Choose whether to enable prompt evidence collection separately. Complete the policy wizard, assign the policy to the device groups you want to protect, and then create the policy.\r\n",
+      "baseCommitSha": "4ec7535a4f196ddfdd8c06c2438454aaa71d818a",
+      "commitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 09:02:21 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-ai-agent-runtime-protection",
+      "eventId": "defender-docs:f9b822bea8e2c1b9404c02487b40cdc3de21af3a:modified:defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "firstSeenAt": "2026-11-19T10:18:50.996Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation warns that alert prompt snippets are not redacted",
+        "summary": "The page now states that sensitive data and secrets may appear unredacted in prompt snippets shown in alerts. It also links to current Prompt Evidence Collection details and notes that Intune template help text is being finalized during preview.",
+        "adminImpact": "Administrators should account for potential sensitive data exposure when reviewing or sharing alerts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-synthetic-media-detection-events.md b/defender-xdr/advanced-hunting-synthetic-media-detection-events.md\nindex 106af38..c7ed38d 100644\n--- a/defender-xdr/advanced-hunting-synthetic-media-detection-events.md\n+++ b/defender-xdr/advanced-hunting-synthetic-media-detection-events.md\n@@ -57,7 +57,7 @@ This advanced hunting table is populated by records from Microsoft Defender for\n \r\n Note\r\n \r\n-This table contains data only if you're using an approved detection engine: Microsoft or a third-party engine (GetReal, Pindrop, Reality Defender, or Resemble AI).\r\n+This table contains data only if you're using an approved detection engine: Microsoft or a third-party engine.\r\n \r\n ## Schema\r\n \r\n",
+      "baseCommitSha": "4ec7535a4f196ddfdd8c06c2438454aaa71d818a",
+      "commitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 09:02:21 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-synthetic-media-detection-events",
+      "eventId": "defender-docs:f9b822bea8e2c1b9404c02487b40cdc3de21af3a:modified:defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+      "firstSeenAt": "2026-11-19T10:18:51.004Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Approved detection engine examples removed",
+        "summary": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-alert-triage-agent.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/defender-xdr/security-alert-triage-agent.md b/defender-xdr/security-alert-triage-agent.md\nindex 50255f3..193548f 100644\n--- a/defender-xdr/security-alert-triage-agent.md\n+++ b/defender-xdr/security-alert-triage-agent.md\n@@ -25,9 +25,9 @@ ms.topic: how-to\n search.appverid:\n - MOE150\n - MET150\n-ms.date: 2026-07-02T00:00:00.0000000Z\n+ms.date: 2026-11-18T00:00:00.0000000Z\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1016\n+ms.custom: msecd-doc-authoring-1023\n locale: en-us\n document_id: 15b2fcbe-fb0c-2014-f952-b915f6de2704\n document_version_independent_id: 15b2fcbe-fb0c-2014-f952-b915f6de2704\n@@ -81,7 +81,7 @@ The Security Alert Triage Agent currently supports the following subset of alert\n | Alert type | Alert name |\r\n | --- | --- |\r\n | **Email and collaboration alerts, including phishing (Generally Available)** | Email reported by user as malware or phish |\r\n-| **Cloud alerts, including containers (Preview)** | View all cloud alerts<br><br>- Potential Backdoor Utilities or Proxy Binaries Detected (Preview)<br>- Potential backdoor installations from running processes (Preview)<br>- Possible executable detected in a command line, encoded in Base64 (Preview)<br>- Potential base64 encoded shell script execution (Preview)<br>- Unusual access to Bash profile file<br>- SSH server is running inside a container (Preview)<br>- Suspicious Cron operations in command line detected<br>- Process associated with digital currency mining detected<br>- Possible Cryptocoinminer download detected<br>- Kubernetes crypto-miner process kills detected (Preview)<br>- Possible access to a cryptocurrency mining pool detected (Preview)<br>- Digital currency mining related behavior detected<br>- Possible web service exploitation by using path traversal (Preview)<br>- Detected possible disabling of security tools (Preview)<br>- Blocked binary drift executing in the container (Preview)<br>- A drift binary detected executing in the container<br>- Suspicious file attribute changes using chattr detected (Preview)<br>- Docker build operation detected on a Kubernetes node (Preview)<br>- Access to cloud metadata service detected<br>- Possible Impairing of Command History Logging (Preview)<br>- Possible attack tool detected<br>- Possible credential access tool detected<br>- Access to kubelet kubeconfig file detected<br>- Attempt to create a new Linux namespace from a container detected<br>- Network Scanning Tool Detected (Preview)<br>- Account added to sudo group<br>- Usage of OAST domain detected (Preview)<br>- Kubernetes penetration testing tool detected (Preview)<br>- Possible exploitation of java based program has been detected (Preview)<br>- Command within a container running with high privileges<br>- Suspicious Proxyware or Traffic monetizers detected in command line<br>- Potential React2Shell command injection detected<br>- Unusual access to bash history file<br>- Potential reverse shell detected<br>- Possible Secret Reconnaissance Detected<br>- Detected possible tampering of security configurations (Preview)<br>- Detected suspicious termination of security process (Preview)<br>- Sensitive Files Access Detected<br>- Sha1-Hulud Campaign Detected: Possible command injection to exfiltrate credentials (Preview)<br>- Process seen accessing the SSH authorized keys file in an unusual way<br>- An uncommon connection attempt detected<br>- Detected file download from a known malicious source<br>- Suspicious PHP execution detected<br>- Potential port forwarding to external IP address<br>- Process Invocation By a DB Process Detected<br>- Suspicious Netcat activity detected on a Kubernetes node (Preview)<br>- Possible Log Tampering Activity Detected<br>- Suspicious file timestamp modification<br>- Possible malicious web shell detected<br>- Suspicious request to Kubernetes API<br>- Possible Web Shell Activity Detected<br>- Suspicious access to workload identity token or service account token detected<br>- Permissions to run a binary from a suspicious folder has been granted after download (Preview)<br>- A command line executed within a container contains a suspicious DNS<br>- A command line executed within a container contains a suspicious IP address<br>- Microsoft Defender for Cloud Kubernetes Malware execution detected (Preview)<br>- Microsoft Defender for Cloud Kubernetes Malware execution blocked (Preview) |\r\n+| **High-severity cloud alerts, including containers (Preview)** | View all cloud alerts<br><br>- Potential Backdoor Utilities or Proxy Binaries Detected (Preview)<br>- Potential backdoor installations from running processes (Preview)<br>- Possible executable detected in a command line, encoded in Base64 (Preview)<br>- Potential base64 encoded shell script execution (Preview)<br>- Unusual access to Bash profile file<br>- SSH server is running inside a container (Preview)<br>- Suspicious Cron operations in command line detected<br>- Process associated with digital currency mining detected<br>- Possible Cryptocoinminer download detected<br>- Kubernetes crypto-miner process kills detected (Preview)<br>- Possible access to a cryptocurrency mining pool detected (Preview)<br>- Digital currency mining related behavior detected<br>- Possible web service exploitation by using path traversal (Preview)<br>- Detected possible disabling of security tools (Preview)<br>- Blocked binary drift executing in the container (Preview)<br>- A drift binary detected executing in the container<br>- Suspicious file attribute changes using chattr detected (Preview)<br>- Docker build operation detected on a Kubernetes node (Preview)<br>- Access to cloud metadata service detected<br>- Possible Impairing of Command History Logging (Preview)<br>- Possible attack tool detected<br>- Possible credential access tool detected<br>- Access to kubelet kubeconfig file detected<br>- Attempt to create a new Linux namespace from a container detected<br>- Network Scanning Tool Detected (Preview)<br>- Account added to sudo group<br>- Usage of OAST domain detected (Preview)<br>- Kubernetes penetration testing tool detected (Preview)<br>- Possible exploitation of java based program has been detected (Preview)<br>- Command within a container running with high privileges<br>- Suspicious Proxyware or Traffic monetizers detected in command line<br>- Potential React2Shell command injection detected<br>- Unusual access to bash history file<br>- Potential reverse shell detected<br>- Possible Secret Reconnaissance Detected<br>- Detected possible tampering of security configurations (Preview)<br>- Detected suspicious termination of security process (Preview)<br>- Sensitive Files Access Detected<br>- Sha1-Hulud Campaign Detected: Possible command injection to exfiltrate credentials (Preview)<br>- Process seen accessing the SSH authorized keys file in an unusual way<br>- An uncommon connection attempt detected<br>- Detected file download from a known malicious source<br>- Suspicious PHP execution detected<br>- Potential port forwarding to external IP address<br>- Process Invocation By a DB Process Detected<br>- Suspicious Netcat activity detected on a Kubernetes node (Preview)<br>- Possible Log Tampering Activity Detected<br>- Suspicious file timestamp modification<br>- Possible malicious web shell detected<br>- Suspicious request to Kubernetes API<br>- Possible Web Shell Activity Detected<br>- Suspicious access to workload identity token or service account token detected<br>- Permissions to run a binary from a suspicious folder has been granted after download (Preview)<br>- A command line executed within a container contains a suspicious DNS<br>- A command line executed within a container contains a suspicious IP address<br>- Microsoft Defender for Cloud Kubernetes Malware execution detected (Preview)<br>- Microsoft Defender for Cloud Kubernetes Malware execution blocked (Preview) |\r\n | **Identity alerts (Preview)** | View all identity alerts<br><br>- Password spray<br>- Possible BEC-related inbox rule<br>- Account compromised following a password-spray attack |\r\n \r\n ## Prerequisites\r\n",
+      "baseCommitSha": "4ec7535a4f196ddfdd8c06c2438454aaa71d818a",
+      "commitSha": "f9b822bea8e2c1b9404c02487b40cdc3de21af3a",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 09:02:21 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-alert-triage-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-alert-triage-agent",
+      "eventId": "defender-docs:f9b822bea8e2c1b9404c02487b40cdc3de21af3a:modified:defender-xdr/security-alert-triage-agent.md",
+      "firstSeenAt": "2026-11-19T10:18:51.013Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Cloud-alert coverage label updated",
+        "summary": "The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata.",
+        "adminImpact": "Use the revised label when reviewing the security alert triage agent’s documented cloud-alert coverage.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation now states that prompt snippets in alerts are not redacted and may contain conversations, sensitive data, and secrets. The page now states that sensitive data and secrets may appear unredacted in prompt snippets shown in alerts. It also links to current Prompt Evidence Collection details and notes that Intune template help text is being finalized during preview.",
+        "sourceFiles": [
+          "defender-endpoint/ai-agent-runtime-protection-overview.md",
+          "defender-endpoint/configure-ai-agent-runtime-protection.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine. The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+          "defender-xdr/security-alert-triage-agent.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation now states that prompt snippets in alerts are not redacted and may contain conversations, sensitive data, and secrets. The page now states that sensitive data and secrets may appear unredacted in prompt snippets shown in alerts. It also links to current Prompt Evidence Collection details and notes that Intune template help text is being finalized during preview."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The documentation no longer names specific third-party detection engines. It now states only that data is available when using an approved Microsoft or third-party engine. The documentation now describes the coverage as “High-severity cloud alerts, including containers (Preview)” and updates the page metadata."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
