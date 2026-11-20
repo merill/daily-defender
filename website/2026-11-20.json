@@ -26,19 +26,71 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "patch": "diff --git a/defender-vulnerability-management/fixed-reported-inaccuracies.md b/defender-vulnerability-management/fixed-reported-inaccuracies.md\nindex 204a06c..963ba77 100644\n--- a/defender-vulnerability-management/fixed-reported-inaccuracies.md\n+++ b/defender-vulnerability-management/fixed-reported-inaccuracies.md\n@@ -77,6 +77,13 @@ The following tables present the relevant vulnerability assessment information o\n | - | Added MDVM support for Microsoft Configuration Manager | 01-November-26 |\r\n | - | Added MDVM support for Microsoft MPEG-2 Video Extension | 01-November-26 |\r\n | - | Added MDVM support for Microsoft Paint | 01-November-26 |\r\n+| 157986 | Fixed incorrect recommendations in VLC Media Player Vulnerability - CVE-2026-115724 | 03-November-26 |\r\n+| 155991 | Fixed incorrect recommendations in ESET Vulnerabilities - CVE-2025-5028, CVE-2024-11859 | 04-November-26 |\r\n+| - | Improved detection logic for Zoom Workplace | 07-November-26 |\r\n+| - | Fixed incorrect recommendations for Vulnerabilities - CVE-2024-32709, CVE-2022-44626, CVE-2022-44593 by excluding WordPress CPE | 09-November-26 |\r\n+| - | Added MDVM support for Microsoft JDBC driver for SQL Server | 10-November-26 |\r\n+| 154075 | Improved detection logic for Zabbix Agent | 10-November-26 |\r\n+| - | Added MDVM support for Microsoft Windows Sysinternals Process Monitor | 10-November-26 |\r\n \r\n ## October 2026\r\n \r\n@@ -129,11 +136,14 @@ The following tables present the relevant vulnerability assessment information o\n | 155481 | Fixed incorrect recommendations in openssl Vulnerability - CVE-2025-9232 | 18-October-26 |\r\n | 154891 | Fixed incorrect recommendations in Next Vulnerability - CVE-2026-75604 | 21-October-26 |\r\n | 148978 | Fixed incorrect generic macOS Untitled detections under Apple iTunes | 22-October-26 |\r\n+| - | Fixed incorrect macOS Tahoe recommendations for Vulnerability CVE-2026-65400 | 26-October-26 |\r\n | - | Added MDVM support for Okta Verify | 29-October-26 |\r\n | 155806 | Improved detection logic for Vendor VIM | 29-October-26 |\r\n | 156547 | Improved accuracy for Smartsheet by distinguishing Smartsheet Safari Extension | 29-October-26 |\r\n | - | Fixed incorrect Access Experience, GlobalProtect Autonomous DEM detections under GlobalProtect | 29-October-26 |\r\n | - | Fixed incorrect recommendations in Bruno Vulnerability - CVE-2026-85665 | 29-October-26 |\r\n+| - | Added accurate EOS details for Adobe Acrobat Reader 2020 | 31-October-26 |\r\n+| 157225 | Added accurate EOS details for Microsoft Remote Desktop Client | 31-October-26 |\r\n \r\n ## September 2026\r\n \r\n",
+      "baseCommitSha": "0e54edede5eeeaa9fcfcba17861e82e054c12d6b",
+      "commitSha": "aa3b0ea15b726f34f361e13cf434db6bd3ab2aef",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-20 21:27:55 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-vulnerability-management/fixed-reported-inaccuracies",
+      "eventId": "defender-docs:aa3b0ea15b726f34f361e13cf434db6bd3ab2aef:modified:defender-vulnerability-management/fixed-reported-inaccuracies.md",
+      "firstSeenAt": "2026-11-20T21:48:41.677Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Vulnerability Management corrections and support updates added",
+        "summary": "The page now lists corrected recommendations, improved Zoom Workplace and Zabbix Agent detection, expanded support for Microsoft JDBC Driver and Process Monitor, and updated EOS details for selected products.",
+        "adminImpact": "Review affected vulnerability recommendations, detections, and end-of-support information; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-synthetic-media-detection-events.md b/defender-xdr/advanced-hunting-synthetic-media-detection-events.md\nindex c7ed38d..106af38 100644\n--- a/defender-xdr/advanced-hunting-synthetic-media-detection-events.md\n+++ b/defender-xdr/advanced-hunting-synthetic-media-detection-events.md\n@@ -57,7 +57,7 @@ This advanced hunting table is populated by records from Microsoft Defender for\n \r\n Note\r\n \r\n-This table contains data only if you're using an approved detection engine: Microsoft or a third-party engine.\r\n+This table contains data only if you're using an approved detection engine: Microsoft or a third-party engine (GetReal, Pindrop, Reality Defender, or Resemble AI).\r\n \r\n ## Schema\r\n \r\n",
+      "baseCommitSha": "0e54edede5eeeaa9fcfcba17861e82e054c12d6b",
+      "commitSha": "aa3b0ea15b726f34f361e13cf434db6bd3ab2aef",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-20 21:27:55 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-synthetic-media-detection-events",
+      "eventId": "defender-docs:aa3b0ea15b726f34f361e13cf434db6bd3ab2aef:modified:defender-xdr/advanced-hunting-synthetic-media-detection-events.md",
+      "firstSeenAt": "2026-11-20T21:48:41.693Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Approved detection engines are now named",
+        "summary": "The documentation now lists GetReal, Pindrop, Reality Defender, and Resemble AI as approved third-party detection engines alongside Microsoft.",
+        "adminImpact": "Administrators can use the list to identify supported engines for synthetic media detection event data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -47,6 +99,22 @@
         "sourceFiles": [
           "exposure-management/mdash-foundry-integration.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender Vulnerability Management",
+        "summary": "The page now lists corrected recommendations, improved Zoom Workplace and Zabbix Agent detection, expanded support for Microsoft JDBC Driver and Process Monitor, and updated EOS details for selected products.",
+        "sourceFiles": [
+          "defender-vulnerability-management/fixed-reported-inaccuracies.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The documentation now lists GetReal, Pindrop, Reality Defender, and Resemble AI as approved third-party detection engines alongside Microsoft.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-synthetic-media-detection-events.md"
+        ]
       }
     ],
     "highlights": [
@@ -54,6 +122,16 @@
         "category": "Doc update",
         "headline": "Exposure Management",
         "detail": "The page now documents the three required standard models and the optional recommended MAI-Cyber-1.1-Flash configuration. It also adds Azure CLI deployment steps and specifies Global Standard as MAI Cyber’s supported deployment type."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender Vulnerability Management",
+        "detail": "The page now lists corrected recommendations, improved Zoom Workplace and Zabbix Agent detection, expanded support for Microsoft JDBC Driver and Process Monitor, and updated EOS details for selected products."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The documentation now lists GetReal, Pindrop, Reality Defender, and Resemble AI as approved third-party detection engines alongside Microsoft."
       }
     ],
     "generatedBy": "fallback"
