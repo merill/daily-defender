@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "exposure-management/mdash-foundry-integration.md",
+      "status": "modified",
+      "additions": 121,
+      "deletions": 17,
+      "changes": 138,
+      "patch": "diff --git a/exposure-management/mdash-foundry-integration.md b/exposure-management/mdash-foundry-integration.md\nindex 670d09a..4a53a22 100644\n--- a/exposure-management/mdash-foundry-integration.md\n+++ b/exposure-management/mdash-foundry-integration.md\n@@ -113,26 +113,130 @@ From the Foundry project's **home** page, copy the values that the service needs\n \r\n ## Deploy the required models\r\n \r\n-Deploy the models required for the agentic code security integration.\r\n-\r\n-1. Go to **Build** from the upper navigation menu.\r\n-2. From the menu, select **Models**, or **Deployments**.\r\n-3. Select the **Deployments** tab.\r\n-4. Select **Deploy a base model**.\r\n-5. Choose and deploy the following models with default or custom settings:\r\n-    - **Standard**: Deploy all three models only once:\r\n-    - `gpt-5.4`\r\n-    - `gpt-5.3-codex`\r\n-    - `gpt-5.4-mini`\r\n-    - **MAI Cyber** **(Preview)**: - Recommended: MAI Cyber (Preview) is the recommended scan configuration. To use this configuration, deploy the three models listed previously and:\r\n-    - `MAI-Cyber-1.1-Flash`\r\n+Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans. Before running scans, deploy the three required models. You can also deploy the optional **MAI Cyber (Preview)** model to use the recommended scan configuration.\r\n \r\n-Important\r\n+### Step 1: Deploy the standard models\r\n \r\n-A predefined list of model deployments is required for the integration to work. You must deploy all three models: `gpt-5.4`, `gpt-5.3-codex`, and `gpt-5.4-mini`.\r\n+The standard scan configuration requires three models. These models are also required when using MAI Cyber (Preview).\r\n \r\n-> \r\n-> If you use **custom settings** when deploying the required models, avoid selecting **DataZoneBatch**, **GlobalBatch**, or **DeveloperTier**.\r\n+1. Sign in to [Microsoft Foundry](https://ai.azure.com) and open the project you created for codename MDASH.\r\n+2. From the upper navigation menu, select **Build**.\r\n+3. From the navigation menu, select **Models** or **Deployments**.\r\n+4. Select the **Deployments** tab.\r\n+5. Select **Deploy a base model**.\r\n+6. Deploy each of the following models using the default settings or supported custom settings:\r\n+\r\n+| Model | Required |\r\n+| --- | --- |\r\n+| `gpt-5.4` | Yes |\r\n+| `gpt-5.3-codex` | Yes |\r\n+| `gpt-5.4-mini` | Yes |\r\n+\r\n+1. Verify that all three model deployments are available in your Microsoft Foundry resource.\r\n+\r\n+### Step 2: Deploy MAI Cyber (Preview), recommended\r\n+\r\n+**MAI Cyber (Preview) is the recommended scan configuration for codename MDASH.**\r\n+\r\n+MAI Cyber is an optional model that can be used alongside the three standard models to enhance agentic code security scanning.\r\n+\r\n+To enable this configuration, you must deploy:\r\n+\r\n+- `gpt-5.4`\r\n+- `gpt-5.3-codex`\r\n+- `gpt-5.4-mini`\r\n+- `MAI-Cyber-1.1-Flash`\r\n+\r\n+If you've already completed Step 1, you only need to deploy `MAI-Cyber-1.1-Flash`. **Deploy each model only once.** You don't need to deploy the standard models again when enabling MAI Cyber (Preview). If you use custom deployment settings, don't select the `DataZoneBatch`, `GlobalBatch`, or `DeveloperTier` deployment types.\r\n+\r\n+Note\r\n+\r\n+MAI Cyber (Preview) is currently available only through the **Global Standard** deployment type. The model must be provisioned using Azure CLI. Deployment through the Microsoft Foundry portal isn't currently supported. MAI Cyber is optional. If you don't deploy it, you can continue using codename MDASH with the three required standard models.\r\n+\r\n+#### Deploy MAI Cyber using Azure CLI\r\n+\r\n+To deploy the MAI Cyber model, complete the following steps.\r\n+\r\n+**1. Open Azure CLI**\r\n+\r\n+Open a terminal with Azure CLI installed or use Azure Cloud Shell.\r\n+\r\n+Sign in to your Azure account if you haven't already:\r\n+\r\n+```powershell\r\n+az login\r\n+```\r\n+\r\n+**2. Select your Azure subscription**\r\n+\r\n+Run the following command, replacing `<SUBSCRIPTION_ID>` with the subscription that contains your Microsoft Foundry resource:\r\n+\r\n+```powershell\r\n+az account set --subscription <SUBSCRIPTION_ID>\r\n+```\r\n+\r\n+**3. Deploy the MAI Cyber model**\r\n+\r\n+Run the following command, replacing the resource group and Foundry resource name with your values:\r\n+\r\n+```powershell\r\n+az cognitiveservices account deployment create \\\r\n+  --resource-group <RESOURCE_GROUP> \\\r\n+  --name <FOUNDRY_RESOURCE_NAME> \\\r\n+  --deployment-name mai-cyber-flash \\\r\n+  --model-name MAI-Cyber-1.1-Flash \\\r\n+  --model-format Microsoft \\\r\n+  --model-version 2026-10-13 \\\r\n+  --sku-name GlobalStandard \\\r\n+  --sku-capacity 1000\r\n+```\r\n+\r\n+The command uses the following settings:\r\n+\r\n+| Parameter | Description |\r\n+| --- | --- |\r\n+| `--resource-group` | The Azure resource group containing your Microsoft Foundry resource. |\r\n+| `--name` | The name of your Microsoft Foundry resource. |\r\n+| `--deployment-name` | The deployment name, set to `mai-cyber-flash`. |\r\n+| `--model-name` | The MAI Cyber model, `MAI-Cyber-1.1-Flash`. |\r\n+| `--model-format` | The model provider format, `Microsoft`. |\r\n+| `--model-version` | The model version, `2026-10-13`. |\r\n+| `--sku-name` | The deployment type, `GlobalStandard`. |\r\n+| `--sku-capacity` | The requested deployment capacity, set to `1000`. |\r\n+\r\n+For more information about the command, see [az cognitiveservices account deployment create](/en-us/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest).\r\n+\r\n+**4. Verify the deployment**\r\n+\r\n+After the command completes successfully:\r\n+\r\n+1. Return to your Microsoft Foundry project.\r\n+2. Navigate to **Models** &gt; **Deployments**.\r\n+3. Verify that `mai-cyber-flash` appears in the deployment list.\r\n+\r\n+You can also verify the deployment using Azure CLI:\r\n+\r\n+```powershell\r\n+az cognitiveservices account deployment show \\\r\n+  --resource-group <RESOURCE_GROUP> \\\r\n+  --name <FOUNDRY_RESOURCE_NAME> \\\r\n+  --deployment-name mai-cyber-flash\r\n+```\r\n+\r\n+### Model deployment summary\r\n+\r\n+The following table summarizes the models required for each scan configuration.\r\n+\r\n+| Model | Standard | MAI Cyber (Preview), recommended |\r\n+| --- | --- | --- |\r\n+| `gpt-5.4` | Required | Required |\r\n+| `gpt-5.3-codex` | Required | Required |\r\n+| `gpt-5.4-mini` | Required | Required |\r\n+| `MAI-Cyber-1.1-Flash` | Not required | Required |\r\n+\r\n+Important\r\n+\r\n+MAI Cyber (Preview) uses a Global Standard deployment. Before deploying the model, confirm that this deployment type meets your organization's data-processing and residency requirements. MAI Cyber availability depends on the selected Microsoft Foundry region. For more information, see [Codename MDASH overview](/en-us/security-exposure-management/ai-code-security-overview). Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans.\r\n \r\n ## Configure the TPM rate limit\r\n \r\n",
+      "baseCommitSha": "8a8dd76835130ca14da5a7e78fcdde57b38a541b",
+      "commitSha": "0e54edede5eeeaa9fcfcba17861e82e054c12d6b",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-20 08:49:29 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/mdash-foundry-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/mdash-foundry-integration",
+      "eventId": "defender-docs:0e54edede5eeeaa9fcfcba17861e82e054c12d6b:modified:exposure-management/mdash-foundry-integration.md",
+      "firstSeenAt": "2026-11-20T09:59:51.895Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MDASH Foundry setup adds detailed model deployment guidance",
+        "summary": "The page now documents the three required standard models and the optional recommended MAI-Cyber-1.1-Flash configuration. It also adds Azure CLI deployment steps and specifies Global Standard as MAI Cyber’s supported deployment type.",
+        "adminImpact": "Administrators must deploy and verify the three standard models before running scans. To use MAI Cyber, deploy it once through Azure CLI; portal deployment is not supported.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The page now documents the three required standard models and the optional recommended MAI-Cyber-1.1-Flash configuration. It also adds Azure CLI deployment steps and specifies Global Standard as MAI Cyber’s supported deployment type.",
+        "sourceFiles": [
+          "exposure-management/mdash-foundry-integration.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The page now documents the three required standard models and the optional recommended MAI-Cyber-1.1-Flash configuration. It also adds Azure CLI deployment steps and specifies Global Standard as MAI Cyber’s supported deployment type."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

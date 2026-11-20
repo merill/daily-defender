@@ -9019,6 +9019,28 @@
         "outputTokens": 4299,
         "costUsd": 0.005657
       }
+    },
+    "2026-11-20": {
+      "headline": "Mdash Foundry guidance adds three-model prerequisite and Azure CLI MAI Cyber setup",
+      "overview": "The Exposure Management Mdash Foundry Integration page now specifies three required standard models, the optional recommended MAI-Cyber-1.1-Flash configuration, Azure CLI deployment steps, and Global Standard as MAI Cyber’s supported deployment type.",
+      "adminImpact": "Administrators must deploy and verify the three standard models before running scans. Organizations using MAI Cyber must deploy it once through Azure CLI; portal deployment is not supported, and the deployment type must be Global Standard.",
+      "keyChanges": [
+        {
+          "title": "Mdash Foundry integration documents required models and deployment constraints",
+          "detail": "The updated guidance adds the three required standard models and optional recommended MAI-Cyber-1.1-Flash configuration. It includes Azure CLI deployment steps and identifies Global Standard as MAI Cyber’s supported deployment type.",
+          "product": "Exposure Management",
+          "sourceId": "doc-2026-11-20-mdash-foundry-integration-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-20T10:00:14.372Z",
+      "usage": {
+        "inputTokens": 1033,
+        "outputTokens": 683,
+        "costUsd": 0.001026
+      }
     }
   },
   "weeks": {
@@ -10870,49 +10892,49 @@
       }
     },
     "2026-11-16": {
-      "headline": "Sentinel ISOC preview guidance details an irreversible transition as identity alerts near retirement",
-      "overview": "The week’s most consequential administrator decisions center on Sentinel’s preview Integrated Security Operations Center (ISOC): existing deployments now have documented transition and analytics-rule migration paths, including permanent scope and billing considerations. Defender XDR guidance also sets a December deadline for affected AI-agent onboarding, while App Governance role permissions will change in December. Much of the remaining update volume standardizes Microsoft Defender and identity-security terminology or portal navigation.",
-      "adminImpact": "Before transitioning to ISOC, verify eligibility, permissions, workspace connections, and billing implications. Validate migrated detections before disabling their original analytics rules, review the two identity alerts scheduled for retirement, and check affected AI-agent onboarding and App Governance role assignments. The broader terminology and navigation updates generally require runbook or reference updates rather than configuration changes.",
+      "headline": "ISOC transition guidance details irreversible tenant-wide scope as classic identity alerts near retirement",
+      "overview": "New Microsoft Learn guidance explains how existing Microsoft Sentinel deployments can opt into the preview Integrated Security Operations Center (ISOC), including the irreversible tenant-wide scope, workspace prerequisites, and billing changes. Separate guidance documents converting eligible analytics rules into Defender custom detections and validating them before disabling the originals. The week also brings an end-November retirement for two classic identity alerts, a December 23 AI-agent protection deadline, and App Governance role-permission changes. Much of the remaining update set consists of terminology, navigation, schema, and metadata maintenance.",
+      "adminImpact": "Treat an ISOC transition as a tenant-wide and commercial decision: verify eligibility and permissions, connect all workspaces, and review the pricing, discount, and data-benefit changes before proceeding. Keep original Sentinel analytics rules enabled until migrated detections are validated. Review alternatives for the retiring identity alerts before the end of November, complete the AI-agent onboarding steps by December 23 if affected, and review App Governance role assignments before the December RBAC rollout.",
       "keyChanges": [
         {
-          "title": "ISOC transition guidance makes existing Sentinel migration an irreversible tenant-wide choice",
-          "detail": "New guidance explains how an existing Microsoft Sentinel deployment can opt into Integrated Security Operations Center (ISOC), which remains in preview. It documents prerequisites, workspace-connection requirements, permanent transition limits, and billing changes.",
-          "product": "Sentinel",
+          "title": "ISOC guidance exposes an irreversible tenant-wide transition decision",
+          "detail": "The new Sentinel article documents how existing deployments can opt into preview ISOC, including eligibility and permission checks, connection of all workspaces, the permanent tenant-wide scope, and changed discounts, pricing, and data benefits.",
+          "product": "Sentinel / Integrated Security Operations Center",
           "sourceId": "doc-2026-11-17-transition-an-existing-microsoft-sentinel-deployment-to-isoc-microsoft-learn-08"
         },
         {
-          "title": "SOC optimization guidance covers analytics-rule migration to custom detections",
-          "detail": "The new procedure uses the SOC optimization migration tool to convert eligible Microsoft Sentinel analytics rules into custom detections, validate the results, and complete migration. Original rules remain enabled during review and should be disabled only after validation; prerequisites and required permissions are documented.",
-          "product": "Sentinel",
+          "title": "Migration guidance documents Sentinel analytics-rule conversion to custom detections",
+          "detail": "The new guidance explains how the SOC optimization migration tool converts eligible Sentinel analytics rules into Defender custom detections and supports validation of the results. Administrators should review alert behavior and dependent automation while the original rules remain enabled, disabling them only after validation.",
+          "product": "Sentinel / Defender XDR",
           "sourceId": "doc-2026-11-17-automatically-migrate-microsoft-sentinel-analytics-rules-to-custom-detections-microsoft-learn-05"
         },
         {
-          "title": "AI-agent onboarding guidance sets a December 23 blocking-settings deadline",
-          "detail": "Updated Microsoft Defender guidance says administrators using the existing onboarding experience must act by December 23, 2026 because their blocking settings will not migrate when that experience ends on December 2.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-11-19-ai-agent-real-time-protection-11"
-        },
-        {
-          "title": "Two classic identity alerts are scheduled for end-of-November retirement",
-          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt classic alerts will be retired at the end of November 2026. Documented alternatives are Microsoft Defender for Endpoint behavioral blocking and containment, and custom detections in Advanced hunting.",
-          "product": "Identity",
+          "title": "Two classic identity alerts are scheduled for end-November retirement",
+          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt classic alerts will be retired at the end of November 2026. Microsoft identifies Defender for Endpoint behavioral blocking and containment, plus Advanced Hunting custom detections, as monitoring alternatives.",
+          "product": "Microsoft Defender for Identity",
           "sourceId": "doc-2026-11-18-alerts-mdi-classic-07"
         },
         {
-          "title": "App Governance permissions will change for select Entra roles",
-          "detail": "During December 2026, Defender for Cloud Apps will update App Governance permissions with Unified RBAC support. Cloud App Security Administrators gain policy-management rights, while Compliance Administrators and Compliance Data Administrators lose some permissions.",
-          "product": "Defender XDR",
+          "title": "Existing AI-agent onboarding now carries a December 23 action deadline",
+          "detail": "Updated guidance says administrators using the existing onboarding experience must act by December 23, 2026 because blocking settings will not migrate when that experience ends on December 2. The documented steps are required to keep real-time protection enabled.",
+          "product": "Defender XDR / AI agent real-time protection",
+          "sourceId": "doc-2026-11-19-ai-agent-real-time-protection-11"
+        },
+        {
+          "title": "App Governance permissions will change under Unified RBAC",
+          "detail": "A December 2026 rollout changes permissions for selected Microsoft Entra roles. Cloud App Security Administrators gain policy-management rights, while Compliance Administrators and Compliance Data Administrators lose some permissions; role assignments should be reviewed and updated accordingly.",
+          "product": "Defender for Cloud Apps / App Governance",
           "sourceId": "MC1479503"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T22:09:06.100Z",
+      "generatedAt": "2026-11-20T10:00:14.372Z",
       "usage": {
         "inputTokens": 10305,
-        "outputTokens": 7890,
-        "costUsd": 0.011529
+        "outputTokens": 6412,
+        "costUsd": 0.009755
       }
     }
   },
@@ -11336,65 +11358,59 @@
       }
     },
     "2026-11": {
-      "headline": "Defender RBAC auto-enablement and Sentinel ISOC transition reshape admin priorities",
-      "overview": "November’s highest-impact changes are a December Defender RBAC rollout, a preview path for moving existing Sentinel deployments into Integrated Security Operations Center (ISOC), and the end-of-month retirement of two classic Defender for Identity alerts. New Sentinel guidance also documents a validation-first path for converting eligible analytics rules into custom detections. Defender for Office 365 adds a Plan 2 Move to Quarantine action and will change multiple-recipient policy matching from AND to OR when affected policies are modified. Most remaining updates were terminology, navigation, schema, and reference maintenance.",
-      "adminImpact": "Review imported Defender RBAC roles before activation and explicitly assign any permissions that Microsoft Entra Security Operators still need for email threat policies or the Tenant/Allow Block List. For ISOC, verify eligibility and permissions, connect all workspaces, and assess the irreversible tenant-wide scope and billing changes before transitioning. Validate migrated analytics rules, alerts, and dependent automation before disabling the original rules. Replace the two retiring identity alerts by the end of November using the documented Defender for Endpoint or Advanced Hunting alternatives. Also review recipient-scoped threat protection policies before modifying them after the December rollout.",
+      "headline": "Defender RBAC auto-enablement, ISOC transition limits, and identity-alert retirement drive November priorities",
+      "overview": "November’s highest-impact changes center on access control, Sentinel’s operating model, and identity alert coverage. Unified Defender RBAC is scheduled for automatic activation in December, while Microsoft Defender for Office 365 will remove default Microsoft Entra Security Operator access to email threat policies and the Tenant Allow/Block List. Existing Sentinel deployments now have preview ISOC transition guidance with irreversible tenant-wide and commercial implications, alongside guidance for validating analytics-rule migrations to custom detections. Two classic Defender for Identity alerts retire by late November, and Plan 2’s Move to Quarantine action begins rolling out in late November. Much of the remaining period consisted of terminology, schema, navigation, and reference maintenance.",
+      "adminImpact": "Review imported Defender RBAC roles when notified and manually assign Microsoft Entra Security Operator permissions where continued access is required. Before an ISOC transition, verify eligibility and permissions, connect all workspaces, and assess the permanent tenant-wide scope plus pricing, discount, and data-benefit changes. For Sentinel analytics-rule migration, keep original rules enabled until converted detections and dependent automation are validated. Replace the two retiring identity-alert paths before the end of November. Move to Quarantine requires no rollout action, but reviewing relevant policies and roles is recommended.",
       "keyChanges": [
         {
-          "title": "Defender RBAC will auto-enable in December 2026",
-          "detail": "Microsoft Defender RBAC will be enabled automatically, unifying access management for Defender and Sentinel. Existing roles will be imported for review, with activation occurring about 30 days after notification; opt-out remains available after activation. Permissions for other Microsoft services are unchanged.",
+          "title": "Unified Defender RBAC will auto-enable in December 2026",
+          "detail": "Microsoft Defender RBAC will be automatically enabled starting in December 2026. Existing roles will be imported for review, activation will occur about 30 days after notification, and an opt-out will be available after activation. Permissions for other Microsoft services are unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Entra Security Operator loses default access to core email controls",
-          "detail": "The Microsoft Defender for Office 365 Unified RBAC mapping will remove default access to email threat policies and the Tenant/Allow Block List beginning in December 2026. Administrators must manually assign the required permissions if the role needs continued access.",
-          "product": "Defender XDR",
+          "title": "Security Operator loses default access to key Defender for Office 365 controls",
+          "detail": "The Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant Allow/Block List. Rollout starts in December 2026; organizations needing continued access must manually assign the required permissions.",
+          "product": "Defender for Office 365",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Sentinel ISOC transition is documented as a preview with irreversible scope",
-          "detail": "New guidance covers opting an existing Microsoft Sentinel deployment into ISOC, including prerequisites, workspace connection requirements, permanent transition limits, and billing changes. Administrators are directed to verify eligibility and permissions, connect all workspaces, and assess the irreversible tenant-wide scope and changed pricing or discounts.",
+          "title": "ISOC guidance sets an irreversible tenant-wide path for existing Sentinel deployments",
+          "detail": "New guidance describes opting an existing Microsoft Sentinel deployment into preview Integrated Security Operations Center (ISOC). It calls for eligibility and permission checks, connecting all workspaces, and reviewing the permanent tenant-wide transition scope along with changes to discounts, pricing, and data benefits.",
           "product": "Sentinel",
           "sourceId": "doc-2026-11-17-transition-an-existing-microsoft-sentinel-deployment-to-isoc-microsoft-learn-08"
         },
         {
-          "title": "Sentinel analytics rules gain a documented migration path to custom detections",
-          "detail": "New guidance explains how the SOC optimization migration tool converts eligible Microsoft Sentinel analytics rules into custom detections and how to validate the results. Original rules should remain enabled while administrators check alert behavior and dependent automation, and should be disabled only after validation.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-11-17-automatically-migrate-microsoft-sentinel-analytics-rules-to-custom-detections-microsoft-learn-05"
+          "title": "Two classic Defender for Identity alerts retire by late November",
+          "detail": "The Remote code execution attempt and pass-the-hash classic alerts will retire by late November 2026. Microsoft points administrators to Defender for Endpoint behavioral blocking and containment for pass-the-hash monitoring and custom detections in Advanced hunting for remote-code-execution coverage.",
+          "product": "Identity",
+          "sourceId": "MC1552387"
         },
         {
-          "title": "Two classic Defender for Identity alerts retire at November’s end",
-          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt classic alerts will be retired at the end of November 2026. The documented alternatives are Microsoft Defender for Endpoint behavioral blocking and containment, plus custom detections in Advanced Hunting.",
-          "product": "Identity",
-          "sourceId": "doc-2026-11-18-alerts-mdi-classic-07"
+          "title": "Plan 2 adds a Move to Quarantine remediation action",
+          "detail": "Microsoft Defender for Office 365 Plan 2 is introducing Move to Quarantine, allowing administrators to move suspicious messages from user mailboxes into Defender quarantine for investigation and management. Rollout begins in late November 2026.",
+          "product": "Defender for Office 365",
+          "sourceId": "MC1523084"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T22:09:06.100Z",
+      "generatedAt": "2026-11-20T10:00:14.372Z",
       "usage": {
-        "inputTokens": 6828,
-        "outputTokens": 5846,
-        "costUsd": 0.008381
+        "inputTokens": 6875,
+        "outputTokens": 7167,
+        "costUsd": 0.009975
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-19T22:09:06.100Z",
+  "generatedAt": "2026-11-20T10:00:14.372Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-15": {
-      "inputTokens": 68577,
-      "outputTokens": 55788,
-      "requests": 12,
-      "costUsd": 0.080661
-    },
     "2026-10-16": {
       "inputTokens": 34879,
       "outputTokens": 19866,
@@ -11592,18 +11608,24 @@
       "outputTokens": 31748,
       "requests": 6,
       "costUsd": 0.045689
+    },
+    "2026-11-20": {
+      "inputTokens": 18213,
+      "outputTokens": 14262,
+      "requests": 3,
+      "costUsd": 0.020757
     }
   },
   "lastRun": {
-    "inputTokens": 19625,
-    "outputTokens": 18035,
+    "inputTokens": 18213,
+    "outputTokens": 14262,
     "requests": 3,
-    "costUsd": 0.025567
+    "costUsd": 0.020757
   },
   "totalUsage": {
-    "inputTokens": 1743533,
-    "outputTokens": 1644642,
-    "requests": 358,
-    "costUsd": 2.322272
+    "inputTokens": 1761746,
+    "outputTokens": 1658904,
+    "requests": 361,
+    "costUsd": 2.343029
   }
 }
