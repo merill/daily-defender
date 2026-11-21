@@ -52,19 +52,71 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "exposure-management/mdash-foundry-integration.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 10,
+      "changes": 16,
+      "patch": "diff --git a/exposure-management/mdash-foundry-integration.md b/exposure-management/mdash-foundry-integration.md\nindex 4a53a22..4837f0c 100644\n--- a/exposure-management/mdash-foundry-integration.md\n+++ b/exposure-management/mdash-foundry-integration.md\n@@ -31,12 +31,12 @@ monikers: []\n item_type: Content\n source_path: exposure-management/mdash-foundry-integration.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/64b65f6c-101f-411a-9b83-9f577fab52d0\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/de19c5b8-e208-412e-9238-db3f631dea5b\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/64b65f6c-101f-411a-9b83-9f577fab52d0\n - https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1a667fd1-8145-4b11-af0f-9f5de205a6e5\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ea7bf5d6-7154-4ba9-8ebc-59117ccacd49\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/1a667fd1-8145-4b11-af0f-9f5de205a6e5\n - https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: fa300fee-25bf-e572-1ee3-fd32d6d42e7d\n ---\n@@ -136,7 +136,7 @@ The standard scan configuration requires three models. These models are also req\n \r\n ### Step 2: Deploy MAI Cyber (Preview), recommended\r\n \r\n-**MAI Cyber (Preview) is the recommended scan configuration for codename MDASH.**\r\n+**MAI Cyber (Preview) is the recommended scan configuration for codename MDASH.** To use the MAI Cyber Model, you must first [submit](https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR13ffypyvwVJhqpm2XjyFblURUxFVkJHRlJUTFlQNlVFWElJTE45VTM1MS4u&amp;route=shorturl) a request and be approved.\r\n \r\n MAI Cyber is an optional model that can be used alongside the three standard models to enhance agentic code security scanning.\r\n \r\n@@ -151,7 +151,7 @@ If you've already completed Step 1, you only need to deploy `MAI-Cyber-1.1-Flash\n \r\n Note\r\n \r\n-MAI Cyber (Preview) is currently available only through the **Global Standard** deployment type. The model must be provisioned using Azure CLI. Deployment through the Microsoft Foundry portal isn't currently supported. MAI Cyber is optional. If you don't deploy it, you can continue using codename MDASH with the three required standard models.\r\n+MAI Cyber (Preview) must be approved after [requesting](https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR13ffypyvwVJhqpm2XjyFblURUxFVkJHRlJUTFlQNlVFWElJTE45VTM1MS4u&amp;route=shorturl) access. Access must be approved. MAI Cyber (Preview) is currently available only through the **Global Standard** deployment type. Before deploying the model, confirm that this deployment type meets your organization's data-processing and residency requirements. The model must be provisioned using Azure CLI. Deployment through the Microsoft Foundry portal isn't currently supported. MAI Cyber availability depends on the selected Microsoft Foundry region. For more information, see [Codename MDASH overview](ai-code-security-overview#cloud-and-region-support). Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans MAI Cyber is optional. If you don't deploy it, you can continue using codename MDASH with the three required standard models.\r\n \r\n #### Deploy MAI Cyber using Azure CLI\r\n \r\n@@ -234,10 +234,6 @@ The following table summarizes the models required for each scan configuration.\n | `gpt-5.4-mini` | Required | Required |\r\n | `MAI-Cyber-1.1-Flash` | Not required | Required |\r\n \r\n-Important\r\n-\r\n-MAI Cyber (Preview) uses a Global Standard deployment. Before deploying the model, confirm that this deployment type meets your organization's data-processing and residency requirements. MAI Cyber availability depends on the selected Microsoft Foundry region. For more information, see [Codename MDASH overview](/en-us/security-exposure-management/ai-code-security-overview). Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans.\r\n-\r\n ## Configure the TPM rate limit\r\n \r\n For each of the three deployed models, configure the TPM rate limit.\r\n@@ -261,7 +257,7 @@ Configure a content filter to ensure the deployed models can operate without res\n \r\n Warning\r\n \r\n-Configure content filtering is intentionally permissive for MDASH scanning scenarios. Create and use a dedicated Microsoft Foundry endpoint for MDASH only. Do not use this endpoint for any other workload.\r\n+Configure content filtering is intentionally permissive for codename MDASH scanning scenarios. Create and use a dedicated Microsoft Foundry endpoint for codename MDASH only. Do not use this endpoint for any other workload.\r\n \r\n ### Prerequisites\r\n \r\n@@ -282,7 +278,7 @@ To create a content filter, follow these steps:\n \r\n ## Allow Codename MDASH to access your Microsoft Foundry resource\r\n \r\n-Codename MDASH needs to access your Microsoft Foundry endpoint to validate credentials and run agentic scans. When your Foundry resource networking is set to **Selected networks and private endpoints**, all inbound traffic is blocked by default, including requests from MDASH. Without allowing the required IP addresses, validation of the Foundry resource during MDASH onboarding will fail. If your Foundry resource has public access set to **All networks**, no action is required and you can continue to the next step.\r\n+Codename MDASH needs to access your Microsoft Foundry endpoint to validate credentials and run agentic scans. When your Foundry resource networking is set to **Selected networks and private endpoints**, all inbound traffic is blocked by default, including requests from codename MDASH. Without allowing the required IP addresses, validation of the Foundry resource during MDASH onboarding will fail. If your Foundry resource has public access set to **All networks**, no action is required and you can continue to the next step.\r\n \r\n To allow Codename MDASH to access your Microsoft Foundry resource, you should run script to configure access:\r\n \r\n",
+      "baseCommitSha": "3bba6e29c1cc3d3e21de9c1911e06dbffb74a8d3",
+      "commitSha": "c11f27a864b79b93a3c5ea9a2a758c5317ac34c7",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-21 20:16:17 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/mdash-foundry-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/mdash-foundry-integration",
+      "eventId": "defender-docs:c11f27a864b79b93a3c5ea9a2a758c5317ac34c7:modified:exposure-management/mdash-foundry-integration.md",
+      "firstSeenAt": "2026-11-21T20:30:47.094Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MAI Cyber access now requires approval",
+        "summary": "The MDASH integration documentation now states that using MAI Cyber (Preview) requires submitting an access request and receiving approval.",
+        "adminImpact": "Administrators must request and obtain access before using MAI Cyber for MDASH scans.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/whats-new.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 0,
+      "changes": 15,
+      "patch": "diff --git a/exposure-management/whats-new.md b/exposure-management/whats-new.md\nindex d67eb0c..6f2a810 100644\n--- a/exposure-management/whats-new.md\n+++ b/exposure-management/whats-new.md\n@@ -56,6 +56,21 @@ Get notified when this page is updated by copying and pasting the following URL\n \r\n `https://aka.ms/msem/rss`\r\n \r\n+## November 2026\r\n+\r\n+### Codename MDASH - Finding validation and scan improvements\r\n+\r\n+November 20, 2026\r\n+\r\n+Codename MDASH includes the following updates:\r\n+\r\n+- Validate findings with Perception: Use the Run web pen test playbook with MDASH code-scanning findings as input to focus testing on suspected code weaknesses and assess whether they're exploitable in the deployed application. This capability is available through Perception's limited public preview.\r\n+- Lower scan costs and improve reliability: Reduced token consumption helps lower inference costs, while scan hardening reduces failures.\r\n+- Reduce duplicate findings: Improved deduplication removes duplicate findings from scan results, reducing noise and simplifying review.\r\n+- Removed gpt-5.3-codex as a mandatory deployment requirement. The minimum required models is GPT-5.4 and GPT-5.4-mini (General profile) and GPT-5.4, GPT-5.4-mini, and MAI Cyber (MAI profile). GPT-5.3-codex is still supported when deployed and available.\r\n+\r\n+For more information, see [Validate code-scanning findings with the Web App Pen Test Agent](/en-us/security/agentic-security/web-app-pen-test-agent#validate-code-scanning-findings)\r\n+\r\n ## October 2026\r\n \r\n ### Posture policies and recommendation exemptions available for Azure environments\r\n",
+      "baseCommitSha": "3bba6e29c1cc3d3e21de9c1911e06dbffb74a8d3",
+      "commitSha": "c11f27a864b79b93a3c5ea9a2a758c5317ac34c7",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-21 20:16:17 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/whats-new",
+      "eventId": "defender-docs:c11f27a864b79b93a3c5ea9a2a758c5317ac34c7:modified:exposure-management/whats-new.md",
+      "firstSeenAt": "2026-11-21T20:30:47.105Z",
+      "englishSummary": {
+        "category": "Public preview",
+        "headline": "MDASH adds finding validation and scan improvements",
+        "summary": "The Run web pen test playbook can use MDASH code-scanning findings to assess suspected code weaknesses. Scans now use fewer tokens, have improved reliability, and reduce duplicate findings. GPT-5.3-codex is no longer mandatory; supported minimum model sets are documented.",
+        "adminImpact": "Administrators can use the validation workflow and benefit from lower scan costs and cleaner results. Existing deployments do not require a stated change.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 4,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -74,6 +126,15 @@
           "defender-endpoint/ai-agent-runtime-protection-overview.md",
           "defender-endpoint/configure-ai-agent-runtime-protection.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Exposure Management",
+        "summary": "The MDASH integration documentation now states that using MAI Cyber (Preview) requires submitting an access request and receiving approval. The Run web pen test playbook can use MDASH code-scanning findings to assess suspected code weaknesses. Scans now use fewer tokens, have improved reliability, and reduce duplicate findings. GPT-5.3-codex is no longer mandatory; supported minimum model sets are documented.",
+        "sourceFiles": [
+          "exposure-management/mdash-foundry-integration.md",
+          "exposure-management/whats-new.md"
+        ]
       }
     ],
     "highlights": [
@@ -81,6 +142,11 @@
         "category": "Feature update",
         "headline": "Defender for Endpoint",
         "detail": "The documentation now states that enabling prompt evidence collection sends prompts and tool calls, including arguments, to the cloud in their original form. Captured content may appear in security alerts and is retained under the Microsoft Defender XDR data retention policy. The documentation now states that enabling prompt evidence collection sends prompt data and tool calls, including arguments, to the cloud in their original, unredacted form."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Exposure Management",
+        "detail": "The MDASH integration documentation now states that using MAI Cyber (Preview) requires submitting an access request and receiving approval. The Run web pen test playbook can use MDASH code-scanning findings to assess suspected code weaknesses. Scans now use fewer tokens, have improved reliability, and reduce duplicate findings. GPT-5.3-codex is no longer mandatory; supported minimum model sets are documented."
       }
     ],
     "generatedBy": "fallback"
