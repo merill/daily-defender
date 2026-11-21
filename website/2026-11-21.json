@@ -1,0 +1,88 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/defender-endpoint/ai-agent-runtime-protection-overview.md b/defender-endpoint/ai-agent-runtime-protection-overview.md\nindex cbe2505..6eea106 100644\n--- a/defender-endpoint/ai-agent-runtime-protection-overview.md\n+++ b/defender-endpoint/ai-agent-runtime-protection-overview.md\n@@ -14,7 +14,7 @@ ms.author: joshbregman\n ms.service: defender-endpoint\n ms.topic: overview\n ms.custom: msecd-doc-authoring-1030\n-ms.date: 2026-11-11T00:00:00.0000000Z\n+ms.date: 2026-11-20T00:00:00.0000000Z\n ai-usage: ai-assisted\n locale: en-us\n document_id: 2840101c-b02b-c6b4-ccda-603c72dcf7d6\n@@ -104,7 +104,9 @@ For local PowerShell and organization-wide Microsoft Intune configuration option\n \r\n ### Prompt evidence collection\r\n \r\n-Prompt evidence collection is a device setting for AI agent runtime protection. When collection is enabled and runtime protection is enabled in **Audit** or **Block** mode, Defender exposes prompt snippets exchanged between the user and the agent to support deeper analysis of agent-related alerts. These snippets include only the portions of user prompts or agent responses identified as suspicious and relevant to security classification.\r\n+Prompt evidence collection is a device setting for AI agent runtime protection.\r\n+\r\n+When prompt evidence collection is enabled, Defender sends prompt data and tool calls, including their arguments, to the cloud to help detect threats and investigate suspicious agent activity. This content is sent in its original form, without redaction. Captured content can also appear in security alerts. Disabling collection stops this content from being sent to the cloud, which limits detections that rely on analyzing it.\r\n \r\n Note\r\n \r\n@@ -112,9 +114,9 @@ An upcoming Microsoft Defender Antivirus platform release will enable prompt evi\n \r\n Important\r\n \r\n-Sensitive data and secrets **aren't redacted** from prompt snippets shown in alerts. These snippets can contain users' conversations, sensitive data, and secrets. Review your organization's privacy and data-handling requirements before you enable collection. Evidence included in security alerts is retained according to the [Microsoft Defender XDR data retention policy](/en-us/defender-xdr/data-privacy).\r\n+Review your organization's privacy and data-handling requirements before you enable collection. Evidence included in security alerts is retained according to the [Microsoft Defender XDR data retention policy](/en-us/defender-xdr/data-privacy).\r\n \r\n-Disabling device-level collection doesn't disable runtime protection. Content associated with activity that Defender blocks can still appear in the associated security alert.\r\n+Disabling device-level collection doesn't disable runtime protection.\r\n \r\n Configure device collection through PowerShell or the policy template. For prerequisites, commands, and deployment steps, see [Configure prompt evidence collection](configure-ai-agent-runtime-protection#configure-prompt-evidence-collection).\r\n \r\n",
+      "baseCommitSha": "aa3b0ea15b726f34f361e13cf434db6bd3ab2aef",
+      "commitSha": "3bba6e29c1cc3d3e21de9c1911e06dbffb74a8d3",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-21 08:30:22 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-runtime-protection-overview",
+      "eventId": "defender-docs:3bba6e29c1cc3d3e21de9c1911e06dbffb74a8d3:modified:defender-endpoint/ai-agent-runtime-protection-overview.md",
+      "firstSeenAt": "2026-11-21T09:47:18.686Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Prompt evidence collection now includes unredacted prompt and tool-call data",
+        "summary": "The documentation now states that enabling prompt evidence collection sends prompts and tool calls, including arguments, to the cloud in their original form. Captured content may appear in security alerts and is retained under the Microsoft Defender XDR data retention policy.",
+        "adminImpact": "Review privacy and data-handling requirements before enabling collection, since sensitive content and secrets are not redacted.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/configure-ai-agent-runtime-protection.md b/defender-endpoint/configure-ai-agent-runtime-protection.md\nindex 4378282..1481f0b 100644\n--- a/defender-endpoint/configure-ai-agent-runtime-protection.md\n+++ b/defender-endpoint/configure-ai-agent-runtime-protection.md\n@@ -13,7 +13,7 @@ author: j0shbregman\n ms.author: joshbregman\n ms.service: defender-endpoint\n ms.topic: how-to\n-ms.date: 2026-11-11T00:00:00.0000000Z\n+ms.date: 2026-11-20T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1015\n locale: en-us\n@@ -181,7 +181,7 @@ On the **Configuration settings** page, configure the settings you need:\n \r\n Important\r\n \r\n-Sensitive data and secrets **aren't redacted** from prompt snippets shown in alerts. During preview, the help text in the Intune template is being finalized. For current details about **Prompt Evidence Collection**, see [Prompt evidence collection](ai-agent-runtime-protection-overview#prompt-evidence-collection).\r\n+When prompt evidence collection is enabled, prompt data and tool calls, including their arguments, are sent to the cloud in their original form, without redaction. During preview, the help text in the Intune template is being finalized. For current details about **Prompt Evidence Collection**, see [Prompt evidence collection](ai-agent-runtime-protection-overview#prompt-evidence-collection).\r\n \r\n For each inspection method, **Audit** detects and reports prompt injection while allowing the action to continue, and **Block** blocks detected threats at supported inspection points. Leave a method disabled if you don't need it. You can enable either inspection method or both.\r\n \r\n",
+      "baseCommitSha": "aa3b0ea15b726f34f361e13cf434db6bd3ab2aef",
+      "commitSha": "3bba6e29c1cc3d3e21de9c1911e06dbffb74a8d3",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-21 08:30:22 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/configure-ai-agent-runtime-protection",
+      "eventId": "defender-docs:3bba6e29c1cc3d3e21de9c1911e06dbffb74a8d3:modified:defender-endpoint/configure-ai-agent-runtime-protection.md",
+      "firstSeenAt": "2026-11-21T09:47:18.697Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Prompt evidence data handling is described more explicitly",
+        "summary": "The documentation now states that enabling prompt evidence collection sends prompt data and tool calls, including arguments, to the cloud in their original, unredacted form.",
+        "adminImpact": "Administrators should account for this data handling when enabling prompt evidence collection. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation now states that enabling prompt evidence collection sends prompts and tool calls, including arguments, to the cloud in their original form. Captured content may appear in security alerts and is retained under the Microsoft Defender XDR data retention policy. The documentation now states that enabling prompt evidence collection sends prompt data and tool calls, including arguments, to the cloud in their original, unredacted form.",
+        "sourceFiles": [
+          "defender-endpoint/ai-agent-runtime-protection-overview.md",
+          "defender-endpoint/configure-ai-agent-runtime-protection.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation now states that enabling prompt evidence collection sends prompts and tool calls, including arguments, to the cloud in their original form. Captured content may appear in security alerts and is retained under the Microsoft Defender XDR data retention policy. The documentation now states that enabling prompt evidence collection sends prompt data and tool calls, including arguments, to the cloud in their original, unredacted form."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
