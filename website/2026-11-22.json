@@ -1,0 +1,127 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-xdr/investigate-users.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-xdr/investigate-users.md b/defender-xdr/investigate-users.md\nindex 2ef5420..f901601 100644\n--- a/defender-xdr/investigate-users.md\n+++ b/defender-xdr/investigate-users.md\n@@ -146,7 +146,7 @@ The **Risk score** tab summarizes the identity's risk level by combining alert a\n | **Risk Trend** | A line chart that shows how the risk score changed over a configurable time period (for example, 30 days). Select **Go to timeline** to view the full activity timeline. |\r\n | **Likelihood of Compromise Details** | A bar chart that shows alert distribution across MITRE ATT&CK categories, with a filterable alert table. Use the **Active alerts only** toggle to focus on unresolved alerts. Filter by account set, status, or kill chain stage. |\r\n \r\n-The **Confirm safe** action now includes **Reset risk** for both the identity risk score and the Microsoft Entra risk level. For more information, see [Identity remediation actions in Microsoft Defender](/en-us/defender-for-identity/remediation-actions#supported-actions).\r\n+You can take an action and reset the identity's risk. For more information, see [Identity remediation actions in Microsoft Defender](/en-us/defender-for-identity/remediation-actions#supported-actions).\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "c11f27a864b79b93a3c5ea9a2a758c5317ac34c7",
+      "commitSha": "5e950aefc28d577a6777c6eb5879d1902de64e50",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-22 20:30:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/investigate-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/investigate-users",
+      "eventId": "defender-docs:5e950aefc28d577a6777c6eb5879d1902de64e50:modified:defender-xdr/investigate-users.md",
+      "firstSeenAt": "2026-11-22T20:43:12.196Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Identity risk reset guidance updated",
+        "summary": "The page now states that administrators can take an action to reset an identity’s risk and links to the remediation actions guidance.",
+        "adminImpact": "Use the linked guidance when investigating users and resetting identity risk.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\nindex d2d3c92..4e0493c 100644\n--- a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n+++ b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n@@ -35,12 +35,12 @@ item_type: Content\n source_path: defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c671beaa-a830-4c9f-aceb-97379ee031ca\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c389ea6b-b6a0-46df-93a1-1e21f25e19e7\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/302444b9-4a43-4841-8014-3d9e4251ff15\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/c389ea6b-b6a0-46df-93a1-1e21f25e19e7\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8921374c-4dbe-4ed0-b011-a39e18bfbd98\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ada1b6-705b-4ed7-aad0-bffd1bd03dfa\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/bebd8809-dac1-4c22-83e2-66d98af8a94d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ada1b6-705b-4ed7-aad0-bffd1bd03dfa\n platformId: 73fadc8f-aa21-1c5c-2ed6-d59cde94cfa5\n ---\n \n@@ -54,10 +54,6 @@ Note\n \r\n Real-time protection policies currently support Microsoft Foundry agents, Microsoft Copilot Studio agents, and Agent 365 Tooling Servers (WorkIQ and Custom MCP) only. Support for additional agent types is not yet available.\r\n \r\n-Important\r\n-\r\n-**Action required by December 23, 2026 to keep real-time protection for Copilot Studio agents enabled** If you set up Microsoft Defender real-time protection for Copilot Studio through the existing onboarding experience, your blocking settings won’t migrate when that experience retires on December 23, 2026. To keep blocking enabled, first disable the existing onboarding under **Settings &gt; Security for AI &gt; Get started &gt; Copilot Studio**, then re-create and enable your blocking rules before December 23. See **Configure real-time protection rules** on this page. Automatic tenant-level onboarding begins rolling out in public preview on November 22, 2026, for supported Copilot Studio agents in tenants with Security for AI agents enabled. After retirement, agents without an enabled blocking rule operate in audit mode, which generates security alerts without blocking actions.\r\n-\r\n ## Prerequisites\r\n \r\n - Enable security for AI agents, including the Microsoft 365 app connector. See [Enable security for AI agents using Microsoft Defender](get-started-defender-security-for-ai).\r\n",
+      "baseCommitSha": "c11f27a864b79b93a3c5ea9a2a758c5317ac34c7",
+      "commitSha": "5e950aefc28d577a6777c6eb5879d1902de64e50",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-22 20:30:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-real-time-protection",
+      "eventId": "defender-docs:5e950aefc28d577a6777c6eb5879d1902de64e50:modified:defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "firstSeenAt": "2026-11-22T20:43:12.211Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Copilot Studio protection migration warning removed",
+        "summary": "The page no longer includes the notice stating that blocking settings for agents onboarded through the existing experience will not migrate when it retires, with action required by December 23, 2026.",
+        "adminImpact": "Administrators using that onboarding path should migrate their blocking settings by December 23, 2026 to keep real-time protection enabled.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/transition-custom-detections-automatic.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 21,
+      "changes": 40,
+      "patch": "diff --git a/sentinel/transition-custom-detections-automatic.md b/sentinel/transition-custom-detections-automatic.md\nindex fd974a1..28adca5 100644\n--- a/sentinel/transition-custom-detections-automatic.md\n+++ b/sentinel/transition-custom-detections-automatic.md\n@@ -35,7 +35,7 @@ ms.collection:\n ms.topic: how-to\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1032\n-ms.date: 2026-11-15T00:00:00.0000000Z\n+ms.date: 2026-11-22T00:00:00.0000000Z\n locale: en-us\n document_id: ad771d6b-bf51-50fb-24e1-7ba2a7dcb78c\n document_version_independent_id: fd18f79f-e4e6-0b15-fb46-1a302d99ae12\n@@ -115,24 +115,6 @@ For a rule marked **Migration isn't available**, select **Download report**. Use\n \r\n Choose the migration scope that matches the rules you want to evaluate.\r\n \r\n-Some JSON columns, including `DeviceEvents.AdditionalFields` and `DeviceNetworkInfo.ConnectedNetworks`, are `dynamic` in Log Analytics but JSON-formatted strings in advanced hunting. Parse the column with `todynamic()` before accessing a property or array element, for example, `todynamic(AdditionalFields).Property` or `todynamic(ConnectedNetworks)[0]`. Use `tostring()` when comparing extracted values with text. Migration applies this conversion automatically for scheduled analytics rules. For streaming (NRT) rules, direct nested access to affected columns is an eligibility blocker: update the source analytics-rule query, then reassess eligibility. Apply the same parsing when manually running the original query in advanced hunting. Validate changes against representative data in both environments; other schema differences and migration blockers can still require changes.\r\n-\r\n-The following table lists the affected JSON columns.\r\n-\r\n-| Table | Affected columns |\r\n-| --- | --- |\r\n-| `DeviceNetworkInfo` | `ConnectedNetworks`, `DefaultGateways`, `DnsAddresses`, `IPAddresses` |\r\n-| `DeviceNetworkEvents` | `AdditionalFields` |\r\n-| `DeviceProcessEvents` | `AdditionalFields` |\r\n-| `DeviceInfo` | `AdditionalFields`, `LoggedOnUsers` |\r\n-| `DeviceFileEvents` | `AdditionalFields` |\r\n-| `DeviceLogonEvents` | `AdditionalFields` |\r\n-| `DeviceEvents` | `AdditionalFields` |\r\n-| `AlertEvidence` | `AdditionalFields` |\r\n-| `EmailEvents` | `AdditionalFields` |\r\n-\r\n-Other columns can also have different schemas or query requirements.\r\n-\r\n ### Migrate a single rule\r\n \r\n Select one eligible analytics rule from the recommendation.\r\n@@ -193,6 +175,24 @@ Important\n \r\n Don't complete migration until detection results and downstream automation meet your requirements. Revalidate any edits made during evaluation.\r\n \r\n+Note\r\n+\r\n+Migrated rules handle JSON-column conversions automatically when they run. If you copy a rule's query into advanced hunting, parse JSON-string columns such as `AdditionalFields` and `ConnectedNetworks` with `todynamic()` before accessing nested values, for example, `todynamic(AdditionalFields).Property` or `todynamic(ConnectedNetworks)[0]`. Use `tostring()` when comparing extracted values with text.\r\n+\r\n+The following table lists the affected JSON columns.\r\n+\r\n+| Table | Affected columns |\r\n+| --- | --- |\r\n+| `DeviceNetworkInfo` | `ConnectedNetworks`, `DefaultGateways`, `DnsAddresses`, `IPAddresses` |\r\n+| `DeviceNetworkEvents` | `AdditionalFields` |\r\n+| `DeviceProcessEvents` | `AdditionalFields` |\r\n+| `DeviceInfo` | `AdditionalFields`, `LoggedOnUsers` |\r\n+| `DeviceFileEvents` | `AdditionalFields` |\r\n+| `DeviceLogonEvents` | `AdditionalFields` |\r\n+| `DeviceEvents` | `AdditionalFields` |\r\n+| `AlertEvidence` | `AdditionalFields` |\r\n+| `EmailEvents` | `AdditionalFields` |\r\n+\r\n ## Complete migration\r\n \r\n Complete migration only for custom detections that have passed evaluation, including any edits made during that period.\r\n@@ -262,8 +262,6 @@ Both value columns below describe the **Sentinel view for workspaces onboarded t\n | `ExtendedProperties[\"Event Grouping\"]` | Added | Not populated by default | Same value as in the matching analytics rule | Describes how alerts are generated, not how incidents are grouped. |\r\n | `ExtendedProperties[\"Search Query Results Overall Count\"]` | Added | Not populated by default | Same value as in the matching analytics rule | Don't assume a total result count is available for grouped alerts. |\r\n | `ExtendedProperties[\"Data Sources\"]` | Added | Not populated by default | Same value as in the matching analytics rule |  |\r\n-| `ExtendedProperties[\"Query\"]` | Not yet available | Not populated by default | Not available yet | This field isn't available on alerts from migrated custom detections. |\r\n-| `ExtendedProperties[\"OriginalQuery\"]` | Not yet available | Not populated by default | Not available yet | This field isn't available on alerts from migrated custom detections. |\r\n \r\n ## Troubleshoot migration\r\n \r\n",
+      "baseCommitSha": "c11f27a864b79b93a3c5ea9a2a758c5317ac34c7",
+      "commitSha": "5e950aefc28d577a6777c6eb5879d1902de64e50",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-22 20:30:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/transition-custom-detections-automatic.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/transition-custom-detections-automatic",
+      "eventId": "defender-docs:5e950aefc28d577a6777c6eb5879d1902de64e50:modified:sentinel/transition-custom-detections-automatic.md",
+      "firstSeenAt": "2026-11-22T20:43:12.221Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation clarifies JSON handling for migrated detection queries",
+        "summary": "The page now states that migrated rules automatically convert affected JSON columns when they run. Queries copied into advanced hunting still require `todynamic()` before accessing nested JSON values. Documentation for two unavailable `ExtendedProperties` fields was also removed.",
+        "adminImpact": "No action is required. Administrators copying migrated-rule queries into advanced hunting should add the documented JSON parsing step.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The page now states that administrators can take an action to reset an identity’s risk and links to the remediation actions guidance. The page no longer includes the notice stating that blocking settings for agents onboarded through the existing experience will not migrate when it retires, with action required by December 23, 2026.",
+        "sourceFiles": [
+          "defender-xdr/investigate-users.md",
+          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The page now states that migrated rules automatically convert affected JSON columns when they run. Queries copied into advanced hunting still require `todynamic()` before accessing nested JSON values. Documentation for two unavailable `ExtendedProperties` fields was also removed.",
+        "sourceFiles": [
+          "sentinel/transition-custom-detections-automatic.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The page now states that administrators can take an action to reset an identity’s risk and links to the remediation actions guidance. The page no longer includes the notice stating that blocking settings for agents onboarded through the existing experience will not migrate when it retires, with action required by December 23, 2026."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The page now states that migrated rules automatically convert affected JSON columns when they run. Queries copied into advanced hunting still require `todynamic()` before accessing nested JSON values. Documentation for two unavailable `ExtendedProperties` fields was also removed."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
