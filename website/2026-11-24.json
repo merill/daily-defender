@@ -338,34 +338,194 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 0,
+      "changes": 16,
+      "patch": "diff --git a/defender-endpoint/microsoft-defender-endpoint-releases.md b/defender-endpoint/microsoft-defender-endpoint-releases.md\nindex ba1d31b..a79e2fb 100644\n--- a/defender-endpoint/microsoft-defender-endpoint-releases.md\n+++ b/defender-endpoint/microsoft-defender-endpoint-releases.md\n@@ -59,6 +59,7 @@ This table includes supported releases for all supported platforms in the past s\n \r\n | OS | Build | Month released | Details | Learn more |\r\n | --- | --- | --- | --- | --- |\r\n+| Android | 1.0.9511.0102 | Nov 2026 | - Build: 1.0.9511.0102- Release: Nov 13, 2026 | Release details and updates |\r\n | iOS | 1.1.83150101 | Nov 2026 | - Build: 1.1.83150101- Release: Nov 18, 2026 | Release details and updates |\r\n | iOS | 1.1.82260102 | Nov 2026 | - Build: 1.1.82260102- Release: Nov 3, 2026 | Release details and updates |\r\n | Android | 1.0.9428.0102 | Oct 2026 | - Build: 1.0.9428.0102- Release: Oct 30, 2026 | Release details and updates |\r\n@@ -1042,6 +1043,21 @@ Fixed in platform version 101.26052.0011 and later. FIPS-enabled RHEL 8/9 device\n \r\n See the full list of [Android UX improvements](android-new-ux).\r\n \r\n+### Android | Nov 2026 | Platform: 1.0.9511.0102\r\n+\r\n+#### Release details\r\n+\r\n+| Platform version | Release Date |\r\n+| --- | --- |\r\n+| Android | Nov 13, 2026 |\r\n+\r\n+#### Enhancements and features\r\n+\r\n+| Feature Area | Update Summary |\r\n+| --- | --- |\r\n+| General | Performance improvements and general bug fixes. |\r\n+| Network Protection | Improved Network Protection on Android by adding support for Android's Nearby Devices permission , allowing users who grant this permission to benefit from improved wi-fi threat detection. |\r\n+\r\n ### Android | Oct 2026 | Platform: 1.0.9428.0102\r\n \r\n #### Release details\r\n",
+      "baseCommitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 23:14:15 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases",
+      "eventId": "defender-docs:cfe40f7b362727be9134ae3e7dc0b3db9b068e71:modified:defender-endpoint/microsoft-defender-endpoint-releases.md",
+      "firstSeenAt": "2026-11-24T23:28:38.404Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Android Network Protection adds Nearby Devices permission support",
+        "summary": "The November 13, 2026 Android release (version 1.0.9511.0102) adds support for Android’s Nearby Devices permission, improving Wi-Fi threat detection for users who grant it. It also includes performance improvements and bug fixes.",
+        "adminImpact": "No administrator action is required. Android users can grant the permission to benefit from improved Wi-Fi threat detection.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md b/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md\nindex e8dd278..6a39abd 100644\n--- a/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md\n+++ b/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md\n@@ -35,11 +35,11 @@ source_path: defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/cbe4ca68-43ac-4375-aba5-5945a6394c20\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/bad69977-db6a-44f3-b752-d2bee7de49ca\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/6ab7faaf-d791-4a26-96a2-3b11738538e7\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/ced846cc-6a3c-4c8f-9dfb-3de0e90e2742\n - https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/b31d7aff-61be-45e2-a324-a578cf0c3360\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/302e28b0-1f09-4811-9a9b-2a72e0770581\n platformId: 1dbddb2e-23d2-3ccf-013f-7ddaf2c24251\n ---\n \n@@ -195,11 +195,11 @@ Alerts from different sources might take different amounts of time to appear. Fo\n \r\n ### **An abnormally large number of rows were extracted from your SQL Server - Preview**\r\n \r\n-(SQL.VM\\_DataExfiltration)\r\n+(SQL.VM\\_DataExfiltration, SQL.DB\\_DataExfiltration, SQL.MI\\_DataExfiltration, Synapse.SQLPool\\_DataExfiltration, SQL.DW\\_DataExfiltration)\r\n \r\n **Description**: An unusually large number of rows has been extracted from your database in a single query. The activity might be related to legitimate operations, such as nonstandard backups or maintenance tasks. Alternatively, it could indicate a potential attempt to exfiltrate data from your SQL Server instances.\r\n \r\n-*Applies only to Defender for SQL on machines with extension version 2.0.3448.357 and later.*\r\n+*Supported in SQL on machines only where extension version 2.0.3448.357 and later is installed.*\r\n \r\n **[MITRE tactics](alerts-reference#mitre-attck-tactics)**: Exfiltration\r\n \r\n",
+      "baseCommitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 23:14:15 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics",
+      "eventId": "defender-docs:cfe40f7b362727be9134ae3e7dc0b3db9b068e71:modified:defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md",
+      "firstSeenAt": "2026-11-24T23:28:38.416Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated SQL data-exfiltration alert documentation",
+        "summary": "The page now lists data-exfiltration alert identifiers for SQL virtual machines, SQL databases, SQL managed instances, Synapse SQL pools, and SQL data warehouses. It also clarifies that SQL machine support requires extension version 2.0.3448.357 or later.",
+        "adminImpact": "Administrators can use the expanded alert list when monitoring and verifying SQL protection prerequisites.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/release-notes-recommendations-alerts.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/defender-for-cloud/release-notes-recommendations-alerts.md b/defender-for-cloud/release-notes-recommendations-alerts.md\nindex bdfe126..3d1a85c 100644\n--- a/defender-for-cloud/release-notes-recommendations-alerts.md\n+++ b/defender-for-cloud/release-notes-recommendations-alerts.md\n@@ -15,7 +15,8 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Get release notes for new and upcoming changes in recommendations, alerts, and incidents in Microsoft Defender for Cloud.\n ms.topic: overview\n-ms.date: 2026-06-30T00:00:00.0000000Z\n+ms.date: 2026-11-24T00:00:00.0000000Z\n+ms.custom: msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: 3c64078d-de42-bf91-05e8-c4c1108efdec\n@@ -76,6 +77,7 @@ New and updated recommendations, alerts, and incidents are added to the table in\n \r\n | **Date announced** | **Type** | **State** | **Name** |\r\n | --- | --- | --- | --- |\r\n+| November 24, 2026 | Alert | Preview | [An abnormally large number of rows were extracted from your SQL server](alerts-sql-database-and-azure-synapse-analytics#an-abnormally-large-number-of-rows-were-extracted-from-your-sql-server---preview) now supports SQL PaaS. |\r\n | July 31, 2026 | Recommendation | Deprecation | Retirement of legacy grouped recommendations (sub-assessments) has started. Customers can no longer access the deprecated data through the API. The Azure portal and Azure Resource Graph might take a few days to reflect the change. For more information, see [Transition from grouped to individual recommendations](transition-grouped-individual-recommendations). |\r\n | July 26, 2026 | Recommendation | GA | The following recommendations are released in GA as part of [transitioning Defender for SQL Vulnerability Assessment from grouped recommendations](/en-us/azure/defender-for-cloud/transition-grouped-individual-recommendations#microsoft-defender-for-databases) at the server level to individual recommendations at the scanned database level:\\* Execute permissions on xp\\_cmdshell from all users (except dbo) should be revoked for SQL Servers\\* Latest updates should be installed for SQL Servers\\* Database user GUEST shouldn't be a member of any role in SQL databases\\* Ad hoc distributed queries should be disabled for SQL Servers\\* CLR should be disabled for SQL Servers\\* Untracked trusted assemblies should be removed for SQL Servers\\* Database ownership chaining should be disabled for all databases except for 'master', 'msdb' and 'tempdb' on SQL Servers\\* Principal GUEST shouldn't have access to any user SQL database\\* Remote Admin Connections should be disabled unless required for SQL databases\\* Default trace should be enabled for SQL Servers\\* CHECK\\_POLICY should be enabled for all SQL logins for SQL Servers\\* Password expiration check should be enabled for all SQL logins on SQL Servers\\* Database principals shouldn't be mapped to the sa account in SQL databases\\* AUTO\\_CLOSE should be disabled for SQL databases\\* BUILTIN\\Administrators should be removed as a server login for SQL Servers\\* Account with default name 'sa' should be renamed and disabled on SQL Servers\\* Excessive permissions shouldn't be granted to PUBLIC role on objects or columns in SQL databases\\* 'sa' login should be disabled for SQL Servers\\* xp\\_cmdshell should be disabled for SQL Servers\\* Unused service broker endpoints should be removed for SQL Servers\\* Database Mail XPs should be disabled when it isn't in use on SQL Servers\\* Server permissions shouldn't be granted directly to principals for SQL Servers\\* Database users shouldn't share the same name as a server login for Model SQL database\\* 'Scan for startup stored procedures' option should be disabled for SQL Servers\\* Authentication mode should be Windows Authentication for SQL Servers\\* Auditing of both successful and failed login attempts (default trace) should be enabled when 'Login auditing' is set up to track logins for SQL Servers\\* SQL Server instance shouldn't be advertised by the SQL Server Browser service for SQL Servers\\* Maximum number of error logs should be 12 or more for SQL Servers\\* Database permissions shouldn't be granted directly to principals for SQL Servers\\* Excessive permissions shouldn't be granted to PUBLIC role in SQL databases\\* Principal GUEST shouldn't be granted permissions in SQL databases\\* Principal GUEST shouldn't be granted permissions on objects or columns in SQL databases\\* AES encryption should be required for any Existing Mirroring or SSB endpoint on SQL Databases\\* GUEST user shouldn't be granted permissions on SQL database securables\\* The Trustworthy bit should be disabled on all databases except MSDB for SQL Databases\\* 'dbo' user shouldn't be used for normal service operation in SQL databases\\* Only 'dbo' should have access to Model SQL database\\* Transparent data encryption should be enabled for SQL databases\\* Database communication using TDS should be protected through TLS for SQL Servers\\* Database Encryption Symmetric Keys should use AES algorithm in SQL databases\\* Cell-Level Encryption keys should use AES algorithm in SQL databases\\* Certificate keys should use at least 2,048 bits for SQL Databases\\* Asymmetric keys' length should be at least 2,048 bits in SQL databases\\* Filestream should be disabled for SQL Servers\\* Server configuration 'Replication XPs' should be disabled for SQL Servers\\* Orphaned users should be removed from SQL server databases\\* The database owner information in the database should match the respective database owner information in the master database for SQL databases\\* Application roles shouldn't be used in SQL databases\\* There should be no SPs marked as auto-start for SQL Servers\\* User-defined database roles shouldn't be members of fixed roles in SQL databases\\* User CLR assemblies shouldn't be defined in SQL databases\\* Database owners should be as expected for SQL databases\\* Auditing of both successful and failed login attempts should be enabled for SQL Servers\\* Auditing of both successful and failed login attempts for contained DB authentication should be enabled for SQL databases\\* Contained users should use Windows Authentication in SQL Server databases\\* Polybase network encryption should be enabled for SQL databases\\* Create a baseline of External Key Management Providers for SQL Servers\\* Force encryption should be enabled for TDS for SQL Servers\\* Server Permissions granted to public should be minimized for SQL Servers\\* All memberships for user-defined roles should be intended in SQL databases\\* Orphan database roles should be removed from SQL databases\\* There should be at least 1 active audit in the system for SQL Servers\\* Minimal set of principals should be granted ALTER or ALTER ANY USER database-scoped permissions in SQL databases\\* Minimal set of principals should be granted EXECUTE permission on objects or columns in SQL databases\\* SQL Threat Detection should be enabled at the SQL server level\\* Auditing should be enabled at the server level for SQL Servers\\* Database-level firewall rules shouldn't grant excessive access for SQL Servers\\* Server-level firewall rules shouldn't grant excessive access for SQL Servers\\* Database-level firewall rules should be tracked and maintained at a strict minimum for SQL Servers\\* Server-level firewall rules should be tracked and maintained at a strict minimum on SQL Servers\\* Unnecessary execute permissions on extended stored procedures should be revoked for SQL Servers\\* Minimal set of principals should be members of fixed Azure SQL Database master database roles\\* Minimal set of principals should be members of fixed high impact database roles in SQL databases\\* Minimal set of principals should be members of fixed low impact database roles in SQL databases\\* Execute permissions to access the registry should be restricted for SQL Servers\\* Sample databases should be removed for SQL Servers\\* Data Transformation Services (DTS) permissions should only be granted to SSIS roles in MSDB SQL database\\* Minimal set of principals should be members of fixed server roles for SQL Servers\\* Features that may affect security should be disabled for SQL Servers\\* 'OLE Automation Procedures' feature should be disabled for SQL Servers\\* 'User Options' feature should be disabled for SQL Servers\\* Extensibility-features that may affect security should be disabled if not needed for SQL Servers\\* Vulnerability Assessment should be configured on SQL Server 2012 and higher only\\* Changes to signed modules should be authorized for SQL databases\\* Track all users with access to the database for SQL Databases\\* SQL logins with commonly used names should be disabled for SQL Servers\\* See the full [rules and recommendations mapping](sql-azure-vulnerability-assessment-rules) |\r\n | June 30, 2026 | Recommendation | GA | [Upgrade Azure Kubernetes Service to remove vulnerabilities from AKS system pods](recommendations-reference-container#upgrade-azure-kubernetes-service-to-remove-vulnerabilities-from-aks-system-pods) |\r\n",
+      "baseCommitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 23:14:15 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/release-notes-recommendations-alerts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes-recommendations-alerts",
+      "eventId": "defender-docs:cfe40f7b362727be9134ae3e7dc0b3db9b068e71:modified:defender-for-cloud/release-notes-recommendations-alerts.md",
+      "firstSeenAt": "2026-11-24T23:28:38.424Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "SQL PaaS support added to a row-extraction alert",
+        "summary": "The release notes now state that the “An abnormally large number of rows were extracted from your SQL server” alert supports SQL PaaS and is in Preview.",
+        "adminImpact": "Administrators managing SQL PaaS can review this alert; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/support-matrix-defender-for-cloud.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-for-cloud/support-matrix-defender-for-cloud.md b/defender-for-cloud/support-matrix-defender-for-cloud.md\nindex 873dcd8..859e1f0 100644\n--- a/defender-for-cloud/support-matrix-defender-for-cloud.md\n+++ b/defender-for-cloud/support-matrix-defender-for-cloud.md\n@@ -150,7 +150,7 @@ In the support table, **NA** indicates that the feature isn't available.\n | [Serverless protection](serverless-protection)^4^ | GA | NA | NA | NA |\r\n | **DEFENDER FOR CLOUD PLANS** |  |  |  |  |\r\n | [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management) | GA | GA | NA | NA |\r\n-| [Defender for AI Services](ai-threat-protection) | GA | NA | NA | NA |\r\n+| [Defender for AI Services](ai-threat-protection) | GA | GA | NA | NA |\r\n | [Defender for APIs](defender-for-apis-introduction) | GA | NA | NA | NA |\r\n | [Defender for App Service](defender-for-app-service-introduction) | GA | NA | NA | GA |\r\n | [Defender for Containers](defender-for-containers-introduction)[Review detailed feature support](support-matrix-defender-for-containers) | GA | GA | NA | GA |\r\n",
+      "baseCommitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 23:14:15 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/support-matrix-defender-for-cloud.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "eventId": "defender-docs:cfe40f7b362727be9134ae3e7dc0b3db9b068e71:modified:defender-for-cloud/support-matrix-defender-for-cloud.md",
+      "firstSeenAt": "2026-11-24T23:28:38.431Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Defender for AI Services support status updated to GA",
+        "summary": "The support matrix changes one Defender for AI Services entry from NA to GA; the other shown values are unchanged.",
+        "adminImpact": "Review the updated matrix when checking support status. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/integrated-security-operations-data-billing-retention.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/defender-xdr/integrated-security-operations-data-billing-retention.md b/defender-xdr/integrated-security-operations-data-billing-retention.md\nindex 1875a07..9da7bfc 100644\n--- a/defender-xdr/integrated-security-operations-data-billing-retention.md\n+++ b/defender-xdr/integrated-security-operations-data-billing-retention.md\n@@ -22,7 +22,7 @@ ms.collection:\n ms.topic: concept-article\n ms.service: microsoft-sentinel\n ai-usage: ai-assisted\n-ms.date: 2026-11-16T00:00:00.0000000Z\n+ms.date: 2026-11-24T00:00:00.0000000Z\n ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: a3018aa1-e3e0-007c-d45a-e48fa92f6945\n@@ -165,10 +165,14 @@ The following tables don't receive the 90-day included retention benefit. They'r\n \r\n An ISOC workspace is required to ingest additional Microsoft and non-Microsoft security data through [more than 500 data connectors](/en-us/azure/sentinel/data-connectors-reference).\r\n \r\n-Additional Microsoft and non-Microsoft security data is billed separately from the Microsoft security data included with the ISOC benefit. Ingested data can be retained for up to 90 days as part of the ISOC ingestion experience.\r\n+Except for threat intelligence ingestion, additional Microsoft and non-Microsoft security data is billed separately from the Microsoft security data included with the ISOC benefit. Ingested data can be retained for up to 90 days as part of the ISOC ingestion experience.\r\n \r\n Additional ingestion and retention charges will apply depending on the data you ingest and how long you retain it.\r\n \r\n+## Threat intelligence ingestion\r\n+\r\n+Threat intelligence ingestion is free for ISOC customers through all ingestion methods, including TAXII, upload APIs, STIX APIs, and threat intelligence vendor connectors.\r\n+\r\n ## Choose a retention option\r\n \r\n Use the retention option that matches how you plan to use the data:\r\n",
+      "baseCommitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 23:14:15 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/integrated-security-operations-data-billing-retention.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/integrated-security-operations-data-billing-retention",
+      "eventId": "defender-docs:cfe40f7b362727be9134ae3e7dc0b3db9b068e71:modified:defender-xdr/integrated-security-operations-data-billing-retention.md",
+      "firstSeenAt": "2026-11-24T23:28:38.438Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Threat intelligence ingestion is free for ISOC customers",
+        "summary": "The documentation now states that threat intelligence ingestion is exempt from separate billing through TAXII, upload APIs, STIX APIs, and vendor connectors. The 90-day retention statement remains documented.",
+        "adminImpact": "ISOC administrators can account for threat intelligence ingestion without separate ingestion charges. No configuration change or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/defender-cli.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/exposure-management/defender-cli.md b/exposure-management/defender-cli.md\nindex 1c007f6..a238f82 100644\n--- a/exposure-management/defender-cli.md\n+++ b/exposure-management/defender-cli.md\n@@ -127,7 +127,7 @@ Run one scan with a specific configuration (overrides the default for this scan\n # Standard:\r\n ./defender scan ai-scan submit <TARGET_SOURCE> --model-profile standard\r\n \r\n-# May Cyber:\r\n+# Mai Cyber:\r\n ./defender scan ai-scan submit <TARGET_SOURCE> --model-profile mai-cyber\r\n ```\r\n \r\n",
+      "baseCommitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 23:14:15 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/defender-cli.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/defender-cli",
+      "eventId": "defender-docs:cfe40f7b362727be9134ae3e7dc0b3db9b068e71:modified:exposure-management/defender-cli.md",
+      "firstSeenAt": "2026-11-24T23:28:38.445Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated heading in Defender CLI documentation",
+        "summary": "The page heading changed from “May Cyber” to “Mai Cyber.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 2,
-    "totalFiles": 13,
+    "totalCommits": 3,
+    "totalFiles": 19,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 13 updated, and 0 removed Microsoft Defender documentation files across 8 documentation areas.",
+    "overview": "Today's report includes 0 new, 19 updated, and 0 removed Microsoft Defender documentation files across 8 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
         "title": "Defender for Endpoint",
-        "summary": "The Defender for Endpoint release notes now list iOS platform version 1.1.83150101, released November 18, 2026, with performance improvements and general bug fixes.",
+        "summary": "The Defender for Endpoint release notes now list iOS platform version 1.1.83150101, released November 18, 2026, with performance improvements and general bug fixes. The November 13, 2026 Android release (version 1.0.9511.0102) adds support for Android’s Nearby Devices permission, improving Wi-Fi threat detection for users who grant it. It also includes performance improvements and bug fixes.",
         "sourceFiles": [
+          "defender-endpoint/microsoft-defender-endpoint-releases.md",
           "defender-endpoint/microsoft-defender-endpoint-releases.md"
         ]
       },
       {
         "category": "Doc update",
         "title": "Defender for Cloud",
-        "summary": "Four Kubernetes policy definitions are now labeled [Preview]. Two Linux ChangeTracking policy entries are no longer listed, and several entries were reordered.",
+        "summary": "Four Kubernetes policy definitions are now labeled [Preview]. Two Linux ChangeTracking policy entries are no longer listed, and several entries were reordered. The page now lists data-exfiltration alert identifiers for SQL virtual machines, SQL databases, SQL managed instances, Synapse SQL pools, and SQL data warehouses. It also clarifies that SQL machine support requires extension version 2.0.3448.357 or later. The release notes now state that the “An abnormally large number of rows were extracted from your SQL server” alert supports SQL PaaS and is in Preview. The support matrix changes one Defender for AI Services entry from NA to GA; the other shown values are unchanged.",
         "sourceFiles": [
-          "defender-for-cloud/policy-reference.md"
+          "defender-for-cloud/policy-reference.md",
+          "defender-for-cloud/alerts-sql-database-and-azure-synapse-analytics.md",
+          "defender-for-cloud/release-notes-recommendations-alerts.md",
+          "defender-for-cloud/support-matrix-defender-for-cloud.md"
         ]
       },
       {
@@ -379,10 +539,11 @@
       {
         "category": "Feature update",
         "title": "Defender XDR",
-        "summary": "The documentation now states that AgentsInfo and IdentityAccountInfo receive 30 days of retention in XDR rather than the 90-day included benefit. Extended retention starts at 180 days, and streaming supported Defender data starts the retention period at 180 days. The documentation now states that the existing onboarding experience retires on December 2 and that its blocking settings will not migrate automatically.",
+        "summary": "The documentation now states that AgentsInfo and IdentityAccountInfo receive 30 days of retention in XDR rather than the 90-day included benefit. Extended retention starts at 180 days, and streaming supported Defender data starts the retention period at 180 days. The documentation now states that the existing onboarding experience retires on December 2 and that its blocking settings will not migrate automatically. The documentation now states that threat intelligence ingestion is exempt from separate billing through TAXII, upload APIs, STIX APIs, and vendor connectors. The 90-day retention statement remains documented.",
         "sourceFiles": [
           "defender-xdr/integrated-security-operations-data-billing-retention.md",
-          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md"
+          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+          "defender-xdr/integrated-security-operations-data-billing-retention.md"
         ]
       },
       {
@@ -415,10 +576,11 @@
       {
         "category": "Doc update",
         "title": "Exposure Management",
-        "summary": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available. Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions.",
+        "summary": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available. Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions. The page heading changed from “May Cyber” to “Mai Cyber.”",
         "sourceFiles": [
           "exposure-management/codename-mdash-faq.md",
-          "exposure-management/mdash-foundry-integration.md"
+          "exposure-management/mdash-foundry-integration.md",
+          "exposure-management/defender-cli.md"
         ]
       }
     ],
@@ -426,12 +588,12 @@
       {
         "category": "Doc update",
         "headline": "Defender for Endpoint",
-        "detail": "The Defender for Endpoint release notes now list iOS platform version 1.1.83150101, released November 18, 2026, with performance improvements and general bug fixes."
+        "detail": "The Defender for Endpoint release notes now list iOS platform version 1.1.83150101, released November 18, 2026, with performance improvements and general bug fixes. The November 13, 2026 Android release (version 1.0.9511.0102) adds support for Android’s Nearby Devices permission, improving Wi-Fi threat detection for users who grant it. It also includes performance improvements and bug fixes."
       },
       {
         "category": "Doc update",
         "headline": "Defender for Cloud",
-        "detail": "Four Kubernetes policy definitions are now labeled [Preview]. Two Linux ChangeTracking policy entries are no longer listed, and several entries were reordered."
+        "detail": "Four Kubernetes policy definitions are now labeled [Preview]. Two Linux ChangeTracking policy entries are no longer listed, and several entries were reordered. The page now lists data-exfiltration alert identifiers for SQL virtual machines, SQL databases, SQL managed instances, Synapse SQL pools, and SQL data warehouses. It also clarifies that SQL machine support requires extension version 2.0.3448.357 or later. The release notes now state that the “An abnormally large number of rows were extracted from your SQL server” alert supports SQL PaaS and is in Preview. The support matrix changes one Defender for AI Services entry from NA to GA; the other shown values are unchanged."
       },
       {
         "category": "Doc update",
@@ -441,7 +603,7 @@
       {
         "category": "Feature update",
         "headline": "Defender XDR",
-        "detail": "The documentation now states that AgentsInfo and IdentityAccountInfo receive 30 days of retention in XDR rather than the 90-day included benefit. Extended retention starts at 180 days, and streaming supported Defender data starts the retention period at 180 days. The documentation now states that the existing onboarding experience retires on December 2 and that its blocking settings will not migrate automatically."
+        "detail": "The documentation now states that AgentsInfo and IdentityAccountInfo receive 30 days of retention in XDR rather than the 90-day included benefit. Extended retention starts at 180 days, and streaming supported Defender data starts the retention period at 180 days. The documentation now states that the existing onboarding experience retires on December 2 and that its blocking settings will not migrate automatically. The documentation now states that threat intelligence ingestion is exempt from separate billing through TAXII, upload APIs, STIX APIs, and vendor connectors. The 90-day retention statement remains documented."
       },
       {
         "category": "New feature",
@@ -461,7 +623,7 @@
       {
         "category": "Doc update",
         "headline": "Exposure Management",
-        "detail": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available. Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions."
+        "detail": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available. Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions. The page heading changed from “May Cyber” to “Mai Cyber.”"
       }
     ],
     "generatedBy": "fallback"
