@@ -234,19 +234,123 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-for-cloud-apps/protect-github.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/defender-for-cloud-apps/protect-github.md b/defender-for-cloud-apps/protect-github.md\nindex 8fac08d..5b0602b 100644\n--- a/defender-for-cloud-apps/protect-github.md\n+++ b/defender-for-cloud-apps/protect-github.md\n@@ -157,6 +157,7 @@ Domain verification is optional and separate from the GitHub Enterprise Cloud ap\n     - In the **Application name** box, enter a name for the app.\r\n     - In the **Homepage URL** box, enter the URL for the app's homepage.\r\n     - In the **Authorization callback URL** box, enter the following value: `https://portal.cloudappsecurity.com/api/oauth/connect`.\r\n+    - Uncheck **Expire user access tokens**.\r\n \r\n     Note\r\n \r\n",
+      "baseCommitSha": "5a9ec81d805169cbbd4a9a77cfd8223b93dde214",
+      "commitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 11:16:29 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/protect-github.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-github",
+      "eventId": "defender-docs:2bd8ab14c708bbfe823b91900a73d19c9c1e8235:modified:defender-for-cloud-apps/protect-github.md",
+      "firstSeenAt": "2026-11-24T12:27:10.352Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "GitHub setup guidance now disables user token expiration",
+        "summary": "The documentation now instructs administrators to uncheck **Expire user access tokens**.",
+        "adminImpact": "Administrators following the setup guidance should update this setting.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/security-posture-assessments/accounts.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 1,
+      "changes": 19,
+      "patch": "diff --git a/defender-for-identity/security-posture-assessments/accounts.md b/defender-for-identity/security-posture-assessments/accounts.md\nindex ad4ecb9..97294eb 100644\n--- a/defender-for-identity/security-posture-assessments/accounts.md\n+++ b/defender-for-identity/security-posture-assessments/accounts.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-defender-for-identity\n uhfHeaderId: MSDocsHeader-MicrosoftDefender\n ms.suite: ems\n ms.topic: article\n-ms.date: 2026-08-18T00:00:00.0000000Z\n+ms.date: 2026-08-20T00:00:00.0000000Z\n ms.reviewer: LiorShapiraa\n description: Lists Identity Security posture assessments for Active Directory accounts, with detailed impacts and remediation steps to help improve your Secure Score.\n ai-usage: ai-assisted\n@@ -337,6 +337,23 @@ Guest and external accounts enable collaboration, but their security posture may\n 4. Replace persistent privileged access with time-bound and governed access where possible.\r\n 5. Monitor guest and external accounts that retain sensitive access.\r\n \r\n+## Ensure non-admin accounts cannot reset passwords for sensitive groups\r\n+\r\n+**Description**\r\n+\r\n+This report identifies accounts that aren't members of admin groups but have permissions to reset passwords for accounts in sensitive or privileged groups.\r\n+\r\n+**User impact**\r\n+\r\n+Allowing non-admin accounts to reset passwords for privileged accounts creates a critical privilege escalation risk. Non-admin users can take over privileged accounts, which can lead to a full compromise of the Active Directory environment. These permissions are often caused by misconfigured delegation and can be difficult to detect when access is indirect. Restricting password reset permissions to approved admin roles supports least privilege and helps protect privileged identities.\r\n+\r\n+**Implementation**\r\n+\r\n+1. Review accounts with password reset permissions for accounts in sensitive groups.\r\n+2. Validate whether the access is required.\r\n+3. Remove password reset permissions from non-admin accounts for all account types.\r\n+4. Ensure that only approved admin roles or groups can reset passwords for privileged accounts.\r\n+\r\n ## Ensure non-admin identities cannot have WriteDACL permissions on sensitive groups\r\n \r\n **Description**\r\n",
+      "baseCommitSha": "5a9ec81d805169cbbd4a9a77cfd8223b93dde214",
+      "commitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 11:16:29 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/security-posture-assessments/accounts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/security-posture-assessments/accounts",
+      "eventId": "defender-docs:2bd8ab14c708bbfe823b91900a73d19c9c1e8235:modified:defender-for-identity/security-posture-assessments/accounts.md",
+      "firstSeenAt": "2026-11-24T12:27:10.365Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "New assessment for password-reset permissions on privileged accounts",
+        "summary": "The documentation adds an assessment that identifies non-admin accounts able to reset passwords for sensitive or privileged groups, with guidance to review and restrict those permissions.",
+        "adminImpact": "These permissions can enable privilege escalation and compromise of the Active Directory environment.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/codename-mdash-faq.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/exposure-management/codename-mdash-faq.md b/exposure-management/codename-mdash-faq.md\nindex 3939f3b..b0c3d96 100644\n--- a/exposure-management/codename-mdash-faq.md\n+++ b/exposure-management/codename-mdash-faq.md\n@@ -158,4 +158,8 @@ Codename MDASH logs activity via an audit trail. It captures privileged-user act\n \r\n ## What are the licensing prerequisites? How will Codename MDASH be licensed?\r\n \r\n-Customers must have an eligible Microsoft Defender XDR plan, and Codename MDASH must be enabled and configured through the Microsoft Defender portal. Customers with Defender XDR access through an eligible license are qualified for participation in MDASH.\n\\ No newline at end of file\n+Customers must have an eligible Microsoft Defender XDR plan, and Codename MDASH must be enabled and configured through the Microsoft Defender portal. Customers with Defender XDR access through an eligible license are qualified for participation in MDASH.\r\n+\r\n+## What happens if GPT-5.3-Codex isn't available in my Microsoft Foundry region?\r\n+\r\n+Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex isn't available. You don't need to deploy GPT-5.3-Codex or configure fallback manually. This behavior is supported across all regions where codename MDASH is available. The fallback applies only when GPT-5.3-Codex is unavailable. It doesn't apply to model throttling or runtime failures. GPT-5.4 and GPT-5.4-Mini remain required for scanning.\n\\ No newline at end of file\n",
+      "baseCommitSha": "5a9ec81d805169cbbd4a9a77cfd8223b93dde214",
+      "commitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 11:16:29 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/codename-mdash-faq.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/codename-mdash-faq",
+      "eventId": "defender-docs:2bd8ab14c708bbfe823b91900a73d19c9c1e8235:modified:exposure-management/codename-mdash-faq.md",
+      "firstSeenAt": "2026-11-24T12:27:10.376Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "MDASH documents automatic GPT-5.4 fallback",
+        "summary": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available.",
+        "adminImpact": "Administrators do not need to deploy GPT-5.3-Codex or configure fallback manually.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "exposure-management/mdash-foundry-integration.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 14,
+      "changes": 45,
+      "patch": "diff --git a/exposure-management/mdash-foundry-integration.md b/exposure-management/mdash-foundry-integration.md\nindex 4837f0c..5748042 100644\n--- a/exposure-management/mdash-foundry-integration.md\n+++ b/exposure-management/mdash-foundry-integration.md\n@@ -33,11 +33,9 @@ source_path: exposure-management/mdash-foundry-integration.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/de19c5b8-e208-412e-9238-db3f631dea5b\n - https://authoring-docs-microsoft.poolparty.biz/devrel/64b65f6c-101f-411a-9b83-9f577fab52d0\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ea7bf5d6-7154-4ba9-8ebc-59117ccacd49\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1a667fd1-8145-4b11-af0f-9f5de205a6e5\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: fa300fee-25bf-e572-1ee3-fd32d6d42e7d\n ---\n \n@@ -113,7 +111,7 @@ From the Foundry project's **home** page, copy the values that the service needs\n \r\n ## Deploy the required models\r\n \r\n-Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans. Before running scans, deploy the three required models. You can also deploy the optional **MAI Cyber (Preview)** model to use the recommended scan configuration.\r\n+Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans. Before running scans, deploy the required models in your Microsoft Foundry resource. You can also deploy GPT-5.3-Codex and the optional MAI Cyber (Preview) model. **GPT-5.3-Codex is no longer required.** If GPT-5.3-Codex isn't available, codename MDASH automatically uses GPT-5.4 instead. This fallback behavior is supported across all regions where codename MDASH is available.\r\n \r\n ### Step 1: Deploy the standard models\r\n \r\n@@ -129,29 +127,48 @@ The standard scan configuration requires three models. These models are also req\n | Model | Required |\r\n | --- | --- |\r\n | `gpt-5.4` | Yes |\r\n-| `gpt-5.3-codex` | Yes |\r\n+| `gpt-5.3-codex` | No |\r\n | `gpt-5.4-mini` | Yes |\r\n \r\n 1. Verify that all three model deployments are available in your Microsoft Foundry resource.\r\n \r\n-### Step 2: Deploy MAI Cyber (Preview), recommended\r\n+### Automatic model fallback\r\n+\r\n+Codename MDASH supports automatic model fallback when GPT-5.3-Codex isn't available in your Microsoft Foundry resource.\r\n+\r\n+**When GPT-5.3-Codex is available:** Codename MDASH uses GPT-5.3-Codex for its designated scanning tasks.\r\n+\r\n+**When GPT-5.3-Codex isn't available:** Codename MDASH automatically uses GPT-5.4 instead.\r\n+\r\n+**When GPT-5.4 isn't available:** The scan fails because GPT-5.4 is required.\r\n+\r\n+This fallback behavior applies across all supported regions and doesn't require additional configuration.\r\n \r\n-**MAI Cyber (Preview) is the recommended scan configuration for codename MDASH.** To use the MAI Cyber Model, you must first [submit](https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR13ffypyvwVJhqpm2XjyFblURUxFVkJHRlJUTFlQNlVFWElJTE45VTM1MS4u&amp;route=shorturl) a request and be approved.\r\n+Note\r\n+\r\n+Automatic fallback applies only when GPT-5.3-Codex isn't available. It doesn't apply to runtime failures or throttling. If a deployed model encounters these issues, the scan can fail.\r\n+\r\n+### Step 2: Deploy MAI Cyber (Preview), recommended\r\n \r\n-MAI Cyber is an optional model that can be used alongside the three standard models to enhance agentic code security scanning.\r\n+**MAI Cyber (Preview) is the recommended scan configuration for codename MDASH.** To use the MAI Cyber Model, you must first [submit](https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR13ffypyvwVJhqpm2XjyFblURUxFVkJHRlJUTFlQNlVFWElJTE45VTM1MS4u&amp;route=shorturl) a request and be approved. MAI Cyber is an optional model that can be used alongside the standard models to enhance agentic code security scanning.\r\n \r\n-To enable this configuration, you must deploy:\r\n+To enable this configuration, deploy the following models:\r\n \r\n-- `gpt-5.4`\r\n-- `gpt-5.3-codex`\r\n-- `gpt-5.4-mini`\r\n-- `MAI-Cyber-1.1-Flash`\r\n+| Model | Required |\r\n+| --- | --- |\r\n+| gpt-5.4 | Yes |\r\n+| gpt-5.4-mini | Yes |\r\n+| MAI-Cyber-1.1-Flash | Yes |\r\n+| gpt-5.3-codex | No |\r\n \r\n-If you've already completed Step 1, you only need to deploy `MAI-Cyber-1.1-Flash`. **Deploy each model only once.** You don't need to deploy the standard models again when enabling MAI Cyber (Preview). If you use custom deployment settings, don't select the `DataZoneBatch`, `GlobalBatch`, or `DeveloperTier` deployment types.\r\n+If you've already completed Step 1, you only need to deploy MAI-Cyber-1.1-Flash. The model must be provisioned using Azure CLI (see below). Deployment through the Microsoft Foundry portal isn't currently supported.\r\n \r\n Note\r\n \r\n-MAI Cyber (Preview) must be approved after [requesting](https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR13ffypyvwVJhqpm2XjyFblURUxFVkJHRlJUTFlQNlVFWElJTE45VTM1MS4u&amp;route=shorturl) access. Access must be approved. MAI Cyber (Preview) is currently available only through the **Global Standard** deployment type. Before deploying the model, confirm that this deployment type meets your organization's data-processing and residency requirements. The model must be provisioned using Azure CLI. Deployment through the Microsoft Foundry portal isn't currently supported. MAI Cyber availability depends on the selected Microsoft Foundry region. For more information, see [Codename MDASH overview](ai-code-security-overview#cloud-and-region-support). Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans MAI Cyber is optional. If you don't deploy it, you can continue using codename MDASH with the three required standard models.\r\n+- **Deploy each model only once.** You don't need to deploy the standard models again when enabling MAI Cyber (Preview).\r\n+- If GPT-5.3-Codex isn't available, codename MDASH automatically uses GPT-5.4 for the applicable scanning tasks.\r\n+- MAI Cyber (Preview) is currently available only through the **Global Standard** deployment type. Before deploying the model, confirm that this deployment type meets your organization's data-processing and residency requirements.\r\n+- MAI Cyber availability depends on the selected Microsoft Foundry region. For more information, see [Codename MDASH overview](ai-code-security-overview#cloud-and-region-support). Codename MDASH uses AI models deployed in Microsoft Foundry to perform agentic code security scans\r\n \r\n #### Deploy MAI Cyber using Azure CLI\r\n \r\n",
+      "baseCommitSha": "5a9ec81d805169cbbd4a9a77cfd8223b93dde214",
+      "commitSha": "2bd8ab14c708bbfe823b91900a73d19c9c1e8235",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-24 11:16:29 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/exposure-management/mdash-foundry-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/security-exposure-management/mdash-foundry-integration",
+      "eventId": "defender-docs:2bd8ab14c708bbfe823b91900a73d19c9c1e8235:modified:exposure-management/mdash-foundry-integration.md",
+      "firstSeenAt": "2026-11-24T12:27:10.385Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MDASH makes GPT-5.3-Codex optional and adds model fallback",
+        "summary": "Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions.",
+        "adminImpact": "Update deployment procedures. Administrators enabling MAI Cyber must use Azure CLI and verify regional and data-processing requirements; GPT-5.3-Codex no longer needs to be deployed.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 9,
+    "totalCommits": 2,
+    "totalFiles": 13,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 9 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
+    "overview": "Today's report includes 0 new, 13 updated, and 0 removed Microsoft Defender documentation files across 8 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -291,6 +395,31 @@
           "sentinel/manage-table-tiers-retention-isoc.md",
           "sentinel/sentinel-tables-connectors-reference.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud Apps",
+        "summary": "The documentation now instructs administrators to uncheck **Expire user access tokens**.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/protect-github.md"
+        ]
+      },
+      {
+        "category": "New feature",
+        "title": "Defender for Identity",
+        "summary": "The documentation adds an assessment that identifies non-admin accounts able to reset passwords for sensitive or privileged groups, with guidance to review and restrict those permissions.",
+        "sourceFiles": [
+          "defender-for-identity/security-posture-assessments/accounts.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Exposure Management",
+        "summary": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available. Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions.",
+        "sourceFiles": [
+          "exposure-management/codename-mdash-faq.md",
+          "exposure-management/mdash-foundry-integration.md"
+        ]
       }
     ],
     "highlights": [
@@ -318,6 +447,21 @@
         "category": "New feature",
         "headline": "Microsoft Sentinel",
         "detail": "The documentation adds Microsoft Dataverse, Microsoft Power Automate, and Microsoft Power Platform Admin Activity connectors, including tables, prerequisites, and setup guidance. It also marks two Delinea tables as supporting DCRs and lake-only ingestion. The region table now separates data lake support for separate onboarding from workspace built-in lake tier onboarding, with guidance based on onboarding date and experience. It also documents differing supported regions and notes that built-in onboarding does not require separate data lake onboarding or billing setup. The documentation now limits the stated 90-day included retention to supported Microsoft Defender data. It also notes source"
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "The documentation now instructs administrators to uncheck **Expire user access tokens**."
+      },
+      {
+        "category": "New feature",
+        "headline": "Defender for Identity",
+        "detail": "The documentation adds an assessment that identifies non-admin accounts able to reset passwords for sensitive or privileged groups, with guidance to review and restrict those permissions."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Exposure Management",
+        "detail": "The FAQ now states that Codename MDASH automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable in a Microsoft Foundry region. This applies across all regions where MDASH is available. Codename MDASH now automatically uses GPT-5.4 when GPT-5.3-Codex is unavailable. GPT-5.4 remains required, and fallback does not cover runtime failures or throttling. MAI Cyber (Preview) must be deployed through Azure CLI and is limited to Global Standard deployments and supported regions."
       }
     ],
     "generatedBy": "fallback"
