@@ -1,0 +1,154 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "defender-endpoint/onboard-windows-multi-session-device.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/onboard-windows-multi-session-device.md b/defender-endpoint/onboard-windows-multi-session-device.md\nindex 3968c91..3c22c47 100644\n--- a/defender-endpoint/onboard-windows-multi-session-device.md\n+++ b/defender-endpoint/onboard-windows-multi-session-device.md\n@@ -145,7 +145,7 @@ Also, if you're using FSlogix user profiles, we recommend you follow the guidanc\n \r\n #### Licensing requirements\r\n \r\n-When using Windows Enterprise multi-session, per our security best practices the virtual machine can be licensed through Microsoft Defender for Servers or you can choose to have all Azure Virtual Desktop virtual machine users licensed through one of the following licenses:\r\n+When using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all users accessing the Azure Virtual Desktop virtual machines must be covered by one of the following licenses:\r\n \r\n - Microsoft Defender for Endpoint Plan 1 or Plan 2 (per user)\r\n - Windows Enterprise E3\r\n",
+      "baseCommitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 10:03:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/onboard-windows-multi-session-device.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/onboard-windows-multi-session-device",
+      "eventId": "defender-docs:f05a9b89e6b8e4fd8f95c841f5010d126607c141:modified:defender-endpoint/onboard-windows-multi-session-device.md",
+      "firstSeenAt": "2026-11-25T11:15:45.264Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "User licensing requirement clarified for Windows Enterprise multi-session",
+        "summary": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses.",
+        "adminImpact": "Ensure every user accessing these virtual machines is covered by an applicable license.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-endpoint/run-analyzer-macos.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 11,
+      "changes": 26,
+      "patch": "diff --git a/defender-endpoint/run-analyzer-macos.md b/defender-endpoint/run-analyzer-macos.md\nindex ea198a8..c8e3ac4 100644\n--- a/defender-endpoint/run-analyzer-macos.md\n+++ b/defender-endpoint/run-analyzer-macos.md\n@@ -18,6 +18,7 @@ ms.localizationpriority: medium\n ms.topic: troubleshooting-general\n ms.date: 2026-02-05T00:00:00.0000000Z\n ms.custom: partner-contribution\n+ai-usage: ai-assisted\n ms.collection:\n - m365-security\n - tier3\n@@ -64,32 +65,35 @@ Watch this video to get an overview of the client analyzer: [Defender for Endpoi\n     ```bash\r\n     curl -s -L -o XMDEClientAnalyzerBinary.zip \"https://aka.ms/XMDEClientAnalyzerBinary\"\r\n     ```\r\n-2. Verify the download.\r\n-\r\n-    ```bash\r\n-    echo '8707A2327A0B3D7AE6734D9CA34E116FC628DA23FDCA61C7BA7C7A9965F0BE34  XMDEClientAnalyzerBinary.zip' | shasum -a 256 -c\r\n-    ```\r\n-3. Extract the contents of `XMDEClientAnalyzerBinary.zip` on the machine.\r\n+2. Extract the contents of `XMDEClientAnalyzerBinary.zip` on the machine.\r\n \r\n     If you're using a terminal, extract the files by running the following command:\r\n \r\n     ```bash\r\n     unzip -q XMDEClientAnalyzerBinary.zip -d XMDEClientAnalyzerBinary\r\n     ```\r\n-4. Change to the tool's directory by running the following command:\r\n+3. Change to the tool's directory by running the following command:\r\n \r\n     ```bash\r\n     cd XMDEClientAnalyzerBinary/XMDEClientAnalyzer\r\n     ```\r\n-5. Notice that the following two zipped files are produced:\r\n+4. Notice that the following two zipped files are produced:\r\n \r\n     - `SupportToolLinuxBinary.zip`: For all Linux devices\r\n     - `SupportToolMacOSBinary.zip`: For Mac devices\r\n-6. Unzip the SupportToolMacOSBinary.zip.\r\n+5. Unzip the SupportToolMacOSBinary.zip.\r\n \r\n     ```bash\r\n      unzip -q SupportToolMacOSBinary.zip\r\n     ```\r\n+6. Verify the binary's code signature and display its signing information:\r\n+\r\n+    ```bash\r\n+    codesign --verify --strict --verbose=2 ./MDESupportTool\r\n+    codesign -dvvv ./MDESupportTool\r\n+    ```\r\n+\r\n+    Confirm that verification succeeds and the output includes `Authority=Developer ID Application: Microsoft Corporation (UBF8T346G9)` and `TeamIdentifier=UBF8T346G9`. Don't run the tool if verification fails or the signer doesn't match.\r\n 7. Run the tool as root to generate your diagnostic package:\r\n \r\n     ```bash\r\n@@ -118,12 +122,12 @@ Running the Python-based client analyzer requires the installation of PIP packag\n     - **Linux**:\r\n \r\n         ```bash\r\n-        echo 'CCADC17FDE907E63FBAF0A5F9D0FAA2FC6D03C49CBA62276BDE427D0F512167F  XMDEClientAnalyzer.zip' | sha256sum -c\r\n+        echo 'EA40B6D476DE007F8F27FA3188B7E5A6B85E08071B97522D8E3C5AA5DEDD12DE  XMDEClientAnalyzer.zip' | sha256sum -c\r\n         ```\r\n     - **macOS**:\r\n \r\n         ```bash\r\n-        echo 'CCADC17FDE907E63FBAF0A5F9D0FAA2FC6D03C49CBA62276BDE427D0F512167F  XMDEClientAnalyzer.zip' | shasum -a 256 -c\r\n+        echo 'EA40B6D476DE007F8F27FA3188B7E5A6B85E08071B97522D8E3C5AA5DEDD12DE  XMDEClientAnalyzer.zip' | shasum -a 256 -c\r\n         ```\r\n 3. Extract the contents of `XMDEClientAnalyzer.zip` on the machine.\r\n \r\n",
+      "baseCommitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 10:03:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/run-analyzer-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/run-analyzer-macos",
+      "eventId": "defender-docs:f05a9b89e6b8e4fd8f95c841f5010d126607c141:modified:defender-endpoint/run-analyzer-macos.md",
+      "firstSeenAt": "2026-11-25T11:15:45.271Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "macOS analyzer instructions add code-signature verification",
+        "summary": "The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure.",
+        "adminImpact": "Verify the binary with the provided codesign commands and do not run it if verification fails or the signer does not match.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/app-governance-app-policies-create.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 4,
+      "changes": 12,
+      "patch": "diff --git a/defender-for-cloud-apps/app-governance-app-policies-create.md b/defender-for-cloud-apps/app-governance-app-policies-create.md\nindex b1e3434..3bc7f15 100644\n--- a/defender-for-cloud-apps/app-governance-app-policies-create.md\n+++ b/defender-for-cloud-apps/app-governance-app-policies-create.md\n@@ -12,12 +12,12 @@ ms.author: andeshpande\n ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n-ms.date: 2026-11-16T00:00:00.0000000Z\n+ms.date: 2026-11-25T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: shragar\n description: Learn how to create app governance policies for OAuth apps in Microsoft 365, Google Workspace, and Salesforce to detect risk and take action.\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1030\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: d1ff15d1-1aeb-9cc2-dbc7-87a8b6d2e866\n document_version_independent_id: d1ff15d1-1aeb-9cc2-dbc7-87a8b6d2e866\n@@ -57,6 +57,10 @@ This article shows you how to create and configure OAuth app policies in app gov\n \r\n For apps connected to Microsoft Entra ID, create app policies from provided templates that can be customized, or create your own custom app policy.\r\n \r\n+Note\r\n+\r\n+You temporarily can't create app governance policies that use the **Last used** condition. Evaluation of existing policies that use this condition is also paused, so affected policies don't generate alerts or execute governance actions. Existing policy configurations remain unchanged, and policy evaluation will resume when normal operation is restored.\r\n+\r\n 1. To create a new app policy for Microsoft 365 apps, go to **Microsoft Defender** &gt; **App governance** &gt; **Policies** &gt; **Microsoft 365**.\r\n \r\n     For example:\r\n@@ -83,7 +87,7 @@ The following table lists the app governance templates supported to generate ale\n \r\n | Template name | Description |\r\n | --- | --- |\r\n-| **Unused app** | Find apps that have not authenticated recently. This policy checks the following conditions: <br>- Last used: More than 90 days (customizable) |\r\n+| **Unused app** | Temporarily unavailable. Find apps that have not authenticated recently. This policy checks the following conditions: <br>- Last used: More than 90 days (customizable) |\r\n | **New app with high data usage** | Find newly registered apps that have uploaded or downloaded large amounts of data using Microsoft Graph and EWS APIs. This policy checks the following conditions: <br>- Registration age: Seven days or less (customizable)<br>- Data usage: Greater than 1 GB in one day (customizable) |\r\n | **Increase in users** | Find apps with a sizable increase in the number of users. This policy checks the following conditions: <br>- Time range: Last 90 days<br>- Increase in consenting users: At least 50% (customizable) |\r\n \r\n@@ -163,7 +167,7 @@ Use a custom app policy when you need to do something not already done by one of\n     | **Sensitivity labels accessed** | Select one or more sensitivity labels from the list | Apps that accessed data with specific sensitivity labels in the last 30 days. |  |\r\n     | **Services accessed** (Graph only) | Exchange and/or OneDrive and/or SharePoint and/or Teams | Apps that have accessed OneDrive, SharePoint, or Exchange Online using Microsoft Graph and EWS APIs | Multiple selections allowed. |\r\n     | **Error rate** (Graph only) | Error rate is greater than X% in the last seven days | Apps whose Graph API error rates in the last seven days are greater than a specified percentage |  |\r\n-    | **Last used** | Within last X days | Apps that have not authenticated within a specified period from the current date |  |\r\n+    | **Last used** | Within last X days | Temporarily unavailable. Apps that have not authenticated within a specified period from the current date |  |\r\n     | **App origin** | External or Internal | Apps that originated within the tenant or registered in an external tenant |  |\r\n \r\n     All of the specified conditions must be met for this app policy to generate an alert.\r\n",
+      "baseCommitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 10:03:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/app-governance-app-policies-create.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-app-policies-create",
+      "eventId": "defender-docs:f05a9b89e6b8e4fd8f95c841f5010d126607c141:modified:defender-for-cloud-apps/app-governance-app-policies-create.md",
+      "firstSeenAt": "2026-11-25T11:15:45.283Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Last used app governance policies are temporarily unavailable",
+        "summary": "Administrators cannot create policies using the Last used condition. Evaluation of existing policies using it is paused, so they do not generate alerts or execute governance actions; their configurations remain unchanged.",
+        "adminImpact": "Policies using Last used may create monitoring and enforcement gaps while evaluation is paused. No required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md b/defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md\nindex cb83b0f..d04a4fa 100644\n--- a/defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md\n+++ b/defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md\n@@ -12,12 +12,12 @@ ms.author: abbyweisberg\n ms.collection: M365-security-compliance\n ms.service: defender-for-cloud-apps\n ms.suite: ems\n-ms.date: 2026-07-03T00:00:00.0000000Z\n+ms.date: 2026-11-25T00:00:00.0000000Z\n ms.topic: how-to\n description: Use app governance hygiene features to identify unused apps, manage unused credentials, and review expiring credentials in Microsoft Defender.\n ms.reviewer: anandd512\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1016\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: 7a9b916a-6d36-92bb-6dfa-2916a9d1fc16\n document_version_independent_id: 7a9b916a-6d36-92bb-6dfa-2916a9d1fc16\n@@ -68,6 +68,10 @@ App governance allows you to sort and filter on app last used date, credential u\n \r\n App governance provides customizable policies for unused apps, apps with unused credentials, and apps with expiring credentials.\r\n \r\n+Note\r\n+\r\n+You temporarily can't create app governance policies that use the **Last used** condition. Evaluation of existing policies that use this condition is also paused, so affected policies don't generate alerts or execute governance actions. Existing policy configurations remain unchanged, and policy evaluation will resume when normal operation is restored.\r\n+\r\n For example, create a policy to automatically disable any app that hasn’t been used in the past 90 days, has high privilege permissions, and can access [priority accounts in Microsoft 365](/en-us/microsoft-365/admin/setup/priority-accounts). Like all app governance alerts, these alerts are aggregated into incidents in your Defender alerts queue and flow to Advanced hunting and Microsoft Sentinel.\r\n \r\n The following image shows an example of policy conditions for an app hygiene policy:\r\n",
+      "baseCommitSha": "cfe40f7b362727be9134ae3e7dc0b3db9b068e71",
+      "commitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 10:03:50 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-secure-apps-app-hygiene-features",
+      "eventId": "defender-docs:f05a9b89e6b8e4fd8f95c841f5010d126607c141:modified:defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md",
+      "firstSeenAt": "2026-11-25T11:15:45.288Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "The Last used policy condition is temporarily unavailable",
+        "summary": "The documentation states that new policies cannot use the Last used condition, and existing policies using it are not evaluated. Their configurations remain unchanged.",
+        "adminImpact": "Affected policies will not generate alerts or execute governance actions while evaluation is paused.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Defender for Endpoint",
+        "summary": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses. The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure.",
+        "sourceFiles": [
+          "defender-endpoint/onboard-windows-multi-session-device.md",
+          "defender-endpoint/run-analyzer-macos.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Defender for Cloud Apps",
+        "summary": "Administrators cannot create policies using the Last used condition. Evaluation of existing policies using it is paused, so they do not generate alerts or execute governance actions; their configurations remain unchanged. The documentation states that new policies cannot use the Last used condition, and existing policies using it are not evaluated. Their configurations remain unchanged.",
+        "sourceFiles": [
+          "defender-for-cloud-apps/app-governance-app-policies-create.md",
+          "defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Defender for Endpoint",
+        "detail": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses. The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Defender for Cloud Apps",
+        "detail": "Administrators cannot create policies using the Last used condition. Evaluation of existing policies using it is paused, so they do not generate alerts or execute governance actions; their configurations remain unchanged. The documentation states that new policies cannot use the Last used condition, and existing policies using it are not evaluated. Their configurations remain unchanged."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
