@@ -104,27 +104,184 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/defender-endpoint/streamlined-device-connectivity-urls-commercial.md b/defender-endpoint/streamlined-device-connectivity-urls-commercial.md\nindex 88124c0..607068b 100644\n--- a/defender-endpoint/streamlined-device-connectivity-urls-commercial.md\n+++ b/defender-endpoint/streamlined-device-connectivity-urls-commercial.md\n@@ -81,7 +81,7 @@ To ensure successful onboarding, make sure that your devices meet all component\n | Web & network protection | 443 | \\*.smartscreen-prod.microsoft.com \\*.smartscreen.microsoft.com | Used for Microsoft Defender SmartScreen browsing protection, reporting, notifications, and web content filtering. Network/web protection and custom URL/IP indicators. | Required | Optional in disconnected environments where web browsing and connectivity to external destinations is limited. Required for custom URL/IP indicators. | All |\r\n | SmartScreen | 443 | \\*.smartscreen.microsoft.com \\*.checkappexec.microsoft.com \\*.urs.microsoft.com | Used for Microsoft Defender SmartScreen to check application execution for trusted apps | Optional | Needed for checking reputation/trust for downloaded applications | Windows |\r\n | Defender for Endpoint | 443 | reflector.defender.microsoft.com | Used by Microsoft Defender to probe IPv6 connectivity | Optional | Helps Microsoft Security Intelligence detect attacker activity. | All |\r\n-| Defender for Endpoint | 443 | https://config.edge.skype.com/config/v1 | Internal configuration management | Required | This URL must be allowed to enable Defender on Linux endpoints to receive internal configurations from the cloud.**Note**: The \"skype\" string in this URL is a legacy artifact, unrelated to Skype, and retained solely for backward compatibility. | Linux |\r\n+| Defender for Endpoint | 443 | https://config.edge.skype.com/config/v1  or, https://ecs.office.com/config/v1 | Internal configuration management | Required | This URL must be allowed to enable Defender on Linux endpoints to receive internal configurations from the cloud.**Note**: The \"skype\" or \"office\" string in this URL is a legacy artifact, unrelated to Skype or MS-Office, and retained solely for backward compatibility. | Linux |\r\n \r\n ## URLs used for updates\r\n \r\n",
+      "baseCommitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitSha": "c6288b47e06df7254214f13e766d61b7b8efe87f",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 22:43:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/streamlined-device-connectivity-urls-commercial",
+      "eventId": "defender-docs:c6288b47e06df7254214f13e766d61b7b8efe87f:modified:defender-endpoint/streamlined-device-connectivity-urls-commercial.md",
+      "firstSeenAt": "2026-11-25T23:05:22.147Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Alternative Linux configuration URL documented",
+        "summary": "The Defender for Endpoint connectivity table now lists https://ecs.office.com/config/v1 as an alternative to https://config.edge.skype.com/config/v1 for Linux internal configuration management.",
+        "adminImpact": "Review firewall or proxy allowlists to ensure at least one of the listed required URLs is allowed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 5,
+      "changes": 16,
+      "patch": "diff --git a/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md b/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md\nindex 4e75bab..1ac4025 100644\n--- a/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md\n+++ b/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md\n@@ -15,8 +15,8 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Learn how to identify SQL Server instances still using the legacy Microsoft Monitoring Agent (MMA) so you can deploy Azure Arc and migrate to the updated agent.\n ms.topic: how-to\n-ms.date: 2026-07-03T00:00:00.0000000Z\n-ms.custom: msecd-doc-authoring-1013\n+ms.date: 2026-11-25T00:00:00.0000000Z\n+ms.custom: msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: a3f709bd-79a3-a57a-8f8c-c3756ed607c9\n@@ -35,11 +35,11 @@ source_path: defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/cbe4ca68-43ac-4375-aba5-5945a6394c20\n - https://authoring-docs-microsoft.poolparty.biz/devrel/07bb3e10-d135-43ff-bc8b-360497cb39fa\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/8e3fdb08-a059-4277-98f6-c0e21e940707\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/beac614b-f66d-40ed-a947-3996de709333\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/ced846cc-6a3c-4c8f-9dfb-3de0e90e2742\n - https://authoring-docs-microsoft.poolparty.biz/devrel/12e559b9-eaf6-4aee-9af7-62334e15f863\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/88291526-9c74-4f87-878c-de0a82134421\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/9da05372-4706-43ec-a899-f436adab380d\n platformId: af64b92c-605a-cbd6-781a-adbeb40aa2e2\n ---\n \n@@ -57,6 +57,12 @@ Migrating to the updated agent might affect your pricing. For information regard\n \r\n You can identify SQL servers onboarded to the Defender for SQL Server on Machines plan with the legacy MMA in your environment without Azure Arc installed.\r\n \r\n+You can also use the [SQL Servers on Machines MMA Helper workbook](https://portal.azure.com/#blade/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Security%20Center/ConfigurationId/community-Workbooks%2FAzure%20Security%20Center%2FSQL%20Servers%20on%20Machines%20MMA%20Helper/WorkbookTemplateName/SQL%20Servers%20on%20Machines%20MMA%20Helper) in the Azure portal to identify machines protected by MMA.\r\n+\r\n+[![Screenshot of the SQL Servers on Machines MMA Helper workbook showing subscriptions, Log Analytics workspaces, and MMA-reporting machines.](media/identify-sql-servers-protected-by-mma/defender-for-sql-microsoft-monitoring-agent-workbook.png)](media/identify-sql-servers-protected-by-mma/defender-for-sql-microsoft-monitoring-agent-workbook.png#lightbox)\r\n+\r\n+To identify these machines by using Azure Resource Graph Explorer, follow these steps:\r\n+\r\n 1. Sign in to the [Azure portal](https://portal.azure.com).\r\n 2. Search for and select **Azure Resource Graph Explorer**.\r\n 3. Copy and paste the following query into the query window:\r\n@@ -96,7 +102,7 @@ You can identify SQL servers onboarded to the Defender for SQL Server on Machine\n 4. Select **Run query**.\r\n \r\n     [![Screenshot that shows the pasted query and where to find the Run query button.](media/identify-sql-servers-protected-by-mma/run-query.png)](media/identify-sql-servers-protected-by-mma/run-query.png#lightbox)\r\n-5. For any results returned, [connect hybrid machines with Azure Arc-enabled servers](/en-us/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).\r\n+5. For any results returned, [connect hybrid machines with Azure Arc-enabled servers](/en-us/azure/azure-arc/servers/learn/quick-enable-hybrid-vm). To deploy Azure Arc at scale, [connect machines using a service principal](/en-us/azure/azure-arc/servers/onboard-service-principal?tabs=portal).\r\n \r\n ## Learn more\r\n \r\n",
+      "baseCommitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitSha": "c6288b47e06df7254214f13e766d61b7b8efe87f",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 22:43:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent",
+      "eventId": "defender-docs:c6288b47e06df7254214f13e766d61b7b8efe87f:modified:defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+      "firstSeenAt": "2026-11-25T23:05:22.160Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Article adds workbook and Azure Resource Graph guidance",
+        "summary": "The article now links to the SQL Servers on Machines MMA Helper workbook, includes a screenshot, adds Azure Resource Graph Explorer steps, and provides a service-principal option for connecting machines with Azure Arc at scale.",
+        "adminImpact": "Administrators have additional ways to identify SQL servers protected by the Microsoft Monitoring Agent and connect machines through Azure Arc.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-cloud/multicloud-support-matrix.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/defender-for-cloud/multicloud-support-matrix.md b/defender-for-cloud/multicloud-support-matrix.md\nindex f5418f3..e90bba8 100644\n--- a/defender-for-cloud/multicloud-support-matrix.md\n+++ b/defender-for-cloud/multicloud-support-matrix.md\n@@ -15,9 +15,9 @@ manager: orspodek\n ms.service: defender-for-cloud\n description: Review Azure, AWS, and GCP support for Microsoft Defender for Cloud workload protection and security posture features to plan a multicloud deployment.\n ms.topic: limits-and-quotas\n-ms.date: 2026-09-11T00:00:00.0000000Z\n+ms.date: 2026-11-25T00:00:00.0000000Z\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1015\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: c9b5c0ed-9259-8884-0aea-adfd15c98ace\n document_version_independent_id: 6cfab17a-addf-7fef-c4b0-9db303973d7a\n@@ -65,7 +65,7 @@ Use the following table to verify Defender for Cloud plan coverage in multicloud\n | Defender for Containers | GA | GA | Kubernetes threat detection, container vulnerability assessment, control plane hardening | [Containers support matrix](support-matrix-defender-for-containers) |\r\n | Defender CSPM | GA | GA | Agentless posture assessment, attack path analysis, governance and risk prioritization | [Defender CSPM overview](concept-cloud-security-posture-management) |\r\n | Defender for SQL Servers on Machines | GA | GA | SQL threat detection and vulnerability assessment on multicloud machines | [Defender for SQL Servers on Machines overview](defender-for-sql-servers-introduction) |\r\n-| Defender for Open-Source Relational Databases | Preview | Not supported | Threat detection for PostgreSQL, MySQL, and MariaDB in supported environments | [Overview of Defender for Open-Source Relational Databases](defender-for-databases-introduction) |\r\n+| Defender for Open-Source Relational Databases | GA | Not supported | Threat detection for PostgreSQL, MySQL, and MariaDB in supported environments | [Overview of Defender for Open-Source Relational Databases](defender-for-databases-introduction) |\r\n | Defender for Azure SQL Databases | Not supported | Not supported | Threat detection and vulnerability assessment for Azure SQL services | [Defender for SQL overview](defender-for-sql-introduction) |\r\n | Defender for Azure Cosmos DB | Not supported | Not supported | Threat protection for Azure Cosmos DB workloads | [Defender for Azure Cosmos DB](concept-defender-for-cosmos) |\r\n | Defender for DevOps | GA | GA | CI/CD security posture, code-to-cloud insights, pull request annotations | [Defender for DevOps overview](defender-for-devops-introduction) |\r\n@@ -91,7 +91,7 @@ The following table provides a high-level view of Defender for Cloud plan availa\n | [Defender for Containers](defender-for-containers-introduction) | GA | GA | GA |\r\n | [Defender CSPM](concept-cloud-security-posture-management) | GA | GA | GA |\r\n | [Defender for SQL Servers on Machines](defender-for-sql-introduction) | GA | GA | GA |\r\n-| [Defender for Open-Source Relational Databases](defender-for-databases-introduction) | GA | Preview | Not supported |\r\n+| [Defender for Open-Source Relational Databases](defender-for-databases-introduction) | GA | GA | Not supported |\r\n | [Defender for Azure SQL Databases](defender-for-sql-introduction) | GA | Not supported | Not supported |\r\n | [Defender for Azure Cosmos DB](concept-defender-for-cosmos) | GA | Not supported | Not supported |\r\n | [Defender for DevOps](defender-for-devops-introduction) | GA | GA | GA |\r\n@@ -222,7 +222,7 @@ Defender for Databases provides threat detection for database services. Multiclo\n | --- | --- | --- | --- |\r\n | Defender for Azure SQL Databases | GA | Not supported | Not supported |\r\n | Defender for SQL Servers on Machines | GA | GA | GA |\r\n-| Defender for Open-Source Relational Databases | GA | Preview | Not supported |\r\n+| Defender for Open-Source Relational Databases | GA | GA | Not supported |\r\n | Defender for Azure Cosmos DB | GA | Not supported | Not supported |\r\n \r\n Note\r\n",
+      "baseCommitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitSha": "c6288b47e06df7254214f13e766d61b7b8efe87f",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 22:43:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-cloud/multicloud-support-matrix.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/multicloud-support-matrix",
+      "eventId": "defender-docs:c6288b47e06df7254214f13e766d61b7b8efe87f:modified:defender-for-cloud/multicloud-support-matrix.md",
+      "firstSeenAt": "2026-11-25T23:05:22.175Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Support matrix updates relational database protection status",
+        "summary": "The matrix changes Defender for Open-Source Relational Databases from Preview to GA in the affected entries. It continues to cover threat detection for PostgreSQL, MySQL, and MariaDB in supported environments.",
+        "adminImpact": "Use the updated matrix when assessing multicloud database protection coverage. No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-for-identity/whats-new.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "patch": "diff --git a/defender-for-identity/whats-new.md b/defender-for-identity/whats-new.md\nindex c0a21cc..710e3dd 100644\n--- a/defender-for-identity/whats-new.md\n+++ b/defender-for-identity/whats-new.md\n@@ -68,6 +68,13 @@ The known limitation announced in the October 2026 update is now resolved for go\n \r\n ## October 2026\r\n \r\n+### Retirement of two security alerts\r\n+\r\n+The following Defender for Identity alerts will be retired at the end of November 2026:\r\n+\r\n+- **Suspected identity theft (pass-the-hash)**: You can continue monitoring this activity on onboarded devices with Microsoft Defender for Endpoint. For more information, see [Behavioral blocking and containment](/en-us/defender-endpoint/behavioral-blocking-containment).\r\n+- **Remote code execution attempt**: You can continue monitoring this activity by creating custom detections in Advanced hunting. The query will be published in the Microsoft Defender XDR Community hub soon. For more information, see [Microsoft Defender for Identity classic alerts](/en-us/defender-for-identity/alerts-mdi-classic).\r\n+\r\n ### Automatic sensor v3.x activation and Windows auditing for existing customers\r\n \r\n This rollout applies only to organizations that are licensed for Defender for Identity and have an active workspace. Eligible organizations included in the rollout see a banner on the **Sensor management** tab of the **On-premises** settings page for 30 days.\r\n",
+      "baseCommitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitSha": "c6288b47e06df7254214f13e766d61b7b8efe87f",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 22:43:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-for-identity/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-for-identity/whats-new",
+      "eventId": "defender-docs:c6288b47e06df7254214f13e766d61b7b8efe87f:modified:defender-for-identity/whats-new.md",
+      "firstSeenAt": "2026-11-25T23:05:22.186Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Two Defender for Identity alerts will be unavailable after November 2026",
+        "summary": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts will be retired at the end of November 2026. Monitoring alternatives are Microsoft Defender for Endpoint behavioral blocking and containment, or custom detections in Advanced hunting.",
+        "adminImpact": "Administrators relying on these alerts should transition monitoring before the deadline.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md b/defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md\nindex b75ba39..f06bbf4 100644\n--- a/defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md\n+++ b/defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md\n@@ -21,7 +21,7 @@ ms.custom:\n - cx-ti\n - cx-ah\n ms.topic: reference\n-ms.date: 2026-06-29T00:00:00.0000000Z\n+ms.date: 2026-07-13T00:00:00.0000000Z\n locale: en-us\n document_id: 17e24ad7-d9eb-581d-6ec9-9d9897bd5ddc\n document_version_independent_id: 17e24ad7-d9eb-581d-6ec9-9d9897bd5ddc\n@@ -72,6 +72,7 @@ Some information relates to prereleased product which may be substantially modif\n | `Action` | `string` | Action taken on the entity |\r\n | `ActionType` | `string` | Type of activity that triggered the event: Manual remediation, Phish ZAP, Malware ZAP |\r\n | `ActionTrigger` | `string` | Indicates whether an action was triggered by an administrator (manually or through approval of a pending automated action), or by some special mechanism, such as a ZAP or Dynamic Delivery |\r\n+| `ApproverUpn` | `string` | User principal name (UPN) of the person who approved the remediation action |\r\n | `ActionResult` | `string` | Result of the action |\r\n | `RecipientEmailAddress` | `string` | Email address of the recipient, or email address of the recipient after distribution list expansion |\r\n | `DeliveryLocation` | `string` | Location where the email was delivered: Inbox/Folder, On-premises/External, Junk, Quarantine, Failed, Dropped, Deleted items |\r\n",
+      "baseCommitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitSha": "c6288b47e06df7254214f13e766d61b7b8efe87f",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 22:43:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-emailpostdeliveryevents-table",
+      "eventId": "defender-docs:c6288b47e06df7254214f13e766d61b7b8efe87f:modified:defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md",
+      "firstSeenAt": "2026-11-25T23:05:22.196Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "EmailPostDeliveryEvents documentation adds ApproverUpn",
+        "summary": "The table documentation now lists the ApproverUpn string column, which contains the UPN of the person who approved a remediation action. The page date was also updated.",
+        "adminImpact": "Administrators can reference ApproverUpn when querying approval details for remediation actions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\nindex d2d3c92..1035d51 100644\n--- a/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n+++ b/defender-xdr/security-for-ai/ai-agent-real-time-protection.md\n@@ -71,6 +71,10 @@ Real-time protection inspects AI agent activity throughout the agentic loop and\n - **Foundry agents (Preview):** Protection evaluates user requests, agent responses, tool invocations and responses.\r\n - **Copilot Studio agents (Preview)**: Protection currently evaluates tool invocations only.\r\n \r\n+Note\r\n+\r\n+Real-time protection for Copilot Studio agents is supported only for agents built using the standard agent harness.\r\n+\r\n There are two types of real-time protection rules:\r\n \r\n - **Default rule**: Audits all agents, recording matching activity as a behavior without stopping the action. This gives you visibility before you enforce blocking.\r\n",
+      "baseCommitSha": "f05a9b89e6b8e4fd8f95c841f5010d126607c141",
+      "commitSha": "c6288b47e06df7254214f13e766d61b7b8efe87f",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 22:43:59 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/ai-agent-real-time-protection",
+      "eventId": "defender-docs:c6288b47e06df7254214f13e766d61b7b8efe87f:modified:defender-xdr/security-for-ai/ai-agent-real-time-protection.md",
+      "firstSeenAt": "2026-11-25T23:05:22.206Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Real-time protection support is limited to standard-harness agents",
+        "summary": "The documentation now states that real-time protection for Copilot Studio agents is supported only when agents use the standard agent harness.",
+        "adminImpact": "When planning protection for Copilot Studio agents, administrators should verify that the agents use the standard agent harness.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 4,
+    "totalCommits": 2,
+    "totalFiles": 10,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Defender documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
         "title": "Defender for Endpoint",
-        "summary": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses. The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure.",
+        "summary": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses. The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure. The Defender for Endpoint connectivity table now lists https://ecs.office.com/config/v1 as an alternative to https://config.edge.skype.com/config/v1 for Linux internal configuration management.",
         "sourceFiles": [
           "defender-endpoint/onboard-windows-multi-session-device.md",
-          "defender-endpoint/run-analyzer-macos.md"
+          "defender-endpoint/run-analyzer-macos.md",
+          "defender-endpoint/streamlined-device-connectivity-urls-commercial.md"
         ]
       },
       {
@@ -135,18 +292,59 @@
           "defender-for-cloud-apps/app-governance-app-policies-create.md",
           "defender-for-cloud-apps/app-governance-secure-apps-app-hygiene-features.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender for Cloud",
+        "summary": "The article now links to the SQL Servers on Machines MMA Helper workbook, includes a screenshot, adds Azure Resource Graph Explorer steps, and provides a service-principal option for connecting machines with Azure Arc at scale. The matrix changes Defender for Open-Source Relational Databases from Preview to GA in the affected entries. It continues to cover threat detection for PostgreSQL, MySQL, and MariaDB in supported environments.",
+        "sourceFiles": [
+          "defender-for-cloud/identify-sql-servers-protected-by-monitor-agent.md",
+          "defender-for-cloud/multicloud-support-matrix.md"
+        ]
+      },
+      {
+        "category": "Retirement",
+        "title": "Defender for Identity",
+        "summary": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts will be retired at the end of November 2026. Monitoring alternatives are Microsoft Defender for Endpoint behavioral blocking and containment, or custom detections in Advanced hunting.",
+        "sourceFiles": [
+          "defender-for-identity/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Defender XDR",
+        "summary": "The table documentation now lists the ApproverUpn string column, which contains the UPN of the person who approved a remediation action. The page date was also updated. The documentation now states that real-time protection for Copilot Studio agents is supported only when agents use the standard agent harness.",
+        "sourceFiles": [
+          "defender-xdr/advanced-hunting-emailpostdeliveryevents-table.md",
+          "defender-xdr/security-for-ai/ai-agent-real-time-protection.md"
+        ]
       }
     ],
     "highlights": [
       {
         "category": "Feature update",
         "headline": "Defender for Endpoint",
-        "detail": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses. The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure."
+        "detail": "The documentation now states that, when using Windows Enterprise multi-session with Microsoft Defender for Endpoint, all Azure Virtual Desktop users must have one of the listed licenses. The documentation now instructs administrators to verify the MDESupportTool signature and Microsoft signer details before running it. It also updates the documented SHA-256 hash and renumbers the procedure. The Defender for Endpoint connectivity table now lists https://ecs.office.com/config/v1 as an alternative to https://config.edge.skype.com/config/v1 for Linux internal configuration management."
       },
       {
         "category": "Feature update",
         "headline": "Defender for Cloud Apps",
         "detail": "Administrators cannot create policies using the Last used condition. Evaluation of existing policies using it is paused, so they do not generate alerts or execute governance actions; their configurations remain unchanged. The documentation states that new policies cannot use the Last used condition, and existing policies using it are not evaluated. Their configurations remain unchanged."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender for Cloud",
+        "detail": "The article now links to the SQL Servers on Machines MMA Helper workbook, includes a screenshot, adds Azure Resource Graph Explorer steps, and provides a service-principal option for connecting machines with Azure Arc at scale. The matrix changes Defender for Open-Source Relational Databases from Preview to GA in the affected entries. It continues to cover threat detection for PostgreSQL, MySQL, and MariaDB in supported environments."
+      },
+      {
+        "category": "Retirement",
+        "headline": "Defender for Identity",
+        "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts will be retired at the end of November 2026. Monitoring alternatives are Microsoft Defender for Endpoint behavioral blocking and containment, or custom detections in Advanced hunting."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Defender XDR",
+        "detail": "The table documentation now lists the ApproverUpn string column, which contains the UPN of the person who approved a remediation action. The page date was also updated. The documentation now states that real-time protection for Copilot Studio agents is supported only when agents use the standard agent harness."
       }
     ],
     "generatedBy": "fallback"

@@ -9215,37 +9215,49 @@
       }
     },
     "2026-11-25": {
-      "headline": "App Governance guidance: Last used policies cannot be created and existing evaluation is paused",
-      "overview": "The period’s most consequential update concerns Cloud Apps App Governance: guidance now says policies using the Last used condition cannot be created, while existing policies using it are not evaluated. Those policies retain their configurations but generate no alerts or execute governance actions while evaluation is paused. Endpoint guidance also adds MDESupportTool signature verification and clarifies licensing for Windows Enterprise multi-session Azure Virtual Desktop users.",
-      "adminImpact": "Review App Governance policies using Last used for monitoring and enforcement gaps; no required configuration change is stated. Before running MDESupportTool, use the provided codesign checks to verify the binary and Microsoft signer details, and confirm the documented SHA-256 hash. For Windows Enterprise multi-session deployments with Microsoft Defender for Endpoint, ensure every Azure Virtual Desktop user has one of the listed licenses.",
+      "headline": "Identity Protection alerts retire this month as Cloud Apps pauses Last used evaluation",
+      "overview": "Identity Protection will retire the Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts at the end of November 2026. Cloud Apps has paused evaluation of existing policies using Last used and blocks creation of new ones, leaving affected policies unable to generate alerts or execute governance actions. The period also moves Defender for Open-Source Relational Databases entries from Preview to GA, limits Copilot Studio real-time protection to the standard agent harness, and adds verification guidance for the macOS support tool.",
+      "adminImpact": "Migrate monitoring for the retiring Identity Protection alerts before month-end using Microsoft Defender for Endpoint behavioral blocking and containment or custom detections in Advanced hunting. Review Cloud Apps policies that use Last used because their configurations remain unchanged while alerting and governance actions are paused. For other changes, use the updated database matrix for coverage decisions, verify Copilot Studio agents use the standard agent harness, and validate the macOS tool signature, Microsoft signer, and documented SHA-256 hash before execution.",
       "keyChanges": [
         {
-          "title": "App Governance limits the Last used condition",
-          "detail": "The guidance says administrators cannot create policies using Last used. Existing policies using that condition are not evaluated, so they do not generate alerts or execute governance actions; their configurations remain unchanged while evaluation is paused.",
+          "title": "Two Identity Protection alert types are scheduled for month-end retirement",
+          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts will be retired at the end of November 2026. Microsoft Defender for Endpoint behavioral blocking and containment, or custom detections in Advanced hunting, are identified as monitoring alternatives.",
+          "product": "Identity",
+          "sourceId": "doc-2026-11-25-whats-new-08"
+        },
+        {
+          "title": "Cloud Apps pauses evaluation of policies using Last used",
+          "detail": "Administrators cannot create policies with the Last used condition. Existing policies that use it remain configured, but evaluation is paused, so they do not generate alerts or execute governance actions.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-11-25-app-governance-app-policies-create-03"
         },
         {
-          "title": "MDESupportTool verification now requires signature and signer checks",
-          "detail": "The Run Analyzer Macos procedure instructs administrators to verify the MDESupportTool signature and Microsoft signer details with the provided codesign commands. It also updates the documented SHA-256 hash and renumbers the procedure. Do not run the tool if verification fails or the signer does not match.",
-          "product": "Endpoint",
-          "sourceId": "doc-2026-11-25-run-analyzer-macos-02"
+          "title": "Defender for Cloud marks relational database protection entries GA",
+          "detail": "The affected Multicloud Support Matrix entries change Defender for Open-Source Relational Databases from Preview to GA. The coverage continues to include threat detection for PostgreSQL, MySQL, and MariaDB in supported environments.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-25-multicloud-support-matrix-07"
         },
         {
-          "title": "Multi-session Azure Virtual Desktop guidance adds an all-user licensing requirement",
-          "detail": "The onboarding guidance states that when Windows Enterprise multi-session is used with Microsoft Defender for Endpoint, every Azure Virtual Desktop user accessing the virtual machines must have one of the listed licenses.",
+          "title": "Copilot Studio real-time protection requires the standard agent harness",
+          "detail": "Real-time protection for Copilot Studio agents is supported only when the agents use the standard agent harness. Administrators should verify the harness used by protected agents.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-11-25-ai-agent-real-time-protection-10"
+        },
+        {
+          "title": "macOS analyzer guidance adds signature and signer verification",
+          "detail": "The Run Analyzer procedure now requires administrators to verify the MDESupportTool signature and Microsoft signer details before running it, using the documented codesign commands. The documented SHA-256 hash was also updated and the procedure renumbered.",
           "product": "Endpoint",
-          "sourceId": "doc-2026-11-25-onboard-windows-multi-session-device-01"
+          "sourceId": "doc-2026-11-25-run-analyzer-macos-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T11:15:58.494Z",
+      "generatedAt": "2026-11-25T23:05:37.676Z",
       "usage": {
-        "inputTokens": 1374,
-        "outputTokens": 1999,
-        "costUsd": 0.002674
+        "inputTokens": 2134,
+        "outputTokens": 2714,
+        "costUsd": 0.003684
       }
     }
   },
@@ -11144,49 +11156,49 @@
       }
     },
     "2026-11-23": {
-      "headline": "Defender XDR's AI-agent onboarding retires December 2; blocking settings won't migrate automatically",
-      "overview": "The dominant administrator story is a deadline and a control gap: Defender XDR's existing AI-agent real-time protection onboarding retires December 2, 2026, blocking settings will not migrate automatically, and action is required by December 23 to keep protection enabled for Copilot Studio agents. In Cloud Apps, policies using Last used are not evaluated and cannot generate alerts or governance actions. Sentinel's revised retention guidance also limits the stated 90-day inclusion to supported Microsoft Defender data, points to January 3, 2027 for an expected full 90-day history, and notes additional charges based on ingestion and retention.",
-      "adminImpact": "Treat December 23 as the AI-agent protection transition deadline and do not assume blocking settings will carry over. Inventory Cloud Apps policies using Last used and account for their lack of alerts or governance actions while evaluation is paused. Review Sentinel retention and budget assumptions against supported Defender sources, source-dependent retention, Preview tables, the expected January 3 history milestone, and additional charges.",
+      "headline": "Copilot Studio protection onboarding retires December 2, with migration action due December 23",
+      "overview": "Defender administrators face two near-term protection and monitoring deadlines. The Copilot Studio agent protection onboarding retires on December 2 without automatic migration of blocking settings, while two Identity alerts retire at the end of November. App Governance also pauses evaluation of policies using the Last used condition; meanwhile, Defender for Cloud marks open-source relational database protection as GA and Defender XDR adds preview capabilities for custom detection rules.",
+      "adminImpact": "Prioritize the Identity monitoring transition before the end of November and review Copilot Studio protection settings against the December 23 deadline. Audit App Governance policies that use Last used because they will not generate alerts or execute governance actions while evaluation is paused. Use the updated Defender for Cloud status and custom detection capabilities when planning coverage and incident-noise reduction.",
       "keyChanges": [
         {
-          "title": "Defender XDR AI-agent onboarding has a December 2 retirement and December 23 deadline",
-          "detail": "The updated guidance says the existing onboarding experience retires December 2, 2026, and its blocking settings will not migrate automatically. Administrators must take action by December 23, 2026 to keep real-time protection enabled for Copilot Studio agents.",
+          "title": "Copilot Studio real-time protection onboarding is retiring",
+          "detail": "The existing onboarding experience retires on December 2, 2026, and its blocking settings will not migrate automatically. Administrators are instructed to take action by December 23, 2026, to keep real-time protection enabled for Copilot Studio agents.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-11-24-ai-agent-real-time-protection-05"
         },
         {
-          "title": "Cloud Apps pauses Last used policy evaluation and blocks new policies",
-          "detail": "New App Governance policies cannot use Last used. Existing policies using it are not evaluated, so they do not generate alerts or execute governance actions; their configurations remain unchanged. Affected policies therefore represent a potential monitoring and enforcement gap.",
+          "title": "Two Identity alerts retire at November’s end",
+          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts are scheduled for retirement at the end of November 2026. Microsoft points administrators to Defender for Endpoint behavioral blocking and containment or custom detections in Advanced hunting as monitoring alternatives.",
+          "product": "Identity",
+          "sourceId": "doc-2026-11-25-whats-new-08"
+        },
+        {
+          "title": "App Governance pauses policies that use Last used",
+          "detail": "New policies cannot use the Last used condition. Existing policies that use it are not evaluated, so they generate no alerts and execute no governance actions; their configurations remain unchanged.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-11-25-app-governance-app-policies-create-03"
         },
         {
-          "title": "Sentinel's revised guidance narrows the documented 90-day retention scope",
-          "detail": "The stated 90-day included retention now applies only to supported Microsoft Defender data. Retention is source-dependent, several tables are marked Preview, full 90-day history is expected by January 3, 2027, and additional charges are based on ingestion and retention.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-11-24-manage-table-tiers-retention-isoc-08"
-        },
-        {
-          "title": "Custom detection previews add alert grouping and richer entity mapping",
-          "detail": "The November 17, 2026 preview additions group related alerts from the same rule into one incident and support mapping up to four identifiers per entity, including repeated entity types. Administrators can use these previews to reduce related-alert noise and provide more entity context.",
+          "title": "Custom detection rules gain preview alert grouping and richer mapping",
+          "detail": "Preview capabilities starting November 17, 2026 group related alerts from the same rule into one incident and support mapping up to four identifiers per entity, including repeated entity types.",
           "product": "Defender XDR",
           "sourceId": "doc-2026-11-23-whats-new-08"
         },
         {
-          "title": "MDASH falls back to GPT-5.4 when GPT-5.3-Codex is unavailable",
-          "detail": "GPT-5.4 remains required, and the fallback does not cover runtime failures or throttling. For MAI Cyber (Preview), deployment must use Azure CLI and is limited to Global Standard deployments and supported regions; GPT-5.3-Codex no longer needs to be deployed.",
-          "product": "Exposure Management",
-          "sourceId": "doc-2026-11-24-mdash-foundry-integration-13"
+          "title": "Open-source relational database protection moves from Preview to GA",
+          "detail": "The Defender for Cloud multicloud support matrix changes Defender for Open-Source Relational Databases from Preview to GA in the affected entries. The documented coverage includes threat detection for PostgreSQL, MySQL, and MariaDB in supported environments.",
+          "product": "Defender for Cloud",
+          "sourceId": "doc-2026-11-25-multicloud-support-matrix-07"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T11:15:58.494Z",
+      "generatedAt": "2026-11-25T23:05:37.676Z",
       "usage": {
-        "inputTokens": 4539,
-        "outputTokens": 9730,
-        "costUsd": 0.012584
+        "inputTokens": 5269,
+        "outputTokens": 3715,
+        "costUsd": 0.005512
       }
     }
   },
@@ -11610,54 +11622,54 @@
       }
     },
     "2026-11": {
-      "headline": "Defender RBAC auto-enablement and Sentinel ISOC preview set November priorities",
-      "overview": "November’s most consequential changes centered on access control, platform transition, and retiring detection coverage rather than a broad feature wave. Defender RBAC is scheduled to auto-enable in December 2026, while new Sentinel guidance covers the preview ISOC transition and its workspace, reversibility, and billing implications. Microsoft also documented the end-of-November retirement of two classic Defender for Identity alerts and a December shift from AND to OR recipient matching when multiple recipient types are specified in Defender for Office 365 policies. Much of the remaining activity involved terminology, navigation, schema, and reference maintenance.",
-      "adminImpact": "Use the remaining preparation window to review imported Defender RBAC roles and explicitly assign Microsoft Entra Security Operator permissions where access to email threat policies or the Tenant/Allow Block List must continue. Before opting into ISOC, verify eligibility, permissions, workspace requirements, transition limits, and billing consequences. Replace dependencies on the two retiring identity alerts with the documented Defender for Endpoint or Advanced Hunting alternatives, and review recipient-scoped policies before modifying them after the December rollout.",
+      "headline": "Unified Defender RBAC auto-enablement and Sentinel ISOC’s irreversible transition lead December preparation",
+      "overview": "November’s most consequential changes affect access control and Sentinel operations. Microsoft Defender RBAC will auto-enable starting in December 2026, while the Microsoft Entra Security Operator mapping will lose default access to Defender for Office 365 email threat policies and the Tenant/Allow Block List. New Sentinel guidance documents the ISOC preview, including workspace prerequisites, a permanent tenant-wide transition, changed billing considerations, and a validation path for converting eligible analytics rules into custom detections. Two Defender for Identity classic alerts retire by late November, and Defender for Office 365 Plan 2 is rolling out a Move to Quarantine remediation action. Most other supplied changes are terminology, schema, navigation, and reference maintenance.",
+      "adminImpact": "Review imported Defender RBAC roles before activation and explicitly reassign Security Operator permissions where continued access to email threat policies or the Tenant/Allow Block List is required. Before opting into ISOC, verify eligibility, permissions, workspace connections, tenant-wide consequences, and pricing or data-benefit changes. Keep original Sentinel analytics rules enabled until migrated custom detections and dependent automation are validated. Replace the retiring identity-alert coverage with Defender for Endpoint monitoring or custom detections before the late-November retirement. Move to Quarantine requires no rollout action, but reviewing relevant policies and roles is recommended.",
       "keyChanges": [
         {
-          "title": "Defender RBAC will auto-enable in December 2026",
-          "detail": "Microsoft says the new Defender RBAC model will be enabled automatically starting in December 2026. Existing roles will be imported for review before activation about 30 days after notification; administrators can adjust roles and opt out after activation. The model unifies access management for Defender and Sentinel, while permissions for other Microsoft services remain unchanged.",
+          "title": "Microsoft Defender RBAC will auto-enable from December 2026",
+          "detail": "The unified Defender RBAC model will be enabled automatically beginning in December 2026. Existing roles will be imported for review, activation follows about 30 days after notification, and an opt-out is available after activation. The model unifies Defender and Sentinel access management; permissions for other Microsoft services remain unchanged.",
           "product": "Defender XDR",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Security Operator loses default access to key Defender for Office 365 controls",
-          "detail": "From December 2026, the Unified RBAC mapping for the Microsoft Entra Security Operator role will no longer provide default access to email threat policies or the Tenant/Allow Block List. Administrators must manually assign the required permissions where that access needs to continue.",
+          "title": "Security Operator mapping drops default access to key email controls",
+          "detail": "Starting in December 2026, the Microsoft Defender for Office 365 Unified RBAC mapping for the Microsoft Entra Security Operator role removes default access to email threat policies and the Tenant/Allow Block List. Administrators must assign the permissions manually if that access is still needed.",
           "product": "Defender XDR",
           "sourceId": "MC1486293"
         },
         {
-          "title": "Sentinel documents a preview transition to Integrated Security Operations Center",
-          "detail": "New guidance explains how an existing Microsoft Sentinel deployment can transition to ISOC, which is identified as being in preview. It calls out eligibility and permissions, workspace connection requirements, permanent limits on the transition, and billing changes that administrators should assess before opting in.",
+          "title": "ISOC preview requires an irreversible, tenant-wide transition decision",
+          "detail": "New Sentinel guidance explains how to transition an existing deployment into the Integrated Security Operations Center preview. Administrators must verify prerequisites and permissions and connect all workspaces; the transition has permanent, tenant-wide implications and changes billing, pricing, and data-benefit considerations.",
           "product": "Sentinel",
           "sourceId": "doc-2026-11-17-transition-an-existing-microsoft-sentinel-deployment-to-isoc-microsoft-learn-08"
         },
         {
-          "title": "Two classic Defender for Identity alerts retire at November’s end",
-          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt classic alerts are scheduled for retirement at the end of November 2026. Microsoft’s documented alternatives are Defender for Endpoint behavioral blocking and containment, along with custom detections in Advanced hunting.",
-          "product": "Identity",
-          "sourceId": "doc-2026-11-18-alerts-mdi-classic-07"
+          "title": "Sentinel guidance sets a validation-first analytics-rule migration path",
+          "detail": "The new procedure explains how to use the SOC optimization migration tool to convert eligible Sentinel analytics rules into custom detections. Original rules remain enabled while administrators validate alerts and dependent automation; they should be disabled only after validation, using the documented permissions and prerequisites.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-11-17-automatically-migrate-microsoft-sentinel-analytics-rules-to-custom-detections-microsoft-learn-05"
         },
         {
-          "title": "Recipient matching changes to OR when multiple types are specified",
-          "detail": "In December 2026, Defender for Office 365 threat-protection policies will use Match any (OR) instead of Match all (AND) when multiple recipient types are specified. The broader scope applies when a policy is modified; existing policies are not automatically converted.",
-          "product": "Defender XDR",
-          "sourceId": "MC1546447"
+          "title": "Two Defender for Identity classic alerts retire by late November",
+          "detail": "Remote code execution attempt and pass-the-hash classic alerts are scheduled for retirement by late November 2026. Microsoft points administrators to custom detection rules for RCE monitoring and Defender for Endpoint behavioral blocking and containment for pass-the-hash coverage.",
+          "product": "Identity",
+          "sourceId": "MC1552387"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T11:15:58.494Z",
+      "generatedAt": "2026-11-25T23:05:37.676Z",
       "usage": {
-        "inputTokens": 7096,
-        "outputTokens": 5367,
-        "costUsd": 0.00786
+        "inputTokens": 7047,
+        "outputTokens": 7490,
+        "costUsd": 0.010397
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-25T11:15:58.494Z",
+  "generatedAt": "2026-11-25T23:05:37.676Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -11868,22 +11880,22 @@
       "costUsd": 0.087924
     },
     "2026-11-25": {
-      "inputTokens": 13009,
-      "outputTokens": 17096,
-      "requests": 3,
-      "costUsd": 0.023117
+      "inputTokens": 27459,
+      "outputTokens": 31015,
+      "requests": 6,
+      "costUsd": 0.04271
     }
   },
   "lastRun": {
-    "inputTokens": 13009,
-    "outputTokens": 17096,
+    "inputTokens": 14450,
+    "outputTokens": 13919,
     "requests": 3,
-    "costUsd": 0.023117
+    "costUsd": 0.019593
   },
   "totalUsage": {
-    "inputTokens": 1898907,
-    "outputTokens": 1816944,
-    "requests": 388,
-    "costUsd": 2.560109
+    "inputTokens": 1913357,
+    "outputTokens": 1830863,
+    "requests": 391,
+    "costUsd": 2.579702
   }
 }
