@@ -9259,6 +9259,46 @@
         "outputTokens": 2714,
         "costUsd": 0.003684
       }
+    },
+    "2026-11-26": {
+      "headline": "Endpoint export guidance adds preview `$filter`; device inventory guidance covers GA domain filtering",
+      "overview": "This was a focused Microsoft Defender for Endpoint documentation period. The substantive changes are new guidance for server-side `$filter` on supported JSON assessment-export methods, an end-to-end assessment download procedure, and documentation identifying Active Directory domain filtering in device inventory as generally available. Several existing assessment API pages now link to the download workflow, with no configuration change indicated.",
+      "adminImpact": "API integrations can reduce returned data, transfer, and processing work with `$filter`, but existing licensing, permissions, device-group access, and rate limits still apply; `$filter` is not an access-control boundary. Export automations should request URLs, check asynchronous Azure Blob copy status, retry when necessary, and protect SAS URLs as credentials. Investigators can narrow device inventory by Active Directory domain and account for blank Domain values where devices are not domain-joined or domain information is unavailable.",
+      "keyChanges": [
+        {
+          "title": "Server-side filtering is documented for assessment export APIs in Preview",
+          "detail": "The new guidance uses the `$filter` query parameter with supported JSON export methods to narrow records before they are returned. Existing licensing, permissions, device-group access, and rate limits remain applicable, and `$filter` must not be used as an access-control boundary.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-11-26-use-server-side-filtering-with-export-assessment-apis-preview-microsoft-defender-for-endpoint-mi-02"
+        },
+        {
+          "title": "Assessment exports get an asynchronous, retry-aware download workflow",
+          "detail": "New guidance explains how to request assessment export URLs, check asynchronous Azure Blob copy status, retry when needed, and download every file in an assessment snapshot. It also covers supported assessment endpoints, SAS URL handling, permissions, and rate limits.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-11-26-download-assessment-export-files-microsoft-defender-for-endpoint-microsoft-learn-01"
+        },
+        {
+          "title": "Active Directory domain filtering is identified as GA in device inventory",
+          "detail": "The Endpoint What's New guidance now documents device-inventory filtering by Active Directory domain and marks the domain-filtering capability as generally available.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-11-26-whats-new-in-microsoft-defender-endpoint-09"
+        },
+        {
+          "title": "The Domain field reference clarifies values and filter entry options",
+          "detail": "The Domain field represents the Active Directory domain joined to a device. It can be blank for non-domain-joined devices or unavailable domain information, and administrators can enter free text or select from discovered domains.",
+          "product": "Microsoft Defender for Endpoint",
+          "sourceId": "doc-2026-11-26-device-inventory-field-reference-08"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-26T10:52:15.476Z",
+      "usage": {
+        "inputTokens": 2044,
+        "outputTokens": 3676,
+        "costUsd": 0.00482
+      }
     }
   },
   "weeks": {
@@ -11156,49 +11196,49 @@
       }
     },
     "2026-11-23": {
-      "headline": "Copilot Studio protection onboarding retires December 2, with migration action due December 23",
-      "overview": "Defender administrators face two near-term protection and monitoring deadlines. The Copilot Studio agent protection onboarding retires on December 2 without automatic migration of blocking settings, while two Identity alerts retire at the end of November. App Governance also pauses evaluation of policies using the Last used condition; meanwhile, Defender for Cloud marks open-source relational database protection as GA and Defender XDR adds preview capabilities for custom detection rules.",
-      "adminImpact": "Prioritize the Identity monitoring transition before the end of November and review Copilot Studio protection settings against the December 23 deadline. Audit App Governance policies that use Last used because they will not generate alerts or execute governance actions while evaluation is paused. Use the updated Defender for Cloud status and custom detection capabilities when planning coverage and incident-noise reduction.",
+      "headline": "Identity alerts retire this month while Copilot Studio real-time protection needs migration",
+      "overview": "Two deadline-driven updates lead the week: updated Identity guidance says the Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts retire at the end of November 2026, while the existing Copilot Studio agent real-time-protection onboarding retires December 2 and requires action by December 23 to keep protection enabled. App Governance also documents a monitoring gap for Last used policies, Sentinel narrows the stated 90-day retention scope, and Endpoint guidance adds preview filtering for assessment exports.",
+      "adminImpact": "Prioritize replacement monitoring for the retiring Identity alerts and complete the documented Copilot Studio protection work by December 23. Review App Governance policies using Last used because they produce no alerts or governance actions while evaluation is paused. Revalidate Sentinel retention, table-status, rollout, and cost assumptions; API owners can evaluate $filter for export-volume reduction without treating it as an access-control boundary.",
       "keyChanges": [
         {
-          "title": "Copilot Studio real-time protection onboarding is retiring",
-          "detail": "The existing onboarding experience retires on December 2, 2026, and its blocking settings will not migrate automatically. Administrators are instructed to take action by December 23, 2026, to keep real-time protection enabled for Copilot Studio agents.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-11-24-ai-agent-real-time-protection-05"
-        },
-        {
-          "title": "Two Identity alerts retire at November’s end",
-          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts are scheduled for retirement at the end of November 2026. Microsoft points administrators to Defender for Endpoint behavioral blocking and containment or custom detections in Advanced hunting as monitoring alternatives.",
+          "title": "Identity guidance sets retirement for two alerts",
+          "detail": "The updated guidance says the Suspected identity theft (pass-the-hash) and Remote code execution attempt alerts will retire at the end of November 2026. Administrators relying on them should transition monitoring to Microsoft Defender for Endpoint behavioral blocking and containment or custom detections in Advanced hunting before the deadline.",
           "product": "Identity",
           "sourceId": "doc-2026-11-25-whats-new-08"
         },
         {
-          "title": "App Governance pauses policies that use Last used",
-          "detail": "New policies cannot use the Last used condition. Existing policies that use it are not evaluated, so they generate no alerts and execute no governance actions; their configurations remain unchanged.",
+          "title": "Copilot Studio protection settings require migration",
+          "detail": "The existing real-time-protection onboarding experience retires on December 2, 2026, and its blocking settings will not migrate automatically. Administrators must act by December 23, 2026 to keep real-time protection enabled for Copilot Studio agents.",
+          "product": "Defender XDR",
+          "sourceId": "doc-2026-11-24-ai-agent-real-time-protection-05"
+        },
+        {
+          "title": "App Governance pauses policies using Last used",
+          "detail": "New policies cannot use the Last used condition. Existing policies that use it are not evaluated, so they generate no alerts or execute governance actions while their configurations remain unchanged, creating a potential monitoring and enforcement gap.",
           "product": "Cloud Apps",
           "sourceId": "doc-2026-11-25-app-governance-app-policies-create-03"
         },
         {
-          "title": "Custom detection rules gain preview alert grouping and richer mapping",
-          "detail": "Preview capabilities starting November 17, 2026 group related alerts from the same rule into one incident and support mapping up to four identifiers per entity, including repeated entity types.",
-          "product": "Defender XDR",
-          "sourceId": "doc-2026-11-23-whats-new-08"
+          "title": "Sentinel narrows the stated 90-day retention scope",
+          "detail": "The updated guidance limits the included 90-day retention statement to supported Microsoft Defender data, notes that retention depends on the source, marks several tables as Preview, and gives January 3, 2027 as the expected date for a full 90-day history. Additional charges apply based on ingestion and retention.",
+          "product": "Sentinel",
+          "sourceId": "doc-2026-11-24-manage-table-tiers-retention-isoc-08"
         },
         {
-          "title": "Open-source relational database protection moves from Preview to GA",
-          "detail": "The Defender for Cloud multicloud support matrix changes Defender for Open-Source Relational Databases from Preview to GA in the affected entries. The documented coverage includes threat detection for PostgreSQL, MySQL, and MariaDB in supported environments.",
-          "product": "Defender for Cloud",
-          "sourceId": "doc-2026-11-25-multicloud-support-matrix-07"
+          "title": "Preview $filter narrows Defender for Endpoint assessment exports",
+          "detail": "A new preview workflow documents the $filter query parameter for supported JSON export methods, allowing records to be narrowed before they are returned. Existing licensing, permissions, device-group access, and rate limits still apply, and $filter must not be used as an access-control boundary.",
+          "product": "Endpoint",
+          "sourceId": "doc-2026-11-26-use-server-side-filtering-with-export-assessment-apis-preview-microsoft-defender-for-endpoint-mi-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T23:05:37.676Z",
+      "generatedAt": "2026-11-26T10:52:15.476Z",
       "usage": {
-        "inputTokens": 5269,
-        "outputTokens": 3715,
-        "costUsd": 0.005512
+        "inputTokens": 6411,
+        "outputTokens": 5588,
+        "costUsd": 0.007988
       }
     }
   },
@@ -11622,65 +11662,59 @@
       }
     },
     "2026-11": {
-      "headline": "Unified Defender RBAC auto-enablement and Sentinel ISOC’s irreversible transition lead December preparation",
-      "overview": "November’s most consequential changes affect access control and Sentinel operations. Microsoft Defender RBAC will auto-enable starting in December 2026, while the Microsoft Entra Security Operator mapping will lose default access to Defender for Office 365 email threat policies and the Tenant/Allow Block List. New Sentinel guidance documents the ISOC preview, including workspace prerequisites, a permanent tenant-wide transition, changed billing considerations, and a validation path for converting eligible analytics rules into custom detections. Two Defender for Identity classic alerts retire by late November, and Defender for Office 365 Plan 2 is rolling out a Move to Quarantine remediation action. Most other supplied changes are terminology, schema, navigation, and reference maintenance.",
-      "adminImpact": "Review imported Defender RBAC roles before activation and explicitly reassign Security Operator permissions where continued access to email threat policies or the Tenant/Allow Block List is required. Before opting into ISOC, verify eligibility, permissions, workspace connections, tenant-wide consequences, and pricing or data-benefit changes. Keep original Sentinel analytics rules enabled until migrated custom detections and dependent automation are validated. Replace the retiring identity-alert coverage with Defender for Endpoint monitoring or custom detections before the late-November retirement. Move to Quarantine requires no rollout action, but reviewing relevant policies and roles is recommended.",
+      "headline": "Defender RBAC auto-enablement and Sentinel ISOC preview drive November’s admin decisions",
+      "overview": "November’s consequential changes centered on access control, Sentinel’s preview operating model, and a deadline-driven Defender for Identity retirement. Defender RBAC is scheduled for automatic enablement in December 2026, while eligible Sentinel deployments can transition to ISOC through an irreversible, tenant-wide preview process. Two classic Identity alerts retire at the end of November; the remaining updates were largely terminology, navigation, schema, and reference clarifications.",
+      "adminImpact": "Review imported Defender RBAC roles before activation and explicitly restore Microsoft Entra Security Operator permissions where continued access to email threat policies or the Tenant/Allow Block List is needed. Before considering ISOC, verify eligibility, permissions, workspace connections, permanent tenant-wide scope, and billing implications. Replace the retiring Identity alert coverage with the documented Defender for Endpoint and Advanced Hunting alternatives, and review App Governance role assignments before its December permission rollout.",
       "keyChanges": [
         {
-          "title": "Microsoft Defender RBAC will auto-enable from December 2026",
-          "detail": "The unified Defender RBAC model will be enabled automatically beginning in December 2026. Existing roles will be imported for review, activation follows about 30 days after notification, and an opt-out is available after activation. The model unifies Defender and Sentinel access management; permissions for other Microsoft services remain unchanged.",
-          "product": "Defender XDR",
+          "title": "Unified Defender RBAC will auto-enable in December 2026",
+          "detail": "Microsoft Defender RBAC will be auto-enabled starting in December 2026, unifying access management for Defender and Sentinel. Existing roles will be imported for review before activation, expected about 30 days after notification. Administrators can adjust roles as needed, and opt-out remains available after activation; permissions for other Microsoft services are unchanged.",
+          "product": "Microsoft Defender RBAC and Sentinel",
           "sourceId": "MC1537494"
         },
         {
-          "title": "Security Operator mapping drops default access to key email controls",
-          "detail": "Starting in December 2026, the Microsoft Defender for Office 365 Unified RBAC mapping for the Microsoft Entra Security Operator role removes default access to email threat policies and the Tenant/Allow Block List. Administrators must assign the permissions manually if that access is still needed.",
-          "product": "Defender XDR",
+          "title": "Entra Security Operator loses default access to key Defender for Office 365 controls",
+          "detail": "Starting in December 2026, the Unified RBAC mapping for the Microsoft Entra Security Operator role will remove default access to email threat policies and the Tenant/Allow Block List. Organizations that need to retain that access must manually assign the required permissions.",
+          "product": "Microsoft Defender for Office 365 Unified RBAC",
           "sourceId": "MC1486293"
         },
         {
-          "title": "ISOC preview requires an irreversible, tenant-wide transition decision",
-          "detail": "New Sentinel guidance explains how to transition an existing deployment into the Integrated Security Operations Center preview. Administrators must verify prerequisites and permissions and connect all workspaces; the transition has permanent, tenant-wide implications and changes billing, pricing, and data-benefit considerations.",
-          "product": "Sentinel",
+          "title": "Sentinel ISOC preview introduces an irreversible tenant-wide transition",
+          "detail": "New guidance describes how eligible existing Microsoft Sentinel deployments can transition to Integrated Security Operations Center (ISOC) in preview. The process requires meeting prerequisites, confirming permissions, and connecting all workspaces; the transition is permanent and tenant-wide, with billing, pricing, and data-benefit implications to assess beforehand.",
+          "product": "Microsoft Sentinel and Integrated Security Operations Center",
           "sourceId": "doc-2026-11-17-transition-an-existing-microsoft-sentinel-deployment-to-isoc-microsoft-learn-08"
         },
         {
-          "title": "Sentinel guidance sets a validation-first analytics-rule migration path",
-          "detail": "The new procedure explains how to use the SOC optimization migration tool to convert eligible Sentinel analytics rules into custom detections. Original rules remain enabled while administrators validate alerts and dependent automation; they should be disabled only after validation, using the documented permissions and prerequisites.",
-          "product": "Sentinel",
-          "sourceId": "doc-2026-11-17-automatically-migrate-microsoft-sentinel-analytics-rules-to-custom-detections-microsoft-learn-05"
+          "title": "Two Defender for Identity classic alerts retire at November’s end",
+          "detail": "The Suspected identity theft (pass-the-hash) and Remote code execution attempt classic alerts will be retired at the end of November 2026. The documented alternatives are Defender for Endpoint behavioral blocking and containment for pass-the-hash monitoring, and custom detections in Advanced hunting for RCE coverage.",
+          "product": "Microsoft Defender for Identity",
+          "sourceId": "doc-2026-11-18-alerts-mdi-classic-07"
         },
         {
-          "title": "Two Defender for Identity classic alerts retire by late November",
-          "detail": "Remote code execution attempt and pass-the-hash classic alerts are scheduled for retirement by late November 2026. Microsoft points administrators to custom detection rules for RCE monitoring and Defender for Endpoint behavioral blocking and containment for pass-the-hash coverage.",
-          "product": "Identity",
-          "sourceId": "MC1552387"
+          "title": "App Governance permissions change for selected Entra roles",
+          "detail": "Microsoft Defender for Cloud Apps is updating App Governance permissions for selected Microsoft Entra roles in December 2026. Cloud App Security Administrators gain policy-management rights, while Compliance Administrators and Compliance Data Administrators lose some permissions; administrators should review and update role assignments accordingly.",
+          "product": "Microsoft Defender for Cloud Apps App Governance",
+          "sourceId": "MC1479503"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T23:05:37.676Z",
+      "generatedAt": "2026-11-26T10:52:15.476Z",
       "usage": {
-        "inputTokens": 7047,
-        "outputTokens": 7490,
-        "costUsd": 0.010397
+        "inputTokens": 7071,
+        "outputTokens": 4331,
+        "costUsd": 0.006611
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-25T23:05:37.676Z",
+  "generatedAt": "2026-11-26T10:52:15.476Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-21": {
-      "inputTokens": 74506,
-      "outputTokens": 84326,
-      "requests": 11,
-      "costUsd": 0.116092
-    },
     "2026-10-22": {
       "inputTokens": 25521,
       "outputTokens": 32839,
@@ -11884,18 +11918,24 @@
       "outputTokens": 31015,
       "requests": 6,
       "costUsd": 0.04271
+    },
+    "2026-11-26": {
+      "inputTokens": 15526,
+      "outputTokens": 13595,
+      "requests": 3,
+      "costUsd": 0.019419
     }
   },
   "lastRun": {
-    "inputTokens": 14450,
-    "outputTokens": 13919,
+    "inputTokens": 15526,
+    "outputTokens": 13595,
     "requests": 3,
-    "costUsd": 0.019593
+    "costUsd": 0.019419
   },
   "totalUsage": {
-    "inputTokens": 1913357,
-    "outputTokens": 1830863,
-    "requests": 391,
-    "costUsd": 2.579702
+    "inputTokens": 1928883,
+    "outputTokens": 1844458,
+    "requests": 394,
+    "costUsd": 2.599121
   }
 }
