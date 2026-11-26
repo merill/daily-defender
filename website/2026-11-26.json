@@ -261,19 +261,149 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "defender-endpoint/api/get-assessment-software-vulnerabilities.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-endpoint/api/get-assessment-software-vulnerabilities.md b/defender-endpoint/api/get-assessment-software-vulnerabilities.md\nindex d431793..3f28817 100644\n--- a/defender-endpoint/api/get-assessment-software-vulnerabilities.md\n+++ b/defender-endpoint/api/get-assessment-software-vulnerabilities.md\n@@ -356,7 +356,7 @@ Exports are scoped by **RBACGroup**. A device that moves from one RBAC group to\n 1. **Baseline** – Download the full VA(Flat VA) export on your preferred cadence (weekly is often sufficient).\r\n 2. **Stay current** – delta export between full snapshots(Delta can be queried up to 14 days into the past).\r\n 3. **Handle RBAC moves** – When processing a Delta, de-duplicate entries where the same `Id(deviceId_software_` version \\_ cve`)`appears under multiple `rbacGroupId` values.\r\n-4. When \"Status\" = Fix\" the calcualtion of \"EventTimestamp\"- \"FirstSeenTimestamp\" should give you an estimation on when the CVE was fixed up to a granularity of 6 hours(because of Delta worker run interval).\r\n+4. When `Status` is `Fixed`, the difference between `EventTimestamp` and `FirstSeenTimestamp` provides an estimate of when the CVE was fixed, with a granularity of up to 24 hours because of the delta generation interval.\r\n \r\n #### 3.1.1 Limitations\r\n \r\n@@ -381,7 +381,7 @@ GET /api/machines/SoftwareVulnerabilityChangesByMachine\n \r\n ### 3.4 Parameters\r\n \r\n-- sinceTime (required): The start time from which you want to see data changes. Vulnerability management generates data on new and updated vulnerabilities every 6 hours. The data returned includes all the changes captured in the 6-hour period the specified sinceTime falls into, along with the changes in any subsequent 6 hour periods up to and including the most recently generated data.\r\n+- sinceTime (required): The start time from which you want to see data changes. Vulnerability management generates data on new and updated vulnerabilities every 6-24 hours. The data returned includes all the changes captured in the generation period the specified sinceTime falls into, along with the changes in any subsequent generation periods up to and including the most recently generated data.\r\n - pageSize (default = 50,000): number of results in response.\r\n - $top: number of results to return (doesn't return @odata.nextLink and so doesn't pull all the data).\r\n \r\n",
+      "baseCommitSha": "ded586d9b0b6ee691c4da02c8884deeb61f7c444",
+      "commitSha": "3a334a4e1fa7ef837313733d62e3ef906fb83d95",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 22:34:08 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-endpoint/api/get-assessment-software-vulnerabilities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-endpoint/api/get-assessment-software-vulnerabilities",
+      "eventId": "defender-docs:3a334a4e1fa7ef837313733d62e3ef906fb83d95:modified:defender-endpoint/api/get-assessment-software-vulnerabilities.md",
+      "firstSeenAt": "2026-11-26T22:58:44.719Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Vulnerability API timing granularity updated",
+        "summary": "The documentation now states that CVE fix estimates have up to 24-hour granularity, and vulnerability data generation occurs every 6–24 hours rather than every 6 hours.",
+        "adminImpact": "Account for the wider timing window when interpreting EventTimestamp, FirstSeenTimestamp, and sinceTime results. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/create-custom-rbac-roles.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 1,
+      "changes": 17,
+      "patch": "diff --git a/defender-xdr/create-custom-rbac-roles.md b/defender-xdr/create-custom-rbac-roles.md\nindex 3868763..a54ead0 100644\n--- a/defender-xdr/create-custom-rbac-roles.md\n+++ b/defender-xdr/create-custom-rbac-roles.md\n@@ -18,7 +18,7 @@ ms.collection:\n - tier3\n ms.custom: msecd-doc-authoring-1014\n ms.topic: how-to\n-ms.date: 2026-08-31T00:00:00.0000000Z\n+ms.date: 2026-11-26T00:00:00.0000000Z\n ms.reviewer: \n ai-usage: ai-assisted\n locale: en-us\n@@ -143,6 +143,21 @@ Note\n \r\n For the Microsoft Defender portal to start enforcing the permissions and assignments configured in your new or imported roles, you need to activate the new Microsoft Defender unified RBAC model. For more information, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac).\r\n \r\n+## Control access to Microsoft Threat Intelligence alerts\r\n+\r\n+Use the **Microsoft Threat Intelligence** data source to control access to Nation-State Notification (NSN) alerts in the Microsoft Defender portal.\r\n+\r\n+When you create or edit a role assignment, select **Microsoft Threat Intelligence** from **Data sources**. The role's permissions determine what assigned users can do:\r\n+\r\n+- **Security data basics** (Read): View NSN alerts.\r\n+- **Alerts** (Manage): Manage NSN alerts.\r\n+\r\n+For existing assignments that require NSN alert access, add **Microsoft Threat Intelligence** if it isn't already included. Assignments with **Include future data sources automatically** selected automatically include newly supported data sources.\r\n+\r\n+This selection scopes the current role assignment. It doesn't remove access granted through other role assignments or Microsoft Entra roles.\r\n+\r\n+For more information about these alerts, see [Alert sources and threat detection](incidents-overview#alert-sources-and-threat-detection).\r\n+\r\n ## Configure scoped roles for Microsoft Defender for Identity\r\n \r\n You can configure scoped access using Microsoft Defender Unified RBAC (URBAC) model for identities managed by Microsoft Defender for Identity (MDI). This allows you to restrict access and visibility to specific Active Directory domains or Organizational units, helping align with team responsibilities and reduce unnecessary data exposure.\r\n",
+      "baseCommitSha": "ded586d9b0b6ee691c4da02c8884deeb61f7c444",
+      "commitSha": "3a334a4e1fa7ef837313733d62e3ef906fb83d95",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 22:34:08 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/create-custom-rbac-roles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/create-custom-rbac-roles",
+      "eventId": "defender-docs:3a334a4e1fa7ef837313733d62e3ef906fb83d95:modified:defender-xdr/create-custom-rbac-roles.md",
+      "firstSeenAt": "2026-11-26T22:58:44.730Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Custom RBAC roles can control access to NSN alerts",
+        "summary": "The documentation now explains how to select the Microsoft Threat Intelligence data source in role assignments. Read permissions allow users to view Nation-State Notification alerts, while Manage permissions allow them to manage alerts.",
+        "adminImpact": "Update existing assignments that require NSN alert access by adding this data source, unless they automatically include future data sources.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/incidents-overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/defender-xdr/incidents-overview.md b/defender-xdr/incidents-overview.md\nindex ce29e2f..aefcb51 100644\n--- a/defender-xdr/incidents-overview.md\n+++ b/defender-xdr/incidents-overview.md\n@@ -20,7 +20,7 @@ ms.collection:\n - sentinel-only\n ms.custom: admindeeplinkDEFENDER\n ms.topic: concept-article\n-ms.date: 2025-12-22T00:00:00.0000000Z\n+ms.date: 2026-11-26T00:00:00.0000000Z\n locale: en-us\n document_id: 8717e531-fa99-f7ab-3907-06c528edf3f3\n document_version_independent_id: 8717e531-fa99-f7ab-3907-06c528edf3f3\n@@ -81,7 +81,7 @@ Alerts in the Microsoft Defender portal come from many sources. These sources in\n \r\n For example, when Microsoft Sentinel is [onboarded](/en-us/azure/sentinel/microsoft-sentinel-onboard) to the Microsoft Defender portal, the correlation engine in the Defender portal has access to all the raw data ingested by Microsoft Sentinel, which you can find in Defender's **Advanced hunting** tables.\r\n \r\n-- Microsoft Sentinel customers using the Defender portal, or who are using the Azure portal with the [Microsoft Sentinel Defender XDR data connector](/en-us/azure/sentinel/connect-microsoft-365-defender), also benefit from Microsoft Threat Intelligence alerts that highlight activity from nation state actors, such as ransomware campaigns and fraudulent operations. For customers without E5 licenses or Microsoft Sentinel, these alerts are available only in the Microsoft 365 Admin Center (MAC).\r\n+- Microsoft Sentinel customers using the Defender portal, or who are using the Azure portal with the [Microsoft Sentinel Defender XDR data connector](/en-us/azure/sentinel/connect-microsoft-365-defender), also benefit from Microsoft Threat Intelligence alerts that highlight activity from nation state actors, such as ransomware campaigns and fraudulent operations. For customers without E5 licenses or Microsoft Sentinel, these alerts are available only in the Microsoft 365 Admin Center (MAC). To control access to these Nation-State Notification (NSN) alerts, configure the **Microsoft Threat Intelligence** data source in [Microsoft Defender unified role-based access control (RBAC) role assignments](create-custom-rbac-roles#control-access-to-microsoft-threat-intelligence-alerts).\r\n - Microsoft Defender XDR itself also creates alerts. Defender XDR's unique correlation capabilities provide another layer of data analysis and threat detection for all the non-Microsoft solutions in your digital estate. These detections produce Defender XDR alerts, in addition to the alerts already provided by Microsoft Sentinel's analytics rules.\r\n \r\n Within each of these sources, there are one or more threat detection mechanisms that produce alerts based on the rules defined in each mechanism. For example, Microsoft Sentinel has at least four different engines that produce different types of alerts, each with its own rules.\r\n",
+      "baseCommitSha": "ded586d9b0b6ee691c4da02c8884deeb61f7c444",
+      "commitSha": "3a334a4e1fa7ef837313733d62e3ef906fb83d95",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 22:34:08 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/incidents-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/incidents-overview",
+      "eventId": "defender-docs:3a334a4e1fa7ef837313733d62e3ef906fb83d95:modified:defender-xdr/incidents-overview.md",
+      "firstSeenAt": "2026-11-26T22:58:44.737Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Incidents overview documentation refreshed",
+        "summary": "The page date changed from December 22, 2025 to November 26, 2026, and the text about Sentinel customers and Microsoft Threat Intelligence alerts was refreshed.",
+        "adminImpact": "No administrator action is stated; review the updated guidance if relevant.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "defender-xdr/manage-rbac.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/defender-xdr/manage-rbac.md b/defender-xdr/manage-rbac.md\nindex 984d785..b50c53a 100644\n--- a/defender-xdr/manage-rbac.md\n+++ b/defender-xdr/manage-rbac.md\n@@ -19,7 +19,7 @@ ms.collection:\n ms.custom:\n - sfi-ga-nochange\n ms.topic: overview\n-ms.date: 2026-08-07T00:00:00.0000000Z\n+ms.date: 2026-11-26T00:00:00.0000000Z\n ms.reviewer: Tomas Beerthuis\n locale: en-us\n document_id: 052939e2-4006-5dea-3d5f-1af95fd5b448\n@@ -85,6 +85,7 @@ Centralized permissions management is supported for the following services:\n | **Microsoft Defender for Cloud** | Support access management for all Defender for Cloud data that is available in Microsoft Defender portal. |\r\n | **Microsoft Security Exposure Management** | Full support for all Exposure Management data and actions, including Microsoft Secure Score data. |\r\n | **Microsoft Defender for Cloud Apps (Preview)** | **Note:** Once Unified RBAC is activated, some built-in scoped roles will no longer be supported. For more information, see [Map Microsoft Defender for Cloud Apps permissions to the Microsoft Defender unified RBAC permissions](compare-rbac-roles#microsoft-defender-for-cloud-apps). |\r\n+| **Microsoft Threat Intelligence** | Control access to Nation-State Notification (NSN) alerts in the Microsoft Defender portal. Select **Microsoft Threat Intelligence** as a data source in a role assignment to apply the role's permissions to these alerts. |\r\n | **Microsoft Sentinel** | Supports unified access management for all Microsoft Sentinel workspaces onboarded to the Defender portal. Sentinel role assignments made in Unified RBAC sync with Azure RBAC and are visible there. However, unified RBAC becomes the source of permissions once enabled. When activating Sentinel in Unified RBAC, the *User Access Administrator* role is assigned to the MTP Unified RBAC app within the enabled workspace.Assigning permissions to a GDAP user group in Microsoft Sentinel is supported in unified RBAC. For more information, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac).Assigning permissions to a service principal isn't supported in unified RBAC. If you need this capability, keep using Azure RBAC for Microsoft Sentinel. For more information, see [Activate Microsoft Defender unified RBAC](activate-defender-rbac). Sentinel experiences in the Defender portal continue to respect ARM roles and permissions in addition to URBAC. Therefore, users with more permissions in ARM than in URBAC may see more data in the Sentinel pages in the Defender portal than configured in their URBAC permissions. Supports permission management for the Microsoft Sentinel data lake default workspace, when Microsoft Sentinel is onboarded to both the Defender portal and the Microsoft Sentinel data lake. Microsoft Sentinel users with built-in Azure RBAC roles for their workspaces receive parallel permissions in the Microsoft Sentinel data lake experiences, such as the lake explorer and notebooks. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](/en-us/azure/sentinel/roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake). For row-level access to Sentinel data by using reusable scope tags, see [Configure Microsoft Sentinel scoping](scoping). To see which roles are supported, check the [unified RBAC roles mapping](compare-rbac-roles#microsoft-sentinel). |\r\n \r\n Note\r\n",
+      "baseCommitSha": "ded586d9b0b6ee691c4da02c8884deeb61f7c444",
+      "commitSha": "3a334a4e1fa7ef837313733d62e3ef906fb83d95",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 22:34:08 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/defender-xdr/manage-rbac.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/defender-xdr/manage-rbac",
+      "eventId": "defender-docs:3a334a4e1fa7ef837313733d62e3ef906fb83d95:modified:defender-xdr/manage-rbac.md",
+      "firstSeenAt": "2026-11-26T22:58:44.744Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "RBAC documentation adds Nation-State Notification alert access",
+        "summary": "The page now documents selecting Microsoft Threat Intelligence as a role-assignment data source to apply permissions to Nation-State Notification alerts in the Microsoft Defender portal.",
+        "adminImpact": "Administrators can use this data source when configuring role assignments for these alerts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "sentinel/normalization-create-parsers-ai-agent.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/sentinel/normalization-create-parsers-ai-agent.md b/sentinel/normalization-create-parsers-ai-agent.md\nindex 628563d..6318a1a 100644\n--- a/sentinel/normalization-create-parsers-ai-agent.md\n+++ b/sentinel/normalization-create-parsers-ai-agent.md\n@@ -26,7 +26,7 @@ description: Use GitHub Copilot or the Microsoft Sentinel VS Code extension skil\n ms.author: derricklee\n author: derricklee\n ms.topic: how-to\n-ms.date: 2026-09-07T00:00:00.0000000Z\n+ms.date: 2026-11-26T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1012\n locale: en-us\n@@ -81,7 +81,7 @@ To run the ASIM parser creation workflow in Copilot CLI, follow these steps:\n 3. Run `copilot`. This command starts Copilot CLI. Running `copilot` in the Azure-Sentinel repository preloads existing skills in the repository.\r\n \r\n     If the ASIM parser skills don't appear when you run `/skills list`, load the skills manually with `/skills add .github/skills/`.\r\n-4. Select Claude Sonnet 4.6+ or Claude Opus 4.6+ for best results by running `/model` .\r\n+4. Select Claude Sonnet 5 or later or Claude Opus 4.8 or later for best results by running `/model` .\r\n 5. Prompt Copilot in the session to create an ASIM parser with the following prompt: `Create an ASIM parser for me.`\r\n \r\n ### Quick start with the Microsoft Sentinel VS Code extension\r\n",
+      "baseCommitSha": "ded586d9b0b6ee691c4da02c8884deeb61f7c444",
+      "commitSha": "3a334a4e1fa7ef837313733d62e3ef906fb83d95",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 22:34:08 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/normalization-create-parsers-ai-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/normalization-create-parsers-ai-agent",
+      "eventId": "defender-docs:3a334a4e1fa7ef837313733d62e3ef906fb83d95:modified:sentinel/normalization-create-parsers-ai-agent.md",
+      "firstSeenAt": "2026-11-26T22:58:44.751Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated model recommendations for AI parser creation",
+        "summary": "The guide now recommends Claude Sonnet 5 or later and Claude Opus 4.8 or later for best results, replacing the previous 4.6+ recommendations. The page date was also updated.",
+        "adminImpact": "Administrators following the guide should use the newly recommended model versions for best results; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 10,
+    "totalCommits": 2,
+    "totalFiles": 15,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 2 new, 8 updated, and 0 removed Microsoft Defender documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 2 new, 13 updated, and 0 removed Microsoft Defender documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -288,15 +418,27 @@
           "defender-endpoint/api/get-assessment-software-inventory.md",
           "defender-endpoint/api/get-assessment-software-vulnerabilities.md",
           "defender-endpoint/device-inventory-field-reference.md",
-          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md"
+          "defender-endpoint/whats-new-in-microsoft-defender-endpoint.md",
+          "defender-endpoint/api/get-assessment-software-vulnerabilities.md"
         ]
       },
       {
         "category": "New feature",
         "title": "Defender XDR",
-        "summary": "The device inventory now lets administrators filter devices by their Active Directory domain.",
+        "summary": "The device inventory now lets administrators filter devices by their Active Directory domain. The documentation now explains how to select the Microsoft Threat Intelligence data source in role assignments. Read permissions allow users to view Nation-State Notification alerts, while Manage permissions allow them to manage alerts. The page date changed from December 22, 2025 to November 26, 2026, and the text about Sentinel customers and Microsoft Threat Intelligence alerts was refreshed. The page now documents selecting Microsoft Threat Intelligence as a role-assignment data source to apply permissions to Nation-State Notification alerts in the Microsoft Defender portal.",
         "sourceFiles": [
-          "defender-xdr/whats-new.md"
+          "defender-xdr/whats-new.md",
+          "defender-xdr/create-custom-rbac-roles.md",
+          "defender-xdr/incidents-overview.md",
+          "defender-xdr/manage-rbac.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The guide now recommends Claude Sonnet 5 or later and Claude Opus 4.8 or later for best results, replacing the previous 4.6+ recommendations. The page date was also updated.",
+        "sourceFiles": [
+          "sentinel/normalization-create-parsers-ai-agent.md"
         ]
       }
     ],
@@ -309,7 +451,12 @@
       {
         "category": "New feature",
         "headline": "Defender XDR",
-        "detail": "The device inventory now lets administrators filter devices by their Active Directory domain."
+        "detail": "The device inventory now lets administrators filter devices by their Active Directory domain. The documentation now explains how to select the Microsoft Threat Intelligence data source in role assignments. Read permissions allow users to view Nation-State Notification alerts, while Manage permissions allow them to manage alerts. The page date changed from December 22, 2025 to November 26, 2026, and the text about Sentinel customers and Microsoft Threat Intelligence alerts was refreshed. The page now documents selecting Microsoft Threat Intelligence as a role-assignment data source to apply permissions to Nation-State Notification alerts in the Microsoft Defender portal."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The guide now recommends Claude Sonnet 5 or later and Claude Opus 4.8 or later for best results, replacing the previous 4.6+ recommendations. The page date was also updated."
       }
     ],
     "generatedBy": "fallback"
