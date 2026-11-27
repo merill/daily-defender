@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "sentinel/normalization-create-parsers-ai-agent.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/sentinel/normalization-create-parsers-ai-agent.md b/sentinel/normalization-create-parsers-ai-agent.md\nindex 6318a1a..d44b52b 100644\n--- a/sentinel/normalization-create-parsers-ai-agent.md\n+++ b/sentinel/normalization-create-parsers-ai-agent.md\n@@ -82,6 +82,10 @@ To run the ASIM parser creation workflow in Copilot CLI, follow these steps:\n \r\n     If the ASIM parser skills don't appear when you run `/skills list`, load the skills manually with `/skills add .github/skills/`.\r\n 4. Select Claude Sonnet 5 or later or Claude Opus 4.8 or later for best results by running `/model` .\r\n+\r\n+    Note\r\n+\r\n+    To comply with Article 50(2) of the EU AI Act, make sure the agent harness and large language model (LLM) you use with this skill comply with those requirements.\r\n 5. Prompt Copilot in the session to create an ASIM parser with the following prompt: `Create an ASIM parser for me.`\r\n \r\n ### Quick start with the Microsoft Sentinel VS Code extension\r\n",
+      "baseCommitSha": "3a334a4e1fa7ef837313733d62e3ef906fb83d95",
+      "commitSha": "f9c9892d1b869a3b9dbecb833175f96fdcb2f23f",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-27 09:53:53 +0000",
+      "githubUrl": "https://github.com/merill/defender-docs-mirror/blob/main/sentinel/normalization-create-parsers-ai-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/azure/sentinel/normalization-create-parsers-ai-agent",
+      "eventId": "defender-docs:f9c9892d1b869a3b9dbecb833175f96fdcb2f23f:modified:sentinel/normalization-create-parsers-ai-agent.md",
+      "firstSeenAt": "2026-11-27T10:49:57.631Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "EU AI Act compliance guidance added",
+        "summary": "The documentation now instructs users to ensure the agent harness and LLM used with this skill comply with Article 50(2) of the EU AI Act.",
+        "adminImpact": "Administrators using this skill should verify compliance of their agent harness and LLM with Article 50(2).",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Defender documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Sentinel",
+        "summary": "The documentation now instructs users to ensure the agent harness and LLM used with this skill comply with Article 50(2) of the EU AI Act.",
+        "sourceFiles": [
+          "sentinel/normalization-create-parsers-ai-agent.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Sentinel",
+        "detail": "The documentation now instructs users to ensure the agent harness and LLM used with this skill comply with Article 50(2) of the EU AI Act."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
